@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>{% include head.html %}</head>
+<body class="font-sans flex flex-col min-h-full">
+
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<div class="flex-auto">
+    {{ content }}
+</div>
+{% include footer.html %}
+<!--<script src="{{ '/assets/app.js' | relative_url }}?{{ site.time | date: '%s%N' }}"></script>-->
+</body>
+
+</html>
