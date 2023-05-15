@@ -1,11 +1,13 @@
 {
   "dependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.9",
     "tailwindcss": "^3.3.2"
   },
   "scripts": {
     "watch-src-dev": "SET NODE_ENV=development&& tailwindcss -i ./src/css/main.css -o ./assets/css/main.css --watch",
     "build-src-dev": "SET NODE_ENV=development&& tailwindcss -i ./src/css/main.css -o ./assets/css/main.css",
     "build-src-prod": "SET NODE_ENV=production&& tailwindcss -i ./src/css/main.css -o ./assets/css/main.css",
-    "dev": "bundle exec jekyll serve --livereload"
+    "dev": "bundle exec jekyll serve --livereload --trace"
   }
 }

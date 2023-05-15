@@ -1,0 +1,25 @@
+<article class="flex flex-col items-start justify-between">
+    <div class="relative w-full">
+        <a href="{{ include.post.url }}">
+            <img src="{{ include.post.image }}" alt="{{ include.post.title }}" class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+            <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+        </a>
+    </div>
+    <div class="max-w-xl">
+        <div class="mt-8 flex items-center justify-between gap-x-4 text-xs">
+            <p class="text-light/80">{{ include.post.date | date_to_long_string }}<p>
+            <p class="text-light/80">
+                {% for tag in include.post.tags %}
+                <a href="/category/{{ tag | slugify }}" class="cursor-pointer hover:underline hover:text-secondary">{{ tag | capitalize | replace:"-"," " }}</a>{% unless forloop.last %} •{% endunless %}
+                {% endfor %}
+            </p>
+        </div>
+        <a href="{{ include.post.url }}" class="group relative">
+            <h3 class="mt-3 text-lg font-semibold leading-6 text-light group-hover:text-secondary">
+                <span class="absolute inset-0"></span>
+                {{ include.post.title }}
+            </h3>
+            <p class="mt-5 line-clamp-3 text-sm leading-6 text-light group-hover:text-secondary">{{ include.post.content | strip_html | truncatewords: 50 }}</p>
+        </a>
+    </div>
+</article>

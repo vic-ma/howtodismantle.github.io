@@ -1,0 +1,16 @@
+<div class="mb-16 w-full">
+    <a href="/">{% include svg/logo.html classes="h-48 mx-auto p-2" %}</a>
+
+    {% assign url_parts = page.url | split: '/' %}
+    {% assign category = url_parts[1] %}
+
+    <div class="pt-4 flex justify-center gap-x-2 text-light">
+        <a href="/" class="{% if page.url == '/' %}text-secondary underline{% endif %}">home</a>
+        <span>•</span>
+        <a href="/categories" class="{% if page.url == '/categories' or category == 'category' %}text-secondary underline{% endif %}">categories</a>
+        <span>•</span>
+        <a href="/submit" class="{% if page.url == '/submit' %}text-secondary underline{% endif %}">submit</a>
+        <span>•</span>
+        <a href="/contact" class="{% if page.url == '/contact' %}text-secondary underline{% endif %}">contact</a>
+    </div>
+</div>

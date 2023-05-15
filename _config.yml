@@ -2,18 +2,22 @@ title: How to dismantle a Peakboard Box
 description: "Blog about how to dismantle a Peakboard Box"
 baseurl: ""
 url: "https://how-to-dismantle-a-peakboard-box.com"
+permalink: /:title:output_ext
 port: 4001
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    default_lang: html
+    css_class: 'syntax'
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
   - jekyll-sitemap
-
-postcss:
-  cache: false
 
 # Portions of text found throughout common components (like the footer) can be configured here for each language
 language:

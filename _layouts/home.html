@@ -2,4 +2,8 @@
 layout: base
 ---
 
-<p class="text-teal-600 font-bold">Other stuff from home layout :)</p>
+<div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+    {% for post in site.posts %}
+        {% include post-card.html post=post %}
+    {% endfor %}
+</div>
