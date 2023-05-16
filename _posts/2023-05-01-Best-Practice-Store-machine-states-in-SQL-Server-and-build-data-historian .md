@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Store machine states in SQL Server and build data historian (Best Practice) 
-date: 2023-05-01 00:00:00 +0200
+date: 2023-05-01 1:00:00 +0200
 tags: sqlserver tutorial
 image: /assets/2023-05-01/010.png
 ---
@@ -15,16 +15,16 @@ This article explains the basic pattern that is practically used to store a mach
 
 For the basic pattern we need two tables: One that has one row per machine to store things like the machine name and the current state. The other columns can be irgnored and are need for another sample.
 
-![010](/assets/2023-05-01/010.png)
+![image](/assets/2023-05-01/010.png)
 
 
 Here is a bit of sample data. We're talking about three machines, one of them is already running.
 
-![010](/assets/2023-05-01/011.png)
+![](/assets/2023-05-01/011.png)
 
 The second table we need is MachineStateHistory where we store the state changes. As you see in the screenshot, we have an abstract identity column (ID) that serves as an abtract primary key. TS is the time stamp when a new state is set, MachineName obvisuosly the name of the machine of which the new state is applied, and the state itself.
 
-![010](/assets/2023-05-01/020.png)
+![](/assets/2023-05-01/020.png)
 
 ### How to set a new state?
 
@@ -39,7 +39,8 @@ AS
 BEGIN
 	
 	Update Machines set state=@State where machinename=@MachineName
-	insert into MachineStateHistory (TS, MachineName, State) values(getdate(),@MachineName, @State)
+	insert into MachineStateHistory (TS, MachineName, State) 
+  	values(getdate(),@MachineName, @State)
 
 END
 {% endhighlight %}
@@ -56,12 +57,12 @@ There are many advantages:
 
 After setting up the DB part let's have a look at the Peakboard part. A typical pattern is to access the machine table in a data source. You probably need the data for your visualizaion anyway.
 
-![010](/assets/2023-05-01/030.png)
+![](/assets/2023-05-01/030.png)
 
 Here's a sample on how to call our stored procedure behind a Start / Stop button. There's a special block for calling the SPs. You simply select the SP and the parameters are shown where you can just put the machine name and the new state (the Start button will send a RUN and the stop button with send a STOP state).
-AFter calling the SP we do a data source referesh to make sure, the new state is re-fetched from he DB:
+AFter calling the SP we do a data source referesh to make sure, the new state is re-fetched from the DB:
 
-![010](/assets/2023-05-01/032.png)
+![](/assets/2023-05-01/032.png)
 
 After playing around with Start / Stop and calling our SP several times you will see, that the history table fills up with data like his:
 
