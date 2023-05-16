@@ -3,11 +3,11 @@ layout: post
 title: Use Conditional Formatting with icons for machine states - no script, no code
 date: 2023-05-08 12:00:00 +0200
 tags: essentials nocode
-image: /assets/2023-05-08/050.png
+image: /assets/2023-05-08/040.png
 ---
 
 
-We already saw in another [article][2023-05-01-Best-Practice-Store-machine-states-in-SQL-Server-and-build-data-historian .md] how to typically collect, store and monitor the state of an artefcat (machine, person, etc...) by using an SQL Server database. But of course the main goal is to give an end user a good and clear information about that state. So this article describes a very simple, yet best practice pattern on how to visualize a state without using any kind of script code, just by using the so called Conditional Formatting (CF).
+We already saw in another [article](2023-05-01-Best-Practice-Store-machine-states-in-SQL-Server-and-build-data-historian .md) how to typically collect, store and monitor the state of an artefcat (machine, person, etc...) by using an SQL Server database. But of course the main goal is to give an end user a good and clear information about that state. So this article describes a very simple, yet best practice pattern on how to visualize a state without using any kind of script code, just by using the so called Conditional Formatting (CF).
 Please keep in mind how the basic data looks like. We have one row per machine, and we have a column called State with either a RUN or a STOP to represent the current state.
 
 ![image](/assets/2023-05-08/010.png)
