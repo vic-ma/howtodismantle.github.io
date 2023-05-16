@@ -3,7 +3,7 @@ layout: post
 title: Best Practice: Store machine states in SQL Server and build data historian 
 date: 2023-05-01 00:00:00 +0200
 tags: sqlserver tutorial
-image: /assets/2023-05-01/example-img.jpeg
+image: /assets/2023-05-01/010.png
 ---
 What are machine states and why I want to build data historian?
 
