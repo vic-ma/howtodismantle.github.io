@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Best Practice: Store machine states in SQL Server and build data historian 
+title: Store machine states in SQL Server and build data historian (Best Practice) 
 date: 2023-05-01 00:00:00 +0200
 tags: sqlserver tutorial
 image: /assets/2023-05-01/010.png
@@ -15,7 +15,8 @@ This article explains the basic pattern that is practically used to store a mach
 
 For the basic pattern we need two tables: One that has one row per machine to store things like the machine name and the current state. The other columns can be irgnored and are need for another sample.
 
-/assets/2023-05-01/010.png
+![010](/assets/2023-05-01/010.png)
+
 
 Here is a bit of sample data. We're talking about three machines, one of them is already running.
 
@@ -71,8 +72,3 @@ After playing around with Start / Stop and calling our SP several times you will
 The sample above shows how to build and fill a table to store state changes. It is clear, that real world data might be a bit more complicated (more states, more logic, more restrcitions), but the basic pattern is usually the same. Using stored procedure for these kind of data changes is a very powerful and easy understandable tool.
 
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
