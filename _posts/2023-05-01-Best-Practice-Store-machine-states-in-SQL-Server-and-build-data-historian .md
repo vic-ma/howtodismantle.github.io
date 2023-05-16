@@ -20,11 +20,11 @@ For the basic pattern we need two tables: One that has one row per machine to st
 
 Here is a bit of sample data. We're talking about three machines, one of them is already running.
 
-/assets/2023-05-01/011.png
+![010](/assets/2023-05-01/011.png)
 
 The second table we need is MachineStateHistory where we store the state changes. As you see in the screenshot, we have an abstract identity column (ID) that serves as an abtract primary key. TS is the time stamp when a new state is set, MachineName obvisuosly the name of the machine of which the new state is applied, and the state itself.
 
-/assets/2023-05-01/020.png
+![010](/assets/2023-05-01/020.png)
 
 ### How to set a new state?
 
@@ -56,16 +56,16 @@ There are many advantages:
 
 After setting up the DB part let's have a look at the Peakboard part. A typical pattern is to access the machine table in a data source. You probably need the data for your visualizaion anyway.
 
-/assets/2023-05-01/030.png
+![010](/assets/2023-05-01/030.png)
 
 Here's a sample on how to call our stored procedure behind a Start / Stop button. There's a special block for calling the SPs. You simply select the SP and the parameters are shown where you can just put the machine name and the new state (the Start button will send a RUN and the stop button with send a STOP state).
 AFter calling the SP we do a data source referesh to make sure, the new state is re-fetched from he DB:
 
-/assets/2023-05-01/032.png
+![010](/assets/2023-05-01/032.png)
 
 After playing around with Start / Stop and calling our SP several times you will see, that the history table fills up with data like his:
 
-/assets/2023-05-01/035.png
+![](/assets/2023-05-01/035.png)
 
 ### Conclusion
 
