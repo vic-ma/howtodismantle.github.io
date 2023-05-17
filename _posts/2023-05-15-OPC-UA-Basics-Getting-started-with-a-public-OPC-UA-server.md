@@ -3,7 +3,7 @@ layout: post
 title: OPC UA Basics - Getting started with a public OPC UA server
 date: 2023-05-15 12:00:00 +0200
 tags: opcua
-image: /assets/img/070.gif
+image: /assets/2023-05-15/070.gif
 ---
 OPC UA might be a complicated topic for some people and if you're new to UPC UA this is exactly the right starting point. Minimum Requirements except having the Peakboard Designer installed for this tutorial: Zero! You can start right away, because we're using an OPC UA server that is available to the public.
 Check out the website [opcuaserver.com](http://opcuaserver.com/) to find out more about publicly available servers. The one we're using is opc.tcp://opcuaserver.com:48010
