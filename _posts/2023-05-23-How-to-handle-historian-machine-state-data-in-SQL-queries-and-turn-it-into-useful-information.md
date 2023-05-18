@@ -3,7 +3,7 @@ layout: post
 title: How to handle historian machine state data in SQL queries and turn it into useful information
 date: 2023-05-17 12:00:00 +0200
 tags: essentials sqlserver
-image: /assets/2023-05-08/020.png
+image: /assets/2023-05-23/020.png
 ---
  In this [article](2023-05-01-Best-Practice-Store-machine-states-in-SQL-Server-and-build-data-historian) we learned how to store historical events in a SQL Server database. Every time a state changes, a new row is created with a timestamp and the name of the new state. As you can see in the sample data, there are two drilling machines switching between RUN and STOP throughout a regular working day.
 
