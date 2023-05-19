@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Dismantle Number Values Formatting
-date: 2023-01024 12:00:00 +0200
+date: 2023-04-10 12:00:00 +0200
 tags: bestpratice
 image: /assets/2023-04-10/040.gif
 ---
