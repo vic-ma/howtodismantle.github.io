@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to build a perfect RFC function module to be used in Peakboard
-date: 2023-05-23 12:00:00 +0200
+date: 2023-03-01 12:00:00 +0200
 tags: SAP
 image: /assets/2023-06-23/title.jpg
 ---
@@ -10,7 +10,7 @@ The right decision which of these to use often depends on what is already there 
 
 # The SAP development part
 
-In our sample we will build a delivery monitor. So for a certain Shipping Point (for the Germans: Versandstelle) we want a couple of details of the deliveries listet, that are waiting to be processed at this shipping point. The RFC we're building is called Z_PB_DELIVERY_MONITOR, Make sure it's remote enabled.
+In our sample we will build a delivery monitor. So for a certain Shipping Point (for the Germans: Versandstelle) we want to list a couple of details of the deliveries, that are waiting to be processed at this shipping point. The RFC we're building is called Z_PB_DELIVERY_MONITOR. Make sure it's remote enabled.
 
 ![image](/assets/2023-06-23/010.png)
 
@@ -83,15 +83,15 @@ FUNCTION z_pb_delivery_monitor.
 ENDFUNCTION.
 {% endhighlight %}
 
-# The peakboard part
+# The Peakboard part
 
-When the RFC is so perfectly prepared the integration in Peakboard is quite straight forward. The XQL code just calls the RFC by submitting the shipping point and processes the return table.
+When the RFC is so perfectly prepared the integration in Peakboard is quite straight forward. The XQL code just calls the RFC by submitting the shipping point and processes the return table. That's it! Now you can use this perfect table right away in your application logic.
 
 ![image](/assets/2023-06-23/060.png)
 
 # Conclusion
 
-When you decide which of the SAP interfaces to choose, please keep this sample mind. It's considered to be perfect because all the calculation is done within SAP, within one single call. There's absolutely no data waste downloaded to Peakboard, nor is the data processesing in Peakboard unreasonable complicated.
+When you need to decide which of the SAP interfaces to choose, please keep this sample mind. It's considered to be perfect because all the calculation is done within SAP, within one single call. There's absolutely no data waste downloaded to Peakboard, nor is the data processesing in Peakboard unreasonable complicated.
 
 
 
