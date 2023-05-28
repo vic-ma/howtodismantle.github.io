@@ -5,7 +5,7 @@ date: 2023-03-13 12:00:00 +0200
 tags: API basics
 image: /assets/2023-03-13/060.png
 ---
-There are uncountable services on the internet to provide weather information either as a widget or as API. In this article we will learn more about how to use [weatherapi.com](http://weatherapi.com). They offer a free plan to get basic weather information from any location in the world. If you want to follow this tutorial step-by-step make sure to sign for the free plan and get your API key.
+There are uncountable services on the internet to provide weather information either as a widget or as API. In this article we will learn more about how to use [weatherapi.com](http://weatherapi.com). They offer a free plan to get basic weather information from any location in the world. If you want to follow this tutorial step-by-step make sure to sign up for the free plan and get your own API key.
 
 The [API explorer](https://www.weatherapi.com/api-explorer.aspx) let's you play around with the API call we use. The only parameter is the name of the location (can be just a name, coordinates or zip code). The call we're using is just
 
@@ -15,11 +15,11 @@ http://api.weatherapi.com/v1/current.json?key=XXX&q=Taipei&aqi=no
 
 while XXX is the API key.
 
-Let's create a new board and add a JSon data source. We don't have to deal with authentication issues, as the API key in the URL does the trick do tell the server who we are.
+Let's create a new board and add a JSon data source. We don't have to deal with authentication issues, as the API key in the URL does the trick to tell the server who we are.
 
 ![image](/assets/2023-03-13/010.png)
 
-Visualizing the most important parameters lcation (column _name_), temperature (column _temp_c_) and the weather description (column _text_) can be easily done with a single textbox with title and subtitle. Please check the screenshot for how to do the formatting of the temperature. In that case we use a custom format with the unit "deg Celsius" to beatify the number.
+Visualizing the most important parameters lcation (column _name_), temperature (column _temp_c_) and the weather description (column _text_) can be easily done with a single textbox with title and subtitle. Please check the screenshot for how to do the formatting of the temperature. In that case we use a custom format with the unit "deg Celsius" to beautify the number.
 
 ![image](/assets/2023-03-13/020.png)
 
