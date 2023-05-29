@@ -2,7 +2,7 @@
 layout: post
 title: MS Graph API - Understand the basis and get started
 date: 2023-03-01 12:00:00 +0200
-tags: MSGraph
+tags: msgraph
 image: /assets/2023-06-09/title.png
 ---
 Using calls of the MS Graph API along with Peakboard needs some basic understanding and requirements. This article covers the minimum basics you need to have to go ahead with MS Graph. It's boring, but it's necessary. Sorry for this.

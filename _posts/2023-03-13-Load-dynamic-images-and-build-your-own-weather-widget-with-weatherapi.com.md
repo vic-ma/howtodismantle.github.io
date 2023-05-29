@@ -2,7 +2,7 @@
 layout: post
 title: 2023-03-13 Load dynamic images and build your own weather widget with weatherapi.com
 date: 2023-03-13 12:00:00 +0200
-tags: API basics
+tags: api basics
 image: /assets/2023-03-13/060.png
 ---
 There are uncountable services on the internet to provide weather information either as a widget or as API. In this article we will learn more about how to use [weatherapi.com](http://weatherapi.com). They offer a free plan to get basic weather information from any location in the world. If you want to follow this tutorial step-by-step make sure to sign up for the free plan and get your own API key.

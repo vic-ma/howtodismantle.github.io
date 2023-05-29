@@ -2,7 +2,7 @@
 layout: post
 title: MS Graph API - Use Report to show company's email usage statistics
 date: 2023-03-01 12:00:00 +0200
-tags: MSGraph
+tags: msgraph
 image: /assets/2023-07-02/060.png
 ---
 Graph API offers a ton of monitoring reports to give system admins insights on what is happening in their Office 365 tenant. Please find the official documentation [here](https://learn.microsoft.com/en-us/graph/api/resources/report?view=graph-rest-1.0). In today's article we will have a look at a report that lists the aggregated outlook acticity per day for the whole organisation. [Here](https://learn.microsoft.com/en-us/graph/api/reportroot-getemailactivityusercounts?view=graph-rest-1.0)'s the documentation on that. 
@@ -28,22 +28,22 @@ All the data comes as string data types, so it's hard to to use it in a chart la
 
 ![image](/assets/2023-07-02/020.png)
 
-We convert the two columns _Send_ and _Receive_ into numbers.
+We convert the two columns _Send_ and _Receive_ into numbers
 
 ![image](/assets/2023-07-02/030.png)
 
-and remoce all the useless columns except the data and two numbers we're interested in.
+and remove all the useless columns except the data and two numbers we're interested in. That's it.
 
 ![image](/assets/2023-07-02/040.png)
 
 # Building the chart
 
-We will use a chart to display the data. In that case we go for two series. One for the received emails, and one for the sent emails. X axis is always the date.
+A line and area chart is a good choice to display the data. In that case we go for two series. One for the received emails, and one for the sent emails. X axis is always the date.
 The confirgration is straight forward as we already prepared the data very well. 
 
 ![image](/assets/2023-07-02/050.png)
 
-Let's go ahead nd have a look at the final result:
+Let's go ahead snd have a look at the final result:
 
 ![image](/assets/2023-07-02/060.png)
 

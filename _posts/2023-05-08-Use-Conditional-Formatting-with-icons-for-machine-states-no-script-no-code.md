@@ -2,7 +2,7 @@
 layout: post
 title: Use Conditional Formatting with icons for machine states - no script, no code
 date: 2023-05-08 12:00:00 +0200
-tags: essentials nocode
+tags: basics
 image: /assets/2023-05-08/040.png
 ---
 
