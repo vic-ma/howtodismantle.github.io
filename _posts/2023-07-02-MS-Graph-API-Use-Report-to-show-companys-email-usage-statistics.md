@@ -24,7 +24,7 @@ For the data source we use a _App-only_ Graph extension list that doesn't requir
 
 # Getting the data ready
 
-All the data comes as string data types, so it's hard to to use it in a chart. We need to add a data flow below the data source to adjust the columns for further usage.
+All the data comes as string data types, so it's hard to to use it in a chart later. We need to add a data flow below the data source to adjust the columns for further usage.
 
 ![image](/assets/2023-07-02/020.png)
 
