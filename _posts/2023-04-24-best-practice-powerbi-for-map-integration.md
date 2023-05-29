@@ -46,5 +46,3 @@ And now we're all set to enjoy our dashboard tile as part of the Peakboard canva
 - Be very careful with the API permission in the app registration. The permissions are listed in the help file, however might vary for some use cases. It might be necssary to add some more.
 - Be very careful with the user and the password. Especially when switching off 2FA. Restrict the user's right as tight as possible.
 - In most cases dashboard tiles are the better choice instead of a whole report. If in doubt, use the tiles.
-
-{% include read-more.html %}
