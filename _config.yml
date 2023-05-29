@@ -20,9 +20,16 @@ plugins:
   - jekyll-sitemap
 
 # Portions of text found throughout common components (like the footer) can be configured here for each language
-language:
-  en:
-    product-name: 'How to dismantle a Peakboard Box'
+content:
+  side-menu-home: 'Home'
+  side-menu-about: 'About'
+  side-menu-title: 'What is this blog?'
+  side-menu-text: 'How to dismantle a Peakboard Box is a blog about various tips, tricks and hacks for Peakboard Boxes.'
+  side-menu-categories: 'Categories'
+  side-menu-date: 'Archive'
+  side-menu-date-all: 'Show all posts'
+  side-menu-contact-title: 'Contact'
+  side-menu-contact-text: 'If you have any questions, feel free to contact us at info@how-to-dismantle-a-peakboard-box.com'
 
 # Exclude from processing.
 exclude:

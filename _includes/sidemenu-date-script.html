@@ -1,0 +1,41 @@
+<script>
+  const dateLinks = document.querySelectorAll("span[data-date-link]");
+  const dateLinksLength = dateLinks.length;
+
+  for (let i = 0; i < dateLinksLength; i++) {
+    dateLinks[i].onclick = (ev) => {
+      // make 'all' visible
+      const dateReset = document.querySelector("span[data-reset]");
+      dateReset.parentElement.classList.remove("hidden");
+
+      const dateLinkValue = ev.target.getAttribute("data-date-link");
+
+      const cards = document.querySelectorAll("article[data-date]");
+      const cardsLength = cards.length;
+
+      for (let j = 0; j < cardsLength; j++) {
+        const card = cards[j];
+        const cardDate = card.getAttribute("data-date");
+
+        if (cardDate === dateLinkValue) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      }
+    }
+  }
+
+  const dateReset = document.querySelector("span[data-reset]");
+  dateReset.onclick = () => {
+    const cards = document.querySelectorAll("article[data-date]");
+    const cardsLength = cards.length;
+
+    for (let j = 0; j < cardsLength; j++) {
+      const card = cards[j];
+      card.classList.remove("hidden");
+    }
+
+    dateReset.parentElement.classList.add("hidden");
+  }
+</script>
