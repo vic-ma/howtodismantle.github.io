@@ -7,7 +7,7 @@ image: /assets/2023-07-02/060.png
 ---
 Graph API offers a ton of monitoring reports to give system admins insights on what is happening in their Office 365 tenant. Please find the official documentation [here](https://learn.microsoft.com/en-us/graph/api/resources/report?view=graph-rest-1.0). In today's article we will have a look at a report that lists the aggregated outlook acticity per day for the whole organisation. [Here](https://learn.microsoft.com/en-us/graph/api/reportroot-getemailactivityusercounts?view=graph-rest-1.0)'s the documentation on that. 
 
-Please make sure to read through the basics of using MS Graph API in Peakboard: [MS Graph API - Understand the basis and get started]({% post_url 2023-07-02-MS-Graph-API-Understand-the-basis-and-get-started %})
+Please make sure to read through the basics of using MS Graph API in Peakboard: [MS Graph API - Understand the basis and get started]({% post_url 2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started %})
 
 # Configuring the data source
 
