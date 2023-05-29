@@ -2,11 +2,7 @@
 layout: post
 title: Dismantle Number Value Formatting
 date: 2023-04-10 12:00:00 +0200
-<<<<<<< HEAD
 tags: bestpratice basics
-=======
-tags: best-practice
->>>>>>> 09a05ad433cffe28e52e276043c49c9432920ed0
 image: /assets/2023-04-10/040.gif
 ---
 Displaying numbers in a correct format can be considered as one of the ultimate core task when building boards. The basic features of number formatting in Peakboard are quite easy and documented well, please check out [help](https://help.peakboard.com/misc/en-formating-values.html), if you're not familiar with the format drop down that can be found everywhere.

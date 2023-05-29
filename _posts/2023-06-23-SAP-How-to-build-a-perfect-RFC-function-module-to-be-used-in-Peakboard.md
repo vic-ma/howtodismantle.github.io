@@ -2,7 +2,7 @@
 layout: post
 title: How to build a perfect RFC function module to be used in Peakboard
 date: 2023-03-01 12:00:00 +0200
-tags: SAP
+tags: sap
 image: /assets/2023-06-23/title.jpg
 ---
 Within the available Peakboard connectors there are multiple options to access different SAP objects: Reports, MDX, BAPI / function modules, tables, queries, etc.
