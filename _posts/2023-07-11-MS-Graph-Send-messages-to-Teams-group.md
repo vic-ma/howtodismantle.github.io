@@ -5,19 +5,19 @@ date: 2023-03-01 12:00:00 +0200
 tags: msgraph
 image: /assets/2023-07-11/title.png
 ---
-Teams is one of the ultimate communication tools in companies. This article explains how to send a Teams message from a Peakboard application ny using the MA Graph API.
+Teams is one of the ultimate communication tools in companies. This article explains how to send a Teams message from a Peakboard application by using the MS Graph API.
 
 Please make sure to read through the basics of using MS Graph API in Peakboard: [MS Graph API - Understand the basis and get started]({% post_url 2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started %})
 
 # Finding the group
 
-Later on, we will use an API call to send the message to Teams. For this, we need to know the ID of the group and the ID of the channel whre the message should be posted in. The easiest way to get these is to use the Graph Explorer. So first call this URL to get a list and metadata of all available teams / groups:
+Later on, we will use an API call to send the message to Teams. For this, we need to know the ID of the group and the ID of the channel wehre the message should be posted in. The easiest way to get these, is to use the Graph Explorer. So first call this URL to get a list and metadata of all available teams / groups:
 
 {% highlight url %}
 https://graph.microsoft.com/v1.0/groups
 {% endhighlight %}
 
-Here's the answer from the Graph Explorer:
+Here's the answer from the Graph Explorer. The ID is the first element of each list entry.
 
 ![image](/assets/2023-07-11/010.png)
 
@@ -33,7 +33,7 @@ https://graph.microsoft.com/v1.0/teams/f2f256ca-7d65-410f-8b57-2fa0499e087a/allC
 
 # Build the call data source
 
-Now let's switch to the Peakboard side and add a User Function data source from the MS Graph extension to the board. We need to provide Client ID and Tenant ID and get the authentification for the delgated user ready. Please don't forget to add the _ChannelMessage.Send_ permission.
+Now let's switch to the Peakboard side and add a User Function data source from the MS Graph extension to the board. We need to provide Client ID and Tenant ID and get the authentification for the delegated user ready. Please don't forget to add the _ChannelMessage.Send_ permission.
 
 Then we click on _Add function_ to add a function to this URL. As you see, we must provide the group ID and channel ID within the URL.
 
@@ -41,7 +41,7 @@ Then we click on _Add function_ to add a function to this URL. As you see, we mu
 https://graph.microsoft.com/v1.0/teams/f2f256ca-7d65-410f-8b57-2fa0499e087a/channels/19:3f11d999d7674dc78fbad32e242869bc@thread.tacv2/messages
 {% endhighlight %}
 
-The actual message is sent in JSon formatted body. It must looks like this sample (feel free to check [documentation](https://learn.microsoft.com/en-us/graph/api/channel-post-messages?view=graph-rest-1.0&tabs=http)).
+The actual message is sent in a JSon formatted body. It must looks like this sample (feel free to check Microsoft's [documentation](https://learn.microsoft.com/en-us/graph/api/channel-post-messages?view=graph-rest-1.0&tabs=http)).
 
 {% highlight json %}
 {
@@ -57,7 +57,7 @@ However we want to make a dynamic message that is defined by the end user. That'
 
 # Build the actual call
 
-We place a text box and a _Send_ button on the canvas. Don't forget to gibe the textbox a proper name (e.g. _MyMessage) otherwise we can't address it in our code.
+We finally place a text box and a _Send_ button on the canvas. Don't forget to give the text box a proper name (e.g. _MyMessage_) otherwise we can't address it in our code.
 
 ![image](/assets/2023-07-11/040.png)
 
