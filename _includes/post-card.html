@@ -1,17 +1,23 @@
-<article class="flex flex-col items-start justify-between">
+{% assign year = post.date | date: "%Y" %}
+{% assign month = post.date | date: "%m" %}
+
+<article class="flex flex-col items-start bg-slate-800 rounded-2xl shadow-inner" data-date="{{ year }}-{{ month }}">
     <div class="relative w-full">
         <a href="{{ include.post.url }}">
-            <img src="{{ include.post.image }}" alt="{{ include.post.title }}" class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
-            <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+            <img src="{{ include.post.image }}" alt="{{ include.post.title }}" class="aspect-[16/9] w-full rounded-t-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+            <div class="absolute inset-0 rounded-t-2xl ring-1 ring-inset ring-gray-900/10"></div>
         </a>
     </div>
-    <div class="max-w-xl">
-        <div class="mt-8 flex items-center justify-between gap-x-4 text-xs">
-            <p class="text-light/80">{{ include.post.date | date_to_long_string }}<p>
+    <div class="max-w-xl px-4 py-4">
+        <div class="flex items-center justify-between gap-x-1 text-sm">
+            <!--<p class="py-1 px-2 bg-primary text-light/80">{{ include.post.date | date_to_long_string }}<p>-->
+            <p class="text-light/80"><span class="text-xl text-secondary px-1">{</span>{{ include.post.date | date_to_long_string }}<span class="text-xl text-secondary px-1">}</span><p>
             <p class="text-light/80">
+                <span class="text-xl text-secondary px-1">{</span>
                 {% for tag in include.post.tags %}
-                <a href="/category/{{ tag | slugify }}" class="cursor-pointer hover:underline hover:text-secondary">{{ tag | capitalize | replace:"-"," " }}</a>{% unless forloop.last %} •{% endunless %}
+                  <a href="/category/{{ tag | slugify }}" class="cursor-pointer hover:underline hover:text-secondary">{{ tag | capitalize | replace:"-"," " }}</a>{% unless forloop.last %} •{% endunless %}
                 {% endfor %}
+                <span class="text-xl text-secondary px-1">}</span>
             </p>
         </div>
         <a href="{{ include.post.url }}" class="group relative">
@@ -19,7 +25,14 @@
                 <span class="absolute inset-0"></span>
                 {{ include.post.title }}
             </h3>
-            <p class="mt-5 line-clamp-3 text-sm leading-6 text-light group-hover:text-secondary">{{ include.post.content | strip_html | truncatewords: 50 }}</p>
+
+            <p class="mt-4 line-clamp-3 text-sm leading-6 text-light group-hover:text-secondary">{{ include.post.content | strip_html | truncatewords: 50 }}</p>
+
+            <p class="mt-4 line-clamp-3 text-sm leading-6 text-light group-hover:text-secondary italic">Read more
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline mr-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+            </p>
         </a>
     </div>
 </article>

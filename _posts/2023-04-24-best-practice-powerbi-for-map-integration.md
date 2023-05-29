@@ -2,7 +2,7 @@
 layout: post
 title: Best Practice - Use Power BI for integrating maps
 date: 2023-04-24 12:00:00 +0200
-tags: tutorial bestpratice
+tags: tutorial best-practice
 image: /assets/2023-04-24/title.png
 ---
 A lot of people use Peakboard as medium to intgrate Power BI dashboards along with other data and create a dashboard that mashes up both non-Power-BI with Power-BI visuals and data. In today's article we will have a look on how to do that by building a Power BI report with certain elemens, especially a map and later bring exactly this map to be part of Peakbaord canvas.
@@ -46,5 +46,3 @@ And now we're all set to enjoy our dashboard tile as part of the Peakboard canva
 - Be very careful with the API permission in the app registration. The permissions are listed in the help file, however might vary for some use cases. It might be necssary to add some more.
 - Be very careful with the user and the password. Especially when switching off 2FA. Restrict the user's right as tight as possible.
 - In most cases dashboard tiles are the better choice instead of a whole report. If in doubt, use the tiles.
-
-
