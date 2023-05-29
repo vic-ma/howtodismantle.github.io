@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to handle historian machine state data in SQL queries and turn it into useful information
+title: How to handle historian machine state data in SQL queries and turn it into useful information with LEAD command
 date: 2023-05-23 12:00:00 +0200
 tags: essentials sqlserver
 image: /assets/2023-05-23/020.png
