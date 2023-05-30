@@ -2037,6 +2037,11 @@ select {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
+  .lg\:gap-x-16 {
+    -moz-column-gap: 4rem;
+         column-gap: 4rem;
+  }
+
   .lg\:border-r-2 {
     border-right-width: 2px;
   }
