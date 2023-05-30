@@ -1,13 +1,13 @@
 
 {% if include.downloads or include.rml %}
 <div class="mt-16 bg-secondary/30 rounded-xl p-4 not-prose">
-  <div class="grid grid-cols-2 gap-x-8 lg:gap-x-16">
+  <div class="grid grid-cols-2 gap-x-8 break-all lg:gap-x-16">
     <div>
       <h3 class="font-bold text-lg text-light">Downloads</h3>
       {% for link in include.downloads %}
           <p class="my-0 text-light hover:text-secondary hover:underline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline mr-2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-          </svg><a href="{{ link.url }}">{{ link.name }}</a></p>
+          </svg><a href="{{ link.url }}" class="break-all">{{ link.name }}</a></p>
       {% endfor %}
     </div>
 
@@ -16,7 +16,7 @@
       {% for link in include.rml %}
         <p class="my-0 text-light hover:text-secondary hover:underline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline mr-2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-        </svg><a href="{{ link.url }}">{{ link.name }}</a></p>
+        </svg><a href="{{ link.url }}" class="break-all">{{ link.name }}</a></p>
       {% endfor %}
     </div>
   </div>
