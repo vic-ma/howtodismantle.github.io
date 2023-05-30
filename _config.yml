@@ -21,6 +21,7 @@ plugins:
 
 # Portions of text found throughout common components (like the footer) can be configured here for each language
 content:
+  link-back-to-home: 'back to home'
   side-menu-home: 'Home'
   side-menu-about: 'About'
   side-menu-title: 'What is this blog?'

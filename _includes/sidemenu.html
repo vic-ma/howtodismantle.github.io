@@ -5,35 +5,40 @@
     <p class="font-bold text-xl text-light mb-2">{{ site.content.side-menu-categories }}</p>
     <div class="mb-8">
         {% for tag in site.tags %}
-        {% capture current_category_url %}/category/{{tag[0] | slugify }}.html{% endcapture %}
-        <p class="text-lg font-medium mb-2 {% if page.url == current_category_url %}text-secondary{% else %}text-light hover:text-secondary hover:underline{% endif %}">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline mr-2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-            </svg><a href="/category/{{ tag[0] | slugify }}">{{ tag[0] | capitalize | replace:"-"," "}} ({{ tag[1].size }})</a>
-        </p>
-        {% endfor %}
-    </div>
-    <p class="font-bold text-xl text-light mb-2">{{ site.content.side-menu-date }}</p>
-    <div class="mb-8">
-        <p class="hidden text-lg font-medium mb-2 text-light cursor-pointer hover:text-secondary hover:underline">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline mr-2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-            </svg><span data-reset>{{ site.content-side-menu-date-all }}</span>
-        </p>
-        {% for post in site.posts %}
-          {% assign currentdate = post.date | date: "%B %Y" %}
-          {% assign year = post.date | date: "%Y" %}
-          {% assign month = post.date | date: "%m" %}
-          {% if currentdate != date %}
-            <p class="text-lg font-medium mb-2 text-light cursor-pointer hover:text-secondary hover:underline">
+            {% capture current_category_url %}/category/{{tag[0] | slugify }}.html{% endcapture %}
+            {% assign page = site.pages | where: 'category', tag[0] | first %}
+
+            <p class="text-lg font-medium mb-2 {% if page.url == current_category_url %}text-secondary{% else %}text-light hover:text-secondary hover:underline{% endif %}">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline mr-2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                </svg><span data-date-link="{{ year }}-{{ month }}">{{ currentdate }}</span>
+                </svg><a href="/category/{{ tag[0] | slugify }}">{{ page.title }} ({{ tag[1].size }})</a>
             </p>
-            {% assign date = currentdate %}
-          {% endif %}
         {% endfor %}
     </div>
+
+    {% if page.url == '/index.html' %}
+        <p class="font-bold text-xl text-light mb-2">{{ site.content.side-menu-date }}</p>
+        <div class="mb-8">
+            <p class="hidden text-lg font-medium mb-2 text-light cursor-pointer hover:text-secondary hover:underline">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline mr-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg><span data-reset>{{ site.content-side-menu-date-all }}</span>
+            </p>
+            {% for post in site.posts %}
+              {% assign currentdate = post.date | date: "%B %Y" %}
+              {% assign year = post.date | date: "%Y" %}
+              {% assign month = post.date | date: "%m" %}
+              {% if currentdate != date %}
+                <p class="text-lg font-medium mb-2 text-light cursor-pointer hover:text-secondary hover:underline">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline mr-2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                    </svg><span data-date-link="{{ year }}-{{ month }}">{{ currentdate }}</span>
+                </p>
+                {% assign date = currentdate %}
+              {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
 </div>
 
 {% include sidemenu-date-script.html %}
