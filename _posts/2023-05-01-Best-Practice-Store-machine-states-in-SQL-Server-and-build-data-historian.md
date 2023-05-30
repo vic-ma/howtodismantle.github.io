@@ -71,5 +71,3 @@ After playing around with Start / Stop and calling our SP several times you will
 ### Conclusion
 
 The sample above shows how to build and fill a table to store state changes. It is clear, that real world data might be a bit more complicated (more states, more logic, more restrcitions), but the basic pattern is usually the same. Using stored procedure for these kind of data changes is a very powerful and easy understandable tool.
-
-

@@ -1,0 +1,41 @@
+{::nomarkdown}
+{% if page.previous or page.next %}
+<div class="mt-16 grid grid-cols-2 gap-x-4">
+    {% if page.previous %}
+      <article class="flex flex-col items-start bg-primary hover:bg-primary/70 rounded-2xl shadow-inner not-prose">
+        <div class="max-w-xl px-4 pt-2 pb-4">
+          <a href="{{ page.previous.url }}" class="group relative text-left">
+            <p class="mt-4 line-clamp-3 text-sm leading-6 text-light italic">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline mr-2 rotate-180">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+              </svg>Previous article
+            </p>
+            <h3 class="mt-2 text-lg font-semibold leading-6 text-light">
+              <span class="absolute inset-0"></span>
+              {{ page.previous.title }}
+            </h3>
+          </a>
+        </div>
+      </article>
+    {% endif %}
+
+    {% if page.next %}
+    <article class="flex flex-col items-start bg-primary hover:bg-primary/70 rounded-2xl shadow-inner not-prose">
+      <div class="max-w-xl px-4 pt-2 pb-4">
+        <a href="{{ page.next.url }}" class="group relative text-right">
+          <p class="mt-4 line-clamp-3 text-sm leading-6 text-light italic">Next article
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline mr-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+            </svg>
+          </p>
+          <h3 class="mt-2 text-lg font-semibold leading-6 text-light">
+            <span class="absolute inset-0"></span>
+            {{ page.next.title }}
+          </h3>
+        </a>
+      </div>
+    </article>
+    {% endif %}
+</div>
+{% endif %}
+{:/nomarkdown}

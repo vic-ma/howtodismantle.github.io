@@ -1,4 +1,4 @@
-<div class="px-8 mb-16 lg:mb-0 lg:top-4 lg:border-r-2 lg:border-secondary lg:sticky">
+<div class="px-8 mb-16 not-prose lg:mb-0 lg:top-4 lg:border-r-2 lg:border-secondary lg:sticky">
 
     <a href="/" class="block text-xl font-bold mb-4 {% if page.url == '/index.html' %}text-secondary{% else %}text-light hover:text-secondary hover:underline{% endif %}">{{ site.content.side-menu-home }}</a>
     <a href="/about" class="block text-xl font-bold mb-4 {% if page.url == '/about.html' %}text-secondary{% else %}text-light hover:text-secondary hover:underline{% endif %}">{{ site.content.side-menu-about }}</a>
@@ -6,23 +6,22 @@
     <div class="mb-8">
         {% for tag in site.tags %}
             {% capture current_category_url %}/category/{{tag[0] | slugify }}.html{% endcapture %}
-            {% assign page = site.pages | where: 'category', tag[0] | first %}
+            {% assign tag_page = site.pages | where: 'category', tag[0] | first %}
 
             <p class="text-lg font-medium mb-2 {% if page.url == current_category_url %}text-secondary{% else %}text-light hover:text-secondary hover:underline{% endif %}">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline mr-2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                </svg><a href="/category/{{ tag[0] | slugify }}">{{ page.title }} ({{ tag[1].size }})</a>
+                </svg><a href="/category/{{ tag[0] | slugify }}">{{ tag_page.title }} ({{ tag[1].size }})</a>
             </p>
         {% endfor %}
     </div>
-
-    {% if page.url == '/index.html' %}
+    {% if page.url == '/' %}
         <p class="font-bold text-xl text-light mb-2">{{ site.content.side-menu-date }}</p>
         <div class="mb-8">
             <p class="hidden text-lg font-medium mb-2 text-light cursor-pointer hover:text-secondary hover:underline">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline mr-2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                </svg><span data-reset>{{ site.content-side-menu-date-all }}</span>
+                </svg><span data-reset>{{ site.content.side-menu-date-all }}</span>
             </p>
             {% for post in site.posts %}
               {% assign currentdate = post.date | date: "%B %Y" %}
