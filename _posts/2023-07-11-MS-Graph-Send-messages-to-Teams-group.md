@@ -4,6 +4,14 @@ title: MS Graph API - Send messages to Teams group
 date: 2023-03-01 12:00:00 +0200
 tags: msgraph
 image: /assets/2023-07-11/title.png
+read_more_links:
+  - name: MS Graph API Documentation - Send chatMessage in channel
+    url: https://learn.microsoft.com/en-us/graph/api/channel-post-messages?view=graph-rest-1.0&tabs=http
+  - name: MS Graph API - Understand the basis and get started
+    url: /2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started.html
+downloads:
+  - name: GraphSendMessageToTeamsGroup.pbmx
+    url: /assets/2023-07-11/GraphSendMessageToTeamsGroup.pbmx
 ---
 Teams is one of the ultimate communication tools in companies. This article explains how to send a Teams message from a Peakboard application by using the MS Graph API.
 
@@ -70,12 +78,5 @@ Here's the final result:
 ![image](/assets/2023-07-11/060.gif)
 
 
-read_more_links:
-  - name: MS Graph API Documentation - Send chatMessage in channel
-    url: https://learn.microsoft.com/en-us/graph/api/channel-post-messages?view=graph-rest-1.0&tabs=http
-  - name: MS Graph API - Understand the basis and get started
-    url: /2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started.html
-downloads:
-  - name: GraphSendMessageToTeamsGroup.pbmx
-    url: /assets/2023-07-11/GraphSendMessageToTeamsGroup.pbmx
+
 
