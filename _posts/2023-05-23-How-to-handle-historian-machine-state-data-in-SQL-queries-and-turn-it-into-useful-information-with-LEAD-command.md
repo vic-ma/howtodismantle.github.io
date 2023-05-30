@@ -11,7 +11,8 @@ downloads:
   - name: Download
     url: https://google.com
 ---
- In this [article]({% post_url 2023-05-01-Best-Practice-Store-machine-states-in-SQL-Server-and-build-data-historian %}) we learned how to store historical events in a SQL Server database. Every time a state changes, a new row is created with a timestamp and the name of the new state. As you can see in the sample data, there are two drilling machines switching between RUN and STOP throughout a regular working day.
+
+In this [article]({% post_url 2023-05-01-Best-Practice-Store-machine-states-in-SQL-Server-and-build-data-historian %}) we learned how to store historical events in a SQL Server database. Every time a state changes, a new row is created with a timestamp and the name of the new state. As you can see in the sample data, there are two drilling machines switching between RUN and STOP throughout a regular working day.
 
 ![image](/assets/2023-05-23/010.png)
 
