@@ -58,8 +58,3 @@ From here it's easy to finally bring it home. The aggregated number is just disp
 ![image](/assets/2023-05-23/050.png)
 
 Please keep one important learning in mind: Although Peakboard offers multiple ways of manipuating data it's usually a wise choice to already prepare the data for future use when creating the SQL statement. It can save lots of time later on and makes the whole data logic much easier to understand and maintain.
-
-
-{% include read-more.html downloads=page.downloads rml=page.read_more_links %}
-
-{% include other_articles.html %}

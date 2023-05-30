@@ -1,4 +1,6 @@
-<div class="mt-16 mb-8 bg-gray-900 border-secondary border-2 rounded-xl p-4 not-prose">
+
+{% if include.downloads or include.rml %}
+<div class="mt-16 bg-secondary/30 rounded-xl p-4 not-prose">
   <div class="grid grid-cols-2">
     <div>
       <h3 class="font-bold text-lg text-light">Downloads</h3>
@@ -19,3 +21,4 @@
     </div>
   </div>
 </div>
+{% endif %}

@@ -11,4 +11,9 @@ layout: base
 <h1 class="text-3xl text-light font-bold prose prose-dismantle max-w-3xl">{{ page.title }}</h1>
 <p class="mt-2 text-xs text-light/80">{{ page.date | date_to_long_string }} • {% include reading_time.html content=page.content %}</p>
 
-<div class="mt-8 prose prose-dismantle text-light">{{ content }}</div>
+<div class="mt-8 prose prose-dismantle text-light">
+    {{ content }}
+
+    {% include read-more.html downloads=page.downloads rml=page.read_more_links %}
+    {% include other_articles.html %}
+</div>
