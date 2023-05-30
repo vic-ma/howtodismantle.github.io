@@ -67,7 +67,7 @@ Here are the Building Blocks behind the button. The Graph function can be found 
 
 Here's the final result:
 
-
+![image](/assets/2023-07-11/060.gif)
 
 
 * Download [GraphSendMessageToTeamsGroup.pbmx](/assets/2023-07-11/GraphSendMessageToTeamsGroup.pbmx)
