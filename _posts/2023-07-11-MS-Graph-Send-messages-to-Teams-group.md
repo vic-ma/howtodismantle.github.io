@@ -8,7 +8,7 @@ read_more_links:
   - name: MS Graph API Documentation - Send chatMessage in channel
     url: https://learn.microsoft.com/en-us/graph/api/channel-post-messages?view=graph-rest-1.0&tabs=http
   - name: MS Graph API - Understand the basis and get started
-    url: /2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started.html
+    url: /MS-Graph-API-Understand-the-basis-and-get-started.html
 downloads:
   - name: GraphSendMessageToTeamsGroup.pbmx
     url: /assets/2023-07-11/GraphSendMessageToTeamsGroup.pbmx
@@ -19,7 +19,7 @@ Please make sure to read through the basics of using MS Graph API in Peakboard: 
 
 # Finding the group
 
-Later on, we will use an API call to send the message to Teams. For this, we need to know the ID of the group and the ID of the channel wehre the message should be posted in. The easiest way to get these, is to use the Graph Explorer. So first call this URL to get a list and metadata of all available teams / groups:
+Later on, we will use an API call to send the message to Teams. For this, we need to know the ID of the group and the ID of the channel where the message should be posted in. The easiest way to get these, is to use the Graph Explorer. So first call this URL to get a list and metadata of all available teams / groups:
 
 {% highlight url %}
 https://graph.microsoft.com/v1.0/groups

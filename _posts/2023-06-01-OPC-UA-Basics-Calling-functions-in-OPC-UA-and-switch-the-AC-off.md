@@ -1,7 +1,7 @@
 ---
 layout: post
 title: OPC UA Basics - Calling functions in OPC UA and switch the AC off
-date: 2023-03-01 12:00:00 +0200
+date: 2023-06-01 12:00:00 +0200
 tags: opcuamqtt tutorial
 image: /assets/2023-06-01/title.png
 ---
