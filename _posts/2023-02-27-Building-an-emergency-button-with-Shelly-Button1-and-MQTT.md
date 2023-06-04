@@ -13,7 +13,7 @@ downloads:
   - name: ShellyButtonMQTT.pbmx
     url: /assets/2023-02-27/ShellyButtonMQTT.pbmx
 ---
-In (another article)[Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html] we already talked about some basics around [Shelly](https://www.shelly.cloud/) products.
+In [another article](Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html) we already talked about some basics around [Shelly](https://www.shelly.cloud/) products.
 
 In this article we will use a Shelly Button1 to build an alarming system. The button press can send two levels of emergency to a Peakboard application and then also reset the state back to normal. In a professional environment, it would be possible to use this pattern to give an end user the option to call for help, call for missing material at an assembly line, etc....
 
