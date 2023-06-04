@@ -13,8 +13,7 @@ downloads:
   - name: ShellyButtonMQTT.pbmx
     url: /assets/2023-02-27/ShellyButtonMQTT.pbmx
 ---
-[Shelly](https://www.shelly.cloud/) is Germany and US based company providing gadgets for home automation. The products are very popular among home automation enthusiasts because other than similiar products, you can easily access the products with standard technology like REST and MQTT. A lot of other vendors try to desperately sell their own landscape, app, cloud, etc., while the Shelly guys do have that too, but it's not a must and they don't build a fence around their cloud or products.
-As already mentioned, Shelly is built for private use at home. We should carefully check, if the products meet the reader's standard before using them in a profesional, industrial environment.
+In (another article)[Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html] we already talked about some basics around [Shelly](https://www.shelly.cloud/) products.
 
 In this article we will use a Shelly Button1 to build an alarming system. The button press can send two levels of emergency to a Peakboard application and then also reset the state back to normal. In a professional environment, it would be possible to use this pattern to give an end user the option to call for help, call for missing material at an assembly line, etc....
 
