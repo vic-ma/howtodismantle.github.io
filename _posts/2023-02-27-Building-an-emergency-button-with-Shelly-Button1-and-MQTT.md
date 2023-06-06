@@ -41,9 +41,9 @@ When MQTT is enabled, the button is sending state message to the MQTT broker. Th
 
 The events can be _S_ for single click, _SS_ for double click and _L_ for long click. The attribute _event_cnt_ just counts the number of clicks since the last reboot of the button. That's all the information we need to go ahead. 
 
-# Building the Peakboard appliation
+# Building the Peakboard application
 
-On the Peakboard side the magic happens in a MQTT data source. We connect to the known MQTT broker. The topic to subscribe to is explained above and we provide a path that points to the _event_-Node withn the JSon, so we don't need to worry about how to turn the JSon into usable information. As you see in the preview data the _SS_ value for the double click is extracted and shown.
+On the Peakboard side the magic happens in a MQTT data source. We connect to the known MQTT broker. The topic to subscribe to is explained above and we provide a path that points to the _event_-Node within the JSon, so we don't need to worry about how to turn the JSon into usable information. As you see in the preview data the _SS_ value for the double click is extracted and shown.
 
 ![image](/assets/2023-02-27/030.png)
 
@@ -56,3 +56,4 @@ The actual visualization is done by an Icon control. The switch between the thre
 
 Finally here you can see how the board works in real life....
 
+{% include youtube.html id="sALXrWVR7f8" %}
