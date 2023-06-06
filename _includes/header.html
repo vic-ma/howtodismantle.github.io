@@ -1,8 +1,52 @@
-<div class="mb-12 w-full">
+<div class="w-full">
     <img src="/assets/img/header2.jpg" alt="hero" class="w-full h-64 object-cover object-center">
-    <div class="absolute top-0 w-full h-64 py-8 bg-gray-900/60">
+    <div class="absolute top-0 w-full h-64 py-8 bg-stone-300/60 dark:bg-gray-900/60">
         <a href="/">{% include svg/logo.html classes="h-48 mx-auto" %}</a>
     </div>
+
+    <div class="h-8 flex justify-end p-4" id="themeToggle">
+        <div id="lightTheme" class="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-secondary">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+            </svg>
+        </div>
+        <div id="darkTheme">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-secondary">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+            </svg>
+        </div>
+    </div>
+
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('lightTheme').classList.toggle('hidden');
+            document.getElementById('darkTheme').classList.toggle('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            document.getElementById('lightTheme').classList.toggle('hidden');
+            document.getElementById('darkTheme').classList.toggle('hidden');
+        }
+
+        function toggleTheme() {
+            if (localStorage.theme === 'dark') {
+                localStorage.theme = 'light'
+                document.documentElement.classList.remove('dark');
+                document.getElementById('lightTheme').classList.toggle('hidden');
+                document.getElementById('darkTheme').classList.toggle('hidden');
+            } else {
+                localStorage.theme = 'dark'
+                document.documentElement.classList.add('dark');
+                document.getElementById('lightTheme').classList.toggle('hidden');
+                document.getElementById('darkTheme').classList.toggle('hidden');
+            }
+        }
+
+        document.getElementById('themeToggle').onclick = function () {
+            toggleTheme();
+        }
+    </script>
 
     {% assign url_parts = page.url | split: '/' %}
     {% assign category = url_parts[1] %}

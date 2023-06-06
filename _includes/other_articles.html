@@ -1,7 +1,7 @@
 {% if page.previous or page.next %}
 <div class="grid grid-cols-2 gap-x-4 {% if page.downloads or page.read_more_links %}mt-4{% else %}mt-16{% endif %}">
     {% if page.previous %}
-      <article class="flex flex-col items-start bg-primary hover:bg-primary/70 rounded-2xl shadow-inner not-prose">
+      <article class="flex flex-col items-start bg-primary hover:bg-primary/90 dark:hover:bg-primary/70 rounded-2xl shadow-inner not-prose">
         <div class="max-w-xl px-4 pt-2 pb-4">
           <a href="{{ page.previous.url }}" class="group relative text-left">
             <p class="mt-4 line-clamp-3 text-sm leading-6 text-light italic">
