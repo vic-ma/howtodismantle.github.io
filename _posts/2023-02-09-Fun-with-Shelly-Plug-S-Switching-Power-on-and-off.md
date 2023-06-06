@@ -81,4 +81,6 @@ Finally the toggle button has two events that are relevant for us. One for check
 
 Here's how our final application works in real life. Feel free to [download](/assets/2023-02-09/ShellyPlug.pbmx) it.
 
+{% include youtube.html id="n9s4w6S71KU" %}
+
 
