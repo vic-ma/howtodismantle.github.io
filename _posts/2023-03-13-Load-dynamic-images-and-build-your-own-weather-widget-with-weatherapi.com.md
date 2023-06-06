@@ -1,13 +1,13 @@
 ---
 layout: post
-title: 2023-03-13 Load dynamic images and build your own weather widget with weatherapi.com
+title: Load dynamic images and build your own weather widget with weatherapi.com
 date: 2023-03-13 12:00:00 +0200
 tags: api basics
 image: /assets/2023-03-13/060.png
 ---
 There are uncountable services on the internet to provide weather information either as a widget or as API. In this article we will learn more about how to use [weatherapi.com](http://weatherapi.com). They offer a free plan to get basic weather information from any location in the world. If you want to follow this tutorial step-by-step make sure to sign up for the free plan and get your own API key.
 
-The [API explorer](https://www.weatherapi.com/api-explorer.aspx) let's you play around with the API call we use. The only parameter is the name of the location (can be just a name, coordinates or zip code). The call we're using is just
+The [API explorer](https://www.weatherapi.com/api-explorer.aspx) lets you play around with the API call we use. The only parameter is the name of the location (can be just a name, coordinates or zip code). The call we're using is just
 
 {% highlight url %}
 http://api.weatherapi.com/v1/current.json?key=XXX&q=Taipei&aqi=no

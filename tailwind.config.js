@@ -7,6 +7,7 @@ module.exports = {
         './*.md',
         './*.html',
     ],
+    darkMode: 'class',
     theme: {
         extend: {
             typography: ({ theme }) => ({
