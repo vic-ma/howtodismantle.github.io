@@ -32,13 +32,13 @@
         function toggleTheme() {
             if (!localStorage.theme || localStorage.theme === '') {
                 if((!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    localStorage.theme = 'dark';
-                    document.documentElement.classList.add('dark');
+                    localStorage.theme = 'light'
+                    document.documentElement.classList.remove('dark');
                     document.getElementById('lightTheme').classList.toggle('hidden');
                     document.getElementById('darkTheme').classList.toggle('hidden');
                 } else {
-                    localStorage.theme = 'light'
-                    document.documentElement.classList.remove('dark');
+                    localStorage.theme = 'dark';
+                    document.documentElement.classList.add('dark');
                     document.getElementById('lightTheme').classList.toggle('hidden');
                     document.getElementById('darkTheme').classList.toggle('hidden');
                 }
