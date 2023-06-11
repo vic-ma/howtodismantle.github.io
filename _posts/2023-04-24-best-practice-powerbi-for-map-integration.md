@@ -4,6 +4,16 @@ title: Best Practice - Use Power BI for integrating maps
 date: 2023-04-24 12:00:00 +0200
 tags: tutorial bestpractice
 image: /assets/2023-04-24/title.png
+read_more_links:
+  - name: Microsoft Power BI Playground for Newbies
+    url: https://playground.powerbi.com/en-us/
+- name: Microsoft Documentation  - Embed a report
+    url: https://learn.microsoft.com/en-us/javascript/api/overview/powerbi/embed-report
+  - name: Microsoft Documentation  - Embed a dashboard tile
+    url: https://learn.microsoft.com/en-us/javascript/api/overview/powerbi/embed-dashboard-tile
+downloads:
+  - name: PowerBIMapIntegration.pbmx
+    url: /assets/2023-04-24/PowerBIMapIntegration.pbmx
 ---
 A lot of people use Peakboard as medium to intgrate Power BI dashboards along with other data and create a dashboard that mashes up both non-Power-BI with Power-BI visuals and data. In today's article we will have a look on how to do that by building a Power BI report with certain elemens, especially a map and later bring exactly this map to be part of Peakbaord canvas.
 

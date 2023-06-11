@@ -1,7 +1,7 @@
 ---
 layout: post
 title: MS Graph API - Understand the basis and get started
-date: 2023-03-01 12:00:00 +0200
+date: 2023-06-09 12:00:00 +0200
 tags: msgraph
 image: /assets/2023-06-09/title.png
 ---
