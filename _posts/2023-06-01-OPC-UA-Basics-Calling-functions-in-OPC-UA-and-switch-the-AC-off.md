@@ -16,7 +16,7 @@ Beside the regular nodes there are more ones with a pink box icon. These represe
 
 ![image](/assets/2023-06-01/020.png)
 
-### How to use OPC UA functions in Peakboard?
+## How to use OPC UA functions in Peakboard?
 
 Before we start we need some more technical things: The node ID of the function we want to call, and the node ID of the object that this function belongs to. You will find the node IDs in the Attributes pane on the upper right corner in UaExpert.
 

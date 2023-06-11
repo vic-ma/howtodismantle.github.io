@@ -19,7 +19,7 @@ As already mentioned, Shelly is built for private use at home. We should careful
 In this article we will build an app that sends commands to the Shelly Plug S to switch a light on and off. We will use a toggle button on the Peakboard screen and the goal is, that when the app starts, it should already have the correct state representing if the light is on or off. We also show the curent power consumption of the light with a gauge.
 Please note: This will be a direct communication between Peakboard and Shelly, no MQTT, no hub, no cloud....
 
-# The API of the Shelly Plug S
+## The API of the Shelly Plug S
 
 Please refer to the [official documentation](https://shelly-api-docs.shelly.cloud/gen1/#shelly-button1-overviewhttps://www.shelly.cloud/documents/user_guide/shelly_button_1.pdf) for how use the API of the Plug. Here are the three function we're using.
 
@@ -37,13 +37,13 @@ http://<MyShellyPlugIP>//relay/0?turn=off
 
 are used to send commands to turn the power on and off.
 
-# Preparing the canvas
+## Preparing the canvas
 
 We prepare the canvas with a gauge, a big, fat toggle button and a textbox to print out the formatted power consumption value.
 
 ![image](/assets/2023-02-09/010.png)
 
-# Setting the initial stage of the toggle button
+## Setting the initial stage of the toggle button
 
 We start with a simple JSon data source pointing to the status API.
 
@@ -53,7 +53,7 @@ This data source only runs once to set the state of the toggle button. So we add
 
 ![image](/assets/2023-02-09/030.png)
 
-# Processing the power consumption
+## Processing the power consumption
 
 The second data source is executed once per second and calls the same API as the last one. However we use a path to get deeper into the JSon result to read the power consumption according to the API documentation.
 
@@ -67,7 +67,7 @@ And now we can bind the text box and gauge to the output of the dataflow:
 
 ![image](/assets/2023-02-09/050.png)
 
-# Sending on / off commands
+## Sending on / off commands
 
 For sending the on / off commands we prepare two simple JSon sources that point to the two corresponding API calls. As we don't want to fire them without anyone toggling the toggle button, we set both to not enabled.
 
@@ -77,7 +77,7 @@ Finally the toggle button has two events that are relevant for us. One for check
 
 ![image](/assets/2023-02-09/070.png)
 
-# The result
+## The result
 
 Here's how our final application works in real life. Feel free to [download](/assets/2023-02-09/ShellyPlug.pbmx) it.
 

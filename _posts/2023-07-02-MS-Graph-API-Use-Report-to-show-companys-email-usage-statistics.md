@@ -9,7 +9,7 @@ Graph API offers a ton of monitoring reports to give system admins insights on w
 
 Please make sure to read through the basics of using MS Graph API in Peakboard: [MS Graph API - Understand the basis and get started]({% post_url 2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started %})
 
-# Configuring the data source
+## Configuring the data source
 
 The correct URL for the report is 
 
@@ -22,7 +22,7 @@ For the data source we use a _App-only_ Graph extension list that doesn't requir
 
 ![image](/assets/2023-07-02/010.png)
 
-# Getting the data ready
+## Getting the data ready
 
 All the data comes as string data types, so it's hard to to use it in a chart later. We need to add a data flow below the data source to adjust the columns for further usage.
 
@@ -36,7 +36,7 @@ and remove all the useless columns except the data and two numbers we're interes
 
 ![image](/assets/2023-07-02/040.png)
 
-# Building the chart
+## Building the chart
 
 A line and area chart is a good choice to display the data. In that case we go for two series. One for the received emails, and one for the sent emails. X axis is always the date.
 The confirgration is straight forward as we already prepared the data very well. 

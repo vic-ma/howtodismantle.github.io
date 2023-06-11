@@ -17,7 +17,7 @@ Teams is one of the ultimate communication tools in companies. This article expl
 
 Please make sure to read through the basics of using MS Graph API in Peakboard: [MS Graph API - Understand the basis and get started]({% post_url 2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started %})
 
-# Finding the group
+## Finding the group
 
 Later on, we will use an API call to send the message to Teams. For this, we need to know the ID of the group and the ID of the channel where the message should be posted in. The easiest way to get these, is to use the Graph Explorer. So first call this URL to get a list and metadata of all available teams / groups:
 
@@ -29,7 +29,7 @@ Here's the answer from the Graph Explorer. The ID is the first element of each l
 
 ![image](/assets/2023-07-11/010.png)
 
-# Getting the channel
+## Getting the channel
 
 With the help of the group ID, we can build another call to get the channels of a group listed. If you want to do it on your own, don't forget to replace the group ID and use your own:
 
@@ -39,7 +39,7 @@ https://graph.microsoft.com/v1.0/teams/f2f256ca-7d65-410f-8b57-2fa0499e087a/allC
 
 ![image](/assets/2023-07-11/020.png)
 
-# Build the call data source
+## Build the call data source
 
 Now let's switch to the Peakboard side and add a User Function data source from the MS Graph extension to the board. We need to provide Client ID and Tenant ID and get the authentification for the delegated user ready. Please don't forget to add the _ChannelMessage.Send_ permission.
 
@@ -63,7 +63,7 @@ However we want to make a dynamic message that is defined by the end user. That'
 
 ![image](/assets/2023-07-11/030.png)
 
-# Build the actual call
+## Build the actual call
 
 We finally place a text box and a _Send_ button on the canvas. Don't forget to give the text box a proper name (e.g. _MyMessage_) otherwise we can't address it in our code.
 

@@ -10,7 +10,7 @@ Check out the website [opcuaserver.com](http://opcuaserver.com/) to find out mor
 
 FInd the downloadable pbmx [here](/assets/2023-05-15/AirConditionMointoring.pbmx)
 
-### Setting up server connection
+## Setting up server connection
 
 In the Peakboard Designer create a new OPC UA data source.
 

@@ -29,7 +29,7 @@ Here's is our sample in action. BTW: the source is a public OPC UA server, feel 
 
 ![image](/assets/2023-04-10/040.gif)
 
-### Is there even more formatting madness?
+## Is there even more formatting madness?
 
 Yes, there's a lot more you can do to do the formatting of your numbers as perfect as possible.
 The format strings we learned in this article are only a small subset of what is possible. Please check out the [official documentation provided by Microsoft](https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings). All the option are available in Peakboard.
