@@ -8,10 +8,10 @@ layout: base
     </svg>
     <a href="/" class="hover:underline cursor-pointer">{{ site.content.link-back-to-home }}</a>
 </p>
-<h1 class="text-3xl text-gray-900 dark:text-light font-bold prose prose-dismantle max-w-3xl">{{ page.title }}</h1>
+<h1 class="text-3xl text-gray-900 dark:text-light font-bold prose-dismantle max-w-3xl dark:prose-invert">{{ page.title }}</h1>
 <p class="mt-2 text-xs text-gray-900/80 dark:text-light/80">{{ page.date | date_to_long_string }} • {% include reading_time.html content=page.content %}</p>
 
-<div class="mt-8 prose prose-dismantle text-gray-900 dark:text-light">
+<div class="mt-8 prose prose-dismantle text-gray-900 dark:text-light dark:prose-invert">
     {{ content }}
 </div>
 

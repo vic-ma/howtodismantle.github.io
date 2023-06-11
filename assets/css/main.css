@@ -1147,22 +1147,38 @@ select {
 }
 
 .prose-dismantle {
-  --tw-prose-body: #e5e7eb;
-  --tw-prose-headings: #fff;
-  --tw-prose-lead: #d1d5db;
+  --tw-prose-body: #1f2937;
+  --tw-prose-headings: #111827;
+  --tw-prose-lead: #374151;
   --tw-prose-links: #21AFE1;
-  --tw-prose-bold: #fff;
-  --tw-prose-counters: #9ca3af;
-  --tw-prose-bullets: #4b5563;
-  --tw-prose-hr: #374151;
-  --tw-prose-quotes: #f3f4f6;
-  --tw-prose-quote-borders: #374151;
-  --tw-prose-captions: #9ca3af;
-  --tw-prose-code: #fff;
-  --tw-prose-pre-code: #d1d5db;
-  --tw-prose-pre-bg: rgb(0 0 0 / 50%);
-  --tw-prose-th-borders: #4b5563;
-  --tw-prose-td-borders: #374151;
+  --tw-prose-bold: #111827;
+  --tw-prose-counters: #4b5563;
+  --tw-prose-bullets: #9ca3af;
+  --tw-prose-hr: #d1d5db;
+  --tw-prose-quotes: #111827;
+  --tw-prose-quote-borders: #d1d5db;
+  --tw-prose-captions: #374151;
+  --tw-prose-code: #111827;
+  --tw-prose-pre-code: #f3f4f6;
+  --tw-prose-pre-bg: #111827;
+  --tw-prose-th-borders: #d1d5db;
+  --tw-prose-td-borders: #e5e7eb;
+  --tw-prose-invert-body: #e5e7eb;
+  --tw-prose-invert-headings: #fff;
+  --tw-prose-invert-lead: #d1d5db;
+  --tw-prose-invert-links: #21AFE1;
+  --tw-prose-invert-bold: #fff;
+  --tw-prose-invert-counters: #9ca3af;
+  --tw-prose-invert-bullets: #4b5563;
+  --tw-prose-invert-hr: #374151;
+  --tw-prose-invert-quotes: #f3f4f6;
+  --tw-prose-invert-quote-borders: #374151;
+  --tw-prose-invert-captions: #9ca3af;
+  --tw-prose-invert-code: #fff;
+  --tw-prose-invert-pre-code: #d1d5db;
+  --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
+  --tw-prose-invert-th-borders: #4b5563;
+  --tw-prose-invert-td-borders: #374151;
 }
 
 .prose-dismantle :where(strong):not(:where([class~="not-prose"] *)) {
@@ -1551,6 +1567,11 @@ select {
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .text-lg {
@@ -1969,6 +1990,25 @@ select {
 .highlight {
   color: #ECEBE4;
   background-color: #1C1C1C;
+}
+
+:is(.dark .dark\:prose-invert) {
+  --tw-prose-body: var(--tw-prose-invert-body);
+  --tw-prose-headings: var(--tw-prose-invert-headings);
+  --tw-prose-lead: var(--tw-prose-invert-lead);
+  --tw-prose-links: var(--tw-prose-invert-links);
+  --tw-prose-bold: var(--tw-prose-invert-bold);
+  --tw-prose-counters: var(--tw-prose-invert-counters);
+  --tw-prose-bullets: var(--tw-prose-invert-bullets);
+  --tw-prose-hr: var(--tw-prose-invert-hr);
+  --tw-prose-quotes: var(--tw-prose-invert-quotes);
+  --tw-prose-quote-borders: var(--tw-prose-invert-quote-borders);
+  --tw-prose-captions: var(--tw-prose-invert-captions);
+  --tw-prose-code: var(--tw-prose-invert-code);
+  --tw-prose-pre-code: var(--tw-prose-invert-pre-code);
+  --tw-prose-pre-bg: var(--tw-prose-invert-pre-bg);
+  --tw-prose-th-borders: var(--tw-prose-invert-th-borders);
+  --tw-prose-td-borders: var(--tw-prose-invert-td-borders);
 }
 
 .hover\:bg-primary\/70:hover {
