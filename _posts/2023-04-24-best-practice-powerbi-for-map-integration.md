@@ -7,7 +7,7 @@ image: /assets/2023-04-24/title.png
 read_more_links:
   - name: Microsoft Power BI Playground for Newbies
     url: https://playground.powerbi.com/en-us/
-- name: Microsoft Documentation  - Embed a report
+  - name: Microsoft Documentation  - Embed a report
     url: https://learn.microsoft.com/en-us/javascript/api/overview/powerbi/embed-report
 downloads:
   - name: PowerBIMapIntegration.pbmx
