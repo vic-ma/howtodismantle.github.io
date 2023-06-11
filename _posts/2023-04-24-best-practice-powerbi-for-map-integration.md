@@ -9,13 +9,11 @@ read_more_links:
     url: https://playground.powerbi.com/en-us/
 - name: Microsoft Documentation  - Embed a report
     url: https://learn.microsoft.com/en-us/javascript/api/overview/powerbi/embed-report
-  - name: Microsoft Documentation  - Embed a dashboard tile
-    url: https://learn.microsoft.com/en-us/javascript/api/overview/powerbi/embed-dashboard-tile
 downloads:
   - name: PowerBIMapIntegration.pbmx
     url: /assets/2023-04-24/PowerBIMapIntegration.pbmx
 ---
-A lot of people use Peakboard as medium to intgrate Power BI dashboards along with other data and create a dashboard that mashes up both non-Power-BI with Power-BI visuals and data. In today's article we will have a look on how to do that by building a Power BI report with certain elemens, especially a map and later bring exactly this map to be part of Peakbaord canvas.
+A lot of people use Peakboard as a medium to integrate Power BI dashboards along with other data and create a dashboard that mashes up both non-Power-BI with Power-BI visuals and data. In today's article we will have a look on how to do that by building a Power BI report with certain elemens, especially a map and later bring exactly this map to be part of Peakbaord canvas.
 
 ## Building the Power BI report
 
