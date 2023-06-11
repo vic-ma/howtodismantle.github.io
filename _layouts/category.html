@@ -8,7 +8,7 @@ layout: base
     </svg>
     <a href="/" class="hover:underline cursor-pointer">{{ site.content.link-back-to-home }}</a>
 </p>
-<h1 class="text-3xl text-light font-bold">Category: {{ page.title }}</h1>
+<h1 class="text-3xl text-gray-900 dark:text-light font-bold">Category: {{ page.title }}</h1>
 
 <div class="mx-auto mt-8 grid grid-cols-1 gap-12 lg:mx-0 lg:max-w-none md:grid-cols-2 2xl:grid-cols-3">
     {% for tag in site.tags %}
