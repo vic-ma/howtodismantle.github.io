@@ -3,8 +3,6 @@ title: About
 layout: about
 ---
 
-## What is this blog about?
-
 Dear visitor!
 
 It's nice to have you here, but please make sure to understand:
@@ -16,10 +14,3 @@ It's nice to have you here, but please make sure to understand:
 
 Love, Michelle
 
-
-
-## {{ site.content.side-menu-title }}
-{{ site.content.side-menu-text }}
-
-## {{ site.content.side-menu-contact-title }}
-{{ site.content.side-menu-contact-text }}
