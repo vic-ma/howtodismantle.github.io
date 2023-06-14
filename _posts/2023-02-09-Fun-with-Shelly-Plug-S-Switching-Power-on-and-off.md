@@ -75,11 +75,11 @@ For sending the on / off commands we prepare two simple JSon sources that point 
 
 Finally the toggle button has two events that are relevant for us. One for checking, one for unchecking. In both we just reload the JSon source for switching on / off:
 
-![image](/assets/2023-02-09/070.png)
+![image](/assets/2023-02-09/080.png)
 
 ## The result
 
-Here's how our final application works in real life. Feel free to [download](/assets/2023-02-09/ShellyPlug.pbmx) it.
+Here's how our final application works in real life. You see in the video how the power consumption goes up when the light is switched on. Feel free to [download](/assets/2023-02-09/ShellyPlug.pbmx) it.
 
 {% include youtube.html id="n9s4w6S71KU" %}
 
