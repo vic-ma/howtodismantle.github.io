@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to measure the heartbeat of a fridge - Best Practice for handling continious sensors data
-date: 2023-08-02 12:00:00 +0200
+date: 2023-03-01 12:00:00 +0200
 tags: hardware
 image: /assets/2023-08-02/title.jpg
 read_more_links:
