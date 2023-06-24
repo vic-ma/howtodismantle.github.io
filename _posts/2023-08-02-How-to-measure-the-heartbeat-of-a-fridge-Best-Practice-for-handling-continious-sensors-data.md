@@ -1,9 +1,9 @@
 ---
 layout: post
-title: How to measure the heartbeat of a fridge - Best Practice for handling continious sensors data
+title: How to measure the heartbeat of a fridge - Best Practice for handling continious sensor data
 date: 2023-03-01 12:00:00 +0200
 tags: hardware
-image: /assets/2023-08-02/title.jpg
+image: /assets/2023-08-02/title.png
 read_more_links:
   - name: Fun with Shelly Plug S - Switching Power on and off
     url: /Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html
@@ -33,8 +33,8 @@ The next thing we need is just a regular time source to have the current time va
 
 Here's the most important part. The _Refreshed_ script of the JSon data source. It basically consits of two major steps:
 
-1.) Add the latest data point to our local table by using the _power_ element of the JSon output and the timestamp provided by the time source.
-2.) Check if the number of elements in the table. If the number exceeds 1000 the first element (shoich is the oldest) will be deleted.
+1. Add the latest data point to our local table by using the _power_ element of the JSon output and the timestamp provided by the time source.
+2. Check the number of elements in the table. If the number exceeds 1000 the first element (which is the oldest) will be deleted.
 
 ![image](/assets/2023-08-02/030.png)
 
@@ -42,7 +42,7 @@ With this kind of pattern, the local table will always have the last 1000 data p
 
 ## Visualizing the data
 
-For the visualizing part we just use a regular area chart with the power consumption on the y axis. On the right side we see a small table of the last 20 data points and a tile with the current value. Feel free to download the [pbmx](/assets/2023-08-02/FridgePowerConsumptionMonitor.pbmx) to find out more more details.
+For the visualizing part we just use a regular area chart with the power consumption on the y axis. On the right side we see a small table of the last 20 data points and a tile with the current value. Feel free to download the [pbmx](/assets/2023-08-02/FridgePowerConsumptionMonitor.pbmx) to find out more details.
 
 ![image](/assets/2023-08-02/040.png)
 
