@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to build a perfect RFC function module to be used in Peakboard
-date: 2023-03-01 12:00:00 +0200
+date: 2023-06-23 12:00:00 +0200
 tags: sap
 image: /assets/2023-06-23/title.jpg
 ---
