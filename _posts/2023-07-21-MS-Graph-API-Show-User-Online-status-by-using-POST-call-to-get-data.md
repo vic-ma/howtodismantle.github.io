@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MS Graph API - Show User Online status by using POST call to get data
+title: MS Graph API - Show User's Online Status by using A POST call to get data
 date: 2023-03-01 12:00:00 +0200
 tags: msgraph api
 image: /assets/2023-07-21/title.png
