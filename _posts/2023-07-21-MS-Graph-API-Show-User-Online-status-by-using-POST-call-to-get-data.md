@@ -44,15 +44,15 @@ It's not necessary to call for every single user, we just send a list of User ID
 
 ## The implementation
 
-The first source we build is the request for the user list. We don't need to provide the URL for he call, as the user list is built in function of he Graph extension.
+The first source we build is the request for the user list. We don't need to provide the URL for this call, as the user list is a built in function of the Graph extension.
 
 ![image](/assets/2023-07-21/010.png)
 
-The second source is a call with a custom URL (see last paragraph for URL). The trick is: we use a placeholder within the request body, that points to variable called IDs. It holds all the user's ID in the form of "MyFirstUsersID", "MySecondUsersID", etc....
+The second source is a call with a custom URL (see last paragraph for URL). The trick is: we use a placeholder within the request body, that points to variable called IDs. It holds all the user's IDs in the form of "MyFirstUsersID", "MySecondUsersID", etc....
 
 ![image](/assets/2023-07-21/020.png)
 
-So how do we fill this variable with the user IDs? This happens in the _Refereshed_ script of the first data source. You can see in the screenshot, that there's a loop over the user's list. Every ID is wrapped in apostrophes. Unless it's not the last ID, a comma is added to make sure, that the whole string forms a valid JSon.
+So how do we fill this variable with the user IDs? This happens in the _Refereshed_ script of the first data source. You can see in the screenshot, that there's a loop over the users list. Every ID is wrapped in apostrophes. Unless it's not the last ID, a comma is added to make sure, that the whole string forms a valid JSon.
 
 ![image](/assets/2023-07-21/030.png)
 
@@ -60,21 +60,21 @@ The last thing we must do, is to make sure, that the second data source is only 
 
 ![image](/assets/2023-07-21/040.png)
 
-The final magic is done by a dataflow that is added to the secon source. In the first steps we join both sources with the ID.
+The final magic is done by a dataflow that is added to the second source. In the first steps we join both sources with the ID.
 
 ![image](/assets/2023-07-21/050.png)
 
-The we remove all unneccessary clumns except the online status, email adress and of the name of the user.
+The we remove all unnecessary columns except the online status, email adress and of course the name of the user.
 
 ![image](/assets/2023-07-21/060.png)
 
-The last step is filter on all users, that are neither offline nor unknown. That's it!
+The last step is a filter on all users, that are neither offline nor unknown. That's it!
 
 ![image](/assets/2023-07-21/070.png)
 
 Here's the final result:
 
-![image](/assets/2023-07-21/080.gif)
+![image](/assets/2023-07-21/080.png)
 
 
 
