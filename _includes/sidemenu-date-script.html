@@ -9,7 +9,7 @@
   if(archive) {
       const cards = document.querySelectorAll("article[data-date]");
       const cardsLength = cards.length;
-      const monthFound = false;
+      let monthFound = false;
 
       for (let j = 0; j < cardsLength; j++) {
           const card = cards[j];
