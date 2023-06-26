@@ -9,24 +9,16 @@
   if(archive) {
       const cards = document.querySelectorAll("article[data-date]");
       const cardsLength = cards.length;
-      let monthFound = false;
 
       for (let j = 0; j < cardsLength; j++) {
           const card = cards[j];
           const cardDate = card.getAttribute("data-date");
 
           if (cardDate === archive) {
-              monthFound = true;
               card.classList.remove("hidden");
           } else {
               card.classList.add("hidden");
           }
-      }
-
-      if(monthFound) {
-          // make 'all' visible
-          const dateReset = document.querySelector("span[data-reset]");
-          dateReset.parentElement.classList.remove("hidden");
       }
   }
 
@@ -37,10 +29,6 @@
         const isHome = path === "/" || path === "/index.html" || path === "/index";
 
         if(isHome) {
-            // make 'all' visible
-            const dateReset = document.querySelector("span[data-reset]");
-            dateReset.parentElement.classList.remove("hidden");
-
             const dateLinkValue = ev.target.getAttribute("data-date-link");
 
             const cards = document.querySelectorAll("article[data-date]");
@@ -63,18 +51,5 @@
             window.location.href = `/?archive=${dateLinkValue}`;
         }
     }
-  }
-
-  const dateReset = document.querySelector("span[data-reset]");
-  dateReset.onclick = () => {
-    const cards = document.querySelectorAll("article[data-date]");
-    const cardsLength = cards.length;
-
-    for (let j = 0; j < cardsLength; j++) {
-      const card = cards[j];
-      card.classList.remove("hidden");
-    }
-
-    dateReset.parentElement.classList.add("hidden");
   }
 </script>
