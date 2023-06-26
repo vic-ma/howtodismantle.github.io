@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to build a perfect RFC function module to be used in Peakboard
-date: 2023-03-01 12:00:00 +0200
+date: 2023-06-23 12:00:00 +0200
 tags: sap
 image: /assets/2023-06-23/title.jpg
 ---
@@ -32,7 +32,7 @@ Let's have a look at the source code.
 
 ![image](/assets/2023-06-23/050.png)
 
-Here's the complete source code. As you see, the code actually only consists of one single call which is a database query that puts the data right into the return table. In real life, the code might be a little more complicated but this sample already reflects some nice concepts, as the data is already joined from diffeent tables, filtered and aggregated. All in one call. 
+Here's the complete source code. As you see, the code actually only consists of one single call which is a database query that puts the data right into the return table. In real life, the code might be a little more complicated but this sample already reflects some nice concepts, as the data is already joined from different tables, filtered and aggregated. All in one call. 
 
 {% highlight abap %}
 FUNCTION z_pb_delivery_monitor.
