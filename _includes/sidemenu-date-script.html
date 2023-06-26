@@ -9,16 +9,24 @@
   if(archive) {
       const cards = document.querySelectorAll("article[data-date]");
       const cardsLength = cards.length;
+      const monthFound = false;
 
       for (let j = 0; j < cardsLength; j++) {
           const card = cards[j];
           const cardDate = card.getAttribute("data-date");
 
           if (cardDate === archive) {
+              monthFound = true;
               card.classList.remove("hidden");
           } else {
               card.classList.add("hidden");
           }
+      }
+
+      if(monthFound) {
+          // make 'all' visible
+          const dateReset = document.querySelector("span[data-reset]");
+          dateReset.parentElement.classList.remove("hidden");
       }
   }
 
