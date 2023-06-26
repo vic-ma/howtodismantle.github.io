@@ -2,27 +2,58 @@
   const dateLinks = document.querySelectorAll("span[data-date-link]");
   const dateLinksLength = dateLinks.length;
 
-  for (let i = 0; i < dateLinksLength; i++) {
-    dateLinks[i].onclick = (ev) => {
-      // make 'all' visible
-      const dateReset = document.querySelector("span[data-reset]");
-      dateReset.parentElement.classList.remove("hidden");
+  // check if url anchor is set. If so, that's the one to check for data-date on cards
+  const urlParams = new URLSearchParams(window.location.search);
+  const archive = urlParams.get('archive');
 
-      const dateLinkValue = ev.target.getAttribute("data-date-link");
-
+  if(archive) {
       const cards = document.querySelectorAll("article[data-date]");
       const cardsLength = cards.length;
 
       for (let j = 0; j < cardsLength; j++) {
-        const card = cards[j];
-        const cardDate = card.getAttribute("data-date");
+          const card = cards[j];
+          const cardDate = card.getAttribute("data-date");
 
-        if (cardDate === dateLinkValue) {
-          card.classList.remove("hidden");
-        } else {
-          card.classList.add("hidden");
-        }
+          if (cardDate === archive) {
+              card.classList.remove("hidden");
+          } else {
+              card.classList.add("hidden");
+          }
       }
+  }
+
+  for (let i = 0; i < dateLinksLength; i++) {
+    dateLinks[i].onclick = (ev) => {
+        // check if page is home derived from path
+        const path = window.location.pathname;
+        const isHome = path === "/" || path === "/index.html" || path === "/index";
+
+        if(isHome) {
+            // make 'all' visible
+            const dateReset = document.querySelector("span[data-reset]");
+            dateReset.parentElement.classList.remove("hidden");
+
+            const dateLinkValue = ev.target.getAttribute("data-date-link");
+
+            const cards = document.querySelectorAll("article[data-date]");
+            const cardsLength = cards.length;
+
+            for (let j = 0; j < cardsLength; j++) {
+                const card = cards[j];
+                const cardDate = card.getAttribute("data-date");
+
+                if (cardDate === dateLinkValue) {
+                    card.classList.remove("hidden");
+                } else {
+                    card.classList.add("hidden");
+                }
+            }
+
+        } else {
+            // navigate to home with url anchor
+            const dateLinkValue = ev.target.getAttribute("data-date-link");
+            window.location.href = `/?archive=${dateLinkValue}`;
+        }
     }
   }
 

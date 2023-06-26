@@ -15,7 +15,7 @@
             </p>
         {% endfor %}
     </div>
-    {% if page.url == '/' %}
+
         <p class="font-bold text-lg text-gray-900 dark:text-light mb-2">{{ site.content.side-menu-date }}</p>
         <div class="mb-8">
             <p class="hidden text-base font-medium mb-2 text-gray-900 dark:text-light cursor-pointer hover:text-secondary hover:underline">
@@ -37,7 +37,5 @@
               {% endif %}
             {% endfor %}
         </div>
-    {% endif %}
-</div>
 
-{% include sidemenu-date-script.html %}
+</div>
