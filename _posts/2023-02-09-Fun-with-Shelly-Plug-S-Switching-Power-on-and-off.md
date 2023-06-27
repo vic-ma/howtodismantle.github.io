@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fun with Shelly Plug S — Switching Power on and off
+title: Fun with Shelly Plug S - Switching Power on and off
 date: 2023-02-09 12:00:00 +0200
 tags: hardware
 image: /assets/2023-02-09/title.jpg
