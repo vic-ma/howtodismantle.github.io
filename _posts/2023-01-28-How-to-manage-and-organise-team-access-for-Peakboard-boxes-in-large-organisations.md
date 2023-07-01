@@ -7,6 +7,8 @@ image: /assets/2023-01-28/title.png
 read_more_links:
   - name: Peakboard Hub Official Documentation
     url: https://help.peakboard.com/hub/en-hub_connectpbdesigner.html
+  - name: Cool video on YouTube
+    url: https://www.youtube.com/watch?v=E-aYuWoDiEM&ab_channel=Peakboard
 ---
 Depending on the organisation it might be an important question how to manage and organise Peakboard boxes throughout a large organsation, across different teams of content creators, technical admins and physical locations. Of course you don't want to send out box credentials. This article is here to help to understand some basic concepts to address these challenges.
 
