@@ -9,15 +9,15 @@
         </a>
     </div>
     <div class="max-w-xl px-4 py-4">
-        <div class="flex items-center justify-between gap-x-1 text-sm">
-            <p class="text-gray-900/80 dark:text-light/80"><span class="text-xl text-secondary px-1">{</span>{{ include.post.date | date_to_string }}<span class="text-xl text-secondary px-1">}</span><p>
+        <div class="flex flex-wrap items-center justify-between gap-x-1 text-sm">
+            <p class="text-gray-900/80 shrink-0 dark:text-light/80"><span class="text-xl text-secondary px-1">{</span>{{ include.post.date | date_to_string }}<span class="text-xl text-secondary px-1">}</span><p>
             <p class="text-gray-900/80 dark:text-light/80">
-                <span class="text-xl text-secondary px-1">{</span>
+                <span class="text-xl text-secondary pl-1">{</span>
                 {% for tag in include.post.tags %}
                   {% assign tag_page = site.pages | where: 'category', tag | first %}
-                  <a href="/category/{{ tag | slugify }}" class="cursor-pointer hover:underline hover:text-secondary">{{ tag_page.title | truncate: 20 }}</a>{% unless forloop.last %} •{% endunless %}
+                  <a href="/category/{{ tag | slugify }}" class="cursor-pointer hover:underline hover:text-secondary">{{ tag_page.title }}</a>{% unless forloop.last %} •{% endunless %}
                 {% endfor %}
-                <span class="text-xl text-secondary px-1">}</span>
+                <span class="text-xl text-secondary pr-1">}</span>
             </p>
         </div>
         <a href="{{ include.post.url }}" class="group relative">
