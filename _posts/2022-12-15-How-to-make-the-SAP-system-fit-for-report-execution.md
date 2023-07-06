@@ -58,7 +58,8 @@ TEXTELEMENTS	LIKE	TEXTPOOL`
 
 And the excepetion:
 
-`REPORT_NOT_FOUND
+{% highlight abap %}
+REPORT_NOT_FOUND
 LIST_FROM_MEMORY_NOT_FOUND
 LIST_FROM_MEMORY_OTHERS
 LIST_TO_ASCI_EMPTY
@@ -71,7 +72,8 @@ JOB_CLOSE_EXCEPTION
 JOB_OPEN_EXCEPTION
 JOBID_NOT_FOUND_EXCEPTION
 JOBSTATUS_NOT_FOUND_EXCEPTION`
-                              			                     
+{% endhighlight %}
+
 ![image](/assets/2022-12-15/060.png)
 
 For the source code please refer to [this file](/assets/2022-12-15/Z_XTRACT_IS_REMOTE_REPORT.txt).
