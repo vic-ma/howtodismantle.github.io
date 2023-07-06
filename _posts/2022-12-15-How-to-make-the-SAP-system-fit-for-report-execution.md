@@ -30,33 +30,39 @@ Make sure that it's marked as RFC enabled.
 
 Here are the import parameter to be added. Feel free to use copy and paste, so you dont have to type it manually. There might be a warning, that it is not recommended to use LIKE parameters. Just ignore the warning by hitting Enter. 
 
-`PROGRAM_NAME	LIKE	RPY_PROG-PROGNAME	                     
+{% highlight abap %}
+PROGRAM_NAME	LIKE	RPY_PROG-PROGNAME	                     
 ACTIONID	LIKE	RPY_PROG-PROG_TYPE	'0'
 VARIANT	LIKE	AQADEF-VARI	                     
 JOBNAME	LIKE	TBTCJOB-JOBNAME	'XTRACT'
 SPOOLID	LIKE	TSP01-RQIDENT	                     
 JOBCOUNT	LIKE	TBTCP-JOBCOUNT	                     
 SPOOLDESTINATION	LIKE	PRI_PARAMS-PDEST	'LOCL'`
-                              			                     
+{% endhighlight %}
+
 ![image](/assets/2022-12-15/030.png)
 
 Here are the export parameters.
 
-`JOBNUMBER	LIKE	TBTCJOB-JOBCOUNT
+{% highlight abap %}
+JOBNUMBER	LIKE	TBTCJOB-JOBCOUNT
 JOBSPOOLID	LIKE	TBTCP-LISTIDENT
 JOBSTATUS	LIKE	TBTCO-STATUS`
-                              			                     
+{% endhighlight %}
+
 ![image](/assets/2022-12-15/040.png)
 
 And the tables. Please note, that the second parameter refers tothe new DDIC structure.
 
-`SELECTION_TABLE	LIKE	RSPARAMS
+{% highlight abap %}
+SELECTION_TABLE	LIKE	RSPARAMS
 LIST_OUTPUT	LIKE	ZTAB1024
 TEXTELEMENTS	LIKE	TEXTPOOL`
-                              			                     
+{% endhighlight %}
+
 ![image](/assets/2022-12-15/050.png)
 
-And the excepetion:
+And the exceptions:
 
 {% highlight abap %}
 REPORT_NOT_FOUND
