@@ -1,7 +1,7 @@
 ---
 layout: post
 title: MS Graph API - Use Report to show company's email usage statistics
-date: 2023-03-01 12:00:00 +0200
+date: 2023-07-02 12:00:00 +0200
 tags: msgraph
 image: /assets/2023-07-02/060.png
 ---
