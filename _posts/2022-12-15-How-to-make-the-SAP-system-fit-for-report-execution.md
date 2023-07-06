@@ -17,7 +17,7 @@ Feel free to adjust the name of the function module and / or the name of the DDI
 
 ## Setting up the DDIC structure
 
-At first please go to transaction SE11 and create a new DDIC structure wit name ZTAB1024 and one component as shown in the screenshot. Save and activate the object.
+At first please go to transaction SE11 and create a new DDIC structure with name ZTAB1024 and one component as shown in the screenshot. Save and activate the object.
 
 ![image](/assets/2022-12-15/010.png)
 
@@ -52,7 +52,7 @@ JOBSTATUS	LIKE	TBTCO-STATUS`
 
 ![image](/assets/2022-12-15/040.png)
 
-And the tables. Please note, that the second parameter refers tothe new DDIC structure.
+And the tables. Please note, that the second parameter refers to the new DDIC structure.
 
 {% highlight abap %}
 SELECTION_TABLE	LIKE	RSPARAMS
@@ -90,7 +90,7 @@ Finally make sure to save and activate the function module.
 
 ## Use the RFC function in XQL
 
-AFter having succesfully installed the function module you can use within your XQL statements. This sample shows how tocall a simpled report with a variant.
+After having succesfully installed the function module you can use within your XQL statements. This sample shows how to call a simple report with a variant.
 
 {% highlight sql %}
 EXECUTE REPORT 'RLT10010' USING 'VAR01'
