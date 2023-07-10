@@ -23,7 +23,7 @@ Before we begin, we need to know two things: the node ID of the function we want
 
 ![image](/assets/2023-06-01/030.png)
 
-Let's go back to our sample board and add a button to the canvas. Unfortunately (as of June 2023), there's no Building Block available for calling an OPC UA function, so we need to add a line of script. However, it's not too complicated. In the right function helper pane, just browse to `Functions` -> `Publish to external systems` -> `MyOPCDataSource` -> `Call Function`, and drag and drop the line to the editor.
+Let's go back to our sample board and add a button to the canvas. Unfortunately (as of June 2023), there's no Building Block available for calling an OPC UA function, so we need to add a line of script. However, it's not too complicated. In the right function helper pane, just browse to `FUNCTIONS` -> `Publish to external systems` -> `MyAC (OPC UA)` -> `Call method`, and drag and drop the line to the editor.
 
 This script function needs two parameters: the node ID of the object which the function belongs to, and the node ID of the function itself.
 

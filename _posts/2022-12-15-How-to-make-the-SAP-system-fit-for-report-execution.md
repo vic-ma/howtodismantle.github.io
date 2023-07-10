@@ -104,5 +104,5 @@ If you chose to use your own name or namespace, just add the `With-Options` exte
  
 {% highlight sql %}
 EXECUTE REPORT 'RQMELL10' USING 'OFFEN'
-With-Options (CustomFunction = 'Z_MY_REPORT_FUNCTIO
+With-Options (CustomFunction = 'Z_MY_REPORT_FUNCTION')
 {% endhighlight %}
