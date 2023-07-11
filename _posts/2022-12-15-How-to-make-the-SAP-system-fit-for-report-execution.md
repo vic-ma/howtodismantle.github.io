@@ -11,24 +11,26 @@ downloads:
   - name: Z_XTRACT_IS_REMOTE_REPORT.txt
     url: /assets/2022-12-15/Z_XTRACT_IS_REMOTE_REPORT.txt
 ---
-Peakboard supports a lot of different object types you can access in SAP, beside RFC function modules, queries, tables, MDX commands, it's possible to execute and process ABAP reports. For doing so, it's necessary to install a small, generic function module in the SAP system. How to do that is explained in this article. Please make sure to logon to SAP with a user who has development rights and who knows how to install ABAP code. During the process you will need to provide a development class and eventually a transport request to put your new objects into it. If you don't know how to do this, please ask a coworker or google.
+Peakboard supports a lot of different object types that you can access in SAP. Besides RFC function modules, queries, tables, and MDX commands, it is also possible to execute and process ABAP reports. In order to do so, it's necessary to install a small, generic function module in the SAP system. This article explains how to do this.
 
-Feel free to adjust the name of the function module and / or the name of the DDIC stucture to your needs (e.g. according to a company's namespace).
+First, log in to SAP with a user who has development rights and who can install ABAP code. During the process, you will need to provide a development class, and eventually, a transport request to put your new objects in. If you don't know how to do this, please ask a coworker or Google.
+
+Feel free to adjust the name of the function module or the name of the DDIC structure as needed (e.g. according to a company's namespace).
 
 ## Setting up the DDIC structure
 
-At first please go to transaction SE11 and create a new DDIC structure with name ZTAB1024 and one component as shown in the screenshot. Save and activate the object.
+First, go to transaction `SE11`. Create a new DDIC structure with the name `ZTAB1024`, and with one component, as shown in the screenshot. Save and activate the object.
 
 ![image](/assets/2022-12-15/010.png)
 
 ## Setting up the function module
 
-In transaction SE37 or transaction SE80 create a new function module with name Z_XTRACT_IS_REMOTE_REPORT.
-Make sure that it's marked as RFC enabled.
+In transaction `SE37` or transaction `SE80`, create a new function module with the name `Z_XTRACT_IS_REMOTE_REPORT`.
+Make sure that it has RFC enabled.
 
 ![image](/assets/2022-12-15/020.png)
 
-Here are the import parameter to be added. Feel free to use copy and paste, so you dont have to type it manually. There might be a warning, that it is not recommended to use LIKE parameters. Just ignore the warning by hitting Enter. 
+Here are the import parameters to be added. Feel free to just copy and paste them. There may be a warning saying that it is not recommended to use `LIKE` parameters. Just ignore this warning and hit Enter.
 
 {% highlight abap %}
 PROGRAM_NAME	LIKE	RPY_PROG-PROGNAME	                     
@@ -42,7 +44,7 @@ SPOOLDESTINATION	LIKE	PRI_PARAMS-PDEST	'LOCL'`
 
 ![image](/assets/2022-12-15/030.png)
 
-Here are the export parameters.
+Here are the export parameters:
 
 {% highlight abap %}
 JOBNUMBER	LIKE	TBTCJOB-JOBCOUNT
@@ -52,7 +54,7 @@ JOBSTATUS	LIKE	TBTCO-STATUS`
 
 ![image](/assets/2022-12-15/040.png)
 
-And the tables. Please note, that the second parameter refers to the new DDIC structure.
+And here are the tables. Please note that the second parameter refers to the new DDIC structure.
 
 {% highlight abap %}
 SELECTION_TABLE	LIKE	RSPARAMS
@@ -62,7 +64,7 @@ TEXTELEMENTS	LIKE	TEXTPOOL`
 
 ![image](/assets/2022-12-15/050.png)
 
-And the exceptions:
+And here are the exceptions:
 
 {% highlight abap %}
 REPORT_NOT_FOUND
@@ -82,15 +84,15 @@ JOBSTATUS_NOT_FOUND_EXCEPTION`
 
 ![image](/assets/2022-12-15/060.png)
 
-For the source code please refer to [this file](/assets/2022-12-15/Z_XTRACT_IS_REMOTE_REPORT.txt).
+For the source code, please refer to [this file](/assets/2022-12-15/Z_XTRACT_IS_REMOTE_REPORT.txt).
 
 ![image](/assets/2022-12-15/070.png)
 
-Finally make sure to save and activate the function module.
+Finally, make sure to save and activate the function module.
 
 ## Use the RFC function in XQL
 
-After having succesfully installed the function module you can use within your XQL statements. This sample shows how to call a simple report with a variant.
+Now that you've successfully installed the function module, you can use it in your XQL statements. This example shows how you can call a simple report with a variant.
 
 {% highlight sql %}
 EXECUTE REPORT 'RLT10010' USING 'VAR01'
@@ -98,10 +100,9 @@ EXECUTE REPORT 'RLT10010' USING 'VAR01'
 
 ![image](/assets/2022-12-15/080.png)
 
-If you have chosen to use your own name or namespace, just add the WITH-OPTION extension as shown in this sample:
+If you chose to use your own name or namespace, just add the `With-Options` extension, as shown in this example:
  
 {% highlight sql %}
 EXECUTE REPORT 'RQMELL10' USING 'OFFEN'
-With-Options (CustomFunction = 'Z_MY_REPORT_FUNCTIO
+With-Options (CustomFunction = 'Z_MY_REPORT_FUNCTION')
 {% endhighlight %}
-
