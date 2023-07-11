@@ -23,7 +23,7 @@ MDX needs some time to be fully understood. So please feel free to google additi
 
 If you have access to a SAP BW text system the best thing to go ahead with learning MDX is the transaction MDXTEST. Here you type in your MDX statements, execute them right away and get help for metadata (dimensions) of the sube you want to query. The picture shows MDXTEST with the cube 0D_DECU (on the pane). It's a sales demo cube provided by SAP and it is ideal for playing around.
 
-![image](/assets/2022-01-10/010.png)
+![image](/assets/2023-01-10/010.png)
 
 The basic structure of an MDX statement is similar to a SQL statement. Here is the general format:
 
@@ -66,7 +66,7 @@ FROM
 
 This is how it looks like in the result window of MDXTEST. As you see, not only the dedicated Company Codes are shown in the rows, but also the sum of all Comapny Codes (first row). And also a line indicating the sales transactions without company code (indicated by the #, sum is 0 in that case).
 
-![image](/assets/2022-01-10/020.png)
+![image](/assets/2023-01-10/020.png)
 
 Let's try a small variation. As you see in the ON ROWS section we only select a so called data tuple; just two company codes 1000 and 2000.
 
@@ -86,7 +86,7 @@ FROM
 
 This makes the sresultset limit on these two rows:
 
-![image](/assets/2022-01-10/030.png)
+![image](/assets/2023-01-10/030.png)
 
 ## Doing MDX in Peakboard
 
@@ -110,13 +110,13 @@ FROM
   [$0D_DECU] |;
 {% endhighlight %}
 
-![image](/assets/2022-01-10/040.png)
+![image](/assets/2023-01-10/040.png)
 
 For creating dynamics MDX statements, feel free to use variables. This sample shows how to inject a dynamic Comapny Code.
 
-![image](/assets/2022-01-10/050.png)
+![image](/assets/2023-01-10/050.png)
 
 Finally here's the result of the two initial statements (one for all Company Codes, one for limited Company Codes). The column captions and the formatting is applied make the tables to look nicer.
 
-![image](/assets/2022-01-10/060.png)
+![image](/assets/2023-01-10/060.png)
 
