@@ -1,7 +1,7 @@
 ---
 layout: post
 title: MS Graph API - Send messages to Teams group
-date: 2023-03-01 12:00:00 +0200
+date: 2023-07-11 12:00:00 +0200
 tags: msgraph
 image: /assets/2023-07-11/title.png
 read_more_links:
