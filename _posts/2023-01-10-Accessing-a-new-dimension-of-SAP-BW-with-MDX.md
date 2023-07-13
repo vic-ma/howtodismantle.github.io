@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Accessing a new dimension of SAP BW with MDX
-date: 2022-01-10 12:00:00 +0200
+date: 2023-01-10 12:00:00 +0200
 tags: sap
 image: /assets/2023-01-10/title.png
 read_more_links:
