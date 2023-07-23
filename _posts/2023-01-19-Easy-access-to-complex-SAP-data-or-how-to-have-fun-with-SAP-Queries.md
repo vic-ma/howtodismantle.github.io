@@ -10,15 +10,16 @@ read_more_links:
   - name: How to build a perfect RFC function module to use in Peakboard
     url: /SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html
 ---
-SAP Queries can be seen as very early version of what we call Self Service Business Intellence. In this article we cover some basic information about SAP Queries and how to use them in Peakboard.
+SAP Queries can be seen as very early version of what we call Self Service Business Intelligence. In this article we cover some basic information about SAP Queries and how to use them in Peakboard.
+One important information before we start: There's no installation necessary in SAP. You only need an RFC user to access the system with enough rights to execute a query. That's it!
 
 ## The 1 minute crash course
 
-The query it self is created and maintained in transaction SQ01. The basis behind the Query can be a simple table, a table join or a so called logical database. A logical database can be seen as some kind hierachical, predefined table join for a certain topic (e.g. Material Movements). Most queries depend on table joins. In transaction SQ01 you can select a query and just execute it right away in the SAP GUI. It's important to exactly understand what the query is doing and how the selection works before using it in Peakboard.
+The query itself is created and maintained in transaction SQ01. The basis behind the Query can be a simple table, a table join or a so called logical database. A logical database can be seen as some kind of hierachical, predefined table join for a certain topic (e.g. Material Movements). Most queries depend on table joins. In transaction SQ01 you can select a query and just execute it right away in the SAP GUI. It's important to exactly understand what the query is doing and how the selection works before using it in Peakboard.
 
 ![image](/assets/2023-01-19/010.png)
 
-When a query is executed, you can first see a Selection Screen similiar to a traditonal SAP report. Fill in some useful selection values, then execute it and feel free to store your selection as a variant (we might need it later to make life easier in the Peakboard side).
+When a query is executed, you can first see a Selection Screen similiar to a traditional SAP report. Fill in some useful selection values, then execute it and feel free to store your selection as a variant (we might need it later to make life easier on the Peakboard side).
 
 ![image](/assets/2023-01-19/020.png)
 
@@ -34,11 +35,11 @@ We need to understand some terms before we move one. As you already saw in the f
 
 ### User Groups
 
-User Groups are some kind of container to organize queries and infoset. The term might be a bit misleading. We often find User Groups for certain topics like Material Management, Logistics, Planning.... but it depends on how the company is organising itself. There's no general rule. In our sample the User Group is called /SAPQUERY/MB. The SAPQUERY is just a namespace and MB stands for Material Management.
+User Groups are some kind of container to organize queries and infosets. The term might be a bit misleading. We often find User Groups for certain topics like Material Management, Logistics, Planning.... but it depends on how the company is organising itself. There's no general rule. In our sample the User Group is called /SAPQUERY/MB. The SAPQUERY is just a namespace and MB stands for Material Management.
 
 ### Infoset
 
-The idea of an Infoset is to separate the data aquisiation and how it's presented ot the user. In our example the Infoset is called /SAPQUERY/MEVL31 and it's just a table join on certain Puchase document tables. Our sample query MWVL31 is using this infoset to aquire the data. So when you see the sslection screen or the output, you actually see the query. But what happens in the background is done by the infoset. Of course it makes sense that multiple queries share one infoset as they just present different views on the same infoset.
+The idea of an Infoset is to separate the data aquisiation from how it's presented ot the user. In our example the Infoset is called /SAPQUERY/MEVL31 and it's just a table join on certain Puchase document tables. Our sample query MEVL31 is using this infoset to aquire the data. So when you see the selection screen or the output, you actually see the query. But what happens in the background is done by the infoset. Of course it makes sense that multiple queries share one infoset as they just present different views on the same infoset.
 
 ### Area
 
@@ -66,7 +67,7 @@ Here's the screenshot with our sample data:
 
 ![image](/assets/2023-01-19/050.png)
 
-It's very good idea to use variants for complex selections, because it makes the XQL statement super easy to build and understand. However in some situations it might be useful NOT to use a variant but fill the select option in the statement.
+It's very good idea to use variants for complex selections, because it makes the XQL statement super easy to build and understand. However in some situations it might be useful NOT to use a variant but fill the select option in the statement like this:
 
 {% highlight SQL %}
 SELECT * FROM QUERY 'A|B|C' WHERE CRIT1, CRIT2
