@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Easy access to complex SAP data: How to have fun with SAP Queries
+title: Easy access to complex SAP data - How to have fun with SAP Queries
 date: 2023-01-19 12:00:00 +0200
 tags: sap
 image: /assets/2023-01-19/title.png
