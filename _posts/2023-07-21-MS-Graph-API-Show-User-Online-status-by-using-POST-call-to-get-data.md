@@ -19,7 +19,7 @@ Please make sure to read through the basics of using MS Graph API in Peakboard: 
 
 ## The calls
 
-For this use case, we two different API calls.
+For this use case, we have two different API calls.
 
 The first one lists all the users of a tenant, regardless of if they are humans or not, and regardless of if they are online or offline. Every user has an ID—or to be more precise—a GUID. We will need them in the second call.
 
