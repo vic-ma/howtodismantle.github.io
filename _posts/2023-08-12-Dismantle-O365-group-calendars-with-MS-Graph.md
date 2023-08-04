@@ -1,7 +1,7 @@
 ---
 layout: post
 title: MS Graph API - Dismantle O365 group calendars with MS Graph
-date: 2023-08-12 03:00:00 +0200
+date: 2023-03-01 03:00:00 +0200
 tags: msgraph api
 image: /assets/2023-08-12/title.png
 read_more_links:
