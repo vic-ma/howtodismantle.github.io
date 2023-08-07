@@ -13,25 +13,29 @@ downloads:
   - name: GraphSendMessageToTeamsGroup.pbmx
     url: /assets/2023-07-11/GraphSendMessageToTeamsGroup.pbmx
 ---
-Teams is one of the ultimate communication tools in companies. This article explains how to send a Teams message from a Peakboard application by using the MS Graph API.
+Teams is one of the best communication tools for companies. This article explains how to send a Teams message from a Peakboard application using the MS Graph API.
 
 Please make sure to read through the basics of using MS Graph API in Peakboard: [MS Graph API - Understand the basis and get started]({% post_url 2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started %})
 
-## Finding the group
+## Finding the group ID and channel ID
 
-Later on, we will use an API call to send the message to Teams. For this, we need to know the ID of the group and the ID of the channel where the message should be posted in. The easiest way to get these, is to use the Graph Explorer. So first call this URL to get a list and metadata of all available teams / groups:
+We will later use an API call to send the message to Teams. For this API call, we will need to know the ID of the group and the ID of the channel where the message should be posted in. The easiest way to get these is to use the MS Graph Explorer.
+
+### Group ID
+
+First, call this endpoint to get a list and metadata of all available teams and groups:
 
 {% highlight url %}
 https://graph.microsoft.com/v1.0/groups
 {% endhighlight %}
 
-Here's the answer from the Graph Explorer. The ID is the first element of each list entry.
+Here's the response from the Graph Explorer. The ID is the first element of each list entry.
 
 ![image](/assets/2023-07-11/010.png)
 
-## Getting the channel
+### Channel ID
 
-With the help of the group ID, we can build another call to get the channels of a group listed. If you want to do it on your own, don't forget to replace the group ID and use your own:
+With the help of the group ID, we can build another call to list the channels of a group. If you want to do this yourself, don't forget to replace the group ID with your own:
 
 {% highlight url %}
 https://graph.microsoft.com/v1.0/teams/f2f256ca-7d65-410f-8b57-2fa0499e087a/allChannels
@@ -41,15 +45,15 @@ https://graph.microsoft.com/v1.0/teams/f2f256ca-7d65-410f-8b57-2fa0499e087a/allC
 
 ## Build the call data source
 
-Now let's switch to the Peakboard side and add a User Function data source from the MS Graph extension to the board. We need to provide Client ID and Tenant ID and get the authentification for the delegated user ready. Please don't forget to add the _ChannelMessage.Send_ permission.
+Now let's switch to the Peakboard side and add a _User Function_ data source from the MS Graph extension to the board. We need to provide the Client ID and Tenant ID. We also need to get the authentication for the delegated user ready. Please don't forget to add the `ChannelMessage.Send` permission.
 
-Then we click on _Add function_ to add a function to this URL. As you see, we must provide the group ID and channel ID within the URL.
+Then, we click on _Add function_ to add a function to this URL. As you can see, we must provide the group ID and channel ID within the URL.
 
 {% highlight url %}
 https://graph.microsoft.com/v1.0/teams/f2f256ca-7d65-410f-8b57-2fa0499e087a/channels/19:3f11d999d7674dc78fbad32e242869bc@thread.tacv2/messages
 {% endhighlight %}
 
-The actual message is sent in a JSon formatted body. It must looks like this sample (feel free to check Microsoft's [documentation](https://learn.microsoft.com/en-us/graph/api/channel-post-messages?view=graph-rest-1.0&tabs=http)).
+The actual message is sent in a JSON formatted body. It must look like this sample (feel free to check Microsoft's [documentation](https://learn.microsoft.com/en-us/graph/api/channel-post-messages?view=graph-rest-1.0&tabs=http)).
 
 {% highlight json %}
 {
@@ -59,24 +63,20 @@ The actual message is sent in a JSon formatted body. It must looks like this sam
 }
 {% endhighlight %}
 
-However we want to make a dynamic message that is defined by the end user. That's why we replace the actual message with a variable $s_message$. How to use this variable, we learn in the next step.
+However, we want to make a dynamic message that is defined by the end user. That's why we replace the actual message with a variable `$s_message$`. In the next step, we learn how to use this variable.
 
 ![image](/assets/2023-07-11/030.png)
 
 ## Build the actual call
 
-We finally place a text box and a _Send_ button on the canvas. Don't forget to give the text box a proper name (e.g. _MyMessage_) otherwise we can't address it in our code.
+Finally, we place a text box and a _Send_ button on the canvas. Don't forget to give the text box a proper name (e.g. `MyMessage`). Otherwise, we can't address it in our code.
 
 ![image](/assets/2023-07-11/040.png)
 
-Here are the Building Blocks behind the button. The Graph function can be found on the right side and dragged on the BB canvas. Because of the variable we placed in the JSon body of the Graph call earlier, the signature of the function can be easily accessed. Just drag and drop the text box to the _message_ parameter of the function call. That's it....
+Here are the Building Blocks behind the button. The Graph function can be found on the right side and dragged onto the BB canvas. Because of the variable we placed in the JSON body of the Graph call earlier, the signature of the function can be easily accessed. Just drag and drop the text box to the `message` parameter of the function call. That's it.
 
 ![image](/assets/2023-07-11/050.png)
 
 Here's the final result:
 
 ![image](/assets/2023-07-11/060.gif)
-
-
-
-
