@@ -13,7 +13,7 @@ downloads:
 ---
 As by fall 2023 there's a new version of the Peakboard Edge Box released. Version 1 dated back to 2019 and only allows very simple sensors with a on/off option (e.g. light sensors). Edge 2 allows fully supports analoque sensors that operate in a certain range. This article covers a step-by-step guide on how to setup a Edge 2 box and use a humidity and temperature sensor to display these two values in a Peakboard application. 
 
-The sensor we use in this sample can be found at [Amanzon](https://www.amazon.de/Feuchtesensor-0-10V-2-Bodentemperatur-Bodenfeuchtesensor-Sender/dp/B082DJ6F9J/ref=sr_1_30?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=B8RQX4B0GNT7&keywords=feuchtesensor+24v&qid=1683540626&sprefix=feuchtesensor+24v%2Caps%2C92&sr=8-30). But any sensor of the same kind will do it. They all work in the same way and follow the same pattern.
+The sensor we use in this sample can be found at [Amazon](https://www.amazon.de/Feuchtesensor-0-10V-2-Bodentemperatur-Bodenfeuchtesensor-Sender/dp/B082DJ6F9J/ref=sr_1_30?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=B8RQX4B0GNT7&keywords=feuchtesensor+24v&qid=1683540626&sprefix=feuchtesensor+24v%2Caps%2C92&sr=8-30). But any sensor of the same kind will do it. They all work in the same way and follow the same pattern.
 
 Here's how the sensors looks like after unpacking:
 
