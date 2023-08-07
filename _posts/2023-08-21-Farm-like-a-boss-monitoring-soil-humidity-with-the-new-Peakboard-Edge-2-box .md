@@ -5,7 +5,7 @@ date: 2023-03-01 12:00:00 +0200
 tags: hardware
 image: /assets/2022-08-21/title.png
 read_more_links:
-  - name: The sonsor of this article at Amazon (Germany)
+  - name: The sensor used in this article at Amazon (Germany)
     url: https://www.amazon.de/Feuchtesensor-0-10V-2-Bodentemperatur-Bodenfeuchtesensor-Sender/dp/B082DJ6F9J/ref=sr_1_30?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=B8RQX4B0GNT7&keywords=feuchtesensor+24v&qid=1683540626&sprefix=feuchtesensor+24v%2Caps%2C92&sr=8-30
 downloads:
   - name: EdgePlantMonitoring.pbmx
