@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Peakboard Hub Online - An introduction for complete beginners
-date: 2023-08-10 12:00:00 +0200
+date: 2023-03-01 12:00:00 +0200
 tags: peakboardhub
-image: /assets/2023-08-10/title.png
+image: /assets/2023-09-05/title.png
 read_more_links:
   - name: Try Peakboard Hub Online
     url: https://hub.peakboard.com
@@ -29,7 +29,7 @@ Another difference is that Peakboard Hub Online is included in a Peakboard Box s
 
 Take a look at this chart from [Peakboard's website](https://peakboard.com/en/product/peakboard-hub/) for more information:
 
-![image](/assets/2023-08-10/010.png)
+![image](/assets/2023-09-05/010.png)
 {% endcomment %}
 
 
@@ -38,10 +38,10 @@ Take a look at this chart from [Peakboard's website](https://peakboard.com/en/pr
 1. Go to [hub.peakboard.com](https://hub.peakboard.com/) and log in.
 
 2. Get your user group key.
-![image](/assets/2023-08-10/020.png)
+![image](/assets/2023-09-05/020.png)
 
 3. Open Peakboard Designer. Click the Peakboard Hub button on the menu bar. Then, set the type to *Online*. Enter your user group key. Finally, click *Connect*.
-![image](/assets/2023-08-10/021.png)
+![image](/assets/2023-09-05/021.png)
 
 4. Click *Synchronize*.
 
@@ -56,7 +56,7 @@ You can connect **Peakboard Boxes** to Peakboard Hub Online. This lets you manag
 
 With a connected Peakboard Box, you can do things like change its network settings, view its current dashboard, monitor its resource usage, and much more.
 
-![image](/assets/2023-08-10/024.png)
+![image](/assets/2023-09-05/024.png)
 
 
 ## Connections
@@ -69,7 +69,7 @@ Connections make it convenient to create multiple data sources that rely on the 
 
 Here, I use a connection to fill out information for an SAP data source, in Peakboard Designer:
 
-![image](/assets/2023-08-10/022.png)
+![image](/assets/2023-09-05/022.png)
 
 
 ## Lists
@@ -82,7 +82,7 @@ A Peakboard Box can modify a list by adding a script that modifies the list.
 
 Here's what a list looks like in Peakboard Hub Online:
 
-![image](/assets/2023-08-10/025.png)
+![image](/assets/2023-09-05/025.png)
 
 
 ## Alerts
@@ -91,7 +91,7 @@ Peakboard Boxes can send **alerts** to Peakboard Hub Online. An alert is a notif
 
 Peakboard Boxes can send alerts with a script. In Peakboard Hub Online, you can view all your alerts. You can also choose to receive new alerts by email.
 
-![image](/assets/2023-08-10/023.png)
+![image](/assets/2023-09-05/023.png)
 
 
 ## Organizations and user groups
@@ -104,4 +104,4 @@ For example, let's say John Doe works for Acme Corporation, on the American team
 
 The purpose of user groups is to provide access control for Peakboard Boxes, connections, and lists.
 
-![image](/assets/2023-08-10/030.png)
+![image](/assets/2023-09-05/030.png)
