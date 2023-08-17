@@ -11,11 +11,11 @@ downloads:
   - name: MatomoBoard.pbmx (API Token is removed)
     url: /assets/2023-08-29/MatomoBoard.pbmx
 ---
-Beside Google Analytics, Matomo is the gold standard when it comes to tracking and analyzing visitosr on a website. This article covers a short introduction on the Matomo Reporting API which allows to access the analytics data through different layers of aggregation. The best way to access these data is by using the XML data source in Peakboard. So we will covers some basics around this as well.
+Beside Google Analytics, Matomo is the gold standard when it comes to tracking and analyzing visitors on a website. This article covers a short introduction on the Matomo Reporting API which allows to access the analytics data through different layers of aggregation. The best way to access these data is by using the XML data source in Peakboard. So we will cover some basics around this as well.
 
 ## Matomo backend
 
-For the API calls we will need an API token. You need to be an Matomo administrator to issue one. In the Matomo backend just goto to Administration -> Personal -> Security and scroll down ot the bottom of the page. Here you can issue a new token just by providing a small description. Store the token somewhere for later use.
+For the API calls we will need an API token. You need to be a Matomo administrator to issue one. In the Matomo backend just goto to Administration -> Personal -> Security and scroll down ot the bottom of the page. Here you can issue a new token just by providing a small description. Store the token somewhere for later use.
 
 ![image](/assets/2023-08-29/010.png)
 
@@ -69,7 +69,7 @@ Here's the sample XML:
 
 ## Building the data source in Peakboard Designer
 
-In Peakboard Designer we will process the data with a simple XML data source. The folowing screenshot shows the first call. The trick is to determine the right path value to find the data you're interested in within the XML data. Just press the value help button for the path. You can navigate though the XML hierarchy and select the right branch and the values you're interested in...
+In Peakboard Designer we will process the data with a simple XML data source. The following screenshot shows the first call. The trick is to determine the right path value to find the data you're interested in within the XML data. Just press the value help button for the path. You can navigate though the XML hierarchy and select the right branch and the values you're interested in...
 
 ![image](/assets/2023-08-29/030.png)
 
@@ -77,7 +77,7 @@ In Peakboard Designer we will process the data with a simple XML data source. Th
 
 ![image](/assets/2023-08-29/040.png)
 
-We do the same forthe second call:
+We do the same for the second call:
 
 ![image](/assets/2023-08-29/050.png)
 
