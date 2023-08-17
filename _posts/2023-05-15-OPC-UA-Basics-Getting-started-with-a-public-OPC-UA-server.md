@@ -16,7 +16,7 @@ In the Peakboard Designer, create a new OPC UA data source.
 
 ![image](/assets/2023-05-15/010.png)
 
-Enter a name and the URL mentioned above (`opc.tcp://opcuaserver.com:48010`), and click on the recycle button to get the endpoints. Why are there several endpoints? Because the server offers different types of security. You can use it with or without authentication, and with different levels of encryption. We use the simplest, which is just "None," and we also leave the authentication setting on "Anonymous."
+Enter a name and the URL mentioned above (`opc.tcp://opcuaserver.com:48010`), and click on the refresh button to get the endpoints. Why are there several endpoints? Because the server offers different types of security. You can use it with or without authentication, and with different levels of encryption. We use the simplest, which is just "None," and we also leave the authentication setting on "Anonymous."
 
 ![image](/assets/2023-05-15/020.png)
 
