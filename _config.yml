@@ -48,3 +48,4 @@ exclude:
   - package-lock.json
   - postcss.config.js
   - tailwind.config.js
+  - google8190dc559f0c8f12.html
