@@ -20,7 +20,7 @@ What sensor data will we use? We will use the data from an air conditioner, whic
 
 ## Create a data source for our sensor data
 
-In Peakboard Designer, we add a new OPC UA data source for our sensor data.
+In Peakboard Designer, we add a new OPC UA data source for our sensor data, called `AirConditionerData`.
 
 We subscribe to these three nodes:
 * `Temperature`, the current ambient temperature
@@ -43,7 +43,7 @@ We add columns that correspond to the nodes of our sensor data. For our `PowerCo
 
 ## Create a data source for our PBHO list
 
-In Peakboard Designer, we add a new PBHO list data source. Our Peakboard Box will use this data source to read from our PBHO list.
+In Peakboard Designer, we add a new PBHO list data source called `AirConditionerLogs`. Our Peakboard Box will use this data source to read from our PBHO list.
 
 ![image](/assets/2023-09-20/030.png)
 
@@ -53,7 +53,8 @@ Here's how we set up this data source:
 2. We select the empty list that we created in the previous section.
 3. We select `ID` as the column we sort our data by. Each entry in the list is automatically assigned an `ID`, which is just an auto-increment counter.
 4. We deselect *Ascending order*, in order to sort our data in descending order. This sorts the data from highest `ID` to lowest, meaning the newest entries will show up first.
-5. We click *Load data* in the Preview window, to load our empty PBHO list.
+5. We limit the data we read to the 10 newest rows, because our table control won't show more than 10 rows, and we don't want to download the entire PBHO list, which can grow quite large.
+6. We click *Load data* in the Preview window, to load our empty PBHO list.
 
 Because we will eventually reload this list with a script, we can disable reloading. But this is not essential and does not make much of a difference.
 
@@ -64,7 +65,7 @@ Because we will eventually reload this list with a script, we can disable reload
 
 We have a data source for both our sensor data and our PBHO list. Now we can create a script that writes the sensor data to the PBHO list. Each time new sensor data comes in, this script will write that data to the PBHO list.
 
-First, we add a new refreshed script to our OPC UA data source. A refreshed script executes each time a data source refreshes (i.e. gets new data).
+First, we add a new refreshed script to `AirConditionerData`. This script will execute each time a data source refreshes (i.e. gets new data).
 
 ![image](/assets/2023-09-20/050.png)
 
@@ -74,14 +75,28 @@ Here is the script that we create:
 
 The root block adds a row to the end of the PBHO list. It come from *FUNCTIONS* > *Publish to external systems* > *Peakboard Hub* > *Add row at end*.
 
-We fill the columns of our row with data from our OPC UA data source. We get our `IsCooling` column by checking if the `PowerConsumption` is zero or not.
+We fill the columns of our row with data from `AirConditionerData`. We get our `IsCooling` column by checking if the `PowerConsumption` is zero or not.
 
 Finally, we reload our PBHO list, so that the control in our dashboard updates.
 
 We will also uncheck the *Execute only if data changed* box. That's because we want to record all sensor data, even if it does not change from the last one.
 
-![image](/assets/2023-09-20/060.png)
+![image](/assets/2023-09-20/070.png)
 
 
-re-add refresh script for analysis
+## Add tables for visualization
+
+Now, we add two table controls: one for `AirConditionerData`, and one for `AirConditionerLogs`.
+
+We can see that as new data comes in, it gets written to the PBHO list, and we read the updated PBHO list.
+
+![image](/assets/2023-09-20/080.gif)
+
+
+## Select from PBHO list with SQL
+
+In our `AirConditionerLogs` data source, we chose to read every column and every row from the PBHO list. In other words, `AirConditionerLogs` downloads the entire PBHO list into the Peakboard Box.
+
+
+re-add refresh script for analysis"dont for get to. . ."
 
