@@ -18,7 +18,7 @@ In this article, we will learn how to write sensor data to a list in [Peakboard 
 
 What sensor data will we use? We will use the data from an air conditioner, which comes from a public OPC UA server. See [this article](/OPC-UA-Basics-Getting-started-with-a-public-OPC-UA-server.html) to learn the basics of reading from an OPC UA server in Peakboard.
 
-## Adding a data source for our sensor data
+## Create a data source for our sensor data
 
 In Peakboard Designer, we add a new OPC UA data source for our sensor data.
 
@@ -32,16 +32,16 @@ Finally, we change the polling rate to 5 seconds, to slow it down a bit.
 ![image](/assets/2023-09-20/010.png)
 
 
-## Creating a new list in PBHO
+## Create a new list in PBHO
 
 In PBHO, we create an empty list. We will write our sensor data to this list.
 
-We add columns that correspond to the nodes of our sensor data.
+We add columns that correspond to the nodes of our sensor data. For our `PowerConsumption` node, we will use a boolean that says if the air conditioner is actively cooling or not.
 
 ![image](/assets/2023-09-20/020.png)
 
 
-## Creating a data source for our PBHO list
+## Create a data source for our PBHO list
 
 In Peakboard Designer, we add a new PBHO list data source. Our Peakboard Box will use this data source to read from our PBHO list.
 
@@ -50,12 +50,38 @@ In Peakboard Designer, we add a new PBHO list data source. Our Peakboard Box wil
 Here's how we set up this data source:
 
 1. We click *Load lists* to get the lists that are available in PBHO.
-2. We select the new list that we created in the previous section.
-3. We sort by the column `ID`. Each entry in the list is automatically assigned an `ID`, which is just an incremental counter.
-4. We deselect *Ascending order*, because we want the newest entries to appear first. This sorts the table from highest `ID` to lowest.
+2. We select the empty list that we created in the previous section.
+3. We select `ID` as the column we sort our data by. Each entry in the list is automatically assigned an `ID`, which is just an auto-increment counter.
+4. We deselect *Ascending order*, in order to sort our data in descending order. This sorts the data from highest `ID` to lowest, meaning the newest entries will show up first.
 5. We click *Load data* in the Preview window, to load our empty PBHO list.
 
 Because we will eventually reload this list with a script, we can disable reloading. But this is not essential and does not make much of a difference.
 
 ![image](/assets/2023-09-20/040.png)
+
+
+## Create a script that writes to our PBHO list
+
+We have a data source for both our sensor data and our PBHO list. Now we can create a script that writes the sensor data to the PBHO list. Each time new sensor data comes in, this script will write that data to the PBHO list.
+
+First, we add a new refreshed script to our OPC UA data source. A refreshed script executes each time a data source refreshes (i.e. gets new data).
+
+![image](/assets/2023-09-20/050.png)
+
+Here is the script that we create:
+
+![image](/assets/2023-09-20/060.png)
+
+The root block adds a row to the end of the PBHO list. It come from *FUNCTIONS* > *Publish to external systems* > *Peakboard Hub* > *Add row at end*.
+
+We fill the columns of our row with data from our OPC UA data source. We get our `IsCooling` column by checking if the `PowerConsumption` is zero or not.
+
+Finally, we reload our PBHO list, so that the control in our dashboard updates.
+
+We will also uncheck the *Execute only if data changed* box. That's because we want to record all sensor data, even if it does not change from the last one.
+
+![image](/assets/2023-09-20/060.png)
+
+
+re-add refresh script for analysis
 
