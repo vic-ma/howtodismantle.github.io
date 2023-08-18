@@ -95,8 +95,32 @@ We can see that as new data comes in, it gets written to the PBHO list, and we r
 
 ## Select from PBHO list with SQL
 
-In our `AirConditionerLogs` data source, we chose to read every column and every row from the PBHO list. In other words, `AirConditionerLogs` downloads the entire PBHO list into the Peakboard Box.
+### The problem
 
+Let's say we want to do some data aggregation on our PBHO list: we want to get the minimum, maximum, and average temperature recorded by the air conditioner. And we want to calculate this for all the data in the PBHO list, not just the last 10 rows. How can we do this?
 
-re-add refresh script for analysis"dont for get to. . ."
+One way is to remove the row limit we had in `AirConditionerLogs`. That way, the entire data set would be downloaded. We could then create a script that aggregates the data.
 
+But that requires downloading the entire PBHO list, which can be quite large. It also requires the Peakboard Box to do the calculation on that large data set. Neither of these things are too desirable.
+
+### The Solution
+
+Instead, let's have PBHO do the calculation for us, and just give us the answers. That way, our Peakboard Box only downloads three numbers, and it doesn't have to do any of the calculations itself.
+
+So, we create a new PBHO list data source called `AirConditionerLogsAnalysis`. We click *Load lists*, like before. But this time, we will click *Select with SQL* and enter the following SQL SELECT statement:
+
+{% highlight sql %}
+SELECT ROUND(AVG(Temperature), 2) AS AvgTemp, MAX(Temperature) AS MaxTemp, MIN(Temperature) AS MinTemp FROM AirConditionerLogs
+{% endhighlight %}
+
+The table name is the name of our PBHO list: `AirConditionerLogs`.
+
+![image](/assets/2023-09-20/090.gif)
+
+We also need to add a refresh block that refreshes `AirConditionerLogsAnalysis` to the script we created before.
+
+Finally, we will add a table control to display `AirConditionerLogsAnalysis`.
+
+Here's what the finished product looks like:
+
+![image](/assets/2023-09-20/100.gif)
