@@ -115,16 +115,20 @@ Luckily, we can have PBHO do the data aggregation for us, and just give us the r
 We create a new PBHO list data source called `AirConditionerLogsAnalysis`. We click *Load lists*, like before. But this time, we will click *Select with SQL* and enter the following SQL SELECT statement:
 
 {% highlight sql %}
-SELECT ROUND(AVG(Temperature), 2) AS AvgTemp, MAX(Temperature) AS MaxTemp, MIN(Temperature) AS MinTemp FROM AirConditionerLogs
+SELECT
+  ROUND(AVG(Temperature), 2) AS AvgTemp,
+  MAX(Temperature) AS MaxTemp,
+  MIN(Temperature) AS MinTemp
+FROM
+  AirConditionerLogs
 {% endhighlight %}
 
 The table name is the name of our PBHO list: `AirConditionerLogs`.
 
 ![image](/assets/2023-09-20/090.png)
 
-We also need to have our script from before refresh `AirConditionerLogsAnalysis`.
+We also need to have our script from before reload `AirConditionerLogsAnalysis`.
 
 Here's what the finished product looks like:
 
 ![image](/assets/2023-09-20/100.png)
-
