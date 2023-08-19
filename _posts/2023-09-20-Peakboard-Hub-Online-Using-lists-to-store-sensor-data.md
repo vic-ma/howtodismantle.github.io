@@ -76,11 +76,9 @@ Here is the script that we create:
 
 ![image](/assets/2023-09-20/060.png)
 
-The main building block adds a row to the end of our PBHO list. It come from *FUNCTIONS* > *Publish to external systems* > *Peakboard Hub* > *Add row at end*.
+Each time new sensor data comes in, this script will add a new row to the PBHO list. The columns for this new row come from the columns of the new sensor data. Note that we get `IsCooling` by converting `PowerConsumption` into a boolean.
 
-Remember that this script executes each time new sensor data comes in. So, this script says: "Each time new sensor data comes in, add a row to the end of our PBHO list."
-
-We will also reload the `AirConditionerLogs` data source at the end, so that our table control will be able to see the changes.
+This script also reloads the PBHO list data source at the end, so that our table control will be able to see the changes.
 
 We will also uncheck the *Execute only if data changed* box. That's because we want to record all sensor data, regardless of if it changes from the last sensor data we got.
 
@@ -96,23 +94,25 @@ We can see that as new data comes in, it gets written to our PBHO list, and we r
 ![image](/assets/2023-09-20/080.gif)
 {% endcomment %}
 
-## Select from PBHO list with SQL
+## Use SQL on PBHO lists
 
 ### The problem
 
-Let's say we want to do some data aggregation on our PBHO list: we want to get the minimum, maximum, and average temperature recorded by the air conditioner. And we want to calculate this for all the data in our PBHO list, not just the last 10 rows. How can we do this?
+Let's say we want to do some data aggregation on our PBHO list: we want to get the minimum, maximum, and average temperature. How can we do this?
 
-One way is to remove the row limit we had in `AirConditionerLogs`. That way, the entire data set would be downloaded. We could then create a dataflow to aggregate the data.
+Here's one way we could do it:
 
-But that requires downloading the entire PBHO list, which can be quite large. It also requires the Peakboard Box to do the calculation on that large data set. Neither of these things are too desirable.
+1. Remove the row limit we had in `AirConditionerLogs`, so that the entire data set is available to us.
+2. Create a new dataflow on `AirConditionerLogs` that uses the *Max*, *Min*, and *Average* aggregate functions.
 
-**Maybe mention non-aggregation use cases
+But this method has a few downsides. First, it requires downloading the entire PBHO list, which can grow quite large. Second, it requires our Peakboard Box to run calculations on that entire data set. Neither of these things are ideal.
+
 
 ### The Solution
 
-Instead, let's have PBHO do the calculation for us, and just give us the answers. That way, our Peakboard Box only downloads three numbers, and it doesn't have to do any of the calculations itself.
+Luckily, we can have PBHO do the data aggregation for us, and just give us the results. That way, our Peakboard Box doesn't have to do any of the calculations itself, and it only needs to download three numbers (the results). Here's how we do this.
 
-So, we create a new PBHO list data source called `AirConditionerLogsAnalysis`. We click *Load lists*, like before. But this time, we will click *Select with SQL* and enter the following SQL SELECT statement:
+We create a new PBHO list data source called `AirConditionerLogsAnalysis`. We click *Load lists*, like before. But this time, we will click *Select with SQL* and enter the following SQL SELECT statement:
 
 {% highlight sql %}
 SELECT ROUND(AVG(Temperature), 2) AS AvgTemp, MAX(Temperature) AS MaxTemp, MIN(Temperature) AS MinTemp FROM AirConditionerLogs
@@ -122,10 +122,9 @@ The table name is the name of our PBHO list: `AirConditionerLogs`.
 
 ![image](/assets/2023-09-20/090.png)
 
-We also need to add a refresh block that refreshes `AirConditionerLogsAnalysis` to the script we created before.
-
-Finally, we will add a table control to display `AirConditionerLogsAnalysis`.
+We also need to have our script from before refresh `AirConditionerLogsAnalysis`.
 
 Here's what the finished product looks like:
 
 ![image](/assets/2023-09-20/100.png)
+
