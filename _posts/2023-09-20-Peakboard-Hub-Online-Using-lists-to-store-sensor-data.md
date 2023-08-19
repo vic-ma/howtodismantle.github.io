@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Peakboard Hub Online - Using lists to store sensor data
+title: Peakboard Hub Online - Use lists to store sensor data
 date: 2023-03-01 12:00:00 +0200
 tags: peakboardhub opcuamqtt
 image: /assets/2023-09-20/title.png
@@ -14,49 +14,52 @@ downoads:
     url: /assets/2023-09-20/AirConditionerList.pbmx
 ---
 
-In this article, we will learn how to write sensor data to a list in [Peakboard Hub Online](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html) (PBHO). We will also learn how to read from a list. Finally, we will learn how to use a SQL command when reading from a list, in order to aggregate data.
+In this article, we will learn how to write sensor data to a list in [Peakboard Hub Online](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html) (PBHO). We will also learn how to read from a list. Finally, we will learn how to use a SQL command when reading from a list, in order to aggregate the data.
 
-What sensor data will we use? We will use the data from an air conditioner, which comes from a public OPC UA server. See [this article](/OPC-UA-Basics-Getting-started-with-a-public-OPC-UA-server.html) to learn the basics of reading from an OPC UA server in Peakboard.
+For our sensor data, we will use the air conditioner data from a public OPC UA server. See [this article](/OPC-UA-Basics-Getting-started-with-a-public-OPC-UA-server.html) to learn more.
+
+
+## Create a new list in PBHO
+
+In PBHO, we create an empty list called `AirConditionerLogs`. We will write our sensor data to this list.
+
+We add three columns, which correspond to the data we will get from the air conditioner:
+
+* `Temperature`  (number), the ambient temperature.
+* `IsCooling` (boolean), whether the air conditioner is actively cooling or not.
+* `Quality` (string), the air quality.
+
+![image](/assets/2023-09-20/020.png)
+
 
 ## Create a data source for our sensor data
 
-In Peakboard Designer, we add a new OPC UA data source for our sensor data, called `AirConditionerData`.
+In Peakboard Designer, we add a new OPC UA data source for our sensor data. We call it `AirConditionerData`.
 
 We subscribe to these three nodes:
-* `Temperature`, the current ambient temperature
-* `PowerConsumption`, the current power consumption
-* `Quality`, the current air quality
+
+* `Temperature`, the ambient temperature.
+* `PowerConsumption`, the power consumption. We will use this to get the `IsCooling` column in our PBHO list, by checking if `PowerConsumpition` is 0.
+* `Quality`, the air quality.
 
 Finally, we change the polling rate to 5 seconds, to slow it down a bit.
 
 ![image](/assets/2023-09-20/010.png)
 
-
-## Create a new list in PBHO
-
-In PBHO, we create an empty list. We will write our sensor data to this list.
-
-We add columns that correspond to the nodes of our sensor data. For our `PowerConsumption` node, we will use a boolean that says if the air conditioner is actively cooling or not.
-
-![image](/assets/2023-09-20/020.png)
-
-
 ## Create a data source for our PBHO list
 
-In Peakboard Designer, we add a new PBHO list data source called `AirConditionerLogs`. Our Peakboard Box will use this data source to read from our PBHO list.
+In Peakboard Designer, we add a new PBHO list data source. We call it `AirConditionerLogs`. Our Peakboard Box will use this data source to read from our PBHO list.
 
 ![image](/assets/2023-09-20/030.png)
 
 Here's how we set up this data source:
 
-1. We click *Load lists* to get the lists that are available in PBHO.
-2. We select the empty list that we created in the previous section.
-3. We select `ID` as the column we sort our data by. Each entry in the list is automatically assigned an `ID`, which is just an auto-increment counter.
-4. We deselect *Ascending order*, in order to sort our data in descending order. This sorts the data from highest `ID` to lowest, meaning the newest entries will show up first.
-5. We limit the data we read to the 10 newest rows, because our table control won't show more than 10 rows, and we don't want to download the entire PBHO list, which can grow quite large.
-6. We click *Load data* in the Preview window, to load our empty PBHO list.
-
-Because we will eventually reload this list with a script, we can disable reloading. But this is not essential and does not make much of a difference.
+1. We set the reload state to *On Startup*.  This is because we will have a script reload this data source each time new sensor data is written to the PBHO list.
+2. We click *Load lists* to load all the lists that are available in PBHO.
+3. We select `AirConditionerLogs`. It will automatically select all the columns, which is what we want.
+4. We sort this data source by `ID`, in descending order. The `ID` of each row in a PBHO list is just an auto-increment counter. So this will sort our data by newest row first.
+5. We set 5 as the maximum number of rows this data source will fetch. This is because later on, we will only display 5 at a time in our table control. And so, it makes no sense to download the entire PBHO list into our Peakboard Box, as it can grow quite large.
+6. We press *Load data* to see a preview of the PBHO list. And now our data source is ready.
 
 ![image](/assets/2023-09-20/040.png)
 
@@ -83,7 +86,7 @@ We will also uncheck the *Execute only if data changed* box. That's because we w
 
 ![image](/assets/2023-09-20/070.png)
 
-
+{% comment %}
 ## Add tables for visualization
 
 Now, we add two table controls: one for `AirConditionerData`, and one for `AirConditionerLogs`.
@@ -91,7 +94,7 @@ Now, we add two table controls: one for `AirConditionerData`, and one for `AirCo
 We can see that as new data comes in, it gets written to the PBHO list, and we read the updated PBHO list.
 
 ![image](/assets/2023-09-20/080.gif)
-
+{% endcomment %}
 
 ## Select from PBHO list with SQL
 
@@ -99,9 +102,11 @@ We can see that as new data comes in, it gets written to the PBHO list, and we r
 
 Let's say we want to do some data aggregation on our PBHO list: we want to get the minimum, maximum, and average temperature recorded by the air conditioner. And we want to calculate this for all the data in the PBHO list, not just the last 10 rows. How can we do this?
 
-One way is to remove the row limit we had in `AirConditionerLogs`. That way, the entire data set would be downloaded. We could then create a script that aggregates the data.
+One way is to remove the row limit we had in `AirConditionerLogs`. That way, the entire data set would be downloaded. We could then create a dataflow to aggregate the data.
 
 But that requires downloading the entire PBHO list, which can be quite large. It also requires the Peakboard Box to do the calculation on that large data set. Neither of these things are too desirable.
+
+**Maybe mention non-aggregation use cases
 
 ### The Solution
 
@@ -115,7 +120,7 @@ SELECT ROUND(AVG(Temperature), 2) AS AvgTemp, MAX(Temperature) AS MaxTemp, MIN(T
 
 The table name is the name of our PBHO list: `AirConditionerLogs`.
 
-![image](/assets/2023-09-20/090.gif)
+![image](/assets/2023-09-20/090.png)
 
 We also need to add a refresh block that refreshes `AirConditionerLogsAnalysis` to the script we created before.
 
@@ -123,4 +128,4 @@ Finally, we will add a table control to display `AirConditionerLogsAnalysis`.
 
 Here's what the finished product looks like:
 
-![image](/assets/2023-09-20/100.gif)
+![image](/assets/2023-09-20/100.png)
