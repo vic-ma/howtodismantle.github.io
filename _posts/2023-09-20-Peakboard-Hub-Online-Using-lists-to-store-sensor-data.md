@@ -54,12 +54,12 @@ In Peakboard Designer, we add a new PBHO list data source. We call it `AirCondit
 
 Here's how we set up this data source:
 
-1. We set the reload state to *On Startup*.  This is because we will have a script reload this data source each time new sensor data is written to the PBHO list.
+1. We set the reload state to *On Startup*.  Later on, we will have a script handle the periodic reloading.
 2. We click *Load lists* to load all the lists that are available in PBHO.
-3. We select `AirConditionerLogs`. It will automatically select all the columns, which is what we want.
-4. We sort this data source by `ID`, in descending order. The `ID` of each row in a PBHO list is just an auto-increment counter. So this will sort our data by newest row first.
-5. We set 5 as the maximum number of rows this data source will fetch. This is because later on, we will only display 5 at a time in our table control. And so, it makes no sense to download the entire PBHO list into our Peakboard Box, as it can grow quite large.
-6. We press *Load data* to see a preview of the PBHO list. And now our data source is ready.
+3. We select `AirConditionerLogs`.
+4. We sort this data source by `ID`, in descending order. This gets us the newest rows first.
+5. We set 5 as the maximum number of rows to fetch, since we'll only display 5 at a time.
+6. We press *Load data* to see a preview of the PBHO list.
 
 ![image](/assets/2023-09-20/040.png)
 
@@ -129,3 +129,4 @@ Finally, we will add a table control to display `AirConditionerLogsAnalysis`.
 Here's what the finished product looks like:
 
 ![image](/assets/2023-09-20/100.png)
+
