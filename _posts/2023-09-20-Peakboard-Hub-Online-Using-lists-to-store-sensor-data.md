@@ -58,17 +58,17 @@ Here's how we set up this data source:
 2. We click *Load lists* to load all the lists that are available in PBHO.
 3. We select `AirConditionerLogs`.
 4. We sort this data source by `ID`, in descending order. This gets us the newest rows first.
-5. We set 5 as the maximum number of rows to fetch, since we'll only display 5 at a time.
-6. We press *Load data* to see a preview of the PBHO list.
+5. We set 5 as the maximum number of rows to fetch, since we'll only display 5 at a time in our table control.
+6. We press *Load data* to see a preview of PBHO list.
 
 ![image](/assets/2023-09-20/040.png)
 
 
 ## Create a script that writes to our PBHO list
 
-We have a data source for both our sensor data and our PBHO list. Now we can create a script that writes the sensor data to the PBHO list. Each time new sensor data comes in, this script will write that data to the PBHO list.
+We have a data source for both our sensor data and our PBHO list. Now we can create a script that writes the sensor data to our PBHO list.
 
-First, we add a new refreshed script to `AirConditionerData`. This script will execute each time a data source refreshes (i.e. gets new data).
+First, we create a new refreshed script for `AirConditionerData`. This script will automatically execute each time `AirConditionerData` gets new data from the OPC UA server.
 
 ![image](/assets/2023-09-20/050.png)
 
@@ -76,13 +76,13 @@ Here is the script that we create:
 
 ![image](/assets/2023-09-20/060.png)
 
-The root block adds a row to the end of the PBHO list. It come from *FUNCTIONS* > *Publish to external systems* > *Peakboard Hub* > *Add row at end*.
+The main building block adds a row to the end of our PBHO list. It come from *FUNCTIONS* > *Publish to external systems* > *Peakboard Hub* > *Add row at end*.
 
-We fill the columns of our row with data from `AirConditionerData`. We get our `IsCooling` column by checking if the `PowerConsumption` is zero or not.
+Remember that this script executes each time new sensor data comes in. So, this script says: "Each time new sensor data comes in, add a row to the end of our PBHO list."
 
-Finally, we reload our PBHO list, so that the control in our dashboard updates.
+We will also reload the `AirConditionerLogs` data source at the end, so that our table control will be able to see the changes.
 
-We will also uncheck the *Execute only if data changed* box. That's because we want to record all sensor data, even if it does not change from the last one.
+We will also uncheck the *Execute only if data changed* box. That's because we want to record all sensor data, regardless of if it changes from the last sensor data we got.
 
 ![image](/assets/2023-09-20/070.png)
 
@@ -91,7 +91,7 @@ We will also uncheck the *Execute only if data changed* box. That's because we w
 
 Now, we add two table controls: one for `AirConditionerData`, and one for `AirConditionerLogs`.
 
-We can see that as new data comes in, it gets written to the PBHO list, and we read the updated PBHO list.
+We can see that as new data comes in, it gets written to our PBHO list, and we read the updated PBHO list.
 
 ![image](/assets/2023-09-20/080.gif)
 {% endcomment %}
@@ -100,7 +100,7 @@ We can see that as new data comes in, it gets written to the PBHO list, and we r
 
 ### The problem
 
-Let's say we want to do some data aggregation on our PBHO list: we want to get the minimum, maximum, and average temperature recorded by the air conditioner. And we want to calculate this for all the data in the PBHO list, not just the last 10 rows. How can we do this?
+Let's say we want to do some data aggregation on our PBHO list: we want to get the minimum, maximum, and average temperature recorded by the air conditioner. And we want to calculate this for all the data in our PBHO list, not just the last 10 rows. How can we do this?
 
 One way is to remove the row limit we had in `AirConditionerLogs`. That way, the entire data set would be downloaded. We could then create a dataflow to aggregate the data.
 
@@ -129,4 +129,3 @@ Finally, we will add a table control to display `AirConditionerLogsAnalysis`.
 Here's what the finished product looks like:
 
 ![image](/assets/2023-09-20/100.png)
-
