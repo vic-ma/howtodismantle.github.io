@@ -45,7 +45,7 @@ Finally, we change the polling rate to 5 seconds, to slow it down a bit.
 
 ## Create a data source for our PBHO list
 
-In Peakboard Designer, we add a new PBHO list data source. We call it `AirConditionerLogs`. Our Peakboard Box will use this data source to read from our list.
+In Peakboard Designer, we add a new PBHO list data source. We call it `AirConditionerLogs`. Our Peakboard Box will use this data source to read from the PBHO list.
 
 ![image](/assets/2023-09-20/030.png)
 
@@ -63,7 +63,7 @@ Here's how we set up this data source:
 
 ## Create a script that writes to our PBHO list
 
-We have a data source for both our sensor data and our list. Now we can create a script that writes the sensor data to our list.
+We have a data source for both our sensor data and our list. Now, we can create a script that writes the sensor data to our PBHO list.
 
 First, we create a new refreshed script for `AirConditionerData`. This script will automatically execute each time `AirConditionerData` gets new data from the OPC UA server.
 
@@ -73,7 +73,7 @@ Here is the script that we create:
 
 ![image](/assets/2023-09-20/060.png)
 
-Each time new sensor data comes in, this script will add a new row to the list. The columns for this new row come from the columns of the new sensor data. Note that we get `IsCooling` by converting `PowerConsumption` into a boolean.
+Each time new sensor data comes in, this script will add a new row to the PBHO list. The columns for this new row come from the columns of the new sensor data. Note that we get `IsCooling` by converting `PowerConsumption` into a boolean.
 
 This script also reloads the PBHO list data source at the end, so that our table control will be able to see the changes.
 
