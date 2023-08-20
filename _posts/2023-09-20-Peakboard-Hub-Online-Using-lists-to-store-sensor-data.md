@@ -81,6 +81,8 @@ We will also uncheck the *Execute only if data changed* box. That's because we w
 
 ![image](/assets/2023-09-20/070.png)
 
+And with that, we have a dashboard that writes the sensor data to the PBHO list, and also reads from that list. But before we add controls to visualize everything, let's try to do some data aggregation.
+
 {% comment %}
 ## Add tables for visualization
 
@@ -102,7 +104,7 @@ Here's one way we could do it:
 1. Remove the row limit we had in `AirConditionerLogs`, so that the entire data set is available to us.
 2. Create a new dataflow on `AirConditionerLogs` that uses the *Max*, *Min*, and *Average* aggregate functions.
 
-But this method has a few downsides. First, it requires downloading the entire list, which can grow quite large. Second, it requires our Peakboard Box to run calculations on that entire data set. Neither of these things are ideal.
+But this method has a few downsides. First, it downloads the entire list into our Peakboard Box, and the list can be quite large. Second, it requires our Peakboard Box to run calculations on the entire list, which again, can be quite large. Neither of these things are ideal.
 
 
 ### The Solution
@@ -124,9 +126,8 @@ The table name is the name of our PBHO list: `AirConditionerLogs`.
 
 ![image](/assets/2023-09-20/090.png)
 
-We also need to have our script from before reload `AirConditionerLogsAnalysis`.
+In our script from before, we also need to append a block that reloads `AirConditionerLogsAnalysis`.
 
-Here's what the finished product looks like:
+After adding some table controls, here's what the final product looks like:
 
 ![image](/assets/2023-09-20/100.png)
-
