@@ -11,9 +11,16 @@ read_more_links:
     url: /OPC-UA-Basics-Getting-started-with-a-public-OPC-UA-server.html
 ---
 
-In this article, we will learn how to write sensor data to a list in [Peakboard Hub Online](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html) (PBHO). We will then learn how to read from that list. Finally, we will learn how to use a SQL query when reading from the list, in order to aggregate the data.
+In this article, we will learn how to use lists in [Peakboard Hub Online](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html) (PBHO). We will learn how to write data to a list, how to read data from a list, and how to aggregate data from a list. The data we will use is sensor data from an air conditioner.
 
-The sensor data we will use is the air conditioner data from a public OPC UA server. Check out [this article](/OPC-UA-Basics-Getting-started-with-a-public-OPC-UA-server.html) to learn more.
+Here is an overview of the steps we will take:
+
+1. **Create a new list in PBHO.**
+2. **Create a data source for our air conditioner sensor data.** We learned how to do this in a [previous article](/OPC-UA-Basics-Getting-started-with-a-public-OPC-UA-server.html).
+3. **Create a data source for our PBHO list.** This will let us write to and read from the list.
+4. **Create a script that writes new sensor data to our PBHO list.** Each time new sensor data comes in, this script will execute and write the new data to the list.
+5. **Create a data source that performs data aggregation on our PBHO list, using a SQL query.** We will use a SQL query to get the maximum, minimum, and average temperature from our list.
+6. **Add table controls for all three of our data sources to visualize the result.**
 
 
 ## Create a new list in PBHO
@@ -22,7 +29,7 @@ In PBHO, we create an empty list called `AirConditionerLogs`. We will write our 
 
 We add three columns, which correspond to the data we will get from the air conditioner:
 
-* `Temperature` (number): the ambient temperature.
+* `Temperature`  (number): the ambient temperature.
 * `IsCooling` (boolean): whether the air conditioner is actively cooling or not.
 * `Quality` (string): the air quality.
 
@@ -97,7 +104,7 @@ We can see that as new data comes in, it gets written to our list, and we read t
 
 ### The problem
 
-Let's say we want to do some data aggregation on our list: we want to get the minimum, maximum, and average temperature. How can we do this?
+Let's say we want to do some data aggregation on our list: we want to get the maximum, minimum, and average temperature. How can we do this?
 
 Here's one way we could do it:
 
@@ -127,6 +134,9 @@ The table name is the name of our PBHO list: `AirConditionerLogs`.
 ![image](/assets/2023-09-20/090.png)
 
 In our script from before, we also need to append a block that reloads `AirConditionerLogsAnalysis`.
+
+
+## Add table controls
 
 After adding some table controls, here's what the final product looks like:
 
