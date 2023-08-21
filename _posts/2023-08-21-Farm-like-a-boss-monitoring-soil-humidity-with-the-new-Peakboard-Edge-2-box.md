@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Farm like a boss - Monitoring soil humidity with the new Peakboard Edge 2 box
-date: 2023-03-01 12:00:00 +0200
+date: 2023-08-21 02:00:00 +0200
 tags: hardware
 image: /assets/2023-08-21/title.png
 read_more_links:
