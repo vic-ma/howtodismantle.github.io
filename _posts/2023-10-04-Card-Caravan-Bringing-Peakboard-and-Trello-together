@@ -1,0 +1,22 @@
+---
+layout: post
+title: Card Caravan - Bringing Peakboard and Trello together
+date: 2023-03-01 12:00:00 +0200
+tags: trello
+image: /assets/2023-10-04/title.png
+read_more_links:
+  - name: Learn the basics of Trello
+    url: https://trello.com/guide/trello-101
+---
+
+Trello is an online work management tool based around lists. In this article, we will learn how to create a Peakboard dashboard that can display, edit, and create Trello lists.
+
+This article assumes that you are already familiar with the [basics of Trello](https://trello.com/guide/trello-101).
+
+Here is an overview of the steps we will take:
+
+1. **Generate our Trello `AppKey` and `UserToken`.** Our Peakboard Box will use these to authenticate itself to Trello.
+2. **Create a data source for each of our Trello lists.** These data sources will let us display the lists in our dashboard.
+3. **Add table controls to visualize our Trello lists.**
+4. **Add screen for new list, etc.**
+
