@@ -137,3 +137,23 @@ data.MyTrelloDone.reload()
 {% endhighlight %}
 
 Like before, it first gets and stores the id of the card to be deleted. Then, it calls the `delete` function to delete the card. Finally, it reloads the affected list.
+
+
+## The refresh all button
+
+This button just has a simple tapped event that reloads all three data sources.
+
+![image](/assets/2023-10-04/110.png)
+
+![image](/assets/2023-10-04/100.png)
+
+
+## The create new button
+
+First, we create a new screen for our create new dialog. We name it `CreateNew`.
+
+Then, we will add a tapped event for our button that just switches to the new screen.
+
+![image](/assets/2023-10-04/120.png)
+
+![image](/assets/2023-10-04/130.png)
