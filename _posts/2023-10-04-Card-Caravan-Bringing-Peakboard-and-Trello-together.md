@@ -143,7 +143,9 @@ Like before, it first gets and stores the id of the card to be deleted. Then, it
 
 This button just has a simple tapped event that reloads all three data sources.
 
+{% comment %}
 ![image](/assets/2023-10-04/110.png)
+{% endcomment %}
 
 ![image](/assets/2023-10-04/100.png)
 
@@ -173,3 +175,4 @@ Here is the script for the *Create Card* button. It runs the `addcard` function,
 Our cancel button has a simple tapped event that just switches the Peakboard Box back to the main screen.
 
 ![image](/assets/2023-10-04/160.png)
+
