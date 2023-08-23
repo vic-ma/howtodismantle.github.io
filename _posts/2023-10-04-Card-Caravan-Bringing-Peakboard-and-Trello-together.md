@@ -157,3 +157,19 @@ Then, we will add a tapped event for our button that just switches to the new sc
 ![image](/assets/2023-10-04/120.png)
 
 ![image](/assets/2023-10-04/130.png)
+
+
+## The create new screen
+
+In our new screen, we add a text box control for both the subject and description of our new card. We select the *Used in scripting* option, and we give it a control name. The control name is used to identify the control in our script.
+
+![image](/assets/2023-10-04/140.png)
+
+
+Here is the script for the *Create Card* button. It runs the `addcard` function, taking the name and description from our text boxes, and using our first list as the target list. Then, it switches screens and reloads the affected list.
+
+![image](/assets/2023-10-04/150.png)
+
+Our cancel button has a simple tapped event that just switches the Peakboard Box back to the main screen.
+
+![image](/assets/2023-10-04/160.png)
