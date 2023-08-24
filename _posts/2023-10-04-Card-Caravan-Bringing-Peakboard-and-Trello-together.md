@@ -93,7 +93,11 @@ Let's take a look at both these things.
 
 ### Label color indicator
 
-SKIP FOR NOW
+Do make our color indicator functional, we will add conditional formatting to the ellipse control.
+
+![image](/assets/2023-10-04/075.png)
+
+We compare the card's label is equal to a value that's associated with a color. If it is, then we change the color of the indicator. 
 
 ![image](/assets/2023-10-04/080.png)
 
@@ -175,4 +179,3 @@ Here is the script for the *Create Card* button. It runs the `addcard` function,
 Our cancel button has a simple tapped event that just switches the Peakboard Box back to the main screen.
 
 ![image](/assets/2023-10-04/160.png)
-
