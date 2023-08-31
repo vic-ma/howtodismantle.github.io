@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Using Matomo's Reporting API with XML processing
-date: 2023-03-01 12:00:00 +0200
+date: 2023-08-29 12:00:00 +0200
 tags: api basics
 image: /assets/2023-08-29/title.png
 read_more_links:
