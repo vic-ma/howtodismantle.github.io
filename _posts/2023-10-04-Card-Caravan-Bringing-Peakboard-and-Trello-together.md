@@ -11,16 +11,25 @@ read_more_links:
     url: https://templates.peakboard.com/extensions/Trello/en
 ---
 
-Trello is an online work management tool based around lists. In this article, we will learn how to create a Peakboard dashboard that can display, edit, and create Trello lists.
+Trello is an online work management tool centered around lists. In this article, we will learn how to create a Peakboard dashboard that can:
+
+* Display Trello lists.
+* Move cards from one list to another.
+* Delete cards from a list.
+* Add new cards to a list.
+
+Here is an outline of what we will do in this article:
+
+1. **Get an API key and token from Trello.** Our Peakboard Box will use these to authenticate itself to Trello.
+2. **Create a data source for each of our Trello lists.** These data sources will allow us to read and write to the Trello lists.
+3. **Add table controls for the Trello lists.** These will let us visualize and edit the Trello lists.
+   1. **Add a label color indicator.** This will let us see a Trello card's color.
+   2. **Add a "Move" button.** This button will let us move a Trello card from one list to another.
+   3. **Add a "Delete" button.** This button will let us delete a Trello card from a list.
+7. **Add a "Refresh All" button.** This button will let us manually refresh all Trello lists.
+8. **Add a "Create New" button.** This button will let us create and add a new Trello card to a list.
 
 This article assumes that you are already familiar with the [basics of Trello](https://trello.com/guide/trello-101).
-
-Here is an overview of the steps we will take:
-
-1. **Get our `AppKey` and `UserToken` from Trello.** Our Peakboard Box will use these to authenticate itself to Trello
-1. **Create a data source for each of our Trello lists.** These data sources will let us display the lists in our dashboard.
-1. **Add table controls to visualize our Trello lists.**
-1. **Add screen for new list, etc.**
 
 
 ## Get an API key and token from Trello
@@ -79,10 +88,14 @@ Here is what we want in our dashboard:
 Here's what the finished dashboard looks like:
 ![image](/assets/2023-10-04/070.png)
 
+{% comment %}
+Maybe actually just put the GIF here.
+{% endcomment %}
+
 Instead of going through everything step-by-step, we will instead focus on the Trello-specific parts. Knowledge about different Peakboard Designer features like conditional formatting and scripts is assumed.
 
 
-## The table control
+## Add table controls
 
 For our table control, there are two important things to cover:
 
@@ -143,7 +156,7 @@ data.MyTrelloDone.reload()
 Like before, it first gets and stores the id of the card to be deleted. Then, it calls the `delete` function to delete the card. Finally, it reloads the affected list.
 
 
-## The refresh all button
+## Add a "Refresh All" button
 
 This button just has a simple tapped event that reloads all three data sources.
 
@@ -154,7 +167,7 @@ This button just has a simple tapped event that reloads all three data sources.
 ![image](/assets/2023-10-04/100.png)
 
 
-## The create new button
+## Add a "Create New" button
 
 First, we create a new screen for our create new dialog. We name it `CreateNew`.
 
@@ -179,3 +192,13 @@ Here is the script for the *Create Card* button. It runs the `addcard` function,
 Our cancel button has a simple tapped event that just switches the Peakboard Box back to the main screen.
 
 ![image](/assets/2023-10-04/160.png)
+
+
+{% comment %}
+## The finished product
+
+Here's a video that demonstrates all the features of this dashboard:
+
+![image](/assets/2023-10-04/foo.gif)
+{% endcomment %}
+
