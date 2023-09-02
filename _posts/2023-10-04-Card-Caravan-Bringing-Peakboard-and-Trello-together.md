@@ -11,28 +11,27 @@ read_more_links:
     url: https://templates.peakboard.com/extensions/Trello/en
 ---
 
-Trello is an online work management tool centered around lists. In this article, we will learn how to create a Peakboard dashboard that can:
-
-* Display Trello lists.
-* Move cards from one list to another.
-* Delete cards from a list.
-* Add new cards to a list.
+[Trello](https://trello.com) is an online work management tool centered around lists. In this article, we will learn how to create a Peakboard dashboard that can display and modify Trello lists.
 
 Here is an outline of what we will do in this article:
 
-1. **Get an API key and token from Trello.** Our Peakboard Box will use these to authenticate itself to Trello.
-2. **Create a data source for each of our Trello lists.** These data sources will allow us to read and write to the Trello lists.
-3. **Add table controls for the Trello lists.** These will let us visualize and edit the Trello lists.
-   1. **Add a label color indicator.** This will let us see a Trello card's color.
-   2. **Add a "Move" button.** This button will let us move a Trello card from one list to another.
-   3. **Add a "Delete" button.** This button will let us delete a Trello card from a list.
-7. **Add a "Refresh All" button.** This button will let us manually refresh all Trello lists.
-8. **Add a "Create New" button.** This button will let us create and add a new Trello card to a list.
+1. **Get an API key and token from Trello.** Our Peakboard Box needs these to authenticate itself to Trello.
+2. **Create a data source for each of our Trello lists.** These data sources let us read and write to the Trello lists.
+3. **Add table controls for the Trello lists.** These let us visualize and edit the Trello lists.
+   1. **Add a label color indicator.** These let us see a Trello card's label color.
+   2. **Add a "Move" button.** This button lets us move a Trello card from one list to another.
+   3. **Add a "Delete" button.** This button lets us delete a Trello card from a list.
+7. **Add a "Refresh All" button.** This button lets us manually refresh all Trello lists.
+8. **Add a "Create New" button.** This button lets us create and add a new Trello card to a list.
 
 This article assumes that you are already familiar with the [basics of Trello](https://trello.com/guide/trello-101).
 
+To follow along, you must also have Peakboard's [Trello extension](https://templates.peakboard.com/extensions/Trello/en) installed.
+
 
 ## Get an API key and token from Trello
+
+We need to get an API key and token from Trello. That way, our Peakboard Box can authenticate itself to Trello.
 
 In order to get an API key and token, we first need to create a new Power-Up in Trello. We can do this in the [Power-Ups admin portal](https://trello.com/power-ups/admin).
 
@@ -46,23 +45,22 @@ We copy down our API key. Then, we generate a token for our Power-Up and copy it
 
 ![image](/assets/2023-10-04/030.png)
 
-See [Trello's documentation](https://developer.atlassian.com/cloud/trello/guides/rest-api/api-introduction/#managing-your-api-key) for a more detailed guide to these steps.
+See [Trello's documentation](https://developer.atlassian.com/cloud/trello/guides/rest-api/api-introduction/#managing-your-api-key) for more information about these steps.
 
 
 ## Create a data source for each of our Trello lists
+
+Now, lets add our Trello data sources.
 
 Here's what our sample Trello board looks like:
 
 ![image](/assets/2023-10-04/040.png)
 
-We will add a data source for each of the lists in our board.
-
-To do this, we need to have Peakboard's [Trello extension](https://templates.peakboard.com/extensions/Trello/en) installed.
-
+We will add one data source for each of the lists in our board, giving us three Trello data sources in total.
 
 ### Add a data source
 
-Let's add a data source for our *To Do* list. We create a new *Trello Cards (TrelloCustomList)* data source.
+Let's add the data source for our *To Do* list. We create a new *Trello Cards* data source.
 
 ![image](/assets/2023-10-04/060.png)
 
