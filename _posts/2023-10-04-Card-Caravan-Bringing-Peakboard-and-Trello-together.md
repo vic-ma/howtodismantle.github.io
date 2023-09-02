@@ -16,7 +16,7 @@ read_more_links:
 Here is an outline of what we will do in this article:
 
 1. **Get an API key and token from Trello.** Our Peakboard Box needs these to authenticate itself to Trello.
-2. **Create a data source for each of our Trello lists.** These data sources let us read and write to the Trello lists.
+2. **Add data sources for the Trello lists.** These data sources let us read and write to the Trello lists.
 3. **Add table controls for the Trello lists.** These let us visualize and edit the Trello lists.
    1. **Add a label color indicator.** These let us see a Trello card's label color.
    2. **Add a "Move" button.** This button lets us move a Trello card from one list to another.
@@ -26,7 +26,7 @@ Here is an outline of what we will do in this article:
 
 This article assumes that you are already familiar with the [basics of Trello](https://trello.com/guide/trello-101).
 
-To follow along, you must also have Peakboard's [Trello extension](https://templates.peakboard.com/extensions/Trello/en) installed.
+Also note that the [Trello extension](https://templates.peakboard.com/extensions/Trello/en) is required.
 
 
 ## Get an API key and token from Trello
@@ -48,9 +48,7 @@ We copy down our API key. Then, we generate a token for our Power-Up and copy it
 See [Trello's documentation](https://developer.atlassian.com/cloud/trello/guides/rest-api/api-introduction/#managing-your-api-key) for more information about these steps.
 
 
-## Create a data source for each of our Trello lists
-
-Now, lets add our Trello data sources.
+## Add data sources
 
 Here's what our sample Trello board looks like:
 
@@ -60,38 +58,44 @@ We will add one data source for each of the lists in our board, giving us three 
 
 ### Add a data source
 
-Let's add the data source for our *To Do* list. We create a new *Trello Cards* data source.
+Let's add the data source for our *To Do* list. The process is similar for the other two lists.
+
+First, we create a new *Trello Cards* data source.
 
 ![image](/assets/2023-10-04/060.png)
 
-And we fill out the properties of the data source. `AppKey` is our API key from before. `UserToken` is our token from before. `BoardName` is the name of our Trello board, and `ListName` is the name of our Trello list.
+Then, we fill out the properties of the data source:
+
+* `AppKey` is our API key from before.
+* `UserToken` is our token from before.
+* `BoardName` is the name of our Trello board
+* `ListName` is the name of our Trello list.
 
 ![image](/assets/2023-10-04/050.png)
 
-Then, we repeat for the other two lists.
+After this, we repeat the process to add a data source for the other two lists.
 
 
 ## The finished dashboard
 
-Here is what we want in our dashboard:
+The dashboard that we are going to create is a little complicated. So, let's take a look at the finished product now, to see how it all fits together.
 
-* It should display our three lists, with a similar Layout to Trello.
-* Each card should have a dot that indicates its label color.
-* Each card in the first two lists should have a button that moves that card to the next list.
-* Each card in the third list should have a button that deletes the card.
-* There should be a button that refreshes all the lists on screen, by reloading the data sources.
-* There should be a button that opens a separate screen to create a new card.
-	* This separate screen should include a text box for a subject and description for the new card.
-
-Here's what the finished dashboard looks like:
 ![image](/assets/2023-10-04/070.png)
 
 {% comment %}
 Maybe actually just put the GIF here.
 {% endcomment %}
 
-Instead of going through everything step-by-step, we will instead focus on the Trello-specific parts. Knowledge about different Peakboard Designer features like conditional formatting and scripts is assumed.
+Here is what we want from our dashboard:
 
+* **It should display our three lists.**
+* **Each card should have a dot that indicates its label color.**
+* **Each card in the first two lists should have a button that moves the card to the next list.**
+* **Each card in the third list should have a button that deletes the card.**
+* **There should be a button that refreshes all the lists.**
+* **There should be a button that opens a form for creating a new card.**
+
+Instead of going through everything step-by-step, we will just focus on the Trello-specific parts.
 
 ## Add table controls
 
