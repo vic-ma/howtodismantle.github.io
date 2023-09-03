@@ -18,11 +18,12 @@ Here is an outline of what we will do in this article:
 1. **Get an API key and token from Trello.** Our Peakboard Box needs these to authenticate itself to Trello.
 2. **Add data sources for the Trello lists.** These data sources let us read and write to the Trello lists.
 3. **Add styled list controls for the Trello lists.** These let us visualize and edit the Trello lists.
-   1. **Add a label color indicator.** These let us see a Trello card's label color.
-   2. **Add a "Move" button.** This button lets us move a Trello card from one list to another.
-   3. **Add a "Delete" button.** This button lets us delete a Trello card from a list.
-7. **Add a "Refresh All" button.** This button lets us manually refresh all Trello lists.
-8. **Add a "Create New" button.** This button lets us create and add a new Trello card to a list.
+   1. **Add the card title.** This lets us see the name of a Trello card.
+   2. **Add a label color indicator.** These let us see a Trello card's label color.
+   3. **Add a "Move" button.** This button lets us move a Trello card from one list to another.
+   4. **Add a "Delete" button.** This button lets us delete a Trello card from a list.
+5. **Add a "Refresh All" button.** This button lets us manually refresh all Trello lists.
+6. **Add a "Create New" button.** This button lets us create and add a new Trello card to a list.
 
 This article assumes that you are already familiar with the [basics of Trello](https://trello.com/guide/trello-101).
 
@@ -90,14 +91,25 @@ We won't go through all the steps of creating this dashboard in great detail. In
 
 ## Add styled list controls
 
-For our styled list controls, there are two important things to cover:
+First, we add three styled list controls---one for each of our data sources.
 
-1. How to create the label color indicator.
-2. How to create the move and delete buttons.
+There are three parts to our styled list template:
+1. **The text that displays the name of the Trello card.**
+2. **The ellipse that indicates the Trello card's label color.**
+3. **A move botton (for the first two lists) or a delete button (for the third list).**
+
+Let's take a look at each of these in turn.
+
+
+### Add card name
+
+For our card name, we use a text control. We set its data to the *Name* column of our data source.
+
+![image](/assets/2023-10-04/073.png)
 
 ### Add label color indicator
 
-To make our color indicator functional, we add conditional formatting to the ellipse control.
+For our label color indicator, we use an ellipse control. To make it functional, we add conditional formatting to the ellipse.
 
 ![image](/assets/2023-10-04/075.png)
 
@@ -107,7 +119,7 @@ Change to checking color directly in future if possible.
 
 We add a rule that checks a card's label, and changes the indicator to the color associated with that label.
 
-For example, we know that all our cards with the "Offline" label are colored green in Trello. So, we add a conditional formatting rule that says, "If the label is 'Offline' then turn the indicator green."
+For example, we know that our "Offline" label is green in Trello. So, we add a conditional formatting rule that says, "If the label is 'Offline', then turn the indicator green."
 
 ![image](/assets/2023-10-04/080.png)
 
