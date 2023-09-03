@@ -17,7 +17,7 @@ Here is an outline of what we will do in this article:
 
 1. **Get an API key and token from Trello.** Our Peakboard Box needs these to authenticate itself to Trello.
 2. **Add data sources for the Trello lists.** These data sources let us read and write to the Trello lists.
-3. **Add table controls for the Trello lists.** These let us visualize and edit the Trello lists.
+3. **Add styled list controls for the Trello lists.** These let us visualize and edit the Trello lists.
    1. **Add a label color indicator.** These let us see a Trello card's label color.
    2. **Add a "Move" button.** This button lets us move a Trello card from one list to another.
    3. **Add a "Delete" button.** This button lets us delete a Trello card from a list.
@@ -76,7 +76,7 @@ Then, we fill out the properties of the data source:
 After this, we repeat the process to add a data source for the other two lists.
 
 
-## The finished dashboard
+## Preview the finished dashboard
 
 The dashboard that we are going to create is a little complicated. So, let's take a look at the finished product now, to see how it all fits together.
 
@@ -86,42 +86,33 @@ The dashboard that we are going to create is a little complicated. So, let's tak
 Maybe actually just put the GIF here.
 {% endcomment %}
 
-Here are the features of our dashboard:
+We won't go through all the steps of creating this dashboard in great detail. Instead, we will just focus on the Trello-specific parts.
 
-* **It displays our three lists.**
-* **Each card has a dot that indicates its label color.**
-* **Each card in the first two lists has a button that moves the card to the next list.**
-* **Each card in the third list has a button that deletes the card.**
-* **There is a button that refreshes all the lists.**
-* **There is a button that opens a form for creating a new card.**
+## Add styled list controls
 
-Instead of going through everything step-by-step, we will just focus on the Trello-specific parts.
-
-## Table controls
-
-For our table controls, there are two important things to cover:
+For our styled list controls, there are two important things to cover:
 
 1. How to create the label color indicator.
 2. How to create the move and delete buttons.
 
-### Label color indicator
+### Add label color indicator
 
 To make our color indicator functional, we add conditional formatting to the ellipse control.
 
 ![image](/assets/2023-10-04/075.png)
 
 {% comment %}
-Change to checking color directly if possible.
+Change to checking color directly in future if possible.
 {% endcomment %}
 
-We add a rule that checks a card's label, and turns the indicator to the color associated with that label.
+We add a rule that checks a card's label, and changes the indicator to the color associated with that label.
 
 For example, we know that all our cards with the "Offline" label are colored green in Trello. So, we add a conditional formatting rule that says, "If the label is 'Offline' then turn the indicator green."
 
 ![image](/assets/2023-10-04/080.png)
 
 
-### Move and delete buttons
+### Add move and delete buttons
 
 We make our buttons functional by adding a tapped event. A tapped event is a script that executes when the button is tapped.
 
@@ -143,7 +134,7 @@ data.MyTrelloWiP.reload()
 
 {% endhighlight %}
 
-It first gets the id of the card being moved and stores it in `mycard`. Then, it calls the `movecard` function to move that card to the next list. Finally, it reloads both affected lists.
+This script first stores the id of the card being moved in `mycard`. Then, it calls the `movecard` function to move that card to the next list. Finally, it reloads both affected lists.
 
 Here is the script for the delete button:
 
@@ -162,7 +153,7 @@ data.MyTrelloDone.reload()
 Like before, it first gets and stores the id of the card to be deleted. Then, it calls the `delete` function to delete the card. Finally, it reloads the affected list.
 
 
-## Add a "Refresh All" button
+## Add "Refresh All" button
 
 This button just has a simple tapped event that reloads all three data sources.
 
@@ -173,7 +164,7 @@ This button just has a simple tapped event that reloads all three data sources.
 ![image](/assets/2023-10-04/100.png)
 
 
-## Add a "Create New" button
+## Add "Create New" button
 
 First, we create a new screen for our create new dialog. We name it `CreateNew`.
 
@@ -184,7 +175,7 @@ Then, we will add a tapped event for our button that just switches to the new sc
 ![image](/assets/2023-10-04/130.png)
 
 
-## The create new screen
+## Make the "Create new" screen
 
 In our new screen, we add a text box control for both the subject and description of our new card. We select the *Used in scripting* option, and we give it a control name. The control name is used to identify the control in our script.
 
