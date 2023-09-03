@@ -86,33 +86,37 @@ The dashboard that we are going to create is a little complicated. So, let's tak
 Maybe actually just put the GIF here.
 {% endcomment %}
 
-Here is what we want from our dashboard:
+Here are the features of our dashboard:
 
-* **It should display our three lists.**
-* **Each card should have a dot that indicates its label color.**
-* **Each card in the first two lists should have a button that moves the card to the next list.**
-* **Each card in the third list should have a button that deletes the card.**
-* **There should be a button that refreshes all the lists.**
-* **There should be a button that opens a form for creating a new card.**
+* **It displays our three lists.**
+* **Each card has a dot that indicates its label color.**
+* **Each card in the first two lists has a button that moves the card to the next list.**
+* **Each card in the third list has a button that deletes the card.**
+* **There is a button that refreshes all the lists.**
+* **There is a button that opens a form for creating a new card.**
 
 Instead of going through everything step-by-step, we will just focus on the Trello-specific parts.
 
-## Add table controls
+## Table controls
 
-For our table control, there are two important things to cover:
+For our table controls, there are two important things to cover:
 
 1. How to create the label color indicator.
 2. How to create the move and delete buttons.
 
-Let's take a look at both these things.
-
 ### Label color indicator
 
-Do make our color indicator functional, we will add conditional formatting to the ellipse control.
+To make our color indicator functional, we add conditional formatting to the ellipse control.
 
 ![image](/assets/2023-10-04/075.png)
 
-We compare the card's label is equal to a value that's associated with a color. If it is, then we change the color of the indicator. 
+{% comment %}
+Change to checking color directly if possible.
+{% endcomment %}
+
+We add a rule that checks a card's label, and turns the indicator to the color associated with that label.
+
+For example, we know that all our cards with the "Offline" label are colored green in Trello. So, we add a conditional formatting rule that says, "If the label is 'Offline' then turn the indicator green."
 
 ![image](/assets/2023-10-04/080.png)
 
