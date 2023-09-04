@@ -11,12 +11,12 @@ read_more_links:
     url: https://templates.peakboard.com/extensions/Trello/en
 ---
 
-[Trello](https://trello.com) is an online work management tool centered around lists. In this article, we will learn how to create a Peakboard dashboard that can display and modify Trello lists.
+[Trello](https://trello.com) is an online, collaborative list-making tool. In this article, we will learn how to create a Peakboard dashboard that can display and modify Trello lists.
 
 Here is an outline of what we will do in this article:
 
 1. **Get an API key and token from Trello.** Our Peakboard Box needs these to authenticate itself to Trello.
-2. **Add data sources for the Trello lists.** These data sources let us read and write to the Trello lists.
+2. **Add data sources for the Trello lists.** These data sources let us read the Trello lists.
 3. **Add styled list controls for the Trello lists.** These let us visualize and edit the Trello lists.
    1. **Add the card title.** This lets us see the name of a Trello card.
    2. **Add a label color indicator.** These let us see a Trello card's label color.
