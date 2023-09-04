@@ -23,18 +23,18 @@ Here is an outline of what we will do in this article:
    3. **Add a *Move* button.** This button lets us move a Trello card from one list to another.
    4. **Add a *Delete* button.** This button lets us delete a Trello card from a list.
 5. **Add a *Refresh All* button.** This button lets us manually refresh all Trello lists.
-6. **Add a *Create New* button.** This button lets us create and add a new Trello card to a list.
+6. **Add a *Create New* button.** This button lets us add a new Trello card to a list.
 
 This article assumes that you are already familiar with the [basics of Trello](https://trello.com/guide/trello-101).
 
-Also note that the [Trello extension](https://templates.peakboard.com/extensions/Trello/en) is required.
+The [Trello extension](https://templates.peakboard.com/extensions/Trello/en) is required to integrate Trello into Peakboard.
 
 
 ## Get an API key and token from Trello
 
 We need to get an API key and token from Trello. That way, our Peakboard Box can authenticate itself to Trello.
 
-In order to get an API key and token, we first need to create a new Power-Up in Trello. We can do this in the [Power-Ups admin portal](https://trello.com/power-ups/admin).
+The first step is to create a new Power-Up in Trello. We can do this in the [Power-Ups admin portal](https://trello.com/power-ups/admin).
 
 ![image](/assets/2023-10-04/010.png)
 
@@ -55,7 +55,7 @@ Here's what our sample Trello board looks like:
 
 ![image](/assets/2023-10-04/040.png)
 
-We will add one data source for each of the lists in our board, giving us three Trello data sources in total.
+We will add one data source for each of the lists in our board, giving us three data sources in total.
 
 ### Add a data source
 
@@ -77,7 +77,7 @@ Then, we fill out the properties of the data source:
 After this, we repeat the process to add a data source for the other two lists.
 
 
-## Preview the finished dashboard
+## The finished dashboard
 
 The dashboard that we are going to create is a little complicated. So, let's take a look at the finished product now, to see how it all fits together.
 
@@ -87,7 +87,7 @@ The dashboard that we are going to create is a little complicated. So, let's tak
 Maybe actually just put the GIF here.
 {% endcomment %}
 
-We won't go through all the steps of creating this dashboard in great detail. Instead, we will just focus on the Trello-specific parts.
+We won't go through all the steps of creating this dashboard in great detail. Instead, we will focus on the Trello-specific parts.
 
 ## Add styled list controls
 
@@ -103,7 +103,7 @@ Let's take a look at each of these in turn.
 
 ### Add card name
 
-For our card name, we use a text control. We set its data to the *Name* column of our data source.
+For our card name, we use a text control. We set the text to the *Name* column of our data source.
 
 ![image](/assets/2023-10-04/073.png)
 
@@ -146,7 +146,7 @@ data.MyTrelloWiP.reload()
 
 {% endhighlight %}
 
-This script first stores the id of the card being moved in `mycard`. Then, it calls the `movecard` function to move that card to the next list. Finally, it reloads both affected lists.
+This script first stores the ID of the card being moved in `mycard`. Then, it calls the `movecard` function to move that card to the next list. Finally, it reloads both affected lists.
 
 Here is the script for the delete button:
 
@@ -162,7 +162,7 @@ data.MyTrelloDone.reload()
 
 {% endhighlight %}
 
-This script first stores the id of the card to be deleted. Then, it calls the `delete` function to delete the card. Finally, it reloads the affected list.
+This script first stores the ID of the card to be deleted. Then, it calls the `delete` function to delete the card. Finally, it reloads the affected list.
 
 
 ## Add *Refresh All* button
@@ -189,7 +189,7 @@ Then, we add a button control with a tapped event that just switches the screen 
 
 ## Make the *Create new* screen
 
-Now, lets make `CreateNew`. We add two text box controls. One for the new card's subject, and one for the new card's description.
+Now, lets make `CreateNew`. We add two text box controls: one for the new card's subject, and one for the new card's description.
 
 For both text boxes, we select the *Used in scripting* option, and we give it a control name. We will use these control names in our script.
 
@@ -216,4 +216,3 @@ Here's a video that demonstrates all the features of this dashboard:
 
 ![image](/assets/2023-10-04/foo.gif)
 {% endcomment %}
-
