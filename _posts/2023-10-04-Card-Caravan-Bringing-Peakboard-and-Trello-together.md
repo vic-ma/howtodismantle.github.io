@@ -20,10 +20,10 @@ Here is an outline of what we will do in this article:
 3. **Add styled list controls for the Trello lists.** These let us visualize and edit the Trello lists.
    1. **Add the card title.** This lets us see the name of a Trello card.
    2. **Add a label color indicator.** These let us see a Trello card's label color.
-   3. **Add a "Move" button.** This button lets us move a Trello card from one list to another.
-   4. **Add a "Delete" button.** This button lets us delete a Trello card from a list.
-5. **Add a "Refresh All" button.** This button lets us manually refresh all Trello lists.
-6. **Add a "Create New" button.** This button lets us create and add a new Trello card to a list.
+   3. **Add a *Move* button.** This button lets us move a Trello card from one list to another.
+   4. **Add a *Delete* button.** This button lets us delete a Trello card from a list.
+5. **Add a *Refresh All* button.** This button lets us manually refresh all Trello lists.
+6. **Add a *Create New* button.** This button lets us create and add a new Trello card to a list.
 
 This article assumes that you are already familiar with the [basics of Trello](https://trello.com/guide/trello-101).
 
@@ -119,14 +119,14 @@ Change to checking color directly in future if possible.
 
 We add a rule that checks a card's label, and changes the indicator to the color associated with that label.
 
-For example, we know that our "Offline" label is green in Trello. So, we add a conditional formatting rule that says, "If the label is 'Offline', then turn the indicator green."
+For example, we know that in Trello, our "Offline" label is green. So, we add a conditional formatting rule that says, "If the label is 'Offline', then turn the indicator green."
 
 ![image](/assets/2023-10-04/080.png)
 
 
 ### Add move and delete buttons
 
-We make our buttons functional by adding a tapped event. A tapped event is a script that executes when the button is tapped.
+We use a button control for our move and delete buttons. We make our buttons functional by adding a tapped event.
 
 ![image](/assets/2023-10-04/090.png)
 
@@ -162,12 +162,12 @@ data.MyTrelloDone.reload()
 
 {% endhighlight %}
 
-Like before, it first gets and stores the id of the card to be deleted. Then, it calls the `delete` function to delete the card. Finally, it reloads the affected list.
+This script first stores the id of the card to be deleted. Then, it calls the `delete` function to delete the card. Finally, it reloads the affected list.
 
 
-## Add "Refresh All" button
+## Add *Refresh All* button
 
-This button just has a simple tapped event that reloads all three data sources.
+We use a button control for our *Refresh All* button. We add a simple tapped event that reloads all three data sources.
 
 {% comment %}
 ![image](/assets/2023-10-04/110.png)
@@ -176,25 +176,27 @@ This button just has a simple tapped event that reloads all three data sources.
 ![image](/assets/2023-10-04/100.png)
 
 
-## Add "Create New" button
+## Add *Create New* button
 
-First, we create a new screen for our create new dialog. We name it `CreateNew`.
+Our *Create New* button will switch the user to a secondary screen, in order to create the new card. So we first create an empty, new screen, named `CreateNew`.
 
-Then, we will add a tapped event for our button that just switches to the new screen.
+Then, we add a button control with a tapped event that just switches the screen to `CreateNew`.
 
 ![image](/assets/2023-10-04/120.png)
 
 ![image](/assets/2023-10-04/130.png)
 
 
-## Make the "Create new" screen
+## Make the *Create new* screen
 
-In our new screen, we add a text box control for both the subject and description of our new card. We select the *Used in scripting* option, and we give it a control name. The control name is used to identify the control in our script.
+Now, lets make `CreateNew`. We add two text box controls. One for the new card's subject, and one for the new card's description.
+
+For both text boxes, we select the *Used in scripting* option, and we give it a control name. We will use these control names in our script.
 
 ![image](/assets/2023-10-04/140.png)
 
 
-Here is the script for the *Create Card* button. It runs the `addcard` function, taking the name and description from our text boxes, and using our first list as the target list. Then, it switches screens and reloads the affected list.
+Here is the script for the *Create Card* button. It first runs the `addcard` function. It takes the name and description from our text boxes, and uses our first Trello list as the target list. Then, it switches screens and reloads the affected list.
 
 ![image](/assets/2023-10-04/150.png)
 
@@ -202,6 +204,10 @@ Our cancel button has a simple tapped event that just switches the Peakboard Box
 
 ![image](/assets/2023-10-04/160.png)
 
+
+## Conclusion
+
+And that's it! We now have a dashboard that can view Trello lists, move cards between Trello lists, delete cards from a Trello list, and even add new cards to a Trello list.
 
 {% comment %}
 ## The finished product
