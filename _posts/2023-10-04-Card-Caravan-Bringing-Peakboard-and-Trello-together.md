@@ -9,6 +9,9 @@ read_more_links:
     url: https://trello.com/guide/trello-101
   - name: Trello extension for Peakboard
     url: https://templates.peakboard.com/extensions/Trello/en
+downloads:
+  - name: trello.pbmx
+    url: /assets/2023-10-04/trello.pbmx
 ---
 
 [Trello](https://trello.com) is an online, collaborative list-making tool. In this article, we will learn how to create a Peakboard dashboard that can display and modify Trello lists.
@@ -16,7 +19,7 @@ read_more_links:
 Here is an outline of what we will do in this article:
 
 1. **Get an API key and token from Trello.** Our Peakboard Box needs these to authenticate itself to Trello.
-2. **Add data sources for the Trello lists.** These data sources let us read the Trello lists.
+2. **Add data sources for the Trello lists.** These data sources let us read and write to the Trello lists.
 3. **Add styled list controls for the Trello lists.** These let us visualize and edit the Trello lists.
    1. **Add the card title.** This lets us see the name of a Trello card.
    2. **Add a label color indicator.** These let us see a Trello card's label color.
@@ -86,6 +89,8 @@ The dashboard that we are going to create is a little complicated. So, let's tak
 {% comment %}
 Maybe actually just put the GIF here.
 {% endcomment %}
+
+You can also download [the dashboard](/assets/2023-10-04/trello.pbmx) to take a more in-depth look. Note that the preview will not work, because the API key and token have been removed.
 
 We won't go through all the steps of creating this dashboard in great detail. Instead, we will focus on the Trello-specific parts.
 
@@ -208,6 +213,8 @@ Our cancel button has a simple tapped event that just switches the Peakboard Box
 ## Conclusion
 
 And that's it! We now have a dashboard that can view Trello lists, move cards between Trello lists, delete cards from a Trello list, and even add new cards to a Trello list.
+
+Once again, here's the [completed dashboard](/assets/2023-10-04/trello.pbmx) with the API key and token removed. Take a look and try it out yourself!
 
 {% comment %}
 ## The finished product
