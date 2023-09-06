@@ -15,9 +15,9 @@ downloads:
 ---
 
 
-To learn the basics of using the MS Graph API in Peakboard, see [this post]({% post_url 2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started %}).
+To learn the basics of using the MS Graph API in Peakboard, see [this article]({% post_url 2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started %}).
 
-
+This article covers room calendars, and not group calendars. To learn how to use group calendars in Peakboard, see [this article]({% post_url 2023-08-12-Dismantle-O365-group-calendars-with-MS-Graph %}).
 
 * ApplicationGetEventsFromRoom -> MSGraphAppOnlyCustomList
 * UserGetAllRooms              -> MSGraphUserAuthCustomList
