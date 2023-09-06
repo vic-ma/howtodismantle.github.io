@@ -16,7 +16,9 @@ This article covers a common use case when using MS Graph API with Peakboard: ac
 
 Please make sure to read through the basics of using MS Graph API in Peakboard: [MS Graph API - Understand the basics and get started]({% post_url 2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started %})
 
-Office 365 comes with a lot of calendars (i.e. different varieties of personal and potentially shared calendars). This article covers a group of calendars that are typically shared by a whole company or at least shared by a team. Please note that a group calendar is typically *not* used to reflect the events of resources, like a meeting room. That artefact is called a "room" and is queried differently.
+Office 365 comes with a lot of calendars (i.e. different varieties of personal and potentially shared calendars). This article covers a group of calendars that are typically shared by a whole company or at least shared by a team.
+
+Please note that a group calendar is typically *not* used to reflect the events of resources, like a meeting room. That artefact is called a "room" and is queried differently. See [this article]({% post_url 2023-10-11-MS-Graph-Access-the-companys-room-calendars %}) to learn more about accessing room calendars with Peakboard.
 
 ## The API calls
 
