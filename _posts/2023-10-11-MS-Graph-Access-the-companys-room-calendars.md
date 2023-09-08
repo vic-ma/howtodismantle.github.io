@@ -13,7 +13,11 @@ downloads:
   - name: 
     url: 
 ---
+In this article, we will learn how to visualize a company's O365 room calendars, in Peakboard.
 
+
+
+![image](/assets/2023-10-11/010.gif)
 
 To learn the basics of using the MS Graph API in Peakboard, see [this article]({% post_url 2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started %}).
 
@@ -23,7 +27,6 @@ This article covers room calendars, and not group calendars. To learn how to use
 
 
 
-![image](/assets/2023-10-11/010.gif)
 
 
 
