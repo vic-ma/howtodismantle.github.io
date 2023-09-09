@@ -5,13 +5,11 @@ date: 2023-03-01 12:00:00 +0200
 tags: msgraph
 image: /assets/2023-10-11/title.png
 read_more_links:
-  - name: 
-    url: 
   - name: MS Graph API - Understand the basis and get started
     url: /MS-Graph-API-Understand-the-basis-and-get-started.html
+  - name: Dismantle O365 group calendars with MS Graph API
+    url: /Dismantle-O365-group-calendars-with-MS-Graph.html
 downloads:
-  - name: 
-    url: 
 ---
 In this article, we will learn how to visualize a company's O365 room calendars, in Peakboard.
 
@@ -31,12 +29,14 @@ Here is an overview of the steps we will take to create this dashboard:
 
 To learn the basics of using the MS Graph API in Peakboard, see [this article]({% post_url 2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started %}).
 
-This article covers room calendars, and not group calendars. To learn how to use group calendars in Peakboard, see [this article]({% post_url 2023-08-12-Dismantle-O365-group-calendars-with-MS-Graph %}).
+Finally, note that this article covers room calendars, and not group calendars. To learn how to use group calendars in Peakboard, see [this article]({% post_url 2023-08-12-Dismantle-O365-group-calendars-with-MS-Graph %}).
 
 
+## Create a variable for the active room
 
+We will use a variable to store the name of the currently selected room. Then, the list control will write to it when the user selects on a different room from the current one. And, the data source will read from it to construct the room-specific MS Graph API call.
 
-
+![image](/assets/2023-10-11/020.png)
 
 
 
