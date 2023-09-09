@@ -103,14 +103,12 @@ Here is the script:
 
 ![image](/assets/2023-10-11/080.png)
 
+It sets the `ActiveRoom` variable to the `root_address` column of the current row number. The current row number is the row number of the room in the list control that is being pressed.
 
 ## Add text control to display the current room
 
+Finally, we add a simple text control with its text set to the `ActiveRoom` data source.
 
+## Conclusion
 
-{% comment %}
-
-* ApplicationGetEventsFromRoom -> MSGraphAppOnlyCustomList
-* UserGetAllRooms              -> MSGraphUserAuthCustomList
-
-{% endcomment %}
+And that's it! We've learned how to use the MS Graph API to show the different rooms we have available, and display the events of the room we select.
