@@ -28,6 +28,7 @@ Here is an overview of the steps we will take to create this dashboard:
 1. **Add the MS Graph data source for the events of a room.**
 1. **Create the table control which displays the events of a room.**
 1. **Create the list control which displays all the rooms and lets the user switch between them.**
+1. **Add text control to display the current room.**
 
 To learn the basics of using the MS Graph API in Peakboard, see [this article]({% post_url 2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started %}).
 
@@ -70,9 +71,7 @@ Check out the [official documentation](https://learn.microsoft.com/en-us/graph/a
 
 We need a data source to get the events of a room. The room to get the events from will be determined by our `ActiveRooms` variable.
 
-We create a *Microsoft Graph App-Only Access* data source.
-
-We set the custom call to:
+We create a *Microsoft Graph App-Only Access* data source. We set the custom call to:
 
 {% highlight url %}
 https://graph.microsoft.com/v1.0/users/#[ActiveRoom]#/events
@@ -81,7 +80,31 @@ https://graph.microsoft.com/v1.0/users/#[ActiveRoom]#/events
 Note that the `#[ActiveRoom]#` part is how we use our `ActiveRoom` variable to modify this API call for the room that is currently selected.
 
 
+## Create the table control which displays the events of a room
 
+We add a table to display all the events of the selected room. We set it to our room events data source. We select the columns we want.
+
+![image](/assets/2023-10-11/050.png)
+
+
+## Create the list control which displays the different rooms.
+
+We add a list control to display the rooms that are available.
+
+For the list template, we have two text control. One reads from the `root_name` column, to show the name of the room. The other reads from the `root_address` column, to show the email address associated with the room.
+
+![image](/assets/2023-10-11/060.png)
+
+We'll use the `root_name` text control to host our tapped event. We resize it to cover most of the template, so it's easily pressable. Finally, we add a tapped event that switches the variable to the appropriate one.
+
+![image](/assets/2023-10-11/070.png)
+
+Here is the script:
+
+![image](/assets/2023-10-11/080.png)
+
+
+## Add text control to display the current room
 
 
 
