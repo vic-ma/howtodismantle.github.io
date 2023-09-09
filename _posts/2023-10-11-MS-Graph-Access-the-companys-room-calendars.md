@@ -109,6 +109,8 @@ It sets the `ActiveRoom` variable to the `root_address` column of the current ro
 
 Finally, we add a simple text control with its text set to the `ActiveRoom` data source.
 
+![image](/assets/2023-10-11/090.png)
+
 ## Conclusion
 
 And that's it! We've learned how to use the MS Graph API to show the different rooms we have available, and display the events of the room we select.
