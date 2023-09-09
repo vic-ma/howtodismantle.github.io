@@ -54,7 +54,13 @@ We need a data source to get a list of all the rooms using the MS Graph API. We 
 
 We set the permissions to `user.read offline_access User.Read.All`.
 
-We set the call to `https://graph.microsoft.com/beta/me/findRooms`. Check out the [official documentation](https://learn.microsoft.com/en-us/graph/api/user-findrooms) for more information about this endpoint.
+We set the custom call to:
+
+{% highlight url %}
+https://graph.microsoft.com/beta/me/findRooms
+{% endhighlight %}
+
+Check out the [official documentation](https://learn.microsoft.com/en-us/graph/api/user-findrooms) for more information about this endpoint.
 
 
 ![image](/assets/2023-10-11/040.png)
@@ -63,6 +69,20 @@ We set the call to `https://graph.microsoft.com/beta/me/findRooms`. Check out th
 ## Create a data source to get all the events of a room
 
 We need a data source to get the events of a room. The room to get the events from will be determined by our `ActiveRooms` variable.
+
+We create a *Microsoft Graph App-Only Access* data source.
+
+We set the custom call to:
+
+{% highlight url %}
+https://graph.microsoft.com/v1.0/users/#[ActiveRoom]#/events
+{% endhighlight %}
+
+Note that the `#[ActiveRoom]#` part is how we use our `ActiveRoom` variable to modify this API call for the room that is currently selected.
+
+
+
+
 
 
 {% comment %}
