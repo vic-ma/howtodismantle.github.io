@@ -57,9 +57,12 @@ We set the permissions to `user.read offline_access User.Read.All`.
 We set the call to `https://graph.microsoft.com/beta/me/findRooms`. Check out the [official documentation](https://learn.microsoft.com/en-us/graph/api/user-findrooms) for more information about this endpoint.
 
 
+![image](/assets/2023-10-11/040.png)
 
 
+## Create a data source to get all the events of a room
 
+We need a data source to get the events of a room. The room to get the events from will be determined by our `ActiveRooms` variable.
 
 
 {% comment %}
