@@ -9,6 +9,8 @@ read_more_links:
     url: /MS-Graph-API-Understand-the-basis-and-get-started.html
   - name: Dismantle O365 group calendars with MS Graph API
     url: /Dismantle-O365-group-calendars-with-MS-Graph.html
+  - name: MS Graph API findRooms documentation
+    url: https://learn.microsoft.com/en-us/graph/api/user-findrooms
 downloads:
 ---
 In this article, we will learn how to visualize a company's O365 room calendars, in Peakboard.
@@ -36,10 +38,33 @@ Finally, note that this article covers room calendars, and not group calendars. 
 
 We will use a variable to store the name of the currently selected room. Then, the list control will write to it when the user selects on a different room from the current one. And, the data source will read from it to construct the room-specific MS Graph API call.
 
+So, we create a new variable.
+
 ![image](/assets/2023-10-11/020.png)
 
 
+We name it `ActiveRooms`, and we make sure its data type is set to *String*.
 
+![image](/assets/2023-10-11/030.png)
+
+
+## Create a data source to get all the rooms
+
+We need a data source to get a list of all the rooms using the MS Graph API. We create a *Microsoft Graph User-Delegated Access* data source.
+
+We set the permissions to `user.read offline_access User.Read.All`.
+
+We set the call to `https://graph.microsoft.com/beta/me/findRooms`. Check out the [official documentation](https://learn.microsoft.com/en-us/graph/api/user-findrooms) for more information about this endpoint.
+
+
+
+
+
+
+
+{% comment %}
 
 * ApplicationGetEventsFromRoom -> MSGraphAppOnlyCustomList
 * UserGetAllRooms              -> MSGraphUserAuthCustomList
+
+{% endcomment %}
