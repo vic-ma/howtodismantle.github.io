@@ -25,19 +25,19 @@ Here's what the finished dashboard looks like. Notice how the list of events cha
 
 Here is an overview of the steps we will take to create this dashboard:
 
-1. **Create a variable for the active room.** This variable will let us keep track of the currently selected room.
+1. **Create a variable for the selected room.** This variable will let us keep track of the currently selected room.
 1. **Add an MS Graph data source to get the list of rooms.**
 1. **Add an MS Graph data source to get the events of a room.**
 1. **Create a list control that lets the user select a room.**
 1. **Create a table control that displays the events of the selected room.**
-1. **Add text control to display the current room.**
+1. **Add a text control to indicate the currently selected room.**
 
 To learn the basics of using the MS Graph API in Peakboard, see [this article]({% post_url 2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started %}).
 
-Finally, note that this article covers room calendars, and not group calendars. To learn how to use group calendars in Peakboard, see [this article]({% post_url 2023-08-12-Dismantle-O365-group-calendars-with-MS-Graph %}).
+Also note that this article covers room calendars, not group calendars. To learn how to integrate group calendars into Peakboard, see [this article]({% post_url 2023-08-12-Dismantle-O365-group-calendars-with-MS-Graph %}).
 
 
-## Create a variable for the active room
+## Create a variable for the selected room
 
 We will use a variable to store the name of the currently selected room. Then, the list control will write to it when the user selects on a different room from the current one. And, the data source will read from it to construct the room-specific MS Graph API call.
 
