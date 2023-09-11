@@ -26,9 +26,9 @@ Here's what the finished dashboard looks like. Notice how the list of events cha
 Here is an overview of the steps we will take to create this dashboard:
 
 1. **Create a variable for the selected room.** This variable holds the email address of the currently selected room.
-1. **Add an MS Graph data source to get the list of rooms.** This data source gets a list rooms, in the form of an email address.
+1. **Add an MS Graph data source to get a list of rooms.** This data source gets a list of rooms, in the form of their email address.
 1. **Add an MS Graph data source to get the events of a room.** This data source gets the events of the currently selected room, using our variable.
-1. **Create a list control that lets the user select a room.** This list control updates our variable when the user clicks on it.
+1. **Create a list control that lets the user select a room.** When the user selects a room, we update our variable.
 1. **Create a table control that displays the events of the selected room.**
 1. **Add a text control that displays the currently selected room.**
 
@@ -39,7 +39,7 @@ Also note that this article covers room calendars, not group calendars. To learn
 
 ## Create a variable for the selected room
 
-We will use a variable to store the email address of the currently selected room. Then, the list control will write to it when the user selects on a different room from the current one. And, the data source will read from it to construct the room-specific MS Graph API call.
+We need some way of keeping track of the currently selected room. To do this, we will use a variable. We will update this variable when the user selects a room, and we will read this variable to know which room's events we should display.
 
 So, we create a new variable.
 
@@ -51,35 +51,40 @@ We name it `ActiveRooms`, and we make sure its data type is set to *String*.
 ![image](/assets/2023-10-11/030.png)
 
 
-## Create a data source to get all the rooms
+## Create a data source to get a list of rooms
 
-We need a data source to get a list of all the rooms using the MS Graph API. We create a *Microsoft Graph User-Delegated Access* data source.
+We need to get a list of rooms that our API user has access to.
+
+So, we create a *Microsoft Graph User-Delegated Access* data source.
 
 We set the permissions to `user.read offline_access User.Read.All`.
 
-We set the custom call to:
+And we set the custom call to:
 
 {% highlight url %}
 https://graph.microsoft.com/beta/me/findRooms
 {% endhighlight %}
 
-Check out the [official documentation](https://learn.microsoft.com/en-us/graph/api/user-findrooms) for more information about this endpoint.
-
+This API call returns a list of rooms, in the form of their email address.  Check out the [official documentation](https://learn.microsoft.com/en-us/graph/api/user-findrooms) for more information about this endpoint.
 
 ![image](/assets/2023-10-11/040.png)
 
 
 ## Create a data source to get all the events of a room
 
-We need a data source to get the events of a room. The room to get the events from will be determined by our `ActiveRooms` variable.
+Next, we need a data source that gets the events of our currently selected room. So, we create a *Microsoft Graph App-Only Access* data source.
 
-We create a *Microsoft Graph App-Only Access* data source. We set the custom call to:
+The room to get the events from is determined by our `ActiveRooms` variable.
+
+In order to have the API call return the events of our selected room, we will embed our `ActiveRooms` variable inside the API call itself.
+
+We set the custom call to:
 
 {% highlight url %}
 https://graph.microsoft.com/v1.0/users/#[ActiveRoom]#/events
 {% endhighlight %}
 
-Note that the `#[ActiveRoom]#` part is how we use our `ActiveRoom` variable to modify this API call for the room that is currently selected.
+Note that `#[ActiveRoom]#` will be replaced by the value of `ActiveRoom`.
 
 Check out the [official documentation](https://learn.microsoft.com/en-us/graph/api/user-list-events) for more information about this endpoint.
 
