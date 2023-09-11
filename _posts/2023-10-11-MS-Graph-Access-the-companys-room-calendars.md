@@ -11,21 +11,23 @@ read_more_links:
     url: /Dismantle-O365-group-calendars-with-MS-Graph.html
   - name: MS Graph API findRooms documentation
     url: https://learn.microsoft.com/en-us/graph/api/user-findrooms
+  - name: MS Graph API list events documentation
+    url: https://learn.microsoft.com/en-us/graph/api/user-list-events
 downloads:
 ---
-In this article, we will learn how to visualize a company's O365 room calendars, in Peakboard.
+In this article, we will learn how to integrate Microsoft 365 room calendars into Peakboard, using Microsoft's Graph API.
 
-We will create a dashboard that can display the events of three different room calendars. Only one calendar's events will be displayed at a time, and the user can switch between them by clicking on a room selector.
+We will create a dashboard that lists the events of a room calendar. We will also add a selector that lets the user choose which room they want to view.
 
-Here's what the finished dashboard looks like. Notice how clicking on the different rooms changes the data in the table.
+Here's what the finished dashboard looks like. Notice how the list of events changes when I click on the different rooms.
 
 ![image](/assets/2023-10-11/010.gif)
 
 Here is an overview of the steps we will take to create this dashboard:
 
-1. **Create a variable for the active room.**
-1. **Add the MS Graph data source for all the rooms.**
-1. **Add the MS Graph data source for the events of a room.**
+1. **Create a variable for the active room.** This variable will let us keep track of the currently selected room.
+1. **Add an MS Graph data source to get a list of rooms.**
+1. **Add an MS Graph data source to get the events of a room.**
 1. **Create the table control which displays the events of a room.**
 1. **Create the list control which displays all the rooms and lets the user switch between them.**
 1. **Add text control to display the current room.**
@@ -78,6 +80,8 @@ https://graph.microsoft.com/v1.0/users/#[ActiveRoom]#/events
 {% endhighlight %}
 
 Note that the `#[ActiveRoom]#` part is how we use our `ActiveRoom` variable to modify this API call for the room that is currently selected.
+
+Check out the [official documentation](https://learn.microsoft.com/en-us/graph/api/user-list-events) for more information about this endpoint.
 
 
 ## Create the table control which displays the events of a room
