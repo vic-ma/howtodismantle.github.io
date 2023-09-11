@@ -17,7 +17,7 @@ downloads:
 ---
 In this article, we will learn how to integrate Microsoft 365 room calendars into Peakboard, using Microsoft's Graph API.
 
-We will create a dashboard that lists the events of a room calendar. We will also add a selector that lets the user choose which room they want to view.
+We will create a dashboard that lists the events of a room calendar. We will also add a selector that lets the user select which room they want to view.
 
 Here's what the finished dashboard looks like. Notice how the list of events changes when I click on the different rooms.
 
@@ -26,10 +26,10 @@ Here's what the finished dashboard looks like. Notice how the list of events cha
 Here is an overview of the steps we will take to create this dashboard:
 
 1. **Create a variable for the active room.** This variable will let us keep track of the currently selected room.
-1. **Add an MS Graph data source to get a list of rooms.**
+1. **Add an MS Graph data source to get the list of rooms.**
 1. **Add an MS Graph data source to get the events of a room.**
-1. **Create the table control which displays the events of a room.**
-1. **Create the list control which displays all the rooms and lets the user switch between them.**
+1. **Create a list control that lets the user select a room.**
+1. **Create a table control that displays the events of the selected room.**
 1. **Add text control to display the current room.**
 
 To learn the basics of using the MS Graph API in Peakboard, see [this article]({% post_url 2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started %}).
