@@ -28,7 +28,7 @@ Here is an overview of the steps we will take to create this dashboard:
 1. **Create a variable for the selected room.** This variable holds the email address of the currently selected room.
 1. **Add an MS Graph data source to get a list of rooms.** This data source gets a list of rooms, in the form of their email address.
 1. **Add an MS Graph data source to get the events of a room.** This data source gets the events of the currently selected room, using our variable.
-1. **Create a list control that lets the user select a room.** When the user selects a room, we update our variable.
+1. **Create a room selector with a styled list control** When the user selects a room, we update our variable.
 1. **Create a table control that displays the events of the selected room.**
 1. **Add a text control that displays the currently selected room.**
 
@@ -55,7 +55,7 @@ We name it `ActiveRooms`, and we make sure its data type is set to *String*.
 
 We need to get a list of rooms that our API user has access to.
 
-So, we create a *Microsoft Graph User-Delegated Access* data source.
+So, we create a new *Microsoft Graph User-Delegated Access* data source.
 
 We set the permissions to `user.read offline_access User.Read.All`.
 
@@ -89,18 +89,13 @@ Note that `#[ActiveRoom]#` will be replaced by the value of `ActiveRoom`.
 Check out the [official documentation](https://learn.microsoft.com/en-us/graph/api/user-list-events) for more information about this endpoint.
 
 
-## Create the table control which displays the events of a room
+## Create a room selector with a styled list control
 
-We add a table to display all the events of the selected room. We set it to our room events data source. We select the columns we want.
+Now, let's add a room selector so the user can choose the room they want to see events for.
 
-![image](/assets/2023-10-11/050.png)
+We create a new styled list control. The data source for the list is our `findRooms` data source.
 
-
-## Create the list control which displays the different rooms.
-
-We add a list control to display the rooms that are available.
-
-For the list template, we have two text control. One reads from the `root_name` column, to show the name of the room. The other reads from the `root_address` column, to show the email address associated with the room.
+For the template, we add two text controls. One displays the `root_name` column, which is the name of the room's occupant. The other displays the `root_address` column, which is the email address of the room's occupant.
 
 ![image](/assets/2023-10-11/060.png)
 
@@ -112,7 +107,15 @@ Here is the script:
 
 ![image](/assets/2023-10-11/080.png)
 
-It sets the `ActiveRoom` variable to the `root_address` column of the current row number. The current row number is the row number of the room in the list control that is being pressed.
+It sets the `ActiveRoom` variable to the `root_address` column of the current row number. The current row number is the row number of the room in the styled list control that is being pressed.
+
+
+## Create the table control which displays the events of a room
+
+We add a table to display all the events of the selected room. We set it to our room events data source. We select the columns we want.
+
+![image](/assets/2023-10-11/050.png)
+
 
 ## Add text control to display the current room
 
