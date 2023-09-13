@@ -30,7 +30,7 @@ Here is an overview of the steps we will take to create this dashboard:
 1. **Add a variable for the selected room.** This lets us keep track of the selected room.
 1. **Add a data source to get a list of all the rooms.** This lets us know which rooms the user can select.
 1. **Add a data source to get the events of the selected room.**
-1. **Add a room selector with a styled list control** This lets us update our selected room variable.
+1. **Add a room selector using a styled list control.** This lets the user choose the room they want to view.
 1. **Add a table control that displays the events of the selected room.**
 1. **Add a text control that indicates the selected room.**
 
@@ -39,7 +39,7 @@ To learn the basics of using the MS Graph API in Peakboard, see [this article]({
 Note that this article covers room calendars, not group calendars. To learn how to integrate group calendars into Peakboard, see [this article]({% post_url 2023-08-12-Dismantle-O365-group-calendars-with-MS-Graph %}).
 
 
-## Create a variable for the selected room
+## Add a variable for the selected room
 
 We need some way of keeping track of the selected room. To do this, we will use a variable. We will update this variable when the user selects a room, and we will read this variable to know which room's events we should display.
 
@@ -52,7 +52,7 @@ We name it `ActiveRooms`, and we make sure its data type is set to *String*.
 ![image](/assets/2023-10-11/030.png)
 
 
-## Create a data source to get a list of all the rooms
+## Add a data source to get a list of all the rooms
 
 We need to get a list of all the rooms that our API user has access to.
 
@@ -73,7 +73,7 @@ Check out the [official documentation](https://learn.microsoft.com/en-us/graph/a
 ![image](/assets/2023-10-11/040.png)
 
 
-## Create a data source to get all the events of the selected room
+## Add a data source to get all the events of the selected room
 
 Next, we need a data source that gets the events of the selected room.
 
@@ -90,37 +90,37 @@ In order to have the API call return the events of our selected room, we embed o
 Check out the [official documentation](https://learn.microsoft.com/en-us/graph/api/user-list-events) for more information about this endpoint.
 
 
-## Create a room selector with a styled list control
+## Add a room selector using a styled list control
 
 Now, let's add a room selector so the user can choose the room they want to view.
 
-We create a new styled list control. The data source for the list is our `findRooms` data source.
+We create a new styled list control. The data source for the list is our `UserGetAllRooms` data source.
 
 For the template, we add two text controls. One displays the `root_name` column, which is the name of the room's occupant. The other displays the `root_address` column, which is the email address of the room's occupant.
 
 ![image](/assets/2023-10-11/060.png)
 
-We'll use the `root_name` text control to host our tapped event. We resize it to cover most of the template, so it's easily clickable. Finally, we add a tapped event that switches the variable to the appropriate one.
+To get the selection functionality, we add a tapped event to the `root_name` text control.  We also resize the text control to cover most of the template, so it's easily clickable.
 
 ![image](/assets/2023-10-11/070.png)
 
-Here is the script:
+Here is the script for the tapped event:
 
 ![image](/assets/2023-10-11/080.png)
 
-It sets the `ActiveRoom` variable to the `root_address` column of the current row number. The current row number is the row number of the room in the styled list control that is being pressed.
+It sets the `ActiveRoom` variable to the email address of the room being pressed.
 
 
-## Create the table control which displays the events of a room
+## Add the table control which displays the events of a room
 
-Now, we add a table control to display all the events of the selected room. We set its data source to our `user-list-events` data source. We select the columns we want.
+Now, we add a table control to display all the events of the selected room. We set its data source to our `ApplicationGetEventsFromRoom` data source. We select the columns we want.
 
 ![image](/assets/2023-10-11/050.png)
 
 
 ## Add text control to display the current room
 
-Finally, we add a simple text control with its text set to the `ActiveRoom` data source.
+Finally, we add a simple text control with its text set to the `ActiveRoom` data source. This lets the user know what the selected room is.
 
 ![image](/assets/2023-10-11/090.png)
 
