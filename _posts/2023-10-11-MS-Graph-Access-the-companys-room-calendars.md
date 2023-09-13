@@ -14,32 +14,34 @@ read_more_links:
   - name: MS Graph API list events documentation
     url: https://learn.microsoft.com/en-us/graph/api/user-list-events
 downloads:
+  - name: GraphRooms.pbmx
+    url: /assets/2023-10-11/GraphRooms.pbmx
 ---
-In this article, we will learn how to integrate Microsoft 365 room calendars into Peakboard, using Microsoft's Graph API.
+In this article, we will learn how to use Microsoft's Graph API to integrate room calendars into Peakboard.
 
-We will create a dashboard that lists the events of a room calendar. We will also add a selector that lets the user select which room they want to view.
+We will create a dashboard that lets the user select a room, and then displays the events of that room.
 
-Here's what the finished dashboard looks like. Notice how the list of events changes when I click on the different rooms.
+Here's what the finished dashboard looks like. Notice how the list of events changes when clicking on the different rooms.
 
 ![image](/assets/2023-10-11/010.gif)
 
 Here is an overview of the steps we will take to create this dashboard:
 
-1. **Create a variable for the selected room.** This variable holds the email address of the currently selected room.
-1. **Add an MS Graph data source to get a list of rooms.** This data source gets a list of rooms, in the form of their email address.
-1. **Add an MS Graph data source to get the events of a room.** This data source gets the events of the currently selected room, using our variable.
-1. **Create a room selector with a styled list control** When the user selects a room, we update our variable.
-1. **Create a table control that displays the events of the selected room.**
-1. **Add a text control that displays the currently selected room.**
+1. **Add a variable for the selected room.** This lets us keep track of the selected room.
+1. **Add a data source to get a list of all the rooms.** This lets us know which rooms the user can select.
+1. **Add a data source to get the events of a room.**
+1. **Add a room selector with a styled list control** This lets us update our selected room variable.
+1. **Add a table control that displays the events of the selected room.**
+1. **Add a text control that indicates the selected room.**
 
 To learn the basics of using the MS Graph API in Peakboard, see [this article]({% post_url 2023-06-09-MS-Graph-API-Understand-the-basis-and-get-started %}).
 
-Also note that this article covers room calendars, not group calendars. To learn how to integrate group calendars into Peakboard, see [this article]({% post_url 2023-08-12-Dismantle-O365-group-calendars-with-MS-Graph %}).
+Note that this article covers room calendars, not group calendars. To learn how to integrate group calendars into Peakboard, see [this article]({% post_url 2023-08-12-Dismantle-O365-group-calendars-with-MS-Graph %}).
 
 
 ## Create a variable for the selected room
 
-We need some way of keeping track of the currently selected room. To do this, we will use a variable. We will update this variable when the user selects a room, and we will read this variable to know which room's events we should display.
+We need some way of keeping track of the selected room. To do this, we will use a variable. We will update this variable when the user selects a room, and we will read this variable to know which room's events we should display.
 
 So, we create a new variable.
 
@@ -72,7 +74,7 @@ This API call returns a list of rooms, in the form of their email address.  Chec
 
 ## Create a data source to get all the events of a room
 
-Next, we need a data source that gets the events of our currently selected room. So, we create a *Microsoft Graph App-Only Access* data source.
+Next, we need a data source that gets the events of our selected room. So, we create a *Microsoft Graph App-Only Access* data source.
 
 The room to get the events from is determined by our `ActiveRooms` variable.
 
@@ -126,3 +128,5 @@ Finally, we add a simple text control with its text set to the `ActiveRoom` data
 ## Conclusion
 
 And that's it! We've learned how to use the MS Graph API to show the different rooms we have available, and display the events of the room we select.
+
+You can download the [completed dashboard](/assets/2023-10-11/GraphRooms.pbmx) and try it out for yourself.
