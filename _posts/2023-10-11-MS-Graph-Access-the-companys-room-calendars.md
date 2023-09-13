@@ -21,7 +21,7 @@ In this article, we will learn how to use Microsoft's Graph API to integrate roo
 
 We will create a dashboard that lets the user select a room, and then displays the events of that room.
 
-Here's what the finished dashboard looks like. Notice how the list of events changes when clicking on the different rooms.
+Here's what the finished dashboard looks like. Notice how the list of events changes after clicking on a room.
 
 ![image](/assets/2023-10-11/010.gif)
 
@@ -66,7 +66,7 @@ And we set the custom call to:
 https://graph.microsoft.com/beta/me/findRooms
 {% endhighlight %}
 
-This API call returns a list of rooms, in the form of their email address. The MS Graph API identifies rooms by their email address, which is why it works this way.
+This API call returns a list of rooms, in the form of their email address. The MS Graph API identifies rooms by their email addresses, which is why it works this way.
 
 Check out the [official documentation](https://learn.microsoft.com/en-us/graph/api/user-findrooms) for more information about this endpoint.
 
@@ -92,11 +92,11 @@ Check out the [official documentation](https://learn.microsoft.com/en-us/graph/a
 
 ## Add a room selector using a styled list control
 
-Now, let's add a room selector so the user can choose the room they want to view.
+Now, let's add a room selector, so the user can choose the room they want to view.
 
 We create a new styled list control. The data source for the list is our `UserGetAllRooms` data source.
 
-For the template, we add two text controls. One displays the `root_name` column, which is the name of the room's occupant. The other displays the `root_address` column, which is the email address of the room's occupant.
+For the template, we add two text controls. One displays the `root_name` column, which is the name of the room. The other displays the `root_address` column, which is the email address of the room.
 
 ![image](/assets/2023-10-11/060.png)
 
@@ -108,7 +108,7 @@ Here is the script for the tapped event:
 
 ![image](/assets/2023-10-11/080.png)
 
-It sets the `ActiveRoom` variable to the email address of the room being pressed.
+It sets the `ActiveRoom` variable to the email address of the room that's clicked.
 
 
 ## Add the table control which displays the events of a room
@@ -126,6 +126,6 @@ Finally, we add a simple text control with its text set to the `ActiveRoom` data
 
 ## Conclusion
 
-And that's it! We've learned how to use the MS Graph API to show the different rooms we have available, and display the events of the room we select.
+We've learned how to use the MS Graph API to list all the rooms we have, and display the events of the room that's selected.
 
 You can download the [completed dashboard](/assets/2023-10-11/GraphRooms.pbmx) and try it out for yourself.
