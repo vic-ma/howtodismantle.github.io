@@ -91,7 +91,7 @@ Check out the [official documentation](https://learn.microsoft.com/en-us/graph/a
 
 ## Create a room selector with a styled list control
 
-Now, let's add a room selector so the user can choose the room they want to see events for.
+Now, let's add a room selector so the user can choose the room they want to view.
 
 We create a new styled list control. The data source for the list is our `findRooms` data source.
 
@@ -99,7 +99,7 @@ For the template, we add two text controls. One displays the `root_name` column,
 
 ![image](/assets/2023-10-11/060.png)
 
-We'll use the `root_name` text control to host our tapped event. We resize it to cover most of the template, so it's easily pressable. Finally, we add a tapped event that switches the variable to the appropriate one.
+We'll use the `root_name` text control to host our tapped event. We resize it to cover most of the template, so it's easily clickable. Finally, we add a tapped event that switches the variable to the appropriate one.
 
 ![image](/assets/2023-10-11/070.png)
 
@@ -112,7 +112,7 @@ It sets the `ActiveRoom` variable to the `root_address` column of the current ro
 
 ## Create the table control which displays the events of a room
 
-We add a table to display all the events of the selected room. We set it to our room events data source. We select the columns we want.
+Now, we add a table control to display all the events of the selected room. We set its data source to our `user-list-events` data source. We select the columns we want.
 
 ![image](/assets/2023-10-11/050.png)
 
