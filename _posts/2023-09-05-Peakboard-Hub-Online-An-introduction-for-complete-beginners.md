@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Peakboard Hub Online - An introduction for complete beginners
-date: 2023-09-05 12:00:00 +0200
+date: 2023-09-05 02:00:00 +0200
 tags: peakboardhub
 image: /assets/2023-09-05/title.png
 read_more_links:
