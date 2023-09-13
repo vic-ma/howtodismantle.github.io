@@ -29,7 +29,7 @@ Here is an overview of the steps we will take to create this dashboard:
 
 1. **Add a variable for the selected room.** This lets us keep track of the selected room.
 1. **Add a data source to get a list of all the rooms.** This lets us know which rooms the user can select.
-1. **Add a data source to get the events of a room.**
+1. **Add a data source to get the events of the selected room.**
 1. **Add a room selector with a styled list control** This lets us update our selected room variable.
 1. **Add a table control that displays the events of the selected room.**
 1. **Add a text control that indicates the selected room.**
@@ -47,17 +47,16 @@ So, we create a new variable.
 
 ![image](/assets/2023-10-11/020.png)
 
-
 We name it `ActiveRooms`, and we make sure its data type is set to *String*.
 
 ![image](/assets/2023-10-11/030.png)
 
 
-## Create a data source to get a list of rooms
+## Create a data source to get a list of all the rooms
 
-We need to get a list of rooms that our API user has access to.
+We need to get a list of all the rooms that our API user has access to.
 
-So, we create a new *Microsoft Graph User-Delegated Access* data source.
+We create a new *Microsoft Graph User-Delegated Access* data source.
 
 We set the permissions to `user.read offline_access User.Read.All`.
 
@@ -67,18 +66,18 @@ And we set the custom call to:
 https://graph.microsoft.com/beta/me/findRooms
 {% endhighlight %}
 
-This API call returns a list of rooms, in the form of their email address.  Check out the [official documentation](https://learn.microsoft.com/en-us/graph/api/user-findrooms) for more information about this endpoint.
+This API call returns a list of rooms, in the form of their email address. The MS Graph API identifies rooms by their email address, which is why it works this way.
+
+Check out the [official documentation](https://learn.microsoft.com/en-us/graph/api/user-findrooms) for more information about this endpoint.
 
 ![image](/assets/2023-10-11/040.png)
 
 
-## Create a data source to get all the events of a room
+## Create a data source to get all the events of the selected room
 
-Next, we need a data source that gets the events of our selected room. So, we create a *Microsoft Graph App-Only Access* data source.
+Next, we need a data source that gets the events of the selected room.
 
-The room to get the events from is determined by our `ActiveRooms` variable.
-
-In order to have the API call return the events of our selected room, we will embed our `ActiveRooms` variable inside the API call itself.
+We create a *Microsoft Graph App-Only Access* data source.
 
 We set the custom call to:
 
@@ -86,7 +85,7 @@ We set the custom call to:
 https://graph.microsoft.com/v1.0/users/#[ActiveRoom]#/events
 {% endhighlight %}
 
-Note that `#[ActiveRoom]#` will be replaced by the value of `ActiveRoom`.
+In order to have the API call return the events of our selected room, we embed our `ActiveRooms` variable inside the API call itself. At runtime, `#[ActiveRoom]#` is replaced by the value of `ActiveRoom`.
 
 Check out the [official documentation](https://learn.microsoft.com/en-us/graph/api/user-list-events) for more information about this endpoint.
 
