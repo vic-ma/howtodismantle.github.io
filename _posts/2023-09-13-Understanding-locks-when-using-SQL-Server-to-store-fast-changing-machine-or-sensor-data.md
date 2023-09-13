@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Understanding locks when using SQL Server to store fast changing machine or sensor data
-date: 2023-03-01 12:00:00 +0200
+date: 2023-09-13 01:00:00 +0200
 tags: sqlserver bestpractice
 image: /assets/2023-09-13/title.png
 read_more_links:
