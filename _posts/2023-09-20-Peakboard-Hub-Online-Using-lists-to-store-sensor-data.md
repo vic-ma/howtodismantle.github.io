@@ -11,7 +11,7 @@ read_more_links:
     url: /OPC-UA-Basics-Getting-started-with-a-public-OPC-UA-server.html
 ---
 
-In this article, we will learn how to use lists in [Peakboard Hub Online](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html) (PBHO). We will learn how to write data to a list, how to read data from a list, and how to aggregate data from a list. The data we will use is sensor data from an air conditioner.
+In this article, we will learn how to use lists in Peakboard Hub Online (PBHO). We will learn how to write data to a list, how to read data from a list, and how to aggregate data from a list. The data we will use is sensor data from an air conditioner.
 
 Here is an overview of the steps we will take:
 
@@ -22,6 +22,7 @@ Here is an overview of the steps we will take:
 5. **Create a data source that performs data aggregation on our PBHO list, using a SQL query.** We will use a SQL query to get the maximum, minimum, and average temperature from our list.
 6. **Add table controls for all three of our data sources to visualize the result.**
 
+See [this article](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html) to learn the basics of PBHO.
 
 ## Create a new list in PBHO
 
