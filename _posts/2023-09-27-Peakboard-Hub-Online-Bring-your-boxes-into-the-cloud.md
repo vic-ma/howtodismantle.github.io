@@ -8,3 +8,7 @@ read_more_links:
   - name: Learn the basics of Peakboard Hub Online
     url: /Peakboard-Hub-Online-An-introduction-for-complete-beginners.html
 ---
+
+In this article, we will learn how to add a Peakboard Box to Peakboard Hub Online (PBHO). By doing this, we'll be able to manage and monitor our Box using PBHO.
+
+Here is an overview of the steps we will take:
