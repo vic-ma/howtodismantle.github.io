@@ -13,7 +13,7 @@ In this article, we will learn how to add a Peakboard Box to Peakboard Hub Onlin
 
 Here is an overview of the steps we will take:
 
-1. **Connect the Box to the cloud.** This makes the Box available to PBHO.
+1. **Connect the Box to the cloud.** This makes the Box visible to PBHO.
 1. **Add the Box to PBHO.**
 
 See [this article](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html) to learn the basics of PBHO.
@@ -21,3 +21,15 @@ See [this article](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.
 
 ## Connect the Box to the cloud
 
+Before we can add our Peakboard Box to PBHO, we first need to connect the Box to the cloud. This will make the Box visible to PBHO.
+
+In order to connect the Box to the cloud, we first open Peakboard Designer and then open the *Peakboard Box Settings*.
+
+![image](/assets/2023-09-27/010.png)
+
+
+Then, we select our Peakboard Box, go to the *General* tab, and click on the cloud icon under *Cloud Connection*.
+
+Finally, copy the *Cloud ID*. We will need it later.
+
+![image](/assets/2023-09-27/020.png)
