@@ -13,8 +13,11 @@ In this article, we will learn how to add a Peakboard Box to Peakboard Hub Onlin
 
 Here is an overview of the steps we will take:
 
-1. **Add our Box to Peakboard Designer.**
-2. 
-
+1. **Connect the Box to the cloud.** This makes the Box available to PBHO.
+1. **Add the Box to PBHO.**
 
 See [this article](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html) to learn the basics of PBHO.
+
+
+## Connect the Box to the cloud
+
