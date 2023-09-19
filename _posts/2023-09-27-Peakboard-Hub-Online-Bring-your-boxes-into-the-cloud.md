@@ -9,7 +9,7 @@ read_more_links:
     url: /Peakboard-Hub-Online-An-introduction-for-complete-beginners.html
 ---
 
-In this article, we will learn how to add a Peakboard Box to Peakboard Hub Online (PBHO). By doing this, we'll be able to manage and monitor our Box using PBHO.
+In this article, we will learn how to add a Peakboard Box to Peakboard Hub Online (PBHO). That way, we'll be able to manage and monitor the Box using PBHO.
 
 Here is an overview of the steps we will take:
 
@@ -21,14 +21,13 @@ See [this article](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.
 
 ## Connect the Box to the cloud
 
-Before we can add our Peakboard Box to PBHO, we first need to connect the Box to the cloud. This will make the Box visible to PBHO.
+Before we can add the Peakboard Box to PBHO, we first need to connect the Box to the cloud. This will make the Box visible to PBHO.
 
-In order to connect the Box to the cloud, we first open Peakboard Designer and then open the *Peakboard Box Settings*.
+So, we go to Peakboard Designer and open the Peakboard Box settings.
 
 ![image](/assets/2023-09-27/010.png)
 
-
-Then, we select our Peakboard Box, go to the *General* tab, and click on the cloud icon under *Cloud Connection*.
+Then, we select our Peakboard Box. We go to the *General* tab, and click on the cloud icon under *Cloud Connection*. Now, our Box is connected to the cloud.
 
 Finally, we copy the *Cloud ID*. We will need it later.
 
@@ -37,12 +36,14 @@ Finally, we copy the *Cloud ID*. We will need it later.
 
 ## Add the Box to PBHO
 
-Now, we can add our Peakboard Box to PBHO. So, we open PBHO and go the *Peakboard Boxes* tab. Then, we click on *Add Peakboard Box*.
+Now, we can add the Peakboard Box to PBHO.
+
+First, we open PBHO and go the *Peakboard Boxes* tab. Then, we click on *Add Peakboard Box*.
 
 ![image](/assets/2023-09-27/030.png)
 
-Next, enter the cloud ID from before, as well as the username and password of a user with sufficient permissions.
+Next, we enter the cloud ID from before. Then, we enter the credentials of a user with sufficient permissions. (Check the *Users and roles* tab in Peakboard Designer to view all users.) Finally, we click *Save* to add the Box to PBHO.
 
-Then, the Box will be added to PBHO. When we refresh the page and click on our Box, we can see all sorts of information about our Box, as well as controls for managing it.
+Now, when we refresh the page and click on our Box, we can see all sorts of information about our Box, as well as controls for managing it.
 
 ![image](/assets/2023-09-27/040.png)
