@@ -37,4 +37,12 @@ Finally, we copy the *Cloud ID*. We will need it later.
 
 ## Add the Box to PBHO
 
-Now, we can add our Peakboard Box to PBHO. So, we open PBHO and go 
+Now, we can add our Peakboard Box to PBHO. So, we open PBHO and go the *Peakboard Boxes* tab. Then, we click on *Add Peakboard Box*.
+
+![image](/assets/2023-09-27/030.png)
+
+Next, enter the cloud ID from before, as well as the username and password of a user with sufficient permissions.
+
+Then, the Box will be added to PBHO. When we refresh the page and click on our Box, we can see all sorts of information about our Box, as well as controls for managing it.
+
+![image](/assets/2023-09-27/040.png)
