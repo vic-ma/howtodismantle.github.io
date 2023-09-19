@@ -30,6 +30,11 @@ In order to connect the Box to the cloud, we first open Peakboard Designer and t
 
 Then, we select our Peakboard Box, go to the *General* tab, and click on the cloud icon under *Cloud Connection*.
 
-Finally, copy the *Cloud ID*. We will need it later.
+Finally, we copy the *Cloud ID*. We will need it later.
 
 ![image](/assets/2023-09-27/020.png)
+
+
+## Add the Box to PBHO
+
+Now, we can add our Peakboard Box to PBHO. So, we open PBHO and go 
