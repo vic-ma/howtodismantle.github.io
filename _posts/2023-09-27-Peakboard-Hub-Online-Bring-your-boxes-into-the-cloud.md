@@ -9,11 +9,11 @@ read_more_links:
     url: /Peakboard-Hub-Online-An-introduction-for-complete-beginners.html
 ---
 
-In this article, we will learn how to add a Peakboard Box to Peakboard Hub Online (PBHO). That way, we'll be able to manage and monitor the Box using PBHO.
+In this article, we will learn how to add a Peakboard Box to Peakboard Hub Online (PBHO). That way, we'll be able to manage and monitor the Box in PBHO.
 
 Here is an overview of the steps we will take:
 
-1. **Connect the Box to the cloud.** This makes the Box visible to PBHO.
+1. **Connect the Box to the cloud.** This will allow PBHO to connect to the Box.
 1. **Add the Box to PBHO.**
 
 See [this article](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html) to learn the basics of PBHO.
@@ -21,7 +21,7 @@ See [this article](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.
 
 ## Connect the Box to the cloud
 
-Before we can add the Peakboard Box to PBHO, we first need to connect the Box to the cloud. This will make the Box visible to PBHO.
+In order for PBHO to connect to the Peakboard Box, we first need to connect the Box to the cloud.
 
 So, we go to Peakboard Designer and open the Peakboard Box settings.
 
@@ -42,8 +42,8 @@ First, we open PBHO and go the *Peakboard Boxes* tab. Then, we click on *Add Pea
 
 ![image](/assets/2023-09-27/030.png)
 
-Next, we enter the cloud ID from before. Then, we enter the credentials of a user with sufficient permissions. (Check the *Users and roles* tab in Peakboard Designer to view all users.) Finally, we click *Save* to add the Box to PBHO.
+Next, we enter the cloud ID from before. Then, we enter the credentials of a user with sufficient permissions. (Check the *Users and roles* tab in Peakboard Designer to view all users.) Finally, we click *Save*.
 
-Now, when we refresh the page and click on our Box, we can see all sorts of information about our Box, as well as controls for managing it.
+Now, our Box has been added to PBHO. When we refresh the page and click on our Box, we can see all sorts of information about our Box, as well as controls for managing it.
 
 ![image](/assets/2023-09-27/040.png)
