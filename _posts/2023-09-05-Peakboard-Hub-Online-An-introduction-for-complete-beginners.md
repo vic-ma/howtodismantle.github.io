@@ -58,6 +58,8 @@ With a connected Peakboard Box, you can do things like change its network settin
 
 ![image](/assets/2023-09-05/024.png)
 
+Check out [this article](/Peakboard-Hub-Online-Bring-your-boxes-into-the-cloud.html) to learn how to add a Box to Peakboard Hub Online.
+
 
 ## Connections
 
@@ -83,6 +85,8 @@ A Peakboard Box can modify a list by adding a script that modifies the list.
 Here's what a list looks like in Peakboard Hub Online:
 
 ![image](/assets/2023-09-05/025.png)
+
+Check out [this article](Peakboard-Hub-Online-Using-lists-to-store-sensor-data.html) for a more in-depth look at lists in Peakboard Hub Online.
 
 
 ## Alerts
