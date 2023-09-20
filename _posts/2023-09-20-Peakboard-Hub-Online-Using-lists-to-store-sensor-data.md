@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Peakboard Hub Online - Use lists to store sensor data
-date: 2023-03-01 12:00:00 +0200
+date: 2023-09-20 12:00:00 +0200
 tags: peakboardhub
 image: /assets/2023-09-20/title.png
 read_more_links:
