@@ -65,7 +65,7 @@ The steps described above are the main steps to get it working on a regular devi
 * Clean up the desktop and remove all shortcuts
 * Hide the command bar
 * Upload a black profile picture for the account on which the runtime instance runs
-
+* Adjust the Windows energy settings according to your use case (usually no screen turn off, no sleep)
 
 
 
