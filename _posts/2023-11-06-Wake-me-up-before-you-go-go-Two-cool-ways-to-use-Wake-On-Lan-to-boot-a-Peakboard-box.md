@@ -9,6 +9,9 @@ read_more_links:
     url: https://stackoverflow.com/questions/72853502/how-to-send-a-wake-on-lan-magic-packet-using-powershell
   - name: Bed time stories - Three ways to shut down a Peakboard box remotely
     url: /Bed-time-stories-Three-ways-to-shut-down-a-Peakboard-box-remotely.html
+downloads:
+  - name: ShutdownTimer.pbmx
+    url: /assets/2023-10-29/ShutdownTimer.pbmx
 ---
 
 In last week's [article](/Bed-time-stories-Three-ways-to-shut-down-a-Peakboard-box-remotely.html) we learned how to shut down Peakboard boxes. In this article we will learn how to use [Wake-on-Lan](https://en.wikipedia.org/wiki/Wake-on-LAN) to boot them remotely by using two different methods.
@@ -23,7 +26,7 @@ Here's how to fill the MAC address field in MagicPacket
 
 ![image](/assets/2023-11-06/010.png)
 
-That's it! Now just push the button to initiate the boot sequence and start upthe box:
+That's it! Now just push the button to initiate the boot sequence and start up the box:
 
 ![image](/assets/2023-11-06/010.png)
 
