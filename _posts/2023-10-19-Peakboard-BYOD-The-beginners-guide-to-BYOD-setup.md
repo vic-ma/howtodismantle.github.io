@@ -44,7 +44,7 @@ The setup will come with the regular desktop runtime application, plus the manag
 
 Make sure that the runtime instance is running properly. Then, you can add the instance to the designer. The default credentials are:
 
-* **Username:** pbadmin
+* **Username:** PeakboardAdmin
 * **Password:** p@ssw0rd
 
 If the instance is still unlicensed, there will be an opportunity to apply a license key.
