@@ -28,7 +28,7 @@ Here's how to fill the MAC address field in MagicPacket
 
 That's it! Now just push the button to initiate the boot sequence and start up the box:
 
-![image](/assets/2023-11-06/010.png)
+![image](/assets/2023-11-06/020.png)
 
 ## Powershell
 
