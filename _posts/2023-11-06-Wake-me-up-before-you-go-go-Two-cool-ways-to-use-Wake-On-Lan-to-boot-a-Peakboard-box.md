@@ -32,7 +32,7 @@ That's it! Now just push the button to initiate the boot sequence and start up t
 
 ## Powershell
 
-The same works well from PowerShell. There are many way to send the the WoL signal. This script is the easiest to do with any addtional scriptlets or function. It also work with all kinds of MAC address formats:
+The same works well from PowerShell. There are many ways to send the the WoL signal. This script is the easiest to do without any addtional scriptlets or functions. It also works with all kinds of MAC address formats:
 
 {% highlight powershell %}
 $mac = '00:E0:4C:0C:73:9C'; 
