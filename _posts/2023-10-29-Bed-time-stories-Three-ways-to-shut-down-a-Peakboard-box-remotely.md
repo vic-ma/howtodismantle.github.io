@@ -20,6 +20,8 @@ The first shutdown method just uses common tools within the Peakboard designer. 
 
 ![image](/assets/2023-10-29/010.png)
 
+In the Peakboard help you can also find an [article](https://help.peakboard.com/scripting/en-quick-tipp-restart.html) covering he same topic with a slightly different approach for the shut down via timer scirpt. Depending on the use case this might be also a nice option to consider.
+
 ## Shutdown Method 2 - Use a global shared function
 
 In that case we use the same Building Block / LUA function as discussed earlier. However we put it into a global function, which is not only global but also shared. This means the Peakboard box exposes an REST endpoint which can be called from outside. 
