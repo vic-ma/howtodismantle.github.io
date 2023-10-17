@@ -1,60 +1,76 @@
 ---
 layout: post
-title: Bed time stories - Three ways to shut down a Peakboard box remotely
+title: Bed time stories - Three ways to shut down a Peakboard Box remotely
 date: 2023-03-01 12:00:00 +0200
 tags: administration
 image: /assets/2023-10-29/title.png
 read_more_links:
-  - name: Wake me up before you go go - Two cool ways to use Wake-On-Lan to boot a Peakboard box
+  - name: Wake me up before you go go - Two cool ways to use Wake-On-Lan to boot a Peakboard Box
     url: /Wake-me-up-before-you-go-go-Two-cool-ways-to-use-Wake-On-Lan-to-boot-a-Peakboard-box.html
 downloads:
   - name: ShutdownTimer.pbmx
     url: /assets/2023-10-29/ShutdownTimer.pbmx
 ---
 
-We often see Peakboard boxes hanging overhead in large factory halls or warehouses. There's no need to let them run 24/7. Turn them off if you don't need them. In this article we cover three cool ways to shut down a Peakboard box without pulling the plug. How to wake it up again is covered [here](/Wake-me-up-before-you-go-go-Two-cool-ways-to-use-Wake-On-Lan-to-boot-a-Peakboard-box.html).
+We often see Peakboard Boxes hanging overhead in large factory halls or warehouses. But there's no need for the Boxes to run 24/7. You should turn them off when you don't need them. In this article, we cover three cool ways to shut down a Peakboard box without pulling the plug.
 
-## Shutdown Method 1 - use a timer script
+We also have an article covering [how to wake up a Peakboard Box](/Wake-me-up-before-you-go-go-Two-cool-ways-to-use-Wake-On-Lan-to-boot-a-Peakboard-box.html).
 
-The first shutdown method just uses common tools within the Peakboard designer. Just place a timer data source in your project, and then add a timer script (see screenshot). The script itself is super simpel. Just check if the time is later then a certain point in time (e.g. when the shift ends at 9PM, just check for 2130 (which is 9.30PM)). When the time is reached, just send a shutdown command, which is available as a Building Block. If you prefer pure LUA scripting the command is peakboard.shutdown(X), while X is the number of seconds until the shut down is executed. 
+## Shutdown Method 1 - Use a timer script
+
+The first shutdown method uses built-in tools from Peakboard Designer. Just place a timer data source in your project, and add a timer script (see screenshot below).
+
+The script is pretty simple: It just checks if the desired shutdown time has passed. For example, if the shift ends at 9 PM, then the script can check if the current time is later than `2130` (which is 9.30 PM).
+
+When the shutdown time is reached, the script sends a shutdown command. This shutdown command is available as a Building Block. But if you prefer pure LUA scripting, you can use `peakboard.shutdown(X)`, where `X` is the number of seconds to wait before actually shutting down the Box.
 
 ![image](/assets/2023-10-29/010.png)
 
-In the Peakboard help you can also find an [article](https://help.peakboard.com/scripting/en-quick-tipp-restart.html) covering he same topic with a slightly different approach for the shut down via timer scirpt. Depending on the use case this might be also a nice option to consider.
+In the official Peakboard documentation, you can find an [article](https://help.peakboard.com/scripting/en-quick-tipp-restart.html) that shows a slightly different approach for making a timer-based shutdown script. Depending on your use case, you may prefer this alternative.
 
 ## Shutdown Method 2 - Use a global shared function
 
-In that case we use the same Building Block / LUA function as discussed earlier. However we put it into a global function, which is not only global but also shared. This means the Peakboard box exposes an REST endpoint which can be called from outside. 
+In this case, we use the same Building Block / LUA function as before. However, we put it into a global function, which is not only global but also shared. This means the Peakboard Box exposes a REST endpoint that can be called from outside.
 
 ![image](/assets/2023-10-29/020.png)
 
 ![image](/assets/2023-10-29/030.png)
 
-This public endpoint can be either called through the web access interface...
+This public endpoint can be called through the web access interface.
 
 ![image](/assets/2023-10-29/040.png)
 
-... or can be easily implemented by all kinds of application by just calling a rest service. As you see in this screenshot the URL of your function looks like https://<MyBox>:40405/api/functions/ShutMeDown. You have to provide a basic authentification (user and password of the box). And the call must be a htttp-POST. GET is not supported to call a function. And in the POST statement you have to provide an empty JSon string represented by "{ }". Check out he following screenshot of Postman on how to call the function successfully.
+Or it can be implemented by third-party applications that call the endpoint. As you can see in the following screenshot, the endpoint for the function is:
+
+{% highlight url %}
+https://<MyBox>:40405/api/functions/ShutMeDown
+{% endhighlight %}
+
+You have to provide basic credentials (user and password of the Box). And the call must be an HTTP POST request. HTTP GET is not supported for calling a function.
+
+Also, in the POST request, you have to provide an empty JSON string (`{ }`). Check out the following Postman screenshot to see an example of a valid call.
 
 ![image](/assets/2023-10-29/045.png)
 
-Please note, that these kind of functions can be also used in any kind of system landscape / administration or monitoring tool, whatever is already used in the company's infrastructure. All these tools usually support such rest calls natively.
+These functions can also be used in whatever system landscape / administration or monitoring tool your company already uses. All these tools usually support REST calls natively.
 
 ## Shutdown Method 3 - Use a network plug
 
-Some of you might remember the [article about how to use a Shelly plug](https://how-to-dismantle-a-peakboard-box.com/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html) to monitor power consumption and switch power on / off. It's pretty obvious to use such a Shelly plug to shut down or wake up not only the box, but also the screen. After plugging it in, just use a web browser to shut down the plug calling this URL:
+Some of you might remember the [article about how to use a Shelly plug](/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html). That article covers how to monitor power consumption and switch power on / off with a Shelly plug.
+
+It's pretty intuitive to use a Shelly plug to shut down or wake up not only a Peakboard Box, but also the screen. After plugging it in, just use a web browser to shut down the plug, by calling this URL:
 
 {% highlight url %}
 http://<MyShellyPlugIP>//relay/0?turn=off
 {% endhighlight %}
 
-Useless to say that this method can be also used to switch it on.
+Needless to say, this method can also be used to switch it on.
 
-If you think, that such gear like Shelly is not suitable for industrial applications you might be right. If you prefer a more solid gear look out for helpers like this network plug:
+If you think that devices like Shelly are not suitable for industrial applications, you might be right. If you prefer a more robust device, look out for helpers like this network plug:
 
 [https://www.reichelt.de/pdu-1-x-schutzkontakt-gude-1105-1-p286109.html](https://www.reichelt.de/pdu-1-x-schutzkontakt-gude-1105-1-p286109.html)
 
-Or completely omit the network infrastructure and use remote controlled plug like this:
+Or, completely omit the network infrastructure and use a remote controlled plug like this:
 
 [https://www.amazon.de/Sonsonai-Sockets-Controls-Decoration-Programmable/dp/B09GLSN1G3/ref=sr_1_1_sspa?crid=3L75E3G7J9NDL](https://www.amazon.de/Sonsonai-Sockets-Controls-Decoration-Programmable/dp/B09GLSN1G3/ref=sr_1_1_sspa?crid=3L75E3G7J9NDL)
 

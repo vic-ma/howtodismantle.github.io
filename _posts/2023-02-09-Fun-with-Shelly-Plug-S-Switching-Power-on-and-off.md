@@ -13,10 +13,14 @@ downloads:
   - name: ShellyPlug.pbmx
     url: /assets/2023-02-09/ShellyPlug.pbmx
 ---
-[Shelly](https://www.shelly.cloud/) is a Germany and US based company that provides gadgets for home automation. Their products are popular among home automation enthusiasts, because unlike competing products, you can easily access Shelly's products with standard technologies like REST and MQTT. Other vendors desperately try to sell their own landscape, app, cloud, etc., and while the Shelly guys have those things too, they don't build a fence around their cloud or products.
+[Shelly](https://www.shelly.cloud/) is a Germany and US based company that provides gadgets for home automation. Their products are popular among home automation enthusiasts, because unlike competing products, you can easily access Shelly's products with standard technologies like REST and MQTT.
+
+Other vendors desperately try to sell their own landscape, app, cloud, etc., and while the Shelly guys have those things too, they don't build a fence around their cloud or products.
+
 As already mentioned, Shelly is built for private use at home. Therefore, we should carefully check if their products meet the reader's standards before using them in a professional, industrial environment.
 
 In this article, we will build an app that sends commands to the Shelly Plug S to switch a light on and off. We will use a toggle button on the Peakboard screen so that when the app starts, it should already have the correct state representing whether the light is on or off. We will also show the curent power consumption of the light with a gauge.
+
 Please note: This will be a direct communication between Peakboard and Shelly—no MQTT, no hub, no cloud....
 
 ## The API of the Shelly Plug S
