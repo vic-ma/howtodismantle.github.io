@@ -9,9 +9,6 @@ read_more_links:
     url: https://stackoverflow.com/questions/72853502/how-to-send-a-wake-on-lan-magic-packet-using-powershell
   - name: Bed time stories - Three ways to shut down a Peakboard box remotely
     url: /Bed-time-stories-Three-ways-to-shut-down-a-Peakboard-box-remotely.html
-downloads:
-  - name: ShutdownTimer.pbmx
-    url: /assets/2023-10-29/ShutdownTimer.pbmx
 ---
 
 In last week's [article](/Bed-time-stories-Three-ways-to-shut-down-a-Peakboard-box-remotely.html), we learned how to shut down a Peakboard Box. In this article, we will learn how to use [Wake-on-Lan](https://en.wikipedia.org/wiki/Wake-on-LAN) (WoL) to boot a Peakboard Box remotely. There are two different methods for doing so.
