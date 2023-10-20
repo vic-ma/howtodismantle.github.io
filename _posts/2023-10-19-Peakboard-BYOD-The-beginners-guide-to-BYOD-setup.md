@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Peakboard BYOD - The beginner's guide to BYOD setup
-date: 2023-03-01 12:00:00 +0200
+date: 2023-10-19 12:00:00 +0200
 tags: administration bestpractice
 image: /assets/2023-10-19/title.jpg
 ---
