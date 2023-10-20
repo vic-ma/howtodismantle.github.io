@@ -9,6 +9,9 @@ read_more_links:
     url: /Peakboard-Hub-Online-An-introduction-for-complete-beginners.html
   - name: Learn the basics of reading from an OPC UA server in Peakboard
     url: /OPC-UA-Basics-Getting-started-with-a-public-OPC-UA-server.html
+downloads:
+  - name: AirConditionerList.pbmx
+    url: /assets/2023-09-20/AirConditionerList.pbmx
 ---
 
 In this article, we will learn how to use lists in Peakboard Hub Online (PBHO). We will learn how to write data to a list, how to read data from a list, and how to aggregate data from a list. The data we will use is sensor data from an air conditioner.
@@ -24,13 +27,15 @@ Here is an overview of the steps we will take:
 
 See [this article](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html) to learn the basics of PBHO.
 
+You can also download [the completed dashboard](/assets/2023-09-20/AirConditionerList.pbmx).
+
 ## Create a new list in PBHO
 
 In PBHO, we create an empty list called `AirConditionerLogs`. We will write our sensor data to this list.
 
 We add three columns, which correspond to the data we will get from the air conditioner:
 
-* `Temperature`  (number): the ambient temperature.
+* `Temperature` (number): the ambient temperature.
 * `IsCooling` (boolean): whether the air conditioner is actively cooling or not.
 * `Quality` (string): the air quality.
 
