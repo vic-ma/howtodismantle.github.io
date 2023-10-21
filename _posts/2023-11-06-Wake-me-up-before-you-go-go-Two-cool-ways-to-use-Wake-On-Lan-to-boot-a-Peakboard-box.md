@@ -3,7 +3,7 @@ layout: post
 title: Wake me up before you go - Two cool ways to use Wake-On-Lan to boot a Peakboard Box
 date: 2023-03-01 12:00:00 +0200
 tags: administration
-image: /assets/2023-11-06/title.jpg
+image: /assets/2023-11-06/title.png
 read_more_links:
   - name: Stack overflow for WoL with PowerShell
     url: https://stackoverflow.com/questions/72853502/how-to-send-a-wake-on-lan-magic-packet-using-powershell
