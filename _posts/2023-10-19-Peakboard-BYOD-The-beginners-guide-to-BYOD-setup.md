@@ -6,7 +6,7 @@ tags: administration bestpractice
 image: /assets/2023-10-19/title.jpg
 ---
 
-For years, the physical, black box has been the definitive symbol for Peakboard. But by the end of 2024, Peakboard will offer a bring-your-own-device (BYOD) edition. In this article, we will learn how to use our own device as a standalone runtime instance for Peakboard BYOD.
+For years, the physical, black box has been the definitive symbol for Peakboard. But by the end of 2023, Peakboard will offer a bring-your-own-device (BYOD) edition. In this article, we will learn how to use our own device as a standalone runtime instance for Peakboard BYOD.
 
 To download the binaries, please use this [link](https://peakboard.com/download/Peakboard/dev_master/PeakboardRuntimeSetupUI.exe).
 
