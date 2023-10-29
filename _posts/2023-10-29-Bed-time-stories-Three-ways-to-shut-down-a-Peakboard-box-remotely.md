@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bed time stories - Three ways to shut down a Peakboard Box remotely
-date: 2023-03-01 12:00:00 +0200
+date: 2023-10-29 12:00:00 +0200
 tags: administration
 image: /assets/2023-10-29/title.png
 read_more_links:
