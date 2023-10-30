@@ -16,13 +16,16 @@ downloads:
     url: /assets/2023-11-14/HUBSQLHacks.pbmx
 ---
 
-We've already covered various topics related to Peakboard Hub lists in other articles (please check out the links at the bottom of this page). In today's article, we will learn how to use SQL statements in combination with functions for aggregation and table join, in order to access the Peakboard Hub tables.
+In today's article, we will learn how to use SQL statements with functions for aggregation and table join, in order to extract data from Peakboard Hub tables. 
+
+We've also covered various topics related to Peakboard Hub lists in other articles (check out the links at the bottom of this page).
+
 
 ## Why would you want to use aggregation / joins when you can use data flows for data manipulation? 
 
-The most obvious reason is to limit the network traffic. Let's say you have 10k+ rows of sensor data, and you just want to visualize the number of rows. Then it doesn't make sense to download all 10k+ rows just to count them. Instead, you can let the Hub do the counting, and just download one row, which contains the result.
+The most obvious reason is to limit network traffic. Let's say you have 10k+ rows of sensor data, and you want to get the number of rows. Then it doesn't make sense to download all 10k+ rows just to count them. Instead, you can let Peakboard Hub do the counting, and just download one row, which contains the result.
 
-The same is true with table joins: Let's assume you have orders and order lines. The order has a date column. But you want to see the order lines of the order on a specific date. Then, you can download all orders and all order lines, join them, and throw away all order lines that do not belong to orders on your desired date. Or, you can use a table join to solve this problem on the source side, without transferring too much data over the network. 
+The same is true with table joins: Let's assume you have orders and order lines. The order has a date column. But you want to see the order lines of the order on a specific date. Of course, you could download all orders and all order lines, join them, and throw away all order lines that do not belong to orders on your desired date. Or, you can just use a table join to solve this problem on the source side, to avoid transferring too much data over the network. 
 
 ## Aggregate data by using aggregate functions
 
