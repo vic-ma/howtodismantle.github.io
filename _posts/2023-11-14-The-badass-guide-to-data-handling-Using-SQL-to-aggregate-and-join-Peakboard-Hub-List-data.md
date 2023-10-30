@@ -71,7 +71,7 @@ And here's the "ProductTexts" table:
 
 ![image](/assets/2023-11-14/050.png)
 
-What we want to have in our Peakboard application is one single table that contains our current stock quantities for each product PLUS the German description texts. Here we go with SQL:
+In our Peakboard application, we want a single table that contains our current stock quantities for each product **and** the German description texts. We can do that with this SQL statement:
 
 {% highlight sql %}
 select p.ProductNo, Quantity, Producttext
@@ -87,5 +87,4 @@ and here is the result:
 
 ## Conclusion
 
-Preparing data already in the source before bringing them to the Peakboard application is a wise choice to increase performance and limit network bandwidth. Beside Peakboard Hub lists (as shown in this article) this works in almost any database or SQL based environment. we msut consider this option every time we design a new data source for a Peakboard project.
-
+Preparing data in the source before bringing them into the Peakboard application is a wise choice, because it increases performance and limits network bandwidth. Beside Peakboard Hub lists (as shown in this article), this works with almost any database or SQL-based environment. You should consider this option every time you design a new data source for a Peakboard project.
