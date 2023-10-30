@@ -16,19 +16,29 @@ downloads:
     url: /assets/2023-11-14/HUBSQLHacks.pbmx
 ---
 
-We already covered various topics around Peakboard Hub lists in other articles (please check out links at the bottom of this page). In today's article we discuss the option, to use SQL statements in combination with functions for aggregation and table join to access the Hub tables.
+In today's article, we will learn how to use SQL statements with functions for aggregation and table join, in order to extract data from Peakboard Hub tables. 
 
-## Why you want to use aggregation / joins when you can use data flows for data manipulation? 
+We've also covered various topics related to Peakboard Hub lists in other articles (check out the links at the bottom of this page).
 
-The most obvious reason is to limit the network traffic. Let's say we have 10k+ data rows of sensor data and you want to visualize only the number of rows. Then it doesn't make sense to download 10k+ rows only to count them. Let the Hub do the counting and just download one row with the number in it. The same is true with table joins: Let's assume we have orders and order lines. The order has a date column, but you want to see the orderlines of the order at a specific date. Then you can download all orders and all orderlines, join them and throw away all order lines that do not belong to orders at a specific date. Or you can use a table join to solve this problem already on the source side without transporting to much data over the network. 
+
+## Why would you want to use aggregation / joins when you can use data flows for data manipulation? 
+
+The most obvious reason is to limit network traffic. Let's say you have 10k+ rows of sensor data, and you want to get the number of rows. Then it doesn't make sense to download all 10k+ rows just to count them. Instead, you can let Peakboard Hub do the counting, and just download one row, which contains the result.
+
+The same is true with table joins: Let's assume you have orders and order lines. The order has a date column. But you want to see the order lines of the order on a specific date. Of course, you could download all orders and all order lines, join them, and throw away all order lines that do not belong to orders on your desired date. Or, you can just use a table join to solve this problem on the source side, to avoid transferring too much data over the network. 
 
 ## Aggregate data by using aggregate functions
 
-The basis of this example is a simple table of sensor data, to be more precise a list of temperature values. We have two columns: 'TS' for the date and time when the temperature was taken, 'temperature' for the actual temperature.
+Let's take a look at an example of how we can aggregate data by using aggregate functions.
+
+The basis of this example is a simple table of sensor data. Specifically, it's a list of temperature values. We have two columns:
+
+* **TS** - the date and time when the temperature was taken
+* **Temperature** - the actual temperature
 
 ![image](/assets/2023-11-14/010.png)
 
-Let's assume now we are not interested in all the detail data. The only thing we want to know (and present on our dashbaord later) is the maximum and the minimum temperature that was recorded today. Here's how the SQL statement looks like that is submitted to be processed by the hub:
+Let's assume we are not interested in all the data. The only thing we want to know (and present on our dashboard later) is the maximum and the minimum temperature that was recorded today. To do that, we can give this SQL statement to the Hub:
 
 {% highlight sql %}
 select 
@@ -38,27 +48,33 @@ from temperaturedata
 where cast(TS as date) = cast(getdate() as date)
 {% endhighlight %}
 
-To use direct, plain SQL in the Peakboard Hub List data source, you need to activate the SQL mode by clicking on the button:
+To use direct, plain SQL in the Peakboard Hub List data source, you need to activate the SQL mode by clicking on the "Select with SQL" button:
 
 ![image](/assets/2023-11-14/020.png)
 
-The you can use the above statement and check your result on the right side. Now you have condensed thousands of rows to precisely two numbers you're interested in:
+Then, you can use the above statement and check your result on the right side. Now, you have condensed thousands of rows down to the two numbers you're interested in:
 
 ![image](/assets/2023-11-14/030.png)
 
-## Joining hub lists
+## Joining Peakboard Hub lists
 
-In our second example we have very simple relational connection between two tables: 'Products' contain the products we have on stock. Beside the product number there's also quantity of goods in the warehouse listed. Beside this table we have another one called ProductText. It contains a breif product description for each product numberin different languages (English, German and Chinese).
+Now, let's take a look at how we can join two Peakboard Hub lists.
 
-Here's the Product table:
+In this example, we have a very simple relational connection between two tables:
+
+* **"Products"** contains the products we have in stock. It has a column for the product number, and a column for the quantity of that product in the warehouse. 
+
+* **"ProductTexts"** contains a brief product description for each product number, in different languages (English, German, and Chinese).
+
+Here's the "Products" table:
 
 ![image](/assets/2023-11-14/040.png)
 
-And the table for the product texts:
+And here's the "ProductTexts" table:
 
 ![image](/assets/2023-11-14/050.png)
 
-What we want to have in our Peakboard application is one single table that contains our current stock quantities for each product PLUS the German description texts. Here we go with SQL:
+In our Peakboard application, we want a single table that contains our current stock quantities for each product **and** the German description texts. We can do that with this SQL statement:
 
 {% highlight sql %}
 select p.ProductNo, Quantity, Producttext
@@ -74,5 +90,4 @@ and here is the result:
 
 ## Conclusion
 
-Preparing data already in the source before bringing them to the Peakboard application is a wise choice to increase performance and limit network bandwidth. Beside Peakboard Hub lists (as shown in this article) this works in almost any database or SQL based environment. we msut consider this option every time we design a new data source for a Peakboard project.
-
+Preparing data in the source before bringing them into the Peakboard application is a wise choice, because it increases performance and limits network bandwidth. Beside Peakboard Hub lists (as shown in this article), this works with almost any database or SQL-based environment. You should consider this option every time you design a new data source for a Peakboard project.
