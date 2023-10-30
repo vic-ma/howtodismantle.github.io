@@ -22,7 +22,7 @@ We've already covered various topics related to Peakboard Hub lists in other art
 
 The most obvious reason is to limit the network traffic. Let's say you have 10k+ rows of sensor data, and you just want to visualize the number of rows. Then it doesn't make sense to download all 10k+ rows just to count them. Instead, you can let the Hub do the counting, and just download one row, which contains the result.
 
-The same is true with table joins: Let's assume you have orders and order lines. The order has a date column, but you want to see the order lines of the order at a specific date. Then you can download all orders and all orderlines, join them and throw away all order lines that do not belong to orders at a specific date. Or you can use a table join to solve this problem already on the source side without transporting to much data over the network. 
+The same is true with table joins: Let's assume you have orders and order lines. The order has a date column. But you want to see the order lines of the order on a specific date. Then, you can download all orders and all order lines, join them, and throw away all order lines that do not belong to orders on your desired date. Or, you can use a table join to solve this problem on the source side, without transferring too much data over the network. 
 
 ## Aggregate data by using aggregate functions
 
