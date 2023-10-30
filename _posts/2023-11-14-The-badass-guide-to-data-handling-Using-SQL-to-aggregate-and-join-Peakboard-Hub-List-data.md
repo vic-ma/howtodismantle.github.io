@@ -26,11 +26,16 @@ The same is true with table joins: Let's assume you have orders and order lines.
 
 ## Aggregate data by using aggregate functions
 
-The basis of this example is a simple table of sensor data, to be more precise a list of temperature values. We have two columns: 'TS' for the date and time when the temperature was taken, 'temperature' for the actual temperature.
+Let's take a look at an example of how we can aggregate data by using aggregate functions.
+
+The basis of this example is a simple table of sensor data. Specifically, it's a list of temperature values. We have two columns:
+
+* **TS** - the date and time when the temperature was taken
+* **Temperature** - the actual temperature
 
 ![image](/assets/2023-11-14/010.png)
 
-Let's assume now we are not interested in all the detail data. The only thing we want to know (and present on our dashbaord later) is the maximum and the minimum temperature that was recorded today. Here's how the SQL statement looks like that is submitted to be processed by the hub:
+Let's assume we are not interested in all the data. The only thing we want to know (and present on our dashboard later) is the maximum and the minimum temperature that was recorded today. To do that, we can give this SQL statement to the Hub:
 
 {% highlight sql %}
 select 
@@ -40,11 +45,11 @@ from temperaturedata
 where cast(TS as date) = cast(getdate() as date)
 {% endhighlight %}
 
-To use direct, plain SQL in the Peakboard Hub List data source, you need to activate the SQL mode by clicking on the button:
+To use direct, plain SQL in the Peakboard Hub List data source, you need to activate the SQL mode by clicking on the "Select with SQL" button:
 
 ![image](/assets/2023-11-14/020.png)
 
-The you can use the above statement and check your result on the right side. Now you have condensed thousands of rows to precisely two numbers you're interested in:
+Then, you can use the above statement and check your result on the right side. Now, you have condensed thousands of rows down to the two numbers you're interested in:
 
 ![image](/assets/2023-11-14/030.png)
 
