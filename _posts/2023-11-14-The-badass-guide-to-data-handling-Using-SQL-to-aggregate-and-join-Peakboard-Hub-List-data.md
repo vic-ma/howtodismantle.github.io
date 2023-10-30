@@ -53,15 +53,21 @@ Then, you can use the above statement and check your result on the right side. N
 
 ![image](/assets/2023-11-14/030.png)
 
-## Joining hub lists
+## Joining Peakboard Hub lists
 
-In our second example we have very simple relational connection between two tables: 'Products' contain the products we have on stock. Beside the product number there's also quantity of goods in the warehouse listed. Beside this table we have another one called ProductText. It contains a breif product description for each product numberin different languages (English, German and Chinese).
+Now, let's take a look at how we can join two Peakboard Hub lists.
 
-Here's the Product table:
+In this example, we have a very simple relational connection between two tables:
+
+* **"Products"** contains the products we have in stock. It has a column for the product number, and a column for the quantity of that product in the warehouse. 
+
+* **"ProductTexts"** contains a brief product description for each product number, in different languages (English, German, and Chinese).
+
+Here's the "Products" table:
 
 ![image](/assets/2023-11-14/040.png)
 
-And the table for the product texts:
+And here's the "ProductTexts" table:
 
 ![image](/assets/2023-11-14/050.png)
 
