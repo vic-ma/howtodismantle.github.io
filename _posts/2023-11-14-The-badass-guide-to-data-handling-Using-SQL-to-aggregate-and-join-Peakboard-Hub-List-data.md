@@ -11,6 +11,9 @@ read_more_links:
     url: https://www.w3schools.com/sql/sql_min_max.asp
   - name: Learn the basics of Peakboard Hub Online
     url: /Peakboard-Hub-Online-An-introduction-for-complete-beginners.html
+downloads:
+  - name: HUBSQLHacks.pbmx
+    url: /assets/2023-11-14/HUBSQLHacks.pbmx
 ---
 
 We already covered various topics around Peakboard Hub lists in other articles (please check out links at the bottom of this page). In today's article we discuss the option, to use SQL statements in combination with functions for aggregation and table join to access the Hub tables.
