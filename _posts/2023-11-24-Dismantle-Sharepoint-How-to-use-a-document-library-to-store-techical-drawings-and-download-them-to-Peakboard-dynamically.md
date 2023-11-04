@@ -27,25 +27,25 @@ Let's pretend our company produces three different products, named P01-P03. So w
 
 After creating a new Peakboard project, we add a new resource to the project (right click on resources -> cloud resource -> Sharepoint). You need to authenticate against your O365 account and have enough rights to access the document storage.
 
-The hierarchical storage might get complicated in large organisations with many Sharepoint sites or OneDrive instances. As you can see in the screenshot, if you dig deep enough, you will find the needed document library and can select the x.pdf as the ultimate placeholder for the project.
+The hierarchical storage might get complicated in large organisations with many Sharepoint sites or OneDrive instances. As you can see in the screenshot, if you dig deep enough, you will find the needed document library. You can select  `x.pdf` as the placeholder file for the project.
 
 ![image](/assets/2023-11-24/020.png)
 
-Now we just drag and drop the pdf resource to the canvas.
+Now we just drag and drop the PDF resource into the canvas.
 
 ![image](/assets/2023-11-24/030.png)
 
 ## Building the data structure for dynamic loading
 
-Let's assume we want to let the worker choose the pdf from a list of article numbers. Therefor we create a simple list with those numbers as a "List" data type in the project explorer.
+Let's assume we want to let the worker choose the PDF from a list of article numbers. Therefore, we create a simple list, with those numbers as a "List" data type in the project explorer.
 
 ![image](/assets/2023-11-24/040.png)
 
-For giving the user the opportunity to chooses a product number from the list, we bind it to a combo box that we have placed above the pdf control.
+Now we need to give the user the ability to choose a product number from the list. We bind it to a combo box that we place above the PDF control.
 
 ![image](/assets/2023-11-24/050.png)
 
-For using the combo in the script, it needs a proper name.
+To use the combo box in the script, we need to give it a proper name.
 
 ![image](/assets/2023-11-24/060.png)
 
