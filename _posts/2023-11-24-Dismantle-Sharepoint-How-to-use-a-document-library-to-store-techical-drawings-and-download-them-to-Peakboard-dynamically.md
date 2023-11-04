@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dismantle Sharepoint - How to use a document library to store techical drawings and download them in Peakboard dynamically
+title: Dismantle SharePoint - How to use a document library to store techical drawings and download them in Peakboard dynamically
 date: 2023-03-01 12:00:00 +0200
 tags: bestpractice peakboardhub
 image: /assets/2023-11-24/title.png
@@ -13,9 +13,9 @@ We often see screens in factories with technical drawings of their products. Thi
 
 Besides purely technical drawings, other unstructured data is also displayed: step-by-step guides, quality check instructions, and other documentation. The de facto standard format for all these documents is PDF.
 
-This article explains how to use a Sharepoint document library to store these PDFs and download them in Peakboard Designer, so you can present them to the end users.
+This article explains how to use a SharePoint document library to store these PDFs and download them in Peakboard Designer, so you can present them to the end users.
 
-## The Sharepoint document library
+## The SharePoint document library
 
 The following screenshot shows a regular document library in a typical Office 365 environment. Within the library, there is a subdirectory called "Current," which contains all up-to-date documents. The old ones are stored somewhere in "Archive."
 
@@ -23,11 +23,11 @@ Let's pretend our company produces three different products, named P01-P03. So w
 
 ![image](/assets/2023-11-24/010.png)
 
-## Linking the Peakboard project to Sharepoint
+## Linking the Peakboard project to SharePoint
 
-After creating a new Peakboard project, we add a new resource to the project (right click on resources -> cloud resource -> Sharepoint). You need to authenticate against your O365 account and have enough rights to access the document storage.
+After creating a new Peakboard project, we add a new resource to the project (right click on resources -> cloud resource -> SharePoint). You need to authenticate against your O365 account and have enough rights to access the document storage.
 
-The hierarchical storage might get complicated in large organisations with many Sharepoint sites or OneDrive instances. As you can see in the screenshot, if you dig deep enough, you will find the needed document library. You can select  `x.pdf` as the placeholder file for the project.
+The hierarchical storage might get complicated in large organisations with many SharePoint sites or OneDrive instances. As you can see in the screenshot, if you dig deep enough, you will find the needed document library. You can select  `x.pdf` as the placeholder file for the project.
 
 ![image](/assets/2023-11-24/020.png)
 
@@ -59,10 +59,10 @@ All the magic happens in the "Selection changed" event. The logic is super simpl
 
 ![image](/assets/2023-11-24/070.png)
 
-Here's a animated sequence of the result. Every time the value in the combo box is changed the reload process is triggered and the pdf changes. Of course we have a fixed list of products here. In real life the list of products might be fetched dynamically from an ERP system like SAP.
+Here's an animated sequence of the result. Every time the value in the combo box is changed, the reload process is triggered and the PDF changes. Of course, we have a fixed list of products here. In real life, the list of products might be fetched dynamically from an ERP system like SAP.
 
 ![image](/assets/2023-11-24/080.gif)
 
 ## Conclusion
 
-This article shows how easy it is to use Peakboard to present unstructured data like techincal drawings. A Sharepoint library is only one of many option to store these documents. Other common way would be shared directories, cloud based storage blobs, SAP... the list is endless but the pattern how to to address it from Peakboard is always similiar.
+This article shows how easy it is to use Peakboard to present unstructured data like technical drawings. A SharePoint library is only one of the many options to store these kinds of documents. Other common ways include shared directories, cloud based storage blobs, SAP, etc. The list is endless, but the pattern for how to handle the Peakboard side of things is always similar.
