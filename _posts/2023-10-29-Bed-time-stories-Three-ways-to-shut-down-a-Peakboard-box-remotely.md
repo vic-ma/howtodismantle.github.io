@@ -12,7 +12,7 @@ downloads:
     url: /assets/2023-10-29/ShutdownTimer.pbmx
 ---
 
-We often see Peakboard Boxes hanging overhead in large factory halls or warehouses. But there's no need for the Boxes to run 24/7. You should turn them off when you don't need them. In this article, we cover three cool ways to shut down a Peakboard box without pulling the plug.
+We often see Peakboard Boxes hanging overhead in large factory halls or warehouses. But there's no need for the boxes to run 24/7. You should turn them off when you don't need them. In this article, we cover three cool ways to shut down a Peakboard box without pulling the plug.
 
 We also have an article covering [how to wake up a Peakboard Box](/Wake-me-up-before-you-go-go-Two-cool-ways-to-use-Wake-On-Lan-to-boot-a-Peakboard-box.html).
 
