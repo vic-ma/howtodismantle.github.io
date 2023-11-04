@@ -13,21 +13,21 @@ We often see screens in factories with technical drawings of their products. Thi
 
 Besides purely technical drawings, other unstructured data is also displayed: step-by-step guides, quality check instructions, and other documentation. The de facto standard format for all these documents is PDF.
 
-This article explains how to use a SharePoint document library to store these PDFs and download them in Peakboard Designer, so you can present them to the end users.
+This article explains how to use a SharePoint document library to store these PDFs and download them in Peakboard Designer, so you can present them to end users.
 
 ## The SharePoint document library
 
-The following screenshot shows a regular document library in a typical Office 365 environment. Within the library, there is a subdirectory called "Current," which contains all up-to-date documents. The old ones are stored somewhere in "Archive."
+The following screenshot shows a standard document library in a typical Office 365 environment. Within the library, there is a subdirectory called "Current," which contains all up-to-date documents. The old ones are stored in "Archive."
 
-Let's pretend our company produces three different products, named P01-P03. So we create a technical drawing for each product and name the PDF accordingly. The file `x.pdf` just contains a red cross, and it is used as a placeholder for situations when no useful data is presented.
+Let's pretend our company produces three different products, named P01-P03. So we create a technical drawing for each product and name the PDF accordingly. The file `x.pdf` just contains a red cross, and it is used as a placeholder, for when no useful data is presented.
 
 ![image](/assets/2023-11-24/010.png)
 
 ## Linking the Peakboard project to SharePoint
 
-After creating a new Peakboard project, we add a new resource to the project (right click on resources -> cloud resource -> SharePoint). You need to authenticate against your O365 account and have enough rights to access the document storage.
+After creating a new Peakboard project, we add a new resource to the project (right click on resources -> cloud resource -> SharePoint). You need to authenticate against your O365 account and have enough permissions to access the document storage.
 
-The hierarchical storage might get complicated in large organisations with many SharePoint sites or OneDrive instances. As you can see in the screenshot, if you dig deep enough, you will find the needed document library. You can select  `x.pdf` as the placeholder file for the project.
+The hierarchical storage might get complicated in large organisations with many SharePoint sites or OneDrive instances. As you can see in the screenshot, if you dig deep enough, you will find the desired document library. You can select  `x.pdf` as the placeholder file for the project.
 
 ![image](/assets/2023-11-24/020.png)
 
@@ -37,11 +37,11 @@ Now we just drag and drop the PDF resource into the canvas.
 
 ## Building the data structure for dynamic loading
 
-Let's assume we want to let the worker choose the PDF from a list of article numbers. Therefore, we create a simple list, with those numbers as a "List" data type in the project explorer.
+Let's assume we want to let the factory worker choose the PDF from a list of document numbers. Therefore, we create a simple list, with those numbers as a "List" data type in the project explorer.
 
 ![image](/assets/2023-11-24/040.png)
 
-Now we need to give the user the ability to choose a product number from the list. We bind it to a combo box that we place above the PDF control.
+Now, we need to give the user the ability to choose a product number from the list. We bind it to a combo box that we place above the PDF control.
 
 ![image](/assets/2023-11-24/050.png)
 
@@ -65,4 +65,4 @@ Here's an animated sequence of the result. Every time the value in the combo box
 
 ## Conclusion
 
-This article shows how easy it is to use Peakboard to present unstructured data like technical drawings. A SharePoint library is only one of the many options to store these kinds of documents. Other common ways include shared directories, cloud based storage blobs, SAP, etc. The list is endless, but the pattern for how to handle the Peakboard side of things is always similar.
+This article shows how easy it is to use Peakboard to present unstructured data like technical drawings. A SharePoint library is only one of the many options to store these kinds of documents. Other common ways include shared directories, cloud-based storage blobs, SAP, etc. The list is endless, but the pattern for how to handle the Peakboard side of things is always similar.
