@@ -11,19 +11,23 @@ read_more_links:
 
 We often see screens in factories with technical drawings of their products. This is most common in manual/semi-manual production and quality management. 
 
-Besides purely technical drawings, other unstructured data is also displayed: step-by-step guides, quality check instructions, and other documentation. The de-facto standard format for all these documents is PDF.
+Besides purely technical drawings, other unstructured data is also displayed: step-by-step guides, quality check instructions, and other documentation. The de facto standard format for all these documents is PDF.
 
 This article explains how to use a Sharepoint document library to store these PDFs and download them in Peakboard Designer, so you can present them to the end users.
 
 ## The Sharepoint document library
 
-The screenshot shows just a regular document library in a typical Office 365 environment. Within the linbrary we see a subdirectory called "Current" that contains all up-to-date documents. The old ones are somewhere in "Archive". Let's pretend our comapny is producing three different products named P01-P03, so we create a techical drawing for each product and name the pdf accordingly. The pdf x.pdf just contains a red cross and is used as a placeholder for situations, when no useful data is presented.
+The following screenshot shows a regular document library in a typical Office 365 environment. Within the library, there is a subdirectory called "Current," which contains all up-to-date documents. The old ones are stored somewhere in "Archive."
+
+Let's pretend our company produces three different products, named P01-P03. So we create a technical drawing for each product and name the PDF accordingly. The file `x.pdf` just contains a red cross, and it is used as a placeholder for situations when no useful data is presented.
 
 ![image](/assets/2023-11-24/010.png)
 
 ## Linking the Peakboard project to Sharepoint
 
-After creating a new Peakboard project we add a new resource to project (right click on resources -> cloud resource -> Sharepoint). You need to authentitcate against your O365 account and have enough rights to access the document storage. The hierarchical storage might get complicated in very large organisations with many Sharepoint sites or OneDrive instances. As you see in the screenshot, if you drill deep enough you will find the needed document library and can select the x.pdf as the ultimate placeholder for the project.
+After creating a new Peakboard project, we add a new resource to the project (right click on resources -> cloud resource -> Sharepoint). You need to authenticate against your O365 account and have enough rights to access the document storage.
+
+The hierarchical storage might get complicated in large organisations with many Sharepoint sites or OneDrive instances. As you can see in the screenshot, if you dig deep enough, you will find the needed document library and can select the x.pdf as the ultimate placeholder for the project.
 
 ![image](/assets/2023-11-24/020.png)
 
@@ -48,7 +52,7 @@ For using the combo in the script, it needs a proper name.
 ## The script for dynamic loading
 
 All the magic happens in the "Selection changed" event. The logic is supersimpel. From the choosen value of the combo box a string is concatenated containing the path and name of the pdf document relativ to the document libary root. In our case seomthing like "/Current/MyArticleNo.pdf".
-The second step is then to set the property "Source" of the pdf control with the newly crated document name. Setting this property triggers a reload and let's the pdf control download and show the document from Sharepoint.
+The second step is then to set the property "Source" of the pdf control with the newly crated document name. Setting this property triggers a reload and let's the pdf control download and show the document from SharePoint.
 
 ![image](/assets/2023-11-24/070.png)
 
