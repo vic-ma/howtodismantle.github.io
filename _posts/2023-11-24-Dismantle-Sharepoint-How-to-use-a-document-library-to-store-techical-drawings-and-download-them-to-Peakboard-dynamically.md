@@ -44,7 +44,7 @@ For using the combo in the script, it needs a proper name.
 
 ## The script for dynamic loading
 
-Al the magic happens in the "Selection changed" event. The logic is supersimpel. From the choosen value of the combo box a string is concatenated containing the path and name of the pdf document relativ to the document libary root. In our case seomthing like "/Current/MyArticleNo.pdf".
+All the magic happens in the "Selection changed" event. The logic is supersimpel. From the choosen value of the combo box a string is concatenated containing the path and name of the pdf document relativ to the document libary root. In our case seomthing like "/Current/MyArticleNo.pdf".
 The second step is then to set the property "Source" of the pdf control with the newly crated document name. Setting this property triggers a reload and let's the pdf control download and show the document from Sharepoint.
 
 ![image](/assets/2023-11-24/070.png)
