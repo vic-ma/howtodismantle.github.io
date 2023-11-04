@@ -5,8 +5,8 @@ date: 2023-03-01 12:00:00 +0200
 tags: bestpractice peakboardhub
 image: /assets/2023-11-24/title.png
 read_more_links:
-  - name: SQL Joins
-    url: https://www.w3schools.com/sql/sql_join.asp
+  - name: What is a document library?
+    url: https://support.microsoft.com/en-us/office/what-is-a-document-library-3b5976dd-65cf-4c9e-bf5a-713c10ca2872
 ---
 
 We often see screens in factories with techical drawings of the related products. The most common use cases for this is either in manual or semi-manual production or quality management. Beside a pure techical drawing other unstructured data is also presented: step-by-step guides, quality check instructions or other documentations. The de-facto standard for all these documents is pdf.
