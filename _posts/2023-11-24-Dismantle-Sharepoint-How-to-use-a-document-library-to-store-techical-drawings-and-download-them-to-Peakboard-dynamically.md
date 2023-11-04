@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dismantle Sharepoint - How to use a document library to store techical drawings and download them to Peakboard dynamically
+title: Dismantle Sharepoint - How to use a document library to store techical drawings and download them in Peakboard dynamically
 date: 2023-03-01 12:00:00 +0200
 tags: bestpractice peakboardhub
 image: /assets/2023-11-24/title.png
@@ -9,8 +9,11 @@ read_more_links:
     url: https://support.microsoft.com/en-us/office/what-is-a-document-library-3b5976dd-65cf-4c9e-bf5a-713c10ca2872
 ---
 
-We often see screens in factories with techical drawings of the related products. The most common use cases for this is either in manual or semi-manual production or quality management. Beside a pure techical drawing other unstructured data is also presented: step-by-step guides, quality check instructions or other documentations. The de-facto standard for all these documents is pdf.
-This article shows the basic pattern how to use a Sharepoint document library to store these pdfs and download them to Peakboard for presenting them to the end users.
+We often see screens in factories with technical drawings of their products. This is most common in manual/semi-manual production and quality management. 
+
+Besides purely technical drawings, other unstructured data is also displayed: step-by-step guides, quality check instructions, and other documentation. The de-facto standard format for all these documents is PDF.
+
+This article explains how to use a Sharepoint document library to store these PDFs and download them in Peakboard Designer, so you can present them to the end users.
 
 ## The Sharepoint document library
 
