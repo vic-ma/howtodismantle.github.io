@@ -40,18 +40,18 @@ For giving the user the opportunity to chooses a product number from the list, w
 
 For using the combo in the script, it needs a proper name.
 
-![image](/assets/2023-11-24/070.png)
+![image](/assets/2023-11-24/060.png)
 
 ## The script for dynamic loading
 
 Al the magic happens in the "Selection changed" event. The logic is supersimpel. From the choosen value of the combo box a string is concatenated containing the path and name of the pdf document relativ to the document libary root. In our case seomthing like "/Current/MyArticleNo.pdf".
 The second step is then to set the property "Source" of the pdf control with the newly crated document name. Setting this property triggers a reload and let's the pdf control download and show the document from Sharepoint.
 
-![image](/assets/2023-11-24/080.png)
+![image](/assets/2023-11-24/070.png)
 
 Here's a animated sequence of the result. Every time the value in the combo box is changed the reload process is triggered and the pdf changes. Of course we have a fixed list of products here. In real life the list of products might be fetched dynamically from an ERP system like SAP.
 
-![image](/assets/2023-11-24/090.gif)
+![image](/assets/2023-11-24/080.gif)
 
 ## Conclusion
 
