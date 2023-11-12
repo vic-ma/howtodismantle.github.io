@@ -33,21 +33,20 @@ The setup itself is straightforward and offers the option to launch the runtime 
 
 ![image](/assets/2023-10-19/010.png)
 
-The setup also offers the option to apply the license key directly during installation. If you don't have a license key at the moment of installation, just skip this step and apply the license later. The runtime instance will work properly, except for a license hint on the screen. No need to worry during setup.
-
-![image](/assets/2023-10-19/020.png)
-
 The setup will come with the regular desktop runtime application, plus the management service and web server service. We will discuss more about the runtime components in another article.
 
 
 ## Licensing and adding the instance to the designer
 
-Make sure that the runtime instance is running properly. Then, you can add the instance to the designer. The default credentials are:
+Make sure that the runtime instance is running properly. Then, you can add the instance to the designer. In the initial stage the password is just empty and the user name is 'PeakboardAdmin'.
 
-* **Username:** PeakboardAdmin
-* **Password:** p@ssw0rd
+![image](/assets/2023-10-19/050.png)
 
-If the instance is still unlicensed, there will be an opportunity to apply a license key.
+Press on 'Set' to set a new password for this box. Of course it's no problem to change it later or add new users to the box.
+
+![image](/assets/2023-10-19/055.png)
+
+After having added the box to the designer it is still unlicensed, so the following dialog is popping up to apply the license.
 
 To request a license from the Peakboard sales team, please send the hardware key by email. They will send you a license key and a Box ID in return. The license key is a cryptic key (around 20-30 characters long), and the Box ID usually looks like `PBRXXXXX`, where `XXXX` is a random number.
 
