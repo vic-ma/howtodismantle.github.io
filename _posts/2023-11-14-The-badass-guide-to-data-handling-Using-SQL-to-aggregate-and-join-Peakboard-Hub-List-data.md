@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The badass guide to data handling - Using SQL to aggregate and join Peakboard Hub List data
-date: 2023-03-01 12:00:00 +0200
+date: 2023-11-14 12:00:00 +0200
 tags: sqlserver peakboardhub
 image: /assets/2023-11-14/title.png
 read_more_links:
