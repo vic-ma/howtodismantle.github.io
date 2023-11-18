@@ -5,8 +5,8 @@ date: 2023-03-01 12:00:00 +0200
 tags: bestpractice
 image: /assets/2023-12-01/title.png
 read_more_links:
-  - name: What is a document library?
-    url: https://support.microsoft.com/en-us/office/what-is-a-document-library-3b5976dd-65cf-4c9e-bf5a-713c10ca2872
+  - name: Dismantle Number Value Formatting
+    url: /Dismantle-Number-Value-Formatting.html
 downloads:
   - name: TableRowFormatting.pbmx
     url: /assets/2023-12-01/TableRowFormatting.pbmx
@@ -41,7 +41,7 @@ Within the edtior of the event we can find several blocks to be used in the cont
 Here is a sample to manipulate the data content. In this case we check if the weight column content is greater than 3 (kg). If so we just add a bit of text to the table cell. Actaully it's not pure text, it's unicode character repredenting the flxed bizeps muscle: 💪.
 Using these unicode characters in Peakboard is always monochrome. Please note: We are manipulating the cell content not the data content. Thats why we use the "Set table cell" block to paint our adjusted content.
 
-![image](/assets/2023-12-01/040.png)
+![image](/assets/2023-12-01/050.png)
 
 Here's the final result in preview with the red priority columns and the muscle icon:
 
