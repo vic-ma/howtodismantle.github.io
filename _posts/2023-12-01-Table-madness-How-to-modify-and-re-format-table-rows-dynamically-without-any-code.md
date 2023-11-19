@@ -12,11 +12,15 @@ downloads:
     url: /assets/2023-12-01/TableRowFormatting.pbmx
 ---
 
-Table controls are the most commonly used controls for displaying table data. However, we often see that designers do not use table controls to their full potential. Table controls can present data in a way that lets the end user find what they are looking for as quickly as possible. This article covers the best practices for modifying a table row on the fly and adjusting it to the content. In our example, we use a list of outbound deliveries. Here's how we want to modify the data in the table:
+Table controls are the most commonly used controls for displaying table data. However, we often see that designers do not use them to their full potential.
+
+Table controls can be customized to make it as easy as possible for end users to find the information they're looking for. This article covers the best practices for modifying a table row on the fly and adjusting its contents.
+
+In our example, we use a list of outbound deliveries. Here's how we want to modify the data in the table:
 
 1. When the `Priority` column of an outbound delivery is set to `High`, the row should have a red background color.
 
-2. When the weight of a delivery is more than 3 kg, we want to place a biceps icon next to value, to advise the end user that this delivery is especially heavy.
+2. When the weight of a delivery is more than 3 kg, there should be a biceps icon next to the weight, to advise the end user that this delivery is especially heavy.
 
 ## Preparing the data
 
@@ -24,13 +28,13 @@ This example is based on a simple CSV data file. It's included in the project fi
 
 ![image](/assets/2023-12-01/010.png)
 
-To make it easier to handle the data later, we add a dataflow to the data source. As seen in the screenshot, we change the data type for the `Weight` and `NumberOfPackages` columns to `Number`. We have to do this manually, because the data comes from a CSV file, and every column of a CSV file is treated as a string by default.
+To make it easier to handle the data later, we add a dataflow to the data source. As you can see in the screenshot, we change the data type for the `Weight` and `NumberOfPackages` columns to `Number`. We have to do this manually, because every column of a CSV file is treated as a string by default.
 
 ![image](/assets/2023-12-01/020.png)
 
 ## Setting up the table control
 
-To add our table control, we drag and drop the data flow onto the canvas, and then choose a table control. To make it a bit nicer, we adjust the column labels, column width, and title of the control.
+To add our table control, we drag and drop the data flow onto the canvas, and then choose a table control. To make it look a bit nicer, we adjust the column labels, column width, and title of the control.
 
 The most important part is the *Datarow loaded event*. It's triggered every time a row is painted onto the canvas during runtime. Let's assume our dataset has 10 rows. Then, the event is fired 10 times, once for each data row.
 
@@ -56,4 +60,4 @@ Here's the final result, which shows the red priority rows and the muscle icon:
 
 ## Conclusion
 
-This article shows how easy it is to manipulate the output of a table control with just a few clicks. But sometimes, more complex adjustments are needed, and the table control doesn't provide the capabilities to do so. In this case it's better to use a "Styled list" control and have an individual design for each row.
+This article shows how easy it is to manipulate the output of a table control with just a few clicks. But sometimes, more complex adjustments are needed, and the table control may not provide the capabilities to do so. In that case, it's better to use a "Styled list" control and have an individual design for each row.
