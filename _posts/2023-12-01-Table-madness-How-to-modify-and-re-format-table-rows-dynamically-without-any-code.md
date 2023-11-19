@@ -44,12 +44,13 @@ This script shows how you can get the value of a column and use it in an if stat
 
 ![image](/assets/2023-12-01/040.png)
 
-Here is a sample to manipulate the data content. In this case we check if the weight column content is greater than 3 (kg). If so we just add a bit of text to the table cell. Actaully it's not pure text, it's unicode character repredenting the flxed bizeps muscle: 💪.
-Using these unicode characters in Peakboard is always monochrome. Please note: We are manipulating the cell content not the data content. Thats why we use the "Set table cell" block to paint our adjusted content.
+This script shows how you can manipulate the data that's displayed in a cell. In this case, we check if the weight column content is greater than 3 kg. If so, we add a Unicode character representing the flexed biceps muscle: 💪.
+
+In Peakboard, these Unicode characters are always monochrome. Please note: We are manipulating the contents of the cell in the table, and not the actual data. That's why we use the *Set table cell* block to paint our adjusted content.
 
 ![image](/assets/2023-12-01/050.png)
 
-Here's the final result in preview with the red priority columns and the muscle icon:
+Here's the final result, which shows the red priority rows and the muscle icon:
 
 ![image](/assets/2023-12-01/060.png)
 
