@@ -30,8 +30,9 @@ To make it easier to handle the data later, we add a dataflow to the data source
 
 ## Setting up the table control
 
-The main part is the table control. We can add it by just drag and drop the data flow to the canvas and then choose a table control to show the output of the dataflow. To make it a bit nicer we adjust the column captions, column width and title of the control.
-The most important thing is the event 'Datarow loaded'. It's triggered every time a row is painted to the convas during runtime. Let's assume our dataset has 10 rows, then the event is fired 10 times, once for each data row. All the manipulation can be done within this event. The manipulation can be applied to attributes like the cell color or even to the data values that are displayed. We learn more about both options.
+To add our table control, we drag and drop the data flow onto the canvas, and then choose a table control. To make it a bit nicer, we adjust the column labels, column width, and title of the control.
+
+The most important part is the *Datarow loaded* event. It's triggered every time a row is painted onto the canvas during runtime. Let's assume our dataset has 10 rows. Then, the event is fired 10 times, once for each data row. All the manipulation can be done within this event. The manipulation can change attributes like the cell color or even to the data values that are displayed. Let's learn more about these manipulations.
 
 ![image](/assets/2023-12-01/030.png)
 
