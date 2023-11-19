@@ -32,11 +32,15 @@ To make it easier to handle the data later, we add a dataflow to the data source
 
 To add our table control, we drag and drop the data flow onto the canvas, and then choose a table control. To make it a bit nicer, we adjust the column labels, column width, and title of the control.
 
-The most important part is the *Datarow loaded* event. It's triggered every time a row is painted onto the canvas during runtime. Let's assume our dataset has 10 rows. Then, the event is fired 10 times, once for each data row. All the manipulation can be done within this event. The manipulation can change attributes like the cell color or even to the data values that are displayed. Let's learn more about these manipulations.
+The most important part is the *Datarow loaded event*. It's triggered every time a row is painted onto the canvas during runtime. Let's assume our dataset has 10 rows. Then, the event is fired 10 times, once for each data row.
+
+All the manipulation can be done within this event. The manipulation can change attributes like the cell color or even to the data values that are displayed. Let's learn more about these manipulations.
 
 ![image](/assets/2023-12-01/030.png)
 
-Within the edtior of the event we can find several blocks to be used in the context os the 'row loaded'. Let's assume we want to know the content of the 'Priority' columnof the data row that is currently painted, we just the block 'row value'. This sample script shows how to get the value and use it in a if statement to determine, if the priority of the delivery is high, and if so, set the background color of the current row to red.
+Within the event editor, there are several blocks we can use for the *Datarow loaded event*. Let's assume we want to know the content of the `Priority` column of the data row that is currently being painted. Then, we just use the block *Row value*.
+
+This script shows how you can get the value of a column and use it in an if statement. It checks if the priority of the delivery is high, and if so, it changes the background color to red.
 
 ![image](/assets/2023-12-01/040.png)
 
@@ -52,4 +56,3 @@ Here's the final result in preview with the red priority columns and the muscle 
 ## Conclusion
 
 This article shows how easy it is to manipulate the output of a table control and define the adjustments with only a few mouse clicks. However sometimes more complex adjustments are necessary and the options are limit within the table control. In this case it's better to use a "Styled list" control and have an indiviual design for each row.
-
