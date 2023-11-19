@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Table madness - How to modify and re-format table rows dynamically without any code
+title: Table madness - How to modify and reformat table rows dynamically without any code
 date: 2023-03-01 12:00:00 +0200
 tags: bestpractice
 image: /assets/2023-12-01/title.png
@@ -12,18 +12,19 @@ downloads:
     url: /assets/2023-12-01/TableRowFormatting.pbmx
 ---
 
-Table controls are the most commonly used controls to display table data. However we often see, that designers are not using their full potential to present the data in a way to perfectly support the end user to find what they are looking for as fast and as clear as possible. This article covers the best practice to modify a table row on the fly and adjust it to the content. In our sample we use a list of outbound delveries. Here's how we want to modify the data in the table:
+Table controls are the most commonly used controls for displaying table data. However, we often see that designers do not use table controls to their full potential. Table controls can present data in a way that lets the end user find what they are looking for as quickly as possible. This article covers the best practices for modifying a table row on the fly and adjusting it to the content. In our example, we use a list of outbound deliveries. Here's how we want to modify the data in the table:
 
-1. When the column 'Priority' of an outbound delivery is set to 'High' the row is supposed to have a red back color.
-2. When the weight of a delivery is more than 3 kgs we want to place a muscle bizeps icon next to value to advice the end user that this delivery is especially heavy.
+1. When the `Priority` column of an outbound delivery is set to `High`, the row should have a red background color.
+
+2. When the weight of a delivery is more than 3 kg, we want to place a biceps icon next to value, to advise the end user that this delivery is especially heavy.
 
 ## Preparing the data
 
-This sample is based on a simple CSV data file. It's included in the project file and it shows a couple of outbound deliveries, including the recipient's name, weight of the delivery, priority etc.
+This example is based on a simple CSV data file. It's included in the project file, and it shows a couple of outbound deliveries, including the recipient's name, weight of the delivery, priority etc.
 
 ![image](/assets/2023-12-01/010.png)
 
-To make it easier to handle the data later, we add a dataflow to the source. As shown in the screenshot we adjust the data types of the columns 'Weight' and 'NumberOfPackages' to 'Number'. As it comes from a CSV file every column is treated as a 'string'. That's why we need to correct it.
+To make it easier to handle the data later, we add a dataflow to the data source. As seen in the screenshot, we change the data type for the `Weight` and `NumberOfPackages` columns to `Number`. We have to do this manually, because the data comes from a CSV file, and every column of a CSV file is treated as a string by default.
 
 ![image](/assets/2023-12-01/020.png)
 
