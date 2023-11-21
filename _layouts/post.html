@@ -11,7 +11,7 @@ layout: base
 <h1 class="text-3xl text-gray-900 dark:text-light font-bold prose-dismantle max-w-3xl dark:prose-invert">{{ page.title }}</h1>
 <p class="mt-2 text-xs text-gray-900/80 dark:text-light/80">{{ page.date | date_to_long_string }} • {% include reading_time.html content=page.content %}</p>
 
-<div class="mt-8 prose prose-dismantle text-gray-900 dark:text-light dark:prose-invert">
+<div id="article-content" class="mt-8 prose prose-dismantle text-gray-900 dark:text-light dark:prose-invert">
     {{ content }}
 </div>
 
@@ -19,3 +19,13 @@ layout: base
     {% include read-more.html downloads=page.downloads rml=page.read_more_links %}
     {% include other_articles.html %}
 </div>
+
+<script>
+    // grab any img element inside id article-content, extract src, add onclick function to it
+    var imgs = document.getElementById("article-content").getElementsByTagName("img");
+    for (var i = 0; i < imgs.length; i++) {
+        imgs[i].setAttribute("onclick", "showImg(this)");
+        imgs[i].classList.add("cursor-pointer", "hover:brightness-80");
+    }
+    function showImg(img) { SimpleLightbox.open({ items: [img.getAttribute("src")] }); }
+</script>
