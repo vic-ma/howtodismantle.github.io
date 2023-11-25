@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dismantle SharePoint - How to use a document library to store techical drawings and download them in Peakboard dynamically
+title: Dismantle SharePoint - How to use a document library to store technical drawings and download them in Peakboard dynamically
 date: 2023-11-24 12:00:00 +0200
 tags: bestpractice office365
 image: /assets/2023-11-24/title.png
