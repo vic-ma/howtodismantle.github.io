@@ -2,7 +2,7 @@
 layout: post
 title: Dismantle SAP Production - How to determine workplace capacity
 date: 2023-03-01 12:00:00 +0200
-tags: bestpractice
+tags: sap
 image: /assets/2023-12-09/title.png
 read_more_links:
   - name: How to build a perfect RFC function module to use in Peakboard
@@ -14,10 +14,10 @@ downloads:
     url: /assets/2023-12-09/SAPWorkplaceCapacity.pbmx
 ---
 
-One of the top 5 use cases for using Peakboard in a production environment is to show the current orders, operations and the load of ne or more workplaces. To determine the load of workplace, we need the capacity that is currently available for this workplace. The best way to get a workplace's capacity is to let an SAP function module do the work and just call it from the Peakboard application. The problem is, that SAP doesn't offer any standard RFC-enabled function module to determine the capacity. The good news is, that there's an internal function module called CR_CAPACITY_AVAILABLE for dertermining the capacity. This article shows to to make this function module accesible from the outside and call it from an Peakboard application.
+One of the top 5 use cases for using Peakboard in a production environment is to show the current orders, operations and the load of one or more workplaces. To determine the load of workplace, we need the capacity that is currently available for this workplace. The best way to get a workplace's capacity is to let an SAP function module do the work and just call it from the Peakboard application. The problem is, that SAP doesn't offer any standard RFC-enabled function module to determine the capacity. The good news is, that there's an internal function module called CR_CAPACITY_AVAILABLE for determining the capacity. This article shows how to make this function module accessible from the outside and call it from an Peakboard application.
 
 Please scroll down to download to the bottom to find a link to download the ABAP source code that is used here.
-ALso feel free to adjust the naming which is used in this article. If you need to align the naming to your comapnay's convention, no problem. The code is short and easy to understand.
+ALso feel free to adjust the naming which is used in this article. If you need to align the naming to your company's convention, no problem. The code is short and easy to understand.
 
 One more note: The RFC function module built in this article is aligned with the [recommendations on how to build an ideal RFC to be used in Peakboard](/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html).
 
@@ -52,7 +52,7 @@ And finally save and activate the whole function module.
 
 ## How the code works
 
-In the first part the workplace name is translated into the ID by looking it up in table CRHD and KAKO.
+In the first part the workplace name is translated into the capacity id by looking it up in table CRHD and KAKO.
 
 ![image](/assets/2023-12-09/070.png)
 
@@ -60,15 +60,15 @@ The we call the actual function module CR_CAPACITY_AVAILABLE.
 
 ![image](/assets/2023-12-09/080.png)
 
-The return values are translated into the elements of the rtrurn structure. Please note the capaity is returned in the unit seconds. We already transfer the seconds into minutes before we return the values to the caller. Depending on the use case it might make sense to use hours here.
+The return values are translated into the elements of the return structure. Please note the capaity is returned in the unit seconds. We already transfer the seconds into minutes before we return the values to the caller. Depending on the use case it might make sense to use hours here.
 
 ![image](/assets/2023-12-09/090.png)
 
-Beside the capacity also the operating time, and the start and end time is calculated.
+Beside the capacity also the operating time, and the daily start and end time is calculated.
 
 ## Using the RFC function module in Peakboard
 
-The RFC function's interface is idealy designed to be used within Peakboard. Here's the XQL call for the RFC. We can see the four parameters we used when creating the RFC: Start and end date, workplace and plant.
+The RFC function's interface is perfectly designed to be used within Peakboard. Here's the XQL call for the RFC. We can see the four parameters we used when creating the RFC: Start and end date, workplace and plant.
 
 {% highlight sql %}
 EXECUTE FUNCTION 'Z_PB_GET_WORKPLACE'
