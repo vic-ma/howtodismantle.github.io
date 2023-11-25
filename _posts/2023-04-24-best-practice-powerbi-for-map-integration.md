@@ -2,7 +2,7 @@
 layout: post
 title: Best Practice - Use Power BI for integrating maps
 date: 2023-04-24 12:00:00 +0200
-tags: tutorial bestpractice
+tags: tutorial bestpractice office365
 image: /assets/2023-04-24/title.png
 read_more_links:
   - name: Microsoft Power BI Playground for Newbies

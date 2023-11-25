@@ -2,7 +2,7 @@
 layout: post
 title: MS Graph API - Send messages to Teams group
 date: 2023-07-11 12:00:00 +0200
-tags: msgraph
+tags: msgraph office365
 image: /assets/2023-07-11/title.png
 read_more_links:
   - name: MS Graph API Documentation - Send chatMessage in channel

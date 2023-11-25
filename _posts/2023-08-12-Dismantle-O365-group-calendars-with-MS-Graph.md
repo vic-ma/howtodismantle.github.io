@@ -2,7 +2,7 @@
 layout: post
 title: Dismantle O365 group calendars with MS Graph API
 date: 2023-08-12 03:00:00 +0200
-tags: msgraph api
+tags: msgraph api office365
 image: /assets/2023-08-12/title.png
 read_more_links:
   - name: MS Graph API Documentation - Get the presence information for multiple users.

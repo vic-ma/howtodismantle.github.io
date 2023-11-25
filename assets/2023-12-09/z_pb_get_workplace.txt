@@ -1,0 +1,74 @@
+FUNCTION z_pb_get_workplace.
+*"----------------------------------------------------------------------
+*"*"Local Interface:
+*"  IMPORTING
+*"     VALUE(I_STARTDATE) TYPE  SYST_DATUM DEFAULT SY-DATUM
+*"     VALUE(I_ENDDATE) TYPE  SYST_DATUM DEFAULT SY-DATUM
+*"     VALUE(I_ARBPL) TYPE  ARBPL
+*"     VALUE(I_WERKS) TYPE  WERKS_D
+*"  TABLES
+*"      T_WORKPLACE STRUCTURE  ZPBWORKPLACE OPTIONAL
+*"----------------------------------------------------------------------
+
+  DATA xkapid TYPE kapid.
+  DATA xoptime TYPE rc65d-periodint.
+  DATA xcapacity TYPE rc65d-periodint.
+  DATA xbeginn TYPE sy-uzeit.
+  DATA xende TYPE sy-uzeit.
+
+  t_workplace-arbpl = i_arbpl.
+  t_workplace-werks = i_werks.
+
+  CLEAR: xoptime.
+
+  SELECT SINGLE * FROM crhd WHERE arbpl = t_workplace-arbpl AND werks = t_workplace-werks.
+
+  IF sy-subrc EQ 0.
+    xkapid = crhd-kapid.
+    SELECT SINGLE * FROM kako WHERE kapid = crhd-kapid.
+    IF sy-subrc EQ 0.
+      IF NOT kako-refid IS INITIAL.
+        xkapid = kako-refid.
+      ENDIF.
+
+      CALL FUNCTION 'CR_CAPACITY_AVAILABLE'
+        EXPORTING
+          datub                        = i_enddate
+          datuv                        = i_startdate
+          kapid                        = xkapid
+*         PDAYS_ONLY                   = ' '
+*         DURATION                     =
+        IMPORTING
+          optime                       = xoptime
+*         PDAYS                        =
+          value                        = xcapacity
+*         WDAY_FIRST                   =
+*         WDAY_LAST                    =
+*         OPTIME_WDAY_FIRST            =
+          starttime_wday_first         = xbeginn
+*         OPTIME_WDAY_LAST             =
+          endtime_wday_last            = xende
+*         FLAG_OVERMIDNIGHT            =
+        EXCEPTIONS
+          not_found                    = 1
+          missing_parameter            = 2
+          no_capacity                  = 3
+          date_outside_factorycalendar = 4
+          invalid_parameter            = 5
+          OTHERS                       = 6.
+
+      xoptime = xoptime / 60.
+      xcapacity = xcapacity / 60.
+
+      t_workplace-optime = xoptime.
+      t_workplace-capacity = xcapacity.
+      t_workplace-starttime = xbeginn.
+      t_workplace-endtime = xende.
+
+    ENDIF.
+
+    APPEND t_workplace.
+
+  ENDIF.
+
+ENDFUNCTION.

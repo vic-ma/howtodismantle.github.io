@@ -2,7 +2,7 @@
 layout: post
 title: MS Graph API - Access the company's room calendars
 date: 2023-10-11 12:00:00 +0200
-tags: msgraph
+tags: msgraph office365
 image: /assets/2023-10-11/title.png
 read_more_links:
   - name: MS Graph API - Understand the basis and get started

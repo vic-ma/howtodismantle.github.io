@@ -2,7 +2,7 @@
 layout: post
 title: MS Graph API - Understand the basics and get started
 date: 2023-06-09 12:00:00 +0200
-tags: msgraph
+tags: msgraph office365
 image: /assets/2023-06-09/title.png
 ---
 This article covers the basics of using the MS Graph API with Peakboard. It's boring, but it's necessary. Sorry for this.

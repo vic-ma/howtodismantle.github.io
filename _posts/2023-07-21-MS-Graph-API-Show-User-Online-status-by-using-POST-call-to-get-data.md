@@ -2,7 +2,7 @@
 layout: post
 title: MS Graph API - Show user's online status by getting it with a POST call
 date: 2023-07-21 03:00:00 +0200
-tags: msgraph api
+tags: msgraph api office365
 image: /assets/2023-07-21/title.png
 read_more_links:
   - name: MS Graph API Documentation - Get the presence information for multiple users.
