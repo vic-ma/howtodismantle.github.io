@@ -7,6 +7,8 @@ image: /assets/2023-12-09/title.png
 read_more_links:
   - name: How to build a perfect RFC function module to use in Peakboard
     url: /SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html
+  - name: Dismantle SAP Production - How to get the next work orders of a workplace by using COOIS transaction
+    url: /Dismantle-SAP-Production-How-to-get-the-next-work-orders-of-a-workplace-by-using-COOIS-transaction-in-Peakboard.html
 downloads:
   - name: Source Code for RFC - z_pb_get_workplace.txt
     url: /assets/2023-12-09/z_pb_get_workplace.txt
