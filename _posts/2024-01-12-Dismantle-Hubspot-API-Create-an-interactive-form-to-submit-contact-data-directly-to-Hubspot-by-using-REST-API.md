@@ -16,7 +16,7 @@ Over the past few years, HubSpot has become one of the top tools for marketing a
 
 This article shows how to build a self-service form to submit contact data to HubSpot.
 
-Let's assume an ice cream company is using this self-service terminal next to an ice cream stand to ask their customers for their favorite flavor. The customer can also enter a lucky draw to win prices. Of course, the company wants to have this data in HubSpot as fast as possible, to check back with the customer and send them their newsletter and other sales material.
+Let's assume an ice cream company is using this self-service terminal next to an ice cream stand to ask their customers for their favourite flavor. The customer can also enter a lucky draw to win prices. Of course, the company wants to have this data in HubSpot as fast as possible, to check back with the customer and send them their newsletter and other sales material.
 
 The example in this article shows how to build a JSON string and submit it to a real world API.
 
@@ -24,7 +24,7 @@ The example in this article shows how to build a JSON string and submit it to a 
 
 The HubSpot API is not too complicated to use and is based on typical REST web services. The endpoint we use is `https://api.hubapi.com/crm/v3/objects/contacts`. To better understand the API, you can read the [HubSpot API dev guide](https://developers.hubspot.com/docs/api/crm/contacts).
 
-As we want to create a contact in HubSpot, we need to submit a JSon string in the body of the HTTP call. Here is a very simple example of how the JSon must look like in order by understood be the HubSpot server. We provide the name, emailaddress and a HubSpot custom field called favourite_ice_cream which contains the flavour the customer has chosen in the form.
+Because we want to create a contact in HubSpot, we need to submit a JSON string in the body of the HTTP call. Here is a very simple example of what the JSON must look like, in order to be understood by the HubSpot server. We provide the name, email address, and a HubSpot custom field called `favourite_ice_cream`, which contains the flavour the customer has chosen in the form.
 
 {% highlight json %}
 {
@@ -36,7 +36,7 @@ As we want to create a contact in HubSpot, we need to submit a JSon string in th
 }
 {% endhighlight %}
 
-For the authentification we need to submit an API token. To get an token, we go to the settings section of our hubspot account and create a private app. The token is stored for usage later when Peakboard is initiating the call.
+For authentication, we need to submit an API token. To get a token, we go to the settings section of our HubSpot account and create a private app. We store the token for later usage, when Peakboard is initiating the call.
 
 ![image](/assets/2024-01-12/010.png)
 
