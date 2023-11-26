@@ -16,7 +16,11 @@ downloads:
     url: /assets/2023-12-09/SAPWorkplaceCapacity.pbmx
 ---
 
-One of the top 5 use cases for using Peakboard in a production environment is to show the current orders, operations and the load of one or more workplaces. To determine the load of workplace, we need the capacity that is currently available for this workplace. The best way to get a workplace's capacity is to let an SAP function module do the work and just call it from the Peakboard application. The problem is, that SAP doesn't offer any standard RFC-enabled function module to determine the capacity. The good news is, that there's an internal function module called CR_CAPACITY_AVAILABLE for determining the capacity. This article shows how to make this function module accessible from the outside and call it from an Peakboard application.
+One of the top 5 use cases for Peakboard in production environments is to show the current orders, operations, and the load of one or more workplaces.
+
+To determine the load of a workplace, we need the capacity that is currently available for the workplace. The best way to get this is to have an SAP function module do all the work and just call it from the Peakboard application.
+
+The problem is, SAP doesn't offer any standard RFC-enabled function modules to determine the capacity. But the good news is that there's an internal function module called `CR_CAPACITY_AVAILABLE`, which can determine the capacity. This article shows how you can make this function module accessible externally and call it from a Peakboard application.
 
 Please scroll down to download to the bottom to find a link to download the ABAP source code that is used here.
 ALso feel free to adjust the naming which is used in this article. If you need to align the naming to your company's convention, no problem. The code is short and easy to understand.
