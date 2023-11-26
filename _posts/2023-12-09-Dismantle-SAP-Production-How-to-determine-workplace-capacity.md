@@ -16,11 +16,13 @@ downloads:
     url: /assets/2023-12-09/SAPWorkplaceCapacity.pbmx
 ---
 
-One of the top 5 use cases for Peakboard in production environments is to show the current orders, operations, and the load of one or more workplaces.
+One of the top 5 use cases for Peakboard in production environments is showing the current orders, operations, and load of one or more workplaces.
 
-To determine the load of a workplace, we need the capacity that is currently available for the workplace. The best way to get this is to have an SAP function module do all the work and just call it from the Peakboard application.
+To determine the load of a workplace, we need the capacity that is currently available for that workplace. The best way to get this is to have an SAP function module do all the work and just call it from the Peakboard application.
 
-The problem is, SAP doesn't offer any standard RFC-enabled function modules to determine the capacity. But the good news is that there's an internal function module called `CR_CAPACITY_AVAILABLE`, which can determine the capacity. This article shows how you can make this function module accessible externally and call it from a Peakboard application.
+The problem is, SAP doesn't offer any standard RFC-enabled function modules to determine the capacity. But the good news is that there's an internal function module called `CR_CAPACITY_AVAILABLE`, which can determine the capacity.
+
+This article shows how you can make this function module accessible externally and call it from a Peakboard application.
 
 Please scroll to the bottom of this article to find a link to download the ABAP source code that is used here. Also, feel free to adjust the naming which is used in this article. If you need to align the naming to your company's conventions, that's no problem. The code is short and easy to understand.
 
@@ -43,7 +45,7 @@ The development package and function group are mandatory. Which one to use depen
 
 ![image](/assets/2023-12-09/030.png)
 
-The next screenshot shows all the import parameters. To determine the workplace capacity, we need to know the start and end date, the workplace, and also the plant. These four parameters are all imports.
+This screenshot shows all the import parameters. To determine the workplace capacity, we need to know the start date, the end date, the workplace, and also the plant. These four parameters are all imports.
 
 ![image](/assets/2023-12-09/040.png)
 
@@ -51,13 +53,15 @@ The last step is to define a table. As you can see in the screenshot, the type o
 
 ![image](/assets/2023-12-09/050.png)
 
-After all the above steps are done, we copy and paste the ABAP code to the source code editor:
+After all the above steps are done, we copy and paste the ABAP code into the source code editor:
 
 ![image](/assets/2023-12-09/060.png)
 
-And finally, we save and activate the whole function module.
+And finally, we save and activate the entire function module.
 
 ## How the code works
+
+Now let's take a look at how the ABAP code actually works.
 
 In the first part, the workplace name is translated into the capacity id by looking it up in the CRHD and KAKO tables.
 
