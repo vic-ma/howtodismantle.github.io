@@ -43,23 +43,23 @@ The development package and function group are mandatory. Which one to use depen
 
 ![image](/assets/2023-12-09/030.png)
 
-The next screenshot shows all the import parameters. To determine the workplace capacity, we need to know the start and end date, the workplace and also the plant. These four parameters are all Imports.
+The next screenshot shows all the import parameters. To determine the workplace capacity, we need to know the start and end date, the workplace, and also the plant. These four parameters are all imports.
 
 ![image](/assets/2023-12-09/040.png)
 
-The last step is to define a table. As you can see in the screenshot the type of the table referes to the DDIC structure we created earlier.
+The last step is to define a table. As you can see in the screenshot, the type of the table refers to the DDIC structure we created earlier.
 
 ![image](/assets/2023-12-09/050.png)
 
-After all requirements are done, we copy and paste the ABAP code to the source code editor:
+After all the above steps are done, we copy and paste the ABAP code to the source code editor:
 
 ![image](/assets/2023-12-09/060.png)
 
-And finally save and activate the whole function module.
+And finally, we save and activate the whole function module.
 
 ## How the code works
 
-In the first part the workplace name is translated into the capacity id by looking it up in table CRHD and KAKO.
+In the first part, the workplace name is translated into the capacity id by looking it up in table CRHD and KAKO.
 
 ![image](/assets/2023-12-09/070.png)
 
