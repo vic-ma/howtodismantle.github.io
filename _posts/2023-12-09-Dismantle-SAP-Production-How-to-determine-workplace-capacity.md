@@ -37,11 +37,13 @@ The structure only contains standard component types which are commonly used. Af
 
 ![image](/assets/2023-12-09/020.png)
 
-The next steps is to create the actual function module. It's is very important to mark it as Remote Enabled as we need to call the function from the outside later. The developmemnt package  and function group are mandatory. It depends on the common habits of the SAP system which one to use. It's reocmmended to create a function group and package only for this and all future Peakboard development objects.
+The next step is to create the actual function module. It's very important to mark it as *Remote-Enabled*, as we need to call the function externally, later. 
+
+The development package and function group are mandatory. Which one to use depends on the common habits of the SAP system. It's recommended to create a function group and package specifically for this and any future Peakboard development objects.
 
 ![image](/assets/2023-12-09/030.png)
 
-The next screenshot shows all the import parameters. To determine the capavcity we need to know the start and end date, the workplace and also the plant. These four parameters are all Imports.
+The next screenshot shows all the import parameters. To determine the workplace capacity, we need to know the start and end date, the workplace and also the plant. These four parameters are all Imports.
 
 ![image](/assets/2023-12-09/040.png)
 
