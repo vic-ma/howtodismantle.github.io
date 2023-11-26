@@ -92,13 +92,13 @@ And here is how it looks like when editing the data source.
 
 ![image](/assets/2023-12-09/100.png)
 
-In our sample application we can easily bind text boxes to the data source and also use a custom format to present the values to the end user (e.g. unit for the capacity, time format, etc...). Feel free to download the sample pbmx.
+In our sample application we can easily bind text boxes to the data source and also use a custom format to present the values to the end user (e.g. unit for the capacity, time format, etc.). Feel free to download the sample PBMX.
 
 ![image](/assets/2023-12-09/110.png)
 
-## code
+## The code
 
-Here's the whole code of the Z_PB_GET_WORKPLACE, it's also available for download on the link on the bottom.
+Here's the entire code of `Z_PB_GET_WORKPLACE`. It's also available for download at the bottom of this page.
 
 {% highlight abap %}
 FUNCTION z_pb_get_workplace.
