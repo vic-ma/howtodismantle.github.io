@@ -42,21 +42,25 @@ For authentication, we need to submit an API token. To get a token, we go to the
 
 ## Build the application screen
 
-We want to give the user the option of chosing their flavor from a combo box. To fill the combo box with values we need variable list with all potential flavors. It's a simple list with only one column.
+Now let's build the application in Peakboard.
+
+We want to give the user the option of choosing their flavour from a combo box. To fill the combo box with the appropriate values, we create a variable list with all the possible flavors. It's a simple list with only one column.
 
 ![image](/assets/2024-01-12/020.png)
 
-The screen is simple. We chose a nice background image, put the texts and put the interactive elements on the screen. To fill the combo box with values we need to connect it to the variable list. And we also give any of the three input controls a proper name, so we can address them from within our code.
+The screen is simple. We chose a nice background image, add the text, and put the interactive elements on the screen. To fill the combo box with values, we connect it to the variable list. We also give all three input controls a proper name, so we can address them from within our code.
 
 ![image](/assets/2024-01-12/030.png)
 
 ## Build the REST call
 
-Lets have a look now at the code behind the submit button. Here's what happens:
+Let's have a look now at the code behind the submit button. Here's what happens:
 
-1. The JSon string is stored in a variable with three placeholders within the string. They all begin with a @ character to make it easier to identify.
-2. The placeholders are relaced with the actual values that come from the three input controls of the screen.
-3. This is the actual HTTP call. It's a POST call according to the documentation. We need to add two headers to make it work. The first header 'Authorization'. Here we submit he value 'Bearer <mytoken>'. The second header is the content type. We set it to 'application/json', otherwise HubSpot doesn't understand what to do with the string in the HTTP body.
+1. The JSON string is stored in a variable with three placeholders within the string. They all begin with a `@` character, to make them easier to identify.
+2. The placeholders are replaced by the actual values that come from the three input controls of the screen.
+3. This is the actual HTTP call. It's a POST call, according to the documentation. We need to add two headers to make it work.
+    * The first header is `Authorization`. Here, we submit he value `Bearer <mytoken>`.
+    * The second header is `Content-Type`. We set it to 'application/json', otherwise HubSpot doesn't understand what to do with the string in the HTTP body.
 
 If this would not be a simple example, we would have to interpret the return message for any errors. For keep it simple we don't do this here but just write the response to the log.
 
