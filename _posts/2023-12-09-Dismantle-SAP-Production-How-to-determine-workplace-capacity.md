@@ -22,19 +22,18 @@ To determine the load of a workplace, we need the capacity that is currently ava
 
 The problem is, SAP doesn't offer any standard RFC-enabled function modules to determine the capacity. But the good news is that there's an internal function module called `CR_CAPACITY_AVAILABLE`, which can determine the capacity. This article shows how you can make this function module accessible externally and call it from a Peakboard application.
 
-Please scroll down to download to the bottom to find a link to download the ABAP source code that is used here.
-ALso feel free to adjust the naming which is used in this article. If you need to align the naming to your company's convention, no problem. The code is short and easy to understand.
+Please scroll to the bottom of this article to find a link to download the ABAP source code that is used here. Also, feel free to adjust the naming which is used in this article. If you need to align the naming to your company's conventions, that's no problem. The code is short and easy to understand.
 
 One more note: The RFC function module built in this article is aligned with the [recommendations on how to build an ideal RFC to be used in Peakboard](/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html).
 
 
 ## Setting up the requirements on the SAP side
 
-For the exchange of the capacity information we use a DDIC structure. This structure can be created by using tranaction SE11.
+For the exchange of the capacity information, we use a DDIC structure. This structure can be created by using transaction SE11.
 
 ![image](/assets/2023-12-09/010.png)
 
-The structure only contains standard component types, that are commonly used. After adding the descirption text and the components we must not forget to activate the structure to make it avaiable.
+The structure only contains standard component types which are commonly used. After adding the description text and the components, we must not forget to activate the structure to make it available.
 
 ![image](/assets/2023-12-09/020.png)
 
