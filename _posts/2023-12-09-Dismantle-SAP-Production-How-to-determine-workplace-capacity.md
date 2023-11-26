@@ -16,61 +16,70 @@ downloads:
     url: /assets/2023-12-09/SAPWorkplaceCapacity.pbmx
 ---
 
-One of the top 5 use cases for using Peakboard in a production environment is to show the current orders, operations and the load of one or more workplaces. To determine the load of workplace, we need the capacity that is currently available for this workplace. The best way to get a workplace's capacity is to let an SAP function module do the work and just call it from the Peakboard application. The problem is, that SAP doesn't offer any standard RFC-enabled function module to determine the capacity. The good news is, that there's an internal function module called CR_CAPACITY_AVAILABLE for determining the capacity. This article shows how to make this function module accessible from the outside and call it from an Peakboard application.
+One of the top 5 use cases for Peakboard in production environments is showing the current orders, operations, and load of one or more workplaces.
 
-Please scroll down to download to the bottom to find a link to download the ABAP source code that is used here.
-ALso feel free to adjust the naming which is used in this article. If you need to align the naming to your company's convention, no problem. The code is short and easy to understand.
+To determine the load of a workplace, we need the capacity that is currently available for that workplace. The best way to get this is to have an SAP function module do all the work and just call it from the Peakboard application.
+
+The problem is, SAP doesn't offer any standard RFC-enabled function modules to determine the capacity. But the good news is that there's an internal function module called `CR_CAPACITY_AVAILABLE`, which can determine the capacity.
+
+This article shows how you can make this function module accessible externally and call it from a Peakboard application.
+
+Please scroll to the bottom of this article to find a link to download the ABAP source code that is used here. Also, feel free to adjust the naming which is used in this article. If you need to align the naming to your company's conventions, that's no problem. The code is short and easy to understand.
 
 One more note: The RFC function module built in this article is aligned with the [recommendations on how to build an ideal RFC to be used in Peakboard](/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html).
 
 
 ## Setting up the requirements on the SAP side
 
-For the exchange of the capacity information we use a DDIC structure. This structure can be created by using tranaction SE11.
+For the exchange of the capacity information, we use a DDIC structure. This structure can be created by using transaction SE11.
 
 ![image](/assets/2023-12-09/010.png)
 
-The structure only contains standard component types, that are commonly used. After adding the descirption text and the components we must not forget to activate the structure to make it avaiable.
+The structure only contains standard component types which are commonly used. After adding the description text and the components, we must not forget to activate the structure to make it available.
 
 ![image](/assets/2023-12-09/020.png)
 
-The next steps is to create the actual function module. It's is very important to mark it as Remote Enabled as we need to call the function from the outside later. The developmemnt package  and function group are mandatory. It depends on the common habits of the SAP system which one to use. It's reocmmended to create a function group and package only for this and all future Peakboard development objects.
+The next step is to create the actual function module. It's very important to mark it as *Remote-Enabled*, as we need to call the function externally, later. 
+
+The development package and function group are mandatory. Which one to use depends on the common habits of the SAP system. It's recommended to create a function group and package specifically for this and any future Peakboard development objects.
 
 ![image](/assets/2023-12-09/030.png)
 
-The next screenshot shows all the import parameters. To determine the capavcity we need to know the start and end date, the workplace and also the plant. These four parameters are all Imports.
+This screenshot shows all the import parameters. To determine the workplace capacity, we need to know the start date, the end date, the workplace, and also the plant. These four parameters are all imports.
 
 ![image](/assets/2023-12-09/040.png)
 
-The last step is to define a table. As you can see in the screenshot the type of the table referes to the DDIC structure we created earlier.
+The last step is to define a table. As you can see in the screenshot, the type of the table refers to the DDIC structure we created earlier.
 
 ![image](/assets/2023-12-09/050.png)
 
-After all requirements are done, we copy and paste the ABAP code to the source code editor:
+After all the above steps are done, we copy and paste the ABAP code into the source code editor:
 
 ![image](/assets/2023-12-09/060.png)
 
-And finally save and activate the whole function module.
+And finally, we save and activate the entire function module.
 
 ## How the code works
 
-In the first part the workplace name is translated into the capacity id by looking it up in table CRHD and KAKO.
+Now let's take a look at how the ABAP code actually works.
+
+In the first part, the workplace name is translated into the capacity id by looking it up in the CRHD and KAKO tables.
 
 ![image](/assets/2023-12-09/070.png)
 
-The we call the actual function module CR_CAPACITY_AVAILABLE.
+Then we call the actual function module, `CR_CAPACITY_AVAILABLE`.
 
 ![image](/assets/2023-12-09/080.png)
 
-The return values are translated into the elements of the return structure. Please note the capaity is returned in the unit seconds. We already transfer the seconds into minutes before we return the values to the caller. Depending on the use case it might make sense to use hours here.
+The return values are translated into the elements of the return structure. Please note that the capacity is returned as seconds. We already convert the seconds into minutes before we return the values to the caller. Depending on the use case, it might make more sense to use hours here.
 
 ![image](/assets/2023-12-09/090.png)
 
-Beside the capacity also the operating time, and the daily start and end time is calculated.
+Besides the capacity, the operating time, daily start time, and daily end time are calculated.
 
 ## Using the RFC function module in Peakboard
 
-The RFC function's interface is perfectly designed to be used within Peakboard. Here's the XQL call for the RFC. We can see the four parameters we used when creating the RFC: Start and end date, workplace and plant.
+The RFC function's interface is perfectly designed to be used within Peakboard. Here's the XQL call for the RFC. We can see the four parameters we used when creating the RFC: Start date, end date, workplace, and plant.
 
 {% highlight sql %}
 EXECUTE FUNCTION 'Z_PB_GET_WORKPLACE'
@@ -87,13 +96,13 @@ And here is how it looks like when editing the data source.
 
 ![image](/assets/2023-12-09/100.png)
 
-In our sample application we can easily bind text boxes to the data source and also use a custom format to present the values to the end user (e.g. unit for the capacity, time format, etc...). Feel free to download the sample pbmx.
+In our sample application, we can easily bind text boxes to the data source. We also use a custom format to present the values to the end user (e.g. unit for the capacity, time format, etc.). Feel free to download the sample PBMX.
 
 ![image](/assets/2023-12-09/110.png)
 
-## code
+## The code
 
-Here's the whole code of the Z_PB_GET_WORKPLACE, it's also available for download on the link on the bottom.
+Here's the entire code of `Z_PB_GET_WORKPLACE`. It's also available for download at the bottom of this page.
 
 {% highlight abap %}
 FUNCTION z_pb_get_workplace.
