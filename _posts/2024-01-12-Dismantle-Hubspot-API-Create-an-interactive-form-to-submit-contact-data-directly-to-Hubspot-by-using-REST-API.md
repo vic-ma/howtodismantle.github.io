@@ -60,9 +60,9 @@ Let's have a look now at the code behind the submit button. Here's what happens:
 2. The placeholders are replaced by the actual values that come from the three input controls of the screen.
 3. This is the actual HTTP call. It's a POST call, according to the documentation. We need to add two headers to make it work.
     * The first header is `Authorization`. Here, we submit he value `Bearer <mytoken>`.
-    * The second header is `Content-Type`. We set it to 'application/json', otherwise HubSpot doesn't understand what to do with the string in the HTTP body.
+    * The second header is `Content-Type`. We set it to `application/json`, otherwise HubSpot won't understand what to do with the string in the HTTP body.
 
-If this would not be a simple example, we would have to interpret the return message for any errors. For keep it simple we don't do this here but just write the response to the log.
+If this were not just an example, we would check the return message for any errors. To keep it simple, we'll instead just write the response to the log.
 
 ![image](/assets/2024-01-12/040.png)
 
@@ -72,11 +72,11 @@ Here's the board in full swing.
 
 ![image](/assets/2024-01-12/050.png)
 
-Let's check the log. We ca see the JSon that is built dynmically. And also the answer from the HubSpot API server.
+Let's check the log. We can see the JSON that is built dynamically. We can also see the response from the HubSpot API server.
 
 ![image](/assets/2024-01-12/060.png)
 
-And here's the result in HubSpot....
+And here's the result in HubSpot.
 
 ![image](/assets/2024-01-12/070.png)
 
