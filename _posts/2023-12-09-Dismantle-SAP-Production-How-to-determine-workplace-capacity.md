@@ -59,19 +59,19 @@ And finally, we save and activate the whole function module.
 
 ## How the code works
 
-In the first part, the workplace name is translated into the capacity id by looking it up in table CRHD and KAKO.
+In the first part, the workplace name is translated into the capacity id by looking it up in the CRHD and KAKO tables.
 
 ![image](/assets/2023-12-09/070.png)
 
-The we call the actual function module CR_CAPACITY_AVAILABLE.
+Then we call the actual function module `CR_CAPACITY_AVAILABLE`.
 
 ![image](/assets/2023-12-09/080.png)
 
-The return values are translated into the elements of the return structure. Please note the capaity is returned in the unit seconds. We already transfer the seconds into minutes before we return the values to the caller. Depending on the use case it might make sense to use hours here.
+The return values are translated into the elements of the return structure. Please note that the capacity is returned as seconds. We already convert the seconds into minutes before we return the values to the caller. Depending on the use case it might make sense to use hours here.
 
 ![image](/assets/2023-12-09/090.png)
 
-Beside the capacity also the operating time, and the daily start and end time is calculated.
+Besides the capacity, the operating time, daily start time, and daily end time are calculated.
 
 ## Using the RFC function module in Peakboard
 
