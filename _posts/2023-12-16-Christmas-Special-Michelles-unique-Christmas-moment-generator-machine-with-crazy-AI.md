@@ -3,7 +3,7 @@ layout: post
 title: Christmas Special - Michelle's unique Christmas moment generator machine with crazy AI
 date: 2023-03-01 12:00:00 +0200
 tags: api ai
-image: /assets/2024-12-16/title.png
+image: /assets/2023-12-16/title.png
 read_more_links:
   - name: dev guide for image generation with Open AI
     url: https://platform.openai.com/docs/guides/images/usage?context=node&lang=curl
@@ -12,7 +12,7 @@ downloads:
     url: /assets/2023-12-16/ChristmasMomentGeneratorMachine.pbmx
 ---
 
-With the release of this article this blog exits precisely one year. The first article was published in December 2022. 2023 was very clearly the year of the rise of articficial intelligence AI. That's why we dedicate this article to how to use AI. Unlike the other articles we will first have a look at the result. What we're building is a unique Christmas moment generator machine. You can submit your current mood, you favorite color style and your favorite animal and then let DALL-E generate a unique image that reflects these keywords. In this article we'll have a look behind the scenes on how to connect to the OpenAI Large Langauge Model LLM for generating images.
+With the release of this article this blog exits precisely one year. The first article was published in December 2022. 2023 was very clearly the year of the rise of articficial intelligence AI. That's why we dedicate this article to how to use AI. Unlike the other articles we will first have a look at the result. What we're building is a unique Christmas moment generator machine. You can submit your current mood, you favorite color style and your favorite animal and then let DALL-E generate a unique image that reflects these keywords. In this article we'll have a look behind the scenes on how to connect Peakboard to the OpenAI Large Langauge Model LLM for generating images.
 
 ![image](/assets/2023-12-16/result.gif)
 
@@ -43,13 +43,13 @@ The app is relatively simple. First we need three variable lists. They contain t
 
 ![image](/assets/2023-12-16/030.png)
 
-The image control is used to display the generated image. We use a dummy web resource to a black square. So in the initial stage (before the first image is dynamically generated and displayed) the image control just shows the black square.
+The image control is used to display the generated image. We use a dummy web resource with a link to a black square. So in the initial stage (before the first image is dynamically generated and displayed) the image control just shows the black square.
 
 ![image](/assets/2023-12-16/035.png)
 
 ## Building the API call
 
-The API call is the code behind the 'Generate' button. Here we go:
+The actual API call can be found in the code behind the 'Generate' button. Here we go:
 
 1. The prompt is generated. The three variable components are taken from the combo boxes to make the prompt sounds like the one in the sample
 2. The prompt is placed within the JSon string at the correct place, so that the resulting JSon string is well formed and looks like the sample.
@@ -70,9 +70,9 @@ screens['Screen1'].MainImage.source = url
 
 ## conclusion
 
-Beside the nice Christmas theme this example shows how easy it is to use a Large Language Model from within a Peakboard app. The actual point that needs creativity is how to build the prompt and turn strutured attributes (in this case the combo boxes) to a prompt that generates the right outcome.
+Beside the nice Christmas theme this example shows how easy it is to use a Large Language Model from within a Peakboard app. The actual point that needs creativity is how to build the prompt and turn structured attributes (in this case the combo boxes) to a prompt that generates the right outcome.
 
-Last but not least: If you celebrate, Merry Christmas to you, to all others: Enjoy you holidays and the last the days of the year! See you in 2024!
+Last but not least: If you celebrate, Merry Christmas to you, to all others: Enjoy you holidays and the last days of the year! See you in 2024!
 
 Love, Michelle
 
