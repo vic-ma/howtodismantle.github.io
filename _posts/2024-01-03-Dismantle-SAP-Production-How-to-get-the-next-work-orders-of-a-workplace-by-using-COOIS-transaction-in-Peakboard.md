@@ -28,6 +28,8 @@ ALso we must take care of the layout. The layout determines which colums are sel
 
 ![image](/assets/2024-01-03/010.png)
 
+![image](/assets/2024-01-03/015.png)
+
 Let's try out the selection and check the result. (Side note: it might be necessary to apply addtional filters on the result AFTER the selection. If we want to do this, we must save these filters together with the layout and then apply the layout in the selection screen.)
 
 ![image](/assets/2024-01-03/020.png)
@@ -35,6 +37,8 @@ Let's try out the selection and check the result. (Side note: it might be necess
 After having checked the result we go back to the selection and save the selection as variant. A good prectice is it to use the workplace in the selection as part of the name of the variant.
 
 ![image](/assets/2024-01-03/030.png)
+
+![image](/assets/2024-01-03/035.png)
 
 ## Call the report from Peakboard
 
@@ -47,7 +51,7 @@ EXECUTE REPORT 'PPIO_ENTRY' USING 'PB_Z_ASM3'
 The screenshot shows the data source together with the preview that ideally matches what we already checked directly in COOIS transaction earlier.
 (Important side note: The name of the report columns are language dependant. So if we change the login language it will change the column names and mess up your whole meta data.)
 
-![image](/assets/2024-01-03/030.png)
+![image](/assets/2024-01-03/040.png)
 
 ## Final result
 
@@ -64,3 +68,4 @@ Here are some more things to consider:
 1. If for whatever reasons the COOIS transaction does not fullfill your needs, you can try to build a query and use this query instead.
 2. The pattern described in this article is fully language dependant. This is also true for the system status values. For example when you limit the operations to "Confirmed", the english status is CNF while the German status is RÜC. So the selection value must be changed when the login language changes.
 3. Using reports for data selection give you any date value in the format of the current language. The typical SAP date format YYYYMMDD can't be expected here. You need to convert it in Peakboard tothe format you like.
+4. In this sample we have chosen the level of "Order Headers" for the selection. Depending on the use case it might make sense to chose for "operations" or other levels.
