@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Christmas Special - Michelle's unique Christmas moment generator machine with crazy AI
-date: 2023-12-16 12:00:00 +0200
+date: 2023-03-01 12:00:00 +0200
 tags: api ai
 image: /assets/2024-12-16/title.png
 read_more_links:
@@ -12,62 +12,68 @@ downloads:
     url: /assets/2023-12-16/ChristmasMomentGeneratorMachine.pbmx
 ---
 
-With the release of this article this blog exits precisely one year. The first article was published in December 2022. 2023 was very clearly the year of the rise of articficial intelligence AI. That's why we dedicate this article to how to use AI. Unlike the other articles we will first have a look at the result. WHat we're creating is unique Christmas moment generator machine. You can submit your current mood
+With the release of this article this blog exits precisely one year. The first article was published in December 2022. 2023 was very clearly the year of the rise of articficial intelligence AI. That's why we dedicate this article to how to use AI. Unlike the other articles we will first have a look at the result. What we're building is a unique Christmas moment generator machine. You can submit your current mood, you favorite color style and your favorite animal and then let DALL-E generate a unique image that reflects these keywords. In this article we'll have a look behind the scenes on how to connect to the OpenAI Large Langauge Model LLM for generating images.
 
+![image](/assets/2023-12-16/result.gif)
 
-## The API
+## The API of Open AI
 
-The Hubspot API is not too complicated to use and is based on typical REST webservices. The endpoint we're using in our case is https://api.hubapi.com/crm/v3/objects/contacts. To understand the API better, we can look up all details in the [API dev guide](https://developers.hubspot.com/docs/api/crm/contacts).
+For using the API of Open AI we need a token. To generate a token we need an account and also paid plan on the Open AI website. 
 
-As we want to create a contact in Hubspot, we need to submit a JSon string in the body of the HTTP call. Here is a very simple example of how the JSon must look like in order by understood be the Hubspot server. We provide the name, emailaddress and a Hubspot custom field called favourite_ice_cream which contains the flavour the customer has chosen in the form.
+![image](/assets/2023-12-16/010.png)
+
+The API endpoint we are using is https://api.openai.com/v1/images/generations. It needs an POST HTTP call with certain body. In the body the 'prompt' describes the situation. In our sample we request a Christmas scenery together with a colour style (dark), an animal (terrier) and a mood (happy).
 
 {% highlight json %}
 {
-  "properties": {
-    "email": "uli1990@gmail.com",
-    "firstname": "Ulrike",
-    "favourite_ice_cream": "Vanilla"
+    "model": "dall-e-3",
+    "prompt": "Create a typical christmas scenery and please use the following keywords to characterize the image: christmas tree, dark, sealyham terrier, happy",
+    "n": 1,
+    "size": "1024x1024"
   }
-}
 {% endhighlight %}
 
-For the authentification we need to submit an API token. To get an token, we go to the settings section of our hubspot account and create a private app. The token is stored for usage later when Peakboard is initiating the call.
+If we try out our sample statement we get the following answer. The most important part is the URL. Under this location the generated image is stored to be requested for a certain amount of time. That's all the API knowledge we need to go ahead.
 
-![image](/assets/2024-01-12/010.png)
+![image](/assets/2023-12-16/020.png)
 
-## Build the application screen
+## Building the Peakboard app
 
-We want to give the user the option of chosing their flavor from a combo box. To fill the combo box with values we need variable list with all potential flavors. It's a simple list with only one column.
+The app is relatively simple. First we need three variable lists. They contain the potential values for all three combo boxes: Animals, Colors, Moods. The lists are bound to the corresponding combo boxes. Beside the three lists we create a single string variable called JSonResponse. We will need it later.
 
-![image](/assets/2024-01-12/020.png)
+![image](/assets/2023-12-16/030.png)
 
-The screen is simple. We chose a nice background image, put the texts and put the interactive elements on the screen. To fill the combo box with values we need to connect it to the variable list. And we also give any of the three input controls a proper name, so we can address them from within our code.
+The image control is used to display the generated image. We use a dummy web resource to a black square. So in the initial stage (before the first image is dynamically generated and displayed) the image control just shows the black square.
 
-![image](/assets/2024-01-12/030.png)
+![image](/assets/2023-12-16/035.png)
 
-## Build the REST call
+## Building the API call
 
-Lets have a look now at the code behind the submit button. Here's what happens:
+The API call is the code behind the 'Generate' button. Here we go:
 
-1. The JSon string is stored in a variable with three placeholders within the string. They all begin with a @ character to make it easier to identify.
-2. The placeholders are relaced with the actual values that come from the three input controls of the screen.
-3. This is the actual HTTP call. It's a POST call according to the documentation. We need to add two headers to make it work. The first header 'Authorization'. Here we submit he value 'Bearer <mytoken>'. The second header is the content type. We set it to 'application/json', otherwise Hubspot doesn't understand what to do with the string in the HTTP body.
+1. The prompt is generated. The three variable components are taken from the combo boxes to make the prompt sounds like the one in the sample
+2. The prompt is placed within the JSon string at the correct place, so that the resulting JSon string is well formed and looks like the sample.
+3. This is the actual call to the API endpoint. We need to add two headers: The Authorization/Bearer header contains the API token and the Content-Type header informs the API that we're sending our request in JSon format.
+4. The result is written into the JSonString variable.
 
-If this would not be a simple example, we would have to interpret the return message for any errors. For keep it simple we don't do this here but just write the response to the log.
+![image](/assets/2023-12-16/040.png)
 
-![image](/assets/2024-01-12/040.png)
+Now let's have a look at the 'Refreshed' script of the JSonResponse string. Every time this variable is changed by the API call script, this Lua scirpt is processed to get the URL from the JSon string (see screenshot). Why are we doing this? Wouldn't it be better to put the JSon processing just right after the API call? It would be much better and easier, however, the Peakboard Building Blocks don't offer a block for parsing JSon. That's we need to do the trick with the LUA script to use the 'json.parse' function. It's simply only available when writing LUA directly, not in Building Blocks
 
-## The result
+{% highlight lua %}
+local jsonContent = json.parse(data.JsonResponse)
+local url = jsonContent["data"][1]["url"]
+screens['Screen1'].MainImage.source = url
+{% endhighlight %}
 
-Here's the board in full swing.
+![image](/assets/2023-12-16/050.png)
 
-![image](/assets/2024-01-12/050.png)
+## conclusion
 
-Let's check the log. We ca see the JSon that is built dynmically. And also the answer from the Hubspot API server.
+Beside the nice Christmas theme this example shows how easy it is to use a Large Language Model from within a Peakboard app. The actual point that needs creativity is how to build the prompt and turn strutured attributes (in this case the combo boxes) to a prompt that generates the right outcome.
 
-![image](/assets/2024-01-12/060.png)
+Last but not least: If you celebrate, Merry Christmas to you, to all others: Enjoy you holidays and the last the days of the year! See you in 2024!
 
-And here's the result in Hubspot....
+Love, Michelle
 
-![image](/assets/2024-01-12/070.png)
 
