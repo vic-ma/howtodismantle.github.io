@@ -40,7 +40,7 @@ We must also take care of the layout. The layout determines which column are sel
 
 Let's try out the selection and check the result.
 
-Side note: it might be necessary to apply additional filters on the result *after* the selection. If we want to do this, we must save these filters together with the layout. Then, we must apply the layout in the selection screen.
+Side note: It might be necessary to apply additional filters on the result *after* the selection. If we want to do this, we must save these filters together with the layout. Then, we must apply the layout in the selection screen.
 
 ![image](/assets/2024-01-03/020.png)
 
@@ -52,14 +52,15 @@ After having checked the result, we go back to the selection and save the select
 
 ## Call the report from Peakboard
 
-In the Peakboard designer we create another SAP data source and apply this XQL to execute the report PPIO_ENTRY with the just created variant PB_Z_ASM3.
+In Peakboard Designer, we create another SAP data source and apply the following XQL, which executes the report `PPIO_ENTRY` with the just created variant `PB_Z_ASM3`.
 
 {% highlight sql %}
 EXECUTE REPORT 'PPIO_ENTRY' USING 'PB_Z_ASM3'
 {% endhighlight %}
 
-The screenshot shows the data source together with the preview that ideally matches what we already checked directly in COOIS transaction earlier.
-(Important side note: The name of the report columns are language dependant. So if we change the login language it will change the column names and mess up your whole meta data.)
+This screenshot shows the data source together with the preview. This should match what we checked directly in the COOIS transaction earlier.
+
+Note: The name of the report columns are language dependent. So if we change the login language, it will change the column names and mess up all your metadata.
 
 ![image](/assets/2024-01-03/040.png)
 
