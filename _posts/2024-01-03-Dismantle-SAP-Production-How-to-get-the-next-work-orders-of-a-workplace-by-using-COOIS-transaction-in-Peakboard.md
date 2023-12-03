@@ -16,13 +16,17 @@ downloads:
 
 In another article, we discussed [how to get the capacity of a workplace](/Dismantle-SAP-Production-How-to-determine-workplace-capacity.html). This article covers a common way to list or process the work orders of a workplace.
 
-We will use the data from a transaction COOIS to get the work orders. Technically, we are executing the report behind the COOIS transaction. This report is called `PPIO_ENTRY`. If you don't know how to find the name of the report from the transaction name, just call the transaction and go to the menu system -> status and find the text field for 'program'. That's the report name. If you do this for COOIS transaction, you will find PPIO_ENTRY.
+We will use the data from a transaction COOIS to get the work orders. Technically, we are executing the report behind the COOIS transaction. This report is called `PPIO_ENTRY`.
 
- To execute a report in Peakboard, there's a small installation on the SAP side necessary to get it working. All the details are explained in [this article](/How-to-make-the-SAP-system-fit-for-report-execution.html).
+If you don't know how to find the name of the report from the transaction name, just call the transaction and go to the menu system -> status and find the text field for `program`. That's the report name. If you do this for a COOIS transaction, you will find `PPIO_ENTRY`.
+
+To execute a report in Peakboard, you need to do a small installation on the SAP side to get it working. All the details are explained in [this article](/How-to-make-the-SAP-system-fit-for-report-execution.html).
 
 ## Understanding COOIS
 
-COOIS is the number one reporting transaction to get an overview over all production in general. There are a lot of options to select production data from different levels (header, material, operations, etc...). The select options and the selection screen might vary depending on the SAP release. This article uses the 2019 S4/HANA COOIS transaction which might look different from the reader's SAP system. That doesn't matter because the general principle explained in this article remains the same for all common SAP releases of the last years.
+COOIS is the number one reporting transaction for getting an overview of all production in general. There are a lot of options to select production data from different levels (header, material, operations, etc.).
+
+The select options and the selection screen might vary depending on the SAP release. This article uses the 2019 S4/HANA COOIS transaction, which might look different from the reader's SAP system. That doesn't matter, because the general principle explained in this article remains the same for all common SAP releases over the last few years.
 
 Let's assume we're interested in the operations of a certain workplace. So we will fill out the selection screen accordingly with the given plant, workplace and limit the operations on "not confirmed" and "partly confirmed". Which status values to chose here heavily depends on the customizing of the SAP production module. The values in the screenshot are only valid for this particular SAP system.
 ALso we must take care of the layout. The layout determines which colums are selected. Under certain circumstance it makes sense to create an invidual layout only for the use with Peakboard. All columns we need later in the application should be covered.
