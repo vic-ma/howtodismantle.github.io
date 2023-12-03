@@ -24,15 +24,15 @@ To execute a report in Peakboard, you need to do a small installation on the SAP
 
 ## Understanding COOIS
 
-COOIS is the number one reporting transaction for getting an overview of all production in general. There are a lot of options to select production data from different levels (header, material, operations, etc.).
+COOIS is the number one reporting transaction for getting an overview of all production data. There are options to select production data from different levels (header, material, operations, etc.).
 
-The select options and the selection screen might vary depending on the SAP release. This article uses the 2019 S4/HANA COOIS transaction, which might look different from the reader's SAP system. That doesn't matter, because the general principle explained in this article remains the same for all common SAP releases over the last few years.
+The select options and the selection screen might vary by SAP release. This article uses the 2019 S4/HANA COOIS transaction, which might look different from your SAP system. That doesn't matter, because the general principle explained in this article remains the same for all common SAP releases over the last few years.
 
 Let's assume we're interested in the operations of a certain workplace. So we fill out the selection screen according to the given plant and workplace. We also limit the operations on "not confirmed" and "partly confirmed."
 
-The status values to chose here depends heavily on the customization of the SAP production module. The values in the screenshot are only valid for this particular SAP system.
+The status values to chose here depends heavily on the customizations of the SAP production module. The values in the screenshot are only valid for this particular SAP system.
 
-We must also take care of the layout. The layout determines which column are selected. Under certain circumstances it makes sense to create an individual layout only for use with Peakboard. All columns we need later in the application should be covered.
+We must also take care of the layout. The layout determines which columns are selected. Under certain circumstances, it makes sense to create an individual layout only for use with Peakboard. All the columns we need later in the application should be covered.
 
 ![image](/assets/2024-01-03/010.png)
 
@@ -40,11 +40,11 @@ We must also take care of the layout. The layout determines which column are sel
 
 Let's try out the selection and check the result.
 
-Side note: It might be necessary to apply additional filters on the result *after* the selection. If we want to do this, we must save these filters together with the layout. Then, we must apply the layout in the selection screen.
+Side note: It might be necessary to apply additional filters on the result *after* the selection. If you want to do this, you must save these filters together with the layout. Then, you must apply the layout in the selection screen.
 
 ![image](/assets/2024-01-03/020.png)
 
-After having checked the result, we go back to the selection and save the selection as variant. A good practice is to use the workplace in the selection as part of the name of the variant.
+After having checked the result, we go back to the selection and save the selection as a variant. A good practice is to use the workplace in the selection as part of the name of the variant.
 
 ![image](/assets/2024-01-03/030.png)
 
