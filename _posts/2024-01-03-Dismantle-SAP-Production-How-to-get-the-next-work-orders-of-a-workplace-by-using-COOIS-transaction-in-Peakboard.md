@@ -66,7 +66,7 @@ Note: The name of the report columns are language dependent. So if we change the
 
 ## Final result
 
-If we use a regular table to and adjust the column width, format and naming of the columns we can easily create and cool table with the workplace's operations. The screenshot shows the table in design and runtime.
+If we use a regular table to and adjust the column width, format, and naming of the columns, we can easily create a cool table with the workplace's operations. These screenshots show the table in design and at runtime.
 
 ![image](/assets/2024-01-03/050.png)
 
@@ -76,7 +76,7 @@ If we use a regular table to and adjust the column width, format and naming of t
 
 Here are some more things to consider:
 
-1. If for whatever reasons the COOIS transaction does not fullfill your needs, you can try to build a query and use this query instead.
-2. The pattern described in this article is fully language dependant. This is also true for the system status values. For example when you limit the operations to "Confirmed", the english status is CNF while the German status is RÜC. So the selection value must be changed when the login language changes.
-3. Using reports for data selection give you any date value in the format of the current language. The typical SAP date format YYYYMMDD can't be expected here. You need to convert it in Peakboard tothe format you like.
-4. In this sample we have chosen the level of "Order Headers" for the selection. Depending on the use case it might make sense to chose for "operations" or other levels.
+1. If for whatever reason the COOIS transaction does not fulfill your needs, you can try to build a query and use this query instead.
+2. The pattern described in this article is fully language dependent. This is also true for the system status values. For example, when you limit the operations to "Confirmed," the English status is "CNF" while the German status is "RÜC". So the selection value must be changed when the login language changes.
+3. Using reports for data selection gives you any date value in the format of the current language. The typical SAP date format `YYYYMMDD` can't be used here. You need to convert it in Peakboard to your desired format.
+4. In our example we have chosen the level of "Order Headers" for the selection. Depending on your use case, it might make more sense to choose "operations" or other levels.
