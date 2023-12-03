@@ -36,13 +36,13 @@ The API endpoint we use is `https://api.openai.com/v1/images/generations`. It re
 }
 {% endhighlight %}
 
-If we try out our sample request, we get the following answer. The most important part is the URL. The generated image is stored in this URL for a certain amount of time. That's all the API knowledge we need to proceed.
+If we try out our sample request, we get the following response. The most important part is the URL. The generated image is stored in this URL for a certain amount of time. That's all the API knowledge we need to proceed.
 
 ![image](/assets/2023-12-16/020.png)
 
 ## Build the Peakboard app
 
-The Peakboard app is relatively simple. First, we need three variable lists. These contain the potential values for all three combo boxes: animals, colors, and moods. The lists are bound to the corresponding combo boxes.
+The Peakboard app is relatively simple. First, we need three variable lists. These contain the potential values for all three combo boxes: mood, color scheme, and animal. We bound the lists to the corresponding combo boxes.
 
 We also create a single string variable called JsonResponse. We will need it later.
 
@@ -63,9 +63,9 @@ The actual API call can be found in the code behind the "Generate" button. This 
 
 ![image](/assets/2023-12-16/040.png)
 
-Now let's have a look at the "Refreshed" script of the JsonResponse string. Each time JsonResponse is changed by the API call script, the following Lua script executes. The script gets the image URL from the JSON string and displays the image on the screen.
+Now, let's have a look at the "Refreshed" script of the JsonResponse string. Each time JsonResponse is changed by the API call script, the following Lua script executes. The script gets the image URL from the JSON string and sets it as the source for the image control. This displays the new image on the screen.
 
-Why do we need to do this? Wouldn't it be better to put the JSON processing right after the API call? It would be much better and easier, but the Peakboard Building Blocks don't offer a block for parsing JSON. So we need to have a LUA script in order to use the `json.parse` function.
+Why do we need to do this? Wouldn't it be better to put the JSON processing at the end of the API call script? It would be much better and easier, but the Peakboard Building Blocks don't offer a block for parsing JSON. So we need to have a LUA script in order to use the `json.parse` function.
 
 {% highlight lua %}
 local jsonContent = json.parse(data.JsonResponse)
@@ -79,7 +79,7 @@ screens['Screen1'].MainImage.source = url
 
 Besides the nice Christmas theme, this example shows how easy it is to use a Large Language Model from within a Peakboard app. The actual point that needs creativity is how to build the prompt and turn structured attributes (in this case the combo boxes) into a prompt that generates the right output.
 
-Last but not least: If you celebrate it, Merry Christmas to you. And to all others: Enjoy your holidays and the last days of the year! See you in 2024!
+Last but not least: If you celebrate it, merry Christmas to you! And to all others: Enjoy your holidays and the last days of the year! See you in 2024!
 
 Love, Michelle
 
