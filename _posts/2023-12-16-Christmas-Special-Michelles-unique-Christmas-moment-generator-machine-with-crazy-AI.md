@@ -25,7 +25,7 @@ To use the OpenAI API, we need an API token. To generate a token, we need an Ope
 
 ![image](/assets/2023-12-16/010.png)
 
-The API endpoint we use is `https://api.openai.com/v1/images/generations`. It requires an HTTP POST request with a certain body. In the body, the "prompt" describes the situation. In our example, we request a Christmas scene together with a colour style (dark), an animal (terrier), and a mood (happy).
+The API endpoint we use is `https://api.openai.com/v1/images/generations`. It requires an HTTP POST request with a certain body. In the body, the `prompt` describes the situation. In our sample request, we ask for a Christmas scene together with a colour style (dark), an animal (terrier), and a mood (happy).
 
 {% highlight json %}
 {
@@ -33,10 +33,10 @@ The API endpoint we use is `https://api.openai.com/v1/images/generations`. It re
     "prompt": "Create a typical christmas scenery and please use the following keywords to characterize the image: christmas tree, dark, sealyham terrier, happy",
     "n": 1,
     "size": "1024x1024"
-  }
+}
 {% endhighlight %}
 
-If we try out our sample statement we get the following answer. The most important part is the URL. Under this location the generated image is stored to be requested for a certain amount of time. That's all the API knowledge we need to go ahead.
+If we try out our sample request, we get the following answer. The most important part is the URL. The generated image is stored in this URL for a certain amount of time. That's all the API knowledge we need to proceed.
 
 ![image](/assets/2023-12-16/020.png)
 
