@@ -25,7 +25,7 @@ To use the OpenAI API, we need an API token. To generate a token, we need an Ope
 
 ![image](/assets/2023-12-16/010.png)
 
-The API endpoint we use is `https://api.openai.com/v1/images/generations`. It requires an HTTP POST request with a certain body. In the body, the `prompt` describes the situation. In our sample request, we ask for a Christmas scene together with a colour style (dark), an animal (terrier), and a mood (happy).
+The API endpoint we use is `https://api.openai.com/v1/images/generations`. It requires an HTTP POST request with a certain body. In the body, the `prompt` describes the situation. In our sample request, we ask for a Christmas scene together with color style (dark), an animal (terrier), and a mood (happy).
 
 {% highlight json %}
 {
@@ -40,24 +40,26 @@ If we try out our sample request, we get the following answer. The most importan
 
 ![image](/assets/2023-12-16/020.png)
 
-## Building the Peakboard app
+## Build the Peakboard app
 
-The app is relatively simple. First we need three variable lists. They contain the potential values for all three combo boxes: Animals, Colors, Moods. The lists are bound to the corresponding combo boxes. Beside the three lists we create a single string variable called JSonResponse. We will need it later.
+The Peakboard app is relatively simple. First, we need three variable lists. These contain the potential values for all three combo boxes: animals, colors, and moods. The lists are bound to the corresponding combo boxes.
+
+We also create a single string variable called "JsonResponse." We will need it later.
 
 ![image](/assets/2023-12-16/030.png)
 
-The image control is used to display the generated image. We use a dummy web resource with a link to a black square. So in the initial stage (before the first image is dynamically generated and displayed) the image control just shows the black square.
+The image control is used to display the generated image. We use a dummy web resource with a link to a black square. So in the initial stage (before the first image is dynamically generated and displayed), the image control just shows the black square.
 
 ![image](/assets/2023-12-16/035.png)
 
-## Building the API call
+## Build the API call
 
-The actual API call can be found in the code behind the 'Generate' button. Here we go:
+The actual API call can be found in the code behind the "Generate" button. This is what it does:
 
-1. The prompt is generated. The three variable components are taken from the combo boxes to make the prompt sounds like the one in the sample
-2. The prompt is placed within the JSon string at the correct place, so that the resulting JSon string is well formed and looks like the sample.
-3. This is the actual call to the API endpoint. We need to add two headers: The Authorization/Bearer header contains the API token and the Content-Type header informs the API that we're sending our request in JSon format.
-4. The result is written into the JSonString variable.
+1. Generate the prompt. The three variable components are taken from the combo boxes to make the prompt sound like the one in the sample.
+2. Place the prompt in the JSON string at the correct location, so that the resulting JSON string is well-formed and looks like the sample.
+3. This is the actual call to the API endpoint. We add two headers: The Authorization/Bearer header that contains the API token, and the Content-Type header that informs the API that we're sending our request in JSON format.
+4. Write the result into the "JsonResponse" variable.
 
 ![image](/assets/2023-12-16/040.png)
 
@@ -71,7 +73,7 @@ screens['Screen1'].MainImage.source = url
 
 ![image](/assets/2023-12-16/050.png)
 
-## conclusion
+## Conclusion
 
 Beside the nice Christmas theme this example shows how easy it is to use a Large Language Model from within a Peakboard app. The actual point that needs creativity is how to build the prompt and turn structured attributes (in this case the combo boxes) to a prompt that generates the right outcome.
 
