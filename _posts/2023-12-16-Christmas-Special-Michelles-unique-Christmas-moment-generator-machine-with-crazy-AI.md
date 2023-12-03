@@ -44,7 +44,7 @@ If we try out our sample request, we get the following answer. The most importan
 
 The Peakboard app is relatively simple. First, we need three variable lists. These contain the potential values for all three combo boxes: animals, colors, and moods. The lists are bound to the corresponding combo boxes.
 
-We also create a single string variable called "JsonResponse." We will need it later.
+We also create a single string variable called JsonResponse. We will need it later.
 
 ![image](/assets/2023-12-16/030.png)
 
@@ -59,11 +59,13 @@ The actual API call can be found in the code behind the "Generate" button. This 
 1. Generate the prompt. The three variable components are taken from the combo boxes to make the prompt sound like the one in the sample.
 2. Place the prompt in the JSON string at the correct location, so that the resulting JSON string is well-formed and looks like the sample.
 3. This is the actual call to the API endpoint. We add two headers: The Authorization/Bearer header that contains the API token, and the Content-Type header that informs the API that we're sending our request in JSON format.
-4. Write the result into the "JsonResponse" variable.
+4. Write the result into the JsonResponse variable.
 
 ![image](/assets/2023-12-16/040.png)
 
-Now let's have a look at the 'Refreshed' script of the JSonResponse string. Every time this variable is changed by the API call script, this Lua scirpt is processed to get the URL from the JSon string (see screenshot). Why are we doing this? Wouldn't it be better to put the JSon processing just right after the API call? It would be much better and easier, however, the Peakboard Building Blocks don't offer a block for parsing JSon. That's we need to do the trick with the LUA script to use the 'json.parse' function. It's simply only available when writing LUA directly, not in Building Blocks
+Now let's have a look at the "Refreshed" script of the JsonResponse string. Each time JsonResponse is changed by the API call script, the following Lua script executes. The script gets the image URL from the JSON string and displays the image on the screen.
+
+Why do we need to do this? Wouldn't it be better to put the JSON processing right after the API call? It would be much better and easier, but the Peakboard Building Blocks don't offer a block for parsing JSON. So we need to have a LUA script in order to use the `json.parse` function.
 
 {% highlight lua %}
 local jsonContent = json.parse(data.JsonResponse)
