@@ -28,14 +28,19 @@ COOIS is the number one reporting transaction for getting an overview of all pro
 
 The select options and the selection screen might vary depending on the SAP release. This article uses the 2019 S4/HANA COOIS transaction, which might look different from the reader's SAP system. That doesn't matter, because the general principle explained in this article remains the same for all common SAP releases over the last few years.
 
-Let's assume we're interested in the operations of a certain workplace. So we will fill out the selection screen accordingly with the given plant, workplace and limit the operations on "not confirmed" and "partly confirmed". Which status values to chose here heavily depends on the customizing of the SAP production module. The values in the screenshot are only valid for this particular SAP system.
-ALso we must take care of the layout. The layout determines which colums are selected. Under certain circumstance it makes sense to create an invidual layout only for the use with Peakboard. All columns we need later in the application should be covered.
+Let's assume we're interested in the operations of a certain workplace. So we fill out the selection screen according to the given plant and workplace. We also limit the operations on "not confirmed" and "partly confirmed."
+
+The status values to chose here depends heavily on the customization of the SAP production module. The values in the screenshot are only valid for this particular SAP system.
+
+We must also take care of the layout. The layout determines which column are selected. Under certain circumstances it makes sense to create an individual layout only for use with Peakboard. All columns we need later in the application should be covered.
 
 ![image](/assets/2024-01-03/010.png)
 
 ![image](/assets/2024-01-03/015.png)
 
-Let's try out the selection and check the result. (Side note: it might be necessary to apply addtional filters on the result AFTER the selection. If we want to do this, we must save these filters together with the layout and then apply the layout in the selection screen.)
+Let's try out the selection and check the result.
+
+Side note: it might be necessary to apply addtional filters on the result AFTER the selection. If we want to do this, we must save these filters together with the layout and then apply the layout in the selection screen.
 
 ![image](/assets/2024-01-03/020.png)
 
