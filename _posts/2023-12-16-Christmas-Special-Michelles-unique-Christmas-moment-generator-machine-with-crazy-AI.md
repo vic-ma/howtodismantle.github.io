@@ -13,9 +13,9 @@ downloads:
 ---
 
 This article marks the one-year anniversary of this blog!
-The first article was published in December 2022. 2023 was clearly the year of the rise of artificial intelligence (AI). That's why we're dedicating this article on to how to use AI.
+The first article was published in December 2022. Now, 2023 was clearly the year of the rise of artificial intelligence (AI). That's why we're dedicating this article on to how to use AI.
 
-Unlike our other articles, we will first take a look at the result. What we're building is a unique Christmas moment generator machine. You submit your current mood, you favorite color style, and your favorite animal. Then, DALL-E will generate a unique image that reflects these keywords. In this article, we'll have a look behind the scenes on how to connect Peakboard to the OpenAI Large Language Model (LLM) for generating images.
+We will build a unique Christmas moment generator machine. You submit your current mood, a color scheme, and an animal. Then, [DALL-E](https://en.wikipedia.org/wiki/DALL-E) will generate a unique image that reflects these keywords. In this article, we'll have a look behind the scenes on how to connect Peakboard to the OpenAI Large Language Model (LLM) for generating images.
 
 ![image](/assets/2023-12-16/result.gif)
 
@@ -25,7 +25,7 @@ To use the OpenAI API, we need an API token. To generate a token, we need an Ope
 
 ![image](/assets/2023-12-16/010.png)
 
-The API endpoint we use is `https://api.openai.com/v1/images/generations`. It requires an HTTP POST request with a certain body. In the body, the `prompt` describes the situation. In our sample request, we ask for a Christmas scene together with color style (dark), an animal (terrier), and a mood (happy).
+The API endpoint we use is `https://api.openai.com/v1/images/generations`. It requires an HTTP POST request with a certain body. In the body, the `prompt` describes the situation. In our sample request, we ask for a Christmas scene with a color scheme (dark), an animal (terrier), and a mood (happy).
 
 {% highlight json %}
 {
