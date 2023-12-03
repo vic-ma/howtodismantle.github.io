@@ -40,11 +40,11 @@ We must also take care of the layout. The layout determines which column are sel
 
 Let's try out the selection and check the result.
 
-Side note: it might be necessary to apply addtional filters on the result AFTER the selection. If we want to do this, we must save these filters together with the layout and then apply the layout in the selection screen.
+Side note: it might be necessary to apply additional filters on the result *after* the selection. If we want to do this, we must save these filters together with the layout. Then, we must apply the layout in the selection screen.
 
 ![image](/assets/2024-01-03/020.png)
 
-After having checked the result we go back to the selection and save the selection as variant. A good prectice is it to use the workplace in the selection as part of the name of the variant.
+After having checked the result, we go back to the selection and save the selection as variant. A good practice is to use the workplace in the selection as part of the name of the variant.
 
 ![image](/assets/2024-01-03/030.png)
 
