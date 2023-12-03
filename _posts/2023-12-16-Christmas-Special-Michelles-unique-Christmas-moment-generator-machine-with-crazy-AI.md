@@ -5,14 +5,17 @@ date: 2023-03-01 12:00:00 +0200
 tags: api ai
 image: /assets/2023-12-16/title.png
 read_more_links:
-  - name: dev guide for image generation with Open AI
+  - name: Dev guide for image generation with Open AI
     url: https://platform.openai.com/docs/guides/images/usage?context=node&lang=curl
 downloads:
   - name: ChristmasMomentGeneratorMachine.pbmx
     url: /assets/2023-12-16/ChristmasMomentGeneratorMachine.pbmx
 ---
 
-With the release of this article this blog exits precisely one year. The first article was published in December 2022. 2023 was very clearly the year of the rise of articficial intelligence AI. That's why we dedicate this article to how to use AI. Unlike the other articles we will first have a look at the result. What we're building is a unique Christmas moment generator machine. You can submit your current mood, you favorite color style and your favorite animal and then let DALL-E generate a unique image that reflects these keywords. In this article we'll have a look behind the scenes on how to connect Peakboard to the OpenAI Large Langauge Model LLM for generating images.
+This article marks the one-year anniversary of this blog!
+The first article was published in December 2022. 2023 was clearly the year of the rise of artificial intelligence (AI). That's why we're dedicating this article on to how to use AI.
+
+Unlike our other articles, we will first take a look at the result. What we're building is a unique Christmas moment generator machine. You submit your current mood, you favorite color, style, and your favorite animal. Then, DALL-E will generate a unique image that reflects these keywords. In this article, we'll have a look behind the scenes on how to connect Peakboard to the OpenAI Large Language Model (LLM) for generating images.
 
 ![image](/assets/2023-12-16/result.gif)
 
