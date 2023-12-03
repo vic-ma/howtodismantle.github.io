@@ -11,9 +11,11 @@ read_more_links:
     url: https://learn.microsoft.com/en-us/graph/api/user-findrooms
   - name: MS Graph API list events documentation
     url: https://learn.microsoft.com/en-us/graph/api/user-list-events
+  - name: MS Graph Explorer
+    url: https://developer.microsoft.com/en-us/graph/graph-explorer
 downloads:
-  - name: GraphRooms.pbmx
-    url: /assets/2023-10-11/GraphRooms.pbmx
+  - name: SharePointListWithGraphAPI.pbmx
+    url: /assets/2024-01-20/SharePointListWithGraphAPI.pbmx
 ---
 In this article we will learn how to read and write a Sharepoint list in an Office 365 environment. Before we start, please make sure to understand the basics of the MS Graph API extension. These are covered in [this article](/MS-Graph-API-Understand-the-basis-and-get-started.html).
 
@@ -34,13 +36,13 @@ If we execute the call in the Graph Explorer we can find the ID in the result se
 
 ![image](/assets/2024-01-20/010.png)
 
-with he help of Site ID we can get a list of all available lists within this site by using the following call. [Here]( https://learn.microsoft.com/en-us/graph/api/list-list?view=graph-rest-1.0&tabs=http) is the documentation.
+With the help of Site ID we can get a list of all available lists within this site by using the following call. [Here]( https://learn.microsoft.com/en-us/graph/api/list-list?view=graph-rest-1.0&tabs=http) is the documentation.
 
 {% highlight url %}
 https://graph.microsoft.com/v1.0/sites/{site-id}/lists
 {% endhighlight %}
 
-The screenshot shows how to find the list ID from the the resposnse of the call.
+The screenshot shows how to find the list ID from the the response of the call.
 
 ![image](/assets/2024-01-20/020.png)
 
@@ -52,15 +54,15 @@ After getting back to the Peakboard designer we need to understand the API to ge
 https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}/items?expand=fields(select=Column1,Column2)
 {% endhighlight %}
 
-With he given Site ID and List ID and the colums MaterialNo, Description, Color and QuantityOnStock this is the real call:
+With the given Site ID and List ID and the colums MaterialNo, Description, Color and QuantityOnStock this is the real call:
 
 {% highlight url %}
-https://graph.microsoft.com/v1.0/sites/xxx.sharepoint.com,0ca4593b-ac3b-45d3-88aa-xx75a54b93,96c52b38-7eb7-4f20-923c-2e8fe2cb3595/lists/
-    276aadc7-77ee-48xxxx-2fd264778fde/
+https://graph.microsoft.com/v1.0/sites/xxx.sharepoint.com,0ca4593b-ac3b-45d3-88aa-xx75a54b93,96c52b38-7eb7-4f20-923c-2e8fe2cb3595
+    /lists/276aadc7-77ee-48xxxx-2fd264778fde/
     items?expand=fields(select=MaterialNo,Description,Color, QuantityOnStock)
 {% endhighlight %}
 
-Here's how it looks like in designer when using the UserAuthCustomList. Please make sure to apply the Sites.Read.All before authenticating. The columns we're looking for are all on the right end of the columns list. Thirst 10-12 columns are only for admin atuff (creating date, creation user, etc...).
+Here's how it looks like in designer when using the UserAuthCustomList. Please make sure to apply the Sites.Read.All before authenticating. The columns we're looking for are all on the right end of the columns list. The first 10-12 columns only contain administrative information (creation date, creation user, etc...).
 
 ![image](/assets/2024-01-20/030.png)
 
@@ -70,7 +72,7 @@ So finally we can build a nice table control and bind the data source to it.
 
 ## Writing back to the list
 
-To understand how to write data back to Sharepoint we can read [this](https://learn.microsoft.com/en-us/graph/api/listitem-create?view=graph-rest-1.0&tabs=http) documentation. The API is a post call to this endpoint:
+To understand how to write data back to Sharepoint we can read [this](https://learn.microsoft.com/en-us/graph/api/listitem-create?view=graph-rest-1.0&tabs=http) documentation. The API is a POST call to this endpoint:
 
 {% highlight url %}
 https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}/items
@@ -89,7 +91,7 @@ In this POST call we need to send a JSon body that looks like the following cont
 }
 {% endhighlight %}
 
-Now we simply build another data source in our project of type MsGraphCustomFunctionsList and add a new function to the list with the correct URL (replace Site ID and List ID with real values), and also add our JSon to the body. Please note, that we replaced the actualvalues with placeholders like $s_materialno$. As the quantity column in our list is numeric the placeholder must start with d (for double): $d_quantity$.
+Now we simply build another data source in our project of type MsGraphCustomFunctionsList and add a new function to the list with the correct URL (replace Site ID and List ID with real values), and also add our JSon to the body. Please note, that we replaced the actual values with placeholders like $s_materialno$. As the quantity column in our list is numeric the placeholder must start with d (for double): $d_quantity$.
 
 ![image](/assets/2024-01-20/050.png)
 
@@ -97,7 +99,7 @@ Now we build a small form with input boxes and let the user provide the details 
 
 ![image](/assets/2024-01-20/060.png)
 
-Now let's have a look an the code behind the submit button. We just use an Extension Functions block. As we used placeholders in the JSon body the Bulding Blocks editor automatically offers the right sockets to plug our dynamic string from the text box. After the submit we do a relad of the list to refresh it. That's it.
+Now let's have a look an the code behind the 'Add...'' button. We just use an Extension Functions block. As we used placeholders in the JSon body the Bulding Blocks editor automatically offers the right sockets to plug our dynamic string from the text box. After the submit we do a relad of the list to refresh it. That's it.
 
 ![image](/assets/2024-01-20/070.png)
 
