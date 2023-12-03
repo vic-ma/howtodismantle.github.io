@@ -77,9 +77,9 @@ screens['Screen1'].MainImage.source = url
 
 ## Conclusion
 
-Beside the nice Christmas theme this example shows how easy it is to use a Large Language Model from within a Peakboard app. The actual point that needs creativity is how to build the prompt and turn structured attributes (in this case the combo boxes) to a prompt that generates the right outcome.
+Besides the nice Christmas theme, this example shows how easy it is to use a Large Language Model from within a Peakboard app. The actual point that needs creativity is how to build the prompt and turn structured attributes (in this case the combo boxes) into a prompt that generates the right output.
 
-Last but not least: If you celebrate, Merry Christmas to you, to all others: Enjoy you holidays and the last days of the year! See you in 2024!
+Last but not least: If you celebrate it, Merry Christmas to you. And to all others: Enjoy your holidays and the last days of the year! See you in 2024!
 
 Love, Michelle
 
