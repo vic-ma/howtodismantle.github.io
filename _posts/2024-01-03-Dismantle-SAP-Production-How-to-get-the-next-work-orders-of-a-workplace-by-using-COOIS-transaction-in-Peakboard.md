@@ -14,8 +14,9 @@ downloads:
     url: /assets/2024-01-03/SAPWorkplaceOperations.pbmx
 ---
 
-We already discussed in another [article how to get the capacity of a workplace](/Dismantle-SAP-Production-How-to-determine-workplace-capacity.html). This article will cover a common way to list or process the work orders of a workplace.
-We will use the data from transaction COOIS to get the work orders. Technically we are executing the report behind the COOIS transaction. This report is called PPIO_ENTRY. If you don't how to find the name of the report from the transaction name, just call the transaction and go to the menu system -> status and find the text field for 'program'. That's the report name. If you do this for COOIS transaction, you will find PPIO_ENTRY.
+In another article, we discussed [how to get the capacity of a workplace](/Dismantle-SAP-Production-How-to-determine-workplace-capacity.html). This article covers a common way to list or process the work orders of a workplace.
+
+We will use the data from a transaction COOIS to get the work orders. Technically, we are executing the report behind the COOIS transaction. This report is called `PPIO_ENTRY`. If you don't know how to find the name of the report from the transaction name, just call the transaction and go to the menu system -> status and find the text field for 'program'. That's the report name. If you do this for COOIS transaction, you will find PPIO_ENTRY.
 
  To execute a report in Peakboard, there's a small installation on the SAP side necessary to get it working. All the details are explained in [this article](/How-to-make-the-SAP-system-fit-for-report-execution.html).
 
