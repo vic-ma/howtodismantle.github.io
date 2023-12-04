@@ -16,7 +16,7 @@ Table controls are the most commonly used controls for displaying table data. Ho
 
 Table controls can be customized to make it as easy as possible for end users to find the information they're looking for. This article covers the best practices for modifying a table row on the fly and adjusting its contents.
 
-In our example, we use a list of outbound deliveries. Here's how we want to modify the data in the table:
+In [our example](/assets/2023-12-01/TableRowFormatting.pbmx), we use a list of outbound deliveries. Here's how we want to modify the data in the table:
 
 1. When the `Priority` column of an outbound delivery is set to `High`, the row should have a red background color.
 
