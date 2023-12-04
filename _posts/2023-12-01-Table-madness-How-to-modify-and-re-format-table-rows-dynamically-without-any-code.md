@@ -62,4 +62,4 @@ Here's the final result, which shows the red priority rows and the muscle icon:
 
 ## Conclusion
 
-This article shows how easy it is to manipulate the output of a table control with just a few clicks. But sometimes, more complex adjustments are needed, and the table control may not provide the capabilities to do so. In that case, it's better to use a "Styled list" control and have an individual design for each row.
+This article shows how easy it is to manipulate the output of a table control with just a few clicks. But sometimes, more complex adjustments are needed, and the table control may not provide the capabilities to do so. In this case, it is better to use a "Styled list" control in which you define the design of a sample row and add rules that are then applied to each row. 
