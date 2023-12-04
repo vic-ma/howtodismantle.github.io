@@ -22,6 +22,8 @@ In [our example](/assets/2023-12-01/TableRowFormatting.pbmx), we use a list of o
 
 2. When the weight of a delivery is more than 3 kg, there should be a biceps icon next to the weight, to advise the end user that this delivery is especially heavy.
 
+![image](/assets/2023-12-01/060.png)
+
 ## Preparing the data
 
 This example is based on a simple CSV data file. It's included in the project file, and it shows a couple of outbound deliveries, including the recipient's name, weight of the delivery, priority etc.
