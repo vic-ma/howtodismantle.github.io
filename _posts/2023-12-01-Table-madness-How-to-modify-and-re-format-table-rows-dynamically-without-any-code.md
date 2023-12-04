@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Table madness - How to modify and reformat table rows dynamically without any code
-date: 2023-03-01 12:00:00 +0200
+date: 2023-12-01 12:00:00 +0200
 tags: bestpractice
 image: /assets/2023-12-01/title.png
 read_more_links:
