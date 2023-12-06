@@ -104,11 +104,11 @@ Note that we replaced the actual values with placeholders like `$s_materialno$`.
 
 ![image](/assets/2024-01-20/050.png)
 
-Now we build a small form with input boxes and let the user provide the details of the row to be added.
+Next, we build a small form with input boxes that let the user provide the information for the row they want to add.
 
 ![image](/assets/2024-01-20/060.png)
 
-Now let's have a look an the code behind the 'Add...'' button. We just use an Extension Functions block. As we used placeholders in the JSon body the Bulding Blocks editor automatically offers the right sockets to plug our dynamic string from the text box. After the submit we do a relad of the list to refresh it. That's it.
+Now, let's have a look at the code behind the **Add...** button. We just use an Extension Functions block. Because we used placeholders in the JSON body, the Building Blocks editor automatically offers the right sockets for our dynamic string from the text box. After the submission, we reload the list to update the data. That's it.
 
 ![image](/assets/2024-01-20/070.png)
 
