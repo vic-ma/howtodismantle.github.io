@@ -100,7 +100,7 @@ In the POST call, we need to send a JSON body that contains the names and values
 }
 {% endhighlight %}
 
-Next, we create a **MsGraphCustomFunctionsList** data source. We add a new function to the list with the correct URL (replace Site ID and List ID with actual values). We also add our JSON object to the body.
+Next, we create a MsGraphCustomFunctionsList data source. We add a new function to the list with the correct URL (replace Site ID and List ID with actual values). We also add our JSON object to the body.
 
 Note that we replaced the actual values with placeholders like `$s_materialno$`. Because the quantity column in our list is numeric, the placeholder must start with `d` (for double): `$d_quantity$`.
 
@@ -110,7 +110,7 @@ Next, we build a small form with input boxes that let the user provide the infor
 
 ![image](/assets/2024-01-20/060.png)
 
-Now, let's have a look at the code behind the **Add...** button. We just use an Extension Functions block. Because we used placeholders in the JSON body, the Building Blocks editor automatically offers the right sockets for our dynamic string from the text box. After the submission, we reload the list to update the data. That's it.
+Now, let's have a look at the code behind the **Add...** button. We use an Extension Functions block. Because we used placeholders in the JSON body, the Building Blocks editor automatically offers the right sockets for our dynamic string from the text box. After the submission, we reload the list to update the data. That's it.
 
 ![image](/assets/2024-01-20/070.png)
 
