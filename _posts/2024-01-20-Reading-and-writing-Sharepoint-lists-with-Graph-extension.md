@@ -17,17 +17,19 @@ downloads:
   - name: SharePointListWithGraphAPI.pbmx
     url: /assets/2024-01-20/SharePointListWithGraphAPI.pbmx
 ---
-In this article we will learn how to read and write a Sharepoint list in an Office 365 environment. Before we start, make sure to understand the [basics of the MS Graph API extension](/MS-Graph-API-Understand-the-basis-and-get-started.html).
+In this article, we will learn how to read and write a Sharepoint list in an Office 365 environment. Before we start, make sure you understand the [basics of the MS Graph API extension](/MS-Graph-API-Understand-the-basis-and-get-started.html).
 
 Peakboard offers native access to Sharepoint lists.
 However, the built-in data source does not support multifactor authentication.
-If you don't need multifactor authentication, and you only want to read data, then you can use the built-in data source. But if you do need multifactor authentication, then this article will teach you how to solve the problems with the MS Graph API.
+If you don't need multifactor authentication, and you only need to read data, then you can use the built-in data source.
 
-We will use a sample list like the one shown in the screenshot. Beside the string columns, there is a numeric column for quantities. These are treated a little differently than strings.
+But if you do need multifactor authentication, then this article will teach you how to solve the problems with the MS Graph API.
+
+We will use a sample list, like the one shown in the screenshot. Beside the string columns, there is a numeric column for quantities. These are treated a little differently than strings.
 
 ![image](/assets/2024-01-20/005.png)
 
-## Get the requirements
+## Get the Sharepoint IDs
 
 Before we can use the MS Graph API for Sharepoint lists in Peakboard,
 we first need to get the Sharepoint Site ID and Sharepoint List ID.
@@ -41,7 +43,7 @@ If we execute the call in the Graph Explorer, we will find the ID inside the res
 
 ![image](/assets/2024-01-20/010.png)
 
-With the help of the Site ID, we can get all the available lists in the site, with the following call. [Here]( https://learn.microsoft.com/en-us/graph/api/list-list?view=graph-rest-1.0&tabs=http) is the documentation.
+We can get all the available lists in the site, with the following call. We just need to plug in the Site ID. [Here]( https://learn.microsoft.com/en-us/graph/api/list-list?view=graph-rest-1.0&tabs=http) is the documentation.
 
 {% highlight url %}
 https://graph.microsoft.com/v1.0/sites/{site-id}/lists
@@ -67,7 +69,7 @@ https://graph.microsoft.com/v1.0/sites/xxx.sharepoint.com,0ca4593b-ac3b-45d3-88a
     items?expand=fields(select=MaterialNo,Description,Color,QuantityOnStock)
 {% endhighlight %}
 
-Here's how it looks like in Peakboard Designer when using the `UserAuthCustomList`. Make sure to apply the `Sites.Read.All` permission before authenticating.
+Here's how it looks like in Peakboard Designer when using the UserAuthCustomList. Make sure to apply the `Sites.Read.All` permission before authenticating.
 
 The columns we're looking for are all on the right end of the columns list. The first 10-12 columns only contain administrative information (creation date, creation user, etc.).
 
