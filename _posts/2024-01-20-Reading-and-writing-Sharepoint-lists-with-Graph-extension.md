@@ -53,37 +53,39 @@ The following screenshot shows how to find the list ID within the response of th
 
 ## Set up the data source
 
-After getting back to the Peakboard designer we need to understand the API to get the items of the list. First of all [here](https://learn.microsoft.com/en-us/graph/api/listitem-list?view=graph-rest-1.0&tabs=http) you find the documentation. The call looks like this:
+In Peakboard Designer, we need to understand the API to get the items of the list. Firstly, you can find the documentation [here](https://learn.microsoft.com/en-us/graph/api/listitem-list?view=graph-rest-1.0&tabs=http). The call looks like this:
 
 {% highlight url %}
 https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}/items?expand=fields(select=Column1,Column2)
 {% endhighlight %}
 
-With the given Site ID and List ID and the colums MaterialNo, Description, Color and QuantityOnStock this is the real call:
+With the given Site ID and List ID, and the columns `MaterialNo`, `Description`, `Color`, and `QuantityOnStock`, this is the actual call:
 
 {% highlight url %}
 https://graph.microsoft.com/v1.0/sites/xxx.sharepoint.com,0ca4593b-ac3b-45d3-88aa-xx75a54b93,96c52b38-7eb7-4f20-923c-2e8fe2cb3595
     /lists/276aadc7-77ee-48xxxx-2fd264778fde/
-    items?expand=fields(select=MaterialNo,Description,Color, QuantityOnStock)
+    items?expand=fields(select=MaterialNo,Description,Color,QuantityOnStock)
 {% endhighlight %}
 
-Here's how it looks like in designer when using the UserAuthCustomList. Please make sure to apply the Sites.Read.All before authenticating. The columns we're looking for are all on the right end of the columns list. The first 10-12 columns only contain administrative information (creation date, creation user, etc...).
+Here's how it looks like in Peakboard Designer when using the `UserAuthCustomList`. Make sure to apply the `Sites.Read.All` permission before authenticating.
+
+The columns we're looking for are all on the right end of the columns list. The first 10-12 columns only contain administrative information (creation date, creation user, etc.).
 
 ![image](/assets/2024-01-20/030.png)
 
-So finally we can build a nice table control and bind the data source to it.
+Finally, we can build a nice table control and bind the data source to it.
 
 ![image](/assets/2024-01-20/040.png)
 
-## Writing back to the list
+## Writing to the list
 
-To understand how to write data back to Sharepoint we can read [this](https://learn.microsoft.com/en-us/graph/api/listitem-create?view=graph-rest-1.0&tabs=http) documentation. The API is a POST call to this endpoint:
+To understand how to write data back to Sharepoint, read [this documentation](https://learn.microsoft.com/en-us/graph/api/listitem-create?view=graph-rest-1.0&tabs=http). The API expects a POST call to this endpoint:
 
 {% highlight url %}
 https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}/items
 {% endhighlight %}
 
-In this POST call we need to send a JSon body that looks like the following containing name and value of the columns of the row we want to add to the list:
+In the POST call, we need to send a JSON body that contains the names and values of the columns of the row we want to add to the list:
 
 {% highlight json %}
 {
@@ -96,7 +98,9 @@ In this POST call we need to send a JSon body that looks like the following cont
 }
 {% endhighlight %}
 
-Now we simply build another data source in our project of type MsGraphCustomFunctionsList and add a new function to the list with the correct URL (replace Site ID and List ID with real values), and also add our JSon to the body. Please note, that we replaced the actual values with placeholders like $s_materialno$. As the quantity column in our list is numeric the placeholder must start with d (for double): $d_quantity$.
+Next, we create a **MsGraphCustomFunctionsList** data source. We add a new function to the list with the correct URL (replace Site ID and List ID with actual values). We also add our JSON object to the body.
+
+Note that we replaced the actual values with placeholders like `$s_materialno$`. Because the quantity column in our list is numeric, the placeholder must start with `d` (for double): `$d_quantity$`.
 
 ![image](/assets/2024-01-20/050.png)
 
