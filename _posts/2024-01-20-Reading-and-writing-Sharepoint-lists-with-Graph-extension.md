@@ -23,13 +23,14 @@ Peakboard offers native access to Sharepoint lists.
 However, the built-in data source does not support multifactor authentication.
 If you don't need multifactor authentication, and you only want to read data, then you can use the built-in data source. But if you do need multifactor authentication, then this article will teach you how to solve the problems with the MS Graph API.
 
-We will use a sample list like the one shown in the screenshot. Beside string columns there is one numeric column for quantities. These are treated a little bit different than strings.
+We will use a sample list like the one shown in the screenshot. Beside the string columns, there is a numeric column for quantities. These are treated a little differently than strings.
 
 ![image](/assets/2024-01-20/005.png)
 
 ## Get the requirements
 
-Before we can step in using the Graph API for Sharepoint lists in Peakboard, we need the Sharepoint Site ID and the Sharepoint List ID.
+Before we can use the MS Graph API for Sharepoint lists in Peakboard,
+we first need to get the Sharepoint Site ID and Sharepoint List ID.
 This API Call gets a list of all Sites within the Sharepoint instance. We can find the documention [here](https://learn.microsoft.com/en-us/graph/api/site-list?view=graph-rest-1.0&tabs=http).
 
 {% highlight url %}
