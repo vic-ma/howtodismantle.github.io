@@ -31,23 +31,23 @@ We will use a sample list like the one shown in the screenshot. Beside the strin
 
 Before we can use the MS Graph API for Sharepoint lists in Peakboard,
 we first need to get the Sharepoint Site ID and Sharepoint List ID.
-This API call gets a list of all Sites in the Sharepoint instance. Here is the [documentation](https://learn.microsoft.com/en-us/graph/api/site-list?view=graph-rest-1.0&tabs=http).
+This API call gets a list of all Sites in the Sharepoint instance. [Here](https://learn.microsoft.com/en-us/graph/api/site-list?view=graph-rest-1.0&tabs=http) is the documentation.
 
 {% highlight url %}
 https://graph.microsoft.com/v1.0/sites?Search=*
 {% endhighlight %}
 
-If we execute the call in the Graph Explorer, we can find the ID in the response.
+If we execute the call in the Graph Explorer, we will find the ID inside the response.
 
 ![image](/assets/2024-01-20/010.png)
 
-With the help of Site ID we can get a list of all available lists within this site by using the following call. [Here]( https://learn.microsoft.com/en-us/graph/api/list-list?view=graph-rest-1.0&tabs=http) is the documentation.
+With the help of the Site ID, we can get all the available lists in the site, with the following call. [Here]( https://learn.microsoft.com/en-us/graph/api/list-list?view=graph-rest-1.0&tabs=http) is the documentation.
 
 {% highlight url %}
 https://graph.microsoft.com/v1.0/sites/{site-id}/lists
 {% endhighlight %}
 
-The screenshot shows how to find the list ID from the the response of the call.
+The following screenshot shows how to find the list ID within the response of the call.
 
 ![image](/assets/2024-01-20/020.png)
 
