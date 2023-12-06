@@ -17,9 +17,11 @@ downloads:
   - name: SharePointListWithGraphAPI.pbmx
     url: /assets/2024-01-20/SharePointListWithGraphAPI.pbmx
 ---
-In this article we will learn how to read and write a Sharepoint list in an Office 365 environment. Before we start, please make sure to understand the basics of the MS Graph API extension. These are covered in [this article](/MS-Graph-API-Understand-the-basis-and-get-started.html).
+In this article we will learn how to read and write a Sharepoint list in an Office 365 environment. Before we start, make sure to understand the [basics of the MS Graph API extension](/MS-Graph-API-Understand-the-basis-and-get-started.html).
 
-Generally Peakboard offers native access to Sharepoint lists, however multifactor authentification is not supported with the built-in data source. So if you do not have the need for multifactor Authentification and you only want to read data, then it's easier to go with the built-in data source. For all others this article helps to solve the problem with MS Graph.
+Generally, Peakboard offers native access to Sharepoint lists.
+However, the built-in data source does not support multifactor authentication.
+So if you do not have a need for multifactor authentication, and you only want to read data, then it's easier to go with the built-in data source. But if you do need multifactor authentication, then this article helps to solve the problem with MS Graph.
 
 We will use a sample list like the one shown in the screenshot. Beside string columns there is one numeric column for quantities. These are treated a little bit different than strings.
 
