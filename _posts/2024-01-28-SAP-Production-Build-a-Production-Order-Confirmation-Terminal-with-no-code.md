@@ -27,6 +27,8 @@ This gif shows the end result of out interactive terminal. The confirmation numb
 
 Before we start with SAP related stuff, here's the UI. Just some simple text boxes to get the confirmation number from the user and some text box for printin out the data. The magic happens behind the button.
 
+![image](/assets/2024-01-28/005.png)
+
 By submitting the confirmation number we can use the function module BAPI_PRODORDCONF_GET_TT_PROP to get more information. So we create a SAP data source. The XQL is filling the table TIMETICKETS and getting the return in the same table from SAP. The actual number value is injected into the XQL by using the variable placeholder. Make sure to pre-fill the variable during design time with a valid confirmation number to be able to hit the data load button and get some preview sample data.
 
 {% highlight sql %}
@@ -43,18 +45,18 @@ When the user clicks on 'Load Information' the user's entry is just written into
 
 ![image](/assets/2024-01-28/020.png)
 
-Writing the data that is returned from he data source to the textbox output we some simple block int he refreshed script. (Pro tip: Feel free to use data binding to get the data into the text boxes. That also works well)
+For writing the data that is returned from he data source to the textbox output we use some simple blocks in the 'refreshed' script. (Pro tip: Feel free to use data binding to get the data into the text boxes. That also works well)
 
 ![image](/assets/2024-01-28/030.png)
 
 
 ## Submitting the confirmation to SAP
 
-To submit the user entry to SAP we can the same pattern as for the first part. The XQL is slightly more complicated. We use the function module BAPI_PRODORDCONF_CREATE_TT. The actual data is submitted in the table TIMETICKET. In the XQL you can see that we have to fill various columns. The fields CONF_NO, YIELD and SCRAP are easy to understand. For submitting the time this table offers dynamic values depending on the operation. When we look at the operation in SAP we can see, that the 'Machine time' is the second time attribute. That's why we have to fill the ONF_ACTIVITY2 column. CONF_ACTI_UNIT2 is set to 'H' for hour. The text CONF_TEXT is just a random with addtional information.
+To submit the user entry to SAP we can the same pattern as for the first part. The XQL is slightly more complicated. We use the function module BAPI_PRODORDCONF_CREATE_TT. The actual data is submitted in the table TIMETICKET. In the XQL you can see that we have to fill various columns. The fields CONF_NO, YIELD and SCRAP are easy to understand. For submitting the time value (Machine time in our case) this table offers dynamic values depending on the operation. When we look at the operation in SAP UI we can see, that the 'Machine time' is the second time attribute. That's why we have to fill the ONF_ACTIVITY2 column. CONF_ACTI_UNIT2 is set to 'H' for hour. The text CONF_TEXT is just a random text with addtional information.
 
 ![image](/assets/2024-01-28/040.png)
 
-Here's the final XQL. please also note, that we need to add a call of second function module called BAPI_TRANSACTION_COMMIT. If we don't do this SAP rolls back the command and doesn't do anything.
+Here's the final XQL. Please also note, that we need to add a call of second function module called BAPI_TRANSACTION_COMMIT. If we don't do this SAP rolls back the command and doesn't do anything.
 
 The table DETAIL_RETURN contains the feedback message from SAP. We will use it later on and that's why we define it as the output of the data source.
 
@@ -77,11 +79,11 @@ Here's what we need on the canvas. Just some text boxes for he user input and a 
 
 ![image](/assets/2024-01-28/050.png)
 
-Behind the submit button we just cast the user input to numbers, put into the global variables and reloaad the data source that does the actual work.
+Behind the submit button we just cast the user input to numbers, put into the global variables and reload the data source that does the actual work.
 
 ![image](/assets/2024-01-28/060.png)
 
-And one last step. Here's the Refreshed Script of the call. The output of the data source is used to forward the SAP message to the user. We just use a regular pop up message.
+And one last step. Here's the Refreshed Script of the call. The output of the data source is used to forward the SAP message to the user. We just use a regular pop up notification.
 
 ![image](/assets/2024-01-28/070.png)
 
