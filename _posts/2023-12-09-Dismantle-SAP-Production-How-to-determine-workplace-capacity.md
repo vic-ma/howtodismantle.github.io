@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Dismantle SAP Production - How to determine workplace capacity
-date: 2023-03-01 12:00:00 +0200
+date: 2023-12-09 12:00:00 +0200
 tags: sap
 image: /assets/2023-12-09/title.png
 read_more_links:
