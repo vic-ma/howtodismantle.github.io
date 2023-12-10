@@ -52,7 +52,7 @@ When the user clicks on **Load Information**, the user's entry is written into t
 
 ![image](/assets/2024-01-28/020.png)
 
-To write the data that is returned from the data source to the textbox output, we use some simple blocks in the **refreshed** script. (Pro tip: feel free to use data binding to get the data into the text boxes. That also works well.)
+To write the data that is returned from the data source to the textbox output, we use some simple blocks in the *refreshed* script. (Pro tip: feel free to use data binding to get the data into the text boxes. That also works well.)
 
 ![image](/assets/2024-01-28/030.png)
 
@@ -67,9 +67,9 @@ For submitting a time value (machine time, in our case), this table offers dynam
 
 ![image](/assets/2024-01-28/040.png)
 
-Here's the final XQL. Please also note, that we need to add a call of second function module called BAPI_TRANSACTION_COMMIT. If we don't do this SAP rolls back the command and doesn't do anything.
+Here's the final XQL. Note that we need to add a call of a second function module called `BAPI_TRANSACTION_COMMIT`. If we don't do this, SAP rolls back the command and doesn't do anything.
 
-The table DETAIL_RETURN contains the feedback message from SAP. We will use it later on and that's why we define it as the output of the data source.
+The table `DETAIL_RETURN` contains the feedback message from SAP. We will use it later, and that's why we define it as the output of the data source.
 
 {% highlight sql %}
 EXECUTE FUNCTION 'BAPI_PRODORDCONF_CREATE_TT'
@@ -86,19 +86,19 @@ The final data source looks like this:
 
 ![image](/assets/2024-01-28/045.png)
 
-Here's what we need on the canvas. Just some text boxes for he user input and a button.
+On the canvas, we add some text boxes for user input, as well as a button for submitting the confirmation.
 
 ![image](/assets/2024-01-28/050.png)
 
-Behind the submit button we just cast the user input to numbers, put into the global variables and reload the data source that does the actual work.
+Behind the submit button, we cast the user input into numbers, put them into the global variables, and reload the data source that does the actual work.
 
 ![image](/assets/2024-01-28/060.png)
 
-And one last step. Here's the Refreshed Script of the call. The output of the data source is used to forward the SAP message to the user. We just use a regular pop up notification.
+Finally, here's the *refreshed* script of the call. The output of the data source is used to forward the SAP message to the user. We use a regular pop up notification.
 
 ![image](/assets/2024-01-28/070.png)
 
 ## Conclusion
 
-This example shows how easy it is to use the standard BAPIs of SAP to read and write production order confirmations. They are very suitable to be used with Peakboard.
+This example shows how easy it is to use the standard BAPIs of SAP to read and write production order confirmations. They are well suited for use with Peakboard.
 
