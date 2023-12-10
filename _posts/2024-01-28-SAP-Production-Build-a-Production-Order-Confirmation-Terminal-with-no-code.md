@@ -16,7 +16,7 @@ downloads:
     url: /assets/2024-01-28/SAPProdOrderConfirmation.pbmx
 ---
 
-Peakboard is often used with SAP in production environments. One of the most common use cases is building interactive terminals to confirm operations of production orders.
+Peakboard is often used with SAP in production environments. One of the most common use cases is building interactive terminals for confirming operations of production orders.
 
 An operation of a production order might require multiple confirmations. For example, a confirmation might be needed for starting the operation, submitting an update, and confirming the operation.
 
@@ -30,13 +30,13 @@ Of course, this is a sample use case. In the real world, the user might submit m
 
 ## Get order details from SAP
 
-Before we work on the SAP integration, let's first take a look at the UI. It's just a text box that gets the confirmation number from the user, and a text box that prints the order number. The magic happens behind the button.
+Before we work on the SAP integration, let's first take a look at the UI. It's a text box that gets the confirmation number from the user, and a text box that prints the order number. The magic happens behind the button.
 
 ![image](/assets/2024-01-28/005.png)
 
 By submitting the confirmation number, we can use the function module `BAPI_PRODORDCONF_GET_TT_PROP` to get more information. So we create a SAP data source.
 
-The following XQL fills the table `TIMETICKETS` and getting the return value in the same table from SAP. The actual number is injected into the XQL by using the variable placeholder. Make sure to pre-fill the variable during design time with a valid confirmation number, in order to hit the data load button and get some sample data.
+The following XQL fills the table `TIMETICKETS` and gets the return value in the same table from SAP. The actual number is injected into the XQL by using the variable placeholder. Make sure to pre-fill the variable during design time with a valid confirmation number, in order to hit the data load button and get some sample data.
 
 {% highlight sql %}
 EXECUTE FUNCTION 'BAPI_PRODORDCONF_GET_TT_PROP'
@@ -63,13 +63,13 @@ To submit the user entry to SAP, we can use the same pattern as the previous par
 
 The XQL is slightly more complicated. We use the function module `BAPI_PRODORDCONF_CREATE_TT`. The actual data is submitted in the table `TIMETICKET`. In the XQL, we have to fill various columns. The fields `CONF_NO`, `YIELD`, and `SCRAP` are easy to understand.
 
-For submitting a time value (machine time, in our case), this table offers dynamic values, depending on the operation. When we look at the operation in the SAP UI, we can see that the machine time is the second time attribute. That's why we have to fill the `ONF_ACTIVITY2` column. `CONF_ACTI_UNIT2` is set to `H` for hour. The text `CONF_TEXT` is just a random text with additional information.
+For submitting a time value (machine time, in our case), this table offers dynamic values, depending on the operation. When we look at the operation in the SAP UI, we can see that the machine time is the second time attribute. That's why we have to fill the `ONF_ACTIVITY2` column. `CONF_ACTI_UNIT2` is set to `H` for hour. `CONF_TEXT` is a random text with additional information.
 
 ![image](/assets/2024-01-28/040.png)
 
 Here's the final XQL. Note that we need to add a call of a second function module called `BAPI_TRANSACTION_COMMIT`. If we don't do this, SAP rolls back the command and doesn't do anything.
 
-The table `DETAIL_RETURN` contains the feedback message from SAP. We will use it later, and that's why we define it as the output of the data source.
+The table `DETAIL_RETURN` contains the feedback message from SAP. We will use it later, so we define it as the output of the data source.
 
 {% highlight sql %}
 EXECUTE FUNCTION 'BAPI_PRODORDCONF_CREATE_TT'
