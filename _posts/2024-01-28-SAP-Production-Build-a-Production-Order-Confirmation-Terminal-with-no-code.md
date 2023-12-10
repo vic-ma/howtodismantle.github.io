@@ -28,7 +28,7 @@ The following GIF shows our finished interactive terminal. The user enters the c
 
 Of course, this is a sample use case. In the real world, the user might submit more sophisticated values, and the machine time would be detected automatically by the Peakboard application. 
 
-## How to get order details from SAP
+## Get order details from SAP
 
 Before we work on the SAP integration, let's first take a look at the UI. It's just a text box that gets the confirmation number from the user, and a text box that prints the order number. The magic happens behind the button.
 
@@ -57,9 +57,13 @@ To write the data that is returned from the data source to the textbox output, w
 ![image](/assets/2024-01-28/030.png)
 
 
-## Submitting the confirmation to SAP
+## Submit the confirmation to SAP
 
-To submit the user entry to SAP we can the same pattern as for the first part. The XQL is slightly more complicated. We use the function module BAPI_PRODORDCONF_CREATE_TT. The actual data is submitted in the table TIMETICKET. In the XQL you can see that we have to fill various columns. The fields CONF_NO, YIELD and SCRAP are easy to understand. For submitting the time value (Machine time in our case) this table offers dynamic values depending on the operation. When we look at the operation in SAP UI we can see, that the 'Machine time' is the second time attribute. That's why we have to fill the ONF_ACTIVITY2 column. CONF_ACTI_UNIT2 is set to 'H' for hour. The text CONF_TEXT is just a random text with addtional information.
+To submit the user entry to SAP, we can use the same pattern as the previous part. 
+
+The XQL is slightly more complicated. We use the function module `BAPI_PRODORDCONF_CREATE_TT`. The actual data is submitted in the table `TIMETICKET`. In the XQL, we have to fill various columns. The fields `CONF_NO`, `YIELD`, and `SCRAP` are easy to understand.
+
+For submitting a time value (machine time, in our case), this table offers dynamic values, depending on the operation. When we look at the operation in the SAP UI, we can see that the machine time is the second time attribute. That's why we have to fill the `ONF_ACTIVITY2` column. `CONF_ACTI_UNIT2` is set to `H` for hour. The text `CONF_TEXT` is just a random text with additional information.
 
 ![image](/assets/2024-01-28/040.png)
 
