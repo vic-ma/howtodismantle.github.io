@@ -16,14 +16,17 @@ downloads:
     url: /assets/2024-01-28/SAPProdOrderConfirmation.pbmx
 ---
 
-Peakboard is often used with SAP in production environments. One of the most common use cases is building interactive terminals to confirm operations of production orders. An operation of a production order might require multiple confirmations. For example, a confirmation might be needed for starting the operation, submitting an update, and confirming the operation.
+Peakboard is often used with SAP in production environments. One of the most common use cases is building interactive terminals to confirm operations of production orders.
+
+An operation of a production order might require multiple confirmations. For example, a confirmation might be needed for starting the operation, submitting an update, and confirming the operation.
 
 Usually, the operator (end users) uses a confirmation number to submit the confirmation. This number is often printed as a barcode on one of the papers that come with the instructions for fulfilling the operation. 
 
-The following GIF shows our finished interactive terminal. The user enters the confirmation number to get some details from SAP (in this case, the production order number and operation). Then, the user can submit the yield, scrap quantity, and machine time. Of course this is a sample use case. In the real world the user might submit more sophisticated values and the machine time would be detected automatically within the Peakboard application. 
+The following GIF shows our finished interactive terminal. The user enters the confirmation number to get some details from SAP (in this case, the production order number and operation). Then, the user can submit the yield, scrap quantity, and machine time.
 
 ![image](/assets/2024-01-28/result.gif)
 
+Of course, this is a sample use case. In the real world, the user might submit more sophisticated values, and the machine time would be detected automatically by the Peakboard application. 
 
 ## How to get order details from SAP
 
