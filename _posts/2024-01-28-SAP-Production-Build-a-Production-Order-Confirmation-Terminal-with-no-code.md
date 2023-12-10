@@ -30,7 +30,7 @@ Of course, this is a sample use case. In the real world, the user might submit m
 
 ## How to get order details from SAP
 
-Before we start with SAP related stuff, here's the UI. Just some simple text boxes to get the confirmation number from the user and some text box for printin out the data. The magic happens behind the button.
+Before we work on the SAP integration, let's first take a look at the UI. It's just a text box that gets the confirmation number from the user, and a text box that prints the order number. The magic happens behind the button.
 
 ![image](/assets/2024-01-28/005.png)
 
