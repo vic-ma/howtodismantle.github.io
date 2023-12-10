@@ -34,7 +34,9 @@ Before we work on the SAP integration, let's first take a look at the UI. It's j
 
 ![image](/assets/2024-01-28/005.png)
 
-By submitting the confirmation number we can use the function module BAPI_PRODORDCONF_GET_TT_PROP to get more information. So we create a SAP data source. The XQL is filling the table TIMETICKETS and getting the return in the same table from SAP. The actual number value is injected into the XQL by using the variable placeholder. Make sure to pre-fill the variable during design time with a valid confirmation number to be able to hit the data load button and get some preview sample data.
+By submitting the confirmation number, we can use the function module `BAPI_PRODORDCONF_GET_TT_PROP` to get more information. So we create a SAP data source.
+
+The following XQL fills the table `TIMETICKETS` and getting the return value in the same table from SAP. The actual number is injected into the XQL by using the variable placeholder. Make sure to pre-fill the variable during design time with a valid confirmation number, in order to hit the data load button and get some sample data.
 
 {% highlight sql %}
 EXECUTE FUNCTION 'BAPI_PRODORDCONF_GET_TT_PROP'
@@ -46,11 +48,11 @@ EXECUTE FUNCTION 'BAPI_PRODORDCONF_GET_TT_PROP'
 
 ![image](/assets/2024-01-28/010.png)
 
-When the user clicks on 'Load Information' the user's entry is just written into the variable and the data source is reloaded:
+When the user clicks on **Load Information**, the user's entry is written into the variable, and the data source is reloaded:
 
 ![image](/assets/2024-01-28/020.png)
 
-For writing the data that is returned from he data source to the textbox output we use some simple blocks in the 'refreshed' script. (Pro tip: Feel free to use data binding to get the data into the text boxes. That also works well)
+To write the data that is returned from the data source to the textbox output, we use some simple blocks in the **refreshed** script. (Pro tip: feel free to use data binding to get the data into the text boxes. That also works well.)
 
 ![image](/assets/2024-01-28/030.png)
 
