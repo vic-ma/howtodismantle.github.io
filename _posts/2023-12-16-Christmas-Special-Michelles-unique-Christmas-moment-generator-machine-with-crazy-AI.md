@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Christmas Special - Michelle's unique Christmas moment generator machine with crazy AI
-date: 2023-03-01 12:00:00 +0200
+date: 2023-12-16 00:00:00 +0200
 tags: api ai
 image: /assets/2023-12-16/title.png
 read_more_links:
