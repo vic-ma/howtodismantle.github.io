@@ -29,11 +29,11 @@ Before we step into the Peakboard designer we need to create a so called Connect
 
 ## Preparing the data source for generating a token
 
-To generate the token we need the Tableau Token Generator extension. You can just add it to your designer instance by clicking on Data Source -> Add Data Source -> Manage Extension and find the right exteesion and install it.
+To generate the token we need the Tableau Token Generator extension. You can just add it to your designer instance by clicking on Data Source -> Add Data Source -> Manage Extension and find the right extension and install it.
 
 ![image](/assets/2024-02-05/030.png)
 
-The data source needs four parameters. The first one is the user name for the Tableau portal. The three others are Client ID, CLient Secret and Secret Value as noted from the last paragraph. After filling out all values we can click on the data load button to check, if the token is generated properly. The output of the data source only has one column and one row with the token. 
+The data source needs four parameters. The first one is the user name for the Tableau portal. The three others are Client ID, Client Secret and Secret Value as noted from the last paragraph. After filling out all values we can click on the data load button to check, if the token is generated properly. The output of the data source only has one column and one row with the token. 
 
 ![image](/assets/2024-02-05/040.png)
 
@@ -54,15 +54,15 @@ Let's now have a look at the HTML we need to generate. In the following code you
 
 So for later we build two global variables. One for the server and one for the URL. Of course we can also use these parts as fxed values in HTML but it's a good habbit to make them dynamic. So we can chenge it easily later without touching the actual HTML code.
 
-![image](/assets/2024-01-28/055.png)
+![image](/assets/2024-02-05/055.png)
 
 ![image](/assets/2024-02-05/056.png)
 
-The last part is the HTML control to be placed in he middle of the canvas and give it a proper name.
+The last part is the HTML control to be placed in the middle of the canvas and give it a proper name.
 
 ![image](/assets/2024-02-05/060.png)
 
-The actual magic happens in the Refereshed script of the Token generator data source. As you can see in the screenshot we simply build the HTML code and put the three dynamic values in the right places of the code. After concatenating all these we apply the HTML code to the HTML property of the HTML control. That it....
+The actual magic happens in the Refreshed script of the Token generator data source. As you can see in the screenshot we simply build the HTML code and put the three dynamic values in the right places of the code. After concatenating all these we apply the HTML code to the HTML property of the HTML control. That's it....
 
 ![image](/assets/2024-02-05/070.png)
 
@@ -72,4 +72,4 @@ And here's the final result:
 
 ## Conclusion and outlook
 
-As soon as we solved the autetification issue with the token all the rest is easy doing. Generating the HTML code is straight forward and not too complicated. What we have not discussed in this article is how to restrict the Tableau dashboard and get rid of the toolbars or tabs and set filters or allow or disallow certain levels of interactivity. All that things can be easily configured within the dynamic HTML. Just check out the [Tableau documentation](https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_configure.html) for more details.
+As soon as we solved the authentification issue with the token all the rest is easy doing. Generating the HTML code is straight forward and not too complicated. What we have not discussed in this article is how to restrict the Tableau dashboard and get rid of the toolbars or tabs and set filters or allow or disallow certain levels of interactivity. All that things can be easily configured within the dynamic HTML. Just check out the [Tableau documentation](https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_configure.html) for more details.
