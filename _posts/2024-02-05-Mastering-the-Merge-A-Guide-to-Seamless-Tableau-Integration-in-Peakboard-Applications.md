@@ -1,89 +1,75 @@
 ---
 layout: post
 title: Mastering the Merge - A Guide to Seamless Tableau Integration in Peakboard Applications
-date: 2024-03-01 12:00:00 +0200
-tags: tutorial bestpractice
+date: 2023-03-01 12:00:00 +0200
+tags: tutorial bestpractice api
 image: /assets/2024-02-05/title.png
 read_more_links:
+  - name: Configure Embedding Objects and Components
+    url: https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_configure.html
+  - name: Tableau Token Generator Extension
+    url: https://templates.peakboard.com/extensions/Tableau-Token-Generator/en
   - name: Best Practice - Use Power BI for integrating maps
     url: /best-practice-powerbi-for-map-integration.html
 downloads:
-  - name: SAPProdOrderConfirmation.pbmx
-    url: /assets/2024-01-28/SAPProdOrderConfirmation.pbmx
+  - name: TableauInPeakboard.pbmx
+    url: /assets/2024-02-05/TableauInPeakboard.pbmx
 ---
 
-Peakboard is very often used in production environments together with SAP. One of the top use cases here is to build interactive terminals to confirm operations of production orders. Depending on the use case an operation of a production order can have multiple confirmation (e.g. starting the operation, submitting an update and then finally end confirm the operation). Usually the operatur (end users) are using the confirmation number as an entry point to submit the confirmation. This number is often printed as a barcode on one of the papers that come together with other instructions to fullfill the operation. 
 
-This gif shows the end result of out interactive terminal. The confirmation number is used to get the some details from SAP (in this case the production order number and operation) and then the user can submit the yield and scap quantity along with the machine time. Of course this is a sample use case. In the real world the user might submit more sophisticated values and the machine time would be detected automatically within the Peakboard application. 
+Peakboard applications are often used together with existing BI tools. We already discussed this topic back in [this article](/best-practice-powerbi-for-map-integration.html) where we embedded a Power BI map. In today's article we want to do something similiar for Tableau. Unlike for Power BI there's no special control for Tableau Dashbaords. We can just use the HTML control, put some dynamic HTML code in there to be interpreted by this control and then show the HTML based Dashboard. The super tricky part during that whole process is proper authentification. Tableau wants us to get a token for accessing the Tableau portal and dashboard as an external app. To get this token we need a Peakboard extension with the only purpose to generate this token and then generate some dynamic HTML and inject the newly generated token there. 
 
-![image](/assets/2024-01-28/result.gif)
+## Set up the Tabelau portal
 
+Before we step into the Peakboard designer we need to create a so called Connected App. For this we go tot the Tableau portal settings -> Connected App and generate a new entry. After generating a new seceret within the connected app, we write down the Secret ID, Secret Value and CLient ID. All three values are needed later.
 
-## How to get order details from SAP
+![image](/assets/2024-02-05/010.png)
 
-Before we start with SAP related stuff, here's the UI. Just some simple text boxes to get the confirmation number from the user and some text box for printin out the data. The magic happens behind the button.
+![image](/assets/2024-02-05/020.png)
 
-![image](/assets/2024-01-28/005.png)
+## Preparing the data source for generating a token
 
-By submitting the confirmation number we can use the function module BAPI_PRODORDCONF_GET_TT_PROP to get more information. So we create a SAP data source. The XQL is filling the table TIMETICKETS and getting the return in the same table from SAP. The actual number value is injected into the XQL by using the variable placeholder. Make sure to pre-fill the variable during design time with a valid confirmation number to be able to hit the data load button and get some preview sample data.
+To generate the token we need the Tableau Token Generator extension. You can just add it to your designer instance by clicking on Data Source -> Add Data Source -> Manage Extension and find the right exteesion and install it.
 
-{% highlight sql %}
-EXECUTE FUNCTION 'BAPI_PRODORDCONF_GET_TT_PROP'
-   TABLES
-      TIMETICKETS = ((CONF_NO),
-         ('#[ConfirmationNo]#'))
-      INTO @RETVAL;
+![image](/assets/2024-02-05/030.png)
+
+The data source needs four parameters. The first one is the user name for the Tableau portal. The three others are Client ID, CLient Secret and Secret Value as noted from the last paragraph. After filling out all values we can click on the data load button to check, if the token is generated properly. The output of the data source only has one column and one row with the token. 
+
+![image](/assets/2024-02-05/040.png)
+
+## HTML generation
+
+In the Tableau portal we look up the dashboard or visualisation we want to use later. The important part is the URL.
+
+![image](/assets/2024-02-05/050.png)
+
+Let's now have a look at the HTML we need to generate. In the following code you can see three variable parts: the server, the URL to the Tableau Dashboard and the Token.
+
+{% highlight html %}
+<script type="module" src="https://MyServer/javascripts/api/tableau.embedding.3.latest.min.js">
+    </script>
+<tableau-viz id="tableauViz" src="MyVisURL" width="1920" height="883" toolbar="bottom" iframe-auth token="MyToken">
+  </tableau-viz>
 {% endhighlight %}
 
-![image](/assets/2024-01-28/010.png)
+So for later we build two global variables. One for the server and one for the URL. Of course we can also use these parts as fxed values in HTML but it's a good habbit to make them dynamic. So we can chenge it easily later without touching the actual HTML code.
 
-When the user clicks on 'Load Information' the user's entry is just written into the variable and the data source is reloaded:
+![image](/assets/2024-01-28/055.png)
 
-![image](/assets/2024-01-28/020.png)
+![image](/assets/2024-02-05/056.png)
 
-For writing the data that is returned from he data source to the textbox output we use some simple blocks in the 'refreshed' script. (Pro tip: Feel free to use data binding to get the data into the text boxes. That also works well)
+The last part is the HTML control to be placed in he middle of the canvas and give it a proper name.
 
-![image](/assets/2024-01-28/030.png)
+![image](/assets/2024-02-05/060.png)
 
+The actual magic happens in the Refereshed script of the Token generator data source. As you can see in the screenshot we simply build the HTML code and put the three dynamic values in the right places of the code. After concatenating all these we apply the HTML code to the HTML property of the HTML control. That it....
 
-## Submitting the confirmation to SAP
+![image](/assets/2024-02-05/070.png)
 
-To submit the user entry to SAP we can the same pattern as for the first part. The XQL is slightly more complicated. We use the function module BAPI_PRODORDCONF_CREATE_TT. The actual data is submitted in the table TIMETICKET. In the XQL you can see that we have to fill various columns. The fields CONF_NO, YIELD and SCRAP are easy to understand. For submitting the time value (Machine time in our case) this table offers dynamic values depending on the operation. When we look at the operation in SAP UI we can see, that the 'Machine time' is the second time attribute. That's why we have to fill the ONF_ACTIVITY2 column. CONF_ACTI_UNIT2 is set to 'H' for hour. The text CONF_TEXT is just a random text with addtional information.
+And here's the final result:
 
-![image](/assets/2024-01-28/040.png)
+![image](/assets/2024-02-05/080.png)
 
-Here's the final XQL. Please also note, that we need to add a call of second function module called BAPI_TRANSACTION_COMMIT. If we don't do this SAP rolls back the command and doesn't do anything.
+## Conclusion and outlook
 
-The table DETAIL_RETURN contains the feedback message from SAP. We will use it later on and that's why we define it as the output of the data source.
-
-{% highlight sql %}
-EXECUTE FUNCTION 'BAPI_PRODORDCONF_CREATE_TT'
-   TABLES
-      TIMETICKETS = ((CONF_NO, YIELD, SCRAP, CONF_ACTIVITY2, CONF_ACTI_UNIT2, CONF_TEXT),
-         ('#[ConfirmationNo]#', '#[YieldQuantity]#', '#[ScrapQuantity]#', 
-            '#[MachineTime]#', 'H', 'Submitted by Peakboard')),
-      DETAIL_RETURN INTO @RETVAL;
-
-EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
-{% endhighlight %}
-
-The final data source looks like this:
-
-![image](/assets/2024-01-28/045.png)
-
-Here's what we need on the canvas. Just some text boxes for he user input and a button.
-
-![image](/assets/2024-01-28/050.png)
-
-Behind the submit button we just cast the user input to numbers, put into the global variables and reload the data source that does the actual work.
-
-![image](/assets/2024-01-28/060.png)
-
-And one last step. Here's the Refreshed Script of the call. The output of the data source is used to forward the SAP message to the user. We just use a regular pop up notification.
-
-![image](/assets/2024-01-28/070.png)
-
-## Conclusion
-
-This example shows how easy it is to use the standard BAPIs of SAP to read and write production order confirmations. They are very suitable to be used with Peakboard.
-
+As soon as we solved the autetification issue with the token all the rest is easy doing. Generating the HTML code is straight forward and not too complicated. What we have not discussed in this article is how to restrict the Tableau dashboard and get rid of the toolbars or tabs and set filters or allow or disallow certain levels of interactivity. All that things can be easily configured within the dynamic HTML. Just check out the [Tableau documentation](https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_configure.html) for more details.
