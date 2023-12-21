@@ -65,24 +65,26 @@ Now, let's have a look at the HTML we need to generate. In the following code, t
   </tableau-viz>
 {% endhighlight %}
 
-Later, we will create two global variables: one for the server and one for the URL. Of course, we can also use fixed values in the HTML, but that's a bad practice. Using variables will allow us to change the Tableau dashboard or visualization we want without having to change the actual HTML code.
+Later, we will create two global variables: one for the server and one for the URL. Of course, we can also use fixed values in the HTML, but that's a bad practice. Using variables lets us change the Tableau dashboard or visualization without having to change the actual HTML code.
 
 ![image](/assets/2024-02-05/055.png)
 
 ![image](/assets/2024-02-05/056.png)
 
-The last part is the HTML control to be placed in the middle of the canvas and give it a proper name.
+Finally, we add an HTML control in the middle of the canvas and give it a proper name.
 
 ![image](/assets/2024-02-05/060.png)
 
-The actual magic happens in the Refreshed script of the Token generator data source. As you can see in the screenshot we simply build the HTML code and put the three dynamic values in the right places of the code. After concatenating all these we apply the HTML code to the HTML property of the HTML control. That's it....
+The actual magic happens in the *refreshed script* of the Token generator data source. As you can see in the screenshot, we simply build the HTML code and put the three dynamic values in the right places of the code. After concatenating these, we apply the HTML code to the HTML property of the HTML control.
 
 ![image](/assets/2024-02-05/070.png)
 
-And here's the final result:
+Here's the final result:
 
 ![image](/assets/2024-02-05/080.png)
 
 ## Conclusion and outlook
 
-As soon as we solved the authentification issue with the token all the rest is easy doing. Generating the HTML code is straight forward and not too complicated. What we have not discussed in this article is how to restrict the Tableau dashboard and get rid of the toolbars or tabs and set filters or allow or disallow certain levels of interactivity. All that things can be easily configured within the dynamic HTML. Just check out the [Tableau documentation](https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_configure.html) for more details.
+After we solved the authentication issue with the token, the rest of the steps were easy. Generating the HTML code was straight forward and not too complicated.
+
+What we did not discuss in this article is how to restrict the Tableau dashboard and get rid of the toolbars or tabs, and set filters, or allow or disallow certain levels of interactivity. All of these things can be easily configured within the dynamic HTML. Just check out the [Tableau documentation](https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_configure.html) for more details.
