@@ -17,7 +17,14 @@ downloads:
 ---
 
 
-Peakboard applications are often used together with existing BI tools. We already discussed this topic back in [this article](/best-practice-powerbi-for-map-integration.html) where we embedded a Power BI map. In today's article we want to do something similiar for Tableau. Unlike for Power BI there's no special control for Tableau Dashbaords. We can just use the HTML control, put some dynamic HTML code in there to be interpreted by this control and then show the HTML based Dashboard. The super tricky part during that whole process is proper authentification. Tableau wants us to get a token for accessing the Tableau portal and dashboard as an external app. To get this token we need a Peakboard extension with the only purpose to generate this token and then generate some dynamic HTML and inject the newly generated token there. 
+Peakboard applications are often used with BI tools. We discussed this topic back in [this article](/best-practice-powerbi-for-map-integration.html) where we embedded a Power BI map. In today's article, we will do something similar, but with Tableau.
+
+Unlike with Power BI, there isn't a dedicated control for Tableau Dashboards. So we use the HTML control and put some dynamic HTML code in. The control processes this code and displays the HTML-based dashboard.
+
+The tricky part here is authentication. Tableau offers a token to access the Tableau portal and dashboard as an external app. To get this token, we need a Peakboard extension called the *Tableau Token Generator*. This extension:
+1. Generate a Tableau token
+2. Generate some dynamic HTML
+3. Inject the newly generated token in the dynamic HTML 
 
 ## Set up the Tabelau portal
 
