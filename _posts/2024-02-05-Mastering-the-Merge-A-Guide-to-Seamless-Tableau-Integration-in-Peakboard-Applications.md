@@ -28,7 +28,7 @@ The tricky part here is authenticating ourselves. Tableau provides a token to ac
 
 ## Set up the Tableau portal
 
-Before we step into the Peakboard designer we need to create a so called Connected App. For this we go tot the Tableau portal settings -> Connected App and generate a new entry. After generating a new seceret within the connected app, we write down the Secret ID, Secret Value and CLient ID. All three values are needed later.
+First, we need to create a Tableau connected app. To do this, we go to the Tableau portal settings and click on **Connected Apps**. Then, we create a new connected app. We generate a secret for the connected app, and we copy the *secret ID*, *secret value*, and *client ID*. We will need these later.
 
 ![image](/assets/2024-02-05/010.png)
 
