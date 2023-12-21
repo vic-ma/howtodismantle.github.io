@@ -52,11 +52,11 @@ After filling out all the values, we click on the data load button to check if t
 
 ## HTML generation
 
-In the Tableau portal we look up the dashboard or visualisation we want to use later. The important part is the URL.
+In the Tableau portal, we find the dashboard or visualization we want to use in Peakboard. We copy the URL.
 
 ![image](/assets/2024-02-05/050.png)
 
-Let's now have a look at the HTML we need to generate. In the following code you can see three variable parts: the server, the URL to the Tableau Dashboard and the Token.
+Now, let's have a look at the HTML we need to generate. In the following code, there are three important parameters: the server, the URL to the Tableau dashboard, and the token.
 
 {% highlight html %}
 <script type="module" src="https://MyServer/javascripts/api/tableau.embedding.3.latest.min.js">
@@ -65,7 +65,7 @@ Let's now have a look at the HTML we need to generate. In the following code you
   </tableau-viz>
 {% endhighlight %}
 
-So for later we build two global variables. One for the server and one for the URL. Of course we can also use these parts as fxed values in HTML but it's a good habbit to make them dynamic. So we can chenge it easily later without touching the actual HTML code.
+Later, we will create two global variables: one for the server and one for the URL. Of course, we can also use fixed values in the HTML, but that's a bad practice. Using variables will allow us to change the Tableau dashboard or visualization we want without having to change the actual HTML code.
 
 ![image](/assets/2024-02-05/055.png)
 
