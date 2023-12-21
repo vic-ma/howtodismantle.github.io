@@ -17,11 +17,11 @@ downloads:
 ---
 
 
-Peakboard applications are often used with BI tools. We discussed this topic back in [this article](/best-practice-powerbi-for-map-integration.html) where we embedded a Power BI map. In today's article, we will do something similar, but with Tableau.
+Peakboard applications are often used with BI tools. We discussed this topic in [this article](/best-practice-powerbi-for-map-integration.html) where we embedded a Power BI map. In today's article, we will do something similar, but with [Tableau](https://www.tableau.com/).
 
-Unlike with Power BI, there isn't a dedicated control for Tableau Dashboards. So we use the HTML control and put some dynamic HTML code in. The control processes this code and displays the HTML-based dashboard.
+Unlike with Power BI, there isn't a dedicated control for Tableau dashboards. Instead, we use the HTML control and put some dynamic HTML code in. The control processes this code and displays the HTML-based dashboard.
 
-The tricky part here is authenticating ourselves. Tableau provides a token to access the Tableau portal and dashboard as an external app. To get this token, we need a Peakboard extension called the *Tableau Token Generator*. Here's what this extension does:
+The tricky part here is the authentication. Tableau provides a token to access the Tableau portal and dashboard as an external app. To get this token, we need a Peakboard extension called the *Tableau Token Generator*. Here's what this extension does:
 1. Generate a Tableau token.
 2. Generate some dynamic HTML.
 3. Inject the newly generated token into the dynamic HTML.
@@ -36,7 +36,7 @@ First, we need to create a Tableau connected app. To do this, we go to the Table
 
 ## Preparing the data source for generating a token
 
-To generate an authentication token, we need the Tableau Token Generator extension. We add it to Peakboard Designer by clicking on **Data Source&nbsp;> Add Data Source&nbsp;> Manage Extension** and then installing the extension.
+To generate an authentication token, we need the Tableau Token Generator extension. To add it to Peakboard Designer, we select **Data Source&nbsp;> Add Data Source&nbsp;> Manage Extension** and then find and install the extension.
 
 ![image](/assets/2024-02-05/030.png)
 
@@ -65,17 +65,17 @@ Now, let's have a look at the HTML we need to generate. In the following code, t
   </tableau-viz>
 {% endhighlight %}
 
-Later, we will create two global variables: one for the server and one for the URL. Of course, we can also use fixed values in the HTML, but that's a bad practice. Using variables lets us change the Tableau dashboard or visualization without having to change the actual HTML code.
+Later, we will create two global variables: one for the server and one for the URL. Of course, we can also use fixed values in the HTML---but that's a bad practice. Using variables lets us change the Tableau dashboard or visualization without having to change the actual HTML code.
 
 ![image](/assets/2024-02-05/055.png)
 
 ![image](/assets/2024-02-05/056.png)
 
-Finally, we add an HTML control in the middle of the canvas and give it a proper name.
+Finally, we add an HTML control in the center of the canvas and give it a proper name.
 
 ![image](/assets/2024-02-05/060.png)
 
-The actual magic happens in the *refreshed script* of the Token generator data source. As you can see in the screenshot, we simply build the HTML code and put the three dynamic values in the right places of the code. After concatenating these, we apply the HTML code to the HTML property of the HTML control.
+The actual magic happens in the *refreshed script* of the Token generator data source. As you can see in the screenshot, we build the HTML code and insert the three dynamic values into the appropriate places in the code. After concatenating everything, we apply the HTML code to the HTML property of the HTML control.
 
 ![image](/assets/2024-02-05/070.png)
 
@@ -87,4 +87,4 @@ Here's the final result:
 
 After we solved the authentication issue with the token, the rest of the steps were easy. Generating the HTML code was straight forward and not too complicated.
 
-What we did not discuss in this article is how to restrict the Tableau dashboard and get rid of the toolbars or tabs, and set filters, or allow or disallow certain levels of interactivity. All of these things can be easily configured within the dynamic HTML. Just check out the [Tableau documentation](https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_configure.html) for more details.
+What we did not discuss in this article is how to restrict the Tableau dashboard and get rid of the toolbars or tabs, or set filters, or allow or disallow certain levels of interactivity. All of these things can be easily configured within the dynamic HTML. Just check out the [Tableau documentation](https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_configure.html) for more details.
