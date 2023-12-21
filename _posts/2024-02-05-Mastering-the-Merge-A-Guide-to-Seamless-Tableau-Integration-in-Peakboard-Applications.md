@@ -36,11 +36,17 @@ First, we need to create a Tableau connected app. To do this, we go to the Table
 
 ## Preparing the data source for generating a token
 
-To generate the token we need the Tableau Token Generator extension. You can just add it to your designer instance by clicking on Data Source -> Add Data Source -> Manage Extension and find the right extension and install it.
+To generate an authentication token, we need the Tableau Token Generator extension. We add it to Peakboard Designer by clicking on **Data Source&nbsp;> Add Data Source&nbsp;> Manage Extension** and then installing the extension.
 
 ![image](/assets/2024-02-05/030.png)
 
-The data source needs four parameters. The first one is the user name for the Tableau portal. The three others are Client ID, Client Secret and Secret Value as noted from the last paragraph. After filling out all values we can click on the data load button to check, if the token is generated properly. The output of the data source only has one column and one row with the token. 
+The data source needs the following four parameters:
+1. Tableau portal username
+2. Client ID
+3. Client Secret
+4. Secret Value
+
+After filling out all the values, we click on the data load button to check if the token was generated properly. The output of the data source has one column and one row with the token. 
 
 ![image](/assets/2024-02-05/040.png)
 
