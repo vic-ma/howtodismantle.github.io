@@ -21,7 +21,7 @@ Peakboard applications are often used with BI tools. We discussed this topic in 
 
 Unlike with Power BI, there isn't a dedicated control for Tableau dashboards. Instead, we use the HTML control and put some dynamic HTML code in. The control processes this code and displays the HTML-based dashboard.
 
-The tricky part here is the authentication. Tableau provides a token to access the Tableau portal and dashboard as an external app. To get this token, we need a Peakboard extension called the *Tableau Token Generator*. Here's what this extension does:
+The tricky part here is the authentication. Tableau provides a token to access the Tableau portal and dashboard as an external app. To get this token, we need a Peakboard extension called the *Tableau Token Generator*. Here's what we do in our Peakboard application:
 1. Generate a Tableau token.
 2. Generate some dynamic HTML.
 3. Inject the newly generated token into the dynamic HTML.
