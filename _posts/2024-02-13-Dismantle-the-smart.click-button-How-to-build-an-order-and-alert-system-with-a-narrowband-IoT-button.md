@@ -16,11 +16,13 @@ downloads:
     url: /assets/2024-02-13/IOXButton.pbmx
 ---
 
-In today's article we want to talk about narrowband IoT devices. Narrowband IoT devices are usually not connected to any kind of WiFi or local company network, instead they use the the cell phone network to connect to a server. For technical details, please check out [this Wikpedia article](https://en.wikipedia.org/wiki/Narrowband_IoT). The device we look at is called the smart.click button provided by a German company called [IOX Lab](https://ioxlab.de/en/). The following picture shows the device. It runs on battery and therefore doesn't need any kind of infrastructure - neither plugged power nor LAN network access - as long as it can connect to a cellphone network.
+In today's article, we discuss narrowband IoT devices. Narrowband IoT devices are usually not connected to any kind of Wi-Fi or local company network. Instead, they use the cellular network to connect to a server. For technical details, see this Wikpedia article on [Narrowband IoT](https://en.wikipedia.org/wiki/Narrowband_IoT).
+
+The device we look at is called the smart.click button. It's made by a German company called [IOX Lab](https://ioxlab.de/en/). The following picture shows the device. It runs on battery and therefore doesn't need any kind of infrastructure (such as external power or LAN network access) as long as it can connect to a cellphone network.
 
 ![image](/assets/2024-02-13/010.jpeg)
 
-We will build a Peakboard application to let the someone call for help by pressing the button. This could be within an off-site production environment or at a local factory where you don't have access to the network infrastructure (e.g. you're a vendor and want to put this button into a client's factory so that he can push the button to initiate an order process). The message will then pop up in Peakboard application and a timer is running to indicate how much time has passed since the alarm was triggered. When pushing the button a second time, the alarm will be dismissed (e.g. when the order has arrived at the caller's place).
+We will build a Peakboard application that lets someone call for help by pressing the smart.click button. This could be in an off-site production environment or at a local factory where you don't have access to the network infrastructure (like if you're a vendor and want to put this button in a client's factory so that they can push the button to initiate an order process). The message will then pop up in Peakboard application and a timer is running to indicate how much time has passed since the alarm was triggered. When pushing the button a second time, the alarm will be dismissed (e.g. when the order has arrived at the caller's place).
 
 The technology behind is simply MQTT. The IOX button server will send a MQTT message to a broker that is available over the internet and our Peakboard app will have a subscription on this MQTT topic. The rest is Peakboard internal logic.
 
