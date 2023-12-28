@@ -22,7 +22,9 @@ The device we look at is called the smart.click button. It's made by a German co
 
 ![image](/assets/2024-02-13/010.jpeg)
 
-We will build a Peakboard application that lets someone call for help by pressing the smart.click button. This could be in an off-site production environment or at a local factory where you don't have access to the network infrastructure (like if you're a vendor and want to put this button in a client's factory so that they can push the button to initiate an order process). The message will then pop up in Peakboard application and a timer is running to indicate how much time has passed since the alarm was triggered. When pushing the button a second time, the alarm will be dismissed (e.g. when the order has arrived at the caller's place).
+We will build a Peakboard application that lets someone call for help by pressing a smart.click button. This button could be placed in an off-site production environment. Or, it could be placed in a local factory where you don't have access to the network infrastructure (for example, if you're a vendor and want to put the button in a client's factory so that they can press it to initiate an order process).
+
+After someone presses the button, a message pops up in the Peakboard application and a timer starts to show how much time has passed since the alarm was triggered. After pressing the button a second time (for example, once the caller receives the order), the alarm is dismissed.
 
 The technology behind is simply MQTT. The IOX button server will send a MQTT message to a broker that is available over the internet and our Peakboard app will have a subscription on this MQTT topic. The rest is Peakboard internal logic.
 
