@@ -63,23 +63,25 @@ Here's an example message sent by the button. We don't actually use any of the d
 }
 {% endhighlight %}
 
-## Building the Peakboard application
+## Build the Peakboard application
 
-The Peakboard app shows several positions that could show an alarm (K1-4, QM1, QM2). In this sample we only build the code and functionality for K1 as the others work the same. It's only for demonstration purpose. Every time an alarm / event is triggered, that corresponding rectangle turns to red and a counter is showing the time that has passed since the event.
+The Peakboard app shows several positions that could show an alarm (K1-4, QM1, QM2). We only show how to build K1, as the others work the same.
+
+Every time an alarm or event is triggered, the corresponding rectangle turns red, and a counter appears, which shows the amount of time that has passed since the event was triggered.
 
 ![image](/assets/2024-02-13/040.png)
 
-The data source is pretty straight forward. We just configure the same server and topic as in the IOX portal.
+The data source is pretty straight forward. We configure the same server and topic as in the IOX portal.
 
 ![image](/assets/2024-02-13/050.png)
 
-Beside the data source we will need a variable list as shown in the screenshot. Each location has one entry there. The idea is to have this as some kind of storage which alarms are active and have taken place at which point in time.
+We also need a variable list, as shown in the following screenshot. Each location has one entry there. The idea is to have this as a kind of storage which alarms are active and have taken place at which point in time.
 
 ![image](/assets/2024-02-13/060.png)
 
 ## Building the scripts
 
-Here's the Refreshed Script that is triggered every time a message comes in (so every time the button is clicked). 
+Here's the refreshed script that is triggered every time a message comes in (so every time the button is clicked). 
 
 1. We check, if the alarm state is currently acive and depending on that there's different process
 2. In case the alarm state is inactive we must set it to active. So we set the rectangle to red, increase the counter for toady's messages and set the start time and active flag in the variable list mentioned earlier.
