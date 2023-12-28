@@ -2,7 +2,7 @@
 layout: post
 title: Dismantle the smart.click button - How to build an order and alert system with a narrowband IoT button  
 date: 2023-03-01 12:00:00 +0200
-tags: tutorial api hardware opcuamqtt
+tags: api hardware opcuamqtt
 image: /assets/2024-02-13/title.png
 read_more_links:
   - name: smart.click IoT Button website
@@ -38,7 +38,7 @@ And here's how it looks like on the physical button:
 
 ![image](/assets/2024-02-13/030.jpeg)
 
-In our sample we use a free public MQTT broker. In a real life environment you better set up your MQTT broker. 
+In our sample we use a free public MQTT broker. In a real life environment you better set up your own MQTT broker. 
 Here's a sample message that's sent out from the button. We don't use any content from the JSon. We will only use the fact that a message arrives and consider this as an event to be processed. If you like you might use attributes from this payload for other use (e.g. the battery status) to enhance your project.
 
 {% highlight json %}
@@ -82,17 +82,17 @@ Here's the Refreshed Script that is triggered every time a message comes in (so 
 
 ![image](/assets/2024-02-13/070.png)
 
-The second script we need is a timer script to display the elapsed time. 
+The second script we need is a timer script to display the elapsed time. It is executed every second and generates the wel formatted elapsed time text.
 
 1. We do it only if the alarm is active
 2. We translate the start time, that is stored in he variable list, to a real date
-3. We substract the alarm datetime from the current datetime and format it correctly to minutes and seconds.
+3. We substract the alarm datetime from the current datetime and format it correctly to minutes and seconds and apply the result to the corresponding text box.
 
 The actual time calculation (translating it into a datetime first, calculcate and then translate back) is discussed in a different article
 
 ![image](/assets/2024-02-13/080.png)
 
-## result and conclusion
+## Result and conclusion
 
 Here's the final resualt how it looks like whe the button is pushed and a message is coming in. You also see the second part of the process when the second message is coming in to switch the alarm off.
 
