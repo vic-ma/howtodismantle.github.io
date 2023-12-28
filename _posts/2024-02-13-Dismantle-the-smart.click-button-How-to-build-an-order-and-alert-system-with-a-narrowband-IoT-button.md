@@ -26,11 +26,13 @@ We will build a Peakboard application that lets someone call for help by pressin
 
 After someone presses the button, a message pops up in the Peakboard application and a timer starts to show how much time has passed since the alarm was triggered. After pressing the button a second time (for example, once the caller receives the order), the alarm is dismissed.
 
-The technology behind is simply MQTT. The IOX button server will send a MQTT message to a broker that is available over the internet and our Peakboard app will have a subscription on this MQTT topic. The rest is Peakboard internal logic.
+The technology behind this process is MQTT. The IOX button server sends a MQTT message to a broker that is available over the internet, and our Peakboard app subscribes to this MQTT topic. The rest is Peakboard internal logic.
 
 ## Set up the smart.click portal
 
-In the smart.click portal the button will be available after having purchased it. We need to configure what happens after the button is pressed. There are several options such as sms, email or MQTT. We want to go for MQTT and also define the broker along with the MQTT topic.
+After purchasing a smart.click button, the button will be available in the smart.click portal.
+
+We visit the portal to configure what happens after the button is pressed. There are several options, such as SMS, email and MQTT. We select MQTT and also define the broker and MQTT topic.
 
 ![image](/assets/2024-02-13/020.png)
 
