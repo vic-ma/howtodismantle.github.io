@@ -30,13 +30,11 @@ The technology behind this process is MQTT. The IOX button server sends a MQTT m
 
 ## Set up the smart.click portal
 
-After purchasing a smart.click button, the button will be available in the smart.click portal.
-
-We visit the portal to configure what happens after the button is pressed. There are several options, such as SMS, email and MQTT. We select MQTT and also define the broker and MQTT topic.
+After purchasing a smart.click button, the button will be available in the smart.click portal. We visit the portal to configure what happens after the button is pressed. There are several options, such as SMS, email and MQTT. We select MQTT and define the broker and MQTT topic.
 
 ![image](/assets/2024-02-13/020.png)
 
-Optionally there are options to configure the message on the eInk display of the button. The screenshot shows the message after the button is succesfully pressed and the message is sent.
+There are also options to configure the message on the E Ink display of the button. The following screenshot shows the message after the button is pressed and the message is sent.
 
 ![image](/assets/2024-02-13/025.png)
 
@@ -44,8 +42,9 @@ And here's how it looks like on the physical button:
 
 ![image](/assets/2024-02-13/030.jpeg)
 
-In our sample we use a free public MQTT broker. In a real life environment you better set up your own MQTT broker. 
-Here's a sample message that's sent out from the button. We don't use any content from the JSon. We will only use the fact that a message arrives and consider this as an event to be processed. If you like you might use attributes from this payload for other use (e.g. the battery status) to enhance your project.
+For our example, we use a free, public MQTT broker. In a real-world environment, you would set up your own MQTT broker.
+
+Here's an example message sent by the button. We don't actually use any of the data in the JSON string. We only care about the fact that a message arrives. If you'd like, you can use the attributes from this payload to enhance your project (for example, to display the battery status).
 
 {% highlight json %}
 {
