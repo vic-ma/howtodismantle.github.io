@@ -70,13 +70,15 @@ We do this with a data flow below the `ACListLast` data source. The first step i
 
 ![image](/assets/2024-02-21/080.png)
 
-After joining we need to sort the data by the time stamp column TS descending, to make sure the last entries are the top one.
+After joining, we need to sort the data by the timestamp column, `TS`, in descending order. That way, the latest entries are on top.
 
 ![image](/assets/2024-02-21/090.png)
 
-## A matter of the right order - the reload flow
+## Ensuring the right order with a reload data flow
 
-To get the correct final results, we must make sure, that the steps outlined above are happening in the right order. For example it doesn't make sense to load the file before we know which file to load by querying the network file list. To ensure the correct order we use a so called Reload Data Flow. The data flows are not triggered independently but through the Reload flow. To do this, we set the "Reload State" to "Reload flow".
+To get the correct final result, we must make sure that the steps outlined above happen in the right order. For example, it doesn't make sense to load a file before we know which file to load by querying the network file list.
+
+To ensure the correct order, we use a reload data flow. This way, the data flows are not triggered independently, but rather through the reload flow. To do this, we set the "Reload State" to "Reload flow".
 
 ![image](/assets/2024-02-21/095.png)
 
