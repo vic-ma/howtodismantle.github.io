@@ -12,7 +12,8 @@ downloads:
     url: /assets/2024-02-21/ReadMultipleFilesFromUNCPath.pbmx
 ---
 
-Loading a CSV file with Peakboard is quite straight forward - no need to write an article about that. But what to do when you don't know exactly which files to load and what about if the information you're looking for is distributed over multiple files.
+Loading a CSV file with Peakboard is straightforward---no need to write an article about that. But what about when you don't know exactly which files to load, or if the data you're looking for is spread out across multiple files.
+
 Here's the situation we start with: An air condition appliance is writing out a log file entry every couple of second to a shared directory. Within these CSV log files there are entries for the time stamp, temperature and power consumption. The tricky thing is, that the AC starts a new logfile every full hour and gives it a dynamic name that contains the current date and time. So thoughout the day there will be multiple log files in the directory:
 
 ![image](/assets/2024-02-21/010.png)
