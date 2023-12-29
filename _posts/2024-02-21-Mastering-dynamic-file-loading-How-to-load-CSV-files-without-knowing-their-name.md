@@ -78,11 +78,16 @@ After joining, we need to sort the data by the timestamp column, `TS`, in descen
 
 To get the correct final result, we must make sure that the steps outlined above happen in the right order. For example, it doesn't make sense to load a file before we know which file to load by querying the network file list.
 
-To ensure the correct order, we use a reload data flow. This way, the data flows are not triggered independently, but rather through the reload flow. To do this, we set the "Reload State" to "Reload flow".
+To ensure the correct order, we use a reload data flow. This way, the data flows are not triggered independently, but rather through the reload flow. To do this, we set the **Reload state** to **On reload flow**.
 
 ![image](/assets/2024-02-21/095.png)
 
-After accessing the design of the reload flow (let's call it the "Master Flow"), we can make sure, that the file list is executed first and this in turn triggers the reload of the file reading data sources. We must understand, that the data flows below a data source are triggered automatically as part of the orginal data source. That's why only the data source but not the data flows are part of the master flow.
+After accessing the design of the reload flow (let's call it the "Master Flow"), we can ensure that everything happens in this order:
+
+1. The file list is executed.
+2. The file reading data sources reload.
+
+The data flows below a data source are triggered automatically as part of the original data source. That's why only the data source, but not the data flows, is a part of the master flow.
 
 ![image](/assets/2024-02-21/100.png)
 
