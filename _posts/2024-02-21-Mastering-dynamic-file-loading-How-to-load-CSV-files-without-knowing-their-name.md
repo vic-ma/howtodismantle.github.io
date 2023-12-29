@@ -35,9 +35,9 @@ So, we will need to read from two log files: the current log file and the last l
 Here are the steps we will follow:
 
 1. List all the files in the shared directory. Sort them in descending order by name, so that the current log file is the first file, and the previous log file is the second file.
-2. Load all log entries from the current file
-3. Load all log entries from the last file before the current file
-4. Join the data from 2 und 3 together and sort the result in descending time stamp order
+2. Load all log entries from the current log file.
+3. Load all log entries from the previous log file.
+4. Join the data from the two log files and sort the result in descending order by timestamp.
 
 ## Loading the available files
 
