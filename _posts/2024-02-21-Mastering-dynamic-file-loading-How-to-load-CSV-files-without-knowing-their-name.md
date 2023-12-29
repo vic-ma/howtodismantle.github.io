@@ -65,8 +65,8 @@ We do the same thing for the `ACListLast` data source, except we point to positi
 
 ## Joining the data source
 
-The next step to join the data sources from the last two steps.
-We do this within a data flow below the ACListLast data source. The first step is to join the ACListLast with ACListCurrent. In the sense of a database join, it would be a so called "union join".
+The next step is to join the data sources from the last two steps.
+We do this with a data flow below the `ACListLast` data source. The first step is to join `ACListLast` with `ACListCurrent`. In database terminology, it would be called a "union join".
 
 ![image](/assets/2024-02-21/080.png)
 
