@@ -16,21 +16,21 @@ downloads:
     url: /assets/2024-02-13/IOXButton.pbmx
 ---
 
-In today's article, we discuss narrowband IoT devices. Narrowband IoT devices are usually not connected to any kind of Wi-Fi or local company network. Instead, they use the cellular network to connect to a server. For technical details, see this Wikpedia article on [Narrowband IoT](https://en.wikipedia.org/wiki/Narrowband_IoT).
+In today's article, we will discuss narrowband IoT devices. Narrowband IoT devices are usually not connected to any kind of Wi-Fi or local company network. Instead, they use the cellular network to connect to a server. For technical details, see this Wikpedia article on [Narrowband IoT](https://en.wikipedia.org/wiki/Narrowband_IoT).
 
-The device we look at is called the smart.click button. It's made by a German company called [IOX Lab](https://ioxlab.de/en/). The following picture shows the device. It runs on battery and therefore doesn't need any kind of infrastructure (such as external power or LAN network access) as long as it can connect to a cellphone network.
+The device we will look at is called the [smart.click button](https://marketplace.smart.click/). It's made by a German company called [IOX Lab](https://ioxlab.de/en/). The following picture shows the device. It runs on a battery and so it doesn't need anything besides a cellular network (like external power or LAN network access).
 
 ![image](/assets/2024-02-13/010.jpeg)
 
 We will build a Peakboard application that lets someone call for help by pressing a smart.click button. This button could be placed in an off-site production environment. Or, it could be placed in a local factory where you don't have access to the network infrastructure (for example, if you're a vendor and want to put the button in a client's factory so that they can press it to initiate an order process).
 
-After someone presses the button, a message pops up in the Peakboard application and a timer starts to show how much time has passed since the alarm was triggered. After pressing the button a second time (for example, once the caller receives the order), the alarm is dismissed.
+After someone presses the button, a message pops up in the Peakboard application and a timer starts, to show how much time has passed since the alarm was triggered. After pressing the button a second time (for example, once the caller receives the order), the alarm is dismissed.
 
-The technology behind this process is MQTT. The IOX button server sends a MQTT message to a broker that is available over the internet, and our Peakboard app subscribes to this MQTT topic. The rest is Peakboard internal logic.
+The technology behind this process is MQTT. The IOX button server sends a MQTT message to a broker that is available over the internet, and our Peakboard app subscribes to this MQTT topic. The rest is just Peakboard application logic.
 
 ## Set up the smart.click portal
 
-After purchasing a smart.click button, the button will be available in the smart.click portal. We visit the portal to configure what happens after the button is pressed. There are several options, such as SMS, email and MQTT. We select MQTT and define the broker and MQTT topic.
+After purchasing a smart.click button, the button will be available in the smart.click portal. We visit the portal to configure what happens after the button is pressed. There are several options, such as SMS, email, and MQTT. We select MQTT and define the broker and MQTT topic.
 
 ![image](/assets/2024-02-13/020.png)
 
@@ -38,7 +38,7 @@ There are also options to configure the message on the E Ink display of the butt
 
 ![image](/assets/2024-02-13/025.png)
 
-And here's how it looks like on the physical button:
+And here's how it looks like on the actual button:
 
 ![image](/assets/2024-02-13/030.jpeg)
 
@@ -67,11 +67,11 @@ Here's an example message sent by the button. We don't actually use any of the d
 
 The Peakboard app shows several positions that could show an alarm (K1-4, QM1, QM2). We only show how to build K1, as the others work the same.
 
-Every time an alarm or event is triggered, the corresponding rectangle turns red, and a counter appears, which shows the amount of time that has passed since the event was triggered.
+Every time an alarm or event is triggered, the corresponding rectangle turns red, and a timer appears, which shows the amount of time that has passed since the event was triggered. It also increases a counter that shows the total number of triggers for the day.
 
 ![image](/assets/2024-02-13/040.png)
 
-The data source is pretty straight forward. We configure the same server and topic as in the IOX portal.
+The data source is pretty straightforward. We configure the same server and topic as in the IOX portal.
 
 ![image](/assets/2024-02-13/050.png)
 
@@ -91,7 +91,7 @@ We first check if the alarm is currently active.
 
 ![image](/assets/2024-02-13/070.png)
 
-The second script is a timer script that displays the elapsed time. It is executed every second and generates the well-formatted elapsed time text. Here's how it works:
+The second script is a timer script that displays the elapsed time. It is executed every second and generates a well-formatted elapsed-time text. Here's how it works:
 
 1. We first make sure the alarm is active.
 2. We translate the start time, which is stored in the variable list, to a real date.
