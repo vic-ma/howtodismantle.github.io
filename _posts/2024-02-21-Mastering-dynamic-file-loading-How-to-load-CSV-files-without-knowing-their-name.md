@@ -12,21 +12,29 @@ downloads:
     url: /assets/2024-02-21/ReadMultipleFilesFromUNCPath.pbmx
 ---
 
-Loading a CSV file with Peakboard is straightforward---no need to write an article about that. But what about when you don't know exactly which files to load, or if the data you're looking for is spread out across multiple files.
+Loading a CSV file with Peakboard is straightforward---no need to write an article about that. But what about when you don't know exactly which files to load, or if the data you're looking for is spread out across multiple files. This is exactly the problem we will be solving today.
 
-Here's the situation we start with: An air condition appliance is writing out a log file entry every couple of second to a shared directory. Within these CSV log files there are entries for the time stamp, temperature and power consumption. The tricky thing is, that the AC starts a new logfile every full hour and gives it a dynamic name that contains the current date and time. So thoughout the day there will be multiple log files in the directory:
+## The scenario
+
+Let's say that every couple of seconds, an air conditioner writes a log entry to a CSV log file in a shared directory. Each entry has a timestamp, temperature, and power consumption.
+
+The tricky thing is, the AC starts a new log file every hour, and it gives it a dynamic name that contains the current date and time. So throughout the day, there will be multiple log files in the directory, like this:
 
 ![image](/assets/2024-02-21/010.png)
 
-Here's how the content of the file looks like:
+Here's what the contents of the files look like:
 
 ![image](/assets/2024-02-21/020.png)
 
-## What is the logic of what we are building?
+Now, let's say we want to get a list of all log entries in the last 60 minutes. These entries will almost certainly span two log files. (The only time it wouldn't is if the time is exactly `XX:00:00`.)
 
-What we want to have at the end is a list of all logfile entries for the last 60 minutes. So as long as there is not a whole hour in one file (which literally only happens for one second per hour) we need to read the current file and the last file before the current and join them together. So here are the logical steps:
+So, we will need to read from two log files: the current log file and the last log file.
 
-1. List all files from the directory and sort them in descending order so that the current file is on number 1 and the last one before the current one is on number 2
+## The plan
+
+Here are the steps we will follow:
+
+1. List all the files in the shared directory. Sort them in descending order by name, so that the current log file is the first file, and the previous log file is the second file.
 2. Load all log entries from the current file
 3. Load all log entries from the last file before the current file
 4. Join the data from 2 und 3 together and sort the result in descending time stamp order
