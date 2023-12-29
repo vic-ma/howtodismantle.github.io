@@ -57,7 +57,9 @@ Now, we need to make sure the file list is ordered correctly. So we add a data f
 
 ## Setting up the data sources
 
-We need two CSV data sources that look very similar. The first one, named `ACListCurrent`, uses the same credentials that we used for the network file list. The trick here is to not have a static file name, but rather use a single line LUA script. This script gets the file name from position 0 from the `ReorderFiles` data flow we created in the last step.
+We need two CSV data sources that look very similar. The first one, `ACListCurrent`, uses the same credentials that we used for the network file list.
+
+The trick here is to not have a static file name, but rather use a one-line LUA script. This script gets the file name from position 0 from the `ReorderFiles` data flow we created in the last step.
 
 ![image](/assets/2024-02-21/060.png)
 
@@ -65,10 +67,10 @@ We do the same thing for the `ACListLast` data source, except we point to positi
 
 ![image](/assets/2024-02-21/070.png)
 
-## Joining the data source
+## Joining the data sources
 
 The next step is to join the data sources from the last two steps.
-We do this with a data flow below the `ACListLast` data source. The first step is to join `ACListLast` with `ACListCurrent`. In database terminology, it would be called a "union join".
+We do this with a data flow below the `ACListLast` data source. The first step is to join `ACListLast` with `ACListCurrent`. In database terminology, it would be called a "union join."
 
 ![image](/assets/2024-02-21/080.png)
 
@@ -84,12 +86,12 @@ To ensure the correct order, we use a reload data flow. This way, the data flows
 
 ![image](/assets/2024-02-21/095.png)
 
-After accessing the design of the reload flow (let's call it the "Master Flow"), we can ensure that everything happens in this order:
+After accessing the design of the reload flow (let's call it `MasterFlow`), we can ensure that everything happens in this order:
 
 1. The file list is executed.
-2. The file reading data sources reload.
+2. The file-reading data sources reload.
 
-The data flows below a data source are triggered automatically as part of the original data source. That's why only the data source, but not the data flows, is a part of the master flow.
+The data flows below a data source are triggered automatically as part of the original data source. That's why only the data source, but not the data flows, is a part of `MasterFlow`.
 
 ![image](/assets/2024-02-21/100.png)
 
@@ -97,6 +99,6 @@ The data flows below a data source are triggered automatically as part of the or
 
 The following screenshot shows the result of the process explained earlier. The first table in the top-left corner shows the list of log files sorted by date, in descending order. Below that table are the contents of the two log files we selected (the current and previous log files).
 
-On the right side is the final result set, which contains entries from both hours---one starting from 17:00 (the current) and starting from 16:00 (the previous).
+On the right side is the final result set, which contains entries from both hours---one starting from 17:00 (the current log file) and one starting from 16:00 (the previous log file).
 
 ![image](/assets/2024-02-21/110.png)
