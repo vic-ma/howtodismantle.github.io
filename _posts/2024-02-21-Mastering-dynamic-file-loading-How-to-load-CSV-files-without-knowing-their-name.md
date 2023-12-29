@@ -39,13 +39,13 @@ Here are the steps we will follow:
 3. Load all log entries from the previous log file.
 4. Join the data from the two log files and sort the result in descending order by timestamp.
 
-## Loading the available files
+## Load the available files
 
-For querying all file from a directory, we need to install the network file extension.
+For Peakboard to query all the files in a shared directory, we need to install the Network Files extension.
 
 ![image](/assets/2024-02-21/030.png)
 
-The configuration of the network file list needs the credentials (domain, user name, password) to access the folder, as well as the actual UNC path. We can easily trigger the data load and see if it works.
+The configuration of the network file list needs the credentials (domain, user name, password) to access the folder, as well as the actual UNC path. We trigger the data load to make sure it works.
 
 ![image](/assets/2024-02-21/040.png)
 
