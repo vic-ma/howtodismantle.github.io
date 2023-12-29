@@ -12,19 +12,19 @@ downloads:
     url: /assets/2024-02-21/ReadMultipleFilesFromUNCPath.pbmx
 ---
 
-Loading a CSV file with Peakboard is straightforward---no need to write an article about that. But what about when you don't know exactly which files to load, or if the data you're looking for is spread out across multiple files. This is exactly the problem we will be solving today.
+Loading a CSV file with Peakboard is straightforward---no need to write an article about that. But what about when you don't know exactly which files to load, or if the data you're looking for is spread out across multiple files? This is exactly the problem we will be solving today.
 
 ## The scenario
 
-Let's say that every couple of seconds, an air conditioner writes a log entry to a CSV log file in a shared directory. Each entry has a timestamp, temperature, and power consumption.
-
-The tricky thing is, the AC starts a new log file every hour, and it gives it a dynamic name that contains the current date and time. So throughout the day, there will be multiple log files in the directory, like this:
-
-![image](/assets/2024-02-21/010.png)
+Let's say that every couple of seconds, an air conditioner writes a log entry to a CSV file in a shared directory. Each entry has a timestamp, temperature, and power consumption.
 
 Here's what the contents of the files look like:
 
 ![image](/assets/2024-02-21/020.png)
+
+The tricky thing is, the AC starts a new log file every hour, and it gives it a dynamic name that contains the current date and time. So throughout the day, there will be multiple log files in the directory, like this:
+
+![image](/assets/2024-02-21/010.png)
 
 Now, let's say we want to get a list of all log entries in the last 60 minutes. These entries will almost certainly span two log files. (The only time it wouldn't is if the time is exactly `XX:00:00`.)
 
@@ -93,6 +93,8 @@ The data flows below a data source are triggered automatically as part of the or
 
 ## Result and conclusion
 
-The following screenshot shows the result of the process explained earlier. The first table in the top-left corner shows the list of files sorted by date, in descending order. Below that table are the contents of the two log files we selected (the current and previous log files). On the right side is the final result set, which contains entries from both hours---one starting from 17.00 (the current) and starting from 16:00 (the previous).
+The following screenshot shows the result of the process explained earlier. The first table in the top-left corner shows the list of files sorted by date, in descending order. Below that table are the contents of the two log files we selected (the current and previous log files).
+
+On the right side is the final result set, which contains entries from both hours---one starting from 17:00 (the current) and starting from 16:00 (the previous).
 
 ![image](/assets/2024-02-21/110.png)
