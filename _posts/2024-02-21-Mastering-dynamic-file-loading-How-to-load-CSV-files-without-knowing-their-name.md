@@ -93,6 +93,6 @@ The data flows below a data source are triggered automatically as part of the or
 
 ## Result and conclusion
 
-The last screenshots show the result of the process explained earlier. The first table on the upper left part shows the list of files sorted by date in descending order. Below this table you see the conents of the two files we selected (the current and the last before the current one). On the right side is the final resultset containing entries from both hours (starting from 17.00, the current and starting from 16.00 the previous)
+The following screenshot shows the result of the process explained earlier. The first table in the top-left corner shows the list of files sorted by date, in descending order. Below that table are the contents of the two log files we selected (the current and previous log files). On the right side is the final result set, which contains entries from both hours---one starting from 17.00 (the current) and starting from 16:00 (the previous).
 
 ![image](/assets/2024-02-21/110.png)
