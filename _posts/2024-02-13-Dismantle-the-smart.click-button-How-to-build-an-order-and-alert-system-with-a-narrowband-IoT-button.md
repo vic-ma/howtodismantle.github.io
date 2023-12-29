@@ -75,21 +75,23 @@ The data source is pretty straight forward. We configure the same server and top
 
 ![image](/assets/2024-02-13/050.png)
 
-We also need a variable list, as shown in the following screenshot. Each location has one entry there. The idea is to have this as a kind of storage which alarms are active and have taken place at which point in time.
+We also need a variable list, as shown in the following screenshot. Each location has one entry there. This list keeps track of which alarms are active and when they were active.
 
 ![image](/assets/2024-02-13/060.png)
 
 ## Building the scripts
 
-Here's the refreshed script that is triggered every time a message comes in (so every time the button is clicked). 
+Here's the refreshed script that is triggered every time a message comes in (which is every time the button is pressed). 
 
-1. We check, if the alarm state is currently acive and depending on that there's different process
-2. In case the alarm state is inactive we must set it to active. So we set the rectangle to red, increase the counter for toady's messages and set the start time and active flag in the variable list mentioned earlier.
-3. If the alarm is active the incoming message means, we must set it to inactive. So we set the ractangle color back to normal and set the alarm flag to false.
+We first check if the alarm is currently active.
+
+*If the alarm is inactive*, we must set it to active. So we set the rectangle to red, increase the counter for toady's messages, and set the start time and active flag in the variable list.
+
+*If the alarm is active*, we must set it to inactive. So we set the rectangle color back to normal, and we set the alarm flag to false.
 
 ![image](/assets/2024-02-13/070.png)
 
-The second script we need is a timer script to display the elapsed time. It is executed every second and generates the wel formatted elapsed time text.
+The second script is a timer script that displays the elapsed time. It is executed every second and generates the wel formatted elapsed time text.
 
 1. We do it only if the alarm is active
 2. We translate the start time, that is stored in he variable list, to a real date
