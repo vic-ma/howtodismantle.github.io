@@ -91,21 +91,20 @@ We first check if the alarm is currently active.
 
 ![image](/assets/2024-02-13/070.png)
 
-The second script is a timer script that displays the elapsed time. It is executed every second and generates the wel formatted elapsed time text.
+The second script is a timer script that displays the elapsed time. It is executed every second and generates the well-formatted elapsed time text. Here's how it works:
 
-1. We do it only if the alarm is active
-2. We translate the start time, that is stored in he variable list, to a real date
-3. We substract the alarm datetime from the current datetime and format it correctly to minutes and seconds and apply the result to the corresponding text box.
-
-The actual time calculation (translating it into a datetime first, calculcate and then translate back) is discussed in a different article
+1. We first make sure the alarm is active.
+2. We translate the start time, which is stored in the variable list, to a real date.
+3. We subtract the alarm date/time from the current date/time and format it as minutes and seconds.
+4. We apply the result to the corresponding text box.
 
 ![image](/assets/2024-02-13/080.png)
 
 ## Result and conclusion
 
-Here's the final resualt how it looks like whe the button is pushed and a message is coming in. You also see the second part of the process when the second message is coming in to switch the alarm off.
+Here's the final result. You can see what it looks like when the button is pressed for the first time and second time.
 
 ![image](/assets/2024-02-13/result.gif)
 
-Please note, that we didn't do anything with the actual payload of the incoming JSon message. Maybe this would be a nice exercise for the reader to monitor the battery status after extracting this information from the JSon string.
+Note that we didn't do anything with the actual payload of the incoming JSON string. A nice exercise for the reader could be to monitor the battery status after extracting this information from the JSON string.
 
