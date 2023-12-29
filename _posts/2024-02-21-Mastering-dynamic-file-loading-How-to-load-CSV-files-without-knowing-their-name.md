@@ -45,7 +45,7 @@ For Peakboard to query all the files in a shared directory, we need to install t
 
 ![image](/assets/2024-02-21/030.png)
 
-The configuration of the network file list needs the credentials (domain, user name, password) to access the folder, as well as the actual UNC path. We trigger the data load to make sure it works.
+The configuration for the network file list needs the credentials (domain, username, and password) to access the folder, as well as the actual UNC path. We trigger the data load to make sure it works.
 
 ![image](/assets/2024-02-21/040.png)
 
@@ -55,11 +55,11 @@ Now we need to make sure the file list is ordered correctly. So we add a data fl
 
 ## Setting up the data sources
 
-We need two CSV data source that look very similiar. The first one named ACListCurrent uses the same credentials we already use for the network file list. The trick here is not to have a static file name, but use a single line LUA script to get the file name from the position number 0 from ReorderFiles data flow we created in the last step.
+We need two CSV data sources that look very similar. The first one, named `ACListCurrent`, uses the same credentials that we used for the network file list. The trick here is to not have a static file name, but rather use a single line LUA script. This script gets the file name from position 0 from the `ReorderFiles` data flow we created in the last step.
 
 ![image](/assets/2024-02-21/060.png)
 
-We do the same for the ACListLast data source source, but here we point to ordinal number 1 (whichis the second entry of the file list).
+We do the same thing for the `ACListLast` data source, except we point to position 1, which is the second entry of the file list.
 
 ![image](/assets/2024-02-21/070.png)
 
