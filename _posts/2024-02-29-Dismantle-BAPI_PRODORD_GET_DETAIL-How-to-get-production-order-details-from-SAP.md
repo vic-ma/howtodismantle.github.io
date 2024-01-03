@@ -61,7 +61,7 @@ For the Peakboard app we create a text field, button and table to show the resul
 
 ![image](/assets/2024-02-29/045.png)
 
-The actual XQL we're using has a plcaeholder in it ("#[OrderNo]#"). So the value will be taken from the content of the OrderNo variable. Please note, that the Reload State is set ot manual reload as it doesn't make sense that the data source is running automatically. We only want to run it by the code behind the button.
+The actual XQL we're using has a placeholder in it ("#[OrderNo]#"). So the value will be taken from the content of the OrderNo variable. Please note, that the Reload State is set to manual reload as it doesn't make sense that the data source is running automatically. We only want to run it by the code behind the button.
 
 ![image](/assets/2024-02-29/050.png)
 
