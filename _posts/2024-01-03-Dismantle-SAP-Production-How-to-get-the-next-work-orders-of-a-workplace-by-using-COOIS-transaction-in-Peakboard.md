@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Dismantle SAP Production - How to get the next work orders of a workplace by using COOIS transaction in Peakboard
-date: 2023-03-01 12:00:00 +0200
+date: 2023-03-01 00:00:00 +0200
 tags: sap
 image: /assets/2024-01-03/title.png
 read_more_links:
