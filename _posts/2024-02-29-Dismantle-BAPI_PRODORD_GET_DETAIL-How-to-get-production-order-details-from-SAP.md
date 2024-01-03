@@ -37,7 +37,7 @@ let's dive deeper into the ORDER_OBJECTS structure. There are several elements w
 
 ![image](/assets/2024-02-29/030.png)
 
-Let's jump tp the table section. There are several tables returned by the call. We're only interested in the COMPONENTS table.
+Let's jump to the table section. There are several tables returned by the call. We're only interested in the COMPONENTS table.
 
 ![image](/assets/2024-02-29/040.png)
 
