@@ -9,8 +9,8 @@ read_more_links:
     url: /Dismantle-SAP-Production-How-to-determine-workplace-capacity.html
   - name: How to build a perfect RFC function module to use in Peakboard
     url: /SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html
-  - name: Dismantle SAP Production - How to get the next work orders of a workplace by using COOIS transaction
-    url: /Dismantle-SAP-Production-How-to-get-the-next-work-orders-of-a-workplace-by-using-COOIS-transaction-in-Peakboard.html
+  - name: Dismantle BAPI_PRODORD_GET_DETAIL - How to get production order details from SAP
+    url: /Dismantle-BAPI_PRODORD_GET_DETAIL-How-to-get-production-order-details-from-SAP.html
 downloads:
   - name: SAPProdOrderConfirmation.pbmx
     url: /assets/2024-01-28/SAPProdOrderConfirmation.pbmx

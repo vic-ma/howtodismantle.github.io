@@ -9,6 +9,8 @@ read_more_links:
     url: /Dismantle-SAP-Production-How-to-determine-workplace-capacity.html
   - name: How to make the SAP system fit for report execution
     url: /How-to-make-the-SAP-system-fit-for-report-execution.html
+  - name: Dismantle BAPI_PRODORD_GET_DETAIL - How to get production order details from SAP
+    url: /Dismantle-BAPI_PRODORD_GET_DETAIL-How-to-get-production-order-details-from-SAP.html
 downloads:
   - name: SAPWorkplaceOperations.pbmx
     url: /assets/2024-01-03/SAPWorkplaceOperations.pbmx
