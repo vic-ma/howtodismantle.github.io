@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Taming the wild JSon - How to use JPath in Peakboard scriptsg
+title: Taming the wild JSon - How to use JPath in Peakboard scripts
 date: 2023-03-01 02:00:00 +0200
 tags: api basics
 image: /assets/2024-03-07/title.png
