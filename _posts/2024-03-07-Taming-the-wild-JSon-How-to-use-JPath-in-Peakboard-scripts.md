@@ -5,8 +5,8 @@ date: 2023-03-01 02:00:00 +0200
 tags: api basics
 image: /assets/2024-03-07/title.png
 read_more_links:
-  - name: Reporting API Reference
-    url: https://developer.matomo.org/api-reference/reporting-api
+  - name: JPath lib on github (check out the readme for interesting details)
+    url: https://github.com/atifaziz/JSONPath
 downloads:
   - name: JSonJPathExamples.pbmx
     url: /assets/2024-03-07/JSonJPathExamples.pbmx
@@ -91,5 +91,5 @@ Unfortunately JPath doesn't support aggregating array items. That's why we need 
 
 JPath is easy to understand and much more practical than doing basic string opration with JSon strings. Feel free to download the attached pbmx and play around with it. All examples explained in this article are available to tested right away...
 
-![image](/assets/2024-03-07/result.png)
+![image](/assets/2024-03-07/result.gif)
 
