@@ -15,15 +15,20 @@ downloads:
   - name: SAPProdOrderGetDetails.pbmx
     url: /assets/2024-02-29/SAPProdOrderGetDetails.pbmx
 ---
-Peakboard works well with a lot of topics relating to SAP production. In this, article we will learn how to access the components of a production order in SAP.
+Peakboard works well with a lot of things relating to SAP production. In this, article, we will learn how to access the components of a production order in SAP.
 
-The term *components* refers to products that are needed to fulfill a production order. For example, parts to build the target product, or additional things that are packed into the box (like a manual). Materials can optionally be bound to a certain operation of the production order.
+The term *components* refers to products that are needed to fulfill a production order, such as:
+
+* The parts that are needed to build the target product.
+* Additional items that are packed into the box (like a manual).
+
+Materials can optionally be bound to a certain operation in the production order.
 
 After accessing the production order in SAP (transaction `CO03`), we take a look at the components by clicking the components button.
 
 ![image](/assets/2024-02-29/005.png)
 
-Usually, the needed components generate additional logistic processes (like getting the material from the warehouse and preparing them for assembly). 
+Usually, the necessary components generate additional logistic processes (like getting the material from the warehouse and preparing them for assembly). 
 
 ![image](/assets/2024-02-29/010.png)
 
@@ -33,12 +38,12 @@ The RFC function module `BAPI_PRODORD_GET_DETAIL` requests information about a p
 
 The following screenshot shows the function module in transaction `SE37`. You can use this to learn all the necessary details about the function module.
 You can see in the screenshot that this function module has two import parameters that are relevant to us.
-* `NUMBER` is the number of the production order.
-* `ORDER_OBJECTS` is a structure that defines which parts of the order you want to be part of the response to the call. 
+* `NUMBER` is the production order number.
+* `ORDER_OBJECTS` is a structure that defines which parts of the order you want to include in the response to the call. 
 
 ![image](/assets/2024-02-29/020.png)
 
-Let's dive deeper into the `ORDER_OBJECTS` structure. There are several elements we can select if we want to include them in the response. Because we're interested in the components, we select the `COMPONENTS` attribute of the structure.
+Let's dive deeper into the `ORDER_OBJECTS` structure. There's a list of elements, and we can select the ones we want to include in the response. Because we're interested in the components, we select the `COMPONENTS` attribute of the structure.
 
 The function module works like this in order to reduce the complexity of the call. If the caller is not interested in the header data, for example, we can just not select `HEADER`. That makes the call perform much faster, because it avoids unnecessary internal database queries. 
 
@@ -60,15 +65,15 @@ EXECUTE FUNCTION 'BAPI_PRODORD_GET_DETAIL'
       INTO @RETVAL;
 {% endhighlight %}
 
-If you use the call later in the Peakboard application we will replace the fixed order number by a variable and replace it dynamically.
+When we use the call later in the Peakboard application, we will replace the fixed order number with a variable, in order to get the order number dynamically.
 
 ## Build the Peakboard app
 
-For the Peakboard app, we create a text field, button, and table to show the result of the BAPI call.
+For the Peakboard app, we create a text field, a button, and a table, to show the result of the BAPI call.
 
 ![image](/assets/2024-02-29/045.png)
 
-The actual XQL has this placeholder in it: `#[OrderNo]#`. So the value will be taken from the contents of the `OrderNo` variable. Please note, the reload state is set to manual reload, because it doesn't make sense for the data source to run automatically. We only want it to run because of the code behind the button.
+The actual XQL has this placeholder in it: `#[OrderNo]#`. That way, the value will be taken from the contents of the `OrderNo` variable. Note that the reload state is set to manual reload, because it doesn't make sense for the data source to run automatically. We only want it to run as a result of the code behind the button.
 
 ![image](/assets/2024-02-29/050.png)
 
