@@ -83,6 +83,6 @@ Let's have a look at the Building Block script behind the button. It writes the 
 
 ## Result and conclusion
 
-The following recording shows the Peaboard app in action. As you saw in the this article we only need a few steps to be able to execute the function module and process the result properly. A lot of SAP standard function modules are rather complicated, but this one is easy to use and handle. 
+The following recording shows the Peaboard app in action. As you saw in this article, we only need a few steps to be able to execute the function module and process the result properly. A lot of SAP standard function modules are rather complicated, but this one is easy to use and handle. 
 
 ![image](/assets/2024-02-29/result.gif)
