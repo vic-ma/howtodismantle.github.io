@@ -44,11 +44,11 @@ The function module works like this in order to reduce the complexity of the cal
 
 ![image](/assets/2024-02-29/030.png)
 
-Let's jump to the table section. There are several tables returned by the call. We're only interested in the COMPONENTS table.
+Let's jump to the table section. There are several tables returned by the call. We're only interested in the `COMPONENTS` table.
 
 ![image](/assets/2024-02-29/040.png)
 
-Now that we know how to operate the function module, which attributes to fill and what to expect in return, so we can create a XQL statement to call the BAPI. It looks like this:
+We create an XQL statement to call the BAPI, now that we know how to operate the function module, which attributes to fill, and what to expect in return. Here is the XQL statement:
 
 {% highlight sql %}
 EXECUTE FUNCTION 'BAPI_PRODORD_GET_DETAIL'
@@ -62,22 +62,22 @@ EXECUTE FUNCTION 'BAPI_PRODORD_GET_DETAIL'
 
 If you use the call later in the Peakboard application we will replace the fixed order number by a variable and replace it dynamically.
 
-## Building the Peakboard app
+## Build the Peakboard app
 
-For the Peakboard app we create a text field, button and table to show the result of the BAPI call.
+For the Peakboard app, we create a text field, button, and table to show the result of the BAPI call.
 
 ![image](/assets/2024-02-29/045.png)
 
-The actual XQL we're using has a placeholder in it ("#[OrderNo]#"). So the value will be taken from the content of the OrderNo variable. Please note, that the Reload State is set to manual reload as it doesn't make sense that the data source is running automatically. We only want to run it by the code behind the button.
+The actual XQL has this placeholder in it: `#[OrderNo]#`. So the value will be taken from the contents of the `OrderNo` variable. Please note, the reload state is set to manual reload, because it doesn't make sense for the data source to run automatically. We only want it to run because of the code behind the button.
 
 ![image](/assets/2024-02-29/050.png)
 
-Let's have a look at Building Block script behind the button. It just writes the value of the text field (that was entered by the user) into the variable and then trigger a reload.
+Let's have a look at the Building Block script behind the button. It writes the value of the text field (that is entered by the user) into the variable and then triggers a reload.
 
 ![image](/assets/2024-02-29/060.png)
 
-## result and conclusion
+## Result and conclusion
 
-Let's have a looks at the Peaboard app in action. As you saw in the step-by-step guide in this article only a view steps are necssary to get the function module executed and the result processed properly. A lot of SAP standard function modules are rather complicated, this one is easy to use and handle. 
+The following recording shows the Peaboard app in action. As you saw in the this article we only need a few steps to be able to execute the function module and process the result properly. A lot of SAP standard function modules are rather complicated, but this one is easy to use and handle. 
 
 ![image](/assets/2024-02-29/result.gif)
