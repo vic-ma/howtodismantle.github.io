@@ -15,25 +15,32 @@ downloads:
   - name: SAPProdOrderGetDetails.pbmx
     url: /assets/2024-02-29/SAPProdOrderGetDetails.pbmx
 ---
-Peakboard goes very well together will lots of topics around SAP production. In this article we will cover a simple task to access the components of a production order in SAP. The term "components" covers products that are needed to fullfill a production order. This can be different kinds of material like parts to build the actual target product or other materials like additional things that are packed into the box (e.g. a handbook). Materials can but not must be necessaryily be bound to a certain operation of the production order.
+Peakboard works well with a lot of topics relating to SAP production. In this, article we will learn how to access the components of a production order in SAP.
 
-After accessing the production order in SAP (transaction CO03) we can have a look at the components by clicking on the components button.
+The term *components* refers to products that are needed to fulfill a production order. For example, parts to build the target product, or additional things that are packed into the box (like a manual). Materials can optionally be bound to a certain operation of the production order.
+
+After accessing the production order in SAP (transaction `CO03`), we take a look at the components by clicking the components button.
 
 ![image](/assets/2024-02-29/005.png)
 
-Usually the needed components generate additional logistic processes (like getting the material from the warehouse and preparing them for assemblation). 
+Usually, the needed components generate additional logistic processes (like getting the material from the warehouse and preparing them for assembly). 
 
 ![image](/assets/2024-02-29/010.png)
 
-## Understanding the BAPI BAPI_PRODORD_GET_DETAIL
+## Understand `BAPI_PRODORD_GET_DETAIL`
 
-The RFC function module BAPI_PRODORD_GET_DETAIL is a standard BAPI (Business Application Programming Interface) to request information about a production order in SAP. It's available in any SAP system where the production module is active.
-The screenshot shows the function module in transaction SE37 with which you can find out all necessary details about the function module.
-You can see in the screenshot that this function module has two import parameters that are relevant for us. NUMBER is the number of the production order. And ORDER_OBJECTS is a structure to define which parts of the order you want to be part of the response of the call. 
+The RFC function module `BAPI_PRODORD_GET_DETAIL` requests information about a production order in SAP. It's a standard BAPI (Business Application Programming Interface) and is available in any SAP system where the production module is active.
+
+The following screenshot shows the function module in transaction `SE37`. You can use this to learn all the necessary details about the function module.
+You can see in the screenshot that this function module has two import parameters that are relevant to us.
+* `NUMBER` is the number of the production order.
+* `ORDER_OBJECTS` is a structure that defines which parts of the order you want to be part of the response to the call. 
 
 ![image](/assets/2024-02-29/020.png)
 
-let's dive deeper into the ORDER_OBJECTS structure. There are several elements we can place an X if we want to have this as part of the reponse. As we're interested in the components we will place an X in the COMPONENTS attribute of the structure. The reason why the function module works like this is to simplify the complexity of the call. If the caller is not interested in for example the header data, we just don't put an X into HEADER. That makes the call perform much faster because it avoids unnecessary internal database queries. 
+Let's dive deeper into the `ORDER_OBJECTS` structure. There are several elements we can select if we want to include them in the response. Because we're interested in the components, we select the `COMPONENTS` attribute of the structure.
+
+The function module works like this in order to reduce the complexity of the call. If the caller is not interested in the header data, for example, we can just not select `HEADER`. That makes the call perform much faster, because it avoids unnecessary internal database queries. 
 
 ![image](/assets/2024-02-29/030.png)
 
@@ -74,11 +81,3 @@ Let's have a look at Building Block script behind the button. It just writes the
 Let's have a looks at the Peaboard app in action. As you saw in the step-by-step guide in this article only a view steps are necssary to get the function module executed and the result processed properly. A lot of SAP standard function modules are rather complicated, this one is easy to use and handle. 
 
 ![image](/assets/2024-02-29/result.gif)
-
-
-
-
-
-
-
-
