@@ -58,7 +58,7 @@ Let's have a look now at the code behind the submit button. Here's what happens:
 1. The JSON string is stored in a variable with three placeholders within the string. They all begin with a `@` character, to make them easier to identify.
 2. The placeholders are replaced by the actual values that come from the three input controls on the screen.
 3. This is the actual HTTP call. It's a POST call, according to the documentation. We need to add two headers to make it work.
-    * The first header is `Authorization`. Here, we submit he value `Bearer <mytoken>`.
+    * The first header is `Authorization`. Here, we submit the value `Bearer <mytoken>`.
     * The second header is `Content-Type`. We have to set it to `application/json`, otherwise HubSpot won't understand what to do with the string in the HTTP body.
 
 If this were not just an example, we would check the return message for any errors. To keep it simple, we'll instead just write the response to the log.
