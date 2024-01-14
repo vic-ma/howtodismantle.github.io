@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Dismantle Hubspot API - Create an interactive form to submit contact data directly to Hubspot by using a REST API
-date: 2023-03-01 12:00:00 +0200
+date: 2024-01-12 12:00:00 +0200
 tags: api
 image: /assets/2024-01-12/title.png
 read_more_links:
@@ -11,7 +11,6 @@ downloads:
   - name: HubspotContactGenerator.pbmx
     url: /assets/2024-01-12/HubspotContactGenerator.pbmx
 ---
-
 Over the past few years, HubSpot has become one of the top tools for marketing automation and sales. A typical use case would be to put all kinds of contacts into HubSpot, which are gathered by the company through various ways.
 
 This article shows how to build a self-service form to submit contact data to HubSpot.
