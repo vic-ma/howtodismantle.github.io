@@ -24,9 +24,9 @@ For the following three examples, we use a standard BAPI called `BAPI_PRODORD_GE
 
 ## How to handle multiple tables
 
-With the help of our sample BAPI BAPI_PRODORD_GET_DETAIL we can retrieve multiple tables that are related to a certain production order. Let's assume we want to retrieve the two tables COMPONENT (for the materials used in the production order) and HEADER (with additional information of the production order). 
+With the help of our sample BAPI, `BAPI_PRODORD_GET_DETAIL`, we can retrieve multiple tables that are related to a certain production order. Let's assume we want to retrieve the two tables `COMPONENT` (for the materials used in the production order) and `HEADER` (with additional information of the production order). 
 
-The first table COMPONENT we use the regular data source output. For the second table HEADER we need a variable list. The screenshot shows how the variable list is created. The trick is, that the column names must exactly match the names of the SAP table column you want to extract. Here in the example we only use 4 columns. We also must must match the correct data type. 
+For the `COMPONENT` table, we use the regular data source output. For the `HEADER` table, we need a variable list. The screenshot shows how the variable list is created. The trick is, that the column names must exactly match the names of the SAP table column you want to extract. Here in the example we only use 4 columns. We also must must match the correct data type. 
 
 ![image](/assets/2024-03-15/010.png)
 
