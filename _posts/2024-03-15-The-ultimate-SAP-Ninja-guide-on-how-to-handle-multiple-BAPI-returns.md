@@ -30,11 +30,11 @@ For the `COMPONENT` table, we use the regular data source output. For the `HEADE
 
 ![image](/assets/2024-03-15/010.png)
 
-Let's go to the SAP data source. Usually, we use the reserved word `@RETVAL` to make the output of the data source equal the output of the table. We do the same with the `COMPONENT` table.
+Lets go to the SAP data source. Usually, we use the reserved word `@RETVAL` to make the output of the data source equal the output of the table. We do the same with the `COMPONENT` table.
 
-For the `HEADER` table, we use the `@` character, followed by the name of the variable list. This lets the data source put the table into that variable list. Because we used the same column names, that the data source knows which column to put the data in.
+For the `HEADER` table, we use the `@` character, followed by the name of the variable list. This lets the data source put the table into that variable list. Because we used the same column names, the data source knows which column to put the data in.
 
-Here's the correct XQL and a screenshot of the data source:
+Here's the XQL and a screenshot of the data source:
 
 {% highlight sql %}
 EXECUTE FUNCTION 'BAPI_PRODORD_GET_DETAIL'
