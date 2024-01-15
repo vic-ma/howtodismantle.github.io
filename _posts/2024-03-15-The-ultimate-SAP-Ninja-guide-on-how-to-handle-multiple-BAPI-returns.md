@@ -55,13 +55,13 @@ And here is the final result of the two table controls. One is bound to the data
 
 ## How to handle multiple scalar, non-table-like parameters
 
-Our sample BAPI has a return structure called `RETURN`. This structure contains information about potential errors (like the production order number being invalid). One structure attribute is TYPE (E for Error) and one is MESSAGE (for he actaul error message). Let's assume we're interested in handling this information.
+Our sample BAPI has a return structure called `RETURN`. This structure contains information about potential errors (like the production order number being invalid). One structure attribute is `TYPE` (`E` for Error) and one is `MESSAGE` (for the actual error message). Let's assume we're interested in handling this information.
 
-First we need two variable with the correct data type. Let's call them ReturnType and ReturnMessage.
+First, we need two variable with the correct data type. Let's call them `ReturnType` and `ReturnMessage`.
 
 ![image](/assets/2024-03-15/040.png)
 
-Now we easily address these variables like we did it with the table in the previous paragraph, just address it with @MyVariable. Please check this XQL:
+Now, we can address these variables like we did with the tables in the previous example. We address it with @MyVariable. Here is the XQL:
 
 {% highlight sql %}
 EXECUTE FUNCTION 'BAPI_PRODORD_GET_DETAIL'
