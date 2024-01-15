@@ -16,7 +16,9 @@ JSON is the most popular data format for modern web and cloud environments. Peak
 
 A common way to extract the desired data from the JSON string is to use a JPath expression, rather than using basic string operations. A JPath is a string that describes how to find the desired data within the JSON string.
 
-It's a lot simpler than it sounds. This article will show you how to use JPath through examples. The logic how it works will be pretty clear then. The JSON string we're referring to in our examples is shown below. It represents a simple purchase order with a order header and two order items. The order items are arranged in a so called array.
+It's a lot simpler than it sounds. This article will show you how to use JPath through examples. The logic behind how it works will be pretty clear in the end.
+
+The JSON string we will use in our examples is shown below. It represents a simple purchase order with an order header and two order items. The order items are arranged in an array.
 
 {% highlight json %}
 {
