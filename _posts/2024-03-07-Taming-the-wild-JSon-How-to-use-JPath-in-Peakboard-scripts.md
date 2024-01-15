@@ -1,18 +1,18 @@
 ---
 layout: post
-title: Taming the wild JSon - How to use JPath in Peakboard scripts
+title: Taming JSON - How to use JPath in Peakboard scripts
 date: 2023-03-01 02:00:00 +0200
 tags: api basics
 image: /assets/2024-03-07/title.png
 read_more_links:
-  - name: JPath lib on github (check out the readme for interesting details)
+  - name: JPath library on github (check out the README for interesting details)
     url: https://github.com/atifaziz/JSONPath
 downloads:
   - name: JSonJPathExamples.pbmx
     url: /assets/2024-03-07/JSonJPathExamples.pbmx
 ---
 
-JSon is the number one data format in any modern web and cloud environment. We often have to deal with it as part of a Peakboard application, for example when calling an API and processing the result. A common way to process the JSon string is not to do any basic string operations to extract the needed data from the payload, but rather to use a so called JPath expression. This JPath is a string describing the way to find the needed data within the JSon string. It sounds much more complicated than it is. That's why we use this article to show how to use JPath by examples. The logic how it works will be pretty clear then. The JSon string we're referring to in our examples is shown below. It represents a simple purchase order with a order header and two order items. The order items are arranged in a so called array.
+JSON is the number one data format in any modern web and cloud environment. We often have to deal with it as part of a Peakboard application, for example when calling an API and processing the result. A common way to process the JSON string is not to do any basic string operations to extract the needed data from the payload, but rather to use a so called JPath expression. This JPath is a string describing the way to find the needed data within the JSON string. It sounds much more complicated than it is. That's why we use this article to show how to use JPath by examples. The logic how it works will be pretty clear then. The JSON string we're referring to in our examples is shown below. It represents a simple purchase order with a order header and two order items. The order items are arranged in a so called array.
 
 {% highlight json %}
 {
@@ -36,7 +36,7 @@ JSon is the number one data format in any modern web and cloud environment. We o
 
 ## Using JPath is Peakboard
 
-There are predefined functions to use JPath within a Peakboard script or the Building Blocks. As you see in the screenshot, A local variable is filled with our sample JSon. Then the JPath block is used. In hat case the JPath expression is "order_header.order_no", so the JPath block extracts the field order_no that is hierarchically bound to the order header "order_header". So this expression returns the value "ORD123456". The third parameter of this JPath block is a string that is returned by the block in case the JPath expression points to a non-exiting data point. So it's easy to cope with the situation where the JSon might not look like as you expected it to be.
+There are predefined functions to use JPath within a Peakboard script or the Building Blocks. As you see in the screenshot, A local variable is filled with our sample JSON. Then the JPath block is used. In hat case the JPath expression is "order_header.order_no", so the JPath block extracts the field order_no that is hierarchically bound to the order header "order_header". So this expression returns the value "ORD123456". The third parameter of this JPath block is a string that is returned by the block in case the JPath expression points to a non-exiting data point. So it's easy to cope with the situation where the JSON might not look like as you expected it to be.
 
 ![image](/assets/2024-03-07/010.png)
 
@@ -89,7 +89,7 @@ Unfortunately JPath doesn't support aggregating array items. That's why we need 
 
 ## result and conclusion
 
-JPath is easy to understand and much more practical than doing basic string opration with JSon strings. Feel free to download the attached pbmx and play around with it. All examples explained in this article are available to tested right away...
+JPath is easy to understand and much more practical than doing basic string opration with JSON strings. Feel free to download the attached pbmx and play around with it. All examples explained in this article are available to tested right away...
 
 ![image](/assets/2024-03-07/result.gif)
 
