@@ -67,7 +67,7 @@ order_items[0].material_no
 returns MAT001
 {% endhighlight %}
 
-Let's assume you don't know exactly how many items an array has, but you're interested in the last one. You can use the operator ":" to indicate a range and then count backwards by using the ordinal number "-1"
+Let's assume you want the last item in an array, but you don't know exactly how many items the array has. Well, you can use the `:` character to indicate a range, and then count backwards by using the ordinal number `-1`.
 
 {% highlight jpath %}
 order_items[-1:].material_no
@@ -75,7 +75,7 @@ order_items[-1:].material_no
 returns MAT002
 {% endhighlight %}
 
-If you want to use a filter to find the right entry within an array you can use the "?" character to apply a filter instead of the ordinal number. In this example we filter for items with material_no equals "MAT001" and return the corresponding quantity.
+If you want to use a filter to find an entry in an array, you can use the `?` character to apply a filter. In this example, we filter for items with a `material_no` that equals `MAT001` and return the corresponding quantity.
 
 {% highlight jpath %}
 order_items[?(@.material_no == 'MAT001')].quantity
@@ -83,7 +83,7 @@ order_items[?(@.material_no == 'MAT001')].quantity
 returns 10
 {% endhighlight %}
 
-Let's try out this filter in the JPath block shown above but try to filter for something that doesn't exists. In that case the block returns the error string "#ERROR#".
+Now let's try to filter for something that doesn't exist. In this case, the block returns the error string `#ERROR#`.
 
 {% highlight jpath %}
 order_items[?(@.material_no == 'XXX')].quantity
