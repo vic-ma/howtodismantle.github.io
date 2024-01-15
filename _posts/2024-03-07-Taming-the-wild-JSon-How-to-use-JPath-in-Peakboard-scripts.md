@@ -50,7 +50,7 @@ The third parameter of this JPath block is a string that is returned by the bloc
 
 ![image](/assets/2024-03-07/010.png)
 
-For all users who prefer to do LUA scirpting instead of Bulding Blocks, here we go:
+For users who prefer LUA scripting to Building Blocks, here is the same script in LUA:
 
 {% highlight lua %}
 local myjson = '...'
@@ -59,7 +59,7 @@ screens['Screen1'].txt1.text = json.getvaluefrompath(myjson, 'order_header.order
 
 ## Addressing Arrays
 
-Beside the simple path shown above by just using "." to connect the hierarchy levels to express the actual path, we can use brackets "[XXX]" to move within an array. The following expression returns the field material_no in the first array entry (so the first item within our order).
+The simple JSON path above uses `.` to connect the hierarchy levels to express the actual path. But we can also use brackets, like `[3]`, to move within an array. This expression returns the field `material_no` in the first array entry (which is the first item within our order):
 
 {% highlight jpath %}
 order_items[0].material_no
