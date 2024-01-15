@@ -46,7 +46,7 @@ Peakboard scripts and Building Blocks have predefined functions for using JPath.
 
 In this case, the JPath expression is `order_header.order_no`. The JPath block extracts the field `order_no`, which is hierarchically bound to the order header `order_header`. So this expression returns the value `ORD123456`.
 
-The third parameter of this JPath block is a string that is returned by the block in case the JPath expression points to a non-exiting data point. So it's easy to handle the situation where the JSON doesn't look like what you expect.
+The third parameter of this JPath block is a string that is returned by the block if the JPath expression points to a non-exiting data point. So it's easy to handle the situation where the JSON doesn't look like what you expect.
 
 ![image](/assets/2024-03-07/010.png)
 
