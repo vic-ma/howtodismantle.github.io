@@ -93,13 +93,17 @@ returns #ERROR#
 
 ## Aggregating and looping
 
-Unfortunately JPath doesn't support aggregating array items. That's why we need to build that on our own. Ths following example shows a loop. The counter variable "i" is used to build a dynamic JPath expression that addresses a certain array item. As soon as the block return "#ERROR#" we know, that we have reached the end of the array and exit the loop. So "i" contains the number of array entries. That's the basic pattern for iterating array entries without knowing how many entries an array has. If you want to let's say summarize some values, it work exactly the same. Just loop and do something for every entry until the JPath returns an error string.
+Unfortunately, JPath doesn't support aggregating array items. That's why we need to do this on our own
+
+The following example shows a loop. We use a counter variable `i` to build a dynamic JPath expression that addresses each array item. As soon as the expression returns `#ERROR#`, we know that we have reached the end of the array, and so we exit the loop.
+
+So `i` contains the index of the array entries. That's the basic pattern for iterating array entries without knowing how many entries the array has. If you want to summarize some values, it works exactly the same. Just loop and do something for each entry, until the JPath returns an error string.
 
 ![image](/assets/2024-03-07/020.png)
 
-## result and conclusion
+## Conclusion
 
-JPath is easy to understand and much more practical than doing basic string opration with JSON strings. Feel free to download the attached pbmx and play around with it. All examples explained in this article are available to tested right away...
+JPath is easy to understand and much more practical than doing basic string operations with JSON strings. Feel free to download the attached pbmx and play around with it. All the examples in this article can be tested straight away.
 
 ![image](/assets/2024-03-07/result.gif)
 
