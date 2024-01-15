@@ -70,7 +70,7 @@ EXECUTE FUNCTION 'BAPI_PRODORD_GET_DETAIL'
       COMPONENT INTO @RETVAL
 {% endhighlight %}
 
-And here's the result in the sample pbmx. The two variable are just bound to two test fields and an error is provoked by requeting a non-existant production order.
+And here's the result in the sample pbmx. The two variable are just bound to two test fields and an error is provoked by requesting a non-existant production order.
 
 ![image](/assets/2024-03-15/050.png)
 
