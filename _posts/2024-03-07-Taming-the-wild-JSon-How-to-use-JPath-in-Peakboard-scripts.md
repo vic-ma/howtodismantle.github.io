@@ -14,9 +14,9 @@ downloads:
 
 JSON is the most popular data format for modern web and cloud environments. Peakboard applications often use JSON. For example, when calling an API and processing the response.
 
-A common way to extract the desired data from the JSON string is to use a JPath expression, rather than using basic string operations. A JPath is a string that describes how to find the desired data within the JSON string.
+A good way to extract the desired data from a JSON string is to use a JPath expression, rather than using basic string operations. A JPath is a string that describes how to find the desired data within the JSON string.
 
-It's a lot simpler than it sounds. This article will show you how to use JPath through examples. The logic behind how it works will be pretty clear in the end.
+It's a lot simpler than it sounds. This article will show you how to use JPath through examples. The logic behind how it works will become clear in the end.
 
 The JSON string we will use in our examples is shown below. It represents a simple purchase order with an order header and two order items. The order items are arranged in an array.
 
@@ -42,11 +42,11 @@ The JSON string we will use in our examples is shown below. It represents a simp
 
 ## Using JPath in Peakboard
 
-Peakboard scripts and Building Blocks have predefined functions for using JPath. In the following screenshot, we fill a local variable with our JSON example. Then, we use the JPath block.
+Peakboard scripts and Building Blocks have predefined functions for JPath. In the following screenshot, we fill a local variable with our JSON example. Then, we use the JPath block.
 
 In this case, the JPath expression is `order_header.order_no`. The JPath block extracts the field `order_no`, which is hierarchically bound to the order header `order_header`. So this expression returns the value `ORD123456`.
 
-The third parameter of this JPath block is a string that is returned by the block if the JPath expression points to a non-exiting data point. So it's easy to handle the situation where the JSON doesn't look like what you expect.
+The third parameter of this JPath block is a string that is returned by the block if the JPath expression points to a non-exiting data point. This handles the situation where the JSON doesn't look like what you expect.
 
 ![image](/assets/2024-03-07/010.png)
 
@@ -59,7 +59,9 @@ screens['Screen1'].txt1.text = json.getvaluefrompath(myjson, 'order_header.order
 
 ## Addressing Arrays
 
-The simple JSON path above uses `.` to connect the hierarchy levels to express the actual path. But we can also use brackets, like `[3]`, to move within an array. This expression returns the field `material_no` in the first array entry (which is the first item within our order):
+The simple JSON path above uses `.` to connect the hierarchy levels and create the actual path. But we can also use brackets, like `[3]`, to move within an array.
+
+This expression returns the field `material_no` in the first array entry (which is the first item in our order):
 
 {% highlight jpath %}
 order_items[0].material_no
@@ -67,7 +69,7 @@ order_items[0].material_no
 returns MAT001
 {% endhighlight %}
 
-Let's assume you want the last item in an array, but you don't know exactly how many items the array has. Well, you can use the `:` character to indicate a range, and then count backwards by using the ordinal number `-1`.
+Now, let's say you want the last item in an array, but you don't know exactly how many items the array has. In this case, you can use the `:` character to indicate a range, and then count backwards by using the ordinal number `-1`:
 
 {% highlight jpath %}
 order_items[-1:].material_no
@@ -75,7 +77,7 @@ order_items[-1:].material_no
 returns MAT002
 {% endhighlight %}
 
-If you want to use a filter to find an entry in an array, you can use the `?` character to apply a filter. In this example, we filter for items with a `material_no` that equals `MAT001` and return the corresponding quantity.
+If you want to use a filter to find an entry in an array, you can use the `?` character. In this example, we filter for items with a `material_no` that equals `MAT001` and return the corresponding quantity:
 
 {% highlight jpath %}
 order_items[?(@.material_no == 'MAT001')].quantity
