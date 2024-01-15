@@ -12,7 +12,7 @@ downloads:
     url: /assets/2024-03-07/JSonJPathExamples.pbmx
 ---
 
-JSON is the number one data format in any modern web and cloud environment. We often have to deal with it as part of a Peakboard application, for example when calling an API and processing the result. A common way to process the JSON string is not to do any basic string operations to extract the needed data from the payload, but rather to use a so called JPath expression. This JPath is a string describing the way to find the needed data within the JSON string. It sounds much more complicated than it is. That's why we use this article to show how to use JPath by examples. The logic how it works will be pretty clear then. The JSON string we're referring to in our examples is shown below. It represents a simple purchase order with a order header and two order items. The order items are arranged in a so called array.
+JSON is the most popular data format for modern web and cloud environments. Peakboard applications often use JSON. For example, when calling an API and processing the response. A common way to process the JSON string is not to do any basic string operations to extract the needed data from the payload, but rather to use a so called JPath expression. This JPath is a string describing the way to find the needed data within the JSON string. It sounds much more complicated than it is. That's why we use this article to show how to use JPath by examples. The logic how it works will be pretty clear then. The JSON string we're referring to in our examples is shown below. It represents a simple purchase order with a order header and two order items. The order items are arranged in a so called array.
 
 {% highlight json %}
 {
