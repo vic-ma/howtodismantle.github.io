@@ -75,13 +75,13 @@ EXECUTE FUNCTION 'BAPI_PRODORD_GET_DETAIL'
       COMPONENT INTO @RETVAL
 {% endhighlight %}
 
-And here's the result in the sample pbmx. The two variable are just bound to two test fields and an error is provoked by requesting a non-existant production order.
+And here is the result. The two variable are bound to two test fields, and an error is caused by requesting a nonexistent production order.
 
 ![image](/assets/2024-03-15/050.png)
 
 ## How to handle function with no return table
 
-In the last two examples we always had at least one return table to feed the usable output of the SAP data source. Let's assume that an RFC function module does not return any tables at all but only has scalar return parameters. We can use our sample BAPI and just ignore the table. So how to handle the returns and turn it into a data source table output?
+In the last two examples we always had at least one return table. So we could always feed the usable output of the SAP data source to that return table. Let's assume that an RFC function module does not return any tables at all but only has scalar return parameters. We can use our sample BAPI and just ignore the table. So how to handle the returns and turn it into a data source table output?
 
 We again make use of the @RETVAL parameter to address the output table. If we apply that to scalar values the SAP data source will turn it into a table with exactly one row and store the data there. To indicate the column name we just add the column name separated by $. So @RETVAL$MyColumn will store the value in the MyColumn column.
 
