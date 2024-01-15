@@ -15,7 +15,10 @@ downloads:
   - name: SAPSuperSophisticatedBAPICalls.pbmx
     url: /assets/2024-03-15/SAPSuperSophisticatedBAPICalls.pbmx
 ---
-In an earlier article we discussed the topic on [how to build an ideal SAP RFC function modules to be connected to Peakboard](/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html). The main idea is, that the RFC has multiple, scalar input parameters and returns exactly one table with the payload. This architecture serves the Peakboard side perfectly as every data source's output is exactly one table. However that's not how real life often works. In real life we often have to deal with function modules that doesn't fit into that structure. This is especially true for SAP standard BAPIs. The actual payload is often returned in multiple tables or in multiple scalar, not-table-like data structures. This article is about how to deal with that situation in Peakboard. 
+
+In an earlier article, we discussed [how to build an ideal SAP RFC function modules to be connected to Peakboard](/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html). The basic idea is that the RFC has multiple scalar input parameters, and it returns exactly one table with the payload. This architecture serves the Peakboard side perfectly as every data source's output is exactly one table. However that's not how real life often works.
+
+In real life we often have to deal with function modules that doesn't fit into that structure. This is especially true for SAP standard BAPIs. The actual payload is often returned in multiple tables or in multiple scalar, not-table-like data structures. This article is about how to deal with that situation in Peakboard. 
 
 For the upcoming three samples we use a standard BAPI called BAPI_PRODORD_GET_DETAIL to illustrate the sample. How to use this BAPI is explained in [that article](/Dismantle-BAPI_PRODORD_GET_DETAIL-How-to-get-production-order-details-from-SAP.html).
 
