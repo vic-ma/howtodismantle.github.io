@@ -26,13 +26,15 @@ For the following three examples, we use a standard BAPI called `BAPI_PRODORD_GE
 
 With the help of our sample BAPI, `BAPI_PRODORD_GET_DETAIL`, we can retrieve multiple tables that are related to a certain production order. Let's assume we want to retrieve the two tables `COMPONENT` (for the materials used in the production order) and `HEADER` (with additional information of the production order). 
 
-For the `COMPONENT` table, we use the regular data source output. For the `HEADER` table, we need a variable list. The screenshot shows how the variable list is created. The trick is, that the column names must exactly match the names of the SAP table column you want to extract. Here in the example we only use 4 columns. We also must must match the correct data type. 
+For the `COMPONENT` table, we use the regular data source output. For the `HEADER` table, we need a variable list. The following screenshot shows how to create the variable list. The trick is that the column names must exactly match the names of the SAP table column you want to extract. In this example, we only use 4 columns. We also must match the correct data type. 
 
 ![image](/assets/2024-03-15/010.png)
 
-Let's go to the SAP data source. We usually use the reserved word @RETVAL to make the output of a table the output of the data source. So we do with COMPONENT table. For the HEADER table we just use the @-character followed by the name of the variable list. This let's the data source put the table into that variable list. Because we used the same column names the data source knows, in which column to put the data.
+Let's go to the SAP data source. Usually, we use the reserved word `@RETVAL` to make the output of the data source equal the output of the table. We do the same with the `COMPONENT` table.
 
-Here's the correct XQL and screenshot of the data source during design time.
+For the `HEADER` table, we just use the `@` character, followed by the name of the variable list. This lets the data source put the table into that variable list. Because we used the same column names, that the data source knows which column to put the data in.
+
+Here's the correct XQL and a screenshot of the data source:
 
 {% highlight sql %}
 EXECUTE FUNCTION 'BAPI_PRODORD_GET_DETAIL'
@@ -47,13 +49,13 @@ EXECUTE FUNCTION 'BAPI_PRODORD_GET_DETAIL'
 
 ![image](/assets/2024-03-15/020.png)
 
-And here is the final result in preview with two table controls. One is bound to the data source output. and one is bound to the variable list.
+And here is the final result of the two table controls. One is bound to the data source output and one is bound to the variable list.
 
 ![image](/assets/2024-03-15/030.png)
 
-## How to handle multiple scalar, not-table-like parameters
+## How to handle multiple scalar, non-table-like parameters
 
-Our sample BAPI has a return structure called RETURN. This structure contains information about potential errors (e.g. the production order number is not valid). One structure attribute is TYPE (E for Error) and one is MESSAGE (for he actaul error message). Let's assume we're interested in handling this information.
+Our sample BAPI has a return structure called `RETURN`. This structure contains information about potential errors (like the production order number being invalid). One structure attribute is TYPE (E for Error) and one is MESSAGE (for he actaul error message). Let's assume we're interested in handling this information.
 
 First we need two variable with the correct data type. Let's call them ReturnType and ReturnMessage.
 
