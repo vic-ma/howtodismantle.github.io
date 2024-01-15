@@ -61,7 +61,7 @@ First, we need two variable with the correct data type. Let's call them `ReturnT
 
 ![image](/assets/2024-03-15/040.png)
 
-Now, we can address these variables like we did with the tables in the previous example. We address it with @MyVariable. Here is the XQL:
+Now, we can address these variables like we did with the tables in the previous example. We address it with `@MyVariable`. Here is the XQL:
 
 {% highlight sql %}
 EXECUTE FUNCTION 'BAPI_PRODORD_GET_DETAIL'
@@ -81,7 +81,7 @@ And here is the result. The two variable are bound to two test fields, and an er
 
 ## How to handle function with no return table
 
-In the last two examples, we always had at least one return table to feed the usable output of the SAP data source. Let's assume that an RFC function module does not return any tables at all, and only has scalar return parameters. We can use our sample BAPI and just ignore the table. So do we handle the return values and turn it into a data source table output?
+In the last two examples, we always had at least one return table to feed the usable output of the SAP data source. Let's assume that an RFC function module does not return any tables at all, and only has scalar return parameters. We can use our sample BAPI and just ignore the table. So how do we handle the return values and turn it into a data source table output?
 
 We again make use of the `@RETVAL` parameter to address the output table. If we apply that to scalar values, the SAP data source will turn it into a table with exactly one row, and store the data there. To indicate the column name, we add the column name separated by `$`. So `@RETVAL$MyColumn` stores the value in the `MyColumn` column.
 
