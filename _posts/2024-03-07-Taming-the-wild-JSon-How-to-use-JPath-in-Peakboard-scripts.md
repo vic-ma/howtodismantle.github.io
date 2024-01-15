@@ -85,7 +85,7 @@ order_items[?(@.material_no == 'MAT001')].quantity
 returns 10
 {% endhighlight %}
 
-Now let's try to filter for something that doesn't exist. In this case, the block returns the error string `#ERROR#`.
+Now let's try to filter for something that doesn't exist. In this case, the block returns the error string `#ERROR#`:
 
 {% highlight jpath %}
 order_items[?(@.material_no == 'XXX')].quantity
