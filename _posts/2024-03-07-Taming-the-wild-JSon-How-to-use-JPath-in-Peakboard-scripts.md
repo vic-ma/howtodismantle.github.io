@@ -40,9 +40,13 @@ The JSON string we will use in our examples is shown below. It represents a simp
 }
 {% endhighlight %}
 
-## Using JPath is Peakboard
+## Using JPath in Peakboard
 
-There are predefined functions to use JPath within a Peakboard script or the Building Blocks. As you see in the screenshot, A local variable is filled with our sample JSON. Then the JPath block is used. In hat case the JPath expression is "order_header.order_no", so the JPath block extracts the field order_no that is hierarchically bound to the order header "order_header". So this expression returns the value "ORD123456". The third parameter of this JPath block is a string that is returned by the block in case the JPath expression points to a non-exiting data point. So it's easy to cope with the situation where the JSON might not look like as you expected it to be.
+Peakboard scripts and Building Blocks have predefined functions for using JPath. In the following screenshot, we fill a local variable with our JSON example. Then, we use the JPath block.
+
+In this case, the JPath expression is `order_header.order_no`. The JPath block extracts the field `order_no`, which is hierarchically bound to the order header `order_header`. So this expression returns the value `ORD123456`.
+
+The third parameter of this JPath block is a string that is returned by the block in case the JPath expression points to a non-exiting data point. So it's easy to handle the situation where the JSON doesn't look like what you expect.
 
 ![image](/assets/2024-03-07/010.png)
 
