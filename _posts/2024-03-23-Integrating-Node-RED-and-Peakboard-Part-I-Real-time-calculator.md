@@ -84,8 +84,9 @@ Here's what the JSON looks like:
 }
 {% endhighlight %}
 
-We also must add the header for "Content-Type" to "application/json". Otherwise the flow doesn't understand that we're sending a JSon object.
-The call returns the result JSon. Here's how it looks like:
+We also set the `Content-Type` header to `application/json`. Otherwise, the flow won't know that we're sending a JSON object.
+
+The call returns the JSON response. Here's what it looks like:
 
 {% highlight json %}
 {
@@ -93,13 +94,13 @@ The call returns the result JSon. Here's how it looks like:
 }
 {% endhighlight %}
 
-To extract the result value from the response we use a JSon path block and address the Result attribute. The value is put into the text field we prepapred earlier.
+To extract the result from the response, we use a JSON path block, and address the `Result` attribute. The value is put into the text field we prepared earlier.
 
 ![image](/assets/2024-03-23/040.png)
 
-## result and conclusion
+## Conclusion
 
-Here's the application in action and also the output of the debug window in Node-RED to follow the steps and the calculcation in real time.
+Here's the application in action, along with the debug window in Node-RED.
 
 ![image](/assets/2024-03-23/result.gif)
 
