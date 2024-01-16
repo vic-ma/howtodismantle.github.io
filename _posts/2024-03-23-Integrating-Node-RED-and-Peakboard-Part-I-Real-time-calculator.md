@@ -37,11 +37,18 @@ The purpose of this exercise is to understand how to use Peakboard to submit and
 
 ## Building the Node-RED flow
 
-Here's the flow we will use. It starts with an "HTTP in" node to receive the call. Then we add the two numbers, which are part of the JSon payload. The next node is a template node to create the answer and finally we return the answer to the caller by using a "http response" node. To the relevant nodes we also added debug nodes. So we can follow the flow in the debug window when it's executed.
+The following screenshot shows the flow we will be using. Here's how it works:
+
+1. An `HTTP In` node receives the call.
+2. A function node adds the two numbers from the JSON payload of the call.
+3. A template node creates the response.
+4. An `HTTP Response` node returns the result to the caller.
+
+We also added debug nodes so that we can follow the flow in the debug window, when it's executed.
 
 ![image](/assets/2024-03-23/010.png)
 
-The "http in" node listens at the "/Add" URL:
+The `HTTP In` node listens at the `/Add` URL:
 
 ![image](/assets/2024-03-23/020.png)
 
