@@ -19,17 +19,19 @@ downloads:
   - name: Node-RED flow used in this article
     url: /assets/2024-03-23/flow.json
 ---
-In this two-part article series, we will discuss the best practices for integrating Peakboard with Node-RED applications. Most of the time, communication between Node-RED and the outside world happens through MQTT or HTTP. We will use the HTTP option:
+In this two-part article series, we discuss some best practices for integrating Peakboard with Node-RED applications.
+
+Most of the time, communication between Node-RED and the outside world happens through MQTT or HTTP. We will use the HTTP option:
 
 [Part I - Real-time calculator](/Integrating-Node-RED-and-Peakboard-Part-I-Real-time-calculator.html) -
-How to submit information from Peakboard to Node-RED, do something with it, and then process the result in real-time.
+How to send information from Peakboard to Node-RED, do something with it, and then process the result in real-time.
 
 [Part II - Sending Alerts to a Peakboard application](/Integrating-Node-RED-and-Peakboard-Part-II-Sending-Alerts-to-an-Peakboard-application.html) -
-How to submit an alert from a Node-RED flow and visualize it in a Peakboard application.
+How to send an alert from a Node-RED flow and visualize it in a Peakboard application.
 
 ## Goals for this article
 
-In this article, we will build a Peakboard application that does the following:
+In this article, we build a Peakboard application that does the following:
 1. Take in two numbers from the user.
 2. Submit the two numbers to a Node-RED flow, which will add the numbers and return the sum.
 
@@ -100,7 +102,7 @@ To extract the result from the response, we use a JSON path block, and address t
 
 ## Conclusion
 
-Here's the application in action, along with the debug window in Node-RED.
+Here's the application in action, along with the debug window in Node-RED:
 
 ![image](/assets/2024-03-23/result.gif)
 
