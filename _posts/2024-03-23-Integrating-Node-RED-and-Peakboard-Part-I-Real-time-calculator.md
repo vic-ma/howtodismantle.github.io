@@ -21,11 +21,11 @@ downloads:
 ---
 In this two-part article series, we will discuss the best practices for integrating Peakboard with node-RED applications. Most of the time, communication between node-RED and the outside world happens through MQTT or HTTP. We will use the HTTP option:
 
-[Part I - Real-time calculator](/Integrating-Node-RED-and-Peakboard-Part-I-Real-time-calculator.html)
-Shows how to submit information from Peakboard to node-RED, do something with it and then process the result in real-time
+[Part I - Real-time calculator](/Integrating-Node-RED-and-Peakboard-Part-I-Real-time-calculator.html) -
+How to submit information from Peakboard to node-RED, do something with it, and then process the result in real-time.
 
-[Part II - Sending Alerts to a Peakboard application](/Integrating-Node-RED-and-Peakboard-Part-II-Sending-Alerts-to-an-Peakboard-application.html)
-Shows how to submit an alert from a node-RED flow to visualizize in a Peakboard application.
+[Part II - Sending Alerts to a Peakboard application](/Integrating-Node-RED-and-Peakboard-Part-II-Sending-Alerts-to-an-Peakboard-application.html) -
+How to submit an alert from a node-RED flow and visualize it in a Peakboard application.
 
 ## What we build here
 
