@@ -1,0 +1,131 @@
+[
+    {
+        "id": "69daaa5a35f679d6",
+        "type": "tab",
+        "label": "Add Two Numbers",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "dd97c5b0341af883",
+        "type": "http in",
+        "z": "69daaa5a35f679d6",
+        "name": "",
+        "url": "/Add",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 80,
+        "wires": [
+            [
+                "fa84cd98115267ea",
+                "579097103819e5db"
+            ]
+        ]
+    },
+    {
+        "id": "fa84cd98115267ea",
+        "type": "debug",
+        "z": "69daaa5a35f679d6",
+        "name": "Debug Payload 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "1aa4c4cd073ba0ed",
+        "type": "template",
+        "z": "69daaa5a35f679d6",
+        "name": "Turn Result into JSon",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n    \"Result\": {{payload.result}}\n}",
+        "output": "json",
+        "x": 560,
+        "y": 180,
+        "wires": [
+            [
+                "4a37ea5f156111cd",
+                "f09d19ada339ae0f"
+            ]
+        ]
+    },
+    {
+        "id": "4a37ea5f156111cd",
+        "type": "http response",
+        "z": "69daaa5a35f679d6",
+        "name": "Return HTTP Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 850,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "f09d19ada339ae0f",
+        "type": "debug",
+        "z": "69daaa5a35f679d6",
+        "name": "Debug Payload 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "579097103819e5db",
+        "type": "function",
+        "z": "69daaa5a35f679d6",
+        "name": "Add X and Y",
+        "func": "msg.payload.result = msg.payload.X + msg.payload.Y;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "1aa4c4cd073ba0ed",
+                "43d7176ce072e00d"
+            ]
+        ]
+    },
+    {
+        "id": "43d7176ce072e00d",
+        "type": "debug",
+        "z": "69daaa5a35f679d6",
+        "name": "Debug Payload 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 140,
+        "wires": []
+    }
+]

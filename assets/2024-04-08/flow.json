@@ -1,0 +1,252 @@
+[
+    {
+        "id": "9dd3f172adb1d9dc",
+        "type": "tab",
+        "label": "Send Alert to Peakboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "95cbf44dc5de0c75",
+        "type": "inject",
+        "z": "9dd3f172adb1d9dc",
+        "name": "Trigger Alert",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 190,
+        "y": 160,
+        "wires": [
+            [
+                "d90df2cc58ce6db6"
+            ]
+        ]
+    },
+    {
+        "id": "43b6300643d337f7",
+        "type": "http request",
+        "z": "9dd3f172adb1d9dc",
+        "name": "Send http Request",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://pb0000pt:40405/api/functions/SubmitAlert",
+        "tls": "f35e964468c41c2a",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": true,
+        "authType": "basic",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Content-Type",
+                "valueType": "other",
+                "valueValue": "application/json"
+            }
+        ],
+        "x": 610,
+        "y": 160,
+        "wires": [
+            [
+                "8e12ecb62895eb0a"
+            ]
+        ]
+    },
+    {
+        "id": "d90df2cc58ce6db6",
+        "type": "template",
+        "z": "9dd3f172adb1d9dc",
+        "name": "Create JSon",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{  \n    \"Priority\": \"A\",   \n    \"Message\": \"Help! The printer is on fire!\"\n}",
+        "output": "str",
+        "x": 370,
+        "y": 160,
+        "wires": [
+            [
+                "43b6300643d337f7",
+                "3aa757d412fced24"
+            ]
+        ]
+    },
+    {
+        "id": "3aa757d412fced24",
+        "type": "debug",
+        "z": "9dd3f172adb1d9dc",
+        "name": "Log Request",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8e12ecb62895eb0a",
+        "type": "debug",
+        "z": "9dd3f172adb1d9dc",
+        "name": "Log Response",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "560d5ef97a443903",
+        "type": "inject",
+        "z": "9dd3f172adb1d9dc",
+        "name": "Trigger Alert 2",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 170,
+        "y": 580,
+        "wires": [
+            [
+                "92f3de322ed547cb"
+            ]
+        ]
+    },
+    {
+        "id": "2de15e12407f1ac0",
+        "type": "http request",
+        "z": "9dd3f172adb1d9dc",
+        "name": "Send http Request",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://pb0000pt:40405/api/data",
+        "tls": "f35e964468c41c2a",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": true,
+        "authType": "basic",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Content-Type",
+                "valueType": "other",
+                "valueValue": "application/json"
+            }
+        ],
+        "x": 590,
+        "y": 580,
+        "wires": [
+            [
+                "fd13bb6b4fd938d9"
+            ]
+        ]
+    },
+    {
+        "id": "92f3de322ed547cb",
+        "type": "template",
+        "z": "9dd3f172adb1d9dc",
+        "name": "Create JSon",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n  \"ListInstructions\":[],\n  \"ScalarInstructions\":\n  [\n    {\n      \"DataSourceName\": \"Alert\",\n      \"OpCode\": \"Set\",\n      \"Data\": \"Fuck you2\"\n    }\n  ]\n}",
+        "output": "str",
+        "x": 350,
+        "y": 580,
+        "wires": [
+            [
+                "2de15e12407f1ac0",
+                "14d567fcbf2e7d48"
+            ]
+        ]
+    },
+    {
+        "id": "14d567fcbf2e7d48",
+        "type": "debug",
+        "z": "9dd3f172adb1d9dc",
+        "name": "Log Request",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "fd13bb6b4fd938d9",
+        "type": "debug",
+        "z": "9dd3f172adb1d9dc",
+        "name": "Log Response",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "f35e964468c41c2a",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "Peakboard CA.crt",
+        "servername": "",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    }
+]
