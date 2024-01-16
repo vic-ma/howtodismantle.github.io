@@ -44,7 +44,7 @@ The following screenshot shows the flow we will be using. Here's how it works:
 3. A template node creates the response.
 4. An `HTTP Response` node returns the result to the caller.
 
-We also added debug nodes so that we can follow the flow in the debug window, when it's executed.
+We also add debug nodes so that we can follow the flow in the debug window, when it's executed.
 
 ![image](/assets/2024-03-23/010.png)
 
@@ -52,7 +52,7 @@ The `HTTP In` node listens at the `/Add` URL:
 
 ![image](/assets/2024-03-23/020.png)
 
-The function node adds the two numbers (X and Y) and creates a third attribute i the payload for the result:
+The function node adds the two numbers, `X` and `Y`, and creates a third attribute `i` the payload for the result:
 
 ![image](/assets/2024-03-23/021.png)
 
