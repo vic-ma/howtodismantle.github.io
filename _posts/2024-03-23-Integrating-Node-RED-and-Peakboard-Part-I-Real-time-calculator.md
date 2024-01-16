@@ -56,11 +56,11 @@ The function node adds the two numbers, `X` and `Y`, and creates a third attribu
 
 ![image](/assets/2024-03-23/021.png)
 
-The actual response is created with a template node. It's just simple json with a placeholder pointing to the result we created in the last step:
+The actual response is created with a template node. It's a simple bit of JSON which has a `Result` property that points to the result we created in the last step:
 
 ![image](/assets/2024-03-23/022.png)
 
-The "http response" doesn't need any additional configuration. It just returns the payload to the initial http caller:
+The `HTTP Response` node doesn't need any additional configuration. It simply returns the payload to the caller:
 
 ![image](/assets/2024-03-23/023.png)
 
