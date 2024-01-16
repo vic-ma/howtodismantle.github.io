@@ -27,13 +27,17 @@ How to submit information from Peakboard to node-RED, do something with it, and 
 [Part II - Sending Alerts to a Peakboard application](/Integrating-Node-RED-and-Peakboard-Part-II-Sending-Alerts-to-an-Peakboard-application.html) -
 How to submit an alert from a node-RED flow and visualize it in a Peakboard application.
 
-## What we build here
+## Goals for this article
 
-The showcase of this article will be, that the end user can use a Peakboard app to type in two numbers. Then the two values are submitted to a node-RED flow to be summarized then return the result. We're doing this exercise to understand how to submit and receive information from node-RED while the process is triggered from the Peakboard side.
+In this article, we will build a Peakboard application that does the following:
+1. Take in two numbers from the user.
+2. Submit the two numbers to a node-RED flow, which will process the numbers and return the result.
+
+The purpose of this exercise is to understand how to use Peakboard to submit and receive information from node-RED.
 
 ## Building the node-RED flow
 
-Here's the flow we're using. It starts with a "http in" node to receive the call. Then we add the two numbers, which are part of the JSon payload. The next node is a template node to create the answer and finally we return the answer to the caller by using a "http response" node. To the relevant nodes we also added debug nodes. So we can follow the flow in the debug window when it's executed.
+Here's the flow we will use. It starts with an "HTTP in" node to receive the call. Then we add the two numbers, which are part of the JSon payload. The next node is a template node to create the answer and finally we return the answer to the caller by using a "http response" node. To the relevant nodes we also added debug nodes. So we can follow the flow in the debug window when it's executed.
 
 ![image](/assets/2024-03-23/010.png)
 
