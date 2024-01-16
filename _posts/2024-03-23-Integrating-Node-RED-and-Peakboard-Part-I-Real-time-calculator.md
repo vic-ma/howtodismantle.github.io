@@ -31,7 +31,7 @@ How to submit an alert from a Node-RED flow and visualize it in a Peakboard appl
 
 In this article, we will build a Peakboard application that does the following:
 1. Take in two numbers from the user.
-2. Submit the two numbers to a Node-RED flow, which will process the numbers and return the result.
+2. Submit the two numbers to a Node-RED flow, which will add the numbers and return the sum.
 
 The purpose of this exercise is to understand how to use Peakboard to submit and receive information from Node-RED.
 
@@ -66,7 +66,7 @@ The `HTTP Response` node doesn't need any additional configuration. It simply re
 
 ## Building the Peakboard app
 
-The Peakboard app is super simple. There are only two text fields for the input, a button and a text field for the output. We don't forget to give the textfields proper names to use them in scripting.
+The Peakboard app is super simple. There are two text fields for the input, a button that sends the request, and a text field for the output. We also make sure to give the text fields proper names, so we can use them in scripting.
 
 ![image](/assets/2024-03-23/030.png)
 
