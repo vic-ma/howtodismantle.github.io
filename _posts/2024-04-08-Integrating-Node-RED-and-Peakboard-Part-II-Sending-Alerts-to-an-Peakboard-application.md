@@ -29,9 +29,11 @@ How to send information from Peakboard to Node-RED, do something with it, and th
 [Part II - Sending Alerts to a Peakboard application](/Integrating-Node-RED-and-Peakboard-Part-II-Sending-Alerts-to-an-Peakboard-application.html) -
 How to send an alert from a Node-RED flow and visualize it in a Peakboard application.
 
-## What we build here
+## Goals for this article
 
-The showcase we're building here is to demonstrate how to send a message from node-RED to a Peakboard box. This is commonly used to inform a Peakboard user about a certain event that is happening in the node-RED flow. So in the example we just send an alert. The alert consists of a message and a Priority field. The message is shown in the Peakboard application and if the Priority is 'A' the background is turning red.
+In this article, we demonstrate how to send a message from node-RED to a Peakboard box. This is commonly used to inform a Peakboard user about some event happening in the node-RED flow.
+
+In our example, we send an alert that consists of a message and a Priority field. The message is shown in the Peakboard application and if the Priority is 'A' the background is turning red.
 
 ## Building the Peakboard app
 
