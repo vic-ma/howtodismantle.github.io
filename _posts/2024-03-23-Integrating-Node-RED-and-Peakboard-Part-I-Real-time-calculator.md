@@ -35,29 +35,29 @@ The showcase of this article will be, that the end user can use a Peakboard app 
 
 Here's the flow we're using. It starts with a "http in" node to receive the call. Then we add the two numbers, which are part of the JSon payload. The next node is a template node to create the answer and finally we return the answer to the caller by using a "http response" node. To the relevant nodes we also added debug nodes. So we can follow the flow in the debug window when it's executed.
 
-![image](/assets/2024-03-2/010.png)
+![image](/assets/2024-03-23/010.png)
 
 The "http in" node listens at the "/Add" URL:
 
-![image](/assets/2024-03-2/020.png)
+![image](/assets/2024-03-23/020.png)
 
 The function node adds the two numbers (X and Y) and creates a third attribute i the payload for the result:
 
-![image](/assets/2024-03-2/021.png)
+![image](/assets/2024-03-23/021.png)
 
 The actual response is created with a template node. It's just simple json with a placeholder pointing to the result we created in the last step:
 
-![image](/assets/2024-03-2/022.png)
+![image](/assets/2024-03-23/022.png)
 
 The "http response" doesn't need any additional configuration. It just returns the payload to the initial http caller:
 
-![image](/assets/2024-03-2/023.png)
+![image](/assets/2024-03-23/023.png)
 
 ## Building the Peakboard app
 
 The Peakboard app is super simple. There are only two text fields for the input, a button and a text field for the output. We don't forget to give the textfields proper names to use them in scripting.
 
-![image](/assets/2024-03-2/030.png)
+![image](/assets/2024-03-23/030.png)
 
 The actual script consists only of two steps. In the first step the http endpoint of the node-RED flow is called. We concatenate the strings to build a proper JSon with the two numbers X and Y coming from the text fields. Here's how the JSon should look like:
 
@@ -79,13 +79,13 @@ The call returns the result JSon. Here's how it looks like:
 
 To extract the result value from the response we use a JSon path block and address the Result attribute. The value is put into the text field we prepapred earlier.
 
-![image](/assets/2024-03-2/040.png)
+![image](/assets/2024-03-23/040.png)
 
 ## result and conclusion
 
 Here's the application in action and also the output of the debug window in node-RED to follow the steps and the calculcation in real time.
 
-![image](/assets/2024-03-2/result.gif)
+![image](/assets/2024-03-23/result.gif)
 
-![image](/assets/2024-03-2/050.png)
+![image](/assets/2024-03-23/050.png)
 
