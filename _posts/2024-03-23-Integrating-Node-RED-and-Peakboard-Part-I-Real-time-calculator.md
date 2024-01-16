@@ -9,6 +9,8 @@ read_more_links:
     url: https://nodered.org/docs/getting-started/windows
   - name: Node-RED main website
     url: https://nodered.org/
+  - name: Part I - Real-time calculator
+    url: /Integrating-Node-RED-and-Peakboard-Part-I-Real-time-calculator.html
   - name: Part II - Sending Alerts to a Peakboard application
     url: /Integrating-Node-RED-and-Peakboard-Part-II-Sending-Alerts-to-an-Peakboard-application.html
 downloads:
@@ -17,7 +19,7 @@ downloads:
   - name: Node-RED flow used in this article
     url: /assets/2024-03-23/flow.json
 ---
-In this little article series we want to dicuss some best practices around how to integrate a Peakboard with a node-RED application. Most of the times communication between node-RED and the outside world is happening through MQTT or any kind of http request. Here we use the http option:
+In this two-part article series, we will discuss the best practices for integrating Peakboard with node-RED applications. Most of the time, communication between node-RED and the outside world happens through MQTT or HTTP. We will use the HTTP option:
 
 [Part I - Real-time calculator](/Integrating-Node-RED-and-Peakboard-Part-I-Real-time-calculator.html)
 Shows how to submit information from Peakboard to node-RED, do something with it and then process the result in real-time
