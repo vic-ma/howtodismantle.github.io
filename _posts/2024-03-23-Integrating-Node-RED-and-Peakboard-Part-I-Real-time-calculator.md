@@ -9,8 +9,6 @@ read_more_links:
     url: https://nodered.org/docs/getting-started/windows
   - name: Node-RED main website
     url: https://nodered.org/
-  - name: Part I - Real-time calculator
-    url: /Integrating-Node-RED-and-Peakboard-Part-I-Real-time-calculator.html
   - name: Part II - Sending Alerts to a Peakboard application
     url: /Integrating-Node-RED-and-Peakboard-Part-II-Sending-Alerts-to-an-Peakboard-application.html
 downloads:
