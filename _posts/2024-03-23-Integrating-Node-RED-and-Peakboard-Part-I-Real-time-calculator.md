@@ -70,7 +70,12 @@ The Peakboard app is super simple. There are two text fields for the input, a bu
 
 ![image](/assets/2024-03-23/030.png)
 
-The actual script consists only of two steps. In the first step the http endpoint of the Node-RED flow is called. We concatenate the strings to build a proper JSon with the two numbers X and Y coming from the text fields. Here's how the JSon should look like:
+The actual script consists of two steps:
+
+1. Call the HTTP endpoint of the Node-RED flow.
+2. Concatenate the strings to build a proper JSON object with the two numbers from the text fields, `X` and `Y`.
+
+Here's what the JSON looks like:
 
 {% highlight json %}
 {
