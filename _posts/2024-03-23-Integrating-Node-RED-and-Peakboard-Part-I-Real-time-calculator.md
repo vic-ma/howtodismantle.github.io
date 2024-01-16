@@ -52,7 +52,7 @@ The `HTTP In` node listens at the `/Add` URL:
 
 ![image](/assets/2024-03-23/020.png)
 
-The function node adds the two numbers, `X` and `Y`, and creates a third attribute `i` the payload for the result:
+The function node adds the two numbers, `X` and `Y`, and creates a third attribute in the payload, `result`, to hold the result:
 
 ![image](/assets/2024-03-23/021.png)
 
