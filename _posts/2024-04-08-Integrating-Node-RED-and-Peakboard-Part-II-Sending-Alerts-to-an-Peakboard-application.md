@@ -33,11 +33,11 @@ How to send an alert from a Node-RED flow and visualize it in a Peakboard applic
 
 In this article, we demonstrate how to send a message from node-RED to a Peakboard box. This is commonly used to inform a Peakboard user about some event happening in the node-RED flow.
 
-In our example, we send an alert that consists of a message and a Priority field. The message is shown in the Peakboard application and if the Priority is 'A' the background is turning red.
+In our example, we send an alert that consists of a message and a priority field. The message is shown in the Peakboard application, and if the priority is `A`, then the background turns red.
 
 ## Building the Peakboard app
 
-The first thing we need in the Peakboard app is a function called SubmitAlert. We're making it 'shared'. So the function can not only be called from within the app but also from the outside by calling a http endpoint on the box. The function has two parameters: Priority and Message.
+The first thing we need in the Peakboard app is a function called `SubmitAlert`. We make select **Shared function**. This way, the function can be called from outside the app, by calling an HTTP endpoint on the box. The function has two parameters: `Priority` and `Message`.
 
 ![image](/assets/2024-04-08/010.png)
 
