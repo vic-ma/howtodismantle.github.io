@@ -1,18 +1,24 @@
 ---
 layout: post
-title: Taming the wild JSon - How to use JPath in Peakboard scripts
+title: Taming JSON - How to use JPath in Peakboard scripts
 date: 2023-03-01 02:00:00 +0200
 tags: api basics
 image: /assets/2024-03-07/title.png
 read_more_links:
-  - name: JPath lib on github (check out the readme for interesting details)
+  - name: JPath library on github (check out the README for interesting details)
     url: https://github.com/atifaziz/JSONPath
 downloads:
   - name: JSonJPathExamples.pbmx
     url: /assets/2024-03-07/JSonJPathExamples.pbmx
 ---
 
-JSon is the number one data format in any modern web and cloud environment. We often have to deal with it as part of a Peakboard application, for example when calling an API and processing the result. A common way to process the JSon string is not to do any basic string operations to extract the needed data from the payload, but rather to use a so called JPath expression. This JPath is a string describing the way to find the needed data within the JSon string. It sounds much more complicated than it is. That's why we use this article to show how to use JPath by examples. The logic how it works will be pretty clear then. The JSon string we're referring to in our examples is shown below. It represents a simple purchase order with a order header and two order items. The order items are arranged in a so called array.
+JSON is the most popular data format for modern web and cloud environments. Peakboard applications often use JSON. For example, when calling an API and processing the response.
+
+A good way to extract the desired data from a JSON string is to use a JPath expression, rather than using basic string operations. A JPath is a string that describes how to find the desired data within the JSON string.
+
+It's a lot simpler than it sounds. This article will show you how to use JPath through examples. The logic behind how it works will become clear in the end.
+
+The JSON string we will use in our examples is shown below. It represents a simple purchase order with an order header and two order items. The order items are arranged in an array.
 
 {% highlight json %}
 {
@@ -34,13 +40,17 @@ JSon is the number one data format in any modern web and cloud environment. We o
 }
 {% endhighlight %}
 
-## Using JPath is Peakboard
+## Using JPath in Peakboard
 
-There are predefined functions to use JPath within a Peakboard script or the Building Blocks. As you see in the screenshot, A local variable is filled with our sample JSon. Then the JPath block is used. In hat case the JPath expression is "order_header.order_no", so the JPath block extracts the field order_no that is hierarchically bound to the order header "order_header". So this expression returns the value "ORD123456". The third parameter of this JPath block is a string that is returned by the block in case the JPath expression points to a non-exiting data point. So it's easy to cope with the situation where the JSon might not look like as you expected it to be.
+Peakboard scripts and Building Blocks have predefined functions for JPath. In the following screenshot, we fill a local variable with our JSON example. Then, we use the JPath block.
+
+In this case, the JPath expression is `order_header.order_no`. The JPath block extracts the field `order_no`, which is hierarchically bound to the order header `order_header`. So this expression returns the value `ORD123456`.
+
+The third parameter of this JPath block is a string that is returned by the block if the JPath expression points to a non-exiting data point. This handles the situation where the JSON doesn't look like what you expect.
 
 ![image](/assets/2024-03-07/010.png)
 
-For all users who prefer to do LUA scirpting instead of Bulding Blocks, here we go:
+For users who prefer LUA scripting to Building Blocks, here is the same script in LUA:
 
 {% highlight lua %}
 local myjson = '...'
@@ -49,7 +59,9 @@ screens['Screen1'].txt1.text = json.getvaluefrompath(myjson, 'order_header.order
 
 ## Addressing Arrays
 
-Beside the simple path shown above by just using "." to connect the hierarchy levels to express the actual path, we can use brackets "[XXX]" to move within an array. The following expression returns the field material_no in the first array entry (so the first item within our order).
+The simple JSON path above uses `.` to connect the hierarchy levels and create the actual path. But we can also use brackets, like `[3]`, to move within an array.
+
+This expression returns the field `material_no` in the first array entry (which is the first item in our order):
 
 {% highlight jpath %}
 order_items[0].material_no
@@ -57,7 +69,7 @@ order_items[0].material_no
 returns MAT001
 {% endhighlight %}
 
-Let's assume you don't know exactly how many items an array has, but you're interested in the last one. You can use the operator ":" to indicate a range and then count backwards by using the ordinal number "-1"
+Now, let's say you want the last item in an array, but you don't know exactly how many items the array has. In this case, you can use the `:` character to indicate a range, and then count backwards by using the ordinal number `-1`:
 
 {% highlight jpath %}
 order_items[-1:].material_no
@@ -65,7 +77,7 @@ order_items[-1:].material_no
 returns MAT002
 {% endhighlight %}
 
-If you want to use a filter to find the right entry within an array you can use the "?" character to apply a filter instead of the ordinal number. In this example we filter for items with material_no equals "MAT001" and return the corresponding quantity.
+If you want to use a filter to find an entry in an array, you can use the `?` character. In this example, we filter for items with a `material_no` that equals `MAT001` and return the corresponding quantity:
 
 {% highlight jpath %}
 order_items[?(@.material_no == 'MAT001')].quantity
@@ -73,7 +85,7 @@ order_items[?(@.material_no == 'MAT001')].quantity
 returns 10
 {% endhighlight %}
 
-Let's try out this filter in the JPath block shown above but try to filter for something that doesn't exists. In that case the block returns the error string "#ERROR#".
+Now let's try to filter for something that doesn't exist. In this case, the block returns the error string `#ERROR#`:
 
 {% highlight jpath %}
 order_items[?(@.material_no == 'XXX')].quantity
@@ -83,13 +95,17 @@ returns #ERROR#
 
 ## Aggregating and looping
 
-Unfortunately JPath doesn't support aggregating array items. That's why we need to build that on our own. Ths following example shows a loop. The counter variable "i" is used to build a dynamic JPath expression that addresses a certain array item. As soon as the block return "#ERROR#" we know, that we have reached the end of the array and exit the loop. So "i" contains the number of array entries. That's the basic pattern for iterating array entries without knowing how many entries an array has. If you want to let's say summarize some values, it work exactly the same. Just loop and do something for every entry until the JPath returns an error string.
+Unfortunately, JPath doesn't support aggregating array items. That's why we need to do this on our own
+
+The following example shows a loop. We use a counter variable `i` to build a dynamic JPath expression that addresses each array item. As soon as the expression returns `#ERROR#`, we know that we have reached the end of the array, and so we exit the loop.
+
+So `i` contains the index of the array entries. That's the basic pattern for iterating array entries without knowing how many entries the array has. If you want to summarize some values, it works exactly the same. Just loop and do something for each entry, until the JPath returns an error string.
 
 ![image](/assets/2024-03-07/020.png)
 
-## result and conclusion
+## Conclusion
 
-JPath is easy to understand and much more practical than doing basic string opration with JSon strings. Feel free to download the attached pbmx and play around with it. All examples explained in this article are available to tested right away...
+JPath is easy to understand and much more practical than doing basic string operations with JSON strings. Feel free to download the attached pbmx and play around with it. All the examples in this article can be tested straight away.
 
 ![image](/assets/2024-03-07/result.gif)
 
