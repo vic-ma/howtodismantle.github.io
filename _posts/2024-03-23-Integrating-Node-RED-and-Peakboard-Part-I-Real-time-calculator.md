@@ -41,11 +41,11 @@ The purpose of this exercise is to understand how to use Peakboard to submit and
 
 The following screenshot shows the flow we're using. Here's what the flow does:
 1. An `HTTP In` node receives the call.
-2. A function node adds the two numbers from the JSON payload of the call.
-3. A template node creates the response.
+2. A Function node adds the two numbers from the JSON payload of the call.
+3. A Template node creates the response.
 4. An `HTTP Response` node returns the response to the caller.
 
-We also add debug nodes so that we can follow the flow in the debug window, when it's executed.
+We also add Debug nodes so that we can follow the flow in the debug window, when it's executed.
 
 ![image](/assets/2024-03-23/010.png)
 
@@ -53,11 +53,11 @@ The `HTTP In` node listens at the `/Add` URL:
 
 ![image](/assets/2024-03-23/020.png)
 
-The function node adds the two numbers, `X` and `Y`. It creates a third attribute in the payload, `result`, to hold the result:
+The Function node adds the two numbers, `X` and `Y`. It creates a third attribute in the payload, `result`, to hold the result:
 
 ![image](/assets/2024-03-23/021.png)
 
-The actual response is created with a template node. It's a simple JSON object which has a `Result` property that points to the result we created in the last step:
+The actual response is created with a Template node. It's a simple JSON object which has a `Result` property that points to the result we created in the last step:
 
 ![image](/assets/2024-03-23/022.png)
 

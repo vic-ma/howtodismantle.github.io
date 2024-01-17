@@ -62,7 +62,7 @@ But on the other hand, we don't want to put the box's admin credentials into the
 
 ## Building the flow
 
-The screenshot below shows the node-RED flow. It starts with a manual starting point to trigger the flow (just be clicking on it becaue it's just a demo). The actualy JSon body is created in a Template node and then sent via a "http request" node. To monitor this we put some debug nodes on the side, so we can follow the call when the flow is executed.
+The following screenshot shows the node-RED flow. It starts with a manual starting point that triggers the flow (just a click, because it's just a demo). The actualy JSon body is created in a Template node and then sent via a "http request" node. To monitor this we put some debug nodes on the side, so we can follow the call when the flow is executed.
 
 ![image](/assets/2024-04-08/040.png)
 
