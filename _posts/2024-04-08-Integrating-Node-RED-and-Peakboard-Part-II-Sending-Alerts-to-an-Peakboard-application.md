@@ -75,7 +75,10 @@ Let's look at the Template node. The JSON built here needs to submit the paramet
 
 ![image](/assets/2024-04-08/050.png)
 
-The tricky part is the http request node. First we need to fill in the URL to the box endpoint for the shared function. Then we need to fill the authentification credentials for the user we created earlier. The last thing is to add a header for the "Content-Type" and set it to "application/json" to make sure the webserver of the box knows what to do with it.
+The tricky part is the `HTTP Request` node. Here's what we need to do:
+1. Fill in the URL to the box endpoint for the shared function.
+2. Fill the authentication credentials for the user we created earlier.
+3. Add a header for the `Content-Type` and set it to `application/json` so the webserver of the box knows what to do with it.
 
 ![image](/assets/2024-04-08/060.png)
 
