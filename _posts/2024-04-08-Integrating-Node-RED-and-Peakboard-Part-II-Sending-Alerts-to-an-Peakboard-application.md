@@ -71,7 +71,7 @@ We also add Debug nodes so that we can follow the flow in the debug window, when
 
 ![image](/assets/2024-04-08/040.png)
 
-Let's dive into the template node. The JSon built here follows the need to submit parameters to a shared function with the two parameters discussed earlier.
+Let's look at the Template node. The JSON built here needs to submit the parameters to our shared function from earlier.
 
 ![image](/assets/2024-04-08/050.png)
 
