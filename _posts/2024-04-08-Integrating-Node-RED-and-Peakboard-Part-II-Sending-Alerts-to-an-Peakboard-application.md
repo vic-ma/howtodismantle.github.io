@@ -41,7 +41,7 @@ The first thing we need in the Peakboard app is a function called `SubmitAlert`.
 
 ![image](/assets/2024-04-08/010.png)
 
-The canvas is pretty simple. The main element is just a text field with a certain name, so we can use later it in the script.
+The canvas is pretty simple. The main element is a text field. We give it a name so that we can use it in our script later.
 
 ![image](/assets/2024-04-08/020.png)
 
