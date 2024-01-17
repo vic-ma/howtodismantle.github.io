@@ -47,13 +47,16 @@ The canvas is pretty simple. The main element is a text field. We give it a name
 
 Let's jump into the function. The two parameters are available in the block tree on the right side. Here's what the script does:
 1. When the Priority value is `A`, we make the background red. Otherwise, we make it transparent.
-2. We assign the message value is to the text field, and an "Alert Processed" message is returned to the caller.
+2. We assign the message value to the text field.
+3. We return an "Alert Processed" message to the caller.
 
 ![image](/assets/2024-04-08/030.png)
 
 ## Preparing the box
 
-Later we will call the http endpoint of the shared function on the box. Of course this endpoint is protected with username and password to prevent unwanted people from calling it. But on the other side we don't want to put the box's admin credentials into the node-RED flow. That's why we add an additional user with very limited rights to the box. This can be done in the "User and Roles" section of the box admnistration.
+Later, we will call the HTTP endpoint of the shared function on the box. Of course, this endpoint is protected with a username and password, to prevent unauthorized people from calling it.
+
+But on the other hand, we don't want to put the box's admin credentials into the node-RED flow. That's why we add an additional user with very limited rights to the box. This can be done in the **User and roles** section of the box administration.
 
 ![image](/assets/2024-04-08/035.png)
 
