@@ -31,13 +31,13 @@ How to send an alert from a Node-RED flow and visualize it in a Peakboard applic
 
 ## Goals for this article
 
-In this article, we demonstrate how to send a message from node-RED to a Peakboard box. This is commonly used to inform a Peakboard user about some event happening in the node-RED flow.
+In this article, we show how to send a message from node-RED to a Peakboard box. This is commonly used to inform a Peakboard user about some event happening in the node-RED flow.
 
 In our example, we send an alert that consists of a message and a priority field. The message is shown in the Peakboard application, and if the priority is `A`, then the background turns red.
 
 ## Building the Peakboard app
 
-The first thing we need in the Peakboard app is a function called `SubmitAlert`. We select **Shared function**. This way, the function can be called from outside the app, by calling an HTTP endpoint on the box. The function has two parameters: `Priority` and `Message`.
+The first thing we need in the Peakboard app is a function called `SubmitAlert`. We add two parameters to the function: `Priority` and `Message`. We also need to select **Shared function**. That way, the function can be called from outside the app, by calling an HTTP endpoint on the box. 
 
 ![image](/assets/2024-04-08/010.png)
 
@@ -54,9 +54,9 @@ Let's jump into the function. The two parameters are available in the block tree
 
 ## Preparing the box
 
-Later, we will call the HTTP endpoint of the shared function on the box. Of course, this endpoint is protected with a username and password, to prevent unauthorized people from calling it.
+Later, we will call the HTTP endpoint of the shared function on the box. Of course, this endpoint is protected with a username and password, to prevent unauthorized calls. But we also don't want to put the box's admin credentials into the node-RED flow.
 
-But on the other hand, we don't want to put the box's admin credentials into the node-RED flow. That's why we add an additional user with very limited rights to the box. This can be done in the **User and roles** section of the box administration.
+That's why we add an additional user with very limited rights to the box. This can be done in the **User and roles** section of the box administration.
 
 ![image](/assets/2024-04-08/035.png)
 
@@ -78,16 +78,16 @@ Let's look at the Template node. The JSON built here needs to submit the paramet
 The tricky part is the `HTTP Request` node. Here's what we need to do:
 1. Fill in the URL to the box endpoint for the shared function.
 2. Fill the authentication credentials for the user we created earlier.
-3. Add a header for the `Content-Type` and set it to `application/json` so the webserver of the box knows what to do with it.
+3. Add a `Content-Type` header and set it to `application/json`, so the web server of the box knows what to do with it.
 
 ![image](/assets/2024-04-08/060.png)
 
 ## Action!
 
-Here's what the flow looks like when executed. We check the log messages on the right side. It shows the JSON, and more importantly, it shows what is returned from the call to the box. The string "Alert processed" is created by the Peakboard shared function.
+Here's what the flow looks like when executed. We check the log messages on the right side. It shows the JSON, and more importantly, it shows what is returned by the box. The string "Alert processed" is created by the Peakboard shared function.
 
 ![image](/assets/2024-04-08/070.png)
 
 Here's the result in the Peakboard app. The alert is shown, and the background is set to red because of the `A` priority.
 
-![image](/assets/2024-04-08/050.png)
+![image](/assets/2024-04-08/080.png)
