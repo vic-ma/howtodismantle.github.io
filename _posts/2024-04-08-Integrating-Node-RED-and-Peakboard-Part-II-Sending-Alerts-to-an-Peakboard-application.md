@@ -84,10 +84,10 @@ The tricky part is the `HTTP Request` node. Here's what we need to do:
 
 ## Action!
 
-Here's how the flow looks like when executed. We check the log messages on the right side. It shows the JSon and more important it shows what is returned from the call to the box. The term "Alert processed" is created by the Peakboard shared function.
+Here's what the flow looks like when executed. We check the log messages on the right side. It shows the JSON, and more importantly, it shows what is returned from the call to the box. The string "Alert processed" is created by the Peakboard shared function.
 
 ![image](/assets/2024-04-08/070.png)
 
-Here's the result in the Peakboard app. The alert is shown and the background is set to red because of the A priority.
+Here's the result in the Peakboard app. The alert is shown, and the background is set to red because of the `A` priority.
 
 ![image](/assets/2024-04-08/050.png)
