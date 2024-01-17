@@ -37,7 +37,7 @@ In our example, we send an alert that consists of a message and a priority field
 
 ## Building the Peakboard app
 
-The first thing we need in the Peakboard app is a function called `SubmitAlert`. We make select **Shared function**. This way, the function can be called from outside the app, by calling an HTTP endpoint on the box. The function has two parameters: `Priority` and `Message`.
+The first thing we need in the Peakboard app is a function called `SubmitAlert`. We select **Shared function**. This way, the function can be called from outside the app, by calling an HTTP endpoint on the box. The function has two parameters: `Priority` and `Message`.
 
 ![image](/assets/2024-04-08/010.png)
 
@@ -45,7 +45,9 @@ The canvas is pretty simple. The main element is a text field. We give it a name
 
 ![image](/assets/2024-04-08/020.png)
 
-Let's jump into the function. The two parameters are available in the block tree on the right side. The functionality we're building is quite simple. When the Priority value is 'A' we make the background red, otherwise we make it transparent. The Message value is just assigned to the text field and a "Alert Processed" message is returned to the caller. That's it.
+Let's jump into the function. The two parameters are available in the block tree on the right side. Here's what the script does:
+1. When the Priority value is `A`, we make the background red. Otherwise, we make it transparent.
+2. We assign the message value is to the text field, and an "Alert Processed" message is returned to the caller.
 
 ![image](/assets/2024-04-08/030.png)
 
