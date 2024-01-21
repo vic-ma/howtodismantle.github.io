@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Reading and writing Sharepoint lists with Graph extension
-date: 2023-03-01 12:00:00 +0200
+date: 2023-01-20 12:00:00 +0200
 tags: msgraph office365
 image: /assets/2024-01-20/title.png
 read_more_links:
@@ -22,7 +22,7 @@ In this article, we will learn how to read and write a Sharepoint list in an Off
 Peakboard offers native access to Sharepoint lists.
 However, the built-in data source does not support multifactor authentication.
 If you don't need multifactor authentication, and you only need to read data, then you can use the built-in data source.
-
+ 
 But if you do need multifactor authentication, then this article will teach you how to solve the problems with the MS Graph API.
 
 We will use a sample list, like the one shown in the screenshot. Beside the string columns, there is a numeric column for quantities. These are treated a little differently than strings.
