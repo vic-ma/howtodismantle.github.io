@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Reading and writing Sharepoint lists with Graph extension
-date: 2023-01-20 12:00:00 +0200
+date: 2024-01-20 12:00:00 +0200
 tags: msgraph office365
 image: /assets/2024-01-20/title.png
 read_more_links:
