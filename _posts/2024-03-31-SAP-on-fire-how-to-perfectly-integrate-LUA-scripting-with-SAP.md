@@ -125,7 +125,6 @@ con.execute([[
       SALES_DOCUMENTS = @MyVbelnList INTO @MyVbelnList_out,
 ...
   ]], vals)
-{% endhighlight %}
 
 peakboard.log(vals.MyVbelnList_out.count)
 peakboard.log(vals.MyVbelnList_out[0].VBELN)
