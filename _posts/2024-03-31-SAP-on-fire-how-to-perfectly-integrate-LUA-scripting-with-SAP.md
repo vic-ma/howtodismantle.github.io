@@ -12,7 +12,7 @@ read_more_links:
   - name: Dismantle BAPI_PRODORD_GET_DETAIL - How to get production order details from SAP
     url: /Dismantle-BAPI_PRODORD_GET_DETAIL-How-to-get-production-order-details-from-SAP.html
 downloads:
-  - name: SAPBAPICallsInScripting.pbmxx
+  - name: SAPBAPICallsInScripting.pbmx
     url: /assets/2024-03-31/SAPBAPICallsInScripting.pbmx
 ---
 As SAP is one of the top 3 systems to be used together with Peakboard there are already [a lot of articles](https://how-to-dismantle-a-peakboard-box.com/category/sap) available here on the blog. But all of these articles mostly cover how to access SAP for reading and writing from a data source. In his article we learn how to do very sophisticated SAP calls directly from within a LUA script without the need to create a data source. For all the samples in this article we need an active SAP connection. So we make sure a connection is available in the connection manager and we know its ID. 
@@ -49,7 +49,7 @@ con.execute('SELECT top 10 * FROM MAKT into @MyMakt;', vals)
 
 peakboard.log(vals.MyMakt.count)
 peakboard.log(vals.MyMakt[1].MAKTX)
-
+{% endhighlight %}
 
 ## multiple returns
 
