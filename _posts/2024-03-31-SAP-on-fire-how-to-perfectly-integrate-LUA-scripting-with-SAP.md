@@ -65,10 +65,17 @@ peakboard.log(vals.MyMakt.count)
 peakboard.log(vals.MyMakt[1].MAKTX)
 {% endhighlight %}
 
-## multiple returns
+## Multiple returns
 
-Let's go one step further and try an RFC function that returns multiple tables. The following code shows the call of the function module BAPISDORDER_GETDETAILEDLIST. You can use it to query information about multiple sales documents with one single call.
-It receives one fixed table SALES_DOCUMENTS that contains two rows with two sales docment numbers. And it returns the tables ORDER_HEADERS_OUT as list of requested sales document headers and ORDER_ITEMS_OUT as a list of all items of all requested sales documents. The pattern how to use the vals object stays the same. By the way: In this sample we use the double brackets in LUA to indicate a string, in that case our XQL, that extends over multiple lines without the need for articificial line breaks. That makes the code much more readable.
+Let's go one step further and try an RFC function that returns multiple tables.
+
+The following code shows the call of the function module `BAPISDORDER_GETDETAILEDLIST`. You can use it to query information about multiple sales documents with a single call.
+
+The function module accepts a fixed table called `SALES_DOCUMENTS` that contains two rows with two sales document numbers. It returns two tables:
+* `ORDER_HEADERS_OUT` as a list of requested sales document headers
+* `ORDER_ITEMS_OUT` as a list of all items of all requested sales documents
+
+ The pattern how to use the vals object stays the same. By the way: In this sample we use the double brackets in LUA to indicate a string, in that case our XQL, that extends over multiple lines without the need for articificial line breaks. That makes the code much more readable.
 
 {% highlight lua %}
 local vals = {}
