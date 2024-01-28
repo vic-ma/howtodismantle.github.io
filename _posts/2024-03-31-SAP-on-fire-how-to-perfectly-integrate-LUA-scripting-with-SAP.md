@@ -17,11 +17,13 @@ downloads:
 ---
 Because SAP is one of the top 3 systems used with Peakboard, there are already [a lot of SAP articles](https://how-to-dismantle-a-peakboard-box.com/category/sap) available on this blog. But these articles mostly cover how to access SAP for reading and writing from a data source.
 
-In this article, we will learn how to make sophisticated SAP calls directly from a LUA script, without creating a data source. For all the samples in this article we need an active SAP connection. So we make sure a connection is available in the connection manager and we know its ID. 
+In this article, we will learn how to make sophisticated SAP calls directly from a LUA script, without creating a data source.
+
+For all the examples in this article, we need an active SAP connection. So we make sure that a connection is available in the connection manager, and that we know its ID. 
 
 ![image](/assets/2024-03-31/010.png)
 
-To have this connection available in LUA to do crazy stuff with it, we just use the connections.getfromid command.
+To access this connection in LUA, we use the `connections.getfromid` command.
 
 {% highlight lua %}
 local con = connections.getfromid('As4kF5peAjw+3MIuEQf3Fc1kEeY=')
