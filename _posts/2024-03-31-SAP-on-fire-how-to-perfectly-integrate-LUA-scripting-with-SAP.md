@@ -134,9 +134,11 @@ EXECUTE FUNCTION 'BAPISDORDER_GETDETAILEDLIST'
 [processing the return]
 {% endhighlight %}
 
-## in and out of the same table
+## In and out of the same table
 
-To complete the samples we need to add two niche cases. Here is a sample when a dynamic table is used be submitted to and returned by the XQL / SAP system at the same time. (the code is shortened to make it clearer).
+To complete our examples, we need to add two niche cases.
+
+Here is an example where a dynamic table is submitted to and returned by the XQL / SAP system at the same time (the code is shortened for clarity).
 
 {% highlight lua %}
 local vals = {}
@@ -157,7 +159,9 @@ peakboard.log(vals.MyVbelnList_out.count)
 peakboard.log(vals.MyVbelnList_out[0].VBELN)
 {% endhighlight %}
 
-And here's the same to process scalar, non-table-like parameter to be returned from the RFC function. In that sample we use the RFC BAPI_MATERIAL_GET_DETAIL to get some detail information about a given material. The export parameter MATERIAL_GENERAL_DATA is a data strcuture. One of the elements is MATL_DESC, the material decription. it is stored into the container MyMatDesc and then processed.
+And here's the same thing, but for processing scalar, non-table-like parameters, to be returned from the RFC function. In this example, we use the RFC `BAPI_MATERIAL_GET_DETAIL` to get some information about a given material. 
+
+The export parameter `MATERIAL_GENERAL_DATA` is a data structure. One of the elements is `MATL_DESC`, the material description. It is stored into the container `MyMatDesc` and then processed.
 
 {% highlight lua %}
 local vals = {}
