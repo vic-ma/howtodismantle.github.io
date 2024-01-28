@@ -54,7 +54,7 @@ peakboard.log(myMAKT[1].MAKTX)
 
 The simple case of returning one table is often not enough. In the real world, we often have to exchange multiple data artifacts with SAP objects. To do this, we use the `vals` object.
 
-The following is the same code from before, but this time, we create a generic array object called `vals`, and use the execute function to fill it.
+The following is the same code from before, but this time, we create a generic array object called `vals` and use the execute function to fill it.
 
 We must tell the XQL engine which container we want to store the return value of our table query in. We do this with the command `into @MyMakt`.
 
@@ -108,9 +108,9 @@ peakboard.log(vals.MyItemsTable[0].MATERIAL)
 
 ## Multiple inputs and outputs
 
-This time, we want to submit data to the XQL engine, not just receive data from it.
+This time, we want to submit data to the XQL engine, not just receive data from it. The following example shows how to make the `SALES_DOCUMENTS` table dynamic.
 
-The following example shows how to make the `SALES_DOCUMENTS` table dynamic. We set `SALES_DOCUMENTS` before the call, by adding a container named `MyVbelnList` to the `vals` collection and referencing it in the XQL with `@MyVbelnList`.
+We set `SALES_DOCUMENTS` before the call, by adding a container named `MyVbelnList` to the `vals` collection and referencing it in the XQL with `@MyVbelnList`.
 
 The same thing works with scalar parameters. In this example, the `X` string is actually injected into the XQL by using `@MyBapiViewX`.
 
@@ -142,7 +142,7 @@ EXECUTE FUNCTION 'BAPISDORDER_GETDETAILEDLIST'
 
 To complete our examples, we need to add two niche cases.
 
-Here is an example where a dynamic table is submitted to and returned by the XQL / SAP system at the same time (the code is shortened for clarity).
+The following is an example where a dynamic table is submitted to and returned by the XQL / SAP system at the same time (the code is shortened for clarity):
 
 {% highlight lua %}
 local vals = {}
