@@ -15,9 +15,11 @@ downloads:
   - name: SAPBAPICallsInScripting.pbmx
     url: /assets/2024-03-31/SAPBAPICallsInScripting.pbmx
 ---
-Because SAP is one of the top 3 systems used with Peakboard, there are already [a lot of SAP articles](https://how-to-dismantle-a-peakboard-box.com/category/sap) available on this blog. But these articles mostly cover how to access SAP for reading and writing from a data source.
+Because SAP is one of the top 3 systems used with Peakboard, there are already [a lot of SAP articles](https://how-to-dismantle-a-peakboard-box.com/category/sap) available on this blog. But those articles cover how to access SAP for reading and writing from a data source.
 
 In this article, we will learn how to make sophisticated SAP calls directly from a LUA script, without creating a data source.
+
+## SAP connection
 
 For all the examples in this article, we need an active SAP connection. So we make sure that a connection is available in the connection manager, and that we know its ID. 
 
@@ -29,9 +31,11 @@ To access the SAP connection in LUA, we use the `connections.getfromid` command.
 local con = connections.getfromid('As4kF5peAjw+3MIuEQf3Fc1kEeY=')
 {% endhighlight %}
 
-TODO
+This connection object exposes the `execute` method, which executes regular XQL against the SAP system.
 
-This connection object exposes the `execute` method, which executes regular XQL to be shot against the SAP system. This XQL is the same we already used in many contexts in the SAP data sources. It represents the SAP interface and specifies which object to be addressed in SAP (e.g. RFC function module, Report, MDX statements, SAP query, table select....). In this article we will only use some sophisticated RFCs and table calls and fully focus on the LUA part.
+This is the same XQL we used with the SAP data sources. It represents the SAP interface and specifies the object to be addressed in SAP (for example, RFC function module, report, MDX statements, SAP query, table `SELECT`).
+
+In this article, we will only use some sophisticated RFCs and table calls. We will focus on the LUA part.
 
 ## Simple data handling
 
@@ -178,9 +182,9 @@ EXECUTE FUNCTION 'BAPI_MATERIAL_GET_DETAIL'
 peakboard.log('Material Description: ' .. vals.MyMatDesc)
 {% endhighlight %}
 
-## conclusion
+## Conclusion
 
-Calling SAP is sometimes complicated and especially calling sophisticated RFCs the developer needs to perfectly understand how complex data exchange between LUA, the XQL engine and SAP works. This article covers all case on how to do the exchange. Feel free to download the sample pbmx and play around. All function modules are avaialble in the SAP standard. Enjoy!
+Calling SAP is sometimes complicated. When calling sophisticated RFCs, the developer needs to perfectly understand how complex data exchange between LUA, the XQL engine, and SAP works. This article covers how to do the exchange in all cases. Feel free to download the sample PBMX and play around with it. All function modules are available in the SAP standard. Enjoy!
 
 ![image](/assets/2024-03-31/020.png)
 
