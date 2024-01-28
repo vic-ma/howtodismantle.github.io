@@ -102,9 +102,13 @@ peakboard.log(vals.MyItemsTable.count)
 peakboard.log(vals.MyItemsTable[0].MATERIAL)
 {% endhighlight %}
 
-## mutiple ins and outs
+## Multiple inputs and outputs
 
-In our next iteration we don't want to only receive data from the XQL enine but also submit data to it. The next sample shows how make the SALES_DOCUMENTS table dynamic and fill before the call just by adding a container named MyVbelnList to the vals  collection and just refer to it in XQL with @MyVbelnList. The same works with scalar parameters. In the sample the 'X' string actually is injected into the XQL by using @MyBapiViewX.
+This time, we want to submit data to the XQL engine, not just receive data from it.
+
+The following example shows how to make the `SALES_DOCUMENTS` table dynamic. We set `SALES_DOCUMENTS` before the call, by adding a container named `MyVbelnList` to the `vals` collection and referencing it in the XQL with `@MyVbelnList`.
+
+The same thing works with scalar parameters. In this example, the `X` string is actually injected into the XQL by using `@MyBapiViewX`.
 
 {% highlight lua %}
 local vals = {}
