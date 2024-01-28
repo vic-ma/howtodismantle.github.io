@@ -35,7 +35,9 @@ This connection object exposes the `execute` method, which executes regular XQL 
 
 ## Simple data handling
 
-Let's start with some very simple XQL. A table select statement to get data from the MAKT table. Only exactly one table is returned. So in that case the Execute function returns a LUA array. The code shows that you can just handle the return data like a regular array-like data object and use aggregate functions like 'count' or address a single row with the ordinal number. 
+Let's start with some very simple XQL: a `SELECT` statement that gets data from the `MAKT` table. Exactly one table is returned. So the `execute` function returns a LUA array.
+
+The code shows that you can handle the return data like a regular array-like data object. You can use aggregate functions like `count`, or address a single row with an ordinal. 
 
 {% highlight lua %}
 local myMAKT = con.execute('SELECT top 10 * FROM MAKT;')
@@ -44,7 +46,7 @@ peakboard.log(myMAKT.count)
 peakboard.log(myMAKT[1].MAKTX)
 {% endhighlight %}
 
-## the vals object
+## The `vals` object
 
 The simple version of returning exactly one table is often not enough. In real life we often have to exchange multiple data artefacts with the SAP objects. For this we use the vals object. Here's is the code we already know, but this time we create a generic array object called 'vals' and let the execute function fill it. We must tell the XQL engine in which container we want to store the return of our table query. So we do with the term 'into @MyMakt'. After the call we can use the data by addressing this container with the same name: vals.MyMakt. This instance in turn is again an array with the same elements as the original table in SAP. 
 
