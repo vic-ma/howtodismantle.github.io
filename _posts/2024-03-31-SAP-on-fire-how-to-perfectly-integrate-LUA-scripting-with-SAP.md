@@ -23,15 +23,17 @@ For all the examples in this article, we need an active SAP connection. So we ma
 
 ![image](/assets/2024-03-31/010.png)
 
-To access this connection in LUA, we use the `connections.getfromid` command.
+To access the SAP connection in LUA, we use the `connections.getfromid` command.
 
 {% highlight lua %}
 local con = connections.getfromid('As4kF5peAjw+3MIuEQf3Fc1kEeY=')
 {% endhighlight %}
 
-This connection object offers the 'Execute' method which executes regular XQL to be shot against the SAP system. This XQL is the same we already used in many contexts in the SAP data sources. It represents the SAP interface and specifies which object to be addressed in SAP (e.g. RFC function module, Report, MDX statements, SAP query, table select....). In this article we will only use some sophisticated RFCs and table calls and fully focus on the LUA part.
+TODO
 
-## simple data handling
+This connection object exposes the `execute` method, which executes regular XQL to be shot against the SAP system. This XQL is the same we already used in many contexts in the SAP data sources. It represents the SAP interface and specifies which object to be addressed in SAP (e.g. RFC function module, Report, MDX statements, SAP query, table select....). In this article we will only use some sophisticated RFCs and table calls and fully focus on the LUA part.
+
+## Simple data handling
 
 Let's start with some very simple XQL. A table select statement to get data from the MAKT table. Only exactly one table is returned. So in that case the Execute function returns a LUA array. The code shows that you can just handle the return data like a regular array-like data object and use aggregate functions like 'count' or address a single row with the ordinal number. 
 
