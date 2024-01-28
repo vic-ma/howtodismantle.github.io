@@ -75,7 +75,9 @@ The function module accepts a fixed table called `SALES_DOCUMENTS` that contains
 * `ORDER_HEADERS_OUT` as a list of requested sales document headers
 * `ORDER_ITEMS_OUT` as a list of all items of all requested sales documents
 
- The pattern how to use the vals object stays the same. By the way: In this sample we use the double brackets in LUA to indicate a string, in that case our XQL, that extends over multiple lines without the need for articificial line breaks. That makes the code much more readable.
+The pattern for how to use the `vals` object stays the same.
+
+Note that in this example, we use the double brackets in LUA to indicate a string. This way, our XQL can span multiple lines without the need for artificial line breaks. This makes the code much more readable.
 
 {% highlight lua %}
 local vals = {}
