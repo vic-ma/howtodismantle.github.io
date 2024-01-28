@@ -15,21 +15,33 @@ downloads:
   - name: SAPBAPICallsInScripting.pbmx
     url: /assets/2024-03-31/SAPBAPICallsInScripting.pbmx
 ---
-As SAP is one of the top 3 systems to be used together with Peakboard there are already [a lot of articles](https://how-to-dismantle-a-peakboard-box.com/category/sap) available here on the blog. But all of these articles mostly cover how to access SAP for reading and writing from a data source. In his article we learn how to do very sophisticated SAP calls directly from within a LUA script without the need to create a data source. For all the samples in this article we need an active SAP connection. So we make sure a connection is available in the connection manager and we know its ID. 
+Because SAP is one of the top 3 systems used with Peakboard, there are already [a lot of SAP articles](https://how-to-dismantle-a-peakboard-box.com/category/sap) available on this blog. But those articles cover how to access SAP for reading and writing from a data source.
+
+In this article, we will learn how to make sophisticated SAP calls directly from a LUA script, without creating a data source.
+
+## SAP connection
+
+For all the examples in this article, we need an active SAP connection. So we make sure that a connection is available in the connection manager, and that we know its ID. 
 
 ![image](/assets/2024-03-31/010.png)
 
-To have this connection available in LUA to do crazy stuff with it, we just use the connections.getfromid command.
+To access the SAP connection in LUA, we use the `connections.getfromid` command.
 
 {% highlight lua %}
 local con = connections.getfromid('As4kF5peAjw+3MIuEQf3Fc1kEeY=')
 {% endhighlight %}
 
-This connection object offers the 'Execute' method which executes regular XQL to be shot against the SAP system. This XQL is the same we already used in many contexts in the SAP data sources. It represents the SAP interface and specifies which object to be addressed in SAP (e.g. RFC function module, Report, MDX statements, SAP query, table select....). In this article we will only use some sophisticated RFCs and table calls and fully focus on the LUA part.
+This connection object exposes the `execute` method, which executes regular XQL against the SAP system.
 
-## simple data handling
+This is the same XQL we used with the SAP data sources. It represents the SAP interface and specifies the object to be addressed in SAP (for example, RFC function module, report, MDX statements, SAP query, table `SELECT`).
 
-Let's start with some very simple XQL. A table select statement to get data from the MAKT table. Only exactly one table is returned. So in that case the Execute function returns a LUA array. The code shows that you can just handle the return data like a regular array-like data object and use aggregate functions like 'count' or address a single row with the ordinal number. 
+In this article, we will only use some sophisticated RFCs and table calls. We will focus on the LUA part.
+
+## Simple data handling
+
+Let's start with some very simple XQL: a `SELECT` statement that gets data from the `MAKT` table. Exactly one table is returned. So the `execute` function returns a LUA array.
+
+The following code shows that you can handle the return data like a regular array-like data object. You can use aggregate functions like `count`, or address a single row with an ordinal. 
 
 {% highlight lua %}
 local myMAKT = con.execute('SELECT top 10 * FROM MAKT;')
@@ -38,9 +50,15 @@ peakboard.log(myMAKT.count)
 peakboard.log(myMAKT[1].MAKTX)
 {% endhighlight %}
 
-## the vals object
+## The `vals` object
 
-The simple version of returning exactly one table is often not enough. In real life we often have to exchange multiple data artefacts with the SAP objects. For this we use the vals object. Here's is the code we already know, but this time we create a generic array object called 'vals' and let the execute function fill it. We must tell the XQL engine in which container we want to store the return of our table query. So we do with the term 'into @MyMakt'. After the call we can use the data by addressing this container with the same name: vals.MyMakt. This instance in turn is again an array with the same elements as the original table in SAP. 
+The simple case of returning one table is often not enough. In the real world, we often have to exchange multiple data artifacts with SAP objects. To do this, we use the `vals` object.
+
+The following is the same code from before, but this time, we create a generic array object called `vals` and use the execute function to fill it.
+
+We must tell the XQL engine which container we want to store the return value of our table query in. We do this with the command `into @MyMakt`.
+
+After the call, we can use the data by addressing the same container: `vals.MyMakt`. This instance is an array with the same elements as the original table in SAP. 
 
 {% highlight lua %}
 local vals = {}
@@ -51,10 +69,19 @@ peakboard.log(vals.MyMakt.count)
 peakboard.log(vals.MyMakt[1].MAKTX)
 {% endhighlight %}
 
-## multiple returns
+## Multiple returns
 
-Let's go one step further and try an RFC function that returns multiple tables. The following code shows the call of the function module BAPISDORDER_GETDETAILEDLIST. You can use it to query information about multiple sales documents with one single call.
-It receives one fixed table SALES_DOCUMENTS that contains two rows with two sales docment numbers. And it returns the tables ORDER_HEADERS_OUT as list of requested sales document headers and ORDER_ITEMS_OUT as a list of all items of all requested sales documents. The pattern how to use the vals object stays the same. By the way: In this sample we use the double brackets in LUA to indicate a string, in that case our XQL, that extends over multiple lines without the need for articificial line breaks. That makes the code much more readable.
+Let's go one step further and try an RFC function that returns multiple tables.
+
+The following code shows the call of the function module `BAPISDORDER_GETDETAILEDLIST`. You can use it to query information about multiple sales documents with a single call.
+
+The function module accepts a fixed table called `SALES_DOCUMENTS` that contains two rows with two sales document numbers. It returns two tables:
+* `ORDER_HEADERS_OUT` as a list of requested sales document headers
+* `ORDER_ITEMS_OUT` as a list of all items of all requested sales documents
+
+The pattern for how to use the `vals` object stays the same.
+
+Note that in this example, we use the double brackets in LUA to indicate a string. This way, our XQL can span multiple lines without the need for artificial line breaks. This makes the code much more readable.
 
 {% highlight lua %}
 local vals = {}
@@ -79,9 +106,13 @@ peakboard.log(vals.MyItemsTable.count)
 peakboard.log(vals.MyItemsTable[0].MATERIAL)
 {% endhighlight %}
 
-## mutiple ins and outs
+## Multiple inputs and outputs
 
-In our next iteration we don't want to only receive data from the XQL enine but also submit data to it. The next sample shows how make the SALES_DOCUMENTS table dynamic and fill before the call just by adding a container named MyVbelnList to the vals  collection and just refer to it in XQL with @MyVbelnList. The same works with scalar parameters. In the sample the 'X' string actually is injected into the XQL by using @MyBapiViewX.
+This time, we want to submit data to the XQL engine, not just receive data from it. The following example shows how to make the `SALES_DOCUMENTS` table dynamic.
+
+We set `SALES_DOCUMENTS` before the call, by adding a container named `MyVbelnList` to the `vals` collection and referencing it in the XQL with `@MyVbelnList`.
+
+The same thing works with scalar parameters. In this example, the `X` string is actually injected into the XQL by using `@MyBapiViewX`.
 
 {% highlight lua %}
 local vals = {}
@@ -107,9 +138,11 @@ EXECUTE FUNCTION 'BAPISDORDER_GETDETAILEDLIST'
 [processing the return]
 {% endhighlight %}
 
-## in and out of the same table
+## In and out of the same table
 
-To complete the samples we need to add two niche cases. Here is a sample when a dynamic table is used be submitted to and returned by the XQL / SAP system at the same time. (the code is shortened to make it clearer).
+To complete our examples, we need to add two niche cases.
+
+The following is an example where a dynamic table is submitted to and returned by the XQL / SAP system at the same time (the code is shortened for clarity):
 
 {% highlight lua %}
 local vals = {}
@@ -130,7 +163,9 @@ peakboard.log(vals.MyVbelnList_out.count)
 peakboard.log(vals.MyVbelnList_out[0].VBELN)
 {% endhighlight %}
 
-And here's the same to process scalar, non-table-like parameter to be returned from the RFC function. In that sample we use the RFC BAPI_MATERIAL_GET_DETAIL to get some detail information about a given material. The export parameter MATERIAL_GENERAL_DATA is a data strcuture. One of the elements is MATL_DESC, the material decription. it is stored into the container MyMatDesc and then processed.
+And here's the same thing, but for processing scalar, non-table-like parameters, to be returned from the RFC function. In this example, we use the RFC `BAPI_MATERIAL_GET_DETAIL` to get some information about a given material. 
+
+The export parameter `MATERIAL_GENERAL_DATA` is a data structure. One of the elements is `MATL_DESC`, the material description. It is stored into the container `MyMatDesc` and then processed.
 
 {% highlight lua %}
 local vals = {}
@@ -147,9 +182,11 @@ EXECUTE FUNCTION 'BAPI_MATERIAL_GET_DETAIL'
 peakboard.log('Material Description: ' .. vals.MyMatDesc)
 {% endhighlight %}
 
-## conclusion
+## Conclusion
 
-Calling SAP is sometimes complicated and especially calling sophisticated RFCs the developer needs to perfectly understand how complex data exchange between LUA, the XQL engine and SAP works. This article covers all case on how to do the exchange. Feel free to download the sample pbmx and play around. All function modules are avaialble in the SAP standard. Enjoy!
+Calling SAP is sometimes complicated. When calling sophisticated RFCs, the developer needs to perfectly understand how complex data exchange between LUA, the XQL engine, and SAP works.
+
+This article covered how to do the exchange in all cases. Feel free to download the sample PBMX and play around with it. All the function modules are available in the SAP standard. Enjoy!
 
 ![image](/assets/2024-03-31/020.png)
 
