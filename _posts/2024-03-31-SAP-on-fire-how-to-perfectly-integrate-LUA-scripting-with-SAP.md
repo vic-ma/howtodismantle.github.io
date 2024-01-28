@@ -48,7 +48,9 @@ peakboard.log(myMAKT[1].MAKTX)
 
 ## The `vals` object
 
-The simple version of returning exactly one table is often not enough. In real life we often have to exchange multiple data artefacts with the SAP objects. For this we use the vals object. Here's is the code we already know, but this time we create a generic array object called 'vals' and let the execute function fill it. We must tell the XQL engine in which container we want to store the return of our table query. So we do with the term 'into @MyMakt'. After the call we can use the data by addressing this container with the same name: vals.MyMakt. This instance in turn is again an array with the same elements as the original table in SAP. 
+The simple case of returning one table is often not enough. In the real world, we often have to exchange multiple data artifacts with SAP objects. To do this, we use the `vals` object.
+
+The following is the same code from before, but this time we create a generic array object called `vals` and let the execute function fill it. We must tell the XQL engine in which container we want to store the return of our table query. So we do with the term 'into @MyMakt'. After the call we can use the data by addressing this container with the same name: vals.MyMakt. This instance in turn is again an array with the same elements as the original table in SAP. 
 
 {% highlight lua %}
 local vals = {}
