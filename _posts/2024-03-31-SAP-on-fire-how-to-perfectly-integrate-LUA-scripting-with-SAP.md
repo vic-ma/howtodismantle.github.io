@@ -184,7 +184,9 @@ peakboard.log('Material Description: ' .. vals.MyMatDesc)
 
 ## Conclusion
 
-Calling SAP is sometimes complicated. When calling sophisticated RFCs, the developer needs to perfectly understand how complex data exchange between LUA, the XQL engine, and SAP works. This article covers how to do the exchange in all cases. Feel free to download the sample PBMX and play around with it. All function modules are available in the SAP standard. Enjoy!
+Calling SAP is sometimes complicated. When calling sophisticated RFCs, the developer needs to perfectly understand how complex data exchange between LUA, the XQL engine, and SAP works.
+
+This article covered how to do the exchange in all cases. Feel free to download the sample PBMX and play around with it. All the function modules are available in the SAP standard. Enjoy!
 
 ![image](/assets/2024-03-31/020.png)
 
