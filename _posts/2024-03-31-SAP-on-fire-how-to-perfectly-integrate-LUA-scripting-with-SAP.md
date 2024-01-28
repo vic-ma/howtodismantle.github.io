@@ -41,7 +41,7 @@ In this article, we will only use some sophisticated RFCs and table calls. We wi
 
 Let's start with some very simple XQL: a `SELECT` statement that gets data from the `MAKT` table. Exactly one table is returned. So the `execute` function returns a LUA array.
 
-The code shows that you can handle the return data like a regular array-like data object. You can use aggregate functions like `count`, or address a single row with an ordinal. 
+The following code shows that you can handle the return data like a regular array-like data object. You can use aggregate functions like `count`, or address a single row with an ordinal. 
 
 {% highlight lua %}
 local myMAKT = con.execute('SELECT top 10 * FROM MAKT;')
