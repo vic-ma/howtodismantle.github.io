@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Dismantle SAP Production - Build a Production Order Confirmation Terminal with no code
-date: 2023-03-01 12:00:00 +0200
+date: 2024-01-28 12:00:00 +0200
 tags: sap
 image: /assets/2024-01-28/title.png
 read_more_links:
@@ -37,7 +37,7 @@ Before we work on the SAP integration, let's first take a look at the UI. It's a
 By submitting the confirmation number, we can use the function module `BAPI_PRODORDCONF_GET_TT_PROP` to get more information. So we create a SAP data source.
 
 The following XQL fills the table `TIMETICKETS` and gets the return value in the same table from SAP. The actual number is injected into the XQL by using the variable placeholder. Make sure to pre-fill the variable during design time with a valid confirmation number, in order to hit the data load button and get some sample data.
-
+ 
 {% highlight sql %}
 EXECUTE FUNCTION 'BAPI_PRODORDCONF_GET_TT_PROP'
    TABLES
