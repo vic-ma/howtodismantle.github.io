@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Mastering the Merge - A Guide to Seamless Tableau Integration in Peakboard Applications
-date: 2023-03-01 12:00:00 +0200
+date: 2024-02-05 00:00:00 +0200
 tags: tutorial bestpractice api
 image: /assets/2024-02-05/title.png
 read_more_links:
