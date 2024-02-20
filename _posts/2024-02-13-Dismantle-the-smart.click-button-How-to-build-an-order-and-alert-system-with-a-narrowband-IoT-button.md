@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Dismantle the smart.click button - How to build an order and alert system with a narrowband IoT button  
+title: Dismantle the smart.click Button - How to build an order and alert system with a narrowband IoT button  
 date: 2024-02-13 12:00:00 +0200
 tags: api hardware opcuamqtt
 image: /assets/2024-02-13/title.png
 read_more_links:
-  - name: smart.click IoT Button website
+  - name: smart.click Button website
     url: https://marketplace.smart.click/
   - name: Narrowband IoT on Wikipedia
     url: https://en.wikipedia.org/wiki/Narrowband_IoT
@@ -18,19 +18,19 @@ downloads:
 
 In today's article, we will discuss narrowband IoT devices. Narrowband IoT devices are usually not connected to any kind of Wi-Fi or local company network. Instead, they use the cellular network to connect to a server. For technical details, see this Wikpedia article on [Narrowband IoT](https://en.wikipedia.org/wiki/Narrowband_IoT).
 
-The device we will look at is called the [smart.click button](https://marketplace.smart.click/). It's made by a German company called [IOX Lab](https://ioxlab.de/en/). The following picture shows the device. It runs on a battery and so it doesn't need anything besides a cellular network (like external power or LAN network access).
+The device we will look at is called the [smart.click Button](https://marketplace.smart.click/). It's made by a German company called [IOX Lab](https://ioxlab.de/en/). The following picture shows the device. It runs on a battery and so it doesn't need anything besides a cellular network (like external power or LAN network access).
 
 ![image](/assets/2024-02-13/010.jpeg)
 
-We will build a Peakboard application that lets someone call for help by pressing a smart.click button. This button could be placed in an off-site production environment. Or, it could be placed in a local factory where you don't have access to the network infrastructure (for example, if you're a vendor and want to put the button in a client's factory so that they can press it to initiate an order process).
+We will build a Peakboard application that lets someone call for help by pressing a smart.click Button. This button could be placed in an off-site production environment. Or, it could be placed in a local factory where you don't have access to the network infrastructure (for example, if you're a vendor and want to put the button in a client's factory so that they can press it to initiate an order process).
 
 After someone presses the button, a message pops up in the Peakboard application and a timer starts, to show how much time has passed since the alarm was triggered. After pressing the button a second time (for example, once the caller receives the order), the alarm is dismissed.
 
 The technology behind this process is MQTT. The IOX button server sends a MQTT message to a broker that is available over the internet, and our Peakboard app subscribes to this MQTT topic. The rest is just Peakboard application logic.
 
-## Set up the smart.click portal
+## Set up the smart.click Cloud
 
-After purchasing a smart.click button, the button will be available in the smart.click portal. We visit the portal to configure what happens after the button is pressed. There are several options, such as SMS, email, and MQTT. We select MQTT and define the broker and MQTT topic.
+After purchasing a smart.click Button, the button will be available in the smart.click Cloud. We visit the portal to configure what happens after the button is pressed. There are several options, such as SMS, email, and MQTT. We select MQTT and define the broker and MQTT topic.
 
 ![image](/assets/2024-02-13/020.png)
 
