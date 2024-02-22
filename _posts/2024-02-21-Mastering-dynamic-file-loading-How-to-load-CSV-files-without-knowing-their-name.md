@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Mastering dynamic file loading - How to load CSV files without knowing their names
-date: 2023-02-21 12:00:00 +0200
+date: 2024-02-21 12:00:00 +0200
 tags: tutorial basics
 image: /assets/2024-02-21/title.png
 read_more_links:
