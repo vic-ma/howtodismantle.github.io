@@ -18,7 +18,7 @@ downloads:
 All readers of this blog know, that there are [a lot of SAP articles](https://how-to-dismantle-a-peakboard-box.com/category/sap) available. The last one was [SAP on fire - how to perfectly integrate LUA scripting with SAP](/SAP-on-fire-how-to-perfectly-integrate-LUA-scripting-with-SAP.html). But in this article there was one last aspect missing, which we will discuss here.
 
 In this article, we will learn how to handle ABAP exceptions when calling RFC function modules or BAPIs in SAP from Peakboard.
-
+ 
 ## RFC exceptions
 
 SAP ABAP has a very unique (some might say old-fashioned) way of handling exceptions in function modules. If we look at transaction SE37 to find out more, we can find the Exceptions tab. The screenshot shows a very simple, standard RFC function module called SD_RFC_CUSTOMER_GET. It returns a list of customers according to the search pattern for customer name and customer number (NAME1 and KUNNR). As we see in the screenshot the function module throws (yes, we use the term 'to throw') two exceptions. NOTHING_SPECIFIED is thrown, when the caller fails to submit any useful import parameters. NO_RECORD_FOUND is thrown when the serach pattern doesn't lead to any data rows in the result set.
