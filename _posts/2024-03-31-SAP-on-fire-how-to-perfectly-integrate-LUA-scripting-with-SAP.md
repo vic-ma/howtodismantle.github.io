@@ -9,8 +9,8 @@ read_more_links:
     url: https://how-to-dismantle-a-peakboard-box.com/category/sap
   - name: How to build a perfect RFC function module to use in Peakboard
     url: /SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html
-  - name: Dismantle BAPI_PRODORD_GET_DETAIL - How to get production order details from SAP
-    url: /Dismantle-BAPI_PRODORD_GET_DETAIL-How-to-get-production-order-details-from-SAP.html
+  - name: Expect the Unexpected - How to handle SAP exceptions in LUA scripting
+    url: /Expect-the-unexpected-How-to-handle-SAP-exceptions-in-LUA-scripting.html
 downloads:
   - name: SAPBAPICallsInScripting.pbmx
     url: /assets/2024-03-31/SAPBAPICallsInScripting.pbmx
