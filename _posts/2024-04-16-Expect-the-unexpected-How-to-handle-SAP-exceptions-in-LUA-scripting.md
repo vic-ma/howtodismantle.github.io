@@ -3,7 +3,7 @@ layout: post
 title: Expect the unexpected - How to handle SAP exceptions in LUA scripting
 date: 2023-03-01 12:00:00 +0200
 tags: sap lua
-image: /assets/2023-04-16/title.png
+image: /assets/2024-04-16/title.png
 read_more_links:
   - name: More fancy SAP articles
     url: https://how-to-dismantle-a-peakboard-box.com/category/sap
