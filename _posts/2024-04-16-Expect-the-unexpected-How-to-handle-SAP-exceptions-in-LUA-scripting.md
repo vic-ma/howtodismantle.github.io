@@ -21,7 +21,10 @@ In this article, we will learn how to handle ABAP exceptions when calling RFC fu
  
 ## RFC exceptions
 
-SAP ABAP has a very unique (some might say old-fashioned) way of handling exceptions in function modules. If we look at transaction SE37 to find out more, we can find the Exceptions tab. The screenshot shows a very simple, standard RFC function module called SD_RFC_CUSTOMER_GET. It returns a list of customers according to the search pattern for customer name and customer number (NAME1 and KUNNR). As we see in the screenshot the function module throws (yes, we use the term 'to throw') two exceptions. NOTHING_SPECIFIED is thrown, when the caller fails to submit any useful import parameters. NO_RECORD_FOUND is thrown when the serach pattern doesn't lead to any data rows in the result set.
+SAP ABAP has a very unique (some might say old-fashioned) way of handling exceptions in function modules. If we look at transaction `SE37` to find out more, we see the **Exceptions** tab. The following screenshot shows a simple, standard RFC function module called `SD_RFC_CUSTOMER_GET`. It returns a list of customers, according to the search pattern for customer name and customer number (`NAME1` and `KUNNR`). As you can see in the screenshot, the function module throws two exceptions (yes, we use the term *throws*). 
+
+* `NOTHING_SPECIFIED` is thrown when the caller fails to submit any useful import parameters.
+* `NO_RECORD_FOUND` is thrown when the search pattern doesn't lead to any data rows in the result set.
 
 ![image](/assets/2024-04-16/010.png)
 
