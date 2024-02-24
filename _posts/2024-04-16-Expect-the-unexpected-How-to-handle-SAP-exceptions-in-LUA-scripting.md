@@ -62,7 +62,8 @@ The trick is to understand that the `execute` function not only returns the outp
 local returntable, error = con.execute(xql)  
 {% endhighlight %}
 
-If there is an error, the resulttable is ‘nil’ and error object is filled. In case of an error, the error object is filled, but resulttable is ‘nil’. This makes it possible to distiniguish between these cases. When it comes to an error the attribute ‘type’ is the first thing to check. There are two options: Type ‘ABAP’ is an exception that is thrown by the SAP system, in case of ‘XQL’ there might be syntax error in the XQL. So we have to check for ABAP-errors first, and then can use the ‘code’ attribute to get the actual exception string that we already saw in SE37 earlier. This makes it possible to react accordingly to which exception is thrown.
+If there is an error, the resulttable is 'nil' and error object is filled. In case of an error, the error object is filled, but resulttable is 'nil'.
+This makes it possible to distiniguish between these cases. When it comes to an error the attribute 'type' is the first thing to check. There are two options: Type 'ABAP' is an exception that is thrown by the SAP system, in case of 'XQL' there might be syntax error in the XQL. So we have to check for ABAP-errors first, and then can use the 'code' attribute to get the actual exception string that we already saw in SE37 earlier. This makes it possible to react accordingly to which exception is thrown.
 
 {% highlight lua %}
 if error then
