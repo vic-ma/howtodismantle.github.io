@@ -15,9 +15,9 @@ downloads:
   - name: SAPExeptionHandling.pbmx
     url: /assets/2024-04-16/SAPExeptionHandling.pbmx
 ---
-All readers of this blog know, that there are [a lot of SAP articles](https://how-to-dismantle-a-peakboard-box.com/category/sap) available. The last one was [SAP on fire - how to perfectly integrate LUA scripting with SAP](/SAP-on-fire-how-to-perfectly-integrate-LUA-scripting-with-SAP.html). But in this article there was one last aspect missing, which we will discuss here.
+As readers of this blog know, we have [a lot of articles about SAP](https://how-to-dismantle-a-peakboard-box.com/category/sap). The last one was [SAP on fire - how to perfectly integrate LUA scripting with SAP](/SAP-on-fire-how-to-perfectly-integrate-LUA-scripting-with-SAP.html). But there was something missing in that article, which we will discuss now.
 
-In this article, we will learn how to handle ABAP exceptions when calling RFC function modules or BAPIs in SAP from Peakboard.
+In this article, we will learn how to handle ABAP exceptions when calling RFC function modules or BAPIs, in SAP, from Peakboard.
  
 ## RFC exceptions
 
