@@ -7,7 +7,7 @@ image: /assets/2024-03-07/title.png
 read_more_links:
   - name: Data Deep Dive - Techniques for Mastering Complex JSON and understand that Global Warming is real
     url: /Data-Deep-Dive-Techniques-for-Mastering-Complex-JSON-and-understand-that-Global-Warming-is-real.html
-- name: JPath library on github (check out the README for interesting details)
+  - name: JPath library on github (check out the README for interesting details)
     url: https://github.com/atifaziz/JSONPath
 downloads:
   - name: JSonJPathExamples.pbmx
