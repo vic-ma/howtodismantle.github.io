@@ -28,7 +28,7 @@ https://climatereanalyzer.org/clim/t2_daily/json/era5_world_t2_day.json
 The JSON data is organised as an array, where each object in the array contains the temperature data for a particular year. Each object has the following fields:
 
 * `data_source`: the source for the temperature data.
-* `name`: the year or years of the temperature data. Some objects contain the average weather data over multiple years. In this case, `name` might be something like `1979-2000 avg`.
+* `name`: the year or years of the temperature data. Some objects contain the average weather data over multiple years. In this case, `name` will look something like `1979-2000 avg`.
 * `data`: an array that contains the temperature for each day. The index of the element corresponds to the day of the year. So the zeroth element is the temperature for the first day of the year (January 1), and the 364th element is the temperature for the last day of the year (December 31)---assuming it's not a leap year.
 
 The following is what the first element of the array looks like. This object contains the temperature data for 1940 (the screenshot only shows up to day four).
@@ -44,7 +44,7 @@ It's worth mentioning that the `data` array for the current year (2024) still ha
 
 ![image](/assets/2024-05-10/020.png)
 
-Beside each year the JSon also offers some service to pre-calculcate average temperatures over several years. The screenshot shows the average temperature of the years 1990 to 2020.
+Here's an object that contains the average weather data beween 1990 and 2020:
 
 ![image](/assets/2024-05-10/030.png)
 
