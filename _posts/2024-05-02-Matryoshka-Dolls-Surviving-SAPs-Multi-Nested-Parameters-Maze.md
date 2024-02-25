@@ -15,7 +15,7 @@ downloads:
   - name: SAPMultinestedTables.pbmx
     url: /assets/2024-05-02/SAPMultinestedTables.pbmx
 ---
-Back in the 90s, calling SAP RFC function modules was pretty straight forward. There were `Import`, `Export`, and `Table` parameters. The imports and exports could either be scalar or structured---and that was the end of the story.
+Back in the 90s, calling SAP RFC function modules was pretty straight forward. There were import, export, and table parameters. The imports and exports could either be scalar or structured---and that was the end of the story.
 
 Over the years, more complex parameters where pressed into this structure, and "Changings" became supported by modern SAP systems.
 
@@ -23,7 +23,7 @@ In today's article, we'll cover multi-nested tables and how to handle them in XQ
  
 ## The RFC function module
 
-For this article we will have a look a sample RFC with an import parameter called I_SELOPT. This parameter is a table-like Import parameter. But not just a simple table, but it's a mutli-nested table. Which means, that every row can have a cell that itself is another table. The most common case for this are tables for dynamic data selection. Every row refers to a certain field and the table per row refers to a set of Select Options. this makes it possible, to provide a complete generic selection without the need for changing the Import parameters when an additional filter field is necessary.
+For this article, we'll have a look at a sample RFC with an import parameter called `I_SELOPT`. This parameter is a table-like import parameter. But not just a simple table, but it's a mutli-nested table. Which means, that every row can have a cell that itself is another table. The most common case for this are tables for dynamic data selection. Every row refers to a certain field and the table per row refers to a set of Select Options. this makes it possible, to provide a complete generic selection without the need for changing the import parameters when an additional filter field is necessary.
 
 ![image](/assets/2024-05-02/010.png)
 
