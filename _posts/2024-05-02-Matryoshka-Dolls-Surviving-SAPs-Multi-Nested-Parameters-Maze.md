@@ -15,10 +15,11 @@ downloads:
   - name: SAPMultinestedTables.pbmx
     url: /assets/2024-05-02/SAPMultinestedTables.pbmx
 ---
-Back in the nineties calling SAP RFC function modules was pretty straight forward. There were Import, Export and Table parameters. The Imports and Exports could be either scalar or stuctured - and that was the end of the story.
-Over the years more complex parameters where pressed into this structure and also so called Changings were supported by modern SAP systems.
+Back in the 90s, calling SAP RFC function modules was pretty straight forward. There were `Import`, `Export`, and `Table` parameters. The imports and exports could either be scalar or structured---and that was the end of the story.
 
-In today's article we want to cover mutlinested tables and how to handle them in XQL. This one of the XQL features that is supported from Peakboard version 3.8 or later.
+Over the years, more complex parameters where pressed into this structure, and "Changings" became supported by modern SAP systems.
+
+In today's article, we'll cover multi-nested tables and how to handle them in XQL. This is one of the XQL features that is supported from Peakboard version 3.8 or later.
  
 ## The RFC function module
 
