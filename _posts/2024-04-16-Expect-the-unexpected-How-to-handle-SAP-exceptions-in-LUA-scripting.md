@@ -74,7 +74,7 @@ In the case of an error, the `type` attribute is the first thing to check. There
 * If `type` is `ABAP`, that means the exception was thrown by the SAP system.
 * If `type` is `XQL`, that means there was a syntax error in the XQL.
 
-So we have to check for ABAP-errors first. Then, we can use the `code` attribute to get the actual exception string, which we saw in `SE37` earlier. This makes it possible to react based on which exception is thrown.
+So we have to check for ABAP errors first. Then, we can use the `code` attribute to get the actual exception string, which we saw in `SE37` earlier. This makes it possible to react based on which exception is thrown.
 
 {% highlight lua %}
 if error then
