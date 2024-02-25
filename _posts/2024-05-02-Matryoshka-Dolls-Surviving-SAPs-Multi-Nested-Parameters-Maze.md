@@ -15,7 +15,7 @@ downloads:
   - name: SAPMultinestedTables.pbmx
     url: /assets/2024-05-02/SAPMultinestedTables.pbmx
 ---
-Back in the 90s, calling SAP RFC function modules was pretty straight forward. There were import, export, and table parameters. The imports and exports could either be scalar or structured---and that was the end of the story.
+Back in the 90s, calling SAP RFC function modules was pretty straightforward. There were import, export, and table parameters. The imports and exports could either be scalar or structured---and that was the end of the story.
 
 Over the years, more complex parameters where pressed into this structure, and "Changings" became supported by modern SAP systems.
 
@@ -37,13 +37,13 @@ Within the line type `ZSINGLERANGE`, we find the scalar field name called `FIELD
 
 ![image](/assets/2024-05-02/030.png)
 
-The table type `ZTRSDSSELOPT` in turn refers to the line type `RSDSSELOPT`.
+The table type `ZTRSDSSELOPT` refers to the line type `RSDSSELOPT`.
 
 ![image](/assets/2024-05-02/040.png)
 
 The standard line type `RSDSSELOPT` contains four single values to represent a filter line:
 - `SIGN`: `I` for *include*, `E` for *exclude*.
-- `OPTION`: An operator (e.g. `EQ` for *equals*, or `BT` for *between*).
+- `OPTION`: An operator (for example, `EQ` for *equals*, or `BT` for *between*).
 - `LOW`: the lower value.
 - `HIGH`: the optional upper value.
 
@@ -51,7 +51,7 @@ The standard line type `RSDSSELOPT` contains four single values to represent a f
 
 ## How to build the XQL
 
-We start with a very simple version and build a non-multi-nested XQL table to call the function module. The table we build has just one column called `FIELDNAME` and two rows with values `MATNR` and `WERKS`.
+We start with a very simple version and build a non-multi-nested XQL table to call the function module. The table we build has just one column called `FIELDNAME` and two rows with values, `MATNR` and `WERKS`.
 
 {% highlight sql %}
 EXECUTE FUNCTION 'Z_PB_MAT_SELECTION'
