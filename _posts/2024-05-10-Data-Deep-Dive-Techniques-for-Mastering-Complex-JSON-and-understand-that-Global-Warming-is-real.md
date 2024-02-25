@@ -60,7 +60,10 @@ The actual output is the temperature array.
 
 ![image](/assets/2024-05-10/040.png)
 
-To use the data in a chart, we need to beautify it a bit by using a data flow. The first step is to give the unknown column a better name: 'Temperature'. The second step is to add a column for the actual data. There's a small Lua script behind the column generation. It's the data January 1st plus the index number of the row to calculate the date. From the data we only take day and month, as the year is determined by the data source itself.
+To use the data in a chart, we need to beautify it a bit by using a data flow:
+
+1. First, we'll give the unknown column a better name: `Temperature`.
+2. Next, we'll add a column for the actual data. There's a small Lua script behind the column generation. To calculate the date, it takes `January 1, 2023` and adds the index of the row. It returns only the day and month. The year is already determined by the data source itself.
 
 ![image](/assets/2024-05-10/050.png)
 
