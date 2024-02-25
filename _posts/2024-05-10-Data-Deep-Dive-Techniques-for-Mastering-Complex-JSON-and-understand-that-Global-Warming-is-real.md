@@ -44,17 +44,23 @@ It's worth mentioning that the `data` array for the current year (2024) still ha
 
 ![image](/assets/2024-05-10/020.png)
 
-Here's an object that contains the average weather data beween 1990 and 2020:
+Here's an object that contains the average weather data between 1990 and 2020:
 
 ![image](/assets/2024-05-10/030.png)
 
 ## Build the data source
 
-Now, let's go into Peakboard and build a JSON data source that takes in the weather data from Climate Reanalyzer. The data source lets us fill in a path to point to a certain area within the JSON file. As each year is one array entry and we start with 1940 with ordinal number 0, so the year 2024 is ordinal number 84. We might also use the button with 3 dots to let the Peakboard designer show a hierarchical outline of the data. Sometimes it can be tricky to find the right path. The actual output is the temperature array.
+Now, let's go into Peakboard and build a JSON data source that takes in the weather data from Climate Reanalyzer.
+
+We only want to get the data from the current year. To do this, we set the path to the data that we want. Because each year is one array entry, and the data starts in 1940 at index 0, the year 2024 is index 84. So, we set the path to point to index 84.
+
+You can also use the button with the 3 dots to have Peakboard Designer show a hierarchical outline of the data. Sometimes, it can be tricky to find the right path.
+
+The actual output is the temperature array.
 
 ![image](/assets/2024-05-10/040.png)
 
-For using the data in a chart we need to beautify it a little bit by using a data flow. The first step is to give the unknown column a better name: 'Temperature'. The second step is to add a column for the actual data. There's a small Lua script behind the column generation. It's the data January 1st plus the index number of the row to calculate the date. From the data we only take day and month, as the year is determined by the data source itself.
+To use the data in a chart, we need to beautify it a bit by using a data flow. The first step is to give the unknown column a better name: 'Temperature'. The second step is to add a column for the actual data. There's a small Lua script behind the column generation. It's the data January 1st plus the index number of the row to calculate the date. From the data we only take day and month, as the year is determined by the data source itself.
 
 ![image](/assets/2024-05-10/050.png)
 
