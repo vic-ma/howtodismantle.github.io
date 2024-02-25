@@ -52,7 +52,9 @@ Here's an object that contains the average weather data between 1990 and 2020:
 
 Now, let's go into Peakboard and build a JSON data source that takes in the weather data from Climate Reanalyzer.
 
-We only want to get the data from the current year. To do this, we set the path to the data that we want. Because each year is one array entry, and the data starts in 1940 at index 0, the year 2024 is index 84. So, we set the path to point to index 84.
+To choose the year of the data, we set the path to point to the element in the array that we want. Let's set this first data source to 2024.
+
+Because each year is one array entry, and the data starts in 1940 at index 0, the year 2024 is at index 84. So, we set the path to point to the `data` field of the object at index 84.
 
 You can also use the button with the 3 dots to have Peakboard Designer show a hierarchical outline of the data. Sometimes, it can be tricky to find the right path.
 
