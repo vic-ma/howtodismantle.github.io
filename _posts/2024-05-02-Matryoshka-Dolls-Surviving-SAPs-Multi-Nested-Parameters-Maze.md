@@ -29,23 +29,23 @@ That means each row can have a cell that is itself another table. The most commo
 
 ![image](/assets/2024-05-02/010.png)
 
-Let's drill deeper into the associated type ZTABRANGE. It points to the structure ZSINGLERANGE.
+Let's dig deeper into the associated type, `ZTABRANGE`. It points to the structure `ZSINGLERANGE`.
 
 ![image](/assets/2024-05-02/020.png)
 
-Within the line type ZSINGLERANGE we find the scalar field name called FIELDNAME and also the table for the generic filter called SELOP.
+Within the line type `ZSINGLERANGE`, we find the scalar field name called `FIELDNAME`, and also the table for the generic filter called `SELOP`.
 
 ![image](/assets/2024-05-02/030.png)
 
-The table type ZTRSDSSELOPT in turn refers to the line type RSDSSELOPT.
+The table type `ZTRSDSSELOPT` in turn refers to the line type `RSDSSELOPT`.
 
 ![image](/assets/2024-05-02/040.png)
 
-The standard line type RSDSSELOPT contains 4 single values to represent a filter line:
-- SIGN - I for include, E for exclude
-- OPTION - An operator (e.g. EQ for equals, or BT for between)
-- LOW - the lower value
-- HIGH - the optional upper value
+The standard line type `RSDSSELOPT` contains four single values to represent a filter line:
+- `SIGN`: `I` for *include*, `E` for *exclude*.
+- `OPTION`: An operator (e.g. `EQ` for *equals*, or `BT` for *between*).
+- `LOW`: the lower value.
+- `HIGH`: the optional upper value.
 
 ![image](/assets/2024-05-02/050.png)
 
