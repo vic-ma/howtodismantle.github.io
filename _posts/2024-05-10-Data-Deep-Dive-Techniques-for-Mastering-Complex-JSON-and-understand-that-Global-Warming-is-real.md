@@ -15,11 +15,11 @@ downloads:
 ---
 Climate change and global warming are real, and anyone who digs into the numbers and facts is often shocked by how clear and obvious it is. We will discuss this in today's article. We will also learn a nice approach for processing JSON data that seems almost unmanageable at first.
 
-The data we will use comes from a website called [Climate Reanalyzer](https://climatereanalyzer.org/). It is run by the university of Maine to make raw weather data, especially historic climate data, available to the public. [Here](https://climatereanalyzer.org/clim/t2_daily/?dm_id=world) we will find some information about the daily surface temperature in the Northern hemisphere dating back to the year 1940.
+The data we will use comes from a website called [Climate Reanalyzer](https://climatereanalyzer.org/), which is run by the University of Maine. It makes raw weather data---especially historic climate data---available to the public.  [Here](https://climatereanalyzer.org/clim/t2_daily/?dm_id=world), you can find some information about the daily surface temperature in the Northern Hemisphere, since 1940.
 
 ## The data
 
-The actual data we want to discuss is available under that URL:
+The actual data we want is available at this URL:
 
 {% highlight url %}
 https://climatereanalyzer.org/clim/t2_daily/json/era5_world_t2_day.json
