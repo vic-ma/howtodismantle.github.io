@@ -25,7 +25,7 @@ The actual data we want is available at this URL:
 https://climatereanalyzer.org/clim/t2_daily/json/era5_world_t2_day.json
 {% endhighlight %}
 
-The JSON data is organised as an array, where each object in the array contains the temperature data for a particular year. Each object has the following fields:
+The data is a JSON array, where each object in the array contains the temperature data for a particular year or range of years. Each object has the following fields:
 
 * `data_source`: the source for the temperature data.
 * `name`: the year or years of the temperature data. Some objects contain the average weather data over multiple years. In this case, `name` will look something like `1979-2000 avg`.
@@ -40,7 +40,7 @@ And here's the raw data:
 
 ![image](/assets/2024-05-10/010.png)
 
-It's worth mentioning that the `data` array for the current year (2024) still has 365 entries, but the days in the future are `null`.
+It's worth mentioning that the `data` array for the current year (2024) still has 365 entries, but the days in the future are `null`:
 
 ![image](/assets/2024-05-10/020.png)
 
