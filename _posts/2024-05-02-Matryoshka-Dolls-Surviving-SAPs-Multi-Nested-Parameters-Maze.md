@@ -51,7 +51,7 @@ The standard line type `RSDSSELOPT` contains four single values to represent a f
 
 ## How to build the XQL
 
-We start with a very simple version and build a non-multinested XQL table to call the function module. The table we build has just one column called fieldname and two rows with values MATNR and WERKS.
+We start with a very simple version and build a non-multi-nested XQL table to call the function module. The table we build has just one column called `FIELDNAME` and two rows with values `MATNR` and `WERKS`.
 
 {% highlight sql %}
 EXECUTE FUNCTION 'Z_PB_MAT_SELECTION'
@@ -63,7 +63,9 @@ EXECUTE FUNCTION 'Z_PB_MAT_SELECTION'
       C_MATTAB INTO @RETVAL
 {% endhighlight %}
 
-Now we need to add one more table to each selection row. The column name for the set of tables is called SELOP. And each SELOP cell is in turn a table with the four columns mentioned earlier. In our sample the first SELOP table has exactly one row, it contains a Select Option row for the Material number '100-100'. The second SELOP row has two filter rows, in the first filter we have the criteria 'EQUALS 1000' and the second filter row is 'BETWEEN 2000 and 3000'.
+Now, we need to add one more table to each selection row. The column name for the set of tables is called `SELOP`. And each `SELOP` cell is a table with the four columns mentioned earlier.
+
+In our example, the first `SELOP` table has exactly one row. It contains a select option row for the material number `100-100`. The second SELOP row has two filter rows, in the first filter we have the criteria 'EQUALS 1000' and the second filter row is 'BETWEEN 2000 and 3000'.
 We note, that we have to be very careful with the brackets and it's highly recommended to use the notation as shown in the sample with the correct line breaks and indents. 
 
 {% highlight sql %}
