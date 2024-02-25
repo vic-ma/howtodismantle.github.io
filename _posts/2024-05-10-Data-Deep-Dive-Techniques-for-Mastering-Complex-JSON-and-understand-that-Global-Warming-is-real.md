@@ -64,9 +64,9 @@ The actual output is the temperature array.
 
 To use the data in a chart, we need to beautify it a bit by using a data flow.
 
-First, we'll give the unknown column a better name: `Temperature`.
+First, we give the unknown column a better name: `Temperature`.
 
-Next, we'll add a column for the actual data. There's a small Lua script behind the column generation. To calculate the date, it takes `January 1, 2023` and adds the index of the row. It returns only the day and month. The year is already determined by the data source itself.
+Next, we add a column for the actual data. There's a small Lua script behind the column generation. To calculate the date, it takes `January 1, 2023` and adds the index of the row. It returns only the day and month. The year is already determined by the data source itself.
 
 ![image](/assets/2024-05-10/050.png)
 
@@ -82,13 +82,13 @@ We also filter out the `0` values. We don't need them anymore.
 
 We add three data sources:
 
-* One for the average of year 1990-2020.
+* One for the average of the years 1990-2020.
 * One for 2023.
 * One for 2024.
 
 The data flows are always the same. The only thing that changes is the path of the JSON data source.
 
-To visualize the data, we use a line chart with 3 series. Each of them point to a different data source. If the data was prepared well, binding the chart to the data is straightforward.
+To visualize the data, we use a line chart with three series. Each of them point to a different data source. If the data was prepared well, binding the chart to the data is straightforward.
 
 ![image](/assets/2024-05-10/050.png)
 
@@ -97,7 +97,7 @@ To visualize the data, we use a line chart with 3 series. Each of them point to 
 The following screenshot shows the result of the project we built. We learned two main points:
 
 1. Even if the initial JSON looks messy, it's easy to get the data into a shape where it can be easily handled. Even if it's tempting to bind the raw data directly to a chart, it's important to clean it first: give the column proper names, turn the values into proper data types, etc. All that work pays off in the end.
-2. Climate change and global warming is real. Everybody is encouraged to download the PBMX and play around with the data. The way the surface temperature is changing is so obvious and clear that there should be no discussions. [Climate Reanalyzer](https://climatereanalyzer.org/) offers a wide variety of other data to play around with.
+2. Climate change and global warming are real. Everyone is encouraged to download the PBMX and play around with the data. The way the surface temperature is changing is so obvious and clear that there should be no discussions. [Climate Reanalyzer](https://climatereanalyzer.org/) offers a wide variety of other data to play around with.
 
 ![image](/assets/2024-05-10/result.png)
 
