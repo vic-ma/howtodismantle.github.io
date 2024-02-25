@@ -2,10 +2,12 @@
 layout: post
 title: Taming JSON - How to use JPath in Peakboard scripts
 date: 2023-03-01 02:00:00 +0200
-tags: api basics
+tags: api basics lua
 image: /assets/2024-03-07/title.png
 read_more_links:
-  - name: JPath library on github (check out the README for interesting details)
+  - name: Data Deep Dive - Techniques for Mastering Complex JSON and understand that Global Warming is real
+    url: /Data-Deep-Dive-Techniques-for-Mastering-Complex-JSON-and-understand-that-Global-Warming-is-real.html
+- name: JPath library on github (check out the README for interesting details)
     url: https://github.com/atifaziz/JSONPath
 downloads:
   - name: JSonJPathExamples.pbmx
