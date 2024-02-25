@@ -25,7 +25,7 @@ In today's article, we'll cover multi-nested tables and how to handle them in XQ
 
 For this article, we'll have a look at a sample RFC with an import parameter called `I_SELOPT`. This parameter is a table-like import parameter. But it's not just a simple table---it's a mutli-nested table.
 
-That means every row can have a cell that is itself another table. The most common use case for this are tables designed for dynamic data selection. Every row refers to a certain field and the table per row refers to a set of select options. this makes it possible, to provide a complete generic selection without the need for changing the import parameters when an additional filter field is necessary.
+That means each row can have a cell that is itself another table. The most common use case for this are tables designed for dynamic data selection. Each row refers to a certain field, and the table per row refers to a set of select options. Multi-nested tables provide a complete generic selection without the need for changing the import parameters when an additional filter field is necessary.
 
 ![image](/assets/2024-05-02/010.png)
 
