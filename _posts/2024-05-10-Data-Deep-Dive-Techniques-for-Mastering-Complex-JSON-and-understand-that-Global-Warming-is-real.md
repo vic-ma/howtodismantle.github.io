@@ -50,7 +50,7 @@ Here's an object that contains the average weather data beween 1990 and 2020:
 
 ## Build the data source
 
-The first data source is just a regular JSon data source as shown in the screenshot. The data source offers the user to fill in a path to point to a certain area wihin the JSon file. As each year is one array entry and we start with 1940 with ordinal number 0, so the year 2024 is ordinal number 84. We might also use the button with 3 dots to let the Peakboard designer show a hierarchical outline of the data. Sometimes it can be tricky to find the right path. The actual output is the temperature array.
+Now, let's go into Peakboard and build a JSON data source that takes in the weather data from Climate Reanalyzer. The data source lets us fill in a path to point to a certain area within the JSON file. As each year is one array entry and we start with 1940 with ordinal number 0, so the year 2024 is ordinal number 84. We might also use the button with 3 dots to let the Peakboard designer show a hierarchical outline of the data. Sometimes it can be tricky to find the right path. The actual output is the temperature array.
 
 ![image](/assets/2024-05-10/040.png)
 
