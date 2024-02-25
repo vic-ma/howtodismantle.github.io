@@ -65,8 +65,11 @@ EXECUTE FUNCTION 'Z_PB_MAT_SELECTION'
 
 Now, we need to add one more table to each selection row. The column name for the set of tables is called `SELOP`. And each `SELOP` cell is a table with the four columns mentioned earlier.
 
-In our example, the first `SELOP` table has exactly one row. It contains a select option row for the material number `100-100`. The second SELOP row has two filter rows, in the first filter we have the criteria 'EQUALS 1000' and the second filter row is 'BETWEEN 2000 and 3000'.
-We note, that we have to be very careful with the brackets and it's highly recommended to use the notation as shown in the sample with the correct line breaks and indents. 
+In our example, the first `SELOP` table has exactly one row. It contains a select option row for the material number `100-100`.
+
+The second `SELOP` row has two filter rows. In the first filter, we have the criteria `EQUALS 1000`, and the second filter row is `BETWEEN 2000 and 3000`.
+
+Note that you have to be very careful with the brackets, and it's highly recommended to use the notation that's shown in this example, with the correct line breaks and indents. 
 
 {% highlight sql %}
 EXECUTE FUNCTION 'Z_PB_MAT_SELECTION'
