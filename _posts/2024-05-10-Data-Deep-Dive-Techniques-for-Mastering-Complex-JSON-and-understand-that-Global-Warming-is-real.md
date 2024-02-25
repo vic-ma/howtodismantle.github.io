@@ -13,7 +13,7 @@ downloads:
   - name: ClimateTemperatureChart.pbmx
     url: /assets/2024-05-10/ClimateTemperatureChart.pbmx
 ---
-Climate change and global warming is real and everyone who digs a bit deeper into numbers and facts is often shocked that it's not only real but in fact it's very clear and obvious. This is what we will discuss in today's article and we will also learn a nice approach on how to process JSon data that seems almost unhandleable in the beginning.
+Climate change and global warming are real, and anyone who digs into the numbers and facts is often shocked by how clear and obvious it is. We will discuss this in today's article. We will also learn a nice approach for processing JSON data that seems almost unmanageable at first.
 
 The data we will use comes from a website called [Climate Reanalyzer](https://climatereanalyzer.org/). It is run by the university of Maine to make raw weather data, especially historic climate data, available to the public. [Here](https://climatereanalyzer.org/clim/t2_daily/?dm_id=world) we will find some information about the daily surface temperature in the Northern hemisphere dating back to the year 1940.
 
