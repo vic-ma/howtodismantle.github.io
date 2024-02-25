@@ -31,7 +31,7 @@ The JSON data is organised as an array, where each object in the array contains 
 * `name`: the year of the temperature data.
 * `data`: an array that contains the temperature for each day. The index of the element corresponds to the day of the year. So the zeroth element is the temperature for the first day of the year (January 1), and the 364th element is the temperature for the last day of the year (December 31)---assuming it's not a leap year.
 
-The following is what the first element of the array looks like. This object contains the temperature data for 1940.
+The following is what the first element of the array looks like. This object contains the temperature data for 1940 (the screenshot only shows up to day four).
 
 ![image](/assets/2024-05-10/011.png)
 
