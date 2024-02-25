@@ -27,9 +27,9 @@ https://climatereanalyzer.org/clim/t2_daily/json/era5_world_t2_day.json
 
 The JSON data is organised as an array, where each object in the array contains the climate data for a particular year. Each object has the following fields:
 
-* `data_source`: the source for the climate data
-* `name`: the year of the climate data
-* `data`: an array that contains the temperature for each day. The index of the element corresponds to the day of the year. So the first element of the array is the temperature for the first day of the year (January 1st), and the 365th element is the temperature for the last day of the year (December 31). (Assuming no leap year.)
+* `data_source`: the source for the climate data.
+* `name`: the year of the climate data.
+* `data`: an array that contains the temperature for each day. The index of the element corresponds to the day of the year. So the first element is the temperature for the first day of the year (January 1), and the 365th element is the temperature for the last day of the year (December 31).
 
 The JSON data is organised into two large, nested arrays. The outer array contains one entry per year. Each year entry contains some metadata (like the actual year value), as well as another array with temperatures values---one per day. Within the daily temperature array only the position determines the actualy data. At the first position with ordinal number 0 it's January 1st, the second one is January 2nd and so on.
 
