@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Dismantle BAPI_PRODORD_GET_DETAIL - How to get production order details from SAP
-date: 2023-03-01 12:00:00 +0200
+date: 2024-02-29 12:00:00 +0200
 tags: sap
 image: /assets/2024-02-29/title.png
 read_more_links:
