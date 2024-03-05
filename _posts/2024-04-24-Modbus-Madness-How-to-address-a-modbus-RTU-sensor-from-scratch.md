@@ -19,19 +19,19 @@ Modbus is a standardized protocol for addressing sensors. It was invented by Sch
 
 ## The basic idea behind Modbus
 
-The basic idea is to integrate several sensors in a bus system, where every sensor has an address. Each time the master (like a PLC) needs to query a value from the sensors, it sends a request package to the bus, with the address of the sensor.
+The basic idea is to integrate several sensors in a bus system, where every sensor has an address. Each time the master (like a PLC) needs to query a value from the sensors, it sends a request package to the bus with the address of the sensor.
 
-Then, the sensor sends back its answer. Depending on the nature of the answer, there are four main "structures" for how to organize the data exchange:
-  * A discrete output.
-  * A discrete input.
-  * A holding register, for command and configuration values.
-  * The input register, which contains the actual measures or values of the sensor.
+Then, the sensor sends back its response. Depending on the nature of the response, there are four main *structures* for how to organize the data exchange:
+* A discrete input.
+* A discrete output.
+* A holding register, for command and configuration values.
+* An input register, which contains the actual measures or values of the sensor.
 
-Because we want to query sensor values, we want the input register. Check out the [Modbus Wikipedia page](https://en.wikipedia.org/wiki/Modbus) to learn more about the details of the protocol.
+Because we want to query sensor values, we'll go for the input register. Check out the [Modbus Wikipedia page](https://en.wikipedia.org/wiki/Modbus) to learn more about the details of the protocol.
 
 ## RTU and TCP and the hardware we need
 
-Most Modbus sensors are RTU sensors which only offer a serial communication. This standard is called RS485. For our example, we will use a [Jiaminye Temperature and Humidity Transmitter Rs485 Serial Communication Temperature Sensor](https://www.amazon.de/dp/B09FPSHXD5?psc=1&ref=ppx_yo2ov_dt_b_product_details). The following image shows what this sensor looks like. Beside the two power lines, there are two communication lines.
+Most Modbus sensors are RTU sensors which only offer serial communication. This standard is called RS485. For our example, we will use a [Jiaminye Temperature and Humidity Transmitter RS485 Serial Communication Temperature Sensor](https://www.amazon.de/dp/B09FPSHXD5?psc=1&ref=ppx_yo2ov_dt_b_product_details). The following image shows what this sensor looks like. Beside the two power lines, there are two communication lines.
 
 ![image](/assets/2024-04-24/010.jpeg)
 
