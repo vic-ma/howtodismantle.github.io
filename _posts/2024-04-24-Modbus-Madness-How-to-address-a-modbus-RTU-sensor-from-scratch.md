@@ -37,15 +37,20 @@ Most Modbus sensors are RTU sensors which only offer a serial communication. Thi
 
 But the problem is, Peakboard works best when you can just plug it into a modern network and don't have to deal with single cables and serial communication from the 80s. That's why we need a second piece of hardware: a [Modbus RTU to Modbus TCP Gateway Serial to Ethernet Converter](https://www.amazon.de/dp/B0BR4RX4CX?psc=1&ref=ppx_yo2ov_dt_b_product_details) that translates the serial communication into something that can be addressed with a modern LAN cable.
 
-The actual protocol stays the same---it's just a physical converter. We usually use the term *Modbus RTU* for the old style and *Modbus TCP* for the new style. Peakboard only supports *Modbus TCP* and this RTU/TCP converter helps to make any Modbus sensor available and addressable.
+The actual protocol stays the same; it's just a physical converter. We usually use the term *Modbus RTU* for the old style and *Modbus TCP* for the new style. Peakboard only supports Modbus TCP, and this RTU/TCP converter helps make any Modbus sensor available and addressable from Peakboard.
 
 ![image](/assets/2024-04-24/020.jpeg)
 
-So again: We mount the sensor to the converter and the converter is available in the same LAN as the Peakboard box (and the designer of course).
+We mount the sensor to the converter, and the converter is available in the same LAN as the Peakboard Box (and Peakboard Designer of course).
 
-## The design side / Configuring the data source
+## Configure the data source
 
-After having mastered the physical connection the configuration of the data source is not too complicated. We need to provide the IP address of the RTU/TCP converter. And also the the Bus address of our sensor within the Modbus bus system (Unit ID). In our case this is just "1". We also define that we want to read multiple input registers and read two data points. Ideally the preview works right away (see right side) and we can already see the temperature and humidity data. The temperature is displayed in tenth of degrees and the humidity in tenth of perecetage.
+The configuration of the data source is not too complicated, compared to the hardware setup we just did. We need to provide two things:
+
+* The IP address of the RTU/TCP converter.
+* The bus address of our sensor within the Modbus bus system (Unit ID). In our case, this is just `1`.
+
+We also specify that we want to read multiple input registers and two data points. Ideally, the preview works right away (see right side) and shows the temperature and humidity data. The temperature is expressed in tenths of degrees, and the humidity is expressed in tenths of percentages.
 
 ![image](/assets/2024-04-24/030.png)
 
