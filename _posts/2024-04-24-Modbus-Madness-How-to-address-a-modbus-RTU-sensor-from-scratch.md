@@ -7,10 +7,10 @@ image: /assets/2024-04-24/title.png
 read_more_links:
   - name: Modbus on Wikipedia
     url: https://en.wikipedia.org/wiki/Modbus
-  - name: TCP Gateway Serial to Ethernet Converter
-    url: https://www.amazon.de/dp/B0BR4RX4CX?psc=1&ref=ppx_yo2ov_dt_b_product_details
   - name: Temperature and Humidity Transmitter
     url: https://www.amazon.de/dp/B09FPSHXD5?psc=1&ref=ppx_yo2ov_dt_b_product_details
+  - name: TCP Gateway Serial to Ethernet Converter
+    url: https://www.amazon.de/dp/B0BR4RX4CX?psc=1&ref=ppx_yo2ov_dt_b_product_details
 downloads:
   - name: ModbusHumidityAndTemperature.pbmx
     url: /assets/2024-04-24/ModbusHumidityAndTemperature.pbmx
@@ -19,11 +19,9 @@ Modbus is a standardized protocol for addressing sensors. It was invented by Sch
 
 ## The basic idea behind Modbus
 
-The basic idea is to integrate several sensors in a bus system, where every sensor has an address.
+The basic idea is to integrate several sensors in a bus system, where every sensor has an address. Each time the master (like a PLC) needs to query a value from the sensors, it sends a request package to the bus, with the address of the sensor.
 
-1. Each time the master (like a PLC) needs to query a value from the sensors, it sends a request package to the bus, with the address of the sensor.
-2. The sensor sends back its answer.
-3. Depending on the nature of the answer, there are four main "structures" for how to organize the data exchange:
+Then, the sensor sends back its answer. Depending on the nature of the answer, there are four main "structures" for how to organize the data exchange:
   * A discrete output.
   * A discrete input.
   * A holding register, for command and configuration values.
@@ -33,11 +31,13 @@ Because we want to query sensor values, we want the input register. Check out th
 
 ## RTU and TCP and the hardware we need
 
-Most Modbus sensors are so called RTU sensors which offer just a serial communication. This standard is called RS485. For our sample we use a [Jiaminye Temperature and Humidity Transmitter Rs485 Serial Communication Temperature Sensor](https://www.amazon.de/dp/B09FPSHXD5?psc=1&ref=ppx_yo2ov_dt_b_product_details). The image show how this sensors looks like, beside two power lines there are two communication lines.
+Most Modbus sensors are RTU sensors which only offer a serial communication. This standard is called RS485. For our example, we will use a [Jiaminye Temperature and Humidity Transmitter Rs485 Serial Communication Temperature Sensor](https://www.amazon.de/dp/B09FPSHXD5?psc=1&ref=ppx_yo2ov_dt_b_product_details). The following image shows what this sensor looks like. Beside the two power lines, there are two communication lines.
 
 ![image](/assets/2024-04-24/010.jpeg)
 
-Now the problem is, that Peakboard ideally works in a world where you can just plug into a modern network and don't need to deal with single cables and a serial communication from the 80s. That's why we need a second piece of hardware. A so called [Modbus RTU to Modbus TCP Gateway Serial to Ethernet Converter]() that translates the serial communication to something that can be addressed by using a modern LAN cable. The actual protocol stays the same, it's just a physical converter. We usually use the term "Modbus RTU" for he old style and "Modbus TCP" for the new style. Peakboard only supports "Modbus TCP" and this RTU/TCP converter helps to make any Modbus sensor available and addressable.
+But the problem is, Peakboard works best when you can just plug it into a modern network and don't have to deal with single cables and serial communication from the 80s. That's why we need a second piece of hardware: a [Modbus RTU to Modbus TCP Gateway Serial to Ethernet Converter](https://www.amazon.de/dp/B0BR4RX4CX?psc=1&ref=ppx_yo2ov_dt_b_product_details) that translates the serial communication into something that can be addressed with a modern LAN cable.
+
+The actual protocol stays the same---it's just a physical converter. We usually use the term *Modbus RTU* for the old style and *Modbus TCP* for the new style. Peakboard only supports *Modbus TCP* and this RTU/TCP converter helps to make any Modbus sensor available and addressable.
 
 ![image](/assets/2024-04-24/020.jpeg)
 
