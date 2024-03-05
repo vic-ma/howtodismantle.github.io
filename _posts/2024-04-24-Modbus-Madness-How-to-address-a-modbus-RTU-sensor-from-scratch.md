@@ -17,9 +17,15 @@ downloads:
 ---
 Modbus is a standardized protocol for addressing sensors. It was invented by Schneider Electric back in the late 70s, but is still widely used. In this article, you will learn how to use the Peakboard Modbus data source to address a sensor, get the values, and do something useful with it.
 
-## Basic ideas behind Modbus
+## The basic idea behind Modbus
 
-The idea is to integrate several sensors in a bus system where every sensor has an address. Every time the master (like a PLC) needs to query a value from the sensors it sends a request package with the address of the sensor into the bus and the sensor sends back his answer. Depending on the nature of the answer there are four main "structures" how to organize the data exchange. A discrete output or input, a so called "Holding Register" for command and configuration values, and the "Input Register" which contains the actual measures or values of the sensor. As we want to query sensor values we go for the "Input Register" here in our sample. Please also check out [Wikipedia](https://en.wikipedia.org/wiki/Modbus) to learn more about the protocol details.
+The basic idea is to integrate several sensors in a bus system, where every sensor has an address.
+
+1. Each time the master (like a PLC) needs to query a value from the sensors, it sends a request package with the address of the sensor to the bus.
+2. The sensor sends back its answer.
+3. Depending on the nature of the answer, there are four main "structures" for how to organize the data exchange.
+
+A discrete output or input, called a "Holding Register," for command and configuration values, and the "Input Register" which contains the actual measures or values of the sensor. As we want to query sensor values we go for the "Input Register" here in our sample. Check out the [Modbus Wikipedia page](https://en.wikipedia.org/wiki/Modbus) to learn more about the details of the protocol.
 
 ## RTU and TCP and the hardware we need
 
