@@ -54,12 +54,12 @@ We also specify that we want to read multiple input registers and two data point
 
 ![image](/assets/2024-04-24/030.png)
 
-The next screenshot just shows how to format the numbers correctly. No need for any scripting. We just use the standard formatting options to adjust the multiplier, the measure unit and the number of decimal digits. That's it.
+The next screenshot shows how to format the numbers correctly. There's no need for any scripting. We just use the standard formatting options to adjust the multiplier, the measure unit, and the number of decimal places. That's it.
 
 ![image](/assets/2024-04-24/040.png)
 
-## result and conclusion
+## Result and conclusion
 
-As you see in the article, mastering Modbus with both TCP and RTU is actually not too difficult as long as you master the hardware side and have at least basic knowledge about how Modbus works and even more important: How the sensor actaully works in the context of the serial communication. Unfortunately there's no way around reading each sensor's documentation. There's no standard in how the values can be addressed and interrpreted. Every vendor is implenting their own idea. 
+As you saw in the article, mastering Modbus with both TCP and RTU is not too difficult, as long as you learn the hardware side and have at least basic knowledge about how Modbus works. And even more importantly, you need to know how the sensor actually works in the context of the serial communication. Unfortunately, there's no way around reading each sensor's documentation. There's no standard for how the values can be addressed and interpreted. Every vendor has their own implementation. 
 
 ![image](/assets/2024-04-24/050.png)
