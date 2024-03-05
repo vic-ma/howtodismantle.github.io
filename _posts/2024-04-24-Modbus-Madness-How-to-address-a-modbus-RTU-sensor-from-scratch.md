@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Modbus Madness - How to address a modbus RTU sensor from scratch  
+title: Modbus Madness - How to address a Modbus RTU sensor from scratch  
 date: 2023-03-01 12:00:00 +0200
 tags: hardware opcuamqtt
 image: /assets/2024-04-24/title.png
@@ -15,7 +15,7 @@ downloads:
   - name: ModbusHumidityAndTemperature.pbmx
     url: /assets/2024-04-24/ModbusHumidityAndTemperature.pbmx
 ---
-Modbus is a standardized protocol to address sensors. It was invented by Schneider Electric back in the late 70s but is still widely used. Here in this article we will cover a cool sample how to use the Peakboard Modbus data source to address a sensor, get the values, and do something usefull with it.
+Modbus is a standardized protocol for addressing sensors. It was invented by Schneider Electric back in the late 70s, but is still widely used. In this article, you will learn how to use the Peakboard Modbus data source to address a sensor, get the values, and do something useful with it.
 
 ## Basic ideas behind Modbus
 
