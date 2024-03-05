@@ -21,11 +21,15 @@ Modbus is a standardized protocol for addressing sensors. It was invented by Sch
 
 The basic idea is to integrate several sensors in a bus system, where every sensor has an address.
 
-1. Each time the master (like a PLC) needs to query a value from the sensors, it sends a request package with the address of the sensor to the bus.
+1. Each time the master (like a PLC) needs to query a value from the sensors, it sends a request package to the bus, with the address of the sensor.
 2. The sensor sends back its answer.
-3. Depending on the nature of the answer, there are four main "structures" for how to organize the data exchange.
+3. Depending on the nature of the answer, there are four main "structures" for how to organize the data exchange:
+  * A discrete output.
+  * A discrete input.
+  * A holding register, for command and configuration values.
+  * The input register, which contains the actual measures or values of the sensor.
 
-A discrete output or input, called a "Holding Register," for command and configuration values, and the "Input Register" which contains the actual measures or values of the sensor. As we want to query sensor values we go for the "Input Register" here in our sample. Check out the [Modbus Wikipedia page](https://en.wikipedia.org/wiki/Modbus) to learn more about the details of the protocol.
+Because we want to query sensor values, we want the input register. Check out the [Modbus Wikipedia page](https://en.wikipedia.org/wiki/Modbus) to learn more about the details of the protocol.
 
 ## RTU and TCP and the hardware we need
 
