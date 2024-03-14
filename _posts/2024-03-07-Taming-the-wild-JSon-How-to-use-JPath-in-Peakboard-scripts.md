@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Taming JSON - How to use JPath in Peakboard scripts
-date: 2023-03-01 02:00:00 +0200
+date: 2024-03-07 02:00:00 +0200
 tags: api basics lua
 image: /assets/2024-03-07/title.png
 read_more_links:
