@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The ultimate SAP Ninja guide on how to handle multiple BAPI returns 
-date: 2023-03-01 12:00:00 +0200
+date: 2024-03-15 12:00:00 +0200
 tags: sap
 image: /assets/2024-03-15/title.png
 read_more_links:

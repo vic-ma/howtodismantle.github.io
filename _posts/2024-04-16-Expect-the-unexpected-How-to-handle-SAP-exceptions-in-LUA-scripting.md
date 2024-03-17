@@ -56,42 +56,35 @@ local returntable = con.execute(xql)
 peakboard.log(returntable.count .. ' rows found')
 {% endhighlight %}
 
-The trick is to understand that the `execute` function not only returns the output of the XQL statement, but also a second object that represents all potential errors. So, we need to adjust the call to handle both objects. 
+The trick is to understand that the `execute` function must be placed within a try-catch-block. We can easily spot the pattern in the code below. 
 
 {% highlight lua %}
-local returntable, error = con.execute(xql)  
+local res, ex = trycatch(function()
+	returntable = con.execute(xql)  
+end)
 {% endhighlight %}
 
-There are two possible cases:
+The try-catch-block returns two variables:
 
-* If there is an error, the result table is `nil` and the error object is filled.
-* If there is no error, the result table is filled and the the error object is `nil`.
+- res is bool variable containing information, if an error has happened (false) or not (true)
+- ex is some kind of exception object that allows it look deeper into the details of the problem that has just occured.
 
-This makes it possible to distinguish between the error and no-error cases.
+if an error has occured (res is false), ex.type can be used to check the error. If it contains 'SAP' an ABAP exception has happened. In that case ex.code can be used to get the actual exception string, which we saw in `SE37` earlier. This makes it possible to react based on which exception is thrown.
 
-In the case of an error, the `type` attribute is the first thing to check. There are two options:
-
-* If `type` is `ABAP`, that means the exception was thrown by the SAP system.
-* If `type` is `XQL`, that means there was a syntax error in the XQL.
-
-So we have to check for ABAP errors first. Then, we can use the `code` attribute to get the actual exception string, which we saw in `SE37` earlier. This makes it possible to react based on which exception is thrown.
+Just in case there's SAP ABAP related exception (e.g. the connection to SAP can't be establiahed or the XQL has an syntax error) we just dump out a general purpose error message to the log by using ex.message.
 
 {% highlight lua %}
-if error then
- if error.type == 'ABAP' and error.code == 'NO_RECORD_FOUND' then
- 	peakboard.log('No data rows found')
- else
-    peakboard.log('Unexpected error: ' .. error.message)
- end
-elseif returntable then
-   peakboard.log(returntable.count .. ' rows found')
+if res then
+  peakboard.log(returntable.count .. ' rows found')
+else
+  if ex.type == 'SAP' and ex.code == 'NO_RECORD_FOUND' then
+ 	  peakboard.log('No data rows found')
+  else
+    peakboard.log('Unexpected error of type: ' .. ex.type
+	  .. ', message: ' .. ex.message)
+  end   
 end
 {% endhighlight %}
-
-The error object offers two more attributes worth mentioning:
-
-* `message` is a generic message that comes from the XQL engine. It might be helpful to dump this message into the log for further investigation.
-* `stacktrace` goes deep into the technical details that lead to the error. It might be useful for support cases or other low level debugging.
 
 ## Conclusion
 
