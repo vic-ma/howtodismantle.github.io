@@ -17,7 +17,7 @@ downloads:
 ---
 The backbone of any Dynamics 365 application is the Microsoft Dataverse. This is true for standard D365 apps like CRM or Business Central, but also for any kind of Power App. So Dataverse can be seen as a kind of cloud-based database. 
 
-In this article, we will cover a step-by-step guide on how to access Dataverse entities. The tricky part is the authentication process. In general, accessing the Dataverse data with a regular user name and password is possible, but definetely not recommended. We will learn in this article to register an app in Microsoft Entra directory and then use this app to access the data instead of username and password.
+In this article, we will cover a step-by-step guide on how to access Dataverse entities. The tricky part is the authentication process. In general, accessing the Dataverse data with a regular username and password is possible, but definitely not recommended. In this article, we will register an app in a Microsoft Entra directory and then use this app to access the data. This is much better than using a username and password.
 
 ## Installing the extension
 
