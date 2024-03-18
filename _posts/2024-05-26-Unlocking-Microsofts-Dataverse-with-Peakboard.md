@@ -19,9 +19,11 @@ The backbone of any Dynamics 365 application is the Microsoft Dataverse. This is
 
 In this article, we will cover a step-by-step guide on how to access Dataverse entities. The tricky part is the authentication process. In general, accessing the Dataverse data with a regular username and password is possible, but definitely not recommended. In this article, we will register an app in a Microsoft Entra directory and then use this app to access the data. This is much better than using a username and password.
 
-## Installing the extension
+## Install the Dynamics extension
 
-Peakboard doesn't support the Dataverse access natively, so we have to install the Dynamics extension first by clicking on Manage Extension and choose the Dynamics Extension. After restarting the Peakboard Designer the list is available to be used. The naming is rather confusing and not pefectly accurate. This has historic reasons. To be more precise we can say, that this is a 'Dataverse' extension and what we query is an 'entity list'.
+Peakboard doesn't natively support Dataverse, so we have to install the Dynamics extension first. We click on **Manage Extension** and choose the Dynamics extension. After restarting Peakboard Designer, the list is available to be used.
+
+The naming is rather confusing and not completely accurate, due to historic reasons. To be more precise we can say, that this is a 'Dataverse' extension and what we query is an 'entity list'.
 
 ![image](/assets/2024-05-26/010.png)
 
