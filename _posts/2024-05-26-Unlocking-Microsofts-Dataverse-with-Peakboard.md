@@ -68,24 +68,23 @@ In general, we have two options to access the data:
 1. We can access the entity of the Dataverse directly, which includes all attributes and all rows.
 2. We can use a view.
 
-Using a view is the preferred way. We can build a view directly in the Power Apps dev environment. The following screenshot shows a view, as seen by an end user in the CRM portal. The view depends on the `salesorder` entity in the D365 CRM system. It shows several orders for the shipment team and a very limited number of attributes (columns). This will be the basis for the data access in the next paragraph.
+Using a view is the preferred way. We can build a view directly in the Power Apps dev environment. The following screenshot shows a view, as seen by an end user in the CRM portal. The view depends on the `salesorder` entity in the D365 CRM system. It shows several orders for the shipment team and a very limited number of attributes (columns). This will be the basis for how our Peakboard data source accesses the data.
 
 ![image](/assets/2024-05-26/070.png)
 
-## Setting up the data source
+## Set up the data source
 
-Back in the Peakboard designer we can now create a new Dynamics 365 data source on basis of the extension we installed earlier. We only need to provide four values for accessing the view:
+Back in Peakboard Designer, we can now create a Dynamics 365 data source on using the extension we installed earlier. We only need to provide four values for accessing the view:
 
-1. The URL to the Dynamics 365 or Dataverse system
-2. The Client ID
-3. The Client secret
-4. The name of the view. In the combo box all views in the system are listed. Every entry starts with the entity name in alphanetical order followed by a pipe follwoed by the actual view name.
+* The URL to the Dynamics 365 or Dataverse system.
+* The Client ID.
+* The Client secret.
+* The name of the view. The combo box lists all views in the system. Each entry starts with the entity name (in alphabetical order), followed by a pipe, followed by the actual view name.
 
 ![image](/assets/2024-05-26/080.png)
 
-That's it!
 
-## result and conclusion
+## Result and conclusion
 
 The actual output as shown in the screenshot actually is not the interesting point. The interesting point in this tutroial is how to set up the resgitered app in azure, bind it to a Dataverse environment and access the data by using the CLient ID and client Secret. Once again we note the advice that it's not appropriate from a security perspective to use user name and password. Using a registered app in AZure is the official way to go and it's highly recommended to follow this advice, especially in production environments.
 
