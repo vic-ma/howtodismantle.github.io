@@ -45,15 +45,19 @@ Within the app details, we register a client secret:
 
 ![image](/assets/2024-05-26/050.png)
 
-There's no need to apply additional rights or other authorisation attributes.
+There's no need to apply additional rights or other authorization attributes.
 
-## Applying the registered app to the Dataverse environment
+## Apply the registered app to the Dataverse environment
 
-Before we can use the registered app we need to apply it to the Power Apps environment. In the [Power apps admin center](https://admin.powerplatform.microsoft.com/) we choose the environment we want to access and then go to "Settings" -> "User + permission" -> "Application users". With "new app user" we add the registered app we created earlier to the list of application users.
+Before we can use the registered app, we need to apply it to the Power Apps environment:
+
+1. In the [Power Apps admin center](https://admin.powerplatform.microsoft.com/), we select the environment we want to access.
+2. We go to **Settings > User + permission > Application users**.
+3. We select **New App User** to add the registered app we created earlier to the list of application users.
 
 ![image](/assets/2024-05-26/055.png)
 
-After adding the app we must add a security role that fits to our needs. This depends on the existing roles in the Power App environment what to choose. In case we don't care about roles and just want to get it working, we can assign the role "System Administrator" to allow the app full access to all data of the Dataverse.
+After adding the app, we have to add a security role that fits our needs. This depends on the existing roles in the Power App environment. If you don't care about roles and just want to get it working, you can assign the *System Administrator* role to give the app full access to all the data in the Dataverse.
 
 ![image](/assets/2024-05-26/060.png)
 
