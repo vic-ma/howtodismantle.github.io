@@ -15,7 +15,9 @@ downloads:
   - name: D365GetOrders.pbmx
     url: /assets/2024-05-26/D365GetOrders.pbmx
 ---
-The backbone of any Dynamics 365 application is the Microsoft Dataverse. This is true for any typical D365 app like CRM or Business Central, but also for any kind of Power App. So the dataverse can be seen as some kind of cloud based database. In this article we will cover a step-by-step guide on how to access the dataverse entities. The tricky part is the correct authentification. In general accessing the dataverse data with a regular user name and password is possible, but definetely not recommended. We will learn in this article to register an app in Microsoft Entra directory and then use this app to access the data instead of username and password.
+The backbone of any Dynamics 365 application is the Microsoft Dataverse. This is true for standard D365 apps like CRM or Business Central, but also for any kind of Power App. So Dataverse can be seen as a kind of cloud-based database. 
+
+In this article, we will cover a step-by-step guide on how to access Dataverse entities. The tricky part is the authentication process. In general, accessing the Dataverse data with a regular user name and password is possible, but definetely not recommended. We will learn in this article to register an app in Microsoft Entra directory and then use this app to access the data instead of username and password.
 
 ## Installing the extension
 
@@ -39,19 +41,19 @@ Within the app details we register a client secret (see screenshot). Beside the 
 
 There's no need to apply additional rights or other authorisation attributes.
 
-## Applying the registered app to the dataverse environment
+## Applying the registered app to the Dataverse environment
 
 Before we can use the registered app we need to apply it to the Power Apps environment. In the [Power apps admin center](https://admin.powerplatform.microsoft.com/) we choose the environment we want to access and then go to "Settings" -> "User + permission" -> "Application users". With "new app user" we add the registered app we created earlier to the list of application users.
 
 ![image](/assets/2024-05-26/055.png)
 
-After adding the app we must add a security role that fits to our needs. This depends on the existing roles in the Power App environment what to choose. In case we don't care about roles and just want to get it working, we can assign the role "System Administrator" to allow the app full access to all data of the dataverse.
+After adding the app we must add a security role that fits to our needs. This depends on the existing roles in the Power App environment what to choose. In case we don't care about roles and just want to get it working, we can assign the role "System Administrator" to allow the app full access to all data of the Dataverse.
 
 ![image](/assets/2024-05-26/060.png)
 
 ## Views
 
-In genereal we have two options to access the data. We can either access the entity of the dataverse directly, this includes all attributes and all rows. Or the more preferred way is to use a view. We can build a view directly in the Power Apps dev environment. The screenshot shows a view as seen by an end user in the CRM portal. The view depends on the entity "salesorder" in the D365 CRM system. It shows several orders for the shipment team and very limited number of attributes (columns). This will basis for the data access in the next paragraph.
+In genereal we have two options to access the data. We can either access the entity of the Dataverse directly, this includes all attributes and all rows. Or the more preferred way is to use a view. We can build a view directly in the Power Apps dev environment. The screenshot shows a view as seen by an end user in the CRM portal. The view depends on the entity "salesorder" in the D365 CRM system. It shows several orders for the shipment team and very limited number of attributes (columns). This will basis for the data access in the next paragraph.
 
 ![image](/assets/2024-05-26/070.png)
 
@@ -59,7 +61,7 @@ In genereal we have two options to access the data. We can either access the ent
 
 Back in the Peakboard designer we can now create a new Dynamics 365 data source on basis of the extension we installed earlier. We only need to provide four values for accessing the view:
 
-1. The URL to the Dynamics 365 or dataverse system
+1. The URL to the Dynamics 365 or Dataverse system
 2. The Client ID
 3. The Client secret
 4. The name of the view. In the combo box all views in the system are listed. Every entry starts with the entity name in alphanetical order followed by a pipe follwoed by the actual view name.
@@ -70,7 +72,7 @@ That's it!
 
 ## result and conclusion
 
-The actual output as shown in the screenshot actually is not the interesting point. The interesting point in this tutroial is how to set up the resgitered app in azure, bind it to a dataverse environment and access the data by using the CLient ID and client Secret. Once again we note the advice that it's not appropriate from a security perspective to use user name and password. Using a registered app in AZure is the official way to go and it's highly recommended to follow this advice, especially in production environments.
+The actual output as shown in the screenshot actually is not the interesting point. The interesting point in this tutroial is how to set up the resgitered app in azure, bind it to a Dataverse environment and access the data by using the CLient ID and client Secret. Once again we note the advice that it's not appropriate from a security perspective to use user name and password. Using a registered app in AZure is the official way to go and it's highly recommended to follow this advice, especially in production environments.
 
 ![image](/assets/2024-05-26/090.png)
 
