@@ -69,9 +69,9 @@ The try-catch block returns two variables:
 - `res`: a boolean describing whether an error occurred (true) or not (false).
 - `ex`: an exception object that lets you look deeper into the details of the problem that occurred.
 
-If an error occurred (`res` is false), you can use `ex.type` to examine the error. If `ex.type` contains `SAP`, that means an ABAP exception has occurred. In that case, `ex.code` can be used to get the actual exception string, which we saw in `SE37` earlier. This makes it possible to react based on which exception is thrown.
+If an error occurred (`res` is false), you can use `ex.type` to examine the error. If `ex.type` contains `SAP`, that means an ABAP exception has occurred. In that case, you can use `ex.code` to get the actual exception string, which we saw in `SE37` earlier. This makes it possible to react based on which exception is thrown.
 
-In case there's SAP ABAP related exception (for example, the connection to SAP can't be established, or the XQL has a syntax error), we dump out a general purpose error message to the log by using `ex.message`.
+In case there's an SAP ABAP related exception (for example, the connection to SAP can't be established, or the XQL has a syntax error), we dump out a general purpose error message to the log by using `ex.message`.
 
 {% highlight lua %}
 if res then
