@@ -77,9 +77,9 @@ Using a view is the preferred way. We can build a view directly in the Power App
 Back in Peakboard Designer, we can now create a Dynamics 365 data source, using the extension we installed earlier. We only need to provide four values for accessing the view:
 
 * The URL to the Dynamics 365 or Dataverse system.
-* The Client ID.
-* The Client secret.
-* The name of the view. The combo box lists all views in the system. Each entry starts with the entity name (in alphabetical order), followed by a pipe, followed by the actual view name.
+* The client ID.
+* The client secret.
+* The name of the view. The combo box lists all views in the system. Each entry starts with the entity name, followed by a pipe, followed by the actual view name. The entries are sorted alphabetically, by entity name.
 
 ![image](/assets/2024-05-26/080.png)
 
@@ -88,7 +88,7 @@ Back in Peakboard Designer, we can now create a Dynamics 365 data source, using 
 
 The actual output shown in the screenshot is not the interesting part. The interesting part is how we set up the registered app in Azure, bound it to a Dataverse environment, and accessed the data by using the client ID and client secret.
 
-Once again, note the advice that it's not secure to use username and password. Using a registered app in Azure is the official way to do things, and it's highly recommended following this advice, especially in production environments.
+Once again, note the advice that it's not secure to use a username and password. Using a registered app in Azure is the proper way to do things, and it's highly recommended following this advice, especially in production environments.
 
 ![image](/assets/2024-05-26/090.png)
 
