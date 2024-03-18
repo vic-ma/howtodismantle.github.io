@@ -61,9 +61,14 @@ After adding the app, we have to add a security role that fits our needs. This d
 
 ![image](/assets/2024-05-26/060.png)
 
-## Views
+## Use Views
 
-In genereal we have two options to access the data. We can either access the entity of the Dataverse directly, this includes all attributes and all rows. Or the more preferred way is to use a view. We can build a view directly in the Power Apps dev environment. The screenshot shows a view as seen by an end user in the CRM portal. The view depends on the entity "salesorder" in the D365 CRM system. It shows several orders for the shipment team and very limited number of attributes (columns). This will basis for the data access in the next paragraph.
+In general, we have two options to access the data:
+
+1. We can access the entity of the Dataverse directly, which includes all attributes and all rows.
+2. We can use a view.
+
+Using a view is the preferred way. We can build a view directly in the Power Apps dev environment. The following screenshot shows a view, as seen by an end user in the CRM portal. The view depends on the `salesorder` entity in the D365 CRM system. It shows several orders for the shipment team and a very limited number of attributes (columns). This will be the basis for the data access in the next paragraph.
 
 ![image](/assets/2024-05-26/070.png)
 
