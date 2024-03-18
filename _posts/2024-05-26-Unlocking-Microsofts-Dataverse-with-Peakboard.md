@@ -6,7 +6,7 @@ tags: bestpractice office365
 image: /assets/2024-05-26/title.png
 read_more_links:
   - name: Dismantle SharePoint - How to use a document library to store technical drawings and download them in Peakboard dynamically
-    url: /2023-11-24-Dismantle-Sharepoint-How-to-use-a-document-library-to-store-techical-drawings-and-download-them-to-Peakboard-dynamically.html
+    url: /Dismantle-Sharepoint-How-to-use-a-document-library-to-store-techical-drawings-and-download-them-to-Peakboard-dynamically.html
   - name: MS Graph API - Understand the basics and get started
     url: /MS-Graph-API-Understand-the-basis-and-get-started.html
   - name: Peakboard Dynamics Extension on github
