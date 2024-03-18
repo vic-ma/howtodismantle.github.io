@@ -33,13 +33,15 @@ The extension name is a bit confusing and inaccurate, due to historical reasons.
 
 ## Register an app in the Micrsoft Entra ID directory
 
-To access the data later without using a username and password, we need to register an app in the Entry ID directory of the company's Azure portal. The following screenshot shows how to do this.
+To access the data later without using a username and password, we need to register an app in the Entra ID directory of the company's Azure portal. The following screenshot shows how to do this:
 
 ![image](/assets/2024-05-26/030.png)
 
-Within the app details, we register a client secret (see screenshot). Beside the client secret, we will also need the Client ID. It can be found in the overview administration pane of the registered app.
+Within the app details, we register a client secret:
 
 ![image](/assets/2024-05-26/040.png)
+
+ We also need the client ID. It can be found in the **Overview** administration pane of the registered app.
 
 ![image](/assets/2024-05-26/050.png)
 
