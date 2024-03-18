@@ -9,21 +9,21 @@ read_more_links:
     url: /Dismantle-Sharepoint-How-to-use-a-document-library-to-store-techical-drawings-and-download-them-to-Peakboard-dynamically.html
   - name: MS Graph API - Understand the basics and get started
     url: /MS-Graph-API-Understand-the-basis-and-get-started.html
-  - name: Peakboard Dynamics Extension on github
+  - name: Peakboard Dynamics Extension on GitHub
     url: https://github.com/Peakboard/PeakboardExtensions/tree/master/MicrosoftDynamics365
 downloads:
   - name: D365GetOrders.pbmx
     url: /assets/2024-05-26/D365GetOrders.pbmx
 ---
-The backbone of any Dynamics 365 application is the Microsoft Dataverse. This is true for standard D365 apps like CRM or Business Central, but also for any kind of Power App. So Dataverse can be seen as a kind of cloud-based database. 
+The backbone of any Dynamics 365 application is Microsoft Dataverse. This is true for standard D365 apps like CRM or Business Central, but also for any kind of Power App. So, Dataverse can be seen as a kind of cloud-based database. 
 
-In this article, we will cover a step-by-step guide on how to access Dataverse entities. The tricky part is the authentication process. In general, accessing the Dataverse data with a regular username and password is possible, but definitely not recommended.
+This article is a step-by-step guide on how to access Dataverse entities. The tricky part is the authentication process. In general, accessing the Dataverse data with a regular username and password is possible, but definitely not recommended.
 
 In this article, we will register an app in a Microsoft Entra directory and then use this app to access the data. This is much more secure than using a username and password.
 
 ## Install the Dynamics extension
 
-Peakboard doesn't natively support Dataverse, so we have to install the Dynamics extension first. We click on **Manage Extension** and choose the Dynamics extension. After restarting Peakboard Designer, the list is available to be used.
+Peakboard doesn't natively support Dataverse, so we have to install the [Dynamics extension](https://templates.peakboard.com/extensions/Microsoft-Dynamics-365/en) first. We click on **Manage Extension** and choose the Dynamics extension. After restarting Peakboard Designer, the list is available to be used.
 
 The extension name is a bit confusing and inaccurate, due to historical reasons. To be more accurate, we can say that the extension is a *Dataverse* extension and what we query is an *entity list*.
 
@@ -74,7 +74,7 @@ Using a view is the preferred way. We can build a view directly in the Power App
 
 ## Set up the data source
 
-Back in Peakboard Designer, we can now create a Dynamics 365 data source on using the extension we installed earlier. We only need to provide four values for accessing the view:
+Back in Peakboard Designer, we can now create a Dynamics 365 data source, using the extension we installed earlier. We only need to provide four values for accessing the view:
 
 * The URL to the Dynamics 365 or Dataverse system.
 * The Client ID.
