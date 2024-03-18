@@ -56,7 +56,7 @@ local returntable = con.execute(xql)
 peakboard.log(returntable.count .. ' rows found')
 {% endhighlight %}
 
-The trick is to understand that the `execute` function must be placed within a try-catch-block. We can easily spot the pattern in the code below. 
+The trick is to understand that the `execute` function must be placed inside a try-catch block: 
 
 {% highlight lua %}
 local res, ex = trycatch(function()
@@ -64,14 +64,14 @@ local res, ex = trycatch(function()
 end)
 {% endhighlight %}
 
-The try-catch-block returns two variables:
+The try-catch block returns two variables:
 
-- res is bool variable containing information, if an error has happened (false) or not (true)
-- ex is some kind of exception object that allows it look deeper into the details of the problem that has just occured.
+- `res`: a boolean describing whether an error occurred (true) or not (false).
+- `ex`: an exception object that lets you look deeper into the details of the problem that occurred.
 
-if an error has occured (res is false), ex.type can be used to check the error. If it contains 'SAP' an ABAP exception has happened. In that case ex.code can be used to get the actual exception string, which we saw in `SE37` earlier. This makes it possible to react based on which exception is thrown.
+If an error occurred (`res` is false), you can use `ex.type` to examine the error. If `ex.type` contains `SAP`, that means an ABAP exception has occurred. In that case, `ex.code` can be used to get the actual exception string, which we saw in `SE37` earlier. This makes it possible to react based on which exception is thrown.
 
-Just in case there's SAP ABAP related exception (e.g. the connection to SAP can't be establiahed or the XQL has an syntax error) we just dump out a general purpose error message to the log by using ex.message.
+In case there's SAP ABAP related exception (for example, the connection to SAP can't be established, or the XQL has a syntax error), we dump out a general purpose error message to the log by using `ex.message`.
 
 {% highlight lua %}
 if res then
