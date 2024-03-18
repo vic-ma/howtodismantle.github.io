@@ -17,25 +17,27 @@ downloads:
 ---
 The backbone of any Dynamics 365 application is the Microsoft Dataverse. This is true for standard D365 apps like CRM or Business Central, but also for any kind of Power App. So Dataverse can be seen as a kind of cloud-based database. 
 
-In this article, we will cover a step-by-step guide on how to access Dataverse entities. The tricky part is the authentication process. In general, accessing the Dataverse data with a regular username and password is possible, but definitely not recommended. In this article, we will register an app in a Microsoft Entra directory and then use this app to access the data. This is much better than using a username and password.
+In this article, we will cover a step-by-step guide on how to access Dataverse entities. The tricky part is the authentication process. In general, accessing the Dataverse data with a regular username and password is possible, but definitely not recommended.
+
+In this article, we will register an app in a Microsoft Entra directory and then use this app to access the data. This is much better than using a username and password.
 
 ## Install the Dynamics extension
 
 Peakboard doesn't natively support Dataverse, so we have to install the Dynamics extension first. We click on **Manage Extension** and choose the Dynamics extension. After restarting Peakboard Designer, the list is available to be used.
 
-The naming is rather confusing and not completely accurate, due to historic reasons. To be more precise we can say, that this is a 'Dataverse' extension and what we query is an 'entity list'.
+The extension name is a bit confusing and inaccurate, due to historical reasons. To be more accurate, we can say that the extension is a *Dataverse* extension and what we query is an *entity list*.
 
 ![image](/assets/2024-05-26/010.png)
 
 ![image](/assets/2024-05-26/020.png)
 
-## Registering an app in the Micrsoft Entra ID directory
+## Register an app in the Micrsoft Entra ID directory
 
-For accessing the data later wihout using a username and password we need to register an app in the Entry ID directory of the company's Azure portal. The screenshot shows the right place to do this.
+To access the data later without using a username and password, we need to register an app in the Entry ID directory of the company's Azure portal. The following screenshot shows how to do this.
 
 ![image](/assets/2024-05-26/030.png)
 
-Within the app details we register a client secret (see screenshot). Beside the client secret, we will also need the Client ID. It can be found in the overview administration pane of the registered app.
+Within the app details, we register a client secret (see screenshot). Beside the client secret, we will also need the Client ID. It can be found in the overview administration pane of the registered app.
 
 ![image](/assets/2024-05-26/040.png)
 
