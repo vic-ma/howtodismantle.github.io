@@ -11,6 +11,7 @@ It's nice to have you here, but please make sure to understand:
 2. The articles here are provided 'as they are'. No warranty! If you find any mistakes, please let me know. 
 3. The articles here refer to the software version of the date when the article was published. Certain statements, screenshots, hacks, functions, etc might not work anymore with later versions or there might be a solution available so that a hack is not necessary anymore.
 4. If you have any questions or requests for new articles, please let me know: Michelle at whiterabbit.tw.
+5. For any questions around the articles feel free to use the [Peakboard reddit](https://www.reddit.com/r/Peakboard/).
 
 Love, Michelle
 
