@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Integrating Node-RED and Peakboard - Part I - Real-time calculator
-date: 2023-03-01 12:00:00 +0200
+date: 2024-03-23 12:00:00 +0200
 tags: api opcuamqtt nodered
 image: /assets/2024-03-23/title.png
 read_more_links:
