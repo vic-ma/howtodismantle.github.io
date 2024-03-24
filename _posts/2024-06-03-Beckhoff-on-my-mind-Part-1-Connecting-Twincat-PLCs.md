@@ -2,7 +2,7 @@
 layout: post
 title: Beckhoff on my mind - Part 1 - Connecting Twincat PLCs
 date: 2023-03-01 12:00:00 +0200
-tags: hardware
+tags: hardware twincat
 image: /assets/2024-06-03/title.png
 read_more_links:
   - name: Youtube Video Series about Programming Twincat 3
@@ -68,7 +68,7 @@ Up to this point things seem pretty easy. However the problem is, that the targe
 The screenshot shows how it works. To use the dynamic router we need to provide the local AMS ID (it must match with the AMS ID that is used on the PLC side to configure the counterpart of this router), along with the ip address of the remote PLC.
 What Peakboard does now is to start the temporary router before the connection is established. 
 
-![image](/assets/2024-06-03/061.png)
+![image](/assets/2024-06-03/070.png)
 
 Atenttion!!!!
 Here are the three points to make sure it works. If these points are not fullfilled, the tempory router won't work:
