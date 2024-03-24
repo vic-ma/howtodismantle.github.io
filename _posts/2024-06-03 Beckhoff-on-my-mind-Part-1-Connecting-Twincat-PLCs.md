@@ -2,7 +2,7 @@
 layout: post
 title: Beckhoff on my mind - Part 1 - Connecting Twincat PLCs
 date: 2023-03-01 12:00:00 +0200
-tags: twincat
+tags: hardware
 image: /assets/2024-06-03/title.png
 read_more_links:
   - name: Youtube Video Series about Programming Twincat 3
