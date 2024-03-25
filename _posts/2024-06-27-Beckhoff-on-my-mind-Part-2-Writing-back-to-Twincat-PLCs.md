@@ -1,85 +1,52 @@
 ---
 layout: post
-title: Beckhoff on my mind - Part 1 - Connecting Twincat PLCs
+title: Beckhoff on my mind - Part 2 - Writing back to Twincat PLCs
 date: 2023-03-01 12:00:00 +0200
 tags: hardware twincat
-image: /assets/2024-06-03/title.png
+image: /assets/2024-06-27/title.png
 read_more_links:
-  - name: Youtube Video Series about Programming Twincat 3
-    url: https://www.youtube.com/watch?v=WkNOm-hMH3k&list=PLimaF0nZKYHz3I3kFP4myaAYjmYk1SowO&ab_channel=JakobSagatowski
+  - name: Part 1 - Connecting Twincat PLCs
+    url: /Beckhoff-on-my-mind-Part-1-Connecting-Twincat-PLCs.html
   - name: Beckhoff Information System (aka the help site)
     url: https://infosys.beckhoff.com/
-  - name: Questions? Please post in reddit
-    url: https://www.reddit.com/r/Peakboard/comments/1bnb7tm/integrating_nodered_and_peakboard/
 downloads:
-  - name: TwincatFirstSteps.pbmx
-    url: /assets/2024-06-03/TwincatFirstSteps.pbmx
+  - name: BeckhoffTwincatCalculcator.pbmx
+    url: /assets/2024-06-27/BeckhoffTwincatCalculcator.pbmx
 ---
-The German company Beckhoff is inventor of one of the world's most popular PLCs called Twincat. In his article we will cover a basic introduction on Beckhoff Twincat 3 connectivity to Peakboard applications and we will cover some basic knowledge about how Twincat works in the backend. 
+Welcome to the second part of our Beckhoff Twincat series. In [Part 1](/Beckhoff-on-my-mind-Part-1-Connecting-Twincat-PLCs.html) we discussed the basics of connecting Peakboard and Twincat. In today's article we move one step ahead and talk about writing back to Twincat. Compared with the relatively tricky router / connection thing from the first part, writing back is fairly easy.
 
-## Installation and first steps
+## The Twincat program
 
-Different readers might be on completely different levels of knowledge. In this article we expect to have an instance of Twincat up and running with a basic program on it. The programm must offer some variables to be accessed from the outside.
-If you are a total newbie and have not solved the minimum requirements yet, there's a super nice video series available on YouTube called [PLC programming using TwinCAT 3](https://www.youtube.com/watch?v=WkNOm-hMH3k&list=PLimaF0nZKYHz3I3kFP4myaAYjmYk1SowO&ab_channel=JakobSagatowski). Beside the basic programming knowledge the maker of this series explains how to install a Twincat instance, run it and use a development environment to put some basic programs on it. 
-Beside the video series the regular [Beckhoff help site](https://infosys.beckhoff.com/) is also a good point to seek for any kind of help around issues that might pop up during the journey.
+The idea of this showcase is to build a calculcator. We let the user of the Peakboard app provide two numbers, send it to a Twincat PLC and let it sum up these numbers. The result is written into a third variable from where we can read it to get back the result. The screenshot shows the Twincat program. Three integer variables along with exactly one line of actual code to sum them up.
 
-## Configuring the router for development
+![image](/assets/2024-06-27/010.png)
 
-Let's assume we run the PLC instance on one remote machine and the development environment (XAE Shell for Twincat and Peakboard Designer) runs on the local computer. In that scenario we can't simply connect the "client" with the "server" we would expect from the experience with other sources. We need to configure a route first. To access the routes for both the dev machine and the PLC machine we can use the task tray icon (see screenshot). If the PLC machine is Linux based or a physical Beckhoff device, it comes with a web interface where you can do the same.
+## The Peakboard side
 
-![image](/assets/2024-06-03/010.png)
+Let's switch to the Peakboard designer. We set up the source and can easily access the three variables. Although we only need the iResult we select all of them for clarity and logging purpose.
 
-Let's start with the local dev machine. When we add a route and click on broadcast search it is supposed to find our remote PLC in the network (the name of the sample remote PLC starts with "Desktop", but it's a remote machine anyway, sorry for the bad naming). If the broadcast cannot find it we help him by providing the ip address. It's important to change the "Remote Route" to "None / Server". Depending on the PLC configuration we need to provide user name and password. If we just set up a Twincat instance under Windows like it's explained in the video series, we leave all authentification blank. We also note the AMS ID we can see there because we will need it later.
+![image](/assets/2024-06-27/020.png)
 
-![image](/assets/2024-06-03/020.png)
+The next screenshot shows the canvas. We have three text controls, two for input and one for the result. The result text box is directly bound to the corresponding column in the data souce.
+The table element below is only for checking how the raw data behaves. It's actually not necessary for this show case.
+All the magic is happening behind the "Calculate" button
 
-After having added the route we can see it in the list. If not, hitting "Refresh" will help. As we can see, the column "Connected" is empty.
+![image](/assets/2024-06-27/030.png)
 
-![image](/assets/2024-06-03/021.png)
+Now let's look at the process that does the actual writing. As we see in the screenshot, there's a Building Block available which can be used. It needs to know the connection, the destination variable name and the actual value, which is fed directly from the text box.
 
-Now let's switch to the remote PLC side and add a route there that points to our dev machine.
+![image](/assets/2024-06-27/040.png)
 
-![image](/assets/2024-06-03/030.png)
+In case we prefer to type the code directly in LUA, here's the same function written as raw LUA statements:
 
-After having added the second route, the route entry is supposed to jump to "Connected" on both sides. That's the sign, that both machine know each other and can interact. The two screenshots show the router after having added the router on both machines.
+{% highlight lua %}
+connections.getfromid('fgl8+PJgAZEtwwxF/W6yR7VW7aI=').writevariable('MAIN', 'iInput1', screens['Screen1'].txtInput1.text)
+connections.getfromid('fgl8+PJgAZEtwwxF/W6yR7VW7aI=').writevariable('MAIN', 'iInput2', screens['Screen1'].txtInput2.text)
+{% endhighlight %}
 
-![image](/assets/2024-06-03/031.png)
+## conclusion and result
 
-![image](/assets/2024-06-03/040.png)
+The gif below shows the app during runtime. The user input is send to Twincat, calculated and then presented the next time the data source is refreshed.
 
-## The program on the PLC
-
-For our sample, we use a very simple program that runs on the remote PLC. It has two variables: A simple counter and a static string. The screenshot shows how the program looks like in debugging mode. The counter constantly changes when the program is running.
-
-![image](/assets/2024-06-03/050.gif)
-
-## Setting up the Peakboard data source
-
-Let's switch to the Peakboard Designer and create a Beckhoff Twincat 3 data source. There are two main attributes to provide: The AMS ID (of the remote PLC as noted earlier) and the port. The default port is 851. If there's more than one program running on the PLC the second and third program comes on port 852, 853 etc....
-After providing these attributes we can load the modules of the program we're accessing. The variables were interested in are available in he MAIN program. Hitting the refresh button then lists the variables as columns of the resultset. 
-
-![image](/assets/2024-06-03/060.png)
-
-Here's the final result when using a simple table to show the resultset
-
-![image](/assets/2024-06-03/061.gif)
-
-## Dynamic local router
-
-Up to this point things seem pretty easy. However the problem is, that the target Peakboard runtime instance (e.g. a physical box or BYOD instance) most likely doesn't have a router like the local dev machine. So the application we built up to here won't run on a box. The Beckhoff data source foresees this problem and give the user the option to establish a temporary router on the fly to replace the router we configured earlier.
-The screenshot shows how it works. To use the dynamic router we need to provide the local AMS ID (it must match with the AMS ID that is used on the PLC side to configure the counterpart of this router), along with the IP address of the remote PLC.
-What Peakboard does now is to start the temporary router before the connection is established. 
-
-![image](/assets/2024-06-03/070.png)
-
-Atenttion!!!!
-Here are the three points to make sure it works. If these points are not fullfilled, the tempory router won't work:
-
-* If there's still a static router running on the local dev machine, we shut it down (by ending the local Twincat Windows services). Otherwise there are two routers running, which is not possible.
-* To make the conection running on a box it's necessary to confiure the PLC router accordingly and provide the IP address of the box along with the AMS ID, and NOT ONLY the ip address of the dev machine.
-* The ports 48899 (discovery), 48898 (unsecure) and 8016 (secure) should be open on both the PLC side and Peaboard runtime side. These ports are used to let the routers (both static and dynmic) communicate with each other.
-
-## conclusion
-
-Bekchoff Twincat 3 is a tricky issue in context of Pekaboard because the way Peakboard works does not perfectly fit to the architecture of routes in the Twincat context. Every Peakboard developer or Peakboard Designer user must precisely understand how it works, otherwise the connection won't work. Even if it works on the dev machine, it's not necessarily made sure it works on the box without having understood exactly what to configure.
+![image](/assets/2024-06-27/result.gif)
 

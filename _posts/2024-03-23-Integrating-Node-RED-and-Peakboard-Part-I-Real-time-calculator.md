@@ -13,6 +13,8 @@ read_more_links:
     url: /Integrating-Node-RED-and-Peakboard-Part-I-Real-time-calculator.html
   - name: Part II - Sending Alerts to a Peakboard application
     url: /Integrating-Node-RED-and-Peakboard-Part-II-Sending-Alerts-to-an-Peakboard-application.html
+  - name: Questions? Please post in reddit
+    url: https://www.reddit.com/r/Peakboard/comments/1bnb7tm/integrating_nodered_and_peakboard/
 downloads:
   - name: NodeRedCalculator.pbmx
     url: /assets/2024-03-23/NodeRedCalculator.pbmx
