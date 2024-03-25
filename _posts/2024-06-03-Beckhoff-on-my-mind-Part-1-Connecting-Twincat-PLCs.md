@@ -23,11 +23,11 @@ Beside the video series the regular [Beckhoff help site](https://infosys.beckhof
 
 ## Configuring the router for development
 
-Let's assume we run the PLC instance on one remote machine and the development environment (XAE Shell for Twincat and Peakboard Designer) runs on the local computer. In that scenario we can't simply connect the "client" with the "server" we we would expect from the experience with other sources. We need to configure a route first. To access the routes for both the dev machine and the PLC machine we can use the task tray icon (see screenshot). If the PLC machine is Linux based or a physical Beckhoff device, it comes with a web interface where you can do the same.
+Let's assume we run the PLC instance on one remote machine and the development environment (XAE Shell for Twincat and Peakboard Designer) runs on the local computer. In that scenario we can't simply connect the "client" with the "server" we would expect from the experience with other sources. We need to configure a route first. To access the routes for both the dev machine and the PLC machine we can use the task tray icon (see screenshot). If the PLC machine is Linux based or a physical Beckhoff device, it comes with a web interface where you can do the same.
 
 ![image](/assets/2024-06-03/010.png)
 
-Let's start with the local dev machine. When we add a route and click on broadcast search it is supposed to find our remote PLC in the network (the name of the sample remote PLC starts with "Desktop", but it's a remote machine anyway, sorry for the bad naming). If the braodcast cannot find it we help him by providing the ip address. It's important to change the "Remote Route" to "None / Server". Depending on the PLC configuration we need to provide user name and password. If we just set up a Twincat instance under Windows like it's explained in the video series, we leave all authentification blank. We also note the AMS ID we can see there because we will need it later.
+Let's start with the local dev machine. When we add a route and click on broadcast search it is supposed to find our remote PLC in the network (the name of the sample remote PLC starts with "Desktop", but it's a remote machine anyway, sorry for the bad naming). If the broadcast cannot find it we help him by providing the ip address. It's important to change the "Remote Route" to "None / Server". Depending on the PLC configuration we need to provide user name and password. If we just set up a Twincat instance under Windows like it's explained in the video series, we leave all authentification blank. We also note the AMS ID we can see there because we will need it later.
 
 ![image](/assets/2024-06-03/020.png)
 
@@ -35,7 +35,7 @@ After having added the route we can see it in the list. If not, hitting "Refresh
 
 ![image](/assets/2024-06-03/021.png)
 
-Not let's switch to the remote PLC side and add a route there that points to our dev machine.
+Now let's switch to the remote PLC side and add a route there that points to our dev machine.
 
 ![image](/assets/2024-06-03/030.png)
 
@@ -65,7 +65,7 @@ Here's the final result when using a simple table to show the resultset
 ## Dynamic local router
 
 Up to this point things seem pretty easy. However the problem is, that the target Peakboard runtime instance (e.g. a physical box or BYOD instance) most likely doesn't have a router like the local dev machine. So the application we built up to here won't run on a box. The Beckhoff data source foresees this problem and give the user the option to establish a temporary router on the fly to replace the router we configured earlier.
-The screenshot shows how it works. To use the dynamic router we need to provide the local AMS ID (it must match with the AMS ID that is used on the PLC side to configure the counterpart of this router), along with the ip address of the remote PLC.
+The screenshot shows how it works. To use the dynamic router we need to provide the local AMS ID (it must match with the AMS ID that is used on the PLC side to configure the counterpart of this router), along with the IP address of the remote PLC.
 What Peakboard does now is to start the temporary router before the connection is established. 
 
 ![image](/assets/2024-06-03/070.png)
@@ -74,7 +74,7 @@ Atenttion!!!!
 Here are the three points to make sure it works. If these points are not fullfilled, the tempory router won't work:
 
 * If there's still a static router running on the local dev machine, we shut it down (by ending the local Twincat Windows services). Otherwise there are two routers running, which is not possible.
-* To make theconection running on a box it's necessary to confiure the PLC router accordingly and provide the IP address of the box along with the AMS ID, and NOT ONLY the ip address of the dev machine.
+* To make the conection running on a box it's necessary to confiure the PLC router accordingly and provide the IP address of the box along with the AMS ID, and NOT ONLY the ip address of the dev machine.
 * The ports 48899 (discovery), 48898 (unsecure) and 8016 (secure) should be open on both the PLC side and Peaboard runtime side. These ports are used to let the routers (both static and dynmic) communicate with each other.
 
 ## conclusion
