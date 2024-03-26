@@ -30,7 +30,12 @@ Building OData services from scratch is explained very well in other tutorials, 
 * [Build a simple OData service that exposes a table](https://community.sap.com/t5/technology-blogs-by-members/introduction-to-odata-and-how-to-implement-them-in-abap/ba-p/13474383)
 * [Build a CRUD OData service bsed on function modules](https://www.techippo.com/search/label/OData%20Service?&max-results=8)
 
-SAP's OData endpoint is mainly configured in the transaction SEGW. A service consists of one or more OData entities. Behind every entity is some kind of function to fill the entity with life. The screenshot shows two entities of out sample service. One exposes the SFLIGHT table and one is based on the RFC function Z_PB_DELIVERY_MONITOR which has the table T_DELIVERIES. We already discussed the internal details of Z_PB_DELIVERY_MONITOR in [this article](/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html).
+SAP's OData endpoint is mainly configured in the `SEGW` transaction. A service consists of one or more OData entities. Behind each entity, there is some kind of function that fills the entity with life.
+
+The following screenshot shows two entities of our example service:
+* One exposes the `SFLIGHT` table
+* The other is based on the RFC function `Z_PB_DELIVERY_MONITOR`, which has the table `T_DELIVERIES`.
+We already discussed the internal details of Z_PB_DELIVERY_MONITOR in [this article](/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html).
 In the bottom left corner you see the operations that can be used to be applied on an entity set. For the data query (which is out main purpose) the operation is GetEntitySet.
 
 ![image](/assets/2024-05-18/010.png)
