@@ -17,28 +17,28 @@ downloads:
   - name: SAPOdata.pbmx
     url: /assets/2024-05-18/SAPOdata.pbmx
 ---
-In this blog, we've talked a lot about how to connect Peakboard and SAP. We've always used Peakboard's built-in SAP integration, which is based on SAP's RFC protocol. In more than 95% of all cases, this is the best choice for a perfect, smooth, and fast SAP connection.
+In this blog, we've talked a lot about how to connect [Peakboard and SAP](https://how-to-dismantle-a-peakboard-box.com/category/sap). We've always used Peakboard's built-in SAP integration, which is based on SAP's RFC protocol. In more than 95% of all cases, this is the best choice for a perfect, smooth, and fast SAP connection.
 
-However, there are circumstances where it makes sense to not use RFC, but rather OData. For example, it makes sense to use OData if OData is a company standard and external systems are not allowed to use a direct SAP connection. 
+However, there are times when it makes sense to use OData instead of RFC. For example, it makes sense to use OData if the company standard is to use Odata, and if external systems are not allowed to use a direct SAP connection. 
 
-This article covers how to use OData to connect to SAP. But once again, choosing OData over RFC should only be done when there are very good and unavoidable reasons for doing so. In general, OData is considered slower and much harder to set up properly than RFC.
+This article covers how to use OData to connect to SAP. But once again, choosing OData over RFC should only be done when there are very good and unavoidable reasons for doing so. In general, OData is slower and much harder to set up than RFC.
  
 ## Configure the SAP side
 
 Building OData services from scratch is explained very well in other tutorials, so we won't explain that here. Instead, take a look at one of these tutorials:
 
 * [Build a simple OData service that exposes a table](https://community.sap.com/t5/technology-blogs-by-members/introduction-to-odata-and-how-to-implement-them-in-abap/ba-p/13474383)
-* [Build a CRUD OData service bsed on function modules](https://www.techippo.com/search/label/OData%20Service?&max-results=8)
+* [Build a CRUD OData service based on function modules](https://www.techippo.com/search/label/OData%20Service?&max-results=8)
 
 SAP's OData endpoint is mainly configured in the `SEGW` transaction. A service consists of one or more OData entities. Behind each entity, there is some kind of function that fills the entity with life.
 
-The following screenshot shows two entities of our example service:
-* One exposes the `SFLIGHT` table
+The following screenshot shows two entities of our example service.
+* One exposes the `SFLIGHT` table.
 * The other is based on the RFC function `Z_PB_DELIVERY_MONITOR`, which has the table `T_DELIVERIES`.
 
 We've discussed the internal details of `Z_PB_DELIVERY_MONITOR` in [How to build a perfect RFC function module to use in Peakboard](/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html).
 
-In the bottom-left corner, you can see the operations that can be applied on an entity set. For the data query (which is our main purpose), the operation is `GetEntitySet`.
+In the bottom-left corner, you can see the operations that can be applied on an entity set. To query data (which is our main purpose), the operation is `GetEntitySet`.
 
 ![image](/assets/2024-05-18/010.png)
 
