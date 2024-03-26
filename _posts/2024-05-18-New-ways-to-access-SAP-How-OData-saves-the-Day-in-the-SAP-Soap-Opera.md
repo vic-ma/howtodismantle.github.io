@@ -64,7 +64,7 @@ You can test all OData operations for all entities of a service, and even try ou
 
 ## Use the services in Peakboard
 
-Using the two services within Peakboard is pretty straightforward and almost needs no additional explanation. You can use the services just like any other OData endpoint.
+Using the two services in Peakboard is pretty straightforward and almost needs no additional explanation. You can use the services just like any other OData endpoint.
 
 The following screenshot shows the delivery entity. As we learned earlier, the service accepts the shipping point `VSTEL` as a filter. Other filters don't have any effect, because it's not processed in the current implementation.
 
