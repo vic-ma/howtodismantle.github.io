@@ -35,8 +35,10 @@ SAP's OData endpoint is mainly configured in the `SEGW` transaction. A service c
 The following screenshot shows two entities of our example service:
 * One exposes the `SFLIGHT` table
 * The other is based on the RFC function `Z_PB_DELIVERY_MONITOR`, which has the table `T_DELIVERIES`.
-We already discussed the internal details of Z_PB_DELIVERY_MONITOR in [this article](/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html).
-In the bottom left corner you see the operations that can be used to be applied on an entity set. For the data query (which is out main purpose) the operation is GetEntitySet.
+
+We've discussed the internal details of `Z_PB_DELIVERY_MONITOR` in [How to build a perfect RFC function module to use in Peakboard](/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html).
+
+In the bottom left corner, you can see the operations that can be applied on an entity set. For the data query (which is our main purpose), the operation is `GetEntitySet`.
 
 ![image](/assets/2024-05-18/010.png)
 
