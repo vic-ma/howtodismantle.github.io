@@ -21,11 +21,11 @@ In this blog, we've talked a lot about how to connect Peakboard and SAP. We've a
 
 However, there are circumstances where it makes sense to not use RFC, but rather OData. For example, it makes sense to use OData if OData is a company standard and external systems are not allowed to use a direct SAP connection. 
 
-In this article we will cover this case and talk about how to use OData to connct to SAP. But once again: Choosing OData over RFC should only be done when there are very good, unavaiodable reasons. In general OData is considered to be slower and much harder to set up properly than relying on RFC.
+This article covers how to use OData to connect to SAP. But once again, choosing OData over RFC should only be done when there are very good and unavoidable reasons for doing so. In general, OData is considered slower and much harder to set up properly than RFC.
  
-## Configuring the SAP side
+## Configure the SAP side
 
-Building OData services from scratch is explained in other tutorials very well. That's why we won't do it here. The best tutorials are these two:
+Building OData services from scratch is explained very well in other tutorials, so we won't explain that here. Instead, take a look at one of these tutorials:
 
 * [Build a simple OData service that exposes a table](https://community.sap.com/t5/technology-blogs-by-members/introduction-to-odata-and-how-to-implement-them-in-abap/ba-p/13474383)
 * [Build a CRUD OData service bsed on function modules](https://www.techippo.com/search/label/OData%20Service?&max-results=8)
