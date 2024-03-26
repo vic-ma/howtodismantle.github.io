@@ -5,7 +5,7 @@ date: 2023-03-01 12:00:00 +0200
 tags: sap
 image: /assets/2024-05-18/title.png
 read_more_links:
-  - name: How to build an RFC based CRUD OData service
+  - name: How to build an RFC-based CRUD OData service
     url: https://www.techippo.com/search/label/OData%20Service?&max-results=8
   - name: Creating a simple OData service in SAP
     url: https://community.sap.com/t5/technology-blogs-by-members/introduction-to-odata-and-how-to-implement-them-in-abap/ba-p/13474383
@@ -17,7 +17,11 @@ downloads:
   - name: SAPOdata.pbmx
     url: /assets/2024-05-18/SAPOdata.pbmx
 ---
-Here in this blog we talked a lot about how to connect Peakboard and SAP. We always used the built-in functionality that is based on SAP's RFC protocol. In more than 95% of all cases this is the number 1 choice for a perfect, smooth and fast SAP connection. However there might be circumstances where it makes sense not use RFC but OData. This can be the case if using OData is some kind comnpany standard and external systems are not allowed to use direct SAP connection. In his article we will cover this case and talk about how to use OData to connct to SAP. But once again: Choosing OData over RFC should only be done when there are very good, unavaiodable reasons. In general OData is considered to be slower and much harder to set up properly than relying on RFC.
+In this blog, we've talked a lot about how to connect Peakboard and SAP. We've always used Peakboard's built-in SAP integration, which is based on SAP's RFC protocol. In more than 95% of all cases, this is the best choice for a perfect, smooth, and fast SAP connection.
+
+However, there are circumstances where it makes sense to not use RFC, but rather OData. For example, it makes sense to use OData if OData is a company standard and external systems are not allowed to use a direct SAP connection. 
+
+In this article we will cover this case and talk about how to use OData to connct to SAP. But once again: Choosing OData over RFC should only be done when there are very good, unavaiodable reasons. In general OData is considered to be slower and much harder to set up properly than relying on RFC.
  
 ## Configuring the SAP side
 
