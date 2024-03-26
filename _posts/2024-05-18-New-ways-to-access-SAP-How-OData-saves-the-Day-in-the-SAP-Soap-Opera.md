@@ -42,7 +42,7 @@ In the bottom-left corner, you can see the operations that can be applied on an 
 
 ![image](/assets/2024-05-18/010.png)
 
-We can jump directly to the ABAP workbench by right-clicking on the `SLFIGHT GetEntitySet` service implementation (**Go to ABAP workbench**). The following screenshot shows the actual ABAP code that is called every time the entity set is queried and needs to be filled with a database `SELECT` command:
+We can jump directly to the ABAP workbench by right-clicking on the `SLFIGHT GetEntitySet` service implementation (**Go to ABAP workbench**). The following screenshot shows the actual ABAP code that is called each time the entity set is queried and needs to be filled with a database `SELECT` command:
 
 ![image](/assets/2024-05-18/020.png)
 
@@ -62,7 +62,7 @@ You can test all OData operations for all entities of a service, and even try ou
 
 ![image](/assets/2024-05-18/050.png)
 
-## Use the service in Peakboard
+## Use the services in Peakboard
 
 Using the two services within Peakboard is pretty straightforward and almost needs no additional explanation. You can use the services just like any other OData endpoint.
 
