@@ -42,7 +42,7 @@ In the bottom left corner, you can see the operations that can be applied on an 
 
 ![image](/assets/2024-05-18/010.png)
 
-We can jump directly to the ABAP workbench by right clicking on the SLFIGHT GetEntitySet service implementation ("Go to ABAP workbench"). The next screenshot shows the actual ABAP code that is called every time the entity set is queried and needs to be filled with a database select command.
+We can jump directly to the ABAP workbench by right-clicking on the `SLFIGHT GetEntitySet` service implementation (**Go to ABAP workbench**). The following screenshot shows the actual ABAP code that is called every time the entity set is queried and needs to be filled with a database `SELECT` command:
 
 ![image](/assets/2024-05-18/020.png)
 
