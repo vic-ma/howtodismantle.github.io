@@ -38,7 +38,7 @@ The following screenshot shows two entities of our example service:
 
 We've discussed the internal details of `Z_PB_DELIVERY_MONITOR` in [How to build a perfect RFC function module to use in Peakboard](/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html).
 
-In the bottom left corner, you can see the operations that can be applied on an entity set. For the data query (which is our main purpose), the operation is `GetEntitySet`.
+In the bottom-left corner, you can see the operations that can be applied on an entity set. For the data query (which is our main purpose), the operation is `GetEntitySet`.
 
 ![image](/assets/2024-05-18/010.png)
 
@@ -46,25 +46,26 @@ We can jump directly to the ABAP workbench by right-clicking on the `SLFIGHT Get
 
 ![image](/assets/2024-05-18/020.png)
 
-The second example works a bit different. Here we have a mapping to an existing function module called Z_DELIVERY_MONITOR. The screenshot shows the mapping of the T_DELIVERIES table output. If the caller submits a filter to the entity for the attribute VSTEL (which is the Shipping Point) it's submitted to the input parameter I_VSTEL of the function module.
+The second example works a bit differently. Here, we have a mapping to an existing function module called `Z_DELIVERY_MONITOR`. The following screenshot shows the mapping of the `T_DELIVERIES` table output. If the caller submits a filter to the entity for the attribute `VSTEL` (which is the shipping point), then it's submitted to the input parameter `I_VSTEL` of the function module.
 
 ![image](/assets/2024-05-18/030.png)
 
-Again, this is not a tutorial on how to build these services. Please refer to the links mentioned earlier.
+Again, this is not a tutorial on how to build these services. Please refer to the previous links for that.
 
-## Testing the OData service within SAP
+## Test the OData service within SAP
 
-SAP offers a nice option to test and debug all OData services. The transaction is called "/IWFND/MAINT_SERVICE". The screenshot shows how to get to the test environment.
+SAP offers the ability to test and debug all OData services. The transaction is called `/IWFND/MAINT_SERVICE`. The following screenshot shows how to get to the test environment:
 
 ![image](/assets/2024-05-18/040.png)
 
-You can test all OData operations for all entities of a service, and even try out filters and other additions. The screenshot shows a GET request for the SFLIGHT entity. On the bottom right corner you can spot the actual table data within the XML answer of the service.
+You can test all OData operations for all entities of a service, and even try out filters and other additions. The following screenshot shows a `GET` request for the `SFLIGHT` entity. In the bottom-right corner, you can see the actual table data within the XML response of the service.
 
 ![image](/assets/2024-05-18/050.png)
 
-## Using the Service in Peakboard
+## Use the service in Peakboard
 
-Using the two services within Peakboard is pretty straight forward and almost needs no additional explanation. They are used just as any other OData endpoint.
+Using the two services within Peakboard is pretty straightforward and almost needs no additional explanation. You can use the services just like any other OData endpoint.
+
 The screenshot shows the delivery entity. As we learned earlier the service accepts the shipping point VSTEL as filter. Any other filter doesn't have any effect as it is not processed in the current implementation.
 
 ![image](/assets/2024-05-18/060.png)
