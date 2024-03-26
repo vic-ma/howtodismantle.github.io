@@ -66,16 +66,16 @@ You can test all OData operations for all entities of a service, and even try ou
 
 Using the two services within Peakboard is pretty straightforward and almost needs no additional explanation. You can use the services just like any other OData endpoint.
 
-The screenshot shows the delivery entity. As we learned earlier the service accepts the shipping point VSTEL as filter. Any other filter doesn't have any effect as it is not processed in the current implementation.
+The following screenshot shows the delivery entity. As we learned earlier, the service accepts the shipping point `VSTEL` as a filter. Other filters don't have any effect, because it's not processed in the current implementation.
 
 ![image](/assets/2024-05-18/060.png)
 
-The entity for the SLFIGHT table works the same. However any kind of filter is not processed as there's no implementation for the filter (see ABAP code above). The screenshot shows that the filter is ignored.
+The entity for the `SLFIGHT` table works the same. However, no filters are processed, because there's no implementation for the filter (see the previous ABAP code). The following screenshot shows that the filter is ignored:
 
 ![image](/assets/2024-05-18/070.png)
 
-## conclusion
+## Conclusion
 
-Using OData instead of RFC should be considered very carefully. Creating a proper OData service needs a deep understanding and lots of effort to do. We need definetely very good reasons to do it. If in doubt, we always go for he traditional RFC way...
+You should consider things very carefully before using OData instead of RFC. Creating a proper OData service requires a deep understanding and lots of effort. You need very good reasons to ever do it. When in doubt, always go for the traditional RFC method.
 
 
