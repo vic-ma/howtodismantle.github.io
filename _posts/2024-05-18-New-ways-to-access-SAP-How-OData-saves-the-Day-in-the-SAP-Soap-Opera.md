@@ -5,7 +5,7 @@ date: 2023-03-01 12:00:00 +0200
 tags: sap
 image: /assets/2024-05-18/title.png
 read_more_links:
-  - name: How to build an RFC based CRUD OData service
+  - name: How to build an RFC-based CRUD OData service
     url: https://www.techippo.com/search/label/OData%20Service?&max-results=8
   - name: Creating a simple OData service in SAP
     url: https://community.sap.com/t5/technology-blogs-by-members/introduction-to-odata-and-how-to-implement-them-in-abap/ba-p/13474383
@@ -17,53 +17,65 @@ downloads:
   - name: SAPOdata.pbmx
     url: /assets/2024-05-18/SAPOdata.pbmx
 ---
-Here in this blog we talked a lot about how to connect Peakboard and SAP. We always used the built-in functionality that is based on SAP's RFC protocol. In more than 95% of all cases this is the number 1 choice for a perfect, smooth and fast SAP connection. However there might be circumstances where it makes sense not use RFC but OData. This can be the case if using OData is some kind comnpany standard and external systems are not allowed to use direct SAP connection. In his article we will cover this case and talk about how to use OData to connct to SAP. But once again: Choosing OData over RFC should only be done when there are very good, unavaiodable reasons. In general OData is considered to be slower and much harder to set up properly than relying on RFC.
- 
-## Configuring the SAP side
+In this blog, we've talked a lot about how to connect [Peakboard and SAP](https://how-to-dismantle-a-peakboard-box.com/category/sap). We've always used Peakboard's built-in SAP integration, which is based on SAP's RFC protocol. In more than 95% of all cases, this is the best choice for a perfect, smooth, and fast SAP connection.
 
-Building OData services from scratch is explained in other tutorials very well. That's why we won't do it here. The best tutorials are these two:
+However, there are times when it makes sense to use OData instead of RFC. For example, it makes sense to use OData if the company standard is to use Odata, and if external systems are not allowed to use a direct SAP connection. 
+
+This article covers how to use OData to connect to SAP. But once again, choosing OData over RFC should only be done when there are very good and unavoidable reasons for doing so. In general, OData is slower and much harder to set up than RFC.
+ 
+## Configure the SAP side
+
+Building OData services from scratch is explained very well in other tutorials, so we won't explain that here. Instead, take a look at one of these tutorials:
 
 * [Build a simple OData service that exposes a table](https://community.sap.com/t5/technology-blogs-by-members/introduction-to-odata-and-how-to-implement-them-in-abap/ba-p/13474383)
-* [Build a CRUD OData service bsed on function modules](https://www.techippo.com/search/label/OData%20Service?&max-results=8)
+* [Build a CRUD OData service based on function modules](https://www.techippo.com/search/label/OData%20Service?&max-results=8)
 
-SAP's OData endpoint is mainly configured in the transaction SEGW. A service consists of one or more OData entities. Behind every entity is some kind of function to fill the entity with life. The screenshot shows two entities of out sample service. One exposes the SFLIGHT table and one is based on the RFC function Z_PB_DELIVERY_MONITOR which has the table T_DELIVERIES. We already discussed the internal details of Z_PB_DELIVERY_MONITOR in [this article](/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html).
-In the bottom left corner you see the operations that can be used to be applied on an entity set. For the data query (which is out main purpose) the operation is GetEntitySet.
+SAP's OData endpoint is mainly configured in the `SEGW` transaction. A service consists of one or more OData entities. Behind each entity, there is some kind of function that fills the entity with life.
+
+The following screenshot shows two entities of our example service.
+* One exposes the `SFLIGHT` table.
+* The other is based on the RFC function `Z_PB_DELIVERY_MONITOR`, which has the table `T_DELIVERIES`.
+
+We've discussed the internal details of `Z_PB_DELIVERY_MONITOR` in [How to build a perfect RFC function module to use in Peakboard](/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html).
+
+In the bottom-left corner, you can see the operations that can be applied on an entity set. To query data (which is our main purpose), the operation is `GetEntitySet`.
 
 ![image](/assets/2024-05-18/010.png)
 
-We can jump directly to the ABAP workbench by right clicking on the SLFIGHT GetEntitySet service implementation ("Go to ABAP workbench"). The next screenshot shows the actual ABAP code that is called every time the entity set is queried and needs to be filled with a database select command.
+We can jump directly to the ABAP workbench by right-clicking on the `SLFIGHT GetEntitySet` service implementation (**Go to ABAP workbench**). The following screenshot shows the actual ABAP code that is called each time the entity set is queried and needs to be filled with a database `SELECT` command:
 
 ![image](/assets/2024-05-18/020.png)
 
-The second example works a bit different. Here we have a mapping to an existing function module called Z_DELIVERY_MONITOR. The screenshot shows the mapping of the T_DELIVERIES table output. If the caller submits a filter to the entity for the attribute VSTEL (which is the Shipping Point) it's submitted to the input parameter I_VSTEL of the function module.
+The second example works a bit differently. Here, we have a mapping to an existing function module called `Z_DELIVERY_MONITOR`. The following screenshot shows the mapping of the `T_DELIVERIES` table output. If the caller submits a filter to the entity for the attribute `VSTEL` (which is the shipping point), then it's submitted to the input parameter `I_VSTEL` of the function module.
 
 ![image](/assets/2024-05-18/030.png)
 
-Again, this is not a tutorial on how to build these services. Please refer to the links mentioned earlier.
+Again, this is not a tutorial on how to build these services. Please refer to the previous links for that.
 
-## Testing the OData service within SAP
+## Test the OData service within SAP
 
-SAP offers a nice option to test and debug all OData services. The transaction is called "/IWFND/MAINT_SERVICE". The screenshot shows how to get to the test environment.
+SAP offers the ability to test and debug all OData services. The transaction is called `/IWFND/MAINT_SERVICE`. The following screenshot shows how to get to the test environment:
 
 ![image](/assets/2024-05-18/040.png)
 
-You can test all OData operations for all entities of a service, and even try out filters and other additions. The screenshot shows a GET request for the SFLIGHT entity. On the bottom right corner you can spot the actual table data within the XML answer of the service.
+You can test all OData operations for all entities of a service, and even try out filters and other additions. The following screenshot shows a `GET` request for the `SFLIGHT` entity. In the bottom-right corner, you can see the actual table data within the XML response of the service.
 
 ![image](/assets/2024-05-18/050.png)
 
-## Using the Service in Peakboard
+## Use the services in Peakboard
 
-Using the two services within Peakboard is pretty straight forward and almost needs no additional explanation. They are used just as any other OData endpoint.
-The screenshot shows the delivery entity. As we learned earlier the service accepts the shipping point VSTEL as filter. Any other filter doesn't have any effect as it is not processed in the current implementation.
+Using the two services in Peakboard is pretty straightforward and almost needs no additional explanation. You can use the services just like any other OData endpoint.
+
+The following screenshot shows the delivery entity. As we learned earlier, the service accepts the shipping point `VSTEL` as a filter. Other filters don't have any effect, because it's not processed in the current implementation.
 
 ![image](/assets/2024-05-18/060.png)
 
-The entity for the SLFIGHT table works the same. However any kind of filter is not processed as there's no implementation for the filter (see ABAP code above). The screenshot shows that the filter is ignored.
+The entity for the `SLFIGHT` table works the same. However, no filters are processed, because there's no implementation for the filter (see the previous ABAP code). The following screenshot shows that the filter is ignored:
 
 ![image](/assets/2024-05-18/070.png)
 
-## conclusion
+## Conclusion
 
-Using OData instead of RFC should be considered very carefully. Creating a proper OData service needs a deep understanding and lots of effort to do. We need definetely very good reasons to do it. If in doubt, we always go for he traditional RFC way...
+You should consider things very carefully before using OData instead of RFC. Creating a proper OData service requires a deep understanding and lots of effort. You need very good reasons to ever do it. When in doubt, always go for the traditional RFC method.
 
 
