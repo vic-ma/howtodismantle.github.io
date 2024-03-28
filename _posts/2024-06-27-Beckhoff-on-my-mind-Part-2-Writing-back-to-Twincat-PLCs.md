@@ -13,7 +13,7 @@ downloads:
   - name: BeckhoffTwincatCalculcator.pbmx
     url: /assets/2024-06-27/BeckhoffTwincatCalculcator.pbmx
 ---
-Welcome to the second part of our Beckhoff TwinCAT series. In [Part 1 - Connecting TwinCAT PLCs](/Beckhoff-on-my-mind-Part-1-Connecting-Twincat-PLCs.html), we discussed the basics of connecting TwinCAT and Peakboard. In today's article, we move forward one step and talk about writing back to TwinCAT. Compared with the relatively tricky router / connection task from the first part, writing back is fairly easy.
+Welcome to the second part of our Beckhoff TwinCAT series. In [Part 1 - Connecting TwinCAT PLCs](/Beckhoff-on-my-mind-Part-1-Connecting-Twincat-PLCs.html), we discussed the basics of connecting TwinCAT and Peakboard. In today's article, we will talk about writing back to TwinCAT. Compared to the relatively tricky router / connection task from the first part, writing back is fairly easy.
 
 ## The TwinCAT program
 
