@@ -57,7 +57,7 @@ After having added the second route, the route entry should to jump to **Connect
 
 ## The program on the PLC
 
-For our example, we use a very simple program that runs on the remote PLC. It has two variables: A simple counter and a static string. The screenshot shows how the program looks like in debugging mode. The counter constantly changes when the program is running.
+For our example, we use a very simple program that runs on the remote PLC. It has two variables: A simple counter and a static string. The screenshot shows what the program looks like in debugging mode. The counter constantly changes when the program is running.
 
 ![image](/assets/2024-06-03/050.gif)
 
@@ -79,7 +79,7 @@ Here are the final results when using a simple table to show the result set:
 
 Up to this point, things have been pretty easy. However, the target Peakboard runtime instance (a physical box or BYOD instance) probably doesn't have a router like the local dev machine. So the application we've built up to this point won't run on a Box.
 
-The Beckhoff data source handles this problem by giving the user the option to establish a temporary router on the fly, to replace the router we configured earlier.
+The Beckhoff data source handles this problem by providing the option to establish a temporary router on the fly, to replace the router we configured earlier.
 
 The following screenshot shows how it works. To use the dynamic router, we need to provide two things:
 * The local AMS ID (it must match with the AMS ID that is used on the PLC side, to configure the counterpart of this router).
@@ -90,12 +90,11 @@ Then, Peakboard starts the temporary router before the connection is established
 ![image](/assets/2024-06-03/070.png)
 
 ### Attention!
-Here are three checks to make sure the temporary router works. If these points are not fulfilled, the router won't work:
+Here are three things we need to do, to make sure the temporary router works. If these things are not done, the router won't work:
 * If there's still a static router running on the local dev machine, we shut it down (by ending the local Twincat Windows services). Otherwise, there are two routers running, which is not possible.
-* To make the connection running on a box, it's necessary to configure the PLC router accordingly and provide the IP address of the box, along with the AMS ID--*not just* the IP address of the dev machine.
+* To have the connection run on a Box, it's necessary to configure the PLC router accordingly and provide the IP address of the box, along with the AMS ID---*not just* the IP address of the dev machine.
 * The ports 48899 (discovery), 48898 (unsecure) and 8016 (secure) should be open on both the PLC side and Peakboard runtime side. These ports are used to let the routers (both static and dynamic) communicate with each other.
 
 ## Conclusion
 
-Bekchoff Twincat 3 is a tricky issue in the context of Pekaboard, because the way Peakboard works does not perfectly fit the architecture of routes in the Twincat context. Every Peakboard developer or Peakboard Designer user must precisely understand how it works. Otherwise, the connection won't work. Even if it works on the dev machine, it won't necessarily work on the Box, without having understood exactly what to configure.
-
+Bekchoff Twincat 3 is a tricky issue in the context of Pekaboard, because the way Peakboard works does not perfectly fit the architecture of routes in the Twincat context. Every Peakboard developer and designer must precisely understand how it works. Otherwise, the connection won't work. Even if it works on the dev machine, it won't necessarily work on the Box, if it's not configured properly.
