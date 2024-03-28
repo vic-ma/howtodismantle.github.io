@@ -27,13 +27,13 @@ Aside from this video series, the [Beckhoff help site](https://infosys.beckhoff.
 
 ## Configure the router for development
 
-Let's assume we run the PLC instance on a remote machine, and the development environment (XAE Shell for Twincat and Peakboard Designer) runs on the local computer. In this scenario, we can't simply connect the "client" with the "server" like we would with other sources. Instead, we need to configure a route first.
+Let's assume we run the PLC instance on a remote machine, and the development environment (XAE Shell for Twincat and Peakboard Designer) runs on the local computer. In this scenario, we can't simply connect the "client" with the "server," like we would with other sources. Instead, we need to configure a route first.
 
-To access the routes for both the dev machine and the PLC machine we can use the task tray icon (see screenshot). If the PLC machine is Linux based or a physical Beckhoff device, it comes with a web interface where you can do the same.
+To access the routes for both the dev machine and the PLC machine, we can use the task tray icon (see the following screenshot). If the PLC machine is a Linux-based machine or a physical Beckhoff device, it comes with a web interface where you can do the same thing.
 
 ![image](/assets/2024-06-03/010.png)
 
-Let's start with the local dev machine. When we add a route and click on broadcast search it is supposed to find our remote PLC in the network (the name of the sample remote PLC starts with "Desktop", but it's a remote machine anyway, sorry for the bad naming). If the broadcast cannot find it we help him by providing the ip address. It's important to change the "Remote Route" to "None / Server". Depending on the PLC configuration we need to provide user name and password. If we just set up a Twincat instance under Windows like it's explained in the video series, we leave all authentification blank. We also note the AMS ID we can see there because we will need it later.
+Let's start with the local dev machine. When we add a route and click on **Broadcast Search** it is supposed to find our remote PLC in the network (the name of the sample remote PLC starts with "Desktop", but it's a remote machine anyway, sorry for the bad naming). If the broadcast cannot find it we help him by providing the ip address. It's important to change the "Remote Route" to "None / Server". Depending on the PLC configuration we need to provide user name and password. If we just set up a Twincat instance under Windows like it's explained in the video series, we leave all authentification blank. We also note the AMS ID we can see there because we will need it later.
 
 ![image](/assets/2024-06-03/020.png)
 
