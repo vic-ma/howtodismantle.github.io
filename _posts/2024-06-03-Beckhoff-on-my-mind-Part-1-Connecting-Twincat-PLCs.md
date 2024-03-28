@@ -15,7 +15,7 @@ downloads:
   - name: TwincatFirstSteps.pbmx
     url: /assets/2024-06-03/TwincatFirstSteps.pbmx
 ---
-The German company Beckhoff is inventor of one of the world's most popular PLCs called Twincat. In his article we will cover a basic introduction on Beckhoff Twincat 3 connectivity to Peakboard applications and we will cover some basic knowledge about how Twincat works in the backend. 
+The German company Beckhoff is the inventor of Twincat, one of the world's most popular PLCs. In his article we will cover a basic introduction on Beckhoff Twincat 3 connectivity to Peakboard applications and we will cover some basic knowledge about how Twincat works in the backend. 
 
 ## Installation and first steps
 
