@@ -37,11 +37,11 @@ Let's start with the local dev machine. When we add a route and click on **Broad
 
 If the broadcast search cannot find it, then we help it by providing the IP address. It's important to change **Remote Route** to **None / Server**. Depending on the PLC configuration, we may also need to provide the username and password. If we set up a Twincat instance under Windows, like it's explained in the video series, then we leave all authentication blank.
 
-We also copy down the AMS ID we can see, because we'll need it later.
+We also copy down the AMS ID that's displayed, because we'll need it later.
 
 ![image](/assets/2024-06-03/020.png)
 
-After having added the route we can see it in the list. If not, hitting "Refresh" will help. As we can see, the column "Connected" is empty.
+After having added the route, we can see it in the list. If it's not there, hitting **Refresh Status** will help. As you can see, the **Connected** column is empty.
 
 ![image](/assets/2024-06-03/021.png)
 
