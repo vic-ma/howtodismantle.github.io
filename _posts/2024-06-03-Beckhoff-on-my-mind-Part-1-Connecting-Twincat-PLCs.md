@@ -45,11 +45,11 @@ After having added the route, we can see it in the list. If it's not there, hitt
 
 ![image](/assets/2024-06-03/021.png)
 
-Now let's switch to the remote PLC side and add a route there that points to our dev machine.
+Now, let's switch to the remote PLC side and add a route there that points to our dev machine.
 
 ![image](/assets/2024-06-03/030.png)
 
-After having added the second route, the route entry is supposed to jump to "Connected" on both sides. That's the sign, that both machine know each other and can interact. The two screenshots show the router after having added the router on both machines.
+After having added the second route, the route entry is supposed to jump to **Connected** on both sides. That's the sign that both machines know each other and can interact. The following two screenshots show the router after having added the router on both machines:
 
 ![image](/assets/2024-06-03/031.png)
 
@@ -61,14 +61,17 @@ For our sample, we use a very simple program that runs on the remote PLC. It has
 
 ![image](/assets/2024-06-03/050.gif)
 
-## Setting up the Peakboard data source
+## Set up the Peakboard data source
 
-Let's switch to the Peakboard Designer and create a Beckhoff Twincat 3 data source. There are two main attributes to provide: The AMS ID (of the remote PLC as noted earlier) and the port. The default port is 851. If there's more than one program running on the PLC the second and third program comes on port 852, 853 etc....
-After providing these attributes we can load the modules of the program we're accessing. The variables were interested in are available in he MAIN program. Hitting the refresh button then lists the variables as columns of the resultset. 
+Let's switch to Peakboard Designer and create a Beckhoff Twincat 3 data source. There are two main attributes to provide:
+* The AMS ID of the remote PLC, as noted earlier.
+* The port. The default port is 851. If there's more than one program running on the PLC, the second and third program comes on port 852, 853, etc.
+
+After providing these attributes, we can load the modules of the program we're accessing. The variables we're interested in are available in the MAIN program. Hitting the refresh button lists the variables as columns of the result set. 
 
 ![image](/assets/2024-06-03/060.png)
 
-Here's the final result when using a simple table to show the resultset
+Here's the final result when using a simple table to show the result set:
 
 ![image](/assets/2024-06-03/061.gif)
 
