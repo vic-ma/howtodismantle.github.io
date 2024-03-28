@@ -71,14 +71,20 @@ After providing these attributes, we can load the modules of the program we're a
 
 ![image](/assets/2024-06-03/060.png)
 
-Here's the final result when using a simple table to show the result set:
+Here are the final results when using a simple table to show the result set:
 
 ![image](/assets/2024-06-03/061.gif)
 
 ## Dynamic local router
 
-Up to this point things seem pretty easy. However the problem is, that the target Peakboard runtime instance (e.g. a physical box or BYOD instance) most likely doesn't have a router like the local dev machine. So the application we built up to here won't run on a box. The Beckhoff data source foresees this problem and give the user the option to establish a temporary router on the fly to replace the router we configured earlier.
-The screenshot shows how it works. To use the dynamic router we need to provide the local AMS ID (it must match with the AMS ID that is used on the PLC side to configure the counterpart of this router), along with the IP address of the remote PLC.
+Up to this point, things have been pretty easy. However, the target Peakboard runtime instance (a physical box or BYOD instance) probably doesn't have a router like the local dev machine. So the application we've built up to this point won't run on a Box.
+
+The Beckhoff data source handles this problem by giving the user the option to establish a temporary router on the fly, to replace the router we configured earlier.
+
+The following screenshot shows how it works. To use the dynamic router, we need to provide two things:
+* The local AMS ID (it must match with the AMS ID that is used on the PLC side, to configure the counterpart of this router)
+* The IP address of the remote PLC.
+
 What Peakboard does now is to start the temporary router before the connection is established. 
 
 ![image](/assets/2024-06-03/070.png)
