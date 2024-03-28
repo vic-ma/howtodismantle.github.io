@@ -33,7 +33,7 @@ To access the routes for both the dev machine and the PLC machine, we can use th
 
 ![image](/assets/2024-06-03/010.png)
 
-Let's start with the local dev machine. When we add a route and click on **Broadcast Search**, it's supposed to find our remote PLC in the network. (The name of the sample remote PLC starts with "Desktop," but it's actually a remote machine. Sorry for the bad naming.)
+Let's start with the local dev machine. When we add a route and click on **Broadcast Search**, it's supposed to find our remote PLC in the network. (The name of the remote PLC starts with "Desktop," but it's actually a remote machine. Sorry for the bad naming.)
 
 If the broadcast search cannot find it, then we help it by providing the IP address. It's important to change **Remote Route** to **None / Server**. Depending on the PLC configuration, we may also need to provide the username and password. If we set up a Twincat instance under Windows, like it's explained in the video series, then we leave all authentication blank.
 
@@ -49,7 +49,7 @@ Now let's switch to the remote PLC side and add a route there that points to our
 
 ![image](/assets/2024-06-03/030.png)
 
-After having added the second route, the route entry is supposed to jump to **Connected** on both sides. That's the sign that both machines know each other and can interact. The following two screenshots show the router after having added the router on both machines:
+After having added the second route, the route entry should to jump to **Connected** on both sides. That's the sign that both machines know each other and can interact. The following two screenshots show the router after having added the router on both machines:
 
 ![image](/assets/2024-06-03/031.png)
 
@@ -57,7 +57,7 @@ After having added the second route, the route entry is supposed to jump to **Co
 
 ## The program on the PLC
 
-For our sample, we use a very simple program that runs on the remote PLC. It has two variables: A simple counter and a static string. The screenshot shows how the program looks like in debugging mode. The counter constantly changes when the program is running.
+For our example, we use a very simple program that runs on the remote PLC. It has two variables: A simple counter and a static string. The screenshot shows how the program looks like in debugging mode. The counter constantly changes when the program is running.
 
 ![image](/assets/2024-06-03/050.gif)
 
