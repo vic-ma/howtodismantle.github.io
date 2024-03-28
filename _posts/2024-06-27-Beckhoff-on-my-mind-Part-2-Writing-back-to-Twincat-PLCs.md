@@ -18,8 +18,8 @@ Welcome to the second part of our Beckhoff TwinCAT series. In [Part 1 - Connecti
 ## The TwinCAT program
 
 In this article, we will build a calculator. Here's how the calculator works:
-1. We let the user of the Peakboard app provide two numbers.
-2. We send the numbers to a TwinCAT PLC and let it sum them up.
+1. The user enters two numbers into the Peakboard app.
+2. Peakboard sends the numbers to a TwinCAT PLC and let it sum them up.
 3. The result is written into a third variable.
 4. The Peakboard app reads from the third variable to get back the result.
 
