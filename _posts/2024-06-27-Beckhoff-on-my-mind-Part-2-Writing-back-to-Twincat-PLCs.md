@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Beckhoff on my mind - Part 2 - Writing back to Twincat PLCs
+title: Beckhoff on my mind - Part 2 - Writing back to TwinCAT PLCs
 date: 2023-03-01 12:00:00 +0200
 tags: hardware twincat
 image: /assets/2024-06-27/title.png
 read_more_links:
-  - name: Part 1 - Connecting Twincat PLCs
+  - name: Part 1 - Connecting TwinCAT PLCs
     url: /Beckhoff-on-my-mind-Part-1-Connecting-Twincat-PLCs.html
   - name: Beckhoff Information System (the help site)
     url: https://infosys.beckhoff.com/
@@ -13,11 +13,11 @@ downloads:
   - name: BeckhoffTwincatCalculcator.pbmx
     url: /assets/2024-06-27/BeckhoffTwincatCalculcator.pbmx
 ---
-Welcome to the second part of our Beckhoff Twincat series. In [Part 1 - Connecting Twincat PLCs](/Beckhoff-on-my-mind-Part-1-Connecting-Twincat-PLCs.html), we discussed the basics of connecting Twincat and Peakboard. In today's article, we move forward one step and talk about writing back to Twincat. Compared with the relatively tricky router / connection task from the first part, writing back is fairly easy.
+Welcome to the second part of our Beckhoff TwinCAT series. In [Part 1 - Connecting TwinCAT PLCs](/Beckhoff-on-my-mind-Part-1-Connecting-Twincat-PLCs.html), we discussed the basics of connecting TwinCAT and Peakboard. In today's article, we move forward one step and talk about writing back to TwinCAT. Compared with the relatively tricky router / connection task from the first part, writing back is fairly easy.
 
-## The Twincat program
+## The TwinCAT program
 
-The idea of this showcase is to build a calculcator. We let the user of the Peakboard app provide two numbers, send it to a Twincat PLC and let it sum up these numbers. The result is written into a third variable from where we can read it to get back the result. The screenshot shows the Twincat program. Three integer variables along with exactly one line of actual code to sum them up.
+The idea of this showcase is to build a calculcator. We let the user of the Peakboard app provide two numbers, send it to a TwinCAT PLC and let it sum up these numbers. The result is written into a third variable from where we can read it to get back the result. The screenshot shows the TwinCAT program. Three integer variables along with exactly one line of actual code to sum them up.
 
 ![image](/assets/2024-06-27/010.png)
 
@@ -46,7 +46,7 @@ connections.getfromid('fgl8+PJgAZEtwwxF/W6yR7VW7aI=').writevariable('MAIN', 'iIn
 
 ## conclusion and result
 
-The gif below shows the app during runtime. The user input is send to Twincat, calculated and then presented the next time the data source is refreshed.
+The gif below shows the app during runtime. The user input is send to TwinCAT, calculated and then presented the next time the data source is refreshed.
 
 ![image](/assets/2024-06-27/result.gif)
 
