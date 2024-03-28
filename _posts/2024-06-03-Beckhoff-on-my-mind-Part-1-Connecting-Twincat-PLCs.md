@@ -33,7 +33,11 @@ To access the routes for both the dev machine and the PLC machine, we can use th
 
 ![image](/assets/2024-06-03/010.png)
 
-Let's start with the local dev machine. When we add a route and click on **Broadcast Search** it is supposed to find our remote PLC in the network (the name of the sample remote PLC starts with "Desktop", but it's a remote machine anyway, sorry for the bad naming). If the broadcast cannot find it we help him by providing the ip address. It's important to change the "Remote Route" to "None / Server". Depending on the PLC configuration we need to provide user name and password. If we just set up a Twincat instance under Windows like it's explained in the video series, we leave all authentification blank. We also note the AMS ID we can see there because we will need it later.
+Let's start with the local dev machine. When we add a route and click on **Broadcast Search**, it's supposed to find our remote PLC in the network. (The name of the sample remote PLC starts with "Desktop," but it's actually a remote machine. Sorry for the bad naming.)
+
+If the broadcast search cannot find it, then we help it by providing the IP address. It's important to change **Remote Route** to **None / Server**. Depending on the PLC configuration, we may also need to provide the username and password. If we set up a Twincat instance under Windows, like it's explained in the video series, then we leave all authentication blank.
+
+We also copy down the AMS ID we can see, because we'll need it later.
 
 ![image](/assets/2024-06-03/020.png)
 
