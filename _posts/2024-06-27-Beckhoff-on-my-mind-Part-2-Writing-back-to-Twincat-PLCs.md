@@ -7,7 +7,7 @@ image: /assets/2024-06-27/title.png
 read_more_links:
   - name: Part 1 - Connecting Twincat PLCs
     url: /Beckhoff-on-my-mind-Part-1-Connecting-Twincat-PLCs.html
-  - name: Beckhoff Information System (aka the help site)
+  - name: Beckhoff Information System (the help site)
     url: https://infosys.beckhoff.com/
 downloads:
   - name: BeckhoffTwincatCalculcator.pbmx

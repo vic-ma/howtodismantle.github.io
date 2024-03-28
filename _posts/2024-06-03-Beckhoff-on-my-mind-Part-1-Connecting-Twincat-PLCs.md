@@ -7,7 +7,7 @@ image: /assets/2024-06-03/title.png
 read_more_links:
   - name: Youtube Video Series about Programming Twincat 3
     url: https://www.youtube.com/watch?v=WkNOm-hMH3k&list=PLimaF0nZKYHz3I3kFP4myaAYjmYk1SowO&ab_channel=JakobSagatowski
-  - name: Beckhoff Information System (aka the help site)
+  - name: Beckhoff Information System (the help site)
     url: https://infosys.beckhoff.com/
   - name: Part 2 - Writing back to Twincat PLCs
     url: /Beckhoff-on-my-mind-Part-2-Writing-back-to-Twincat-PLCs.html
