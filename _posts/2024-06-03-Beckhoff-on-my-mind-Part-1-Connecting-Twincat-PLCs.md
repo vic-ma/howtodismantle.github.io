@@ -15,12 +15,14 @@ downloads:
   - name: TwincatFirstSteps.pbmx
     url: /assets/2024-06-03/TwincatFirstSteps.pbmx
 ---
-The German company Beckhoff is the inventor of Twincat, one of the world's most popular PLCs. In his article we will cover a basic introduction on Beckhoff Twincat 3 connectivity to Peakboard applications and we will cover some basic knowledge about how Twincat works in the backend. 
+Twincat is one of the world's most popular PLCs, made by the German company Beckhoff. This article serves as a basic introduction for connecting Beckhoff Twincat 3 to Peakboard applications. We will also cover some basic knowledge about how Twincat works in the backend. 
 
 ## Installation and first steps
 
-Different readers might be on completely different levels of knowledge. In this article we expect to have an instance of Twincat up and running with a basic program on it. The programm must offer some variables to be accessed from the outside.
-If you are a total newbie and have not solved the minimum requirements yet, there's a super nice video series available on YouTube called [PLC programming using TwinCAT 3](https://www.youtube.com/watch?v=WkNOm-hMH3k&list=PLimaF0nZKYHz3I3kFP4myaAYjmYk1SowO&ab_channel=JakobSagatowski). Beside the basic programming knowledge the maker of this series explains how to install a Twincat instance, run it and use a development environment to put some basic programs on it. 
+Different readers might have completely different levels of knowledge. In this article, we expect you to have an instance of Twincat up and running, with a basic program on it. The program must have some variables that are accessible from the outside.
+
+If you are a complete newbie and do not meet these prerequisites yet, there's a nice video series available on YouTube called [PLC programming using TwinCAT 3](https://www.youtube.com/watch?v=WkNOm-hMH3k&list=PLimaF0nZKYHz3I3kFP4myaAYjmYk1SowO&ab_channel=JakobSagatowski). Besides the basic programming knowledge, the creator of this series explains how to install a Twincat instance, run it, and use a development environment to put some basic programs on it.
+
 Beside the video series the regular [Beckhoff help site](https://infosys.beckhoff.com/) is also a good point to seek for any kind of help around issues that might pop up during the journey.
 
 ## Configuring the router for development
