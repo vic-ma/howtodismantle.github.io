@@ -82,21 +82,20 @@ Up to this point, things have been pretty easy. However, the target Peakboard ru
 The Beckhoff data source handles this problem by giving the user the option to establish a temporary router on the fly, to replace the router we configured earlier.
 
 The following screenshot shows how it works. To use the dynamic router, we need to provide two things:
-* The local AMS ID (it must match with the AMS ID that is used on the PLC side, to configure the counterpart of this router)
+* The local AMS ID (it must match with the AMS ID that is used on the PLC side, to configure the counterpart of this router).
 * The IP address of the remote PLC.
 
-What Peakboard does now is to start the temporary router before the connection is established. 
+Then, Peakboard starts the temporary router before the connection is established. 
 
 ![image](/assets/2024-06-03/070.png)
 
-Atenttion!!!!
-Here are the three points to make sure it works. If these points are not fullfilled, the tempory router won't work:
+### Attention!
+Here are three checks to make sure the temporary router works. If these points are not fulfilled, the router won't work:
+* If there's still a static router running on the local dev machine, we shut it down (by ending the local Twincat Windows services). Otherwise, there are two routers running, which is not possible.
+* To make the connection running on a box, it's necessary to configure the PLC router accordingly and provide the IP address of the box, along with the AMS ID--*not just* the IP address of the dev machine.
+* The ports 48899 (discovery), 48898 (unsecure) and 8016 (secure) should be open on both the PLC side and Peakboard runtime side. These ports are used to let the routers (both static and dynamic) communicate with each other.
 
-* If there's still a static router running on the local dev machine, we shut it down (by ending the local Twincat Windows services). Otherwise there are two routers running, which is not possible.
-* To make the conection running on a box it's necessary to confiure the PLC router accordingly and provide the IP address of the box along with the AMS ID, and NOT ONLY the ip address of the dev machine.
-* The ports 48899 (discovery), 48898 (unsecure) and 8016 (secure) should be open on both the PLC side and Peaboard runtime side. These ports are used to let the routers (both static and dynmic) communicate with each other.
+## Conclusion
 
-## conclusion
-
-Bekchoff Twincat 3 is a tricky issue in context of Pekaboard because the way Peakboard works does not perfectly fit to the architecture of routes in the Twincat context. Every Peakboard developer or Peakboard Designer user must precisely understand how it works, otherwise the connection won't work. Even if it works on the dev machine, it's not necessarily made sure it works on the box without having understood exactly what to configure.
+Bekchoff Twincat 3 is a tricky issue in the context of Pekaboard, because the way Peakboard works does not perfectly fit the architecture of routes in the Twincat context. Every Peakboard developer or Peakboard Designer user must precisely understand how it works. Otherwise, the connection won't work. Even if it works on the dev machine, it won't necessarily work on the Box, without having understood exactly what to configure.
 
