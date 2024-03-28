@@ -37,23 +37,23 @@ The following screenshot shows the canvas. We have three text controls, two for 
 
 ![image](/assets/2024-06-27/030.png)
 
-Now let's look at the process that does the actual writing. As we see in the screenshot, there's a **Beckhoff Write variable** Building Block available that can be used. It takes in three arguments:
+Now, let's look at the process that does the actual writing. As we see in the screenshot, there's a **Beckhoff Write variable** Building Block that we can use. It takes in three arguments:
 * The connection.
 * The destination variable name.
 * The actual value, which is fed directly from the text box.
 
 ![image](/assets/2024-06-27/040.png)
 
-In case we prefer to type the code directly in LUA, here's the same function written as raw LUA statements:
+If you prefer to use LUA, here's the same function written as raw LUA statements:
 
 {% highlight lua %}
 connections.getfromid('fgl8+PJgAZEtwwxF/W6yR7VW7aI=').writevariable('MAIN', 'iInput1', screens['Screen1'].txtInput1.text)
 connections.getfromid('fgl8+PJgAZEtwwxF/W6yR7VW7aI=').writevariable('MAIN', 'iInput2', screens['Screen1'].txtInput2.text)
 {% endhighlight %}
 
-## conclusion and result
+## Conclusion and result
 
-The gif below shows the app during runtime. The user input is send to TwinCAT, calculated and then presented the next time the data source is refreshed.
+The following GIF below shows the app during runtime. The user input is sent to TwinCAT, calculated, and then presented the next time the data source is refreshed.
 
 ![image](/assets/2024-06-27/result.gif)
 
