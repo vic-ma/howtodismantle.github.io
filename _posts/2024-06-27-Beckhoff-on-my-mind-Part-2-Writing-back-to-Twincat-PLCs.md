@@ -17,23 +17,30 @@ Welcome to the second part of our Beckhoff TwinCAT series. In [Part 1 - Connecti
 
 ## The TwinCAT program
 
-The idea of this showcase is to build a calculcator. We let the user of the Peakboard app provide two numbers, send it to a TwinCAT PLC and let it sum up these numbers. The result is written into a third variable from where we can read it to get back the result. The screenshot shows the TwinCAT program. Three integer variables along with exactly one line of actual code to sum them up.
+In this article, we will build a calculator. Here's how the calculator works:
+1. We let the user of the Peakboard app provide two numbers.
+2. We send the numbers to a TwinCAT PLC and let it sum them up.
+3. The result is written into a third variable.
+4. The Peakboard app reads from the third variable to get back the result.
+
+The following screenshot shows the TwinCAT program. Three integer variables along with exactly one line of actual code to sum them up.
 
 ![image](/assets/2024-06-27/010.png)
 
 ## The Peakboard side
 
-Let's switch to the Peakboard designer. We set up the source and can easily access the three variables. Although we only need the iResult we select all of them for clarity and logging purpose.
+Let's switch to Peakboard Designer. We set up the data source and can easily access the three variables. Although we only need `iResult`, we select all of them for clarity and logging purposes.
 
 ![image](/assets/2024-06-27/020.png)
 
-The next screenshot shows the canvas. We have three text controls, two for input and one for the result. The result text box is directly bound to the corresponding column in the data souce.
-The table element below is only for checking how the raw data behaves. It's actually not necessary for this show case.
-All the magic is happening behind the "Calculate" button
+The following screenshot shows the canvas. We have three text controls, two for input and one for the result. The result text box is directly bound to the corresponding column in the data source. The table element below is only necessary for checking how the raw data behaves. It's not actually necessary for our example. All the magic happens behind the **Calculate** button.
 
 ![image](/assets/2024-06-27/030.png)
 
-Now let's look at the process that does the actual writing. As we see in the screenshot, there's a Building Block available which can be used. It needs to know the connection, the destination variable name and the actual value, which is fed directly from the text box.
+Now let's look at the process that does the actual writing. As we see in the screenshot, there's a **Beckhoff Write variable** Building Block available that can be used. It takes in three arguments:
+* The connection.
+* The destination variable name.
+* The actual value, which is fed directly from the text box.
 
 ![image](/assets/2024-06-27/040.png)
 
