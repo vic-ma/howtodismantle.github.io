@@ -19,11 +19,11 @@ Welcome to the second part of our Beckhoff TwinCAT series. In [Part 1 - Connecti
 
 In this article, we will build a calculator. Here's how the calculator works:
 1. The user enters two numbers into the Peakboard app.
-2. Peakboard sends the numbers to a TwinCAT PLC
+2. Peakboard sends the numbers to a TwinCAT PLC.
 3. The TwinCAT PLC sums up the two numbers and writes the result into a third variable.
 4. The Peakboard app reads from the third variable to get back the result.
 
-The following screenshot shows the TwinCAT program. Three integer variables along with exactly one line of actual code to sum them up.
+The following screenshot shows the TwinCAT program: three integer variables along with exactly one line of actual code to sum them up.
 
 ![image](/assets/2024-06-27/010.png)
 
@@ -33,11 +33,11 @@ Let's switch to Peakboard Designer. We set up the data source and can easily acc
 
 ![image](/assets/2024-06-27/020.png)
 
-The following screenshot shows the canvas. We have three text controls, two for input and one for the result. The result text box is directly bound to the corresponding column in the data source. The table element below is only necessary for checking how the raw data behaves. It's not actually necessary for our example. All the magic happens behind the **Calculate** button.
+The following screenshot shows the canvas. We have three text controls: two for input and one for the result. The result text box is directly bound to the corresponding column in the data source. The table element below is only necessary for checking how the raw data behaves. It's not actually necessary for our example. All the magic happens behind the **Calculate** button.
 
 ![image](/assets/2024-06-27/030.png)
 
-Now, let's look at the process that does the actual writing. As we see in the screenshot, there's a **Beckhoff Write variable** Building Block that we can use. It takes in three arguments:
+Now, let's look at the process that does the actual writing. We use a **Beckhoff Write variable** Building Block. It takes in three arguments:
 * The connection.
 * The destination variable name.
 * The actual value, which is fed directly from the text box.
@@ -53,7 +53,7 @@ connections.getfromid('fgl8+PJgAZEtwwxF/W6yR7VW7aI=').writevariable('MAIN', 'iIn
 
 ## Conclusion and result
 
-The following GIF below shows the app during runtime. The user input is sent to TwinCAT, calculated, and then presented the next time the data source is refreshed.
+The following GIF shows the app during runtime. The user input is sent to TwinCAT, calculated, and then presented the next time the data source is refreshed.
 
 ![image](/assets/2024-06-27/result.gif)
 
