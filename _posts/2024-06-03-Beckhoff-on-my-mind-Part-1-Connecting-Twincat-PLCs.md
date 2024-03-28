@@ -23,11 +23,13 @@ Different readers might have completely different levels of knowledge. In this a
 
 If you are a complete newbie and do not meet these prerequisites yet, there's a nice video series available on YouTube called [PLC programming using TwinCAT 3](https://www.youtube.com/watch?v=WkNOm-hMH3k&list=PLimaF0nZKYHz3I3kFP4myaAYjmYk1SowO&ab_channel=JakobSagatowski). Besides some basic programming knowledge, the creator of this series explains how to install a Twincat instance, run it, and use a development environment to put some basic programs on it.
 
-Aside from this video series, the regular [Beckhoff help site](https://infosys.beckhoff.com/) is also a good place to look for help with issues that might pop up on your journey.
+Aside from this video series, the [Beckhoff help site](https://infosys.beckhoff.com/) is also a good place to look for help with any issues that might pop up on your journey.
 
-## Configuring the router for development
+## Configure the router for development
 
-Let's assume we run the PLC instance on one remote machine and the development environment (XAE Shell for Twincat and Peakboard Designer) runs on the local computer. In that scenario we can't simply connect the "client" with the "server" we would expect from the experience with other sources. We need to configure a route first. To access the routes for both the dev machine and the PLC machine we can use the task tray icon (see screenshot). If the PLC machine is Linux based or a physical Beckhoff device, it comes with a web interface where you can do the same.
+Let's assume we run the PLC instance on a remote machine, and the development environment (XAE Shell for Twincat and Peakboard Designer) runs on the local computer. In this scenario, we can't simply connect the "client" with the "server" like we would with other sources. Instead, we need to configure a route first.
+
+To access the routes for both the dev machine and the PLC machine we can use the task tray icon (see screenshot). If the PLC machine is Linux based or a physical Beckhoff device, it comes with a web interface where you can do the same.
 
 ![image](/assets/2024-06-03/010.png)
 
