@@ -21,9 +21,9 @@ Twincat is one of the world's most popular PLCs, made by the German company Beck
 
 Different readers might have completely different levels of knowledge. In this article, we expect you to have an instance of Twincat up and running, with a basic program on it. The program must have some variables that are accessible from the outside.
 
-If you are a complete newbie and do not meet these prerequisites yet, there's a nice video series available on YouTube called [PLC programming using TwinCAT 3](https://www.youtube.com/watch?v=WkNOm-hMH3k&list=PLimaF0nZKYHz3I3kFP4myaAYjmYk1SowO&ab_channel=JakobSagatowski). Besides the basic programming knowledge, the creator of this series explains how to install a Twincat instance, run it, and use a development environment to put some basic programs on it.
+If you are a complete newbie and do not meet these prerequisites yet, there's a nice video series available on YouTube called [PLC programming using TwinCAT 3](https://www.youtube.com/watch?v=WkNOm-hMH3k&list=PLimaF0nZKYHz3I3kFP4myaAYjmYk1SowO&ab_channel=JakobSagatowski). Besides some basic programming knowledge, the creator of this series explains how to install a Twincat instance, run it, and use a development environment to put some basic programs on it.
 
-Beside the video series the regular [Beckhoff help site](https://infosys.beckhoff.com/) is also a good point to seek for any kind of help around issues that might pop up during the journey.
+Aside from this video series, the regular [Beckhoff help site](https://infosys.beckhoff.com/) is also a good place to look for help with issues that might pop up on your journey.
 
 ## Configuring the router for development
 
