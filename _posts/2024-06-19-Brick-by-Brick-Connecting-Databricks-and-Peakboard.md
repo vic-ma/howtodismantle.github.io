@@ -33,21 +33,21 @@ The second thing we need is the Warehouse ID of the Warehouse instance we want t
 
 ## Set up the Databricks Extension
 
-We will use the REST endpoint of Databricks to query the data. We can actually use the JSON datasource to query the data and process. The thing part is in the JSON response and the interpretation of the JSON string. It's not easy and straightforward, because the actual data, data-description-like datatypes, and other metadata are stored at different places.
+We will use the REST endpoint of Databricks to query the data. We can actually use the JSON datasource to query the data and process. The tricky part is in the JSON response and the interpretation of the JSON string. It's not easy, because the actual data, data-description-like datatypes, and other metadata, are stored in different places.
 
-This problem is solved by the Databricks extension, which you can install with the click of a button. For information about how to install an extension, go to the [Databricks extension page](https://help.peakboard.com/data_sources/Extension/en-ManageExtension.html).
+This problem is solved by the Databricks extension, which you can install with the click of a button. For information about how to install an extension, see the [Manage extensions documentation](https://help.peakboard.com/data_sources/Extension/en-ManageExtension.html).
 
 ![image](/assets/2024-06-19/030.png)
 
-## Understanding the Databricks REST Service
+## Understand the Databricks REST Service
 
-The Databricks instance comes with a REST webservice that exposes any kind DWH function to the outside. The endpoint we're looking for is "api/2.0/sql/statements/". So the whole URL looks like this (depending on the user's actual host name):
+The Databricks instance comes with a REST webservice that exposes any kind DWH function to the outside. The endpoint we're looking for is `api/2.0/sql/statements/`. So the whole URL looks something like this (depending on the user's actual host name):
 
 {% highlight url %}
 https://adb-7067375420864287.7.azuredatabricks.net/api/2.0/sql/statements/
 {% endhighlight %}
 
-The query is done through a POST request containing a simple JSON with the DWH ID and also the actual SQL statement. When referring to tables we must always provide a qualified name with Schema information. Here's a sample of a typical query.
+The query is done through a POST request containing a simple JSON with the DWH ID and the actual SQL statement. When referring to tables, we must always provide a qualified name with schema information. Here's an example of a typical query:
 
 {% highlight json %}
 {
@@ -56,9 +56,9 @@ The query is done through a POST request containing a simple JSON with the DWH I
 }
 {% endhighlight %}
 
-The documentation of this API function can be found [here](https://docs.databricks.com/api/workspace/statementexecution/executestatement).
+You can take a look at the [statement execution function documentation](https://docs.databricks.com/api/workspace/statementexecution/executestatement).
 
-## Setting up the datasource
+## Set up the datasource
 
 With the preperation of the URL, the access token (aka Bearer Token) and the JSON body with the SQL statement encapsulated it's easy to fill the necessary parameters and execute the query.
 
