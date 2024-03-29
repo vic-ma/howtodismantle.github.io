@@ -66,15 +66,8 @@ We now have the URL, the access token (bearer token), and the JSON body with the
 
 ## Result and conclusion
 
-This article comes with an example PBMX file with two Databricks data sources (products and sales transaction) that are joined to one single table.
-It might sounds strange not to use the ODBC driver and stick to the native REST calls but in real life it turned out that the REST option is far easier to handle. Especially when there are additional complexity like dynamic parameters, additional execution attributes, etc....
+This article comes with an example PBMX file with two Databricks data sources (products and sales transaction) that are joined into a single table.
+
+It might sound strange to not use the ODBC driver and stick to native REST calls, but in the real world, it turns out that the REST option is far easier to handle. Especially when there are additional complexities, like dynamic parameters, additional execution attributes, etc.
 
 ![image](/assets/2024-06-19/050.png)
-
-
-
-
-
-
-
-
