@@ -97,4 +97,4 @@ Here are three things we need to do, to make sure the temporary router works. If
 
 ## Conclusion
 
-Bekchoff TwinCAT 3 is a tricky issue in the context of Peakboard, because the way Peakboard works does not perfectly fit the architecture of routes in the TwinCAT context. Every Peakboard developer and designer must precisely understand how it works. Otherwise, the connection won't work. Even if it works on the dev machine, it won't necessarily work on the Box, if it's not configured properly.
+Beckhoff TwinCAT 3 is a tricky issue in the context of Peakboard, because the way Peakboard works does not perfectly fit the architecture of routes in the TwinCAT context. Every Peakboard developer and designer must precisely understand how it works. Otherwise, the connection won't work. Even if it works on the dev machine, it won't necessarily work on the Box, if it's not configured properly.
