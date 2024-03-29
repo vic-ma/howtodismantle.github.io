@@ -19,7 +19,7 @@ downloads:
 
 Databricks offers a wide array of methods for accessing the data stored inside, in order to support any type of client. Because Peakboard supports ODBC drivers, using ODBC seems obvious. However, we will actually use the REST API endpoint to submit queries and receive data.
 
-While configuring ODBC is possible, it's quite stressful. On the other hand, using the method explained in this article is easy and straightforward. The example system we're using is a Microsoft-Azure-based Databricks instance.
+While configuring ODBC is possible, it's quite complicated. On the other hand, using the method explained in this article is easy and straightforward. The system we're using is a Microsoft-Azure-based Databricks instance.
 
 ## Configure Databricks
 
