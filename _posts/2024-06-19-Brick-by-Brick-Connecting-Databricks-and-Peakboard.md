@@ -27,13 +27,13 @@ The REST endpoint and REST API are available by default. But before we can use t
 
 ![image](/assets/2024-06-19/010.png)
 
-The second attribute we will need later is the Warehouse ID of the Warehouse instance we want to access. We find this ID through the menu of "SQL Warehouse", then click on the warehouse name. The ID can be found in the detail screen.
+The second thing we need is the Warehouse ID of the Warehouse instance we want to access. We go to **SQL Warehouses**, and then click on the warehouse name. The Warehouse ID can be found under **Name**.
 
 ![image](/assets/2024-06-19/020.png)
 
-## Setting up the Databricks Extension
+## Set up the Databricks Extension
 
-We will use the REST endpoint of Databricks to query the data. So actually we can use the JSon datasource to query the data and process. The tricky thing is, that in the JSon response of a query and the interpretation of the JSon string is not easy and strightforward because the actual data and data description like datatypes and other metadata is stored at different places.
+We will use the REST endpoint of Databricks to query the data. We can actually use the JSON datasource to query the data and process. The tricky thing is, that in the JSsON response of a query and the interpretation of the JSON string is not easy and strightforward because the actual data and data description like datatypes and other metadata is stored at different places.
 This problem is solved by the Databricks extension, that can be installed with a click of button. More information about how to install an extension be found [here](https://help.peakboard.com/data_sources/Extension/en-ManageExtension.html).
 
 ![image](/assets/2024-06-19/030.png)
@@ -46,7 +46,7 @@ The Databricks instance comes with a REST webservice that exposes any kind DWH f
 https://adb-7067375420864287.7.azuredatabricks.net/api/2.0/sql/statements/
 {% endhighlight %}
 
-The query is done through a POST request containing a simple JSon with the DWH ID and also the actual SQL statement. When referring to tables we must always provide a qualified name with Schema information. Here's a sample of a typical query.
+The query is done through a POST request containing a simple JSON with the DWH ID and also the actual SQL statement. When referring to tables we must always provide a qualified name with Schema information. Here's a sample of a typical query.
 
 {% highlight json %}
 {
@@ -59,7 +59,7 @@ The documentation of this API function can be found [here](https://docs.databric
 
 ## Setting up the datasource
 
-With the preperation of the URL, the access token (aka Bearer Token) and the JSon body with the SQL statement encapsulated it's easy to fill the necessary parameters and execute the query.
+With the preperation of the URL, the access token (aka Bearer Token) and the JSON body with the SQL statement encapsulated it's easy to fill the necessary parameters and execute the query.
 
 ![image](/assets/2024-06-19/040.png)
 
