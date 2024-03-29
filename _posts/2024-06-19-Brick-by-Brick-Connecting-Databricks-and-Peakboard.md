@@ -15,35 +15,39 @@ downloads:
   - name: DatabricksProductQuery.pbmx
     url: /assets/2024-06-19/DatabricksProductQuery.pbmx
 ---
-[Databricks](https://en.wikipedia.org/wiki/Databricks) is a California based BI company. In this article we give a quick example on how to connect to Databricks from Peakboard and get data.
-In general Databricks offers a wide selection of different methods to access the data stored inside for literally any type of client. As Peakboard supports using ODBC drivers it would be obvious to use ODBC to connect. However we choose a different way and use the REST API endpoint to submit queries and receive data. We're doing this because configuring the ODBC is possible yet quite stressful. So using the herein explained extension is easy and straightforward. The sample system we're using is a Microsoft Azure based Databricks instance.
+[Databricks](https://en.wikipedia.org/wiki/Databricks) is a California-based BI company. In this article, you'll learn how to connect Peakboard to Databricks and retrieve some data.
 
-## Configuring Databricks
+Databricks offers a wide array of methods for accessing the data stored inside, in order to support any type of client. Because Peakboard supports ODBC drivers, using ODBC seems obvious. However, we will actually use the REST API endpoint to submit queries and receive data.
 
-By default the Rest endpoint and Rest API is available, but before we can use it, we need to generate a token. To do so, we go into the Databricks workbench -> User Setting -> Developer -> Access Tokens -> Manage -> Generate Token. We write down the generated token for later use.
+While configuring ODBC is possible, it's quite complicated. On the other hand, using the method explained in this article is easy and straightforward. The system we're using is a Microsoft-Azure-based Databricks instance.
+
+## Configure Databricks
+
+The REST endpoint and REST API are available by default. But before we can use them, we need to generate a token. To do so, we go to **Databricks workbench > User settings > Developer > Access tokens > Manage > Generate token**. We copy down the token for later use.
 
 ![image](/assets/2024-06-19/010.png)
 
-The second attribute we will need later is the Warehouse ID of the Warehouse instance we want to access. We find this ID through the menu of "SQL Warehouse", then click on the warehouse name. The ID can be found in the detail screen.
+The second thing we need is the Warehouse ID of the Warehouse instance we want to access. We go to **SQL Warehouses**, and then click on the warehouse name. The Warehouse ID can be found under **Name**.
 
 ![image](/assets/2024-06-19/020.png)
 
-## Setting up the Databricks Extension
+## Set up the Databricks Extension
 
-We will use the REST endpoint of Databricks to query the data. So actually we can use the JSon datasource to query the data and process. The tricky thing is, that in the JSon response of a query and the interpretation of the JSon string is not easy and strightforward because the actual data and data description like datatypes and other metadata is stored at different places.
-This problem is solved by the Databricks extension, that can be installed with a click of button. More information about how to install an extension be found [here](https://help.peakboard.com/data_sources/Extension/en-ManageExtension.html).
+We will use the REST endpoint of Databricks to query the data. We can actually use the JSON data source to query the data and process. The tricky part is in the JSON response and the interpretation of the JSON string. It's not easy, because the actual data, data-description-like datatypes, and other metadata, are stored in different places.
+
+This problem is solved by the Databricks extension, which you can install with the click of a button. For information about how to install an extension, see the [Manage extensions documentation](https://help.peakboard.com/data_sources/Extension/en-ManageExtension.html).
 
 ![image](/assets/2024-06-19/030.png)
 
-## Understanding the Databricks Rest Service
+## Understand the Databricks REST Service
 
-The Databricks instance comes with a REST webservice that exposes any kind DWH function to the outside. The endpoint we're looking for is "api/2.0/sql/statements/". So the whole URL looks like this (depending on the user's actual host name):
+The Databricks instance comes with a REST webservice that exposes DWH functions. The endpoint we're looking for is `api/2.0/sql/statements/`. So the whole URL looks something like this (depending on the user's actual host name):
 
 {% highlight url %}
 https://adb-7067375420864287.7.azuredatabricks.net/api/2.0/sql/statements/
 {% endhighlight %}
 
-The query is done through a POST request containing a simple JSon with the DWH ID and also the actual SQL statement. When referring to tables we must always provide a qualified name with Schema information. Here's a sample of a typical query.
+The query is done through a POST request containing a simple JSON with the DWH ID and the actual SQL statement. When referring to tables, we must always provide a qualified name with schema information. Here's an example of a typical query:
 
 {% highlight json %}
 {
@@ -52,25 +56,18 @@ The query is done through a POST request containing a simple JSon with the DWH I
 }
 {% endhighlight %}
 
-The documentation of this API function can be found [here](https://docs.databricks.com/api/workspace/statementexecution/executestatement).
+You can take a look at the [statement execution function documentation](https://docs.databricks.com/api/workspace/statementexecution/executestatement).
 
-## Setting up the datasource
+## Set up the data source
 
-With the preperation of the URL, the access token (aka Bearer Token) and the JSon body with the SQL statement encapsulated it's easy to fill the necessary parameters and execute the query.
+We now have the URL, the access token (bearer token), and the JSON body with the SQL statement encapsulated. Now, it's easy to fill the necessary parameters and execute the query:
 
 ![image](/assets/2024-06-19/040.png)
 
-## result and conclusion
+## Result and conclusion
 
-This article comes with a sample pbmx file with two Databricks sources (products and sales transaction) that are joined to one single table.
-It might sounds strange not to use the ODBC driver and stick to the native REST calls but in real life it turned out that the REST option is far easier to handle. Especially when there are additional complexity like dynamic parameters, additional execution attributes, etc....
+This article comes with an example PBMX file with two Databricks data sources (products and sales transaction) that are joined into a single table.
+
+It might sound strange to not use the ODBC driver and stick to native REST calls, but in the real world, it turns out that the REST option is far easier to handle. Especially when there are additional complexities, like dynamic parameters, additional execution attributes, etc.
 
 ![image](/assets/2024-06-19/050.png)
-
-
-
-
-
-
-
-
