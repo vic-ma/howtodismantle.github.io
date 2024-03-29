@@ -15,7 +15,8 @@ downloads:
   - name: DatabricksProductQuery.pbmx
     url: /assets/2024-06-19/DatabricksProductQuery.pbmx
 ---
-[Databricks](https://en.wikipedia.org/wiki/Databricks) is a California based BI company. In this article we give a quick example on how to connect to Databricks from Peakboard and get data.
+[Databricks](https://en.wikipedia.org/wiki/Databricks) is a California-based BI company. In this article, you'll learn how to connect Peakboard to Databricks and retrieve some data.
+
 In general Databricks offers a wide selection of different methods to access the data stored inside for literally any type of client. As Peakboard supports using ODBC drivers it would be obvious to use ODBC to connect. However we choose a different way and use the REST API endpoint to submit queries and receive data. We're doing this because configuring the ODBC is possible yet quite stressful. So using the herein explained extension is easy and straightforward. The sample system we're using is a Microsoft Azure based Databricks instance.
 
 ## Configuring Databricks
