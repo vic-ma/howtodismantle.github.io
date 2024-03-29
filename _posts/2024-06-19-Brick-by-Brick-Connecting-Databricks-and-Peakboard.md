@@ -19,9 +19,9 @@ downloads:
 
 Databricks offers a wide array of methods for accessing the data stored inside, in order to support any type of client. Because Peakboard supports ODBC drivers, using ODBC seems obvious. However, we will actually use the REST API endpoint to submit queries and receive data.
 
-We're doing this because configuring the ODBC is possible yet quite stressful. So using the herein explained extension is easy and straightforward. The sample system we're using is a Microsoft Azure based Databricks instance.
+While configuring ODBC is possible, it's quite stressful. On the other hand, using the method explained in this article is easy and straightforward. The example system we're using is a Microsoft-Azure-based Databricks instance.
 
-## Configuring Databricks
+## Configure Databricks
 
 By default the Rest endpoint and Rest API is available, but before we can use it, we need to generate a token. To do so, we go into the Databricks workbench -> User Setting -> Developer -> Access Tokens -> Manage -> Generate Token. We write down the generated token for later use.
 
