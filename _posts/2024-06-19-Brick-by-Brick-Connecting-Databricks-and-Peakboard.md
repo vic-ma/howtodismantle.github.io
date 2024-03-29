@@ -33,7 +33,7 @@ The second thing we need is the Warehouse ID of the Warehouse instance we want t
 
 ## Set up the Databricks Extension
 
-We will use the REST endpoint of Databricks to query the data. We can actually use the JSON datasource to query the data and process. The tricky part is in the JSON response and the interpretation of the JSON string. It's not easy, because the actual data, data-description-like datatypes, and other metadata, are stored in different places.
+We will use the REST endpoint of Databricks to query the data. We can actually use the JSON data source to query the data and process. The tricky part is in the JSON response and the interpretation of the JSON string. It's not easy, because the actual data, data-description-like datatypes, and other metadata, are stored in different places.
 
 This problem is solved by the Databricks extension, which you can install with the click of a button. For information about how to install an extension, see the [Manage extensions documentation](https://help.peakboard.com/data_sources/Extension/en-ManageExtension.html).
 
@@ -58,15 +58,15 @@ The query is done through a POST request containing a simple JSON with the DWH I
 
 You can take a look at the [statement execution function documentation](https://docs.databricks.com/api/workspace/statementexecution/executestatement).
 
-## Set up the datasource
+## Set up the data source
 
-With the preperation of the URL, the access token (aka Bearer Token) and the JSON body with the SQL statement encapsulated it's easy to fill the necessary parameters and execute the query.
+We now have the URL, the access token (bearer token), and the JSON body with the SQL statement encapsulated. Now, it's easy to fill the necessary parameters and execute the query:
 
 ![image](/assets/2024-06-19/040.png)
 
-## result and conclusion
+## Result and conclusion
 
-This article comes with a sample pbmx file with two Databricks sources (products and sales transaction) that are joined to one single table.
+This article comes with an example PBMX file with two Databricks data sources (products and sales transaction) that are joined to one single table.
 It might sounds strange not to use the ODBC driver and stick to the native REST calls but in real life it turned out that the REST option is far easier to handle. Especially when there are additional complexity like dynamic parameters, additional execution attributes, etc....
 
 ![image](/assets/2024-06-19/050.png)
