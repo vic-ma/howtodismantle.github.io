@@ -33,8 +33,9 @@ The second thing we need is the Warehouse ID of the Warehouse instance we want t
 
 ## Set up the Databricks Extension
 
-We will use the REST endpoint of Databricks to query the data. We can actually use the JSON datasource to query the data and process. The tricky thing is, that in the JSsON response of a query and the interpretation of the JSON string is not easy and strightforward because the actual data and data description like datatypes and other metadata is stored at different places.
-This problem is solved by the Databricks extension, that can be installed with a click of button. More information about how to install an extension be found [here](https://help.peakboard.com/data_sources/Extension/en-ManageExtension.html).
+We will use the REST endpoint of Databricks to query the data. We can actually use the JSON datasource to query the data and process. The thing part is in the JSON response and the interpretation of the JSON string. It's not easy and straightforward, because the actual data, data-description-like datatypes, and other metadata are stored at different places.
+
+This problem is solved by the Databricks extension, which you can install with the click of a button. For information about how to install an extension, go to the [Databricks extension page](https://help.peakboard.com/data_sources/Extension/en-ManageExtension.html).
 
 ![image](/assets/2024-06-19/030.png)
 
