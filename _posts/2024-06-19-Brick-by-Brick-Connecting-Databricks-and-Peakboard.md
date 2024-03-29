@@ -23,7 +23,7 @@ While configuring ODBC is possible, it's quite stressful. On the other hand, usi
 
 ## Configure Databricks
 
-By default the REST endpoint and REST API is available, but before we can use it, we need to generate a token. To do so, we go into the Databricks workbench -> User Setting -> Developer -> Access Tokens -> Manage -> Generate Token. We write down the generated token for later use.
+The REST endpoint and REST API are available by default. But before we can use them, we need to generate a token. To do so, we go to **Databricks workbench > User settings > Developer > Access tokens > Manage > Generate token**. We copy down the generated token, because we'll need it later.
 
 ![image](/assets/2024-06-19/010.png)
 
