@@ -23,7 +23,7 @@ While configuring ODBC is possible, it's quite complicated. On the other hand, u
 
 ## Configure Databricks
 
-The REST endpoint and REST API are available by default. But before we can use them, we need to generate a token. To do so, we go to **Databricks workbench > User settings > Developer > Access tokens > Manage > Generate token**. We copy down the generated token, because we'll need it later.
+The REST endpoint and REST API are available by default. But before we can use them, we need to generate a token. To do so, we go to **Databricks workbench > User settings > Developer > Access tokens > Manage > Generate token**. We copy down the token for later use.
 
 ![image](/assets/2024-06-19/010.png)
 
@@ -41,7 +41,7 @@ This problem is solved by the Databricks extension, which you can install with t
 
 ## Understand the Databricks REST Service
 
-The Databricks instance comes with a REST webservice that exposes any kind DWH function to the outside. The endpoint we're looking for is `api/2.0/sql/statements/`. So the whole URL looks something like this (depending on the user's actual host name):
+The Databricks instance comes with a REST webservice that exposes DWH functions. The endpoint we're looking for is `api/2.0/sql/statements/`. So the whole URL looks something like this (depending on the user's actual host name):
 
 {% highlight url %}
 https://adb-7067375420864287.7.azuredatabricks.net/api/2.0/sql/statements/
