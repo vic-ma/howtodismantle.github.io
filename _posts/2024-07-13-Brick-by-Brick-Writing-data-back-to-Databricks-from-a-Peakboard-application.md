@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Brick by Brick - Connecting Databricks and Peakboard
+title: Brick by Brick - Writing data back to Databricks from a Peakboard application
 date: 2023-03-01 12:00:00 +0200
 tags: bi
 image: /assets/2024-07-13/title.png
@@ -45,13 +45,15 @@ And here's the empty table after having created it in the Databricks workbench.
 The call to insert the data into the table looks like this:
 
 {% highlight sql %}
-INSERT INTO sensor_data (timestamp, sensorid, temperature, humidity) VALUES ('2023-01-01', 1, -2.35, 76.29);
+INSERT INTO sensor_data (timestamp, sensorid, temperature, humidity) 
+VALUES ('2023-01-01', 1, -2.35, 76.29);
 {% endhighlight %}
 
 However we need to make it more dynamic. That's why we use these #[XXX]# placeholders instead of fixed values:
 
 {% highlight sql %}
-INSERT INTO sensor_data (timestamp, sensorid, temperature, humidity) VALUES (getdate(), #[sensorid]#, #[temperature]#, #[humidity]#);
+INSERT INTO sensor_data (timestamp, sensorid, temperature, humidity) 
+VALUES (getdate(), #[sensorid]#, #[temperature]#, #[humidity]#);
 {% endhighlight %}
 
 From the first article we know, that the SQL command must be wrapped into a JSon call to be submitted to the endpoint. That's what we do:
@@ -65,7 +67,7 @@ From the first article we know, that the SQL command must be wrapped into a JSon
 
 ## Building the script
 
-We're using Building Blocks to create the call. The actual project is quite simple (feel free to download it [here](/assets/2024-07-13/DatabricksDataInsert.pbmx)). We start with a dynamic placeholder replacment block and put in the string we prepared earlier. Because of the placeholders it generates these sockets for each placeholder where the dynamic values can be plugged in. Of course in our sample we still use fixed values to replace the placeholders. This is only to showcase how dynmic placeholders work.
+We're using Building Blocks to create the call. The actual project is quite simple (feel free to download it [here](/assets/2024-07-13/DatabricksDataInsert.pbmx)). We start with a dynamic placeholder replacment block and put in the string we prepared earlier. Because of the placeholders it generates these sockets for each placeholder where the dynamic values can be plugged in. Of course in our sample we still use fixed values to replace the placeholders. This is only to showcase how dynamic placeholders work.
 
 ![image](/assets/2024-07-13/020.png)
 
