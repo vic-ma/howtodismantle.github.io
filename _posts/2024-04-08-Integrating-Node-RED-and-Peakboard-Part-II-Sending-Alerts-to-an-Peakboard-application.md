@@ -2,7 +2,7 @@
 layout: post
 title: Integrating Node-RED and Peakboard - Part II - Sending Alerts to an Peakboard application
 date: 2023-03-01 12:00:00 +0200
-tags: api opcuamqtt nodered
+tags: api opcuamqtt
 image: /assets/2024-04-08/title.png
 read_more_links:
   - name: How to install node-red on Windows
