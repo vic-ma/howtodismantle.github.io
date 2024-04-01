@@ -15,17 +15,17 @@ downloads:
   - name: DatabricksDataInsert.pbmx
     url: /assets/2024-07-13/DatabricksDataInsert.pbmx
 ---
-Some time ago we already discussed how to [query data from Databricks](/Brick-by-Brick-Connecting-Databricks-and-Peakboard.html). Back then we used the Databricks extension to call and process a restfull http endpoint for submitting a select statement to the database.
+A while ago, we discussed how to [query data from Databricks](/Brick-by-Brick-Connecting-Databricks-and-Peakboard.html). Back then, we used the Databricks extension to call and process a RESTful HTTP endpoint for submitting a `SELECT` statement to the database.
 
-In this article we will learn  how to insert data into a Databricks table. We use the same endpoint for executing this command, however in that case we don't need any extension to do so. We just use the built-in function of calling http to accomplish this task.
+In this article, we will learn how to insert data into a Databricks table. We'll use the same endpoint for executing this command. But in this case, we won't need any extension. We'll just use the built-in function for calling HTTP endpoints to accomplish this task.
 
-In out sample we will submit sensor data to the table.
+In out example, we will submit sensor data to the table.
 
 ## The Databricks side
 
-We will need an access token for the call. It's already explained how to get this in the [first Databricks article](/Brick-by-Brick-Connecting-Databricks-and-Peakboard.html).
+First, we need an access token for the call. We explain how to do this in the [first Databricks article](/Brick-by-Brick-Connecting-Databricks-and-Peakboard.html).
 
-ALso we will need a table to store the data. Here's the sql command to create the table:
+We also need a table to store the data. Here's the SQL command for creating the table:
 
 {% highlight sql %}
 CREATE TABLE sensor_data (
@@ -36,7 +36,7 @@ CREATE TABLE sensor_data (
 );
 {% endhighlight %}
 
-And here's the empty table after having created it in the Databricks workbench.
+And here's the empty table after having created it in the Databricks workbench:
 
 ![image](/assets/2024-07-13/010.png)
 
@@ -49,14 +49,14 @@ INSERT INTO sensor_data (timestamp, sensorid, temperature, humidity)
 VALUES ('2023-01-01', 1, -2.35, 76.29);
 {% endhighlight %}
 
-However we need to make it more dynamic. That's why we use these #[XXX]# placeholders instead of fixed values:
+However, we need to make it more dynamic. That's why we use `#[XXX]#` placeholders instead of fixed values:
 
 {% highlight sql %}
 INSERT INTO sensor_data (timestamp, sensorid, temperature, humidity) 
 VALUES (getdate(), #[sensorid]#, #[temperature]#, #[humidity]#);
 {% endhighlight %}
 
-From the first article we know, that the SQL command must be wrapped into a JSon call to be submitted to the endpoint. That's what we do:
+From the first article, we know that the SQL command must be wrapped inside a JSON call, in order to be submitted to the endpoint:
 
 {% highlight json %}
 {
@@ -65,9 +65,11 @@ From the first article we know, that the SQL command must be wrapped into a JSon
 }
 {% endhighlight %}
 
-## Building the script
+## Build the script
 
-We're using Building Blocks to create the call. The actual project is quite simple (feel free to download it [here](/assets/2024-07-13/DatabricksDataInsert.pbmx)). We start with a dynamic placeholder replacment block and put in the string we prepared earlier. Because of the placeholders it generates these sockets for each placeholder where the dynamic values can be plugged in. Of course in our sample we still use fixed values to replace the placeholders. This is only to showcase how dynamic placeholders work.
+We're using Building Blocks to create the call. The actual project is quite simple (feel free to download it [here](/assets/2024-07-13/DatabricksDataInsert.pbmx)). We start with a dynamic placeholder replacement block and put in the string we prepared earlier.
+
+Because of the placeholders, it generates these sockets for each placeholder where the dynamic values can be plugged in. Of course in our sample we still use fixed values to replace the placeholders. This is only to showcase how dynamic placeholders work.
 
 ![image](/assets/2024-07-13/020.png)
 
