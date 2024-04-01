@@ -73,7 +73,9 @@ The script generates sockets for each placeholder where the dynamic values can b
 
 ![image](/assets/2024-07-13/020.png)
 
-We submit the JSON string to the HTTP endpoint. Besides the endpoint URL, we also need to provide the access token (see part 1). In the second part, we process the response by using a JPath. The actual response by Databricks contains a lot of information about the call and potential errors. But the path "status.state" is precisely where the correct value can be found to check, if the call has succeeded (string is then "SUCCEEDED").
+In part 1, we submit the JSON string to the HTTP endpoint. We plug in the endpoint URL, as well as the access token.
+
+In part 2, we process the HTTP response by using a JPath. The actual response from Databricks contains a lot of information about the call and potential errors. But the path `status.state` is precisely where the correct value will be, if the call has succeeded (string is then `SUCCEEDED`).
 
 ![image](/assets/2024-07-13/030.png)
 
