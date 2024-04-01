@@ -69,11 +69,11 @@ From the first article, we know that the SQL command must be wrapped inside a JS
 
 We're using Building Blocks to create the call. The actual project is quite simple (feel free to download it [here](/assets/2024-07-13/DatabricksDataInsert.pbmx)). We start with a dynamic placeholder replacement block and put in the string we prepared earlier.
 
-Because of the placeholders, it generates these sockets for each placeholder where the dynamic values can be plugged in. Of course in our sample we still use fixed values to replace the placeholders. This is only to showcase how dynamic placeholders work.
+The script generates sockets for each placeholder where the dynamic values can be plugged in. Of course, in our example, we still use fixed values to replace the placeholders. This is only to showcase how dynamic placeholders work.
 
 ![image](/assets/2024-07-13/020.png)
 
-We use the prepared JSon string to submit it to the http endpoint. Beside the actual URL we also need to provide the access token (see part 1). In the second part we prcoess the response by using a JPath. The actual response by Databricks contains a lot of information about the call and potential errors. But the path "status.state" is precisely where the correct value can be found to check, if the call has succeeded (string is then "SUCCEEDED").
+We submit the JSON string to the HTTP endpoint. Besides the endpoint URL, we also need to provide the access token (see part 1). In the second part, we process the response by using a JPath. The actual response by Databricks contains a lot of information about the call and potential errors. But the path "status.state" is precisely where the correct value can be found to check, if the call has succeeded (string is then "SUCCEEDED").
 
 ![image](/assets/2024-07-13/030.png)
 
