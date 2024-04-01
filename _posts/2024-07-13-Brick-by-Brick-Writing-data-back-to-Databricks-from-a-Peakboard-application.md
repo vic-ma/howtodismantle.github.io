@@ -81,11 +81,13 @@ In part 2, we process the HTTP response by using a JPath. The actual response fr
 
 ## Result
 
-Here's the final result. On the right side in the logging we can see the Databricks JSon response and also the "status.state" string ("SUCCEEDED"). It would be a nice exercise to implement the error case. Let's assume the state the "status.state" string is "FAILED", we can use the same JPath methodology to get the error message from the JSon string. [Here](Taming-the-wild-JSon-How-to-use-JPath-in-Peakboard-scripts.html) we can find out more about how use JPath.
+Here's the final result. On the right side, in the logging, we can see the Databricks JSON response, as well as the `status.state` string, which is `SUCCEEDED`.
+
+It would be a nice exercise to implement the error case. Let's assume the state the `status.state` string is `FAILED`. Then, we can use the same JPath method from before to get the error message from the JSON string. Take a look at this article on [how to use JPath in Peakboard scripts](Taming-the-wild-JSon-How-to-use-JPath-in-Peakboard-scripts.html).
 
 ![image](/assets/2024-07-13/040.png)
 
-Finally we can find the inserted data in the Databricks table. Yay!
+Finally, we can find the inserted data in the Databricks table. Yay!
 
 ![image](/assets/2024-07-13/050.png)
 
