@@ -19,7 +19,7 @@ A while ago, we discussed how to [query data from Databricks](/Brick-by-Brick-Co
 
 In this article, we will learn how to insert data into a Databricks table. We'll use the same endpoint for executing this command. But in this case, we won't need any extension. We'll just use the built-in function for calling HTTP endpoints to accomplish this task.
 
-In out example, we will submit sensor data to the table.
+In our example, we will submit sensor data to the Databricks table.
 
 ## The Databricks side
 
@@ -75,15 +75,15 @@ The script generates sockets for each placeholder where the dynamic values can b
 
 In part 1, we submit the JSON string to the HTTP endpoint. We plug in the endpoint URL, as well as the access token.
 
-In part 2, we process the HTTP response by using a JPath. The actual response from Databricks contains a lot of information about the call and potential errors. But the path `status.state` is precisely where the correct value will be, if the call has succeeded (string is then `SUCCEEDED`).
+In part 2, we process the HTTP response by using a JPath. The actual response from Databricks contains a lot of information about the call and potential errors. But if the call succeeded, the path `status.state` will be `SUCCEEDED`.
 
 ![image](/assets/2024-07-13/030.png)
 
 ## Result
 
-Here's the final result. On the right side, in the logging, we can see the Databricks JSON response, as well as the `status.state` string, which is `SUCCEEDED`.
+Here's the final result. On the right side, in the log, we can see the Databricks JSON response, as well as the `status.state` string, which is `SUCCEEDED`.
 
-It would be a nice exercise to implement the error case. Let's assume the state the `status.state` string is `FAILED`. Then, we can use the same JPath method from before to get the error message from the JSON string. Take a look at this article on [how to use JPath in Peakboard scripts](Taming-the-wild-JSon-How-to-use-JPath-in-Peakboard-scripts.html).
+A good exercise would be to implement the error case. Let's assume the `status.state` string is `FAILED`. Then, we can use the same JPath method from before to get the error message from the JSON string. Take a look at this article on [how to use JPath in Peakboard scripts](Taming-the-wild-JSon-How-to-use-JPath-in-Peakboard-scripts.html).
 
 ![image](/assets/2024-07-13/040.png)
 
