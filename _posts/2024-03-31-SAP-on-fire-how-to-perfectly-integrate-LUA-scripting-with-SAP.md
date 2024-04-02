@@ -1,7 +1,7 @@
 ---
 layout: post
 title: SAP on fire - how to perfectly integrate LUA scripting with SAP
-date: 2023-03-01 12:00:00 +0200
+date: 2024-03-31 12:00:00 +0200
 tags: sap lua
 image: /assets/2024-03-31/title.png
 read_more_links:
