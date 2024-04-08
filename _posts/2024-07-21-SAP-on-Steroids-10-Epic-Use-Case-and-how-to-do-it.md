@@ -76,10 +76,16 @@ There are two common situations:
 * Assembly instructions for users who do some kind of assembly.
 * Quality checking instructions for users who carry out quality checks.
 
-The documents are handled in SAP through the **CV0XX** transaction (document info record). The document info record usually points to the original source of the document, but this depends on the underlying document mangement system (DMS). Most common is just an http endpoint that can be used directly in Peakboard similiar to downloading a document from Sharepoint. We already discussed this pattern in [this article](/Dismantle-Sharepoint-How-to-use-a-document-library-to-store-techical-drawings-and-download-them-to-Peakboard-dynamically.html). 
+The documents are handled in SAP through the **CV0XX** transaction (document info record). The document info record usually points to the original source of the document, but this depends on the underlying document management system (DMS).
+
+Most commonly, this is just an HTTP endpoint that can be used directly in Peakboard, similiar to downloading a document from Sharepoint. We discuss this pattern in [How to use a document library to store technical drawings](/Dismantle-Sharepoint-How-to-use-a-document-library-to-store-techical-drawings-and-download-them-to-Peakboard-dynamically.html). 
 
 ## 8. Loading gate monitor 
-In the process of dispatching outbound deliveries' packages or palets are often put onto the trucks through different loading gates depending on the transport carrier. This can be a source of very annoying problems if done wrong. There is a simple version of loading gate monitors just showing the destination region, carrier or whatever helps the handling agent to cross check if his currently handled package fits to to the truck behind the loading gate (see screenshot of [this template](https://templates.peakboard.com/Overview-Truck-Loading/en)). The even more sophisticated version is to use additional hardware connected to the Peakboard app to actively cross check the process, e.g. a barcode scanner or RFID reader. The Peakboard app can then directly check and confirm with SAP the the outbound delivery is loaded onto the truck. 
+In the process of dispatching outbound delivery packages, pallets are often loaded onto trucks through different loading gates, depending on the transport carrier. This can be a source of very annoying problems if done incorrectly.
+
+There is a simple version of a loading gate monitor that just shows the destination region, carrier, and whatever helps the handling agent check that their package fits onto the truck (see [Your dashboard for truck loading](https://templates.peakboard.com/Overview-Truck-Loading/en)).
+
+The more sophisticated version uses additional hardware connected to the Peakboard app to actively cross-check the process. For example, a barcode scanner or RFID reader. The Peakboard app can then directly check and confirm with SAP that the outbound delivery is loaded onto the truck. 
 
 ## 9. Inventory
 The Peakboard app is usually used on a mobile device and is replacing the printed inventory list. The most common way to do this is to use standardized BAPIs like **BAPI_INVENTORYCOUNT_SUBMIT** and **BAPI_INVENTORYCOUNT_POSTDIFF**. The whole process that is usually managed though the **MI0X** transactions can be completely or in parts done by the Peakboard application.
