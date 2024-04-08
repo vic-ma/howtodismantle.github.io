@@ -45,14 +45,15 @@ It might be a good idea to store the confirmation in a database or Peakboard Hub
 
 ## 4. Transfer order monitor 
 
-Transfer orders are objects in SAP's Logistic Execution (LE) or Warehouse Management (WM) module. The corresponding transaction is **LT03** for creation.
+Transfer orders are objects in SAP's Logistics Execution (LE) or Warehouse Management (WM) module. The corresponding transaction is **LT03** for creation.
+
 The data around transfer orders is often displayed at workstations for automatic material handling systems or automatic high-rack installations. We often see that the machine or sensor data is mashed up with the transfer orders. The same is true for the usage of barcode scanners. Both are possible---not just for displaying the order, but also for handling dynamic interactions by the user.
 
 To display the order, we can use the standard function **BAPI_WHSE_TO_GET_LIST** to query the keys and then **BAPI_WHSE_TO_GET_DETAIL** to get the details. If it's too annoying to split it into so many calls (because of many orders being in the list overview), it makes sense to build a Z function and read the tables **LTBK** (headers) and **LTBP** (items) directly, and return a single table to Peakboard. This situation is quite similar to the outbound delivery use case listed under number 1.
 
 ## 5. Quality notes
 
-Quality notes are generated many situations. For Peakboard apps, there are three common use cases:
+Quality notes are generated in many situations. For Peakboard apps, there are three common use cases:
 1. Defect reporting 1: The produced good shows defects in the production process. The defects can't be handled during the process, or it will bring the process to a standstill. This can happen during production or during the quality inspection step.
 2. Defect reporting 2: The material that is used for the production shows defects that were undiscovered up until now. Usually, all the material must be locked immediately to prevent other production units from using it, and additional steps must be taken.
 3. Health, safety, and environmental incidents reporting: Incidents that affect health, safety, or the environment, potentially due to quality issues in processes or materials. This includes workplace accidents related to equipment or hazardous materials.
