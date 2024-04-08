@@ -28,10 +28,10 @@ There are a couple different ways to build the technical backend:
 ## 2. Workplace capacity and status monitor 
 
 The most common use case for an SAP production environment is to determine and display the capacity and utilization of one or more workplaces.
-Unfortunately, there isn't a standard BAPI to determine workplace capacity. However, there's a function module for internal usage that can be used. So the easiest way to determine workplace capacity is to wrap the internal module in an RFC-enabled function module. See [How to determine workplace capacity](/Dismantle-SAP-Production-How-to-determine-workplace-capacity.html) to learn how to do this.
+Unfortunately, there isn't a standard BAPI to determine workplace capacity. However, there's a function module for internal usage. So the easiest way to determine workplace capacity is to wrap the internal module in an RFC-enabled function module. See [How to determine workplace capacity](/Dismantle-SAP-Production-How-to-determine-workplace-capacity.html) to learn more.
 
 The utilization is very tricky to determine correctly. As an SAP user, you would use **COOIS** transactions to list all the production orders for a certain workplace in a certain time frame.
-See [How to get the next work orders of a workplace](/Dismantle-SAP-Production-How-to-get-the-next-work-orders-of-a-workplace-by-using-COOIS-transaction-in-Peakboard.html) to learn how to do this.
+See [How to get the next work orders of a workplace](/Dismantle-SAP-Production-How-to-get-the-next-work-orders-of-a-workplace-by-using-COOIS-transaction-in-Peakboard.html) to learn more.
 Once you have all the necessary operations and the overall capacity, it's easy to calculate the utilization.
 
 ## 3. Production order confirmation 
@@ -39,7 +39,7 @@ Once you have all the necessary operations and the overall capacity, it's easy t
 Confirming production orders doesn't necessarily mean finishing them. It's also important to give a regular update on the progress of the order---in terms of employee time and machine time usage, and also the current number of goods produced (normally, the number of goods, scrap, and yield).
 
 SAP has a nice standard function module called **BAPI_PRODORDCONF_GET_TT_PROP** that does all sorts of confirmation activities. 
-The actual confirmation can be done by a real person or automatically by the machine. See [Build a Production Order Confirmation Terminal with no code](/SAP-Production-Build-a-Production-Order-Confirmation-Terminal-with-no-code.html) to learn how to do this.
+The actual confirmation can be done by a real person or automatically by the machine. See [Build a Production Order Confirmation Terminal with no code](/SAP-Production-Build-a-Production-Order-Confirmation-Terminal-with-no-code.html) to learn more.
 
 It might be a good idea to store the confirmation in a database or Peakboard Hub before submitting it to SAP. This makes the system more resilient against SAP outages or other IT problems, so that production doesn't come to halt if a confirmation can't be processed right away.
 
