@@ -70,7 +70,7 @@ In an even more sophisticated use case, we can add a camera to the Peakboard app
 
 ## 7. Technical drawings and other documents
 
-Peakboard is usually focused on giving a user a dashboard to see and interact with. So the main goal of Peakboard apps is to bring all the necessary information to the user. In most cases, this is structured data. However, there are a couple of use cases where documents are used---typically, technical drawings or documents containing additional instructions on certain processes.
+Peakboard is usually focused on giving the user a dashboard to see and interact with. So the main goal of Peakboard apps is to bring all the necessary information to the user. In most cases, this is structured data. However, there are a couple of use cases where documents are used---typically, technical drawings or documents containing additional instructions on certain processes.
 
 There are two common situations:
 
@@ -81,10 +81,10 @@ The documents are handled in SAP through the **CV0XX** transaction (document inf
 
 Most commonly, this is just an HTTP endpoint that can be used directly in Peakboard, similiar to downloading a document from Sharepoint. We discuss this pattern in [How to use a document library to store technical drawings](/Dismantle-Sharepoint-How-to-use-a-document-library-to-store-techical-drawings-and-download-them-to-Peakboard-dynamically.html). 
 
-## 8. Loading gate monitor 
-In the process of dispatching outbound delivery packages, pallets are often loaded onto trucks through different loading gates, depending on the transport carrier. This can be a source of very annoying problems if done incorrectly.
+## 8. Loading bay monitor 
+In the process of dispatching outbound delivery packages, pallets are often loaded onto trucks through different loading bays, depending on the transport carrier. This can be a source of very annoying problems if done incorrectly.
 
-There is a simple version of a loading gate monitor that just shows the destination region, carrier, and whatever helps the handling agent check that their package fits onto the truck (see [Your dashboard for truck loading](https://templates.peakboard.com/Overview-Truck-Loading/en)).
+There is a simple version of a loading bay monitor that just shows the destination region, carrier, and whatever else helps the handling agent check that their package fits onto the truck behind the loading bay (see [Your dashboard for truck loading](https://templates.peakboard.com/Overview-Truck-Loading/en)).
 
 The more sophisticated version uses additional hardware connected to the Peakboard app to actively cross-check the process. For example, a barcode scanner or RFID reader. The Peakboard app can then directly check and confirm with SAP that the outbound delivery is loaded onto the truck. 
 
