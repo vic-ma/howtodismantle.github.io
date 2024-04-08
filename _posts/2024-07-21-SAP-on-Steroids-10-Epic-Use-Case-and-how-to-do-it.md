@@ -27,7 +27,7 @@ There are a couple different ways to build the technical backend:
 
 ## 2. Workplace capacity and status monitor 
 
-The most common use case in any SAP production environment is to dermine and show the capacity and the utilization of one or multiple workplaces.
+The most common use case for an SAP production environment is to determine and display the capacity and utilization of one or more workplaces.
 Unfortunately there's no standard BAPI to determine the workplace capacity. However there's a function module for internal usage that ca be used. So the easiest way to this is to wrap the internal module in an RFC enabled function module. There's a separate article on how to do this: [Dismantle SAP Production - How to determine workplace capacity](/Dismantle-SAP-Production-How-to-determine-workplace-capacity.html).
 Beside the capacity the actual utilisation is very tricky to determine correctly. As an SAP user you would normally use transaction COOIS transactions to list all production order for a certain workplace in a certain time frame.
 We once again recommend this article to find out more about how to do that practically: [Dismantle SAP Production - How to get the next work orders of a workplace by using COOIS transaction in Peakboard](/Dismantle-SAP-Production-How-to-get-the-next-work-orders-of-a-workplace-by-using-COOIS-transaction-in-Peakboard.html) 
