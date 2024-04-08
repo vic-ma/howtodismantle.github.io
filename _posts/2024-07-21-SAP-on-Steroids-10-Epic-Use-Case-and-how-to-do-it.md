@@ -23,12 +23,12 @@ There are a couple different ways to build the technical backend:
 
 1. You can download the `LIKP` and `LIPS` tables directly by using the table select XQL command in Peakboard.
 2. You can create a Z function module and have the SAP side handle the data join, aggregation, and selection. This is a more sophisticated option. See [How to build a perfect RFC function module to use in Peakboard](https://how-to-dismantle-a-peakboard-box.com/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html) to learn how to do this.
-3. You can create an SAP Query in transaction `SQ01` to select the delivery information. See [Easy access to complex SAP data - How to have fun with SAP Queries](https://how-to-dismantle-a-peakboard-box.com/Easy-access-to-complex-SAP-data-or-how-to-have-fun-with-SAP-Queries.html) to learn how to do this.
+3. You can create an SAP Query in transaction `SQ01` to select the delivery information. See [How to have fun with SAP Queries](https://how-to-dismantle-a-peakboard-box.com/Easy-access-to-complex-SAP-data-or-how-to-have-fun-with-SAP-Queries.html) to learn how to do this.
 
 ## 2. Workplace capacity and status monitor 
 
 The most common use case for an SAP production environment is to determine and display the capacity and utilization of one or more workplaces.
-Unfortunately there's no standard BAPI to determine the workplace capacity. However there's a function module for internal usage that ca be used. So the easiest way to this is to wrap the internal module in an RFC enabled function module. There's a separate article on how to do this: [Dismantle SAP Production - How to determine workplace capacity](/Dismantle-SAP-Production-How-to-determine-workplace-capacity.html).
+Unfortunately, there isn't a standard BAPI to determine workplace capacity. However, there's a function module for internal usage that can be used. So the easiest way to determine workplace capacity is to wrap the internal module in an RFC-enabled function module. See [How to determine workplace capacity](/Dismantle-SAP-Production-How-to-determine-workplace-capacity.html) to learn how to do this.
 Beside the capacity the actual utilisation is very tricky to determine correctly. As an SAP user you would normally use transaction COOIS transactions to list all production order for a certain workplace in a certain time frame.
 We once again recommend this article to find out more about how to do that practically: [Dismantle SAP Production - How to get the next work orders of a workplace by using COOIS transaction in Peakboard](/Dismantle-SAP-Production-How-to-get-the-next-work-orders-of-a-workplace-by-using-COOIS-transaction-in-Peakboard.html) 
 Once you have all necessary operations and the overall capacity it's easy to caclulate the utilization.
