@@ -30,7 +30,7 @@ There are a couple different ways to build the technical backend:
 The most common use case for an SAP production environment is to determine and display the capacity and utilization of one or more workplaces.
 Unfortunately, there isn't a standard BAPI to determine workplace capacity. However, there's a function module for internal usage that can be used. So the easiest way to determine workplace capacity is to wrap the internal module in an RFC-enabled function module. See [How to determine workplace capacity](/Dismantle-SAP-Production-How-to-determine-workplace-capacity.html) to learn how to do this.
 
-The utilization is very tricky to determine correctly. As an SAP user, you would use COOIS transactions to list all the production orders for a certain workplace in a certain time frame.
+The utilization is very tricky to determine correctly. As an SAP user, you would use **COOIS** transactions to list all the production orders for a certain workplace in a certain time frame.
 See [How to get the next work orders of a workplace](/Dismantle-SAP-Production-How-to-get-the-next-work-orders-of-a-workplace-by-using-COOIS-transaction-in-Peakboard.html) to learn how to do this.
 Once you have all the necessary operations and the overall capacity, it's easy to calculate the utilization.
 
@@ -45,7 +45,7 @@ It might be a good idea to store the confirmation in a database or Peakboard Hub
 
 ## 4. Transfer order monitor 
 
-Transfer orders are objects in SAP's Logistic Execution (LE) or Warehouse Management (WM) module. The corresponding transaction is LT03 for creation.
+Transfer orders are objects in SAP's Logistic Execution (LE) or Warehouse Management (WM) module. The corresponding transaction is **LT03** for creation.
 The data around transfer orders is often displayed at workstations for automatic material handling systems or automatic high-rack installations. We often see that the machine or sensor data is mashed up with the transfer orders. The same is true for the usage of barcode scanners. Both are possible---not just for displaying the order, but also for handling dynamic interactions by the user.
 
 For displaying the order, we can use the standard function **BAPI_WHSE_TO_GET_LIST** to query the keys and then **BAPI_WHSE_TO_GET_DETAIL** to get the details. If it's too annoying to split it into so many calls (because of many orders being in the list overview), it makes sense to build a Z function and read the tables **LTBK** (headers) and **LTBP** (items) directly, and return a single table to Peakboard. This situation is quite similar to the outbound delivery use case listed under number 1.
@@ -61,7 +61,7 @@ When building the Peakboard app, it's usually not necessary to do any ABAP devel
 
 ## 6. Packing a delivery 
 
-In a typical outbound delivery process, the delivery is packed after collecting the goods. In SAP standard, the transactions VL01 and VL02N are used. Depending on the use case, it might be necessary to submit additional information to SAP. For example, the size of the packaging material used.
+In a typical outbound delivery process, the delivery is packed after collecting the goods. In SAP standard, the transactions **VL01** and **VL02N** are used. Depending on the use case, it might be necessary to submit additional information to SAP. For example, the size of the packaging material used.
 
 One of the most common BAPIs used here is **BAPI_OUTB_DELIVERY_CHANGE**, together with **BAPI_HU_CREATE** and **BAPI_HU_PACK**. We also see a lot of custom function modules because usually this process is often done very indivdually.
 In an even more sophisticated use case we can add a camera to the Peakboard application and let the camera help to either double check the goods packed or systematically take and store a foto of the goods within the package to be able to document the content and how it's packed.
@@ -69,13 +69,13 @@ In an even more sophisticated use case we can add a camera to the Peakboard appl
 ## 7. Technical drawings and other documents
 
 Peakboard is usually very user and user interface centric. So the main task is to bring all necessary information to the user, in most cases this is structured data. However there are a couple of use cases where documents are used, typically all kinds of technical drawings or documents containing additional instructions on certain processes. There are two situation seen very often: Assembly instructions for the user who are doing any kind of assembly or quality check instructions for user who carrying out quality checks.
-The documents are handled in SAP through the CV0XX transaction (document info record). The document info record usually points to the original source of the document, but this depends on the underlying document mangement system (DMS). Most common is just an http endpoint that can be used directly in Peakboard similiar to downloading a document from Sharepoint. We already discussed this pattern in [this article](/Dismantle-Sharepoint-How-to-use-a-document-library-to-store-techical-drawings-and-download-them-to-Peakboard-dynamically.html). 
+The documents are handled in SAP through the **CV0XX** transaction (document info record). The document info record usually points to the original source of the document, but this depends on the underlying document mangement system (DMS). Most common is just an http endpoint that can be used directly in Peakboard similiar to downloading a document from Sharepoint. We already discussed this pattern in [this article](/Dismantle-Sharepoint-How-to-use-a-document-library-to-store-techical-drawings-and-download-them-to-Peakboard-dynamically.html). 
 
 ## 8. Loading gate monitor 
 In the process of dispatching outbound deliveries' packages or palets are often put onto the trucks through different loading gates depending on the transport carrier. This can be a source of very annoying problems if done wrong. There is a simple version of loading gate monitors just showing the destination region, carrier or whatever helps the handling agent to cross check if his currently handled package fits to to the truck behind the loading gate (see screenshot of [this template](https://templates.peakboard.com/Overview-Truck-Loading/en)). The even more sophisticated version is to use additional hardware connected to the Peakboard app to actively cross check the process, e.g. a barcode scanner or RFID reader. The Peakboard app can then directly check and confirm with SAP the the outbound delivery is loaded onto the truck. 
 
 ## 9. Inventory
-The Peakboard app is usually used on a mobile device and is replacing the printed inventory list. The most common way to do this is to use standardized BAPIs like BAPI_INVENTORYCOUNT_SUBMIT and BAPI_INVENTORYCOUNT_POSTDIFF. The whole process that is usually managed though the MI0X transactions can be completely or in parts done by the Peakboard application.
+The Peakboard app is usually used on a mobile device and is replacing the printed inventory list. The most common way to do this is to use standardized BAPIs like **BAPI_INVENTORYCOUNT_SUBMIT** and **BAPI_INVENTORYCOUNT_POSTDIFF**. The whole process that is usually managed though the **MI0X** transactions can be completely or in parts done by the Peakboard application.
 
 ## 10. Collect machine data from OPC UA and PLCs
 Machine data is collected and submitted to SAP (mostly to SAP MES or SAP PP, but not limited to that). On the Peakboard side there are typical machine interfaces like OPC UA or a native connction to the PLC (Siemens, Beckhof, Rockwell, etc...). Typical values are machine status (usage time, fault codes), cycle time and of course good and reject count. Depending on the data and usage it might make sense to submit it directly in real time or store it first in a local database of Peakboard Hub and submit it asynchronously. As this process is highly customziable it's usually done through indvidual Z function modules on the SAP side.
