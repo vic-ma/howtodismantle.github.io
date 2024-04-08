@@ -48,7 +48,7 @@ It might be a good idea to store the confirmation in a database or Peakboard Hub
 Transfer orders are objects in SAP's Logistic Execution (LE) or Warehouse Management (WM) module. The corresponding transaction is **LT03** for creation.
 The data around transfer orders is often displayed at workstations for automatic material handling systems or automatic high-rack installations. We often see that the machine or sensor data is mashed up with the transfer orders. The same is true for the usage of barcode scanners. Both are possible---not just for displaying the order, but also for handling dynamic interactions by the user.
 
-For displaying the order, we can use the standard function **BAPI_WHSE_TO_GET_LIST** to query the keys and then **BAPI_WHSE_TO_GET_DETAIL** to get the details. If it's too annoying to split it into so many calls (because of many orders being in the list overview), it makes sense to build a Z function and read the tables **LTBK** (headers) and **LTBP** (items) directly, and return a single table to Peakboard. This situation is quite similar to the outbound delivery use case listed under number 1.
+To display the order, we can use the standard function **BAPI_WHSE_TO_GET_LIST** to query the keys and then **BAPI_WHSE_TO_GET_DETAIL** to get the details. If it's too annoying to split it into so many calls (because of many orders being in the list overview), it makes sense to build a Z function and read the tables **LTBK** (headers) and **LTBP** (items) directly, and return a single table to Peakboard. This situation is quite similar to the outbound delivery use case listed under number 1.
 
 ## 5. Quality notes
 
@@ -63,7 +63,8 @@ When building the Peakboard app, it's usually not necessary to do any ABAP devel
 
 In a typical outbound delivery process, the delivery is packed after collecting the goods. In SAP standard, the transactions **VL01** and **VL02N** are used. Depending on the use case, it might be necessary to submit additional information to SAP. For example, the size of the packaging material used.
 
-One of the most common BAPIs used here is **BAPI_OUTB_DELIVERY_CHANGE**, together with **BAPI_HU_CREATE** and **BAPI_HU_PACK**. We also see a lot of custom function modules because usually this process is often done very indivdually.
+One of the most common BAPIs used here is **BAPI_OUTB_DELIVERY_CHANGE**, together with **BAPI_HU_CREATE** and **BAPI_HU_PACK**. We also see a lot of custom function modules because usually this process is done in an individualized way.
+
 In an even more sophisticated use case we can add a camera to the Peakboard application and let the camera help to either double check the goods packed or systematically take and store a foto of the goods within the package to be able to document the content and how it's packed.
 
 ## 7. Technical drawings and other documents
