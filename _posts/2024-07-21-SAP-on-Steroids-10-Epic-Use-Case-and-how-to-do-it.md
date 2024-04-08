@@ -36,10 +36,12 @@ Once you have all the necessary operations and the overall capacity, it's easy t
 
 ## 3. Production order confirmation 
 
-Confirming production orders does no necessarily mean to finish them. It's also important to give a regular update on the progress of the order in terms of usage of people's time and machine time, but also the current number of goods produced (normally the number of good, scrape and yield).
-SAP offers a very nice standard function module called BAPI_PRODORDCONF_GET_TT_PROP to do all kinds of confirmation activities. 
-Who is doing the actual confirmation in the process can be both, a real person or the machine automatically. A sample on how to do this can be found in the article [Dismantle SAP Production - Build a Production Order Confirmation Terminal with no code](/SAP-Production-Build-a-Production-Order-Confirmation-Terminal-with-no-code.html).
-It might be a consideration to store the confirmation in a database or Peakboard Hub first before submitting to SAP. This makes the system more resilent against SAP outages or other IT problems and doesn't bring the production to halt in case a confirmation can't be processed right away.
+Confirming production orders doesn't necessarily mean finishing them. It's also important to give a regular update on the progress of the order---in terms of employee time and machine time usage, and also the current number of goods produced (normally, the number of goods, scrap, and yield).
+
+SAP has a nice standard function module called BAPI_PRODORDCONF_GET_TT_PROP that does all sorts of confirmation activities. 
+The actual confirmation can be done by a real person or automatically by the machine. See [Build a Production Order Confirmation Terminal with no code](/SAP-Production-Build-a-Production-Order-Confirmation-Terminal-with-no-code.html) to learn how to do this.
+
+It might be a good idea to store the confirmation in a database or Peakboard Hub before submitting it to SAP. This makes the system more resilient against SAP outages or other IT problems, so that production doesn't come to halt if a confirmation can't be processed right away.
 
 ## 4. Transfer order monitor 
 
