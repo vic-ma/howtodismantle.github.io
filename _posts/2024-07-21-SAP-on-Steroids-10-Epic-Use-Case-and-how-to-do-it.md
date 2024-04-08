@@ -65,7 +65,7 @@ In a typical outbound delivery process, the delivery is packed after collecting 
 
 One of the most common BAPIs used here is **BAPI_OUTB_DELIVERY_CHANGE**, together with **BAPI_HU_CREATE** and **BAPI_HU_PACK**. We also see a lot of custom function modules because usually this process is done in an individualized way.
 
-In an even more sophisticated use case we can add a camera to the Peakboard application and let the camera help to either double check the goods packed or systematically take and store a foto of the goods within the package to be able to document the content and how it's packed.
+In an even more sophisticated use case, we can add a camera to the Peakboard application. The camera can double-check the goods packed or systematically take and store a photo of the goods within the package, in order to document the contents and how it's packed.
 
 ## 7. Technical drawings and other documents
 
