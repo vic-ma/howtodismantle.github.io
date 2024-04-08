@@ -58,13 +58,13 @@ Quality notes are generated in many situations. For Peakboard apps, there are th
 2. Defect reporting 2: The material that is used for the production shows defects that were undiscovered up until now. Usually, all the material must be locked immediately to prevent other production units from using it, and additional steps must be taken.
 3. Health, safety, and environmental incidents reporting: Incidents that affect health, safety, or the environment, potentially due to quality issues in processes or materials. This includes workplace accidents related to equipment or hazardous materials.
 
-When building the Peakboard app, it's usually not necessary to do any ABAP development, because the standard BAPIs, **BAPI_QUALNOT_CREATE**, **BAPI_QUALNOT_SAVE** and **BAPI_QUALNOT_CHANGE**, are used to submit the notes to SAP. 
+When building the Peakboard app, it's usually not necessary to do any ABAP development, because the standard BAPIs, **BAPI_QUALNOT_CREATE**, **BAPI_QUALNOT_SAVE** and **BAPI_QUALNOT_CHANGE**, can submit the notes to SAP. 
 
 ## 6. Packing a delivery 
 
 In a typical outbound delivery process, the delivery is packed after collecting the goods. In SAP standard, the transactions **VL01** and **VL02N** are used. Depending on the use case, it might be necessary to submit additional information to SAP. For example, the size of the packaging material used.
 
-One of the most common BAPIs used here is **BAPI_OUTB_DELIVERY_CHANGE**, together with **BAPI_HU_CREATE** and **BAPI_HU_PACK**. We also see a lot of custom function modules because usually this process is done in an individualized way.
+One of the most common BAPIs used here is **BAPI_OUTB_DELIVERY_CHANGE**, together with **BAPI_HU_CREATE** and **BAPI_HU_PACK**. We also see a lot of custom function modules because usually this process is done in an customized way.
 
 In an even more sophisticated use case, we can add a camera to the Peakboard application. The camera can double-check the goods packed or systematically take and store a photo of the goods within the package, in order to document the contents and how it's packed.
 
