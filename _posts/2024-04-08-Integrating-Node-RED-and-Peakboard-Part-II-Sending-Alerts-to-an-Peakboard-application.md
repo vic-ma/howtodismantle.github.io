@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Integrating Node-RED and Peakboard - Part II - Sending Alerts to an Peakboard application
+title: Integrating Node-RED and Peakboard - Part II - Sending Alerts to a Peakboard application
 date: 2024-04-08 01:00:00 +0200
 tags: api opcuamqtt
 image: /assets/2024-04-08/title.png
