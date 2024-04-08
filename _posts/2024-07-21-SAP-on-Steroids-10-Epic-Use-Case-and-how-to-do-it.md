@@ -12,8 +12,8 @@ read_more_links:
   - name: Dismantle SAP Production - How to get the next work orders of a workplace by using COOIS transaction
     url: /Dismantle-SAP-Production-How-to-get-the-next-work-orders-of-a-workplace-by-using-COOIS-transaction-in-Peakboard.html
 ---
-Beside the SQL Server, SAP is the most used data source in the context of Peakboard applications. We already discussed many tips and tricks around that topic in [various articles](/category/sap).
-In this article we want to list the 10 most common use cases and point out the technical background how to build them. Of course this list and the explanation does not necessarily fit to any customer need but in most cases is a good starting point or an insipiration to build individual applications.
+Besides the SQL Server, SAP is the most used data source in Peakboard applications. We already have many [SAP articles](/category/sap) in this blog.
+In this article we'll list the 10 most common use cases for the SAP data source, and give a quick rundown on how to build them. Of course, the examples in this list may not fit your particular need. But in most cases, they are a good starting point or inspiration for building personalized applications.
 
 ## 1 Outbound Delivery Monitor
 
