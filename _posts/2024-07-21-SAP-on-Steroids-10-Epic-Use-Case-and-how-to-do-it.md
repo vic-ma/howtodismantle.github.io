@@ -22,8 +22,8 @@ Monitoring outbound deliveries is a very common and an easy use case for Peakboa
 There are a couple different ways to build the technical backend:
 
 1. You can download the `LIKP` and `LIPS` tables directly by using the table select XQL command in Peakboard.
-2. A more sophisticated option is to create a Z function module and have the SAP side handle the data join, aggregation, and selection. Take a look at [How to build a perfect RFC function module to use in Peakboard](https://how-to-dismantle-a-peakboard-box.com/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html) to see how this is done.
-The third option is to create an SAP Query in transaction SQ01 to select the delivery information. Here we can also refer to [Easy access to complex SAP data - How to have fun with SAP Queries](https://how-to-dismantle-a-peakboard-box.com/Easy-access-to-complex-SAP-data-or-how-to-have-fun-with-SAP-Queries.html) to find out more.
+2. You can create a Z function module and have the SAP side handle the data join, aggregation, and selection. This is a more sophisticated option. See [How to build a perfect RFC function module to use in Peakboard](https://how-to-dismantle-a-peakboard-box.com/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html) to learn how to do this.
+3. You can create an SAP Query in transaction `SQ01` to select the delivery information. See [Easy access to complex SAP data - How to have fun with SAP Queries](https://how-to-dismantle-a-peakboard-box.com/Easy-access-to-complex-SAP-data-or-how-to-have-fun-with-SAP-Queries.html) to learn how to do this.
 
 ## 2. Workplace capacity and status monitor 
 
