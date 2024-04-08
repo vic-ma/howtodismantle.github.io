@@ -89,7 +89,7 @@ There is a simple version of a loading bay monitor that just shows the destinati
 The more sophisticated version uses additional hardware connected to the Peakboard app to actively cross-check the process. For example, a barcode scanner or RFID reader. The Peakboard app can then directly check and confirm with SAP that the outbound delivery is loaded onto the truck. 
 
 ## 9. Inventory
-The Peakboard app is usually used on a mobile device and is replacing the printed inventory list. The most common way to do this is to use standardized BAPIs like **BAPI_INVENTORYCOUNT_SUBMIT** and **BAPI_INVENTORYCOUNT_POSTDIFF**. The whole process is usually managed though the **MI0X** transactions can be completely or in parts done by the Peakboard application.
+The Peakboard app is usually used on a mobile device and is replacing the printed inventory list. The most common way to do this is to use standardized BAPIs like **BAPI_INVENTORYCOUNT_SUBMIT** and **BAPI_INVENTORYCOUNT_POSTDIFF**. The whole process is usually managed though the **MI0X** transactions and can be done completely or in part by the Peakboard application.
 
 ## 10. Collect machine data from OPC UA and PLCs
 Machine data is collected and submitted to SAP (mostly to SAP MES or SAP PP, but not limited to that). On the Peakboard side, there are typical machine interfaces like OPC UA and native connctions to the PLC (Siemens, Beckhof, Rockwell, etc.).
