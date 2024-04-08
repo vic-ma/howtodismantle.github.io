@@ -70,7 +70,12 @@ In an even more sophisticated use case, we can add a camera to the Peakboard app
 ## 7. Technical drawings and other documents
 
 Peakboard is usually focused on giving a user a dashboard to see and interact with. So the main goal of Peakboard apps is to bring all the necessary information to the user. In most cases, this is structured data. However, there are a couple of use cases where documents are used---typically, technical drawings or documents containing additional instructions on certain processes.
- There are two situation seen very often: Assembly instructions for the user who are doing any kind of assembly or quality check instructions for user who carrying out quality checks.
+
+There are two common situations:
+
+* Assembly instructions for users who do some kind of assembly.
+* Quality checking instructions for users who carry out quality checks.
+
 The documents are handled in SAP through the **CV0XX** transaction (document info record). The document info record usually points to the original source of the document, but this depends on the underlying document mangement system (DMS). Most common is just an http endpoint that can be used directly in Peakboard similiar to downloading a document from Sharepoint. We already discussed this pattern in [this article](/Dismantle-Sharepoint-How-to-use-a-document-library-to-store-techical-drawings-and-download-them-to-Peakboard-dynamically.html). 
 
 ## 8. Loading gate monitor 
