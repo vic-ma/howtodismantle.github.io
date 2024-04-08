@@ -17,8 +17,12 @@ In this article, we'll list the 10 most common use cases for the SAP data source
 
 ## 1. Outbound delivery monitor
 
-Monitoring outbound deliveries is very common and an easy use case with Peakboard. We're just downloading all active deliveries and their items and aggregate on shipping point, wharehouse number or storage locations. This is a typical way of handling the question "where are we and where are we supposed to be". On the [templates site](https://templates.peakboard.com/Warehouse-Management-Areas-Coordination-With-SAP/en) there is a nice template available that shows such a case.
-There are different ways for the technical backend. One option is to download the table LIKP and LIPS directly by using the table select XQL command within Peakboard. The more sophisticated option is to create a Z function module and let the data join, aggregation and selection already take place on the sap side. In the article [How to build a perfect RFC function module to use in Peakboard](https://how-to-dismantle-a-peakboard-box.com/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html) we already discussed exactly this case and built a function module named Z_PB_DELIVERY_MONITOR.
+Monitoring outbound deliveries is a very common and an easy use case for Peakboard. It downloads all active deliveries and their items, and aggregates them by a shipping point, warehouse number, or storage location. This is a typical way of answering the question, "Where are we and where are we supposed to be?" For an example of this use case, see the [Area coordination in the warehouse](https://templates.peakboard.com/Warehouse-Management-Areas-Coordination-With-SAP/en) template.
+
+There are a couple different ways to build the technical backend:
+
+1. You can download the `LIKP` and `LIPS` tables directly by using the table select XQL command in Peakboard.
+2. A more sophisticated option is to create a Z function module and have the SAP side handle the data join, aggregation, and selection. Take a look at [How to build a perfect RFC function module to use in Peakboard](https://how-to-dismantle-a-peakboard-box.com/SAP-How-to-build-a-perfect-RFC-function-module-to-be-used-in-Peakboard.html) to see how this is done.
 The third option is to create an SAP Query in transaction SQ01 to select the delivery information. Here we can also refer to [Easy access to complex SAP data - How to have fun with SAP Queries](https://how-to-dismantle-a-peakboard-box.com/Easy-access-to-complex-SAP-data-or-how-to-have-fun-with-SAP-Queries.html) to find out more.
 
 ## 2. Workplace capacity and status monitor 
