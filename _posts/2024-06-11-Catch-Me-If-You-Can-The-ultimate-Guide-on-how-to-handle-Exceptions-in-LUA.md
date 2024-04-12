@@ -9,8 +9,8 @@ read_more_links:
     url: https://how-to-dismantle-a-peakboard-box.com/category/lua
   - name: Expect the unexpected - How to handle SAP exceptions in LUA scripting
     url: /Expect-the-unexpected-How-to-handle-SAP-exceptions-in-LUA-scripting.html
-
-    https://www.lua.org/pil/8.4.html#:~:text=If%20you%20need%20to%20handle,call)%20to%20encapsulate%20your%20code.&text=Of%20course%2C%20you%20can%20call,...%20else%20...
+  - name: Lua Documentation - Error Handling and Exceptions
+    url: https://www.lua.org/pil/8.4.html#:~:text=If%20you%20need%20to%20handle,call)%20to%20encapsulate%20your%20code.&text=Of%20course%2C%20you%20can%20call,...%20else%20...
 downloads:
   - name: ExceptionHandling.pbmx
     url: /assets/2024-06-11/ExceptionHandling.pbmx
