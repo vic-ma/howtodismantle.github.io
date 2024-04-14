@@ -91,7 +91,7 @@ And the result:
 
 ## Try/catch in Building Blocks
 
-The following screenshot shows the same example from earlier, but made with Building Blocks instead. The actual code is put into the try/catch frame (marked with **1**). There are two branches---one for success and one for failure. There are also three generated variables that can be used in case of a failure (marked with **2**). **error message** and **type** is the same as the Lua example above. `code` is only used in an SAP context.
+The following screenshot shows the same example from earlier, but made with Building Blocks instead. The actual code is put into the try/catch frame (marked with **1**). There are two branches---one for success and one for failure. There are also three generated variables that can be used in case of a failure (marked with **2**). **Error message** and **type** is the same as the Lua example above. **Code** is only used in an SAP context.
 
 ![image](/assets/2024-06-11/030.png)
 
