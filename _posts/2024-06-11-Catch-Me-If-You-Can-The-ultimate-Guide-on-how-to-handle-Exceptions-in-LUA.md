@@ -41,15 +41,15 @@ else
 end
 {% endhighlight %}
 
-The actual code is monitored, and the whole block returns two variables:
+The actual code is monitored, and the function returns two variables:
 * `success`, a boolean that tells us if there was an exception or not.
-* `result`, an object that contains information about an exception. It has the following attributes:
+* `result`, an object that contains information about the exception, if there was one. It has the following attributes:
   * `message`, the error message.
   * `type`, the exception type. Apart from the type that happens in an SAP context, the two possible types are:
-    * `LUA`, which means the exception happened within the Lua code. For example, trying to access a non-existant element in a list.
+    * `LUA`, which means the exception happened within the Lua code. For example, trying to access a non-existent element in a list.
     * `SYS:XXX`, which is set when the exception `XXX` happens somewhere in the runtime environment. For example, when we try to connect to a data server that doesn't respond, it's set to `SYS:SqlException`. By looking at `XXX`, we can even distinguish between different types or sources of runtime exceptions.
 
-Here's a real life sample of trying to connect to a non-existing SQL Server:
+Here's a real-world example of trying to connect to a non-existent SQL Server:
 
 {% highlight lua %}
 local success, result = trycatch(function()
@@ -70,7 +70,7 @@ And here's the result in the final Peakboard app:
 
 ![image](/assets/2024-06-11/010.png)
 
-Let's check another sample that generates a "LUA" and not a "SYS" exception though accessing non-existing data artifact.
+Let's check out another example that generates a `LUA` and not a `SYS` exception by accessing a non-existent data artifact.
 
 {% highlight lua %}
 local success, result = trycatch(function()
