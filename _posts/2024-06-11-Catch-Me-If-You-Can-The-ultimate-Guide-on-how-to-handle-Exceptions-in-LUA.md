@@ -91,12 +91,12 @@ And the result:
 
 ## Try/catch in Building Blocks
 
-The following screenshot shows the same example from earlier, but made with Building Blocks instead. The actual code is put into the try/catch frame (marked with **1**). There are two branches---one for success and one for failure. There are also three generated variables that can be used in case of a failure (marked with **2**). `error message` and `type` is the same as the Lua example above. `code` is only used in the SAP context.
+The following screenshot shows the same example from earlier, but made with Building Blocks instead. The actual code is put into the try/catch frame (marked with **1**). There are two branches---one for success and one for failure. There are also three generated variables that can be used in case of a failure (marked with **2**). `error message` and `type` is the same as the Lua example above. `code` is only used in an SAP context.
 
 ![image](/assets/2024-06-11/030.png)
 
-## conclusion
+## Conclusion
 
-Catching exceptions makes sense in lot of contexts because it allows to build apps that can react to unexpected things to happen. With the built-in functions of Peakboard in both Building Blocks and pure Lua it's quite easy to wrap code into a try/catch blocks.
+Catching exceptions makes sense in a lot of contexts because it allows you to build apps that can react to unexpected events. With the built-in functions in Peakboard in both Building Blocks and pure Lua, it's quite easy to wrap code in try/catch blocks and handle any errors that pop up.
 
 
