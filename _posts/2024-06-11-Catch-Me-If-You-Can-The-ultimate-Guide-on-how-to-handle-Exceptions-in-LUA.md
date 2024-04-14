@@ -10,12 +10,14 @@ read_more_links:
   - name: Expect the unexpected - How to handle SAP exceptions in LUA scripting
     url: /Expect-the-unexpected-How-to-handle-SAP-exceptions-in-LUA-scripting.html
   - name: Lua Documentation - Error Handling and Exceptions
-    url: https://www.lua.org/pil/8.4.html#:~:text=If%20you%20need%20to%20handle,call)%20to%20encapsulate%20your%20code.&text=Of%20course%2C%20you%20can%20call,...%20else%20...
+    url: https://www.lua.org/pil/8.4.html
 downloads:
   - name: ExceptionHandling.pbmx
     url: /assets/2024-06-11/ExceptionHandling.pbmx
 ---
-Often things don't turn out as expected and so they break unexpectedly - that's true for every real life and also true for every piece of software. We won't solve the real-life-related problem in his article, but we will for code. When code breaks, we say, that an exception is happening. And when the program anticipates this to happen, it can do this by "catching an exception" and react accordingly, e.g. present the user a proper error message or just retry the action that caused the unexpected situation.
+Things often don't turn out as we expect them to, and they end up breaking unexpectedly---this is true for everyday life, as well as for software. We won't deal with real life problems in his article, but we will tackle exceptions in code.
+
+When code breaks, we say that an exception occurs. And when the program expects this to happen, it can "catch" the exception and react accordingly. For example, it can present the user with an error message, or it can retry the action that caused the exception.
 
 A couple of months ago, we already discussed exception in the context of SAP with [this article](/Expect-the-unexpected-How-to-handle-SAP-exceptions-in-LUA-scripting.html).
 
