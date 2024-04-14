@@ -89,9 +89,9 @@ And the result:
 
 ![image](/assets/2024-06-11/020.png)
 
-## try/catch in Building Blocks
+## Try/catch in Building Blocks
 
-The following screnshot shows the same sample as mentioned earlier, but as Build Blocks version. The actual code is put into the try/catch frame (marked with "1"). There are two branches, one for success, one for failure. And also there are three variables generated that can be used in case of failure (marked with "2"). "error message" and "type" is the same as mentioned above. "code" is only used in the SAP context.
+The following screenshot shows the same example from earlier, but made with Building Blocks instead. The actual code is put into the try/catch frame (marked with **1**). There are two branches---one for success and one for failure. There are also three generated variables that can be used in case of a failure (marked with **2**). `error message` and `type` is the same as the Lua example above. `code` is only used in the SAP context.
 
 ![image](/assets/2024-06-11/030.png)
 
