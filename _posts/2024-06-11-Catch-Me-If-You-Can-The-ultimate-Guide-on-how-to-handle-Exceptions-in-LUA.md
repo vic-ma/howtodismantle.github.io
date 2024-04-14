@@ -15,7 +15,7 @@ downloads:
   - name: ExceptionHandling.pbmx
     url: /assets/2024-06-11/ExceptionHandling.pbmx
 ---
-Things often don't turn out as we expect them to, and they end up breaking unexpectedly---this is true for everyday life, as well as for software. We won't deal with real life problems in his article, but we will tackle exceptions in code.
+Things often don't turn out as we expect them to, and they end up breaking unexpectedly---this is true for everyday life, as well as for software. We won't deal with real life problems in this article, but we will tackle exceptions in code.
 
 When code breaks, we say that an exception occurs. And when the program expects this to happen, it can "catch" the exception and react accordingly. For example, it can present the user with an error message, or it can retry the action that caused the exception.
 
@@ -45,7 +45,7 @@ The actual code is monitored, and the function returns two variables:
 * `success`, a boolean that tells us if there was an exception or not.
 * `result`, an object that contains information about the exception, if there was one. It has the following attributes:
   * `message`, the error message.
-  * `type`, the exception type. Apart from the type that happens in an SAP context, the two possible types are:
+  * `type`, the exception type. Apart from the type that happens in an SAP context, there are two possible types:
     * `LUA`, which means the exception happened within the Lua code. For example, trying to access a non-existent element in a list.
     * `SYS:XXX`, which is set when the exception `XXX` happens somewhere in the runtime environment. For example, when we try to connect to a data server that doesn't respond, it's set to `SYS:SqlException`. By looking at `XXX`, we can even distinguish between different types or sources of runtime exceptions.
 
@@ -91,7 +91,7 @@ And the result:
 
 ## Try/catch in Building Blocks
 
-The following screenshot shows the same example from earlier, but made with Building Blocks instead. The actual code is put into the try/catch frame (marked with **1**). There are two branches---one for success and one for failure. There are also three generated variables that can be used in case of a failure (marked with **2**). `error message` and `type` is the same as the Lua example above. `code` is only used in an SAP context.
+The following screenshot shows the same example from earlier, but made with Building Blocks instead. The actual code is put into the try/catch frame (marked with **1**). There are two branches---one for success and one for failure. There are also three generated variables that can be used in case of a failure (marked with **2**). **error message** and **type** is the same as the Lua example above. `code` is only used in an SAP context.
 
 ![image](/assets/2024-06-11/030.png)
 
