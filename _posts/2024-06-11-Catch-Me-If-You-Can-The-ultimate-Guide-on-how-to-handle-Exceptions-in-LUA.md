@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Catch Me If You Can - The ultimate Guide on how to handle Exceptions in LUA
+title: Catch Me If You Can - The ultimate Guide on how to handle Exceptions in Lua
 date: 2023-03-01 12:00:00 +0200
 tags: lua
 image: /assets/2024-06-11/title.png
 read_more_links:
-  - name: More fancy LUA articles
+  - name: More fancy Lua articles
     url: https://how-to-dismantle-a-peakboard-box.com/category/lua
-  - name: Expect the unexpected - How to handle SAP exceptions in LUA scripting
+  - name: Expect the unexpected - How to handle SAP exceptions in Lua scripting
     url: /Expect-the-unexpected-How-to-handle-SAP-exceptions-in-LUA-scripting.html
   - name: Lua Documentation - Error Handling and Exceptions
     url: https://www.lua.org/pil/8.4.html
@@ -19,13 +19,13 @@ Things often don't turn out as we expect them to, and they end up breaking unexp
 
 When code breaks, we say that an exception occurs. And when the program expects this to happen, it can "catch" the exception and react accordingly. For example, it can present the user with an error message, or it can retry the action that caused the exception.
 
-A couple of months ago, we already discussed exception in the context of SAP with [this article](/Expect-the-unexpected-How-to-handle-SAP-exceptions-in-LUA-scripting.html).
+A couple of months ago, we discussed [exception handling in the context of SAP](/Expect-the-unexpected-How-to-handle-SAP-exceptions-in-LUA-scripting.html). In this article, we'll discuss exception handling in Lua.
 
-## Exceptions in LUA code
+## Exceptions in Lua code
 
-In most modern programming languages there's a special command to encapsulate a code block and then jump to a dedicated part of the code when the exception happens (like try-catch in C#). In LUA it's a bit different. Here we need to encapsulate the code into a so called pcode function. The technical details are well explained in [this article](https://www.lua.org/pil/8.4.html#:~:text=If%20you%20need%20to%20handle,call)%20to%20encapsulate%20your%20code.&text=Of%20course%2C%20you%20can%20call,...%20else%20...). That sounds much more complicated than it is. Let's jump into a general sample like the one below. The actual code is monitored and the whole block returns a variable called "success" which is either true or false. The second variable "result" is an object with the attributes "message" for the actual error message and "type". Apart from the type that happen in a SAP context, the two types can be
+In most modern programming languages, there's a special block that can catch exceptions and handle them (like try-catch in C#). In Lua, it's a bit different. In Lua, we need to encapsulate the code into a so called pcode function. The technical details are well explained in [this article](https://www.lua.org/pil/8.4.html#:~:text=If%20you%20need%20to%20handle,call)%20to%20encapsulate%20your%20code.&text=Of%20course%2C%20you%20can%20call,...%20else%20...). That sounds much more complicated than it is. Let's jump into a general sample like the one below. The actual code is monitored and the whole block returns a variable called "success" which is either true or false. The second variable "result" is an object with the attributes "message" for the actual error message and "type". Apart from the type that happen in a SAP context, the two types can be
 
-1. "LUA", which means the exception happened within the LUA code, e.g. trying to access an element within a list that doesn't exist.
+1. "LUA", which means the exception happened within the Lua code, e.g. trying to access an element within a list that doesn't exist.
 2. "SYS:XXX", which is set, when the exception "XXX" happens somewhere in the runtime environment, e.g. when we try to connect to a data server that doesn't respond, it's filled with "SYS:SqlException". With the the help of "XXX" we can even distuinguish between different types or sources of runtime exceptions.
 
 {% highlight lua %}
@@ -92,6 +92,6 @@ The following screnshot shows the same sample as mentioned earlier, but as Build
 
 ## conclusion
 
-Catching exceptions makes sense in lot of contexts because it allows to build apps that can react to unexpected things to happen. With the built-in functions of Peakboard in both Building Blocks and pure LUA it's quite easy to wrap code into a try/catch blocks.
+Catching exceptions makes sense in lot of contexts because it allows to build apps that can react to unexpected things to happen. With the built-in functions of Peakboard in both Building Blocks and pure Lua it's quite easy to wrap code into a try/catch blocks.
 
 
