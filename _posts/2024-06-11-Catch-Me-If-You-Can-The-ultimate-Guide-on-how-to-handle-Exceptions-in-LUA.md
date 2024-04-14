@@ -1,30 +1,29 @@
 ---
 layout: post
-title: Catch Me If You Can - The ultimate Guide on how to handle Exceptions in LUA
+title: Catch Me If You Can - The ultimate Guide on how to handle Exceptions in Lua
 date: 2023-03-01 12:00:00 +0200
 tags: lua
 image: /assets/2024-06-11/title.png
 read_more_links:
-  - name: More fancy LUA articles
+  - name: More fancy Lua articles
     url: https://how-to-dismantle-a-peakboard-box.com/category/lua
-  - name: Expect the unexpected - How to handle SAP exceptions in LUA scripting
+  - name: Expect the unexpected - How to handle SAP exceptions in Lua scripting
     url: /Expect-the-unexpected-How-to-handle-SAP-exceptions-in-LUA-scripting.html
   - name: Lua Documentation - Error Handling and Exceptions
-    url: https://www.lua.org/pil/8.4.html#:~:text=If%20you%20need%20to%20handle,call)%20to%20encapsulate%20your%20code.&text=Of%20course%2C%20you%20can%20call,...%20else%20...
+    url: https://www.lua.org/pil/8.4.html
 downloads:
   - name: ExceptionHandling.pbmx
     url: /assets/2024-06-11/ExceptionHandling.pbmx
 ---
-Often things don't turn out as expected and so they break unexpectedly - that's true for every real life and also true for every piece of software. We won't solve the real-life-related problem in his article, but we will for code. When code breaks, we say, that an exception is happening. And when the program anticipates this to happen, it can do this by "catching an exception" and react accordingly, e.g. present the user a proper error message or just retry the action that caused the unexpected situation.
+Things often don't turn out as we expect them to, and they end up breaking unexpectedly---this is true for everyday life, as well as for software. We won't deal with real life problems in this article, but we will tackle exceptions in code.
 
-A couple of months ago, we already discussed exception in the context of SAP with [this article](/Expect-the-unexpected-How-to-handle-SAP-exceptions-in-LUA-scripting.html).
+When code breaks, we say that an exception occurs. And when the program expects this to happen, it can "catch" the exception and react accordingly. For example, it can present the user with an error message, or it can retry the action that caused the exception.
 
-## Exceptions in LUA code
+A couple of months ago, we discussed [exception handling in the context of SAP](/Expect-the-unexpected-How-to-handle-SAP-exceptions-in-LUA-scripting.html). In this article, we'll discuss exception handling in Lua.
 
-In most modern programming languages there's a special command to encapsulate a code block and then jump to a dedicated part of the code when the exception happens (like try-catch in C#). In LUA it's a bit different. Here we need to encapsulate the code into a so called pcode function. The technical details are well explained in [this article](https://www.lua.org/pil/8.4.html#:~:text=If%20you%20need%20to%20handle,call)%20to%20encapsulate%20your%20code.&text=Of%20course%2C%20you%20can%20call,...%20else%20...). That sounds much more complicated than it is. Let's jump into a general sample like the one below. The actual code is monitored and the whole block returns a variable called "success" which is either true or false. The second variable "result" is an object with the attributes "message" for the actual error message and "type". Apart from the type that happen in a SAP context, the two types can be
+## Exceptions in Lua code
 
-1. "LUA", which means the exception happened within the LUA code, e.g. trying to access an element within a list that doesn't exist.
-2. "SYS:XXX", which is set, when the exception "XXX" happens somewhere in the runtime environment, e.g. when we try to connect to a data server that doesn't respond, it's filled with "SYS:SqlException". With the the help of "XXX" we can even distuinguish between different types or sources of runtime exceptions.
+In most modern programming languages, there's a special block that can catch exceptions and handle them (like try-catch in C#). In Lua, it's a bit different. In Lua, we need to encapsulate the code in a `pcall` function. The technical details are well explained in the [Lua docs on error handling](https://www.lua.org/pil/8.4.html). It looks more complicated than it really is. Consider this example of error handling in LUA:
 
 {% highlight lua %}
 local success, result = trycatch(function()
@@ -34,7 +33,7 @@ local success, result = trycatch(function()
 end)
 
 if success then
-  -- Everxthing work as expected
+  -- Everything work as expected
 else
    -- The execution failed 
    peakboard.log(result.message)
@@ -42,7 +41,15 @@ else
 end
 {% endhighlight %}
 
-Here's a real life sample of trying to connect to a non-existing SQL Server:
+The actual code is monitored, and the function returns two variables:
+* `success`, a boolean that tells us if there was an exception or not.
+* `result`, an object that contains information about the exception, if there was one. It has the following attributes:
+  * `message`, the error message.
+  * `type`, the exception type. Apart from the type that happens in an SAP context, there are two possible types:
+    * `LUA`, which means the exception happened within the Lua code. For example, trying to access a non-existent element in a list.
+    * `SYS:XXX`, which is set when the exception `XXX` happens somewhere in the runtime environment. For example, when we try to connect to a data server that doesn't respond, it's set to `SYS:SqlException`. By looking at `XXX`, we can even distinguish between different types or sources of runtime exceptions.
+
+Here's a real-world example of trying to connect to a non-existent SQL Server:
 
 {% highlight lua %}
 local success, result = trycatch(function()
@@ -63,7 +70,7 @@ And here's the result in the final Peakboard app:
 
 ![image](/assets/2024-06-11/010.png)
 
-Let's check another sample that generates a "LUA" and not a "SYS" exception though accessing non-existing data artifact.
+Let's check out another example that generates a `LUA` and not a `SYS` exception by accessing a non-existent data artifact.
 
 {% highlight lua %}
 local success, result = trycatch(function()
@@ -82,14 +89,14 @@ And the result:
 
 ![image](/assets/2024-06-11/020.png)
 
-## try/catch in Building Blocks
+## Try/catch in Building Blocks
 
-The following screnshot shows the same sample as mentioned earlier, but as Build Blocks version. The actual code is put into the try/catch frame (marked with "1"). There are two branches, one for success, one for failure. And also there are three variables generated that can be used in case of failure (marked with "2"). "error message" and "type" is the same as mentioned above. "code" is only used in the SAP context.
+The following screenshot shows the same example from earlier, but made with Building Blocks instead. The actual code is put into the try/catch frame (marked with **1**). There are two branches---one for success and one for failure. There are also three generated variables that can be used in case of a failure (marked with **2**). **Error message** and **type** is the same as the Lua example above. **Code** is only used in an SAP context.
 
 ![image](/assets/2024-06-11/030.png)
 
-## conclusion
+## Conclusion
 
-Catching exceptions makes sense in lot of contexts because it allows to build apps that can react to unexpected things to happen. With the built-in functions of Peakboard in both Building Blocks and pure LUA it's quite easy to wrap code into a try/catch blocks.
+Catching exceptions makes sense in a lot of contexts because it allows you to build apps that can react to unexpected events. With the built-in functions in Peakboard in both Building Blocks and pure Lua, it's quite easy to wrap code in try/catch blocks and handle any errors that pop up.
 
 
