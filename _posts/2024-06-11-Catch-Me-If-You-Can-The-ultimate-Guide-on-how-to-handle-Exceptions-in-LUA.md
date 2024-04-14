@@ -23,10 +23,7 @@ A couple of months ago, we discussed [exception handling in the context of SAP](
 
 ## Exceptions in Lua code
 
-In most modern programming languages, there's a special block that can catch exceptions and handle them (like try-catch in C#). In Lua, it's a bit different. In Lua, we need to encapsulate the code into a so called pcode function. The technical details are well explained in [this article](https://www.lua.org/pil/8.4.html#:~:text=If%20you%20need%20to%20handle,call)%20to%20encapsulate%20your%20code.&text=Of%20course%2C%20you%20can%20call,...%20else%20...). That sounds much more complicated than it is. Let's jump into a general sample like the one below. The actual code is monitored and the whole block returns a variable called "success" which is either true or false. The second variable "result" is an object with the attributes "message" for the actual error message and "type". Apart from the type that happen in a SAP context, the two types can be
-
-1. "LUA", which means the exception happened within the Lua code, e.g. trying to access an element within a list that doesn't exist.
-2. "SYS:XXX", which is set, when the exception "XXX" happens somewhere in the runtime environment, e.g. when we try to connect to a data server that doesn't respond, it's filled with "SYS:SqlException". With the the help of "XXX" we can even distuinguish between different types or sources of runtime exceptions.
+In most modern programming languages, there's a special block that can catch exceptions and handle them (like try-catch in C#). In Lua, it's a bit different. In Lua, we need to encapsulate the code in a `pcall` function. The technical details are well explained in the [Lua docs on error handling](https://www.lua.org/pil/8.4.html). It looks more complicated than it really is. Consider this example of error handling in LUA:
 
 {% highlight lua %}
 local success, result = trycatch(function()
@@ -36,13 +33,21 @@ local success, result = trycatch(function()
 end)
 
 if success then
-  -- Everxthing work as expected
+  -- Everything work as expected
 else
    -- The execution failed 
    peakboard.log(result.message)
    peakboard.log(result.type)
 end
 {% endhighlight %}
+
+The actual code is monitored, and the whole block returns two variables:
+* `success`, a boolean that tells us if there was an exception or not.
+* `result`, an object that contains information about an exception. It has the following attributes:
+  * `message`, the error message.
+  * `type`, the exception type. Apart from the type that happens in an SAP context, the two possible types are:
+    * `LUA`, which means the exception happened within the Lua code. For example, trying to access a non-existant element in a list.
+    * `SYS:XXX`, which is set when the exception `XXX` happens somewhere in the runtime environment. For example, when we try to connect to a data server that doesn't respond, it's set to `SYS:SqlException`. By looking at `XXX`, we can even distinguish between different types or sources of runtime exceptions.
 
 Here's a real life sample of trying to connect to a non-existing SQL Server:
 
