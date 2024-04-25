@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Modbus Madness - How to address a Modbus RTU sensor from scratch  
-date: 2023-03-01 12:00:00 +0200
+date: 2024-04-24 12:00:00 +0200
 tags: hardware opcuamqtt
 image: /assets/2024-04-24/title.png
 read_more_links:
