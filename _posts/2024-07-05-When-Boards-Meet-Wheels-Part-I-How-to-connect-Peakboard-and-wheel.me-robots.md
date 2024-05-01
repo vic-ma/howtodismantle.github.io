@@ -18,14 +18,14 @@ This article explains how to use Peakboard to build an interface with the wheel.
 
 ## Set up the extension
 
-The wheel.me API isn't too complicated, and it can be used in Peakboard directly. But to make our lives easier, we can use the wheel.me extension that is available in the extension menu. For information about how to install an extension, see the [Manage extensions documentation](https://help.peakboard.com/data_sources/Extension/en-ManageExtension.html).
+The wheel.me API isn't too complicated, and it can be used in Peakboard directly. But to make our lives easier, we can use the wheel.me extension that's available in the extension menu. For information about how to install an extension, see the [Manage extensions documentation](https://help.peakboard.com/data_sources/Extension/en-ManageExtension.html).
 
 ![image](/assets/2024-07-05/010.png)
 
 After the installation, three lists are available:
 * One for the floors
 * One for the positions on a certain floor
-* One for the robots on certain floor
+* One for the robots on a certain floor
 
 ![image](/assets/2024-07-05/020.png)
 
@@ -37,7 +37,7 @@ The following screenshot shows the "floors" list. After entering the basic data,
 
 ## Query the positions
 
-In our sample environment, we have a total of six positions. Besides the five regular points, there's also one position for charging. Our floor has one robot, and as we can see in the map, it is located in position `WH1`, and is facing north.
+In our example environment, we have a total of six positions. Besides the five regular points, there's also one point for charging. Our floor has one robot, and as we can see in the map, it is located in position `WH1`, and is facing north.
 
 ![image](/assets/2024-07-05/040.png)
 
@@ -47,7 +47,9 @@ Let's check the output of the "position" data source. We must provide the floor 
 
 ## Query the robots
 
-The robot data source shows the dynamic aspects of the scenery. As shown in the following screenshot, we need to provide the floor ID again. We can also provide a name filter for the name. This might be important when we have multiple robots on the floor. Then, we could make sure that there's always one dedicated robot for each data source, by using this filter. That way, it's much easier to access the data of the robot we want, because we don't need to look up the robot in a list. Instead, it's always the first line of the data source.
+The robot data source shows the dynamic aspects of the scenery. As shown in the following screenshot, we need to provide the floor ID again.
+
+We can also provide a filter for the name. This might be important if we have multiple robots on the floor. Then, we could make sure that there's always one dedicated robot for each data source, by using this filter. That way, it's much easier to access the data of the robot we want, because we don't need to look up the robot in a list. Instead, we can always take the first line of the data source.
 
 But again, this only applies when we have more than one robot on the floor.
 Besides the physical coordinates, we can also see the state (like `Navigating` or `Idle`) and the mode (like `Autonmous` or `manual`). Most important is the location information: the position the robot is navigating to, as well as the position the robot is currently located at (for each, both the ID and the name of the position is provided).
@@ -56,6 +58,6 @@ Besides the physical coordinates, we can also see the state (like `Navigating` o
 
 ## Result and conclusion
 
-Getting the necessary metadata, along with the robot position data is not too complicated. With these data sources, it's easy to build Peakboard applications that show the location and status of wheel.me robots.
+Getting the necessary metadata, along with the robot position data, is not too complicated. With these data sources, it's easy to build Peakboard applications that show the location and status of wheel.me robots.
 
 In the [second part of this article](/When-Boards-Meet-Wheels-Part-II-Navigate-wheel.me-robots-with-Peaboard.html), we will learn how to command the robot to move to certain positions, as well as build a logic around missions.
