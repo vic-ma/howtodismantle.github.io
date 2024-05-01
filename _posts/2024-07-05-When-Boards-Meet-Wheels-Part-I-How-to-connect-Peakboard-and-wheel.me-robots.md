@@ -18,7 +18,7 @@ This article explains how to use Peakboard to build an interface with the wheel.
 
 ## Set up the extension
 
-The wheel.me API isn't too complicated, and can be used in Peakboard natively. But, to make our lives easier, we can use the wheel.me extension that is available in the extension menu. For information about how to install an extension, see the [Manage extensions documentation](https://help.peakboard.com/data_sources/Extension/en-ManageExtension.html).
+The wheel.me API isn't too complicated, and it can be used in Peakboard directly. But to make our lives easier, we can use the wheel.me extension that is available in the extension menu. For information about how to install an extension, see the [Manage extensions documentation](https://help.peakboard.com/data_sources/Extension/en-ManageExtension.html).
 
 ![image](/assets/2024-07-05/010.png)
 
@@ -58,4 +58,4 @@ Besides the physical coordinates, we can also see the state (like `Navigating` o
 
 Getting the necessary metadata, along with the robot position data is not too complicated. With these data sources, it's easy to build Peakboard applications that show the location and status of wheel.me robots.
 
-In the [second part of this article](/When-Boards-Meet-Wheels-Part-II-Navigate-wheel.me-robots-with-Peaboard.html), we will learn how to command the robot to move to certain positions and build a logic around missions.
+In the [second part of this article](/When-Boards-Meet-Wheels-Part-II-Navigate-wheel.me-robots-with-Peaboard.html), we will learn how to command the robot to move to certain positions, as well as build a logic around missions.
