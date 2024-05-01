@@ -1,6 +1,6 @@
 ---
 layout: post
-title: When Boards Meet Wheels - Part I - How to connect Peakboard and wheel.me robots
+title: When Boards Meet Wheels - Part II - Navigate wheel.me robots with Peaboard 
 date: 2023-03-01 12:00:00 +0200
 tags: hardware
 image: /assets/2024-07-29/title.png
