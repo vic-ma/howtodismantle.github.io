@@ -12,8 +12,9 @@ read_more_links:
   - name: Peakboard wheel.me Extension
     url: https://templates.peakboard.com/extensions/Wheel-Me/en
 ---
-[Wheel.me](https://www.wheel.me/) is a Norwegian company with a revolutionary concept for building autonomous vehicles. They don't actually sell an entire vehicle. Instead, they sell four intelligent wheels that can be mounted to all kinds of pallets or other trays, to transport them within a factory. The wheels have access to the local WiFi and connect to a software backbone that can be either hosted in AWS or on prem.
-This article shows how to use Peakboard to build an interface to interact with the wheel.me backbone. First we will have a look on how to get information about the environment like the floors, position and robots. In [the second part of this topic](/When-Boards-Meet-Wheels-Part-II-Navigate-wheel.me-robots-with-Peaboard.html) we focus and the actual commanding robots to certain position and build an intractive logic for the wheel.me environment.
+[Wheel.me](https://www.wheel.me/) is a Norwegian company with a revolutionary concept for building autonomous vehicles. They don't actually sell an entire vehicle. Instead, they sell four intelligent wheels that can be mounted to all kinds of pallets or other trays, to transport them within a factory. The wheels have access to the local Wi-Fi, and they connect to a software backbone that's either hosted on AWS or on prem.
+
+This article explains how to use Peakboard to build an interface with the wheel.me backbone. In this article, we will see how to get information about the environment, like the floors, position, and robots. In [the second part of this topic](/When-Boards-Meet-Wheels-Part-II-Navigate-wheel.me-robots-with-Peaboard.html), we will focus on commanding the robots to move to certain positions and build an interactive logic for the wheel.me environment.
 
 ## Setting up the the extension
 
