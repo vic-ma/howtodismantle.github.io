@@ -16,19 +16,22 @@ read_more_links:
 
 This article explains how to use Peakboard to build an interface with the wheel.me backbone. In this article, we will see how to get information about the environment, like the floors, position, and robots. In [the second part of this topic](/When-Boards-Meet-Wheels-Part-II-Navigate-wheel.me-robots-with-Peaboard.html), we will focus on commanding the robots to move to certain positions and build an interactive logic for the wheel.me environment.
 
-## Setting up the the extension
+## Set up the extension
 
-The wheel.me API is actually not too complicated to be used in Peakboard natively. But to make it even much easier, we can use the wheel.me extension that is available in the extension menu. For informations about how to install an extension, see the [Manage extensions documentation](https://help.peakboard.com/data_sources/Extension/en-ManageExtension.html).
+The wheel.me API isn't too complicated, and can be used in Peakboard natively. But, to make our lives easier, we can use the wheel.me extension that is available in the extension menu. For information about how to install an extension, see the [Manage extensions documentation](https://help.peakboard.com/data_sources/Extension/en-ManageExtension.html).
 
 ![image](/assets/2024-07-05/010.png)
 
-After the installation there are three lists availbale. For the floors, the positions on a certain floor and the robots on certain floor.
+After the installation, three lists are available:
+* One for the floors
+* One for the positions on a certain floor
+* One for the robots on certain floor
 
 ![image](/assets/2024-07-05/020.png)
 
-You will need a regular account to access the API of he wheel.me backbone with enough rights to do so. All three lists of the extension will need the credentials (user name and password) along with the Base URL, usually in the form of "https://XXX.wheelme-web.com/". We make sure to end the base URL with a "/".
+You will need a regular account with enough permissions to access the API of the wheel.me backbone. All three lists of the extension need the credentials (username and password), as well as the base URL, usually in the form of `https://XXX.wheelme-web.com/`. Make sure to end the base URL with `/`.
 
-The screenshot shows the "floors" list. After entering the basic data we can list all available floors. It's important to remember the floor id, as we will need it later when it comes to the robots.
+The following screenshot shows the "floors" list. After entering the basic data, we can list all available floors. It's important to remember the floor ID, because we will need it later for the robots.
 
 ![image](/assets/2024-07-05/030.png)
 
