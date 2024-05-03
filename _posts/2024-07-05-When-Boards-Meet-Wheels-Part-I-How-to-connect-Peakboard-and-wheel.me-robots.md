@@ -11,6 +11,9 @@ read_more_links:
     url: https://www.wheel.me/
   - name: Peakboard wheel.me Extension
     url: https://templates.peakboard.com/extensions/Wheel-Me/en
+downloads:
+  - name: DatabricksProductQuery.pbmx
+    url: /assets/2024-07-29/WheelMePlayground.pbmx
 ---
 [Wheel.me](https://www.wheel.me/) is a Norwegian company with a revolutionary concept for building autonomous vehicles. They don't actually sell an entire vehicle. Instead, they sell four intelligent wheels that can be mounted to all kinds of pallets or other trays, to transport them within a factory. The wheels have access to the local Wi-Fi, and they connect to a software backbone that's either hosted on AWS or on prem.
 
