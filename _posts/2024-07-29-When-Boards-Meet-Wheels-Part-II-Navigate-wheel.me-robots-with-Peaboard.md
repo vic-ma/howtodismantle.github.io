@@ -12,7 +12,7 @@ read_more_links:
   - name: Peakboard wheel.me Extension
     url: https://templates.peakboard.com/extensions/Wheel-Me/en
 downloads:
-  - name: DatabricksProductQuery.pbmx
+  - name: WheelMePlayground.pbmx
     url: /assets/2024-07-29/WheelMePlayground.pbmx
 ---
 In the [first part](/When-Boards-Meet-Wheels-Part-I-How-to-connect-Peakboard-and-wheel.me-robots.html) of our series on how to build Peakboard applications and integrate it with wheel.me, we learned how to connect to the wheel.me API and get information about floors, positions and robots.
