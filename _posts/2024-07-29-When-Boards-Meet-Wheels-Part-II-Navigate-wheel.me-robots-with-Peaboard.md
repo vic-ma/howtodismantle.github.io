@@ -26,7 +26,7 @@ Just as a reminder, we will stick to the floor and positions of the simulation e
 
 You can send a command to move the robot by using a function that is provided by the wheel.me extension. To be more precise, the function is a part of the robot's data source. To trigger the function with Building Blocks, we use the **Run Function** block, and select the robots list. All available functions are shown.
 
-To command the robot to a certain position there are two function available depending on if we want to use the name of the position or the ID. In our case the name will do it, so we use "NavigateToPositionName".
+To command the robot to move to a certain position, there are two functions available, depending on whether we want to use the position's name or ID. In our case, we will use the name. So, we use `NavigateToPositionName`.
 
 * The robot ID is taken from the first line of the robots data source
 * The floor ID is taken from a variable to make things a bit more dynamic
