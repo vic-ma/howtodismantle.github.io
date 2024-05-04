@@ -15,15 +15,16 @@ downloads:
   - name: WheelMePlayground.pbmx
     url: /assets/2024-07-29/WheelMePlayground.pbmx
 ---
-In the [first part](/When-Boards-Meet-Wheels-Part-I-How-to-connect-Peakboard-and-wheel.me-robots.html) of our series on how to build Peakboard applications and integrate it with wheel.me, we learned how to connect to the wheel.me API and get information about floors, positions and robots.
-In this article we will learn how to move the robots and how a real life application could work to build a command stand for the wheel.me fleet inside a production environment.
-Just as a reminder, we will stick to the floor and positions of the simulation environnment as shown in the map from the wheel.me portal:
+In the [first part](/When-Boards-Meet-Wheels-Part-I-How-to-connect-Peakboard-and-wheel.me-robots.html) of our series on how to build Peakboard applications and integrate it with wheel.me, we learned how to connect to the wheel.me API and get information about floors, positions, and robots.
+
+In this article, we will learn how to move the robots, and how to build a command stand for the wheel.me fleet inside a production environment.
+Just as a reminder, we will stick to the floor and positions of the simulation environment, as shown in the map from the wheel.me portal:
 
 ![image](/assets/2024-07-29/010.png)
 
-## Moving the robot
+## Move the robot
 
-Sending a command to move the robot is done through a function that is provided by the wheel.me extension. To be more precise it's part of the robots data source. To trigger the function with Building Blocks we just use the "Run Function" block, select the robots list and all available functions are shown.
+You can send a command to move the robot by using a function that is provided by the wheel.me extension. To be more precise, the function is a part of the robot's data source. To trigger the function with Building Blocks, we use the **Run Function** block, and select the robots list. All available functions are shown.
 
 To command the robot to a certain position there are two function available depending on if we want to use the name of the position or the ID. In our case the name will do it, so we use "NavigateToPositionName".
 
