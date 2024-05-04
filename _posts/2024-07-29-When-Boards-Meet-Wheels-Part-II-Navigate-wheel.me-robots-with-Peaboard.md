@@ -56,7 +56,10 @@ The robot information on the right side is directly bound to the robot's data so
 
 ![image](/assets/2024-07-29/040.png)
 
-Let's see what's going on behind the **Start Mission** button. We can see in the Building Blocks that we check any of the workplace related toggle buttons. The next available is used to send the command to the wheel.me API and store the destination in a variable.
+Let's see what's going on behind the **Start Mission** button. We can see in the Building Blocks that the script works like this:
+1. We check if any of the workplace-related toggle buttons are active.
+2. We set `NextPosition` accordingly.
+3. We send a command for the robot to move to `NextPosition`, using the wheel.me API.
 
 ![image](/assets/2024-07-29/050.png)
 
