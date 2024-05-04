@@ -63,7 +63,7 @@ Let's see what's going on behind the **Start Mission** button. We can see in the
 
 ![image](/assets/2024-07-29/050.png)
 
-Every other workplace works similiar but only checks the remaining toggle buton / workplace.
+Other workplaces work similarly, but only checks the remaining toggle button and workplace.
 
 ![image](/assets/2024-07-29/060.png)
 
