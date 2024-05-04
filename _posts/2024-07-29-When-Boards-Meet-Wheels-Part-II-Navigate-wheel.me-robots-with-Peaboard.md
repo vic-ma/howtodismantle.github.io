@@ -67,13 +67,16 @@ Other workplaces work similarly, but only checks the remaining toggle button and
 
 ![image](/assets/2024-07-29/060.png)
 
-On last screenshot shows the icon. There's an icon at every position and we just put it to "visible = true" in case the icon's position is the same as the robots position.
+The following screenshot shows the icon. There's an icon at every position, and we put it to `visible = true` if the icon's position is the same as the robot's position.
 
 ![image](/assets/2024-07-29/070.png)
 
-## result
+## Result
 
-In the animated gif we can see how the app works. In the left part is the Peakboard app, in the right part there's the wheel.me web portal. The mission is started by clicking the button. The command is sent to wheel.me API and the robot is sent to the new position WP01. After the robot has left the WH1 position the icon dissapears and the X/Y coordinates are constantly changing. As soon as the robot is about to arrive at WP01 the icon also pops up at the WP01 place in the app.
+In the following video, we can see how the app works. On the left is the Peakboard app. On the right part, there's the wheel.me web portal.
+1. The mission is started by clicking the button.
+2. The command is sent to wheel.me API and the robot moves to the new position WP01.
+3. After the robot has left the WH1 position, the icon disappears and the X/Y coordinates change constantly.
+3. As soon as the robot is about to arrive at WP01, the icon also pops up at the WP01 place in the app.
 
 ![image](/assets/2024-07-29/result.gif)
-
