@@ -15,56 +15,69 @@ downloads:
   - name: WheelMePlayground.pbmx
     url: /assets/2024-07-29/WheelMePlayground.pbmx
 ---
-In the [first part](/When-Boards-Meet-Wheels-Part-I-How-to-connect-Peakboard-and-wheel.me-robots.html) of our series on how to build Peakboard applications and integrate it with wheel.me, we learned how to connect to the wheel.me API and get information about floors, positions and robots.
-In this article we will learn how to move the robots and how a real life application could work to build a command stand for the wheel.me fleet inside a production environment.
-Just as a reminder, we will stick to the floor and positions of the simulation environnment as shown in the map from the wheel.me portal:
+In the [first part](/When-Boards-Meet-Wheels-Part-I-How-to-connect-Peakboard-and-wheel.me-robots.html) of our series on how to build Peakboard applications with wheel.me, we learned how to connect to the wheel.me API and get information about floors, positions, and robots.
+
+In this article, we will learn how to move the robots, and how to build a command stand for the wheel.me fleet inside a production environment.
+Just as a reminder, we will stick to the floor and positions of the simulation environment, as shown in this map from the wheel.me portal:
 
 ![image](/assets/2024-07-29/010.png)
 
-## Moving the robot
+## Move the robot
 
-Sending a command to move the robot is done through a function that is provided by the wheel.me extension. To be more precise it's part of the robots data source. To trigger the function with Building Blocks we just use the "Run Function" block, select the robots list and all available functions are shown.
+You can send a command to move the robot by using a function that is provided by the wheel.me extension. That is, the function is a part of the robot's data source. To trigger the function with Building Blocks, we use the **Run Function** block, and select the robots list. All available functions are shown.
 
-To command the robot to a certain position there are two function available depending on if we want to use the name of the position or the ID. In our case the name will do it, so we use "NavigateToPositionName".
-
-* The robot ID is taken from the first line of the robots data source
-* The floor ID is taken from a variable to make things a bit more dynamic
-* The destination position is just the name. In our sample WH1 is the starting point. So we use this function to order the robot back to the starting point.
+To command the robot to move to a certain position, there are two functions available, depending on whether we want to use the position's name or ID. In our case, we will provide the name, so we use `NavigateToPositionName`.
 
 ![image](/assets/2024-07-29/020.png)
 
-For all the script lovers out there, the function is also available in LUA:
+
+Here's how the script works:
+1. The robot's ID is taken from the first line of the robots data source.
+2. The floor ID is taken from a variable, in order to make things a bit more dynamic.
+3. The destination position is just the name. In our example, WH1 is the starting point. So, we use it to order the robot back to the starting point.
+
+For all the script lovers out there, here is the same function, but in LUA:
 
 {% highlight lua %}
 data.MyRobots.NavigateToPositionName(data.MyRobots.first.ID, data.MyFloorID, 'WH1')
 {% endhighlight %}
 
-## Building an application
+## Build an application
 
-In this part we can have a look at a simple application. Let's say we start the robot's mission always at position WH1 and want him to go to in circles to the 4 more points WP01-WP04. As the screenshot shows, the user can enable or disable certain position. If a position is disabled the robot does not stop there but goes on to the next available position. When the worker at a certain workplace is finished, we click the "Next Goal" button to command the robot to the next position.
-An icon next to the position indicates where the robot is currently located. On the right side the current meta data of the robot is shown (like the coordinates, the next position and the current state).
+In this part, we'll take a look at a simple application. Let's say that the robot's mission always starts at position WH1, and we want it to go to 4 other points, WP01 to WP04, in a circle.
+
+As the following screenshot shows, the user can enable or disable certain positions. If a position is disabled, the robot will skip it and go to the next available position. When the worker at a certain workplace is finished, we click the **Next Goal** button to command the robot to the next position.
+
+An icon next to the position indicates where the robot is currently located. On the right side, the current metadata of the robot is shown (like the coordinates, the next position, and the current state).
 
 ![image](/assets/2024-07-29/030.png)
 
-The robot information on the right side is just directly bound to the robots data source, to show how the robot is moving and at which position he's currently located.
+The robot information on the right side is directly bound to the robot's data source. It shows how the robot is moving and at the position it's currently located at.
 
 ![image](/assets/2024-07-29/040.png)
 
-Let's have a look what is behind the "Start Mission" button. We can see at the Building Blocks that we check any of the workplace related toggle buttons. The next available is used to send the command to the wheel.me API and store the destination in a variable.
+Let's see what's going on behind the **Start Mission** button. We can see in the Building Blocks that the script works like this:
+1. We check if any of the workplace-related toggle buttons are active.
+2. We set `NextPosition` accordingly.
+3. We send a command for the robot to move to `NextPosition`, using the wheel.me API.
+4. We set a separate variable to `NextPosition`.
 
 ![image](/assets/2024-07-29/050.png)
 
-Every other workplace works similiar but only checks the remaining toggle buton / workplace.
+Other workplaces work similarly, but only check the remaining toggle button and workplace.
 
 ![image](/assets/2024-07-29/060.png)
 
-On last screenshot shows the icon. There's an icon at every position and we just put it to "visible = true" in case the icon's position is the same as the robots position.
+The following screenshot shows the icon. There's an icon at every position, and we put it to `visible = true` if the icon's position is the same as the robot's position.
 
 ![image](/assets/2024-07-29/070.png)
 
-## result
+## Result
 
-In the animated gif we can see how the app works. In the left part is the Peakboard app, in the right part there's the wheel.me web portal. The mission is started by clicking the button. The command is sent to wheel.me API and the robot is sent to the new position WP01. After the robot has left the WH1 position the icon dissapears and the X/Y coordinates are constantly changing. As soon as the robot is about to arrive at WP01 the icon also pops up at the WP01 place in the app.
+In the following video, we can see how the app works. On the left is the Peakboard app. On the right, there's the wheel.me web portal.
+1. The mission is started by clicking the button.
+2. The command is sent to wheel.me API and the robot moves to the new position WP01.
+3. After the robot has left the WH1 position, the icon disappears and the X/Y coordinates change constantly.
+3. As soon as the robot is about to arrive at WP01, the icon also pops up at the WP01 place in the app.
 
 ![image](/assets/2024-07-29/result.gif)
-
