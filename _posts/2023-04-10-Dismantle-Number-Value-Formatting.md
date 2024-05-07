@@ -4,7 +4,7 @@ title: Dismantle Number Value Formatting
 date: 2023-04-10 12:00:00 +0200
 tags: bestpractice basics
 image: /assets/2023-04-10/040.gif
-outdaten: true
+outdated: true
 ---
 
 **Please note, that the content of this article might not be aligned with the latest version of Pakboard designer or runtime but applies to an older version**
