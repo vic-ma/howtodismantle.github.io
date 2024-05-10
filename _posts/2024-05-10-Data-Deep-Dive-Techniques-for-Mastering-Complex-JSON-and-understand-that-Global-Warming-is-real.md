@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Data Deep Dive - Techniques for Mastering Complex JSON and understand that Global Warming is real
-date: 2023-03-01 02:00:00 +0200
+date: 2024-05-10 00:00:00 +0200
 tags: api basics
 image: /assets/2024-05-10/title.png
 read_more_links:
