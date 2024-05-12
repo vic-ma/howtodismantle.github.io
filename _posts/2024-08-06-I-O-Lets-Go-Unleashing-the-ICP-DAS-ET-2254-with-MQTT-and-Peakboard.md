@@ -46,13 +46,17 @@ Next, we go to the **DO** tab and go to the output pins. We want the device to l
 
 ![image](/assets/2024-08-06/050.png)
 
-## Building the Peaboard application for the Input
+## Build the Peakboard application for the input
 
-The MQTT configuration is quite simple. We just subscribe to the topic for the digitial input "DI08".
+The MQTT configuration is quite simple. We subscribe to the topic for the digital input `DI08`.
 
 ![image](/assets/2024-08-06/060.png)
 
-In the "Refreshed" script we check the incoming message. If it's 1, the state of the input has changed from "no signal" to "signal", a 0 indicates the opposite. So every time a "1" is submitted we count our counter variable "CounterDI08" up by 1.
+In the *Refreshed* script, we check the incoming message.
+* If it's `1`, that means the state of the input has changed from "no signal" to "signal."
+* If it's `0`, that means the state of the input has changed from "signal" to "no signal."
+
+So every time a `1` is submitted, we increase our counter variable, `CounterDI08`, by 1.
 
 ![image](/assets/2024-08-06/070.png)
 
