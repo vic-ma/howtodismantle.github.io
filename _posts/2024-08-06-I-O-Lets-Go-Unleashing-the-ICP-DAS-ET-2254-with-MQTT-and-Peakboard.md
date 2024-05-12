@@ -25,16 +25,16 @@ And here's what the setup looks like for the example we're building in this arti
 
 ## The configuration
 
-The ET-2254 comes with a web interface that offers a wide variety of functions for configuring the device's behavior and connections. In our case, we're interested in doing three things:
-* Configure MQTT
-* Get the input signal for a physical button
+The ET-2254 comes with a web interface that lets us configure the device's behavior and connections. In our case, we're interested in doing three things:
+* Configure MQTT.
+* Get the input signal for a physical button.
 * Send an output signal to switch on a traffic light.
 
 First, we go to the **I/O Settings** tab. There, we define which pins are for input and which are for output. For our example, we'll use half-and-half. So, we define the pins `D0` to `D7` as output, and the rest as input.
 
 ![image](/assets/2024-08-06/020.png)
 
-Next, we go to the **MQTT** tab and connect the device to an MQTT broker. We set the broker to `test.mosquitte.org` and set the main topic name to `dismantle/`. All MQTT message exchanges happen under this main topic.
+Next, we go to the **MQTT** tab and connect the device to an MQTT broker. We set the broker to `test.mosquitto.org` and set the main topic name to `dismantle/`. All MQTT message exchanges happen under this main topic.
 
 ![image](/assets/2024-08-06/030.png)
 
@@ -68,7 +68,7 @@ Here's the result when the physical button is pressed, generating the MQTT messa
 
 ![image](/assets/2024-08-06/result1.gif)
 
-## Building the Peakboard application for the Output
+## Build the Peakboard application for the output
 
 The output signal on the channel `DO08` can be set by sending a `1` or `0` message to the MQTT topic we configured earlier. We use a toggle control to switch the channel on and off. 
 
