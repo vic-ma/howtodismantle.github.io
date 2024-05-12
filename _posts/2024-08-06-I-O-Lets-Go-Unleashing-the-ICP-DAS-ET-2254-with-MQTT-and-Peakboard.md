@@ -60,18 +60,19 @@ So every time a `1` is submitted, we increase our counter variable, `CounterDI08
 
 ![image](/assets/2024-08-06/070.png)
 
-The next thing we do is put an icon on the canvas. In out case a gray symbol. With using some Conditional Formatting, we can define to make the icon green in case the MQTT message is "1" which symbolyzes that the button is pressed or the Input signal is set to "on". Otherwise it goes back to the default state of gray.
+Next, we put a gray symbol icon on the canvas. With some conditional formatting, we can make the icon green if the MQTT message is `1`, which means that the button is pressed or the input signal is set to "on". Otherwise, the symbol goes back to the default state of gray.
 
 ![image](/assets/2024-08-06/080.png)
 
-Here's the result when the physical button is pressed generating the MQTT message. We note in the video sequence that our Peakboard application (on the right) reacts much faster than the web interface (on the left) which lags behind some fractions of a second.
+Here's the result when the physical button is pressed, generating the MQTT message. Note that in the video, our Peakboard application (on the right) reacts much faster than the web interface (on the left), which lags behind by a second.
 
 ![image](/assets/2024-08-06/result1.gif)
 
-## Building the Peaboard application for the Output
+## Building the Peakboard application for the Output
 
-Setting the output signal on the channel DO08 is done just through sending a "1" or "0" message to the MQTT topic we configured earlier. We'reusing a toggle control to switch the channel n and off. 
-The screenshot shows how to send an MQTT message through the MQTT Bulding Block in the "Toggle" event of the control. For all the LUA lovers the LUA code can be also seen at the bottom.
+The output signal on the channel `DO08` can be set by sending a `1` or `0` message to the MQTT topic we configured earlier. We use a toggle control to switch the channel on and off. 
+
+The following screenshot shows how to send an MQTT message through the MQTT Building Block in the **Toggled event** of the control. For all the LUA lovers, the LUA code can also be seen at the bottom.
 
 ![image](/assets/2024-08-06/090.png)
 
