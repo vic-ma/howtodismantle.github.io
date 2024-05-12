@@ -38,11 +38,11 @@ Next, we go to the **MQTT** tab and connect the device to an MQTT broker. We set
 
 ![image](/assets/2024-08-06/030.png)
 
-Next, we go to the **DI** tab and look at the input section. To make sure that each state change generates an MQTT message, we turn on **State-Change-Publish** for each input pin.
+Next, we go to the **DI** tab and go to the input pins. To make sure that each state change generates an MQTT message, we turn on **State-Change-Publish** for each input pin.
 
 ![image](/assets/2024-08-06/040.png)
 
-And the same we do in the other direction. The "DO" tab makes it possible for the device to listen to certain topics and then change the state of the output according to the message that is received under this topic.
+Next, we go to the **DO** tab and go to the output pins. We want the device to listen to certain topics and then change the state of the output, according to the message that is received. So, we turn on **Subscribe** for each output pin.
 
 ![image](/assets/2024-08-06/050.png)
 
