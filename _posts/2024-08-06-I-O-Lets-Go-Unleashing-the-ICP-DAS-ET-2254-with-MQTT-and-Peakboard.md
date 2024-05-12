@@ -34,7 +34,7 @@ First, we go to the **I/O Settings** tab. There, we define which pins are for in
 
 ![image](/assets/2024-08-06/020.png)
 
-Under the tab "MQTT" we connect the device to an MQTT broker. In our case we just choose test.mosquitte.org and use the main topic "dismantle". All MQTT message exachangs happen under this main topic.
+Next, we go to the tab **MQTT** and connect the device to an MQTT broker. We set the broker to `test.mosquitte.org` and set the main topic name to `dismantle/`. All MQTT message exchanges happen under this main topic.
 
 ![image](/assets/2024-08-06/030.png)
 
