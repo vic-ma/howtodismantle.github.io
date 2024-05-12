@@ -34,11 +34,11 @@ First, we go to the **I/O Settings** tab. There, we define which pins are for in
 
 ![image](/assets/2024-08-06/020.png)
 
-Next, we go to the tab **MQTT** and connect the device to an MQTT broker. We set the broker to `test.mosquitte.org` and set the main topic name to `dismantle/`. All MQTT message exchanges happen under this main topic.
+Next, we go to the **MQTT** tab and connect the device to an MQTT broker. We set the broker to `test.mosquitte.org` and set the main topic name to `dismantle/`. All MQTT message exchanges happen under this main topic.
 
 ![image](/assets/2024-08-06/030.png)
 
-Let's jump to the input setting under the "DI" tab. To make sure, that every state change generates an MQTT message, we must change the setting "State-Change-Publish" to "Yes".
+Next, we go to the **DI** tab and look at the input section. To make sure that each state change generates an MQTT message, we turn on **State-Change-Publish** for each input pin.
 
 ![image](/assets/2024-08-06/040.png)
 
