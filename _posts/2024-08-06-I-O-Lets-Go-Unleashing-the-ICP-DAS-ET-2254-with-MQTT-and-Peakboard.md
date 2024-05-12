@@ -11,9 +11,9 @@ downloads:
   - name: ET2254TestBoard.pbmx
     url: /assets/2024-08-06/ET2254TestBoard.pbmx
 ---
-[ICP DAS](https://www.icpdas.com/) is a Taiwan-based company that sells industrial components for automation. In today's article, we will take a closer look at [ET-2254](https://www.icpdas.com/en/product/ET-2254), a 16 channel I/O module that provides digital input and output pins, and comes with a cool MQTT interface that makes it easy to create a stable connection to a Peakboard app.
+[ICP DAS](https://www.icpdas.com/) is a Taiwan-based company that sells industrial components for automation. In today's article, we'll take a closer look at [ET-2254](https://www.icpdas.com/en/product/ET-2254), a 16-channel I/O module that provides digital input and output pins, and comes with a cool MQTT interface that makes it easy to create a stable connection to a Peakboard app.
 
-Most customers use the ET-2254 to connect simple sensors to Peakboard, like physical buttons or light barriers. On the output side, we often see customers using it to operate traffic lights and do other binary stuff.
+Most customers use the ET-2254 to connect Peakboard to simple sensors, like physical buttons or light barriers. On the output side, we often see customers using it to operate traffic lights and do other binary stuff.
 
 Here's what the ET-2254 looks like:
 
@@ -30,7 +30,7 @@ The ET-2254 comes with a web interface that offers a wide variety of functions f
 * Get the input signal for a physical button
 * Send an output signal to switch on a traffic light.
 
-First, we go to the **I/O Settings** tab. There, we define which pins are for input and which are for output. For our example, we'll use half-and-half. So, we define the pins D0 to D7 as output, and the rest as input.
+First, we go to the **I/O Settings** tab. There, we define which pins are for input and which are for output. For our example, we'll use half-and-half. So, we define the pins `D0` to `D7` as output, and the rest as input.
 
 ![image](/assets/2024-08-06/020.png)
 
