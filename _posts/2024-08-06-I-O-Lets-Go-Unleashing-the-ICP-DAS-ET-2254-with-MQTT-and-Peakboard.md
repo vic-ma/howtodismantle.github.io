@@ -11,11 +11,11 @@ downloads:
   - name: ET2254TestBoard.pbmx
     url: /assets/2024-08-06/ET2254TestBoard.pbmx
 ---
-[ICP DAS](https://www.icpdas.com/) is a Taiwan based company selling industrial components for automation. In today's article we will take a closer look at [ET-2254](https://www.icpdas.com/en/product/ET-2254), a 16 channel I/O module that provides digital input and output pins and comes with a very cool MQTT interface that makes a connection to and from any Peakboard app easy to do and very stable.
+[ICP DAS](https://www.icpdas.com/) is a Taiwan-based company that sells industrial components for automation. In today's article, we will take a closer look at [ET-2254](https://www.icpdas.com/en/product/ET-2254), a 16 channel I/O module that provides digital input and output pins, and comes with a cool MQTT interface that makes it easy to create a stable connection to a Peakboard app.
 
-Most of the customers use it to connect simple sensors to Peakboard like physical buttons or light barriers. For the output side we often see customers to operate traffic lights and other binary stuff.
+Most customers use the ET-2254 to connect simple sensors to Peakboard, like physical buttons or light barriers. On the output side, we often see customers using it to operate traffic lights and do other binary stuff.
 
-Here's how the ET-2254 looks like:
+Here's what the ET-2254 looks like:
 
 ![image](/assets/2024-08-06/010.png)
 
