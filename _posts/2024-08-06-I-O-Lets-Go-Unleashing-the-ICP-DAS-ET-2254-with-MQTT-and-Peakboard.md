@@ -25,9 +25,12 @@ And here's what the setup looks like for the example we're building in this arti
 
 ## The configuration
 
-The ET-2254 comes with a web interface that offers a huge variety of functions to configure the device in its behaviour and connections. In our case we only look at the main options to configure MQTT, get the input signal for a physical button and give an output singal to switch on a traffic light.
+The ET-2254 comes with a web interface that offers a wide variety of functions for configuring the device's behavior and connections. In our case, we're interested in doing three things:
+* Configure MQTT
+* Get the input signal for a physical button
+* Send an output signal to switch on a traffic light.
 
-The 16 pins can be used for both Input and Output. The first thing we do under the tab "I/O settings" is to define which pins are treated as input and which are treated as output. In our example we just do half half and define the pins D0 to D7 as output and the rest as input.
+First, we go to the **I/O Settings** tab. There, we define which pins are for input and which are for output. For our example, we'll use half-and-half. So, we define the pins D0 to D7 as output, and the rest as input.
 
 ![image](/assets/2024-08-06/020.png)
 
