@@ -76,6 +76,6 @@ The following screenshot shows how to send an MQTT message through the MQTT Buil
 
 ![image](/assets/2024-08-06/090.png)
 
-And here's the result shown in a short video sequence. On the right is our toggle button. On the left we can see the state of the output as visualized in the web interface of the device. We still note a lag between sending the message and the actual reaction in the web interface. This is a pure web interface problem. The actual output channel is switched according to the MQTT message without any long latency, only the web interface needs a couple of milli seconds.
+And here's a video of the result. On the right is our toggle button. On the left, we can see the state of the output, as visualized in the web interface of the device. There is still a lag between sending the message and the actual reaction in the web interface. This is purely a web interface problem. The actual output channel is switched according to the MQTT message without any significant latency.
 
 ![image](/assets/2024-08-06/result2.gif)
