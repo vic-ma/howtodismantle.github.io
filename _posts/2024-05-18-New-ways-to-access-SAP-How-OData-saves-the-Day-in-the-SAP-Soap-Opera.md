@@ -1,7 +1,7 @@
 ---
 layout: post
 title: New ways to access SAP - How OData saves the Day in the SAP Soap Opera
-date: 2023-03-01 12:00:00 +0200
+date: 2024-05-18 12:00:00 +0200
 tags: sap
 image: /assets/2024-05-18/title.png
 read_more_links:
