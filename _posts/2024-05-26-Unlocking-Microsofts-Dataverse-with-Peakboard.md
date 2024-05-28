@@ -31,7 +31,7 @@ The extension name is a bit confusing and inaccurate, due to historical reasons.
 
 ![image](/assets/2024-05-26/020.png)
 
-## Register an app in the Micrsoft Entra ID directory
+## Register an app in the Microsoft Entra ID directory
 
 To access the data later without using a username and password, we need to register an app in the Entra ID directory of the company's Azure portal. The following screenshot shows how to do this:
 
