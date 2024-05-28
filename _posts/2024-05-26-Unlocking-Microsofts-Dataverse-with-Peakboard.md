@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Unlocking Microsoft's Dataverse with Peakboard
-date: 2023-03-01 02:00:00 +0200
+date: 2024-05-28 02:00:00 +0200
 tags: bestpractice office365
 image: /assets/2024-05-26/title.png
 read_more_links:
