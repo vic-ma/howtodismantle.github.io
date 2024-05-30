@@ -78,5 +78,4 @@ If we want react directly to a scan we ideally put out script or Building Blocks
 
 Building a Peakboard app together with ProGlove scanners is straight forward. No matter if you use USB or MQTT mode. The video show the simple app and displays the scanned code in the bound text boxes.
 
-{% include youtube.html id="sALXrWVR7f8" %}
-
+{% include youtube.html id="tMobjoShVS0" %}
