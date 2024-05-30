@@ -66,11 +66,11 @@ Let's switch to the Peakboard side. We set the MQTT broker and configure two sub
 
 The Peakboard data source gives us the option to process the json right away by using so called data paths. We know from the sample JSON the scanned code can be found within the JSON under "scan_code", while the serial number is at "device_serial". And so we configure the two subscriptions that the JSON is translated into the scalar values we want to process later.
 
-![image](/assets/2024-08-14/060.jpg)
+![image](/assets/2024-08-14/060.png)
 
 The last thing we do is to preapre some text boxes to show the scanned code through data binding:
 
-![image](/assets/2024-08-14/070.jpg)
+![image](/assets/2024-08-14/070.png)
 
 If we want react directly to a scan we ideally put out script or Building Blocks into he refreshed event of this data source. It's triggered everytime a scan is coming in on the MQTT topic.
 
