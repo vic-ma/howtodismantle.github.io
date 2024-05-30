@@ -17,7 +17,7 @@ ProGlove is new generation of barcode scanners integrated in a real glove which 
 
 ![image](/assets/2024-08-14/010.png)
 
-In this article we will cover the question how to configure the scanner and discuss ways to integrate the scan event in a Peakboard application. In the second part of this mini series, we go one step further and give the barcode scanner user feedback about the scan, e.g. if the scanned code was processed succesfully. The feedback can be either a simple light or even a small display on the scanner.
+In this article we will cover the question how to configure the scanner and discuss ways to integrate the scan event in a Peakboard application. In the second part of this mini series, we go one step further and give the barcode scanner user feedback about the scan, e.g. if the scanned code was processed succesfully. The feedback can be either a simple green or red light or even a small display on the scanner.
 The second article can be found [here](/2024-08-30-Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html).
 
 ## Configuration
@@ -62,7 +62,7 @@ Every time a code is scanned the gateway sends a JSON string to the MQTT broker.
 }
 {% endhighlight %}
 
-Let's switch to the Peakboard side. We set the MQTT broker and configure two subscriptions. Both listen at the topic "Peakboard/gateway/PGGW402650394/scan". This topic is built from the configured main topic plus "gateway" plus the serial number of the gateway plus the event "Scan".
+Let's switch to the Peakboard side. We set the MQTT broker and configure two subscriptions. Both listen at the topic "Peakboard/gateway/PGGW402650394/scan". This topic is built from the configured main topic plus "gateway" plus the serial number of the gateway plus the event "scan".
 
 The Peakboard data source gives us the option to process the json right away by using so called data paths. We know from the sample JSON the scanned code can be found within the JSON under "scan_code", while the serial number is at "device_serial". And so we configure the two subscriptions that the JSON is translated into the scalar values we want to process later.
 
