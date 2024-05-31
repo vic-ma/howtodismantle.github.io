@@ -23,7 +23,7 @@ We will discuss two examples. One with just positive / negative feedback and one
 
 The [Mark 3 Model](https://proglove.com/products/hardware/mark-3/) is equipped with the LEDs in variable colors to give feedback. Giving feedback to the scanner via MQTT works in the same way with submitting a scan event, only the direction and the JSON changes.
 
-The topic we're sending our message to is "Peakboard/gateway/PGGW402650394/feedback!", "Peakboard" is the configured main topic, "gateway" is just keyword because we're adressing the gateway, "PGGW402650394" is the serial number of the gateway, "feedback!" is the event type we're triggering.
+The topic we're sending our message to is "Peakboard/gateway/PGGW402650394/feedback!". "Peakboard" is the configured main topic, "gateway" is just keyword because we're adressing the gateway, "PGGW402650394" is the serial number of the gateway, "feedback!" is the event type we're triggering.
 
 The details can be checked at the [ProGlove Docs](https://docs.proglove.com/en/worker-feedback-command.html).
 
@@ -48,11 +48,11 @@ In our demo environment we place two buttons to showcase the feedback function.
 
 The actual MQTT message is sent with one single MQTT Publish command. We see in the screenshot, that we just send the JSON string to the topic discussed above by using the existing MQTT connection which refers to the initial data source we used in the other article.
 Then we use a multiline string with placeholders to exchange the placeholder #[SerialNo]# with the serial number from the last scan. We just look this up from the first row in the data source.
-The second buttonworks excatly the same but uses FEEDBACK_NEGATIVE within the JSON instead.
+The second button works excatly the same but uses FEEDBACK_NEGATIVE within the JSON instead.
 
 ![image](/assets/2024-08-30/020.png)
 
-The video shows how the scan of the canned tomatoes is presented on the display. And then a positive and a negative feedback is sent back to the scanner to light up the LEDs. 
+The video shows how the scan of the canned tomatoes is presented on the screen. And then a positive and a negative feedback is sent back to the scanner to light up the LEDs. 
 
 {% include youtube.html id="EFzW1Y6QYvA" %}
 
@@ -62,7 +62,7 @@ In this paragraph we try out another ProGlove model, the [Mark Display](https://
 It offers even more options to give the scanneruser a feedback because it comes with a Display.
 
 From a technical standpoint, setting the display content works similiar to operate the LEDs. We will just send a "display!" MQTT message to the gateway.
-ProGlove offers different kind of templates for displaying the message on the display. These templates can be seen in the [documentation](https://docs.proglove.com/en/screen-templates.html). In out case we use a simple one called PG1 with two variable fields, a header and a body text.
+ProGlove offers different kind of templates for displaying the message on the display. These templates can be seen in the [documentation](https://docs.proglove.com/en/screen-templates.html). In our case we use a simple one called PG1 with two variable fields, a header and a body text.
 
 The following JSON string shows a sample of the "display!" command. Beside the name of the template and the serial number of the destintion scanner, there are two variable fields we need to fill: "display_field_header" is the upper part of the display template, "display_field_text" is the lower part with small font.
 
@@ -88,7 +88,7 @@ Let's switch to the Peakboard app. In our test app we use two dynamic text field
 
 ![image](/assets/2024-08-30/030.png)
 
-What happens behind the button is quite similiar to our first sample. Instaad of only one we now have three placeholder to dynamically create the JSON string with the serial number and two dynmics display texts.
+What happens behind the button is quite similiar to our first example. Instaad of only one we now have three placeholder to dynamically create the JSON string with the serial number and two dynamic display texts.
 
 ![image](/assets/2024-08-30/040.png)
 
