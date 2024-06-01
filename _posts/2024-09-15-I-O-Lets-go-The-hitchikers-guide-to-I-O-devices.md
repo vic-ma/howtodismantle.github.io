@@ -10,7 +10,7 @@ read_more_links:
 ---
 In this blog we already talked about various devices to be connected with Peakboard and build beautiful applictions. One family of devices are I/O devices. These are used to connect any kind of sensors like light barriers, buttons, temperature sensors, or countlesse others. On the output side we often see actors like traffic lights or sound alarms.
 
-On the market there are literally hundreds of these I/O devices and and the overall majority of those work very well with Peakboard. This might be confusing for customers who just started their journey and still try to figure out on which brand or device to build their architecture. In his article we will discuss the five typical ways to connect to an I/O device and then introduce four I/O devies along with their features.
+On the market there are literally hundreds of these I/O devices and the overall majority of those work very well with Peakboard. This might be confusing for customers who just started their journey and still try to figure out on which brand or device to build their architecture. In his article we will discuss the five typical ways to connect to an I/O device and then introduce four I/O devices along with their features.
 
 ## Techical connectivity
 
@@ -19,12 +19,12 @@ There are uncountable ways to connect to I/O devices, however these five are mos
 1. OPC UA. The I/O device exposes an OPC UA endpoint and Peakboard connects as a client to this OPC UA server. Depending on the device the number of Peakboard clients might be limited to 3 or 5.
 2. MQTT. The I/O device is connected to an MQTT broker and the Peakboard application also connectes to this broker. The bi-directional dataflow is established by exchnanging messages throught MQTT topics.
 3. Modbus. The I/O device offers a modbus TCP endpoint and can be addressed by using the Modbus data source within the Peakboard application.
-4. REST API. The I/O device offers some kind of REST API endpoint that ca be used by using the JSON data source.
-5. The I/O device is actually not directly connected to the network, but connected to a PLC. In that case the Peakboard application talks to the PLC (could be Siemens, Mitsubishi, Rockwell or any other). This way only makes sense when the Peakboard app already uses this PLC connection for other activities.
+4. REST API. The I/O device offers some kind of REST API endpoint that can be used by using the JSON data source.
+5. PLC. The I/O device is actually not directly connected to the network, but connected to a PLC. In that case the Peakboard application talks to the PLC (could be Siemens, Mitsubishi, Rockwell or any other). This way only makes sense when the Peakboard app already uses this PLC connection for other activities.
 
 ### Advantech WISE-4012
 
-The Advantech WISE-4012 comes with 4 analog and 4 digital inputs, and also 2 digital outputs. It supports MQTT, REST API and Modbus access. It's meant to be only used with Wifi, so no LAN plug.
+The Advantech WISE-4012 comes with 4 analog and 4 digital inputs, and also 2 digital outputs. It supports MQTT, REST API and Modbus access. It's meant to be only used with Wifi, so no LAN plug available.
 
 Estimated cost: 160 EUR
 
@@ -38,7 +38,7 @@ The ET-2254 is perfect for wired networks and offers 16 I/O ports that can be fr
 
 Estimated cost: 173 EUR
 
-An addtional article is available: [Unleashing the ICP DAS ET-2254 with MQTT and Peakboard](/2024-08-06-I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html)
+An addtional article is available here: [Unleashing the ICP DAS ET-2254 with MQTT and Peakboard](/2024-08-06-I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html)
 
 [Click here to jump directly to the vendor](https://www.icpdas.com/en/product/ET-2254)
 
@@ -57,7 +57,7 @@ Estimated cost: 176 EUR
 ### Pepperl+Fuchs IO-Link-Master ICE2-8IOL-G65L-V1D
 
 This device supports connecting IO-Link devices and sensors. The configuration via web interface is very easy.
-For the connectivity we can choose between OPC, MQTT and Modbus. The nice thing with OPC UA is, that the attribtues of the connected IO-Link-device is reflected in the node structure which makes it super easy to connect and find the the right values during design time. The downside is, that IO-link related devices are usually much more expensive.
+For the connectivity we can choose between OPC, MQTT and Modbus. The nice thing with OPC UA is, that the attribtues of the connected IO-Link-device are reflected in the node structure which makes it super easy to connect and find the the right values during design time. The downside is, that IO-link related devices are usually much more expensive.
 
 Estimated cost: 700-900 EUR
 
