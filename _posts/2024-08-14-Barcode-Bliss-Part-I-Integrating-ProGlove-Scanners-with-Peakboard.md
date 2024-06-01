@@ -13,11 +13,11 @@ downloads:
   - name: ProGloveTestCenter.pbmx
     url: /assets/2024-08-14/ProGloveTestCenter.pbmx
 ---
-ProGlove is new generation of barcode scanners integrated in a real glove which gives the user the easy way to scan a barcode without having to take a barcode scanner first and then put it back to the station after scan. The scanner is just always "at hand" and can be used right away. For all the reader who never saw it before, here's how it looks like:
+ProGlove creates next-generation barcode scanners that are integrated into a real glove, so the user can scan barcodes without having to pick up and put down a conventional barcode scanner. The scanner is always "at hand," and can be used at any time. For readers who've seen a ProGlove scanner before, here's what it looks like:
 
 ![image](/assets/2024-08-14/010.png)
 
-In this article we will cover the question how to configure the scanner and discuss ways to integrate the scan event in a Peakboard application. In the second part of this mini series, we go one step further and give the barcode scanner user feedback about the scan, e.g. if the scanned code was processed succesfully. The feedback can be either a simple green or red light or even a small display on the scanner.
+In this article, we will discuss how to configure the scanner and integrate the scan event into a Peakboard application. In the second part of this mini-series, we will go one step further and give the barcode scanner user feedback about the scan, like if the scanned code was processed successfully. The feedback can be either a simple green or red light or even a small display on the scanner.
 The second article can be found [here](/2024-08-30-Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html).
 
 ## Configuration
