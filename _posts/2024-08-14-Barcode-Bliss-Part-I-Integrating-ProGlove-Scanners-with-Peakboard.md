@@ -17,12 +17,13 @@ ProGlove creates next-generation barcode scanners that are integrated into a rea
 
 ![image](/assets/2024-08-14/010.png)
 
-In this article, we will discuss how to configure the scanner and integrate the scan event into a Peakboard application. In the second part of this mini-series, we will go one step further and give the barcode scanner user feedback about the scan, like if the scanned code was processed successfully. The feedback can be either a simple green or red light or even a small display on the scanner.
-The second article can be found [here](/2024-08-30-Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html).
+In this article, we will discuss how to configure the scanner and integrate the scan event into a Peakboard application.
+
+In the [second part of this mini-series]((/2024-08-30-Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html)), we will go one step further and give the barcode scanner user feedback about the scan, like if the scanned code was processed successfully. The feedback can be given by a simple green or red light or even a small display on the scanner.
 
 ## Configuration
 
-The scanner comes with some kind of base station called gateway. The easiest way to configure both the scanner and the gateway is to use the [PrGlove Insight portal](https://insight.proglove.com/). The portal user can register their device in the portal, then take the necessary steps to configure the gateway or the device and apply the new configuration to the gateway by scanning a large barcode that holds the configuration metadata or download the confirguation file and then apply it to the gateway by connecting the gateway to be used as a mass storage of the PC. The datails can be found in the [documentation](https://docs.proglove.com/?lang=en).
+The scanner comes with some a base station called a gateway. The easiest way to configure both the scanner and the gateway is to use the [ProGlove Insight portal](https://insight.proglove.com/). You register your device in the portal, then configure it and apply the new configuration to the gateway. You can do this by scanning a large barcode that holds the configuration information, or by downloading the configuration file and applying it to the gateway by connecting the gateway to your computer as mass storage. The datails can be found in the [documentation](https://docs.proglove.com/?lang=en).
 
 Bascially there are two useful operating modes that can be used together with Peakboard:
 
