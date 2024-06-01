@@ -23,12 +23,14 @@ In the [second part of this mini-series]((/2024-08-30-Barcode-Bliss-Part-II-Send
 
 ## Configuration
 
-The scanner comes with some a base station called a gateway. The easiest way to configure both the scanner and the gateway is to use the [ProGlove Insight portal](https://insight.proglove.com/). You register your device in the portal, then configure it and apply the new configuration to the gateway. You can do this by scanning a large barcode that holds the configuration information, or by downloading the configuration file and applying it to the gateway by connecting the gateway to your computer as mass storage. The datails can be found in the [documentation](https://docs.proglove.com/?lang=en).
+The scanner comes with a base station called a gateway. The easiest way to configure both the scanner and the gateway is to use the [ProGlove Insight portal](https://insight.proglove.com/).
 
-Bascially there are two useful operating modes that can be used together with Peakboard:
+You register your device in the portal, then configure it and apply the new configuration to the gateway. You can do this by scanning a large barcode that holds the configuration information, or by downloading the configuration file and applying it to the gateway by connecting the gateway to your computer as mass storage. See the [ProGlove documentation](https://docs.proglove.com/?lang=en) for more information.
 
-1. The USB mode. In that case the gateway is connected to the USB port of the Peakboard box. If we have only one gateway and don't need to use multiple scanners and other events then just the scanned code, this is the way to go.
-2. The MQTT mode. In the case the bidirectional communication is done through an MQTT server (on prem or in the cloud, any is fine). if we want to use the full ProGlove power to give the enduser feedback for the scan or use other events, that's the way to go.
+There are two useful operating modes that can be used with Peakboard:
+
+1. **The USB mode.** In this mode, the gateway is connected to the USB port of the Peakboard box. If you only have one gateway and don't need to use multiple scanners, and you only need the code scanning event, then this is the way to go.
+2. **The MQTT mode.** In this case, the bidirectional communication is done through an MQTT server (on prem or in the cloud, either is fine). If you want to use the full power of ProGlove and give the user feedback about the scan, or use other events, then this is the way to go.
 
 ## The USB mode
 
