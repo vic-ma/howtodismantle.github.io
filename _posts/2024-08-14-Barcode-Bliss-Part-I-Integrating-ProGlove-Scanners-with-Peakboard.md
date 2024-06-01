@@ -48,11 +48,11 @@ In Peakboard Designer, we use the global event **KeyInput**. We can get the scan
 
 ## The MQTT mode
 
-The MQTT mode is much more fun than USB. The configuration is also not too complicated. We just set the broker and alsothe main topic.That's it.
+The MQTT mode is much more fun than the USB mode. The configuration is also not too complicated. We just need to set the broker and main topic. That's it.
 
 ![image](/assets/2024-08-14/050.png)
 
-Every time a code is scanned the Gateway sends a JSON string to the MQTT broker. The JSON string looks like this. Beside the scanned code we can also see some more or less useful attributes related to the scan.
+Every time a code is scanned, the Gateway sends a JSON string to the MQTT broker. The following is an example of a JSON string. Besides the scanned code, there are also some more or less useful attributes related to the scan.
 
 {% highlight json %}
 {
@@ -65,7 +65,10 @@ Every time a code is scanned the Gateway sends a JSON string to the MQTT broker.
 }
 {% endhighlight %}
 
-Let's switch to the Peakboard side. We set the MQTT broker and configure two subscriptions. Both listen at the topic "Peakboard/Gateway/PGGW402650394/scan". This topic is built from the configured main topic plus "Gateway" plus the serial number of the Gateway plus the event "scan".
+On the Peakboard side, we set the MQTT broker and configure two subscriptions. Both listen at the topic `Peakboard/Gateway/PGGW402650394/scan`. This topic is constructed like this:
+```
+configured main topic + "Gateway" + serial number of the Gateway + the "scan" event
+```
 
 The Peakboard data source gives us the option to process the json right away by using so called data paths. We know from the sample JSON the scanned code can be found within the JSON under "scan_code", while the serial number is at "device_serial". And so we configure the two subscriptions that the JSON is translated into the scalar values we want to process later.
 
