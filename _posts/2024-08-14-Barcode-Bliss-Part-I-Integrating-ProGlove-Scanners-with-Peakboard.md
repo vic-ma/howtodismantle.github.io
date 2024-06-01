@@ -38,11 +38,11 @@ The USB mode is simple to apply. The following screenshot shows the configuratio
 
 ![image](/assets/2024-08-14/020.png)
 
-Now, we can just plug the Gateway directly into the USB port.
+Now, we can plug the Gateway directly into the USB port of our Peakboard Box:
 
 ![image](/assets/2024-08-14/030.jpg)
 
-In the Peakboard designer we just use the global event "KeyInput" and then scanned code is available through the "get string parameter" block. Every time a code is scanned this event is triggered.
+In Peakboard Designer, we use the global event **KeyInput**. We can get the scanned code through the **get string parameter** block. Each time a code is scanned, this event gets triggered.
 
 ![image](/assets/2024-08-14/040.png)
 
