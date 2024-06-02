@@ -15,9 +15,11 @@ downloads:
 ---
 In the [first part](/2024-08-14-Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html) of our ProGlove miniseries, we discussed the basics of integrating ProGlove scanners into Peakboard applications. We used both the USB and MQTT modes to get the scan event, along with some metadata.
 
-In this article we will discuss some options, on how to give the scanner user feedback about the current scan. This is especially interesting for the implementation of processes where the scanner user doesn't want to look at the screen all the time. But in case something goes wrong might get back to the screen to find out more details. A typical use case for this pattern would be to check all products of a order. The scanner user scans all products. If there are products which doesn't fit into the order, he gets a negative feedback. 
+In this article, we will discuss some options for giving user feedback to the person performing a scan. This is especially interesting for the implementation of processes where the user doesn't want to look at the screen all the time. But in case something goes wrong, they might need to read the screen to see more details. A typical use case for this pattern is when a user is scanning all the products of an order:
+1. The user scans all the products.
+2. If there are any products which doesn't belong to the order, the user gets negative feedback. 
 
-We will discuss two examples. One with just positive / negative feedback and one with more even more information: A storage bin and some attributes of the scanned product will show up on the scanner display.
+We will discuss two examples. The first only gives a positive and negative feedback. The second provides more information: A storage bin and some attributes of the scanned product will show up on the scanner display.
 
 ## Feedback by light
 
