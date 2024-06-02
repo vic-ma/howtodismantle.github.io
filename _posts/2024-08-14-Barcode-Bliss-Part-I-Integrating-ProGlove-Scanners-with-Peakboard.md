@@ -13,7 +13,7 @@ downloads:
   - name: ProGloveTestCenter.pbmx
     url: /assets/2024-08-14/ProGloveTestCenter.pbmx
 ---
-ProGlove creates next-generation barcode scanners that are integrated into a real glove, so the user can scan barcodes without having to pick up and put down a conventional barcode scanner. The scanner is always "at hand," and can be used at any time. For readers who've seen a ProGlove scanner before, here's what it looks like:
+ProGlove creates next-generation barcode scanners that are integrated into a glove, so the user can scan barcodes without having to pick up and put down a conventional barcode scanner. The scanner is always "at hand." For readers who've never seen a ProGlove scanner before, here's what it looks like:
 
 ![image](/assets/2024-08-14/010.png)
 
