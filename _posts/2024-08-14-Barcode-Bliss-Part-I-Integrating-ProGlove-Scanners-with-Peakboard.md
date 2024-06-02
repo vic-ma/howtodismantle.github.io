@@ -52,7 +52,7 @@ The MQTT mode is much more fun than the USB mode. The configuration is also not 
 
 ![image](/assets/2024-08-14/050.png)
 
-Every time a code is scanned, the Gateway sends a JSON string to the MQTT broker. The following is an example of a JSON string. Besides the scanned code, there are also some more or less useful attributes related to the scan.
+Each time a code is scanned, the Gateway sends a JSON string to the MQTT broker. The following is an example. Besides the scanned code, there are also some other attributes related to the scan.
 
 {% highlight json %}
 {
@@ -82,6 +82,6 @@ If we want our Peakboard app to react immediately after a scan, we need to put o
 
 ## Conclusion and result
 
-Building a Peakboard app together with ProGlove scanners is straight forward, whether you use the USB or MQTT mode. The following video show the simple app and displays the scanned code in the bound text boxes:
+Building a Peakboard app that integrates with ProGlove scanners is straightforward, whether you use the USB or MQTT mode. The following video shows the simple app and displays the scanned code in the bound text boxes:
 
 {% include youtube.html id="tMobjoShVS0" %}
