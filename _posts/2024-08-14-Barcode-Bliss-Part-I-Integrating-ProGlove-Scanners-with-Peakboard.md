@@ -65,23 +65,23 @@ Every time a code is scanned, the Gateway sends a JSON string to the MQTT broker
 }
 {% endhighlight %}
 
-On the Peakboard side, we set the MQTT broker and configure two subscriptions. Both listen at the topic `Peakboard/Gateway/PGGW402650394/scan`. This topic is constructed like this:
+On the Peakboard side, we set the MQTT broker and configure two subscriptions. Both listen at the topic `Peakboard/Gateway/PGGW402650394/scan`. The topic is constructed like this:
 ```
-configured main topic + "Gateway" + serial number of the Gateway + the "scan" event
+Configured main topic + "Gateway" + Serial number of the Gateway + "scan" event
 ```
 
-The Peakboard data source gives us the option to process the json right away by using so called data paths. We know from the sample JSON the scanned code can be found within the JSON under "scan_code", while the serial number is at "device_serial". And so we configure the two subscriptions that the JSON is translated into the scalar values we want to process later.
+The Peakboard data source gives us the option to process the JSON immediately, using data paths. We know from the example JSON that `scan_code` contains the scanned code, while `device_serial` contains the serial number. So we configure the two subscriptions so that the JSON is translated into the scalar values we want to process later.
 
 ![image](/assets/2024-08-14/060.png)
 
-The last thing we do is to preapre some text boxes to show the scanned code through data binding:
+Finally, we prepare some text boxes to show the scanned code through data binding:
 
 ![image](/assets/2024-08-14/070.png)
 
-If we want react directly to a scan we ideally put out script or Building Blocks into he refreshed event of this data source. It's triggered everytime a scan is coming in on the MQTT topic.
+If we want our Peakboard app to react immediately after a scan, we need to put our script or Building Blocks into the refreshed event of this data source. It's triggered every time a scan comes in on the MQTT topic.
 
 ## Conclusion and result
 
-Building a Peakboard app together with ProGlove scanners is straight forward. No matter if you use USB or MQTT mode. The video show the simple app and displays the scanned code in the bound text boxes.
+Building a Peakboard app together with ProGlove scanners is straight forward, whether you use the USB or MQTT mode. The following video show the simple app and displays the scanned code in the bound text boxes:
 
 {% include youtube.html id="tMobjoShVS0" %}
