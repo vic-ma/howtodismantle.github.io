@@ -15,13 +15,13 @@ downloads:
 ---
 In the [first part](/2024-08-14-Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html) of our ProGlove miniseries, we discussed the basics of integrating ProGlove scanners into Peakboard applications. We used both the USB and MQTT modes to get the scan event, along with some metadata.
 
-In this article, we will discuss some options for giving user feedback to the person performing a scan. This is especially interesting for the implementation of processes where the user doesn't want to look at the screen all the time. But in case something goes wrong, they might need to read the screen to see more details. A typical use case for this pattern is when a user is scanning all the products of an order:
+In this article, we'll discuss some options for providing user feedback to the person performing a scan. This is especially useful for cases where the user doesn't want to look at the screen all the time, but may need to if something goes wrong, and they need to learn more about the scan. A typical use case is when a user is scanning all the products of an order:
 1. The user scans all the products.
-2. If there are any products which doesn't belong to the order, the user gets negative feedback. 
+2. If there are any products that don't belong to the order, the user gets negative feedback. 
 
-We will discuss two examples. The first only gives a positive and negative feedback. The second provides more information: A storage bin and some attributes of the scanned product will show up on the scanner display.
+We will discuss two examples. The first only gives positive and negative feedback. The second provides more information: A storage bin and some attributes of the scanned product will show up on the scanner display.
 
-## Feedback by light
+## Feedback by LED
 
 The [Mark 3 model](https://proglove.com/products/hardware/mark-3/) is equipped with variable-color LEDs that provide user feedback. Giving feedback to the scanner via MQTT works in the same way as when submitting a scan event, but the direction and the JSON changes.
 
@@ -51,14 +51,14 @@ Here's an example JSON string that's sent to the scanner:
 {% endhighlight %}
 
 There are two important attributes within the JSON:
-* `device_serial` must be set to the serial number of the scanner we want the feedback send to. This is important because there could be more than one scanner connected to the gateway.
+* `device_serial` must be set to the serial number of the scanner we want to send the feedback to. This is important because there could be more than one scanner connected to the gateway.
 * `feedback_action_id` is a constant that defines the light that needs to flash. In our example, we use `FEEDBACK_POSITIVE` for the green light and `FEEDBACK_NEGATIVE` for the red light.
 
-In our demo environment, we place two buttons to showcase the feedback function.
+In our demo environment, we place two buttons to showcase the feedback function:
 
 ![image](/assets/2024-08-30/010.png)
 
-The MQTT message is sent with a single MQTT publish command. In the following screenshot, we send the JSON string to the topic form before, by using the existing MQTT connection, which refers to the initial data source we used in the [first part of this series](/2024-08-14-Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html).
+The MQTT message is sent with a single MQTT publish command. In the following screenshot, we send the JSON string to the topic form before, by using the existing MQTT connection, which refers to the data source we created in the [first part of this series](/2024-08-14-Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html).
 
 Then, we use a multiline string with placeholders to exchange the placeholder `#[SerialNo]#` with the serial number from the last scan. We look this up from the first row in the data source.
 
@@ -75,7 +75,7 @@ The following video shows how the scan of the canned tomatoes is presented on th
 Now, we'll try out another ProGlove model: The [Mark Display](https://proglove.com/products/hardware/mark-display/).
 It offers even more options for user feedback, because it comes with a display.
 
-From a technical standpoint, setting the display content works similiar to operate the LEDs. We will just send a "display!" MQTT message to the gateway.
+Setting the display content works similarly to setting the LEDs. We will just send a "display!" MQTT message to the gateway.
 ProGlove offers different kind of templates for displaying the message on the display. These templates can be seen in the [documentation](https://docs.proglove.com/en/screen-templates.html). In our case we use a simple one called PG1 with two variable fields, a header and a body text.
 
 The following JSON string shows an example of the `display!` command. Besides the name of the template and the serial number of the destination scanner, there are two variable fields we need to fill:
