@@ -75,12 +75,13 @@ The following video shows how the scan of the canned tomatoes is presented on th
 Now, we'll try out another ProGlove model: The [Mark Display](https://proglove.com/products/hardware/mark-display/).
 It offers even more options for user feedback, because it comes with a display.
 
-Setting the display content works similarly to setting the LEDs. We will just send a "display!" MQTT message to the gateway.
-ProGlove offers different kind of templates for displaying the message on the display. These templates can be seen in the [documentation](https://docs.proglove.com/en/screen-templates.html). In our case we use a simple one called PG1 with two variable fields, a header and a body text.
+Setting the display content works similarly to setting the LEDs: We send a `display!` MQTT message to the gateway.
+
+ProGlove offers different kinds of templates for displaying the message on the display. These templates can be seen in the [ProGlove templates documentation](https://docs.proglove.com/en/screen-templates.html). In our case, we use a simple template called PG1, which has two variable fields, a header, and a body text.
 
 The following JSON string shows an example of the `display!` command. Besides the name of the template and the serial number of the destination scanner, there are two variable fields we need to fill:
 * `display_field_header` is the upper part of the display template.
-* `display_field_text` is the lower part with small font.
+* `display_field_text` is the lower part of the display template with small font.
 
 {% highlight json %}
 {
@@ -100,7 +101,7 @@ The following JSON string shows an example of the `display!` command. Besides th
 }
 {% endhighlight %}
 
-Let's switch to the Peakboard app. In our test app we use two dynamic text fields to define the values, and a button to initiate the process.
+Let's switch to Peakboard Designer. In our test app, we use two dynamic text fields to define the values, and a button to initiate the process.
 
 ![image](/assets/2024-08-30/030.png)
 
