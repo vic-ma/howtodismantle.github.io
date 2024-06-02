@@ -13,7 +13,7 @@ downloads:
   - name: ProGloveTestCenter.pbmx
     url: /assets/2024-08-14/ProGloveTestCenter.pbmx
 ---
-In the [first part](/2024-08-14-Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html) of our mini series we already got familiar with the some basic information on how to integrate ProGlove scanners in Peakboard applications. We used both USB and MQTT to get the scan event along with some metadata.
+In the [first part](/2024-08-14-Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html) of our ProGlove miniseries, we discussed the basics of integrating ProGlove scanners into Peakboard applications. We used both the USB and MQTT modes to get the scan event, along with some metadata.
 
 In this article we will discuss some options, on how to give the scanner user feedback about the current scan. This is especially interesting for the implementation of processes where the scanner user doesn't want to look at the screen all the time. But in case something goes wrong might get back to the screen to find out more details. A typical use case for this pattern would be to check all products of a order. The scanner user scans all products. If there are products which doesn't fit into the order, he gets a negative feedback. 
 
