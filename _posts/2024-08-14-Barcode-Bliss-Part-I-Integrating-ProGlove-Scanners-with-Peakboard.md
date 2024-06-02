@@ -17,7 +17,7 @@ ProGlove creates next-generation barcode scanners that are integrated into a glo
 
 ![image](/assets/2024-08-14/010.png)
 
-In this article, we will discuss how to configure the scanner and integrate the scan event into a Peakboard application.
+In this article, we'll discuss how to configure a ProGlove scanner and integrate the scan event into a Peakboard application.
 
 In the [second part of this mini-series]((/2024-08-30-Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html)), we will go one step further and give the barcode scanner user feedback about the scan, like if the scanned code was processed successfully. The feedback can be given by a simple green or red light or even a small display on the scanner.
 
@@ -27,10 +27,10 @@ The scanner comes with a base station called a Gateway. The easiest way to confi
 
 You register your device in the portal, then configure it and apply the new configuration to the Gateway. You can do this by scanning a large barcode that holds the configuration information, or by downloading the configuration file and applying it to the Gateway by connecting the Gateway to your computer as mass storage. See the [ProGlove documentation](https://docs.proglove.com/?lang=en) for more information.
 
-There are two useful operating modes that can be used with Peakboard:
+There are two operating modes that can be used with Peakboard:
 
 1. **The USB mode.** In this mode, the Gateway is connected to the USB port of the Peakboard box. If you only have one Gateway and don't need to use multiple scanners, and you only need the code scanning event, then this is the way to go.
-2. **The MQTT mode.** In this case, the bidirectional communication is done through an MQTT server (on prem or in the cloud; either is fine). If you want to use the full power of ProGlove and give the user feedback about their scans, or use other events, then this is the way to go.
+2. **The MQTT mode.** In this mode, the bidirectional communication is done through an MQTT server (on prem or in the cloud; either is fine). If you want to use the full power of ProGlove and give the user feedback about their scans, or use other events, then this is the way to go.
 
 ## The USB mode
 
