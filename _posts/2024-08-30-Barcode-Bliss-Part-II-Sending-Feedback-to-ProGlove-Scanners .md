@@ -23,13 +23,21 @@ We will discuss two examples. The first only gives a positive and negative feedb
 
 ## Feedback by light
 
-The [Mark 3 Model](https://proglove.com/products/hardware/mark-3/) is equipped with the LEDs in variable colors to give feedback. Giving feedback to the scanner via MQTT works in the same way with submitting a scan event, only the direction and the JSON changes.
+The [Mark 3 model](https://proglove.com/products/hardware/mark-3/) is equipped with variable-color LEDs that provide user feedback. Giving feedback to the scanner via MQTT works in the same way as when submitting a scan event, but the direction and the JSON changes.
 
-The topic we're sending our message to is "Peakboard/gateway/PGGW402650394/feedback!". "Peakboard" is the configured main topic, "gateway" is just keyword because we're adressing the gateway, "PGGW402650394" is the serial number of the gateway, "feedback!" is the event type we're triggering.
+The topic we're sending our message to is this:
+```
+Peakboard/gateway/PGGW402650394/feedback!
+```
 
-The details can be checked at the [ProGlove Docs](https://docs.proglove.com/en/worker-feedback-command.html).
+* `Peakboard` is the configured main topic.
+* `gateway` is just a keyword because we're addressing the gateway.
+* `PGGW402650394` is the serial number of the gateway.
+* `feedback!` is the event type we're triggering.
 
-Here's the JSON string to be send giving feedback to the scanner:
+To learn more, see the [ProGlove Docs](https://docs.proglove.com/en/worker-feedback-command.html).
+
+Here's an example JSON string that's sent to the scanner:
 
 {% highlight json %}
 {
@@ -42,7 +50,9 @@ Here's the JSON string to be send giving feedback to the scanner:
 }
 {% endhighlight %}
 
-There are two important attributes within the JSON: "device_serial" must be set to the serial number of the scanner we want the feedback send to. This is superimportant because there could be more than one scanner connected to the gateway. The "feedback_action_id" is a constant defining which light to be flashed. In our sample we use FEEDBACK_POSITIVE for the green light and FEEDBACK_NEGATIVE for the red light.
+There are two important attributes within the JSON:
+* `device_serial` must be set to the serial number of the scanner we want the feedback send to. This is important because there could be more than one scanner connected to the gateway.
+* `feedback_action_id` is a constant that defines the light that needs to flash. In our example, we use `FEEDBACK_POSITIVE` for the green light and `FEEDBACK_NEGATIVE` for the red light.
 
 In our demo environment we place two buttons to showcase the feedback function.
 
