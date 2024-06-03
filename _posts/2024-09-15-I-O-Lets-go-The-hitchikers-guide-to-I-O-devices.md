@@ -26,7 +26,12 @@ There are countless ways to connect to I/O devices, but these five are the most 
 
 ### Advantech WISE-4012
 
-The Advantech WISE-4012 comes with 4 analog and 4 digital inputs, and also 2 digital outputs. It supports MQTT, REST API and Modbus access. It's meant to be only used with Wifi, so no LAN plug available.
+The Advantech WISE-4012 comes with the following:
+* 4 analog inputs
+* 4 digital inputs
+* 2 digital outputs
+
+It supports MQTT, REST API and Modbus access. It's meant to be only used with Wi-Fi, so no LAN plug is available.
 
 Estimated cost: 160 EUR
 
@@ -36,11 +41,11 @@ Estimated cost: 160 EUR
 
 ### ICP DAS ET-2254
 
-The ET-2254 is perfect for wired networks and offers 16 I/O ports that can be freely defined as Input or Output. Access is possible through MQTT and Modbus.
+The ET-2254 is perfect for wired networks. It offers 16 I/O ports that can be freely defined as either input or output. Access is possible through MQTT and Modbus.
 
 Estimated cost: 173 EUR
 
-An addtional article is available here: [Unleashing the ICP DAS ET-2254 with MQTT and Peakboard](/2024-08-06-I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html)
+Here's a relevant article on this blog: [Unleashing the ICP DAS ET-2254 with MQTT and Peakboard](/2024-08-06-I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html)
 
 [Click here to jump directly to the vendor](https://www.icpdas.com/en/product/ET-2254)
 
