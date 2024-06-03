@@ -8,15 +8,15 @@ read_more_links:
   - name: Unleashing the ICP DAS ET-2254 with MQTT and Peakboard
     url: /2024-08-06-I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html
 ---
-In this blog, we've explained how to connect various devices to Peakboard, and build beautiful applications. One family of devices is I/O devices. These are used to connect any kind of sensor, like light barriers, buttons, temperature sensors, or countless others. On the output side, we often see actors like traffic lights and sound alarms.
+In this blog, we've explained how to connect various devices to Peakboard, and build beautiful applications. One family of devices is I/O devices. These are used to connect any kind of sensor, like light barriers, buttons, and temperature sensors. On the output side, we often see actors like traffic lights and sound alarms.
 
-On the market, there are literally hundreds of these I/O devices, and the vast majority of them work very well with Peakboard. This might be confusing for customers who have just started their journey and are trying to figure out which brand or device they want to build their architecture on.
+On the market, there are literally hundreds of these I/O devices, and the vast majority of them work very well with Peakboard. This can be confusing for customers who have just started their journey and are trying to figure out which brand or device they want to build their architecture on.
 
-In this, article we'll discuss the five most common ways for connecting a Peakboard Box to an I/O device. We'll also introduce four I/O devices and their features.
+In this article, we'll take a look at the five most common ways for connecting a Peakboard Box to an I/O device. We'll also introduce four I/O devices and their features.
 
 ## Technical connectivity
 
-There are countless ways to connect to I/O devices, but these five are the most common among the Peakboard customers.
+There are countless ways to connect to I/O devices, but these five are the most common among Peakboard customers.
 
 1. **OPC UA.** The I/O device exposes an OPC UA endpoint and Peakboard connects as a client to this OPC UA server. Depending on the device, the number of Peakboard clients might be limited to 3 or 5.
 2. **MQTT.** The I/O device is connected to an MQTT broker and Peakboard also connects to this broker. The bidirectional dataflow is established by exchanging messages through MQTT topics.
