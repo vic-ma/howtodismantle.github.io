@@ -1,6 +1,6 @@
 ---
 layout: post
-title: I/O, Let's go - The hitchiker's guide to I/O devices 
+title: I/O, Let's go - The hitchhiker's guide to I/O devices 
 date: 2023-03-01 12:00:00 +0200
 tags: hardware opcuamqtt api
 image: /assets/2024-09-15/title.png
@@ -8,9 +8,11 @@ read_more_links:
   - name: Unleashing the ICP DAS ET-2254 with MQTT and Peakboard
     url: /2024-08-06-I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html
 ---
-In this blog we already talked about various devices to be connected with Peakboard and build beautiful applictions. One family of devices are I/O devices. These are used to connect any kind of sensors like light barriers, buttons, temperature sensors, or countlesse others. On the output side we often see actors like traffic lights or sound alarms.
+In this blog, we've explained how to connect various devices to Peakboard, and build beautiful applications. One family of devices is I/O devices. These are used to connect any kind of sensor, like light barriers, buttons, temperature sensors, or countless others. On the output side, we often see actors like traffic lights and sound alarms.
 
-On the market there are literally hundreds of these I/O devices and the overall majority of those work very well with Peakboard. This might be confusing for customers who just started their journey and still try to figure out on which brand or device to build their architecture. In his article we will discuss the five typical ways to connect to an I/O device and then introduce four I/O devices along with their features.
+On the market, there are literally hundreds of these I/O devices, and the vast majority of them work very well with Peakboard. This might be confusing for customers who have just started their journey, and are trying to figure out which brand or device they want to build their architecture on.
+
+In this, article we'll discuss the five most common ways for connecting a Peakboard Box to an I/O device. We'll also introduce four I/O devices along with their features.
 
 ## Techical connectivity
 
