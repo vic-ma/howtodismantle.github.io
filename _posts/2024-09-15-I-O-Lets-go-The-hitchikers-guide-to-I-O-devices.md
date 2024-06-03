@@ -53,7 +53,7 @@ Here's a relevant article on this blog: [Unleashing the ICP DAS ET-2254 with MQT
 
 ### ICP DAS U-7560M
 
-The U-7500 series comes with an OPC UA interface for supereasy connectivity and brings 6 inputs and 6 outputs. It also supports MQTT but when OPC UA is available prefererring OPC UA over MQTT is a smart choice.
+The U-7500 series comes with an OPC UA interface for super easy connectivity. It has 6 inputs and 6 outputs. It also supports MQTT, but OPC UA is preferable to MQTT if both are available.
 
 Estimated cost: 176 EUR
 
@@ -63,8 +63,9 @@ Estimated cost: 176 EUR
 
 ### Pepperl+Fuchs IO-Link-Master ICE2-8IOL-G65L-V1D
 
-This device supports connecting IO-Link devices and sensors. The configuration via web interface is very easy.
-For the connectivity we can choose between OPC, MQTT and Modbus. The nice thing with OPC UA is, that the attribtues of the connected IO-Link-device are reflected in the node structure which makes it super easy to connect and find the the right values during design time. The downside is, that IO-link related devices are usually much more expensive.
+This device supports IO-Link devices and sensors. The configuration via the web interface is easy.
+
+For the connectivity, you can choose between OPC, MQTT and Modbus. The nice thing with OPC UA is that the attributes of the connected IO-Link device are reflected in the node structure. This makes it easy to connect and find the right values during design time. The downside is, IO-link-related devices are usually much more expensive.
 
 Estimated cost: 700-900 EUR
 
