@@ -15,17 +15,17 @@ downloads:
 ---
 In the [first part](/2024-08-14-Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html) of our ProGlove miniseries, we discussed the basics of integrating ProGlove scanners into Peakboard applications. We used both the USB and MQTT modes to get the scan event, along with some metadata.
 
-In this article, we'll discuss some options for providing user feedback to the person performing a scan. This is especially useful for cases where the user doesn't want to look at the screen all the time, but may need to if something goes wrong, and they need to learn more about the scan. A typical use case is when a user is scanning all the products of an order:
+In this article, we'll discuss some options for providing user feedback to the user performing a scan. This is especially useful for cases where the user doesn't want to look at the screen all the time, but may need to if something goes wrong, in order to learn more about the scan. A typical use case is when a user is scanning all the products of an order:
 1. The user scans all the products.
 2. If there are any products that don't belong to the order, the user gets negative feedback. 
 
-We will discuss two examples. The first only gives positive and negative feedback. The second provides more information: A storage bin and some attributes of the scanned product will show up on the scanner display.
+We will discuss two examples. The first only gives positive and negative feedback with an LED. The second provides more information: A storage bin and some attributes of the scanned product will show up on the scanner display.
 
 ## Feedback by LED
 
 The [Mark 3 model](https://proglove.com/products/hardware/mark-3/) is equipped with variable-color LEDs that provide user feedback. Giving feedback to the scanner via MQTT works in the same way as when submitting a scan event, but the direction and the JSON changes.
 
-The topic we're sending our message to is this:
+We're sending our message to this topic:
 ```
 Peakboard/gateway/PGGW402650394/feedback!
 ```
@@ -58,9 +58,9 @@ In our demo environment, we place two buttons to showcase the feedback function:
 
 ![image](/assets/2024-08-30/010.png)
 
-The MQTT message is sent with a single MQTT publish command. In the following screenshot, we send the JSON string to the topic form before, by using the existing MQTT connection, which refers to the data source we created in the [first part of this series](/2024-08-14-Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html).
+The MQTT message is sent with a single MQTT publish command. In the following screenshot, we send the JSON string to the topic from before, by using the existing MQTT connection, which refers to the data source we created in the [first part of this series](/2024-08-14-Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html).
 
-Then, we use a multiline string with placeholders to exchange the placeholder `#[SerialNo]#` with the serial number from the last scan. We look this up from the first row in the data source.
+Then, we use a multiline string with placeholders. We exchange the placeholder `#[SerialNo]#` with the serial number from the last scan. We look this up from the first row in the data source.
 
 The second button works exactly the same, but uses `FEEDBACK_NEGATIVE` in the JSON.
 
@@ -81,7 +81,7 @@ ProGlove offers different kinds of templates for displaying the message on the d
 
 The following JSON string shows an example of the `display!` command. Besides the name of the template and the serial number of the destination scanner, there are two variable fields we need to fill:
 * `display_field_header` is the upper part of the display template.
-* `display_field_text` is the lower part of the display template with small font.
+* `display_field_text` is the lower part of the display template with a smaller font.
 
 {% highlight json %}
 {
