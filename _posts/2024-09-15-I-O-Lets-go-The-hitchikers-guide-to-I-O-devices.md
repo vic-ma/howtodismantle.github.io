@@ -10,19 +10,19 @@ read_more_links:
 ---
 In this blog, we've explained how to connect various devices to Peakboard, and build beautiful applications. One family of devices is I/O devices. These are used to connect any kind of sensor, like light barriers, buttons, temperature sensors, or countless others. On the output side, we often see actors like traffic lights and sound alarms.
 
-On the market, there are literally hundreds of these I/O devices, and the vast majority of them work very well with Peakboard. This might be confusing for customers who have just started their journey, and are trying to figure out which brand or device they want to build their architecture on.
+On the market, there are literally hundreds of these I/O devices, and the vast majority of them work very well with Peakboard. This might be confusing for customers who have just started their journey and are trying to figure out which brand or device they want to build their architecture on.
 
-In this, article we'll discuss the five most common ways for connecting a Peakboard Box to an I/O device. We'll also introduce four I/O devices along with their features.
+In this, article we'll discuss the five most common ways for connecting a Peakboard Box to an I/O device. We'll also introduce four I/O devices and their features.
 
-## Techical connectivity
+## Technical connectivity
 
-There are uncountable ways to connect to I/O devices, however these five are mostly seen among the Peakboard customers.
+There are countless ways to connect to I/O devices, but these five are the most common among the Peakboard customers.
 
-1. OPC UA. The I/O device exposes an OPC UA endpoint and Peakboard connects as a client to this OPC UA server. Depending on the device the number of Peakboard clients might be limited to 3 or 5.
-2. MQTT. The I/O device is connected to an MQTT broker and the Peakboard application also connectes to this broker. The bi-directional dataflow is established by exchnanging messages throught MQTT topics.
-3. Modbus. The I/O device offers a modbus TCP endpoint and can be addressed by using the Modbus data source within the Peakboard application.
-4. REST API. The I/O device offers some kind of REST API endpoint that can be used by using the JSON data source.
-5. PLC. The I/O device is actually not directly connected to the network, but connected to a PLC. In that case the Peakboard application talks to the PLC (could be Siemens, Mitsubishi, Rockwell or any other). This way only makes sense when the Peakboard app already uses this PLC connection for other activities.
+1. **OPC UA.** The I/O device exposes an OPC UA endpoint and Peakboard connects as a client to this OPC UA server. Depending on the device, the number of Peakboard clients might be limited to 3 or 5.
+2. **MQTT.** The I/O device is connected to an MQTT broker and Peakboard also connects to this broker. The bidirectional dataflow is established by exchanging messages through MQTT topics.
+3. **Modbus.** The I/O device offers a modbus TCP endpoint and can be addressed by using the Modbus data source within the Peakboard application.
+4. **REST API.** The I/O device offers some kind of REST API endpoint that can be used by using the JSON data source.
+5. **PLC.** The I/O device is actually not directly connected to the network, but connected to a PLC. In that case the Peakboard application talks to the PLC (could be Siemens, Mitsubishi, Rockwell or any other). This way only makes sense when the Peakboard app already uses this PLC connection for other activities.
 
 ### Advantech WISE-4012
 
