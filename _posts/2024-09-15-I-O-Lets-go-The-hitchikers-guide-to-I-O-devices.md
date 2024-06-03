@@ -6,7 +6,7 @@ tags: hardware opcuamqtt api
 image: /assets/2024-09-15/title.png
 read_more_links:
   - name: Unleashing the ICP DAS ET-2254 with MQTT and Peakboard
-    url: /2024-08-06-I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html
+    url: /I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html
 ---
 In this blog, we've explained how to connect various devices to Peakboard, and build beautiful applications. One family of devices is I/O devices. These are used to connect any kind of sensor, like light barriers, buttons, and temperature sensors. On the output side, we often see actors like traffic lights and sound alarms.
 
@@ -45,7 +45,7 @@ The ET-2254 is perfect for wired networks. It offers 16 I/O ports that can be fr
 
 Estimated cost: 173 EUR
 
-Here's a relevant article on this blog: [Unleashing the ICP DAS ET-2254 with MQTT and Peakboard](/2024-08-06-I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html)
+Here's a relevant article on this blog: [Unleashing the ICP DAS ET-2254 with MQTT and Peakboard](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html)
 
 [Click here to jump directly to the vendor](https://www.icpdas.com/en/product/ET-2254)
 

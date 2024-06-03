@@ -6,14 +6,14 @@ tags: hardware opcuamqtt
 image: /assets/2024-08-30/title.png
 read_more_links:
   - name: Barcode Bliss - Part I - Integrating ProGlove Scanners with Peakboard
-    url: /2024-08-14-Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html
+    url: /Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html
   - name: ProGlove Documentation
     url: https://docs.proglove.com/en/connect-gateway-to-your-network-using-mqtt-integration.html
 downloads:
   - name: ProGloveTestCenter.pbmx
     url: /assets/2024-08-14/ProGloveTestCenter.pbmx
 ---
-In the [first part](/2024-08-14-Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html) of our ProGlove miniseries, we discussed the basics of integrating ProGlove scanners into Peakboard applications. We used both the USB and MQTT modes to get the scan event, along with some metadata.
+In the [first part](/Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html) of our ProGlove miniseries, we discussed the basics of integrating ProGlove scanners into Peakboard applications. We used both the USB and MQTT modes to get the scan event, along with some metadata.
 
 In this article, we'll discuss some options for providing user feedback to the user performing a scan. This is especially useful for cases where the user doesn't want to look at the screen all the time, but may need to if something goes wrong, in order to learn more about the scan. A typical use case is when a user is scanning all the products of an order:
 1. The user scans all the products.
