@@ -19,7 +19,7 @@ In this article, we'll take a look at the five most common ways for connecting a
 There are countless ways to connect to I/O devices, but these five are the most common among Peakboard customers.
 
 1. **OPC UA.** The I/O device exposes an OPC UA endpoint and Peakboard connects as a client to this OPC UA server. Depending on the device, the number of Peakboard clients might be limited to 3 or 5.
-2. **MQTT.** The I/O device is connected to an MQTT broker and Peakboard also connects to this broker. The bidirectional dataflow is established by exchanging messages through MQTT topics.
+2. **MQTT.** The I/O device is connected to an MQTT broker, and Peakboard also connects to this broker. The bidirectional dataflow is established by exchanging messages through MQTT topics.
 3. **Modbus.** The I/O device exposes a Modbus TCP endpoint and can be addressed by using the Modbus data source in the Peakboard application.
 4. **REST API.** The I/O device exposes a REST API endpoint that Peakboard can use with the JSON data source.
 5. **PLC.** The I/O device is not directly connected to the network, but instead connected to a PLC. In this case, the Peakboard application talks to the PLC (could be Siemens, Mitsubishi, Rockwell, or any other). This method only makes sense when the Peakboard app already uses this PLC connection for other activities.
@@ -31,7 +31,7 @@ The Advantech WISE-4012 comes with the following:
 * 4 digital inputs
 * 2 digital outputs
 
-It supports MQTT, REST API and Modbus access. It's meant to be only used with Wi-Fi, so no LAN plug is available.
+It supports MQTT, REST API, and Modbus access. It's meant to only be used with Wi-Fi, so no LAN plug is available.
 
 Estimated cost: 160 EUR
 
@@ -65,7 +65,7 @@ Estimated cost: 176 EUR
 
 This device supports IO-Link devices and sensors. The configuration via the web interface is easy.
 
-For the connectivity, you can choose between OPC, MQTT and Modbus. The nice thing with OPC UA is that the attributes of the connected IO-Link device are reflected in the node structure. This makes it easy to connect and find the right values during design time. The downside is, IO-link-related devices are usually much more expensive.
+For the connectivity, you can choose between OPC, MQTT and Modbus. The nice thing with OPC UA is that the attributes of the connected IO-Link device are reflected in the node structure. This makes it easy to connect and find the right values during design time. The downside is that IO-link-related devices are usually much more expensive.
 
 Estimated cost: 700-900 EUR
 
