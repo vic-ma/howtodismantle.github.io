@@ -6,7 +6,7 @@ tags: hardware opcuamqtt
 image: /assets/2024-08-14/title.png
 read_more_links:
   - name: Barcode Bliss - Part II - Sending Feedback to ProGlove Scanners
-    url: /2024-08-30-Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html
+    url: /Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html
   - name: ProGlove Documentation
     url: https://docs.proglove.com/en/connect-gateway-to-your-network-using-mqtt-integration.html
 downloads:

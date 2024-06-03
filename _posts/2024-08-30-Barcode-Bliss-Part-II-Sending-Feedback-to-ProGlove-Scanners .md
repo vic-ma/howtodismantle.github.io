@@ -6,7 +6,7 @@ tags: hardware opcuamqtt
 image: /assets/2024-08-30/title.png
 read_more_links:
   - name: Barcode Bliss - Part I - Integrating ProGlove Scanners with Peakboard
-    url: /2024-08-14-Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html
+    url: /Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html
   - name: ProGlove Documentation
     url: https://docs.proglove.com/en/connect-gateway-to-your-network-using-mqtt-integration.html
 downloads:
