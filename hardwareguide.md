@@ -9,9 +9,9 @@ This blog features a wide variety of articles about different types of hardware 
 
 ### I/O Modules and Adapters
 
-- [I/O, Let's go - The hitchhiker's guide to I/O devices ](/2024-09-15-I-O-Lets-go-The-hitchikers-guide-to-I-O-devices.html)
+- [I/O, Let's go - The hitchhiker's guide to I/O devices ](/I-O-Lets-go-The-hitchikers-guide-to-I-O-devices.html)
 - [I/O, Let's Go - Unleashing the ICP DAS ET-2254 with MQTT and Peakboard](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html)
-- [I/O, Let's Go - Unleashing the ICP DAS U-7500 series for cool I/O action with OPC UA](/2024-08-22-I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html)
+- [I/O, Let's Go - Unleashing the ICP DAS U-7500 series for cool I/O action with OPC UA](/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html)
 
 ### wheel.me AGVs
 
