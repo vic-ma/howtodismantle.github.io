@@ -2,6 +2,7 @@
 
     <a href="/" class="block text-lg font-bold mb-2 {% if page.url == '/index.html' %}text-secondary{% else %}text-gray-900 dark:text-light hover:text-secondary hover:underline{% endif %}">{{ site.content.side-menu-home }}</a>
     <a href="/about" class="block text-lg font-bold mb-2 {% if page.url == '/about.html' %}text-secondary{% else %}text-gray-900 dark:text-light hover:text-secondary hover:underline{% endif %}">{{ site.content.side-menu-about }}</a>
+    <a href="/hardwareguide" class="block text-lg font-bold mb-2 {% if page.url == '/hardwareguide.html' %}text-secondary{% else %}text-gray-900 dark:text-light hover:text-secondary hover:underline{% endif %}">{{ site.content.side-menu-hardwareguide }}</a>
     <p class="font-bold text-lg text-gray-900 dark:text-light mb-2">{{ site.content.side-menu-categories }}</p>
     <div class="mb-4">
         {% assign tag_pages = site.pages | where: 'layout', 'category' | sort: 'weight' %}
