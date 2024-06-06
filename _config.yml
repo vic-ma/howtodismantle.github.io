@@ -24,6 +24,7 @@ content:
   link-back-to-home: 'back to home'
   side-menu-home: 'Home'
   side-menu-about: 'About'
+  side-menu-hardwareguide: 'Hardware Guide'
   side-menu-title: 'What is this blog?'
   side-menu-text: 'How to dismantle a Peakboard Box is a blog about various tips, tricks and hacks for Peakboard Boxes.'
   side-menu-categories: 'Categories'
