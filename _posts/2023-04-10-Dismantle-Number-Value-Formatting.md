@@ -6,7 +6,6 @@ tags: bestpractice basics
 image: /assets/2023-04-10/040.gif
 outdated: true
 ---
-
 **Please note, that the content of this article might not be aligned with the latest version of Pakboard designer or runtime but applies to an older version**
 
 Displaying numbers in the correct format is one of the fundamental tasks of building a board. The basic features of number formatting in Peakboard are quite easy and well documented. Please check out the [documentation](https://help.peakboard.com/misc/en-formating-values.html), if you're not familiar with the formatting combo box that can be found everywhere.
