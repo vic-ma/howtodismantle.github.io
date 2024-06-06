@@ -30,7 +30,7 @@ This blog features a wide variety of articles about different types of hardware 
 
 ### Shelly
 
-[Building an emergency button with Shelly Button1 and MQTT ](/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html) 
+[Building an emergency button with Shelly Button1 and MQTT ](/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html)</br>
 [Fun with Shelly Plug S - Switching Power on and off ](/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html)
 
 ### PUSR RS232 RS485 Modbus RTU to Modbus TCP
