@@ -7,11 +7,14 @@ layout: hardwareguide
 
 This blog features a wide variety of articles about different types of hardware often used in Peakboard projects. Many visitors have requested an overview not only by type but also by vendor to help navigate the abundance of articles more easily. Here it is...
 
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
 ### I/O Modules and Adapters
 
-[I/O, Let's go - The hitchhiker's guide to I/O devices ](/2024-09-15-I-O-Lets-go-The-hitchikers-guide-to-I-O-devices.html)
-[I/O, Let's Go - Unleashing the ICP DAS ET-2254 with MQTT and Peakboard](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html)
-[I/O, Let's Go - Unleashing the ICP DAS U-7500 series for cool I/O action with OPC UA](/2024-08-22-I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html)
+- [I/O, Let's go - The hitchhiker's guide to I/O devices ](/2024-09-15-I-O-Lets-go-The-hitchikers-guide-to-I-O-devices.html)
+- [I/O, Let's Go - Unleashing the ICP DAS ET-2254 with MQTT and Peakboard](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html)
+- [I/O, Let's Go - Unleashing the ICP DAS U-7500 series for cool I/O action with OPC UA](/2024-08-22-I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html)
 
 ### wheel.me AGVs
 
