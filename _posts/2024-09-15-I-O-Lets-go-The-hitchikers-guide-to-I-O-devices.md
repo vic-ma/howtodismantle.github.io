@@ -57,6 +57,8 @@ The U-7500 series comes with an OPC UA interface for super easy connectivity. It
 
 Estimated cost: 176 EUR
 
+Here's a relevant article on this blog: [I/O, Let's Go - Unleashing the ICP DAS U-7500 series for cool I/O action with OPC UA ](/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html)
+
 [Click here to jump directly to the vendor](https://icpdas-europe.com/Remote-I-O-Module/MQTT/U-7560M-CR)
 
 ![image](/assets/2024-09-15/030.png)

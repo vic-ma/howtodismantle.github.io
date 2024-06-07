@@ -19,9 +19,41 @@ In an earlier article we already discussed another I/O module provided by the Ta
 
 But there might be also one disadvantage to consider: Usually the OPC UA device comes with a natural limitation of the number of clients. When an Input event should be distributed over more than 4 or 5 clients the OPC UA host could be undersized and this results in unreliable behaviour. In that case MQTT might be the smarter choice.
 
+![image](/assets/2024-08-22/010.png)
+
 ## Configuring the U-7560
 
+The U-7560 comes with a web interface like other typical ICP DAS products. As we want to focus on OPC UA we can make sure that OPC UA access is enabled. The screenshot shows the option to use anonymious access, however using certificates or user / password access control can be set here. 
 
+![image](/assets/2024-08-22/020.png)
 
-![image](/assets/2024-08-06/010.png)
+In the Module Settings part we can fine tune the 6 digital inputs and also the 6 relay outputs. The description is shown later in the OPC UA metadata and might make it a bit esier for OPC UA client to find the right input and output.
+
+![image](/assets/2024-08-22/030.png)
+
+## Setting up Peakbard data source
+
+On the Peakboard side access to the module is easily done through the typical OPC UA access. We just use the IP address and choose access without any certificates or password. On the right side we can see the OPC UA metadata structure. In our case we subscribe on the Input IN0 and also on the counter IN0_counter. The description we defined in the web interface for that input channel also comes up here.
+
+As in our sample we assume to process the events of a light barrier. So using the built-in-counter functionality is an easy-to-use feature for counting. So we don't need to implement it on our own.
+
+![image](/assets/2024-08-22/040.png)
+
+The screenshot shows a test app that just displays the state of the Input channel and the current value of the counter. The input value has a boolean data type.
+
+![image](/assets/2024-08-22/050.png)
+
+To reset the counter to its predefined initial value (usually just 0) we make use of a Building Block to write to an OPC UA node. The I/O module offers a special node called "ns=2;s=U-7560M.IN0_CounterClear". If this node is set to "true" the counter is reset. To find out the ID of a node we can just use the node subscription dialog from the data source windows. All the OPC UA node metadata is shown there.
+
+![image](/assets/2024-08-22/060.png)
+
+## Setting the output
+
+Setting an output channel works similiar like resetting a counter. We just write to a node. For output 0 the node is called "ns=2;s=U-7560M.RL0" and should be set to "1" to turn the channel on, and to "0" to turn it off.
+
+![image](/assets/2024-08-22/070.png)
+
+## conclusion
+
+Using OPC UA over MQTT is very straight forward because no JSON parsing is necessary. The samples in this article shows that no JSON parsing is necessary. The whole data processing is done type safe without any addtional knowledge about the source. We just use OPC ua metadata to set up out connectivity.  
 
