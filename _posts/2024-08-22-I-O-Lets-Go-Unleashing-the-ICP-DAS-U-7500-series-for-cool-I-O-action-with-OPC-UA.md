@@ -17,19 +17,21 @@ downloads:
 ---
 In a [previous article](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html), we discussed an I/O module provided by the Taiwan-based company ICP DAS. In today's article, we will discuss another I/O module from the U-7500 series: the [U-7560](https://www.icpdas.com/en/product/U-7560M) with 6 digital Inputs and 6 Relay outputs.
 
-The main difference is that it supports OPC UA as the primary way of connecting to it. When we use MQTT to access I/O modules, we always need some kind of MQTT broker in the middle. This is not necessary when using OPC UA; we just connect Peakboard directly to the I/O device. OPC UA also doesn't need to process any kind of JSON stream or whatever the I/O module sends via MQTT. In OPC UA, the correct, scalar value is always sent and can be used without further processing.
+The main difference is that it supports OPC UA as the primary way of connecting to it. When we use MQTT to access I/O modules, we always need some kind of MQTT broker in the middle.
 
-But there might be also one disadvantage to consider: Usually the OPC UA device comes with a natural limitation of the number of clients. When an Input event should be distributed over more than 4 or 5 clients the OPC UA host could be undersized and this results in unreliable behaviour. In that case MQTT might be the smarter choice.
+This is not necessary when using OPC UA; we just connect Peakboard directly to the I/O device. OPC UA also doesn't need to process any kind of JSON stream or whatever the I/O module sends via MQTT. In OPC UA, the correct, scalar value is always sent and can be used without further processing.
+
+But there is one disadvantage to consider: The OPC UA device usually comes with a natural limit for the number of clients. When an input event needs to be distributed over more than 4 or 5 clients, the OPC UA host could be undersized. This results in unreliable behavior. In this case, MQTT might be the smarter choice.
 
 ![image](/assets/2024-08-22/010.png)
 
-## Configuring the U-7560
+## Configure the U-7560
 
-The U-7560 comes with a web interface like other typical ICP DAS products. As we want to focus on OPC UA we can make sure that OPC UA access is enabled. The screenshot shows the option to use anonymious access, however using certificates or user / password access control can be set here. 
+The U-7560 comes with a web interface, like other ICP DAS products. Because we want to focus on OPC UA, we need to make sure that OPC UA access is enabled. The following screenshot shows that you can enable anonymous login, certificate login, and user/password login:
 
 ![image](/assets/2024-08-22/020.png)
 
-In the Module Settings part we can fine tune the 6 digital inputs and also the 6 relay outputs. The description is shown later in the OPC UA metadata and might make it a bit esier for OPC UA client to find the right input and output.
+In the **Module Setting** tab, we can fine tune the 6 digital inputs and 6 relay outputs. The **OPC UA Description** is shown in the OPC UA metadata and can make it a bit easier for OPC UA client to find the right input and output.
 
 ![image](/assets/2024-08-22/030.png)
 
