@@ -37,7 +37,7 @@ In the **Module Setting** tab, we can fine tune the 6 digital inputs and 6 relay
 
 ## Set up Peakbard data source
 
-On the Peakboard side, we gain access to the module through the typical OPC UA access. We input the IP address and select anonymous authentication. On the right side, you can see the OPC UA metadata structure. In our case we subscribe on the Input IN0 and also on the counter IN0_counter. The description we defined in the web interface for that input channel also comes up here.
+On the Peakboard side, we gain access to the module through the typical OPC UA access. We input the IP address and select anonymous authentication. On the right side, you can see the OPC UA metadata structure. In our case, we subscribe on the `IN0` input and the `IN0_counter` counter. The description we defined for that input (in the web interface) also appears here.
 
 As in our sample we assume to process the events of a light barrier. So using the built-in-counter functionality is an easy-to-use feature for counting. So we don't need to implement it on our own.
 
