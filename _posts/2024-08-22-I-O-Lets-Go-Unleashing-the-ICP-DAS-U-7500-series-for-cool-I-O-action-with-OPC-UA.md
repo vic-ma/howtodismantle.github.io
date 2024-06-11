@@ -31,13 +31,13 @@ The U-7560 comes with a web interface, like other ICP DAS products. Because we w
 
 ![image](/assets/2024-08-22/020.png)
 
-In the **Module Setting** tab, we can fine tune the 6 digital inputs and 6 relay outputs. The **OPC UA Description** is shown in the OPC UA metadata and can make it a bit easier for OPC UA client to find the right input and output.
+In the **Module Setting** tab, we can fine tune the 6 digital inputs and 6 relay outputs. The OPC UA description is shown in the OPC UA metadata and can make it a bit easier for OPC UA client to find the right input and output.
 
 ![image](/assets/2024-08-22/030.png)
 
-## Setting up Peakbard data source
+## Set up Peakbard data source
 
-On the Peakboard side access to the module is easily done through the typical OPC UA access. We just use the IP address and choose access without any certificates or password. On the right side we can see the OPC UA metadata structure. In our case we subscribe on the Input IN0 and also on the counter IN0_counter. The description we defined in the web interface for that input channel also comes up here.
+On the Peakboard side, we gain access to the module through the typical OPC UA access. We input the IP address and select anonymous authentication. On the right side, you can see the OPC UA metadata structure. In our case we subscribe on the Input IN0 and also on the counter IN0_counter. The description we defined in the web interface for that input channel also comes up here.
 
 As in our sample we assume to process the events of a light barrier. So using the built-in-counter functionality is an easy-to-use feature for counting. So we don't need to implement it on our own.
 
