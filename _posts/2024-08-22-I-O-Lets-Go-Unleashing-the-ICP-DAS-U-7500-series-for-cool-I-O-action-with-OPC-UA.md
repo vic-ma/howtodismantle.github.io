@@ -53,11 +53,11 @@ To reset the counter to its predefined initial value (usually 0), we write to a 
 
 ## Set the output
 
-Setting an output channel works similarly to resetting a counter: We write to a node. For output 0, we use the node `ns=2;s=U-7560M.RL0`. We set it to 1 to turn the channel on, and to 0 to turn it off.
+Setting an output channel works similarly to resetting a counter: We write to a node. For output 0, we use the node `ns=2;s=U-7560M.RL0`. We set it to 1 to turn the channel on, and we set it to 0 to turn it off.
 
 ![image](/assets/2024-08-22/070.png)
 
 ## Conclusion
 
-Using OPC UA over MQTT is straightforward because there is no JSON parsing necessary, as shown in this article. The entire data processing is done in a type-safe way without any special knowledge about the source. We just use OPC UA metadata to set up the connectivity.  
+Using OPC UA over MQTT is straightforward because there is no JSON parsing necessary, as shown in this article. The data processing is done in a type-safe way without any special knowledge about the source. We just use OPC UA metadata to set up the connectivity.  
 
