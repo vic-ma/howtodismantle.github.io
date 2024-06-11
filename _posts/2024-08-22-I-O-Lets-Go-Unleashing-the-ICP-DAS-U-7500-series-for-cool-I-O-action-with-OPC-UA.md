@@ -39,15 +39,15 @@ In the **Module Setting** tab, we can fine tune the 6 digital inputs and 6 relay
 
 On the Peakboard side, we gain access to the module through the typical OPC UA access. We input the IP address and select anonymous authentication. On the right side, you can see the OPC UA metadata structure. In our case, we subscribe on the `IN0` input and the `IN0_counter` counter. The description we defined for that input (in the web interface) also appears here.
 
-As in our sample we assume to process the events of a light barrier. So using the built-in-counter functionality is an easy-to-use feature for counting. So we don't need to implement it on our own.
+In our example, we assume we're processing the events of a light barrier. So we use the built-in counter as an easy way to get counting functionality. We don't need to implement a counter from scratch.
 
 ![image](/assets/2024-08-22/040.png)
 
-The screenshot shows a test app that just displays the state of the Input channel and the current value of the counter. The input value has a boolean data type.
+The following screenshot shows a test app that displays the state of the input channel and the current value of the counter. The input value has a boolean data type.
 
 ![image](/assets/2024-08-22/050.png)
 
-To reset the counter to its predefined initial value (usually just 0) we make use of a Building Block to write to an OPC UA node. The I/O module offers a special node called "ns=2;s=U-7560M.IN0_CounterClear". If this node is set to "true" the counter is reset. To find out the ID of a node we can just use the node subscription dialog from the data source windows. All the OPC UA node metadata is shown there.
+To reset the counter to its predefined initial value (usually 0), we use a Building Block to write to an OPC UA node. The I/O module offers a special node called `ns=2;s=U-7560M.IN0_CounterClear`. If this node is set to `true`, then the counter is reset. To find the ID of a node, we can use the node subscription dialog from the data source windows. All the OPC UA node metadata is shown there.
 
 ![image](/assets/2024-08-22/060.png)
 
