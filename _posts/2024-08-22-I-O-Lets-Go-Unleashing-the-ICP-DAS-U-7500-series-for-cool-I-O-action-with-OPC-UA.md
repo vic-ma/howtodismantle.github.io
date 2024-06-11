@@ -15,11 +15,9 @@ downloads:
   - name: ICP-DAS-U-7560-OPC-UA.pbmx
     url: /assets/2024-08-22/ICP-DAS-U-7560-OPC-UA.pbmx
 ---
-In a [previous article](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html), we discussed an I/O module provided by the Taiwan-based company ICP DAS. In today's article, we will discuss another I/O module from the U-7500 series: the [U-7560](https://www.icpdas.com/en/product/U-7560M) with 6 digital Inputs and 6 Relay outputs.
+In a [previous article](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html), we discussed an I/O module made by the Taiwan-based company ICP DAS. In today's article, we will discuss another I/O module from the U-7500 series: the [U-7560](https://www.icpdas.com/en/product/U-7560M). It has 6 digital inputs and 6 relay outputs. The main difference is that it supports OPC UA as the standard way of connecting to it.
 
-The main difference is that it supports OPC UA as the primary way of connecting to it. When we use MQTT to access I/O modules, we always need some kind of MQTT broker in the middle.
-
-This is not necessary when using OPC UA; we just connect Peakboard directly to the I/O device. OPC UA also doesn't need to process any kind of JSON stream or whatever the I/O module sends via MQTT. In OPC UA, the correct, scalar value is always sent and can be used without further processing.
+When we use MQTT to access I/O modules, we always need some kind of MQTT broker in the middle. This is not the case with OPC UA. When using OPC UA, we can connect Peakboard directly to the I/O device. OPC UA also doesn't need to process any kind of JSON stream or whatever the I/O module sends via MQTT. In OPC UA, the correct, scalar value is always sent and can be used without further processing.
 
 But there is one disadvantage to consider: The OPC UA device usually comes with a natural limit for the number of clients. When an input event needs to be distributed over more than 4 or 5 clients, the OPC UA host could be undersized. This results in unreliable behavior. In this case, MQTT might be the smarter choice.
 
