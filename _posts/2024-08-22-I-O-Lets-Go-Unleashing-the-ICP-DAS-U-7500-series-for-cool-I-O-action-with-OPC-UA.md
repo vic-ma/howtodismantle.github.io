@@ -51,9 +51,9 @@ To reset the counter to its predefined initial value (usually 0), we use a Build
 
 ![image](/assets/2024-08-22/060.png)
 
-## Setting the output
+## Set the output
 
-Setting an output channel works similiar like resetting a counter. We just write to a node. For output 0 the node is called "ns=2;s=U-7560M.RL0" and should be set to "1" to turn the channel on, and to "0" to turn it off.
+Setting an output channel works similarly to resetting a counter: We write to a node. To output 0, we use the node `ns=2;s=U-7560M.RL0`. We set it to 1 to turn the channel on, and to 0 to turn it off.
 
 ![image](/assets/2024-08-22/070.png)
 
