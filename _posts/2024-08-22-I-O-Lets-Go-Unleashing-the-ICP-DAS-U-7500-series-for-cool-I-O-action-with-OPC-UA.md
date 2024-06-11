@@ -47,17 +47,17 @@ The following screenshot shows a test app that displays the state of the input c
 
 ![image](/assets/2024-08-22/050.png)
 
-To reset the counter to its predefined initial value (usually 0), we use a Building Block to write to an OPC UA node. The I/O module offers a special node called `ns=2;s=U-7560M.IN0_CounterClear`. If this node is set to `true`, then the counter is reset. To find the ID of a node, we can use the node subscription dialog from the data source windows. All the OPC UA node metadata is shown there.
+To reset the counter to its predefined initial value (usually 0), we write to a special OPC UA node with Building Blocks. The I/O module offers a node called `ns=2;s=U-7560M.IN0_CounterClear`. If this node is set to `true`, then the counter is reset. To find the ID of a node, we can use the node subscription dialog from the data source windows. All the OPC UA node metadata is shown there.
 
 ![image](/assets/2024-08-22/060.png)
 
 ## Set the output
 
-Setting an output channel works similarly to resetting a counter: We write to a node. To output 0, we use the node `ns=2;s=U-7560M.RL0`. We set it to 1 to turn the channel on, and to 0 to turn it off.
+Setting an output channel works similarly to resetting a counter: We write to a node. For output 0, we use the node `ns=2;s=U-7560M.RL0`. We set it to 1 to turn the channel on, and to 0 to turn it off.
 
 ![image](/assets/2024-08-22/070.png)
 
-## conclusion
+## Conclusion
 
-Using OPC UA over MQTT is very straight forward because no JSON parsing is necessary. The samples in this article shows that no JSON parsing is necessary. The whole data processing is done type safe without any addtional knowledge about the source. We just use OPC ua metadata to set up out connectivity.  
+Using OPC UA over MQTT is straightforward because there is no JSON parsing necessary, as shown in this article. The entire data processing is done in a type-safe way without any special knowledge about the source. We just use OPC UA metadata to set up the connectivity.  
 
