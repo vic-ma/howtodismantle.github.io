@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Catch Me If You Can - The ultimate Guide on how to handle Exceptions in Lua
-date: 2023-03-01 12:00:00 +0200
+date: 2023-06-11 12:00:00 +0200
 tags: lua
 image: /assets/2024-06-11/title.png
 read_more_links:
