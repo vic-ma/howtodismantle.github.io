@@ -27,8 +27,8 @@ There are countless ways to connect to I/O devices, but these five are the most 
 ### Advantech WISE-4012
 
 The Advantech WISE-4012 comes with the following:
-* 4 analog inputs
-* 4 digital inputs
+
+* 4 Analog / Digital Inputs
 * 2 digital outputs
 
 It supports MQTT, REST API, and Modbus access. It's meant to only be used with Wi-Fi, so no LAN plug is available.
@@ -84,10 +84,8 @@ Estimated cost: 700-900 EUR
 | WLAN​  | X |  |  |  |
 | Ethernet​  |  | X | X | X |
 | OPC-UA​  |  |  | X | X |
-| MQTT​  | X | X |  | X |
-| Modbus​  |  | X |  | X |
-| Digital in/out​  | X | X | X | X |
-| Analog in/out​  | X | X | X | X |
+| MQTT​  | X | X | X | X |
+| Modbus​  | X | X |  | X |
 | IO-Link  |  |  |  | X |
 
 
