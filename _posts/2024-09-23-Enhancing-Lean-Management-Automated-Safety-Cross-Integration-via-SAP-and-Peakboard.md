@@ -61,7 +61,7 @@ On the canvas of our project we use a bunch of text fields to form a cross. The 
 
 ![image](/assets/2024-09-23/030.png)
 
-## Scrptig the logic
+## Scripting the logic
 
 The actual magic to turn the raw data into colored text fields happens in the reload script of the SAP data source. In fact the script is very simple and can be easily done with building blocks. However we use use LUA in this article because we need to treat every day individually, so LUA gives us a more condensed view than building blocks.
 
