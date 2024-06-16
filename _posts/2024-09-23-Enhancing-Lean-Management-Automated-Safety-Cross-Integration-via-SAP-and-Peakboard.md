@@ -85,12 +85,12 @@ for index = 0, data.SAPAbsenceThisMonth.count - 1 do
 	local AbsenceDays = math.tonumber(current['ABWTG'])
 
 	if Day == '01' and AbsenceDays < 3 then screens['Main'].txt1.background = brushes.orange end
-  [.....]
+	[.....]
 	if Day == '31' and AbsenceDays < 3 then screens['Main'].txt31.background = brushes.orange end
 	
 	if Day == '01' and AbsenceDays >= 3 then screens['Main'].txt1.background = brushes.red end
-  [.....]	
-  if Day == '31' and AbsenceDays >= 3 then screens['Main'].txt31.background = brushes.red end
+	[.....]	
+	if Day == '31' and AbsenceDays >= 3 then screens['Main'].txt31.background = brushes.red end
 		
 end
 {% endhighlight %}
