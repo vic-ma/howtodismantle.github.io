@@ -30,13 +30,13 @@ Typically, the cross is colored manually. But of course, we can do better. In th
 
 The basic idea is that every accident that happens in production causes an absence record in SAP HR. If the employee is absent for one or two days, then it's a minor accident. If the employee is absent for three or more days, then it's a major accident.
 
-HR data in SAP is organized into "info types." These info types have numbers. The info type we're looking for has the number 2001. But we need an additional filter for the subtype. In our case, the subtype is 0270, which stands for industrial accidents.
+HR data in SAP is organized into "info types." These info types have numbers. The info type we're looking for has the number 2001. We also need a filter for the subtype. In our case, the subtype is 0270, which stands for industrial accidents.
 
-The following screenshot shows a list of absence records in transaction PA30. Besides regular vacation days, there are four accident records. (Keep in mind that this is just sample data. If a single employee records four accidents in two weeks, something is wrong with the company!) 
+The following screenshot shows a list of absence records in transaction PA30. Besides regular vacation days, there are four accident records. (Keep in mind that this is just sample data. If a single employee has four accidents in two weeks, then something is wrong with the company!) 
 
 ![image](/assets/2024-09-23/010.png)
 
-The table where info type are stored are named `PAXXXX`, where `XXXX` is the type number. So, we use the table `PA2001`, with `SUBTY = 0270` for the subtype. We also use the date field `BEDGA` to limit the data to the current month. This gives us access to the raw data for our safety cross.
+The table where info types are stored is named `PAXXXX`, where `XXXX` is the type number. So, we use the table `PA2001`, with `SUBTY = 0270` for the subtype. We also use the date field `BEDGA` to limit the data to the current month. This gives us the raw data for our safety cross.
 
 ## Set up the data source
 
