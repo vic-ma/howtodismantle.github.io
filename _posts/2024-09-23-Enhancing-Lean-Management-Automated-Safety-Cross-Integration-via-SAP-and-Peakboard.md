@@ -29,11 +29,11 @@ The basic idea is that every accident that happens in production causes an absen
 
 HR data in SAP is organized into "info types." These info types have numbers. The info type we're looking for has the number 2001. But we need an additional filter for the subtype. In our case, the subtype is 0270, which stands for industrial accidents.
 
-The screenshot shows a list of absence records in transaction PA30. Beside regular vacation days there are are 4 accident records (we keep in mind that this is just sample data. If a single employee records 4 accidents in two weeks something is wrong with this company) 
+The following screenshot shows a list of absence records in transaction PA30. Besides regular vacation days, there are four accident records. (Keep in mind that this is just sample data. If a single employee records four accidents in two weeks, something is wrong with the company!) 
 
 ![image](/assets/2024-09-23/010.png)
 
-The table where info type are stored are named PAXXXX whereas XXXX is the type number. So we're just using the table PA2001 with SUBTY = 0270 for the sub type and also use the date field BEDGA for limiting the data to the current month. That gives us access to the raw data for our saftey cross.
+The table where info type are stored are named `PAXXXX`, where `XXXX` is the type number. So, we use the table `PA2001`, with `SUBTY = 0270` for the subtype. We also use the date field `BEDGA` to limit the data to the current month. This gives us access to the raw data for our safety cross.
 
 ## Set up the data source
 
