@@ -17,15 +17,18 @@ downloads:
 ---
 A [safety cross](https://www.google.com/search?q=what+is+a+sfety+cross&rlz=1C1GEWG_deDE994DE994&oq=what+is+a+sfety+cross&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTILCAEQABgNGBMYgAQyCwgCEAAYDRgTGIAEMgsIAxAAGA0YExiABDILCAQQABgNGBMYgAQyCwgFEAAYDRgTGIAEMgsIBhAAGA0YExiABDILCAcQABgNGBMYgAQyCggIEAAYDRgTGB4yCggJEAAYExgWGB7SAQgzNDMwajBqNKgCALACAQ&sourceid=chrome&ie=UTF-8) is one of the most common methods for visualizing safety in lean manufacturing.
 
-The cross typically consists of 31 rectangles, representing the 31 days in a month. When an accident happens, the corresponding day is colored orange for light accidents, and red for more severe accidents. When there are no accidents, we paint the rectangle green.
+The cross typically consists of 31 rectangles, which represent the 31 days in a month. Each day, the corresponding rectangle is colored in, according to what happened:
+* **Green** - No accident
+* **Orange** - Light accident
+* **Red** - Severe accident
 
-So ideally, at the end of the month, the whole cross should only have green rectangles. That's what managers want to see.
+So ideally, at the end of the month, the whole cross should be green. That's what managers want to see.
 
-Typically, the cross is colored manually. But of course, we can do better. This article is about how to fill a digital safety cross automatically, from data taken from the SAP HR module. And there's absolutely no changes or additions necessary in SAP. Anyone can download the demo PBMX, put in their credentials, and start right away. It's out-of-the-box with literally any SAP system.
+Typically, the cross is colored manually. But of course, we can do better. In this article, we discuss how to fill a digital safety cross automatically, with data taken from the SAP HR module. And there's absolutely no changes or additions necessary in SAP. Anyone can download the demo PBMX, put in their credentials, and start right away. It's an out-of-the-box solution with literally any SAP system.
 
 ## The SAP side
 
-The basic idea is that every accident that happens in production causes an absence record in SAP HR. When it's a minor accident, that employee will be absent for one or two days. When it's a bigger accident, the employee will be absent for three or more days.
+The basic idea is that every accident that happens in production causes an absence record in SAP HR. If the employee is absent for one or two days, then it's a minor accident. If the employee is absent for three or more days, then it's a major accident.
 
 HR data in SAP is organized into "info types." These info types have numbers. The info type we're looking for has the number 2001. But we need an additional filter for the subtype. In our case, the subtype is 0270, which stands for industrial accidents.
 
@@ -80,7 +83,7 @@ if data.MyTimer.format('dd') >= '01' then screens['Main'].txt1.background = brus
 if data.MyTimer.format('dd') >= '31' then screens['Main'].txt31.background = brushes.green end
 {% endhighlight %}
 
-in the next paragraph we just loop over the whole SAP data set. We convert the SAP data value to the curent day by using "string.sub(current['BEGDA'], 7, 9)" and the number of absence days we turn from string to a number: "AbsenceDays = math.tonumber(current['ABWTG'])". Then we check for every entry and the day if the number of absence day indicate a severe or minor accident and set the text field color accordingly. That's it.
+In the next paragraph, we loop over the entire SAP data set. We convert the SAP data value to the current day by using `string.sub(current['BEGDA'], 7, 9)`. We turn the number of absence days from string to a number: `AbsenceDays = math.tonumber(current['ABWTG'])`. Then, we check for every entry and the day if the number of absence day indicate a severe or minor accident and set the text field color accordingly. That's it.
 
 {% highlight lua %}
 for index = 0, data.SAPAbsenceThisMonth.count - 1 do
@@ -100,7 +103,7 @@ for index = 0, data.SAPAbsenceThisMonth.count - 1 do
 end
 {% endhighlight %}
 
-## result and conclusion
+## Result and conclusion
 
 The screenshot shows the final result according to our sample data introduced earlier. All the colors are set according to the logic of minor and severe accidents. The LUA cript is actually super simple and can be easily adjusted. It would be easily possible to adjust the XQL to limit the data only to certain teams or use other info types.
 
