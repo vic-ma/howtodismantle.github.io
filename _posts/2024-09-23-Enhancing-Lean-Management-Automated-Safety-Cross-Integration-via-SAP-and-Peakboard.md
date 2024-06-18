@@ -40,9 +40,9 @@ The table where info types are stored is named `PAXXXX`, where `XXXX` is the typ
 
 ## Set up the data source
 
-In Peakboard Designer, we first set up a time data source, because we will need to determine the current month later.
+In Peakboard Designer, we first set up a time data source, because we'll need to determine the current month later.
 
-We also need an SAP data source. Here is the XQL to select the data:
+We also need an SAP data source. Here's the XQL to select the data:
 
 {% highlight sql %}
 ELECT PERNR, BEGDA, ABWTG FROM PA2001 
@@ -65,7 +65,7 @@ And here's what the data source dialog looks like. In the preview grid on the ri
 
 ## Build the cross
 
-On the canvas of our project, we use a bunch of text fields to form a cross. We name the text boxes according to the day they represent, so we can easily refer to them later in the script.
+On the canvas of our project, we add a bunch of text fields to form a cross. We name the text boxes according to the day they represent, so we can easily refer to them later in the script.
 
 ![image](/assets/2024-09-23/030.png)
 
