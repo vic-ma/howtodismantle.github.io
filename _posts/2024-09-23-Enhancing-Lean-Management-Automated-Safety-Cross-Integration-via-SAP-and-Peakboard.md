@@ -17,7 +17,7 @@ downloads:
 ---
 A [safety cross](https://www.google.com/search?q=what+is+a+sfety+cross&rlz=1C1GEWG_deDE994DE994&oq=what+is+a+sfety+cross&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTILCAEQABgNGBMYgAQyCwgCEAAYDRgTGIAEMgsIAxAAGA0YExiABDILCAQQABgNGBMYgAQyCwgFEAAYDRgTGIAEMgsIBhAAGA0YExiABDILCAcQABgNGBMYgAQyCggIEAAYDRgTGB4yCggJEAAYExgWGB7SAQgzNDMwajBqNKgCALACAQ&sourceid=chrome&ie=UTF-8) is one of the most common methods for visualizing safety in lean manufacturing.
 
-The cross typically consists of 31 rectangles, representing the 31 days in a month. When an accident happens, the corresponding day is colored orange for light accidents, and red for more severe accidents. When there are no incidents, we paint the rectangle green.
+The cross typically consists of 31 rectangles, representing the 31 days in a month. When an accident happens, the corresponding day is colored orange for light accidents, and red for more severe accidents. When there are no accidents, we paint the rectangle green.
 
 So ideally, at the end of the month, the whole cross should only have green rectangles. That's what managers want to see.
 
@@ -25,9 +25,9 @@ Typically, the cross is colored manually. But of course, we can do better. This 
 
 ## The SAP side
 
-The basic idea is that every accident that happens in production causes an absence record in SAP HR. When its only a minor incident, that employee might be absent for one or two days. And if it's a bigger accident he/she will be absent 3 or more days.
+The basic idea is that every accident that happens in production causes an absence record in SAP HR. When it's a minor accident, that employee will be absent for one or two days. When it's a bigger accident, the employee will be absent for three or more days.
 
-HR data in SAP is organised in so called info types. These info types have numbers. The info type we're are looking for has the number 2001. But we need an additional filter. It's the sub type. In our case the sub stype is 0270, which stands for industrial accidents.
+HR data in SAP is organized into "info types." These info types have numbers. The info type we're looking for has the number 2001. But we need an additional filter for the subtype. In our case, the subtype is 0270, which stands for industrial accidents.
 
 The screenshot shows a list of absence records in transaction PA30. Beside regular vacation days there are are 4 accident records (we keep in mind that this is just sample data. If a single employee records 4 accidents in two weeks something is wrong with this company) 
 
