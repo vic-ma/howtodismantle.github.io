@@ -15,9 +15,13 @@ downloads:
   - name: SAPSafetyCross.pbmx
     url: /assets/2024-09-23/SAPSafetyCross.pbmx
 ---
-A [Safety Cross](https://www.google.com/search?q=what+is+a+sfety+cross&rlz=1C1GEWG_deDE994DE994&oq=what+is+a+sfety+cross&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTILCAEQABgNGBMYgAQyCwgCEAAYDRgTGIAEMgsIAxAAGA0YExiABDILCAQQABgNGBMYgAQyCwgFEAAYDRgTGIAEMgsIBhAAGA0YExiABDILCAcQABgNGBMYgAQyCggIEAAYDRgTGB4yCggJEAAYExgWGB7SAQgzNDMwajBqNKgCALACAQ&sourceid=chrome&ie=UTF-8) is one the most typical methods in the area of lean production to visualize safety. The cross typically consists of 31 rectangles representing the 31 days of a month. When an accident happens the corresponding day is then painted orange for light accidents and red for more severe accidents. When there are no indcidents we paint the rectangle green. So ideally at the end of the month the whole cross only has green rectangles. That's what managers want to see.
+A [safety cross](https://www.google.com/search?q=what+is+a+sfety+cross&rlz=1C1GEWG_deDE994DE994&oq=what+is+a+sfety+cross&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTILCAEQABgNGBMYgAQyCwgCEAAYDRgTGIAEMgsIAxAAGA0YExiABDILCAQQABgNGBMYgAQyCwgFEAAYDRgTGIAEMgsIBhAAGA0YExiABDILCAcQABgNGBMYgAQyCggIEAAYDRgTGB4yCggJEAAYExgWGB7SAQgzNDMwajBqNKgCALACAQ&sourceid=chrome&ie=UTF-8) is one of the most common methods for visualizing safety in lean manufacturing.
 
-Typically the cross is painted manually just by filling every day the correponding rectangle with the correpsnding color. But of course we can do better. This article is about how to fill a digital Safety Cross automatically from data taken from the SAP HR module. And even more: there's absoluetely no changes or additions necessary in SAP. Anyone can just download the sample pbmx, put in credentials and start right away. It's out-of-the-box with literally any SAP system.
+The cross typically consists of 31 rectangles, representing the 31 days in a month. When an accident happens, the corresponding day is colored orange for light accidents, and red for more severe accidents. When there are no incidents, we paint the rectangle green.
+
+So ideally, at the end of the month, the whole cross should only have green rectangles. That's what managers want to see.
+
+Typically, the cross is colored manually. But of course, we can do better. This article is about how to fill a digital safety cross automatically, from data taken from the SAP HR module. And there's absolutely no changes or additions necessary in SAP. Anyone can download the demo PBMX, put in their credentials, and start right away. It's out-of-the-box with literally any SAP system.
 
 ## The SAP side
 
