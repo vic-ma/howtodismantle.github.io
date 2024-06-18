@@ -28,7 +28,7 @@ Typically, the cross is colored manually. But of course, we can do better. In th
 
 ## The SAP side
 
-The basic idea is that every accident that happens in production causes an absence record in SAP HR. If the employee is absent for one or two days, then it's a minor accident. If the employee is absent for three or more days, then it's a major accident.
+The basic idea is that every accident that happens in production causes an absence record in SAP HR. If the employee is absent for one or two days, then it's a minor accident. If the employee is absent for three or more days, then it's a severe accident.
 
 HR data in SAP is organized into "info types." These info types have numbers. The info type we're looking for has the number 2001. We also need a filter for the subtype. In our case, the subtype is 0270, which stands for industrial accidents.
 
@@ -117,7 +117,9 @@ end
 
 ## Result and conclusion
 
-The screenshot shows the final result according to our sample data introduced earlier. All the colors are set according to the logic of minor and severe accidents. The LUA cript is actually super simple and can be easily adjusted. It would be easily possible to adjust the XQL to limit the data only to certain teams or use other info types.
+The following screenshot shows the final result according to our sample data from earlier. All the colors are set according to the logic of minor and severe accidents.
+
+The LUA script is really simple and can be easily modified. It would be easy to adjust the XQL to limit the data to certain teams or use other info types.
 
 ![image](/assets/2024-09-23/050.png)
 
