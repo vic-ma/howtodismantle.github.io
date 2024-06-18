@@ -37,8 +37,9 @@ The table where info type are stored are named `PAXXXX`, where `XXXX` is the typ
 
 ## Set up the data source
 
-In the Peakboard designer we first set up a time data source, because we will need to determine the current month later.
-Beside the time data source we need an SAP data source. The XQL to select the data is
+In Peakboard Designer, we first set up a time data source, because we will need to determine the current month later.
+
+We also need an SAP data source. Here is the XQL to select the data:
 
 {% highlight sql %}
 ELECT PERNR, BEGDA, ABWTG FROM PA2001 
@@ -46,7 +47,7 @@ where BEGDA >= '20240601' and BEGDA <= '20240631'
 and SUBTY = '0270';
 {% endhighlight %}
 
-Now we need to make it dynamic. The month value within the two date values always should be the current month. So we enrich the XQL code with a bit of LUA to determine the current month:
+We also need to make it dynamic. The month value within the two date values should always be the current month. So, we enrich the XQL code with a bit of LUA to determine the current month:
 
 {% highlight lua %}
 return "SELECT PERNR, BEGDA, ABWTG FROM PA2001 " ..
@@ -55,19 +56,19 @@ return "SELECT PERNR, BEGDA, ABWTG FROM PA2001 " ..
 "and SUBTY = '0270';"
 {% endhighlight %}
 
-And here's how the data source dialog looks like. In the preview grid on the right we can see the raw data that exactly corresponds to the the data we saw in transaction PA30 decribed above.
+And here's what the data source dialog looks like. In the preview grid on the right, you can see the raw data that matches the data we saw in transaction PA30 above.
 
 ![image](/assets/2024-09-23/020.png)
 
-## Building the cross
+## Build the cross
 
-On the canvas of our project we use a bunch of text fields to form a cross. The text boxes whould be named according to their day, so we can easily address them later in the script.
+On the canvas of our project, we use a bunch of text fields to form a cross. We name the text boxes according to the day they represent, so we can easily refer to them later in the script.
 
 ![image](/assets/2024-09-23/030.png)
 
-## Scripting the logic
+## Create the script
 
-The actual magic to turn the raw data into colored text fields happens in the reload script of the SAP data source. In fact the script is very simple and can be easily done with building blocks. However we use use LUA in this article because we need to treat every day individually, so LUA gives us a more condensed view than building blocks.
+The actual magic to turn the raw data into colored text fields happens in the reload script of the SAP data source. The script is simple and can be easily done with Building Blocks. However we use use LUA in this article because we need to treat every day individually, so LUA gives us a more condensed view than building blocks.
 
 ![image](/assets/2024-09-23/040.png)
 
