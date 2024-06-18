@@ -75,7 +75,7 @@ The reload script of the SAP data source is the magic that turns the raw data in
 
 ![image](/assets/2024-09-23/040.png)
 
-First, we check each day and see if it's today or anytime before today. If this is the case, we set the text field to green. If not, we leave it on the default neutral color. In the following script, only day 1 and day 31 are shown. The rest are omitted to make the code more clear.
+First, we check each day and see if it's today or anytime before today. If it is, then we set the text field to green. If not, we leave it on the default neutral color. In the following script, only day 1 and day 31 are shown. The rest are omitted to make the code more clear.
 
 {% highlight lua %}
 if data.MyTimer.format('dd') >= '01' then screens['Main'].txt1.background = brushes.green end
@@ -83,17 +83,19 @@ if data.MyTimer.format('dd') >= '01' then screens['Main'].txt1.background = brus
 if data.MyTimer.format('dd') >= '31' then screens['Main'].txt31.background = brushes.green end
 {% endhighlight %}
 
-In the next paragraph, we loop over the entire SAP data set. We convert the SAP data value to the current day by using this:
-{% highlight lua %} 
+In the next block, we loop over the entire SAP data set. We convert the SAP data value to the current day by using this:
+
+{% highlight lua %}
 string.sub(current['BEGDA'], 7, 9)
 {% endhighlight %}
 
 We turn the number of absence days from string to a number with this:
-{% highlight lua %} 
+
+{% highlight lua %}
 AbsenceDays = math.tonumber(current['ABWTG'])
 {% endhighlight %}
 
-Then, we check for every entry and the day if the number of absence day indicate a severe or minor accident and set the text field color accordingly. That's it.
+Then, we check every entry and day. If the number of absence days indicate a severe or minor accident, we set the text field color accordingly.
 
 {% highlight lua %}
 for index = 0, data.SAPAbsenceThisMonth.count - 1 do
