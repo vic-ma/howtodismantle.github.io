@@ -68,11 +68,11 @@ On the canvas of our project, we use a bunch of text fields to form a cross. We 
 
 ## Create the script
 
-The actual magic to turn the raw data into colored text fields happens in the reload script of the SAP data source. The script is simple and can be easily done with Building Blocks. However we use use LUA in this article because we need to treat every day individually, so LUA gives us a more condensed view than building blocks.
+The reload script of the SAP data source is the magic that turns the raw data into colored text fields. The script is simple and can be easily done with Building Blocks. However, we'll use LUA in this article because we need to treat each day individually, and LUA lets us do this in a more condensed way.
 
 ![image](/assets/2024-09-23/040.png)
 
-First we check for every single day, if the day is current or in the past. If this is the case we set it to green. If not we just leave it on the default neutral color. In the script only day 1 and day 31 is shown. All others are removed to make the code more clear.
+First, we check each single day and see if it's the current day or sometime in the past. If this is the case, we set the text field to green. If not, we leave it on the default neutral color. In the following script, only day 1 and day 31 is shown. The rest are omitted to make the code more clear.
 
 {% highlight lua %}
 if data.MyTimer.format('dd') >= '01' then screens['Main'].txt1.background = brushes.green end
