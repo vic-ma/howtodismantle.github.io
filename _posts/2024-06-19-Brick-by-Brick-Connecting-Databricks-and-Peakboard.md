@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Brick by Brick - Connecting Databricks and Peakboard
-date: 2023-03-01 12:00:00 +0200
+date: 2024-06-19 12:00:00 +0200
 tags: bi
 image: /assets/2024-06-19/title.png
 read_more_links:
