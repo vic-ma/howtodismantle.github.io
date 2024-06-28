@@ -23,16 +23,17 @@ In this article, we'll discuss how to build an enterprise-wide Peakboard templat
 
 ## Fonts
 
-Corporate design guidelines usually list one or two fonts that are supposed to be used. All font-related definitions for different font styles (like header, button, and default) can be defined in the corresponding dialog.
+Corporate design guidelines usually specify one or two fonts that should be used. All font-related definitions for different font styles (like header, button, and default) can be defined in the corresponding dialog.
 
-
-Now, suppose that your company's font is not available by default in Peakboard. In that case, you have to add a custom font to the project, as a resource (TTF file). That way, the TTF file is deployed as part of the project to the Peakboard Box.
+But what if your company's font is not available by default in Peakboard? In that case, you have to add a custom font to the project, as a resource (TTF file). That way, the TTF file is deployed as part of the project to the Peakboard Box.
 
 ![image](/assets/2024-10-01/020.png)
 
 ## Building the Master Screen
 
-To set one or more master screens, we first add the company's logos as a resource and then build the actual main template. Usually, a header with the logo and a text box for the current time and a headline is a good start. After placing all these items, we first group them and then lock them by clicking on the lock icon. This way, they can't be changed accidentally. When we want to create a new screen, we can just right-click on the template screen and then choose “Duplicate (only locked controls)”. The new screen will only have the locked, template controls on it.
+To set one or more master screens, we first add the company's logo as a resource, and then build the actual template. Usually, a header with the logo, and a text box with the current time and a headline, is a good start. After placing these items, we group them and then lock them by clicking on the lock icon. That way, they can't be changed accidentally.
+
+When we want to create a new screen, we right click on the template screen and then choose **“**Duplicate (only locked controls)**. The new screen will only have the locked, template controls on it.
 
 ![image](/assets/2024-10-01/030.png)
 
