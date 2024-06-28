@@ -41,7 +41,11 @@ When we want to create a new screen, we right click on the template screen and t
 
 ## UI Components
 
-The UI components are mainly defined through their default colors and default fonts that refer to what we already created. If there are more attributes necessary to take care of, we build UI control templates on a separate screen as shown in the screenshot. This way, the template user can just pick a predefined UI control, copy & paste it to their own screen, and it's ready to be used right away while following all prepared styles. We also take care of the spacing to show how to do proper spacing. The sample shows a spacing of 20px and 40px depending on whether we space controls of the same group or if there's a group change. Of course, we can add more explanatory text and hints if necessary.
+The UI components are mainly defined through the default colors and default fonts, which we've already covered. For further customization, we can build UI control templates on a separate screen, as shown in the following screenshot.
+
+Then, the user can pick a UI control from the template, and then copy and paste it into the screen they're working on. The copied control will have all the necessary styles, and can be used right away.
+
+The template also provides a guide on proper spacing. It shows a spacing of 20px and 40px, and explains when to use each. Of course, you can add more explanatory text and hints if necessary.
 
 ![image](/assets/2024-10-01/040.png)
 
