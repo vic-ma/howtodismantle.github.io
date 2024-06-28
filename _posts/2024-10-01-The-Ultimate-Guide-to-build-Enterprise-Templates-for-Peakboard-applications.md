@@ -1,17 +1,17 @@
 ---
 layout: post
-title: The Ultimate Guide to Building an Enterprise Template for Peakboard Application
+title: The Ultimate Guide to Building an Enterprise Template for Peakboard Applications
 date: 2023-01-28 12:00:00 +0200
 tags: administration bestpractice
 image: /assets/2024-10-01/title.png
 read_more_links:
-  - name: How to manage and organize team access for Peakboard boxes in large organizations
-    url: /How-to-manage-and-organize-team-access-for-Peakboard-boxes-in-large-organizations.html
+  - name: How to manage and organize team access for Peakboard boxes in large organisations
+    url: /How-to-manage-and-organise-team-access-for-Peakboard-boxes-in-large-organisations.html
 downloads:
   - name: CorporateDesignTemplate.pbmx
     url: /assets/2024-10-01/CorporateDesignTemplate.pbmx
 ---
-Starting to build a new Peakboard application from scratch is easy and straightforward, but as the scope grows, the applications usually spread through different layers of the organization, more departments, and more geographical regions. In this case, there are additional patterns and best practices to consider. We already discussed such enterprise patterns when it comes to [managing access rights and security throughout different teams and responsibilities](/How-to-manage-and-organize-team-access-for-Peakboard-boxes-in-large-organizations.html). 
+Starting to build a new Peakboard application from scratch is easy and straightforward, but as the scope grows, the applications usually spread through different layers of the organization, more departments, and more geographical regions. In this case, there are additional patterns and best practices to consider. We already discussed such enterprise patterns when it comes to [managing access rights and security throughout different teams and responsibilities](/How-to-manage-and-organise-team-access-for-Peakboard-boxes-in-large-organisations.html). 
 
 In today's article, we want to discuss how to build an enterprise-wide template to meet all necessary requirements regarding Corporate Design and ensure even non-design or non-marketing people can build their dashboards and applications aligned with corporate regulations. The steps described here have turned out to be best practices through hundreds of customer projects.
 
