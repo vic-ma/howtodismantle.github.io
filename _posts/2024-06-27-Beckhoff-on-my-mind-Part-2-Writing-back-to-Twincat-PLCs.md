@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Beckhoff on my mind - Part 2 - Writing back to TwinCAT PLCs
-date: 2023-03-01 12:00:00 +0200
+date: 2024-06-27 00:00:00 +0200
 tags: hardware twincat
 image: /assets/2024-06-27/title.png
 read_more_links:
