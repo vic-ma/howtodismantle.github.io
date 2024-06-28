@@ -51,12 +51,14 @@ The template also provides a guide on proper spacing. It shows a spacing of 20px
 
 ## Grid
 
-An often-used pattern is to group controls into dedicated areas. The screenshot shows how to prepare these grid areas. We can just copy & paste the grid to a new screen and use it right away by adjusting the height of the prepared grid. These kinds of grids not only make the end result look more professional but also give the final viewer or user of the board a sense of which controls belong to each other and make the whole board much more understandable.
+An often-used pattern is to group controls into dedicated areas. The following screenshot shows how to prepare these grid areas. We can copy and paste the grid onto a new screen, adjust its height, and then use it right away.
+
+This kind of grid makes the end result look more professional, and also gives the end user of the board a sense of which controls belong together, making the whole board much more understandable and easier to use.
 
 ![image](/assets/2024-10-01/050.png)
 
 ## Final Result
 
-The last screenshot shows a sample screen that used all the techniques we discussed earlier. We use predefined colors and fonts, along with the master template and its header. The UI controls are copied from the template screen and placed on a predefined grid.
+The following screenshot shows a screen that uses all the techniques we've discussed. We use predefined colors and fonts, along with the master template and its header. The UI controls are copied from the template screen and placed on a predefined grid.
 
 ![image](/assets/2024-10-01/060.png)
