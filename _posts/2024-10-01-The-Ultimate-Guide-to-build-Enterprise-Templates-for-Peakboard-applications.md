@@ -11,7 +11,7 @@ downloads:
   - name: CorporateDesignTemplate.pbmx
     url: /assets/2024-10-01/CorporateDesignTemplate.pbmx
 ---
-Building a Peakboard application is easy and straightforward. But as the scope increases, the team working on the application usually becomes more spread out, with people from different departments and geographical locations working on the same application. In this case, there are some [best practices and patterns for enterprise](/How-to-manage-and-organise-team-access-for-Peakboard-boxes-in-large-organisations.html) to consider. 
+Building a Peakboard application is easy and straightforward. But usually, as the scope increases, people from different parts of the company start getting involved---different departments and geographical locations. In this case, there are some [best practices and patterns for enterprise](/How-to-manage-and-organise-team-access-for-Peakboard-boxes-in-large-organisations.html) to consider. 
 
 In this article, we'll discuss how to build an enterprise-wide Peakboard template that enforces corporate design requirements, and ensures that even non-design and non-marketing people can build dashboards and applications that comply with corporate requirements. These steps have turned out to be best practices for hundreds of customer projects.
 
