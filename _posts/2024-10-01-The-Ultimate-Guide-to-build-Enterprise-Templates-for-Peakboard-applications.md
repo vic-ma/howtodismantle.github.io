@@ -13,17 +13,20 @@ downloads:
 ---
 Building a Peakboard application is easy and straightforward. But as the scope increases, the team working on the application usually becomes more spread out, with people from different departments and geographical locations working on the same application. In this case, there are some [best practices and patterns for enterprise](/How-to-manage-and-organise-team-access-for-Peakboard-boxes-in-large-organisations.html) to consider. 
 
-In this article, we'll discuss how to build an enterprise-wide Peakboard template that meets corporate design requirements, and ensures that even non-design and non-marketing people can build dashboards and applications that comply with corporate regulations. The steps described here have turned out to be best practices for hundreds of customer projects.
+In this article, we'll discuss how to build an enterprise-wide Peakboard template that enforces corporate design requirements, and ensures that even non-design and non-marketing people can build dashboards and applications that comply with corporate requirements. These steps have turned out to be best practices for hundreds of customer projects.
 
 ## Colors
 
-**Project Colors** offers a central place to store a set of colors used in the current application. Every new control relies on this color set. The background colors determine the overall look---whether it's a light or dark theme. The primary, highlight, and signal colors are typically taken from the corporate design guidelines. 
+**Project Colors** offers a central place to store a set of colors used in the current application. Every new control relies on this color set. The background colors determine the overall look---whether it's a light or dark theme. The primary, highlight, and signal colors are typically taken from the corporate design requirements.
 
 ![image](/assets/2024-10-01/010.png)
 
 ## Fonts
 
-Every enterprise design guideline usually lists one or two fonts that are supposed to be used for any kind of correspondence. All font-related definitions for different font styles (like header, button, default, etc.) can be defined in the corresponding dialog. In the screenshot, it is shown that the corporate font is not a font that is available by default. It can be added to the project as a resource (ttf file). In that case, the ttf file is deployed as part of the project to the box.
+Corporate design guidelines usually list one or two fonts that are supposed to be used. All font-related definitions for different font styles (like header, button, and default) can be defined in the corresponding dialog.
+
+
+Now, suppose that your company's font is not available by default in Peakboard. In that case, you have to add a custom font to the project, as a resource (TTF file). That way, the TTF file is deployed as part of the project to the Peakboard Box.
 
 ![image](/assets/2024-10-01/020.png)
 
