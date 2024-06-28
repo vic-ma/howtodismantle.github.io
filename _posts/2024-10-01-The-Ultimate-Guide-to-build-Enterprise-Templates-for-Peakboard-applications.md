@@ -17,7 +17,7 @@ In this article, we'll discuss how to build an enterprise-wide Peakboard templat
 
 ## Colors
 
-A Peakboard project offers a central place to store a set of colors used in the current application. Every new control relies on this color set. The background colors determine the overall look - whether it's a rather light or dark theme. The Primary, Highlight, and Signal colors are typically taken from the corporate design guidelines. 
+**Project Colors** offers a central place to store a set of colors used in the current application. Every new control relies on this color set. The background colors determine the overall look---whether it's a light or dark theme. The primary, highlight, and signal colors are typically taken from the corporate design guidelines. 
 
 ![image](/assets/2024-10-01/010.png)
 
