@@ -31,9 +31,11 @@ But what if your company's font is not available by default in Peakboard? In tha
 
 ## Building the Master Screen
 
-To set one or more master screens, we first add the company's logo as a resource, and then build the actual template. Usually, a header with the logo, and a text box with the current time and a headline, is a good start. After placing these items, we group them and then lock them by clicking on the lock icon. That way, they can't be changed accidentally.
+To set one or more master screens, we first add the company's logo as a resource, and then build the actual template. Usually, a header with the logo, and a text box with the current time and a headline, is a good start.
 
-When we want to create a new screen, we right click on the template screen and then choose **“**Duplicate (only locked controls)**. The new screen will only have the locked, template controls on it.
+After placing these items, we group them and then lock them by clicking on the lock icon. That way, they can't be changed accidentally.
+
+When we want to create a new screen, we right click on the template screen and then choose **Duplicate (only locked controls)**. The new screen will only have the locked, template controls on it.
 
 ![image](/assets/2024-10-01/030.png)
 
