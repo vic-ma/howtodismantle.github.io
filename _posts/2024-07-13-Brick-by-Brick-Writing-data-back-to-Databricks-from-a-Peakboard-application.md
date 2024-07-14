@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Brick by Brick - Writing data back to Databricks from a Peakboard application
-date: 2023-03-01 12:00:00 +0200
+date: 2024-07-13 12:00:00 +0200
 tags: bi
 image: /assets/2024-07-13/title.png
 read_more_links:
