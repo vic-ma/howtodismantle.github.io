@@ -1,7 +1,7 @@
 ---
 layout: post
 title: SAP on Steroids - 10 Epic Use Cases and how to build them
-date: 2023-03-01 12:00:00 +0200
+date: 2024-07-21 12:00:00 +0200
 tags: sap
 image: /assets/2024-07-21/title.png
 read_more_links:
