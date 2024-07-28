@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Great Data Tango - Mastering PowerBI and Peakboard Integration with Filters
-date: 2023-09-07 00:00:00 +0200
+date: 2023-03-01 00:00:00 +0200
 tags: office365 
 image: /assets/2024-09-07/title.png
 read_more_links:
