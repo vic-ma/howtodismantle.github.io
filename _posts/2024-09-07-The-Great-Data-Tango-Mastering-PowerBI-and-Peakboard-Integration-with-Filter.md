@@ -23,12 +23,13 @@ Peakboard users have been able to set dynamic filters since Q3 2024.
 
 ## Requirements and prerequisites
 
-The Power BI sheet we're using is just a demo board based on sales transactions, showing charts and tables along with some filters. You can download the [Power BI sheet](/assets/2024-09-07/SalesReport.pbix).
+The Power BI sheet we're using is just a demo board based on sales transactions, with charts and tables, along with some filters. You can download the [Power BI sheet](/assets/2024-09-07/SalesReport.pbix) to follow along.
 
 To integrate this PBI report into Peakboard, follow these steps:
 1. Upload the report to the Microsoft Fabric Portal.
-2. Follow the steps decribed in the [Power BI help](https://help.peakboard.com/controls/Extended/en-power-bi.html) to obtain the application ID, tenant ID, and user credentials.
-3. Use the IDs and credentials to access the hosted Power BI report from within Pekaboard Designer.
+2. Follow the steps decribed in the [Power BI help](https://help.peakboard.com/controls/Extended/en-power-bi.html):
+    1. Obtain the application ID, tenant ID, and user credentials.
+    2. Use the IDs and credentials to access the hosted Power BI report from within Pekaboard Designer.
 3. Choose the workspace and report.
 
 ![image](/assets/2024-09-07/010.png)
@@ -37,9 +38,9 @@ Under the **Report settings** tab, we can apply filters to the report. The filte
 
 ![image](/assets/2024-09-07/020.png)
 
-## Understanding filters
+## Filters
 
-The filters are actually an array of filters wrapped in brackets. Here is the main form of the JSON that can be used within the filter property of the PBI control: 
+The filters are actually an array of filters wrapped in brackets. Here is the basic form of JSON that can be used in the filter property of the PBI control: 
 
 {% highlight json %}
 [
