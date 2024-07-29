@@ -17,7 +17,7 @@ downloads:
   - name: SalesReport.pbix
     url: /assets/2024-09-07/SalesReport.pbix
 ---
-A long time ago, we discussed how to use [Power BI maps in Peakboard applications](/best-practice-powerbi-for-map-integration.html). In this aticle, we will discuss another apsect of Power BI integration: Filters. 
+A long time ago, we discussed how to use [Power BI maps in Peakboard applications](/best-practice-powerbi-for-map-integration.html). In this article, we will discuss another aspect of Power BI integration: Filters. 
 
 Peakboard users have been able to set dynamic filters since Q3 2024.
 
@@ -27,9 +27,9 @@ The Power BI sheet we're using is just a demo board based on sales transactions,
 
 To integrate this PBI report into Peakboard, follow these steps:
 1. Upload the report to the Microsoft Fabric Portal.
-2. Follow the steps decribed in the [Power BI help](https://help.peakboard.com/controls/Extended/en-power-bi.html):
+2. Follow the steps described in the [Power BI help](https://help.peakboard.com/controls/Extended/en-power-bi.html):
     1. Obtain the application ID, tenant ID, and user credentials.
-    2. Use the IDs and credentials to access the hosted Power BI report from within Pekaboard Designer.
+    2. Use the IDs and credentials to access the hosted Power BI report from within Peakboard Designer.
 3. Choose the workspace and report.
 
 ![image](/assets/2024-09-07/010.png)
@@ -51,7 +51,7 @@ The filters are actually an array of filters wrapped in brackets. Here is the ba
 {% endhighlight %}
 
 There are two types of filters:
-* **Basic filter**, which selects dictinct values.
+* **Basic filter**, which selects distinct values.
 * **Complex filter**, which has multiple conditions.
 
 The following is an example of a basic filter with two distinct values, "Canada" and "India." The target describes the table and column within the data PBI model.
@@ -107,7 +107,7 @@ Here's one last example that shows how to use date fields in a complex filter:
 }
 {% endhighlight %}
 
-The way basic and complex filters are created and combined with each other is similiar to how a human PBI dashboard user would apply filters. If we keep that in mind, it's easy to find the right JSON to apply to our own PBI report.
+The way basic and complex filters are created and combined with each other is similar to how a human PBI dashboard user would apply filters. If we keep that in mind, it's easy to find the right JSON to apply to our own PBI report.
 
 ## Make filters dynamic
 
@@ -138,7 +138,7 @@ And then we build the whole JSON string with Building Blocks or LUA:
 
 ## Conclusion
 
-Setting dynamic filters through JSON strings is a perfect way to fully integrate Power BI dashboards into Peakboard applications dynamically. Building the right dynamic JSON string may by a challenge, especially because the Power BI filter engine won't give you any hints if the JSON is incorrect or not understood by the engine.  
+Setting dynamic filters through JSON strings is a perfect way to fully integrate Power BI dashboards into Peakboard applications dynamically. Building the right dynamic JSON string may be a challenge, especially because the Power BI filter engine won't give you any hints if the JSON is incorrect or not understood by the engine.  
 
 ![image](/assets/2024-09-07/result.gif)
 
