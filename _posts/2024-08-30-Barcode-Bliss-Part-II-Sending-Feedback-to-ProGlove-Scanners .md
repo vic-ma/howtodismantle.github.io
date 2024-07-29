@@ -58,7 +58,7 @@ In our demo environment, we place two buttons to showcase the feedback function:
 
 ![image](/assets/2024-08-30/010.png)
 
-The MQTT message is sent with a single MQTT publish command. In the following screenshot, we send the JSON string to the topic from before, by using the existing MQTT connection, which refers to the data source we created in the [first part of this series](/2024-08-14-Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html).
+The MQTT message is sent with a single MQTT publish command. In the following screenshot, we send the JSON string to the topic from before, by using the existing MQTT connection, which refers to the data source we created in the [first part of this series](/Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html).
 
 Then, we use a multiline string with placeholders. We exchange the placeholder `#[SerialNo]#` with the serial number from the last scan. We look this up from the first row in the data source.
 
