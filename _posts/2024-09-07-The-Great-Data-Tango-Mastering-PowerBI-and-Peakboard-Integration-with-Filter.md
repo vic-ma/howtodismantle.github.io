@@ -21,9 +21,10 @@ A long time ago, we discussed how to use [Power BI maps in Peakboard application
 
 Peakboard users have been able to set dynamic filters since Q3 2024.
 
-## requirements and prerequisites
+## Requirements and prerequisites
 
-The Power BI sheet we're using can be downloaded [here](/assets/2024-09-07/SalesReport.pbix). It's just a demonstration board based on sales transactions showing charts and tables along with some filters.
+You can download the [Power BI sheet we're using](/assets/2024-09-07/SalesReport.pbix). It's just a demonstration board based on sales transactions, showing charts and tables along with some filters.
+
 To integrate this PBI report in Peakboard, we must first upload it to the the Microsoft Fabric Portal and then follow the steps decribed in the [help](https://help.peakboard.com/controls/Extended/en-power-bi.html) to obtain the Application ID and Tenant ID, along with user credentials to access the hosted Power BI report from within the Pekaboard designer. After access is granted we can choose workspace and report.
 
 ![image](/assets/2024-09-07/010.png)
