@@ -23,7 +23,7 @@ Peakboard users have been able to set dynamic filters since Q3 2024.
 
 ## Requirements and prerequisites
 
-You can download the [Power BI sheet we're using](/assets/2024-09-07/SalesReport.pbix). It's just a demonstration board based on sales transactions, showing charts and tables along with some filters.
+The Power BI sheet we're using is just a demo board based on sales transactions, showing charts and tables along with some filters. You can download the [Power BI sheet](/assets/2024-09-07/SalesReport.pbix).
 
 To integrate this PBI report into Peakboard, follow these steps:
 1. Upload the report to the Microsoft Fabric Portal.
