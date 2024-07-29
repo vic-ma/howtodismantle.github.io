@@ -102,11 +102,11 @@ Here's one last example to show how use date fields in a complex filter:
 }
 {% endhighlight %}
 
-The way both basic and complex filters are created and combined with each other is very similiar how a human PBI dashboard user would apply filters. If we keep that in mind it's very easy to find the right JSON to apply on our own PBI report.
+The way both basic and complex filters are created and combined with each other is very similiar how a human PBI dashboard user would apply filters. If we keep that in mind, it's easy to find the right JSON to apply to our own PBI report.
 
 ## Making filters dynamic
 
-In most cases we need a dynamic filter rather than just a fixed JSON. In the Peakboard Power BI control filter property you can use dynamic placeholders. Feel free to download the [attached pbmx](/assets/2024-09-07/PowerBISalesReport.pbmx) to find out more about the mentioned examples. In the first example we just make the country dynamic:
+In most cases, we need a dynamic filter rather than a fixed JSON. In the Peakboard Power BI control filter property you can use dynamic placeholders. Feel free to download the [attached pbmx](/assets/2024-09-07/PowerBISalesReport.pbmx) to find out more about the mentioned examples. In the first example we just make the country dynamic:
 
 {% highlight json %}
 [
