@@ -33,13 +33,13 @@ To integrate this PBI report into Peakboard, follow these steps:
 
 ![image](/assets/2024-09-07/010.png)
 
-Under the tab 'Report Settings' we can find the option to apply filters to the report. The filters are built as JSON strings.
+Under the **Report settings** tab, we can apply filters to the report. The filters are built as JSON strings.
 
 ![image](/assets/2024-09-07/020.png)
 
 ## Understanding filters
 
-The above mentioned filters are actually and array of filters wrapped in brackets. The main form of the JSON that be used within the filter property of the PBI control: 
+The filters are actually an array of filters wrapped in brackets. Here is the main form of the JSON that can be used within the filter property of the PBI control: 
 
 {% highlight json %}
 [
@@ -49,7 +49,7 @@ The above mentioned filters are actually and array of filters wrapped in bracket
 ]
 {% endhighlight %}
 
-A single filter can be either a basic filter (just selecting dictinct values) or a complex filter (having multiple conditions). Here's an example of a basic filter with two distinct values "Canada" and "India". The target describes the table and column within the data PBI model.
+A single filter can be either a basic filter (selecting dictinct values) or a complex filter (having multiple conditions). The following is an example of a basic filter with two distinct values, "Canada" and "India." The target describes the table and column within the data PBI model.
 
 {% highlight json %}
 {
@@ -62,7 +62,7 @@ A single filter can be either a basic filter (just selecting dictinct values) or
 }
 {% endhighlight %}
 
-The complex filters are slightly more complicated as we can provide multiple conditions connected with a logical operator. 
+The complex filters are slightly more complicated, because we can provide multiple conditions connected with a logical operator:
 
 {% highlight json %}
 {
@@ -84,7 +84,7 @@ The complex filters are slightly more complicated as we can provide multiple con
 }
 {% endhighlight %}
 
-One last sample to show how use date fields in a complex filter.
+Here's one last example to show how use date fields in a complex filter:
 
 {% highlight json %}
 {
