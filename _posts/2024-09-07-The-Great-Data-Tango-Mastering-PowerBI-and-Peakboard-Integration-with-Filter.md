@@ -111,9 +111,9 @@ The way basic and complex filters are created and combined with each other is si
 
 ## Make filters dynamic
 
-In most cases, we need a dynamic filter rather than a fixed JSON string. In the Peakboard Power BI control filter property, you can use dynamic placeholders. You can download the [attached PBMX](/assets/2024-09-07/PowerBISalesReport.pbmx) to learn more about the examples.
+In most cases, we need a dynamic filter rather than a fixed JSON string. In the Peakboard Power BI control filter property, you can use dynamic placeholders. You can download the [attached PBMX](/assets/2024-09-07/PowerBISalesReport.pbmx) to learn more about the following examples.
 
-In the first example we make the country dynamic:
+In the first example, we make the country dynamic:
 
 {% highlight json %}
 [
@@ -124,7 +124,7 @@ In the first example we make the country dynamic:
 
 ![image](/assets/2024-09-07/030.png)
 
-To set and activate the filter during runtime, we set the content of the variable and then call "Update Filters" to refresh the control:
+To set and activate the filter during runtime, we set the content of the variable and then call `UpdateFilters` to refresh the control:
 
 ![image](/assets/2024-09-07/040.png)
 
@@ -138,7 +138,7 @@ And then we build the whole JSON string with Building Blocks or LUA:
 
 ## Conclusion
 
-Setting dynamic filters through JSON strings is a perfect way to fully integrate Power BI dashboards into Peakboard applications dynamically. Building the right dynamic JSON string may by a challenge, especially because the Power BI filter engine won't give you any hints if the JSON is incorrect or not undrstood by the engine.  
+Setting dynamic filters through JSON strings is a perfect way to fully integrate Power BI dashboards into Peakboard applications dynamically. Building the right dynamic JSON string may by a challenge, especially because the Power BI filter engine won't give you any hints if the JSON is incorrect or not understood by the engine.  
 
 ![image](/assets/2024-09-07/result.gif)
 
