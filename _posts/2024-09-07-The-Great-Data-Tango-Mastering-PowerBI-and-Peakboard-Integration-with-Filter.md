@@ -50,7 +50,11 @@ The filters are actually an array of filters wrapped in brackets. Here is the ba
 ]
 {% endhighlight %}
 
-A single filter can be either a basic filter (selecting dictinct values) or a complex filter (having multiple conditions). The following is an example of a basic filter with two distinct values, "Canada" and "India." The target describes the table and column within the data PBI model.
+There are two types of filters:
+* **Basic filter**, which selects dictinct values.
+* **Complex filter**, which has multiple conditions.
+
+The following is an example of a basic filter with two distinct values, "Canada" and "India." The target describes the table and column within the data PBI model.
 
 {% highlight json %}
 {
@@ -63,7 +67,7 @@ A single filter can be either a basic filter (selecting dictinct values) or a co
 }
 {% endhighlight %}
 
-The complex filters are slightly more complicated, because we can provide multiple conditions connected with a logical operator:
+The complex filters are a bit more complicated, because we can provide multiple conditions connected with a logical operator:
 
 {% highlight json %}
 {
@@ -85,7 +89,7 @@ The complex filters are slightly more complicated, because we can provide multip
 }
 {% endhighlight %}
 
-Here's one last example to show how use date fields in a complex filter:
+Here's one last example that shows how to use date fields in a complex filter:
 
 {% highlight json %}
 {
