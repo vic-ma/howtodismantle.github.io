@@ -17,7 +17,9 @@ downloads:
   - name: SalesReport.pbix
     url: /assets/2024-09-07/SalesReport.pbix
 ---
-A long time ago we discussed how to use [Power BI Maps in Peakboard applications](/best-practice-powerbi-for-map-integration.html). In this aticle we will talk about another apsect of Power BI integration: Filters. The feature of being able to set dynamic filters is available for Peakboard users since Q3 2024.
+A long time ago, we discussed how to use [Power BI maps in Peakboard applications](/best-practice-powerbi-for-map-integration.html). In this aticle, we will discuss another apsect of Power BI integration: Filters. 
+
+Peakboard users have been able to set dynamic filters since Q3 2024.
 
 ## requirements and prerequisites
 
