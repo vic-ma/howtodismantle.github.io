@@ -1,6 +1,6 @@
 ---
 layout: post
-title: When Boards Meet Wheels - Part II - Navigate wheel.me robots with Peaboard 
+title: When Boards Meet Wheels - Part II - Navigate wheel.me robots with Peakboard 
 date: 2024-07-29 00:00:00 +0200
 tags: hardware
 image: /assets/2024-07-29/title.png
