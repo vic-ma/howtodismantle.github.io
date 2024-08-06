@@ -85,5 +85,6 @@ To reset a display that function 'ResetContent'.
 
 Getting data from SAP and send it to the Woutex e-ink display is straight forward and can be done with only few steps. We must understand that when the data is transferred to the display it usually takes between 5 and 20 seconds. The reasons for this is that the radio connection to the base station is designed to save as much energy as possible.
 
-![image](/assets/2024-10-09/result.png)
+![image](/assets/2024-10-09/result2.gif)
 
+![image](/assets/2024-10-09/result.jpg)
