@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ByeBye Paper - Going paperless with Peakboard, SAP, and Woutex e-Ink Displays
-date: 2023-03-01 00:00:00 +0200
+date: 2023-03-02 01:00:00 +0200
 tags: hardware sap
 image: /assets/2024-10-09/title.png
 read_more_links:
