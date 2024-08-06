@@ -3,13 +3,13 @@ layout: post
 title: ByeBye Paper - Going paperless with Peakboard, SAP, and Woutex e-Ink Displays
 date: 2023-03-01 00:00:00 +0200
 tags: hardware sap
-image: /assets/2024-10-01/title.png
+image: /assets/2024-10-09/title.png
 read_more_links:
   - name: Woutex Paperless
     url: https://woutex-paperless.de/
 downloads:
-  - name: CorporateDesignTemplate.pbmx
-    url: /assets/2024-10-01/CorporateDesignTemplate.pbmx
+  - name: WoutexDemoboard.pbmx
+    url: /assets/2024-10-09/WoutexDemoboard.pbmx
 ---
 Peakboard applications are often used in paperless environments. But how to do that when an additional piece of paper is actually necessary to identify a palet, a package or a warehouse a bin? One possible answer is to transfer the necessary information to a paperless e-ink display to replace paper. In this article we will learn how to that transfer from the Peakboard app to [Woutex e-ink display](https://woutex-paperless.de/). And to make things even more fancy we don't use just random information, but we use a outbound delivery from SAP as the logical basis for the display.
 
