@@ -53,7 +53,7 @@ The easiest way to connect to the Woutex server is by using the Woutex extension
 
 ![image](/assets/2024-10-09/030.png)
 
-The data source is easy to use. Just fill in the Woutex server URL and credentials. As a rule, a data source must produce some output, even if we don't need it. So we must click on the data load button once to load a dummy column, otherwise the data source can't be saved. ------->
+The data source is easy to use. Just fill in the Woutex server URL and credentials. As a rule, a data source must produce some output, even if we don't need it. So we must click on the data load button to load a dummy column. Otherwise, the data source can't be saved.
 
 ![image](/assets/2024-10-09/040.png)
 
