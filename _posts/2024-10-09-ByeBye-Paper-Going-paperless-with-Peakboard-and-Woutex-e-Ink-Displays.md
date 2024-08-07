@@ -11,7 +11,7 @@ downloads:
   - name: WoutexDemoboard.pbmx
     url: /assets/2024-10-09/WoutexDemoboard.pbmx
 ---
-Peakboard applications are often used in paperless environments. But how to do that when an additional piece of paper is actually necessary to identify a palet, a package or a warehouse a bin? One possible answer is to transfer the necessary information to a paperless e-ink display to replace paper. In this article we will learn how to that transfer from the Peakboard app to [Woutex e-ink display](https://woutex-paperless.de/). And to make things even more fancy we don't use just random information, but we use a outbound delivery from SAP as the logical basis for the display.
+Peakboard applications are often used in paperless environments. But how do you do that when a piece of paper is necessary to identify a pallet, a package, or a warehouse bin? One answer is to transfer the necessary information to a paperless e-ink display. In this article we will learn how to that transfer from the Peakboard app to [Woutex e-ink display](https://woutex-paperless.de/). And to make things even more fancy we don't use just random information, but we use a outbound delivery from SAP as the logical basis for the display.
 
 ![image](/assets/2024-10-09/010.png)
 
