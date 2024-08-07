@@ -15,7 +15,7 @@ Peakboard applications are often used in paperless environments. But how do you 
 
 ![image](/assets/2024-10-09/010.png)
 
-Most Woutex e-ink displays have a low-energy architecture. This means the batteries of the display will last for years. To achieve this, the display doesn't consume any energy unless the image changes. Also, the display doesn't use Wi-Fi. Instead, it uses a low energy radio connection to a hosting station, or central hub. This hub is connected to a regular server within the network that exposes JSON/REST endpoints that we will used in this article to adjust the content of the displays. 
+Most Woutex e-ink displays have a low-energy architecture. This means the batteries of the display will last for years. To achieve this, the display doesn't consume any energy unless the image changes. Also, the display doesn't use Wi-Fi. Instead, it uses a low energy radio connection to a hosting station, or central hub. This hub is connected to a regular server within the company network that exposes JSON/REST endpoints. These endpoints adjust the content of the displays. 
 
 ## Getting data from SAP
 
