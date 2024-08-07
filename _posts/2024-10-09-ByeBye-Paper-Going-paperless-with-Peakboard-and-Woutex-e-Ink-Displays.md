@@ -11,11 +11,11 @@ downloads:
   - name: WoutexDemoboard.pbmx
     url: /assets/2024-10-09/WoutexDemoboard.pbmx
 ---
-Peakboard applications are often used in paperless environments. But how do you do that when a piece of paper is necessary to identify a pallet, a package, or a warehouse bin? One answer is to transfer the necessary information to a paperless e-ink display. In this article we will learn how to that transfer from the Peakboard app to [Woutex e-ink display](https://woutex-paperless.de/). And to make things even more fancy we don't use just random information, but we use a outbound delivery from SAP as the logical basis for the display.
+Peakboard applications are often used in paperless environments. But how do you do that when a piece of paper is necessary to identify a pallet, a package, or a warehouse bin? One answer is to transfer the necessary information to a paperless e-ink display. In this article, you will learn how to transfer data from a Peakboard app to a [Woutex e-ink display](https://woutex-paperless.de/). And to make things even more fancy, we won't just use random information. Instead, we'll use an outbound delivery from SAP as the logical basis for the display.
 
 ![image](/assets/2024-10-09/010.png)
 
-Usually the Woutex e-ink displays come with a low energy architecture. This means the batteries of the display will last for years. To achieve this the display itself does not consume any energy as long as it's not changed. The display doesn't use WiFi but a low energy radio connection to a hosting station, or central hub. This hub is connected to a regular server within the network that exposes JSON/REST endpoints that we will used in this article to adjust the content of the displays. 
+Most Woutex e-ink displays have a low-energy architecture. This means the batteries of the display will last for years. To achieve this, the display doesn't consume any energy unless the image changes. Also, the display doesn't use Wi-Fi. Instead, it uses a low energy radio connection to a hosting station, or central hub. This hub is connected to a regular server within the network that exposes JSON/REST endpoints that we will used in this article to adjust the content of the displays. 
 
 ## Getting data from SAP
 
