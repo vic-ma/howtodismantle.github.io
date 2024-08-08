@@ -17,17 +17,17 @@ In this article, you will learn how to transfer data from a Peakboard app to a [
 
 ![image](/assets/2024-10-09/010.png)
 
-Most Woutex e-ink displays have a low-energy architecture. This means the batteries in the display will last for years. To achieve this, the display doesn't consume any energy unless the image changes. Also, the display doesn't use Wi-Fi. Instead, it uses a low energy radio connection to a hosting station, or central hub. This hub is connected to a regular server within the company network that exposes JSON/REST endpoints. These endpoints adjust the content of the displays. 
+Most Woutex e-ink displays have a low-energy architecture. This means the batteries in the display will last for years. To achieve this, the display doesn't consume any energy unless the image changes. Also, the display doesn't use Wi-Fi. It uses a low energy radio connection to a hosting station, or central hub. This hub is connected to a regular server within the company network that exposes JSON/REST endpoints. These endpoints adjust the content of the displays. 
 
 ## Get data from SAP
 
-We've discussed [SAP connectivity](https://how-to-dismantle-a-peakboard-box.com/category/sap) numerous times in this blog. For our dashboard, we let the user provide a delivery number (for example, by scanning a barcode). The delivery data is then queried from SAP with the push of a button.
+We've discussed [SAP connectivity](https://how-to-dismantle-a-peakboard-box.com/category/sap) many times in this blog. For our dashboard, we let the user provide a delivery number (for example, by scanning a barcode). The delivery data is then queried from SAP with the push of a button.
 
 ![image](/assets/2024-10-09/020.png)
 
 The following is the LUA code that gets the data from SAP. It reads two tables:
 1. It reads LIKP, the delivery header data, with the given delivery number.
-2. It reads KNA1, containing customer master data, with the customer number from the first table query.
+2. It reads KNA1, which contains customer master data, with the customer number from the first table query.
 
 The resulting columns, like customer number, shipping point, weight, and customer name, are written to the text boxes on the screen. For more details on Lua and SAP, see our article on [integrating LUA scripting with SAP](https://how-to-dismantle-a-peakboard-box.com/SAP-on-fire-how-to-perfectly-integrate-LUA-scripting-with-SAP.html).
 
