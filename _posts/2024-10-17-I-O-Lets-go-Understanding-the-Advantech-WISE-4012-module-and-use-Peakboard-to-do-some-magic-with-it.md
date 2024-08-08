@@ -15,7 +15,7 @@ downloads:
 ---
 In the recent weeks we already discussed two I/O modules provided by ICP DAS, the [ET-2254](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html) and the [U-7560M](/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html). In this article we will have a look at Advantech WISE-4012. This module provides a network connection via WiFi. It offers 2 digital outputs and 4 inputs which can be freely configured to be used as digital or analog inputs.
 
-Beside the tradional way of interaction via MQTT we will have a look at a second, alternative way: The REST webservice. Depending on the use case this can be a nice option to use REST instead of MQTT because no MQTT broker is necessary. 
+Beside the tradional way of interaction via MQTT we will also have a look at a second, alternative way: The REST webservice. Depending on the use case this can be a nice option to use REST instead of MQTT because no MQTT broker is necessary. 
 
 ![image](/assets/2024-10-17/010.png)
 
@@ -75,13 +75,13 @@ For the analog input the endpoints is a bit different: http://<MyServer>/ai_valu
 
 ![image](/assets/2024-10-17/090.png)
 
-For setting the value of an output we use the endpoint http://<MyServer>/do_value/slot_0 and submit the JSON string '{"DOVal":[{"Ch":0,"Val":1}]}' which is quite similiar to the MQTT message we used earlier. It's very important to use the verb PATCH to submit the message.A regular PUTwon't do the trick.Here's the Building Block to do the call:
+For setting the value of an output we use the endpoint http://<MyServer>/do_value/slot_0 and submit the JSON string '{"DOVal":[{"Ch":0,"Val":1}]}' which is quite similiar to the MQTT message we used earlier. It's very important to use the verb PATCH to submit the message.A regular PUT won't do the trick. Here's the Building Block to do the call:
 
 
 ![image](/assets/2024-10-17/100.png)
 
 ## result and conclusion
 
-Having both options MQTT and REST is a great feature of the Wise-4012. However the video also shows the downside. Since MQTT is an event based prototcol any change in value is trsnferred and processed immediately. Getting input values via REST is always a pull request done every couple of seconds. So when it comes to very precise real time input, MQTT is a better choice. If the real time is not that important and a lag up a couple of seconds is acceptabel, REST might be easier because no MQTT broker is needed.
+Having both options MQTT and REST is a great feature of the Wise-4012. However the video also shows the downside. Since MQTT is an event based prototcol any change in value is transferred and processed immediately. Getting input values via REST is always a pull request done every couple of seconds. So when it comes to very precise real time input, MQTT is a better choice. If the real time is not that important and a lag up a couple of seconds is acceptabel, REST might be easier because no MQTT broker is needed.
 
 ![image](/assets/2024-10-17/result.gif)

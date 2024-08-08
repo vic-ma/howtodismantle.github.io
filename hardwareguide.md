@@ -12,6 +12,8 @@ This blog features a wide variety of articles about different types of hardware 
 - [I/O, Let's go - The hitchhiker's guide to I/O devices ](/I-O-Lets-go-The-hitchikers-guide-to-I-O-devices.html)
 - [I/O, Let's Go - Unleashing the ICP DAS ET-2254 with MQTT and Peakboard](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html)
 - [I/O, Let's Go - Unleashing the ICP DAS U-7500 series for cool I/O action with OPC UA](/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html)
+- [I/O, Let's go - Understanding the Advantech WISE-4012 module and use Peakboard to do some magic with it](/I-O-Lets-go-Understanding-the-Advantech-WISE-4012-module-and-use-Peakboard-to-do-some-magic-with-it.html)
+
 
 ### wheel.me AGVs
 
