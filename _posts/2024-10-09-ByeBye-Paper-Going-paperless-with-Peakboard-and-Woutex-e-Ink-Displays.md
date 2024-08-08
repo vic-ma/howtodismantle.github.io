@@ -63,8 +63,8 @@ The data source is easy to use. Just fill in the Woutex server URL and credentia
 
 After having installed and configured the Woutex extension, we can use functions that send data to the display or reset the display. The first parameter is always the display ID---a number that corresponds to the barcode on the display.
 
-To send data to the display, we use the `ChangeContent` function. We pass in a JSON string with the following fields:
-1. The name of the template (as defined in the backend of the Woutex server)
+To send data to the display, we use the `ChangeContent` function. Besides the display ID, we pass in a JSON string with the following fields:
+1. The name of the template (as defined in the backend of the Woutex server).
 2. Values for all the variables in the template. In our case, these are things like order number and customer number.
 
 Here's an example of a JSON string we'd send:
@@ -81,7 +81,7 @@ Here's an example of a JSON string we'd send:
   }
 {% endhighlight %}
 
-To build the JSON string in a way that is easy to maintain, we put placeholders in the JSON string, and we use the Placeholder Text Building Block to replace the placeholders with actual values. The actual values come from the text boxes where we stored the values from SAP. And that's it. This call is all we need to apply a template to the display.
+To build the JSON string in a way that is easy to maintain, we put placeholders in the JSON string, and we use the Placeholder Text Building Block to replace the placeholders with actual values. The actual values come from the text boxes where we stored the data from SAP. And that's it. This call is all we need to apply a template to the display.
 
 ![image](/assets/2024-10-09/050.png)
 
