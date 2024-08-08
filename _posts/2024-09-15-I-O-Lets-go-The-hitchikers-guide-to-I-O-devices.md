@@ -35,6 +35,9 @@ It supports MQTT, REST API, and Modbus access. It's meant to only be used with W
 
 Estimated cost: 160 EUR
 
+Here's a relevant article on this blog: [Understanding the Advantech WISE-4012 module and use Peakboard to do some magic with it
+](/I-O-Lets-go-Understanding-the-Advantech-WISE-4012-module-and-use-Peakboard-to-do-some-magic-with-it.html)
+
 [Click here to jump directly to the vendor](https://buy.advantech.eu/SRP-IoT-Gateways/IoT-Gateways-Devices-IoT-Wireless-I-O/model-WISE-4012-AE.htm?gad_source=1&gclid=Cj0KCQjw6uWyBhD1ARIsAIMcADqrDuho0MeX74GCqbDntv0ghvNkM322MBmhCc3lf9Dh2iv-wFQGe7AaAl6ZEALw_wcB)
 
 ![image](/assets/2024-09-15/010.png)
