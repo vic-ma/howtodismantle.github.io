@@ -1,0 +1,77 @@
+[1mdiff --git a/_posts/2024-10-17-I-O-Lets-go-Understanding-the-Advantech-WISE-4012-module-and-use-Peakboard-to-do-some-magic-with-it.md b/_posts/2024-10-17-I-O-Lets-go-Understanding-the-Advantech-WISE-4012-module-and-use-Peakboard-to-do-some-magic-with-it.md[m
+[1mindex 6695b8e..97c2e85 100644[m
+[1m--- a/_posts/2024-10-17-I-O-Lets-go-Understanding-the-Advantech-WISE-4012-module-and-use-Peakboard-to-do-some-magic-with-it.md[m
+[1m+++ b/_posts/2024-10-17-I-O-Lets-go-Understanding-the-Advantech-WISE-4012-module-and-use-Peakboard-to-do-some-magic-with-it.md[m
+[36m@@ -13,29 +13,29 @@[m [mdownloads:[m
+   - name: Wise4012TestBoard.pbmx[m
+     url: /assets/2024-10-17/Wise4012TestBoard.pbmx[m
+ ---[m
+[31m-In the recent weeks we already discussed two I/O modules provided by ICP DAS, the [ET-2254](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html) and the [U-7560M](/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html). In this article we will have a look at Advantech WISE-4012. This module provides a network connection via WiFi. It offers 2 digital outputs and 4 inputs which can be freely configured to be used as digital or analog inputs.[m
+[32m+[m[32mIn the past few weeks, we've discussed two I/O modules provided by ICP DAS: the [ET-2254](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html) and the [U-7560M](/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html). In this article, we'll take a look at the Advantech WISE-4012. This module provides a network connection via Wi-Fi. It offers 2 digital-only outputs and 4 analog/digital inputs.[m
+ [m
+[31m-Beside the tradional way of interaction via MQTT we will also have a look at a second, alternative way: The REST webservice. Depending on the use case this can be a nice option to use REST instead of MQTT because no MQTT broker is necessary. [m
+[32m+[m[32mWe will look at the traditional way of communicating with MQTT, as well as an alternative method: The REST webservice. Depending on your use case, REST may be better than MQTT, because no MQTT broker is necessary.[m[41m [m
+ [m
+ ![image](/assets/2024-10-17/010.png)[m
+ [m
+ ## Module Configuration[m
+ [m
+[31m-The Wise-4012 comes with a typical interface to configure the module. Unter the 'cloud' tab we find the option to activate MQTT connectivity and provide a broker for sending and receiving messages. The actual message consists of only one JSON string that covers all inputs and outputs.[m
+[32m+[m[32mThe Wise-4012 comes with a typical interface for configuring the module. Under the **Cloud** tab, there is an option to activate MQTT connectivity and provide a broker for sending and receiving messages. The actual message consists of a single JSON string that covers all inputs and outputs.[m
+ [m
+ ![image](/assets/2024-10-17/020.png)[m
+ [m
+[31m-Under 'I/O Status'  we can define whether the 4 inputs are used as analog or digital. In our case we use channel 1 for analog input.[m
+[32m+[m[32mUnder **I/O Status**, we can set the 4 analog/digital inputs are to either analog or digital. In our case, we use channel 1 for analog input.[m
+ [m
+ ![image](/assets/2024-10-17/030.png)[m
+ [m
+[31m-To check if there's already a real value on the analog input the next tab 'AI' provides insight of the current that is measured at the input.[m
+[32m+[m[32mThe **AI** tab tells us if there's already a real value on the analog input. This provides insight into the current measured at the input.[m
+ [m
+ ![image](/assets/2024-10-17/040.png)[m
+ [m
+ ## Mastering MQTT access[m
+ [m
+[31m-The next screenshot shows how to configure the MQTT datasource on the Peakboard side. The incoming message is a simple JSON file and we're using data path to access the information within the JSON. As shown in the image the actual values are translated directly to the columns of the output table, so no need to really process the JSON. It's done by the data source automatically.[m
+[32m+[m[32mThe next screenshot shows how to configure the MQTT data source on the Peakboard side. The incoming message is a JSON file, and we use a data path to access the information inside the JSON.[m
+ [m
+ {% highlight json %}[m
+ {[m
+[36m@@ -53,25 +53,31 @@[m [mThe next screenshot shows how to configure the MQTT datasource on the Peakboard[m
+ }[m
+ {% endhighlight %}[m
+ [m
+[32m+[m[32m As shown in the following screenshot, the actual values are translated directly into the columns of the output table, so there's no need to process the JSON. The data source does it automatically.[m
+[32m+[m
+ ![image](/assets/2024-10-17/050.png)[m
+ [m
+[31m-Let's discuss the other direction. In out test board (that can be download [here](/assets/2024-10-17/Wise4012TestBoard.pbmx)) there are two buttons for switching the output on or off.[m
+[32m+[m[32mLet's discuss the other direction. In our [test board](/assets/2024-10-17/Wise4012TestBoard.pbmx), there are two buttons for switching the output on and off.[m
+ [m
+ ![image](/assets/2024-10-17/060.png)[m
+ [m
+[31m-Let's have a look how to send the MQTT message. We're re-using the MQTT connection from the data source. The topic is 'Advantech/74FE488E8B86/ctl/do1', which is the serial number, fixed 'ctl' and then followed by the output channel name. The JSON to be sent is pretty simple: '{"v":true}' for swithcing on and '{"v":false}' for switching off.[m
+[32m+[m[32mLet's take a look at how to send the MQTT message. We're re-using the MQTT connection from the data source.[m
+[32m+[m
+[32m+[m[32mThe topic is `Advantech/74FE488E8B86/ctl/do1`. It's made up of the serial number, followed by `ctl`, followed by the output channel name.[m
+[32m+[m
+[32m+[m[32mThe JSON we send is pretty simple: `{"v":true}` to switch the output on, and `{"v":false}` to switch it off.[m
+ [m
+ ![image](/assets/2024-10-17/070.png)[m
+ [m
+ ## Webservice and JSON[m
+ [m
+[31m-Beside the traditional MQTT connecivity the Wise-4012 also offers REST endpoints to check the state of the input channels and set the output channels. [m
+[32m+[m[32mBesides the traditional MQTT connectivity, the Wise-4012 also offers REST endpoints to check the state of the input channels and set the output channels.[m[41m [m
+ [m
+[31m-For the digital input we can use the http://<MyServer>/di_value/slot_0 endpoint. The screenshot shows the JSON data source and the structure that is returned and contains all inputs. So we use the path 'DIVal[0]' to access the first channel and get the value.[m
+[32m+[m[32mFor the digital input, we use the `http://<MyServer>/di_value/slot_0` endpoint. The following screenshot shows the JSON data source and the structure that is returned. We use the `DIVal[0]` path to access the first channel and get its value.[m
+ [m
+ ![image](/assets/2024-10-17/080.png)[m
+ [m
+[31m-For the analog input the endpoints is a bit different: http://<MyServer>/ai_value/slot_0 and so is the JSON that contains the analog input data.[m
+[32m+[m[32mThe endpoints for the analog inputs have `/ai_value/` instead of `/di_value/`.  So `http://<MyServer>/ai_value/slot_0` is the JSON that contains the analog input data.[m
+ [m
+ ![image](/assets/2024-10-17/090.png)[m
+ [m

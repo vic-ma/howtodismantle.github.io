@@ -77,12 +77,11 @@ For the digital input, we use the `http://<MyServer>/di_value/slot_0` endpoint. 
 
 ![image](/assets/2024-10-17/080.png)
 
-The endpoints for the analog inputs have `/ai_value/` instead of `/di_value/`.  So `http://<MyServer>/ai_value/slot_0` is the JSON that contains the analog input data.
+The endpoints for the analog inputs have `/ai_value/` instead of `/di_value/`.  So `http://<MyServer>/ai_value/slot_0` returns the JSON with the analog input data.
 
 ![image](/assets/2024-10-17/090.png)
 
-For setting the value of an output we use the endpoint http://<MyServer>/do_value/slot_0 and submit the JSON string '{"DOVal":[{"Ch":0,"Val":1}]}' which is quite similiar to the MQTT message we used earlier. It's very important to use the verb PATCH to submit the message.A regular PUT won't do the trick. Here's the Building Block to do the call:
-
+To set the value of an output, we use the endpoint `http://<MyServer>/do_value/slot_0` and submit the JSON string `{"DOVal":[{"Ch":0,"Val":1}]}`, which is similar to the MQTT message we used earlier. It's very important to use the `PATCH` verb to submit the message. A regular `PUT` won't do the trick. Here's the Building Block script that performs the call:
 
 ![image](/assets/2024-10-17/100.png)
 
