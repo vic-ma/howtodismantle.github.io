@@ -65,7 +65,9 @@ Let's take a look at how to send the MQTT message. We're re-using the MQTT conne
 
 The topic is `Advantech/74FE488E8B86/ctl/do1`. It's made up of the serial number, followed by `ctl`, followed by the output channel name.
 
-The JSON we send is pretty simple: `{"v":true}` to switch the output on, and `{"v":false}` to switch it off.
+The JSON we send is pretty simple:
+* `{"v":true}` to switch the output on.
+* `{"v":false}` to switch the output off.
 
 ![image](/assets/2024-10-17/070.png)
 
@@ -81,12 +83,14 @@ The endpoints for the analog inputs have `/ai_value/` instead of `/di_value/`.  
 
 ![image](/assets/2024-10-17/090.png)
 
-To set the value of an output, we use the endpoint `http://<MyServer>/do_value/slot_0` and submit the JSON string `{"DOVal":[{"Ch":0,"Val":1}]}`, which is similar to the MQTT message we used earlier. It's very important to use the `PATCH` verb to submit the message. A regular `PUT` won't do the trick. Here's the Building Block script that performs the call:
+To set the value of an output, we use the endpoint `http://<MyServer>/do_value/slot_0` and submit the JSON string `{"DOVal":[{"Ch":0,"Val":1}]}`. This is similar to the MQTT message we used earlier. It's very important to use the `PATCH` verb to submit the message. A regular `PUT` won't do the trick. Here's the Building Block script that performs the call:
 
 ![image](/assets/2024-10-17/100.png)
 
 ## Result and conclusion
 
-Being able to use both MQTT and REST is a great feature of the Wise-4012. However, the following video also shows the downside. Since MQTT is an event based protocol, any change in value is transferred and processed immediately. Getting input values via REST is always a pull request done every couple of seconds. So when you need precise, real-time input, MQTT is a better choice. If a couple of seconds of lag is acceptable, REST might be easier, because no MQTT broker is needed.
+Being able to use both MQTT and REST is a great feature of the Wise-4012. However, the following video shows a downside. Since MQTT is an event based protocol, any change in value is transferred and processed immediately.
+
+On the other hand, getting input values via REST works by sending a pull request every few seconds. So when you need precise, real-time input, MQTT is a better choice. If a couple of seconds of lag is acceptable, REST might be easier, because no MQTT broker is needed.
 
 ![image](/assets/2024-10-17/result.gif)
