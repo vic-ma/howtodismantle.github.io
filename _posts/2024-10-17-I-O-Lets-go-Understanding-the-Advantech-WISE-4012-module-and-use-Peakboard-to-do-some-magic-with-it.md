@@ -13,9 +13,9 @@ downloads:
   - name: Wise4012TestBoard.pbmx
     url: /assets/2024-10-17/Wise4012TestBoard.pbmx
 ---
-In the recent weeks we already discussed two I/O modules provided by ICP DAS, the [ET-2254](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html) and the [U-7560M](/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html). In this article we will have a look at Advantech WISE-4012. This module provides a network connection via WiFi. It offers 2 digital outputs and 4 inputs which can be freely configured to be used as digital or analog inputs.
+In the past few weeks, we've discussed two I/O modules provided by ICP DAS: the [ET-2254](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html) and the [U-7560M](/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html). In this article, we'll take a look at the Advantech WISE-4012. This module provides a network connection via Wi-Fi. It offers 2 digital-only outputs and 4 digital/analog inputs.
 
-Beside the tradional way of interaction via MQTT we will also have a look at a second, alternative way: The REST webservice. Depending on the use case this can be a nice option to use REST instead of MQTT because no MQTT broker is necessary. 
+We will look at the traditional way of communicating with MQTT, as well as an alternative method: The REST webservice. Depending on your use case, REST may be better than MQTT, because no MQTT broker is necessary. 
 
 ![image](/assets/2024-10-17/010.png)
 
