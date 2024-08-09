@@ -85,8 +85,8 @@ To set the value of an output, we use the endpoint `http://<MyServer>/do_value/s
 
 ![image](/assets/2024-10-17/100.png)
 
-## result and conclusion
+## Result and conclusion
 
-Having both options MQTT and REST is a great feature of the Wise-4012. However the video also shows the downside. Since MQTT is an event based prototcol any change in value is transferred and processed immediately. Getting input values via REST is always a pull request done every couple of seconds. So when it comes to very precise real time input, MQTT is a better choice. If the real time is not that important and a lag up a couple of seconds is acceptabel, REST might be easier because no MQTT broker is needed.
+Being able to use both MQTT and REST is a great feature of the Wise-4012. However, the following video also shows the downside. Since MQTT is an event based protocol, any change in value is transferred and processed immediately. Getting input values via REST is always a pull request done every couple of seconds. So when you need precise, real-time input, MQTT is a better choice. If a couple of seconds of lag is acceptable, REST might be easier, because no MQTT broker is needed.
 
 ![image](/assets/2024-10-17/result.gif)
