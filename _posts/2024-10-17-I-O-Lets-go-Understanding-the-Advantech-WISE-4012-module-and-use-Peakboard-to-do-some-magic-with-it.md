@@ -13,7 +13,7 @@ downloads:
   - name: Wise4012TestBoard.pbmx
     url: /assets/2024-10-17/Wise4012TestBoard.pbmx
 ---
-In the past few weeks, we've discussed two I/O modules provided by ICP DAS: the [ET-2254](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html) and the [U-7560M](/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html). In this article, we'll take a look at the Advantech WISE-4012. This module provides a network connection via Wi-Fi. It offers 2 digital-only outputs and 4 digital/analog inputs.
+In the past few weeks, we've discussed two I/O modules provided by ICP DAS: the [ET-2254](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html) and the [U-7560M](/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html). In this article, we'll take a look at the Advantech WISE-4012. This module provides a network connection via Wi-Fi. It offers 2 digital-only outputs and 4 analog/digital inputs.
 
 We will look at the traditional way of communicating with MQTT, as well as an alternative method: The REST webservice. Depending on your use case, REST may be better than MQTT, because no MQTT broker is necessary. 
 
@@ -21,15 +21,15 @@ We will look at the traditional way of communicating with MQTT, as well as an al
 
 ## Module Configuration
 
-The Wise-4012 comes with a typical interface to configure the module. Unter the 'cloud' tab we find the option to activate MQTT connectivity and provide a broker for sending and receiving messages. The actual message consists of only one JSON string that covers all inputs and outputs.
+The Wise-4012 comes with a typical interface for configuring the module. Under the **Cloud** tab, there is an option to activate MQTT connectivity and provide a broker for sending and receiving messages. The actual message consists of a single JSON string that covers all inputs and outputs.
 
 ![image](/assets/2024-10-17/020.png)
 
-Under 'I/O Status'  we can define whether the 4 inputs are used as analog or digital. In our case we use channel 1 for analog input.
+Under **I/O Status**, we can set the 4 analog/digital inputs are to either analog or digital. In our case, we use channel 1 for analog input.
 
 ![image](/assets/2024-10-17/030.png)
 
-To check if there's already a real value on the analog input the next tab 'AI' provides insight of the current that is measured at the input.
+The **AI** tab tells us if there's already a real value on the analog input. This provides insight into the current measured at the input.
 
 ![image](/assets/2024-10-17/040.png)
 
