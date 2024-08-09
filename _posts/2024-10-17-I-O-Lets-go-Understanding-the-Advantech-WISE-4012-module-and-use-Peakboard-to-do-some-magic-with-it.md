@@ -15,7 +15,7 @@ downloads:
 ---
 In the past few weeks, we've discussed two I/O modules provided by ICP DAS: the [ET-2254](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html) and the [U-7560M](/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html). In this article, we'll take a look at the Advantech WISE-4012. This module provides a network connection via Wi-Fi. It offers two digital-only outputs and four analog/digital inputs.
 
-We will look at the traditional way of communicating with MQTT, as well as an alternative method: The REST webservice. Depending on your use case, REST may be better than MQTT, because no MQTT broker is needed. 
+We will look at the traditional way of communicating with MQTT, as well as an alternative method: The REST webservice. Depending on your use case, REST may be better than MQTT, because no MQTT broker is needed.
 
 ![image](/assets/2024-10-17/010.png)
 
@@ -73,7 +73,7 @@ The JSON we send is pretty simple:
 
 ## Webservice and JSON
 
-Besides the traditional MQTT connectivity, the Wise-4012 also offers REST endpoints to check the state of the input channels and set the output channels. 
+Besides the traditional MQTT connectivity, the Wise-4012 also offers REST endpoints to check the state of the input channels and set the output channels.
 
 For the digital input, we use the `http://<MyServer>/di_value/slot_0` endpoint. The following screenshot shows the JSON data source and the structure that is returned. We use the `DIVal[0]` path to access the first channel and get its value.
 
