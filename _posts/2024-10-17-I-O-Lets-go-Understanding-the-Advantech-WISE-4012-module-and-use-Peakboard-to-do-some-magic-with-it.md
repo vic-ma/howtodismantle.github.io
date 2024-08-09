@@ -61,15 +61,19 @@ Let's discuss the other direction. In our [test board](/assets/2024-10-17/Wise40
 
 ![image](/assets/2024-10-17/060.png)
 
-Let's have a look how to send the MQTT message. We're re-using the MQTT connection from the data source. The topic is 'Advantech/74FE488E8B86/ctl/do1', which is the serial number, fixed 'ctl' and then followed by the output channel name. The JSON to be sent is pretty simple: '{"v":true}' for swithcing on and '{"v":false}' for switching off.
+Let's take a look at how to send the MQTT message. We're re-using the MQTT connection from the data source.
+
+The topic is `Advantech/74FE488E8B86/ctl/do1`. It's made up of the serial number, followed by `ctl`, followed by the output channel name.
+
+The JSON we send is pretty simple: `{"v":true}` to switch the output on, and `{"v":false}` to switch it off.
 
 ![image](/assets/2024-10-17/070.png)
 
 ## Webservice and JSON
 
-Beside the traditional MQTT connecivity the Wise-4012 also offers REST endpoints to check the state of the input channels and set the output channels. 
+Besides the traditional MQTT connectivity, the Wise-4012 also offers REST endpoints to check the state of the input channels and set the output channels. 
 
-For the digital input we can use the http://<MyServer>/di_value/slot_0 endpoint. The screenshot shows the JSON data source and the structure that is returned and contains all inputs. So we use the path 'DIVal[0]' to access the first channel and get the value.
+For the digital input, we can use the `http://<MyServer>/di_value/slot_0` endpoint. The following screenshot shows the JSON data source and the structure that is returned. We use the `DIVal[0]` path to access the first channel and get its value.
 
 ![image](/assets/2024-10-17/080.png)
 
