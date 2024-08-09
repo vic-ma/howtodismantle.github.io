@@ -35,7 +35,7 @@ The **AI** tab tells us if there's already a real value on the analog input. Thi
 
 ## Mastering MQTT access
 
-The next screenshot shows how to configure the MQTT datasource on the Peakboard side. The incoming message is a simple JSON file and we're using data path to access the information within the JSON. As shown in the image the actual values are translated directly to the columns of the output table, so no need to really process the JSON. It's done by the data source automatically.
+The next screenshot shows how to configure the MQTT data source on the Peakboard side. The incoming message is a JSON file, and we use a data path to access the information inside the JSON.
 
 {% highlight json %}
 {
@@ -53,9 +53,11 @@ The next screenshot shows how to configure the MQTT datasource on the Peakboard 
 }
 {% endhighlight %}
 
+ As shown in the following screenshot, the actual values are translated directly into the columns of the output table, so there's no need to process the JSON. The data source does it automatically.
+
 ![image](/assets/2024-10-17/050.png)
 
-Let's discuss the other direction. In out test board (that can be download [here](/assets/2024-10-17/Wise4012TestBoard.pbmx)) there are two buttons for switching the output on or off.
+Let's discuss the other direction. In our [test board](/assets/2024-10-17/Wise4012TestBoard.pbmx), there are two buttons for switching the output on and off.
 
 ![image](/assets/2024-10-17/060.png)
 
