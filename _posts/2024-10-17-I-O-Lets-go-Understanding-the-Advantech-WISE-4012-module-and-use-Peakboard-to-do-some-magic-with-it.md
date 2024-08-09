@@ -73,11 +73,11 @@ The JSON we send is pretty simple: `{"v":true}` to switch the output on, and `{"
 
 Besides the traditional MQTT connectivity, the Wise-4012 also offers REST endpoints to check the state of the input channels and set the output channels. 
 
-For the digital input, we can use the `http://<MyServer>/di_value/slot_0` endpoint. The following screenshot shows the JSON data source and the structure that is returned. We use the `DIVal[0]` path to access the first channel and get its value.
+For the digital input, we use the `http://<MyServer>/di_value/slot_0` endpoint. The following screenshot shows the JSON data source and the structure that is returned. We use the `DIVal[0]` path to access the first channel and get its value.
 
 ![image](/assets/2024-10-17/080.png)
 
-For the analog input the endpoints is a bit different: http://<MyServer>/ai_value/slot_0 and so is the JSON that contains the analog input data.
+The endpoints for the analog inputs have `/ai_value/` instead of `/di_value/`.  So `http://<MyServer>/ai_value/slot_0` is the JSON that contains the analog input data.
 
 ![image](/assets/2024-10-17/090.png)
 
