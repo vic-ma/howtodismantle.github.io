@@ -13,9 +13,9 @@ downloads:
   - name: Wise4012TestBoard.pbmx
     url: /assets/2024-10-17/Wise4012TestBoard.pbmx
 ---
-In the past few weeks, we've discussed two I/O modules provided by ICP DAS: the [ET-2254](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html) and the [U-7560M](/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html). In this article, we'll take a look at the Advantech WISE-4012. This module provides a network connection via Wi-Fi. It offers 2 digital-only outputs and 4 analog/digital inputs.
+In the past few weeks, we've discussed two I/O modules provided by ICP DAS: the [ET-2254](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html) and the [U-7560M](/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html). In this article, we'll take a look at the Advantech WISE-4012. This module provides a network connection via Wi-Fi. It offers two digital-only outputs and four analog/digital inputs.
 
-We will look at the traditional way of communicating with MQTT, as well as an alternative method: The REST webservice. Depending on your use case, REST may be better than MQTT, because no MQTT broker is necessary. 
+We will look at the traditional way of communicating with MQTT, as well as an alternative method: The REST webservice. Depending on your use case, REST may be better than MQTT, because no MQTT broker is needed. 
 
 ![image](/assets/2024-10-17/010.png)
 
@@ -25,7 +25,7 @@ The Wise-4012 comes with a typical interface for configuring the module. Under t
 
 ![image](/assets/2024-10-17/020.png)
 
-Under **I/O Status**, we can set the 4 analog/digital inputs are to either analog or digital. In our case, we use channel 1 for analog input.
+Under **I/O Status**, we can set the four analog/digital inputs to either analog or digital. In our case, we use channel 1 for analog input.
 
 ![image](/assets/2024-10-17/030.png)
 
@@ -33,9 +33,9 @@ The **AI** tab tells us if there's already a real value on the analog input. Thi
 
 ![image](/assets/2024-10-17/040.png)
 
-## Mastering MQTT access
+## MQTT access
 
-The next screenshot shows how to configure the MQTT data source on the Peakboard side. The incoming message is a JSON file, and we use a data path to access the information inside the JSON.
+Here's what the incoming JSON looks like:
 
 {% highlight json %}
 {
@@ -53,7 +53,7 @@ The next screenshot shows how to configure the MQTT data source on the Peakboard
 }
 {% endhighlight %}
 
- As shown in the following screenshot, the actual values are translated directly into the columns of the output table, so there's no need to process the JSON. The data source does it automatically.
+ The following screenshot shows how to configure the MQTT data source on the Peakboard side. We use a data path to access the information inside the JSON. The actual values are translated directly into the columns of the output table, so there's no need to process the JSON. The data source does it automatically.
 
 ![image](/assets/2024-10-17/050.png)
 
