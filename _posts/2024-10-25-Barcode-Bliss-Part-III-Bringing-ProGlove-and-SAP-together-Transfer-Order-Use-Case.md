@@ -15,10 +15,11 @@ downloads:
   - name: SAPProGloveTransferOrder.pbmx
     url: /assets/2024-10-25/SAPProGloveTransferOrder.pbmx
 ---
-In the [first part](/Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html) and [second part](/Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html) of our ProGlove mini series, we discussed the basics of integrating ProGlove scanners into Peakboard applications. We used both the USB and MQTT modes to get the scan event, along with some metadata. And we also discovered options to send feedback to the scanner - can be as a light with variouse colors or even the small display that is mounted to the scanner.
-In this article we will learn how to put together what we already learned and build a complete use case. The use case is to handle a typical transfer order from SAP only by using Peakboard and ProGlove.
+In [part one](/Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html) and [part two](/Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html) of our ProGlove mini-series, we discussed the basics of integrating ProGlove scanners into Peakboard applications. We used both the USB and MQTT modes to get the scan event and related metadata. We also discussed options to send feedback to the scanner operator, such as a light with various colors or even a small display that's mounted to the scanner.
 
-## How the process works
+In this article, we will learn how to put together what we've already learned in order to build a complete use case. The use case is to handle a typical transfer order from SAP using only Peakboard and ProGlove.
+
+## Process overview
 
 A transfer order in SAP is a standard object to indicate that some goods must be collected from the warehouse and put to different location. This can useful to feed production needs or to fullfill a customer order. Usually these transfer orders are handled with SAP transaction LT01, LT02 etc... in the SAP system.
 
