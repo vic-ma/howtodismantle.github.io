@@ -3,7 +3,7 @@ layout: post
 title: Barcode Bliss - Part III - Bringing ProGlove and SAP together - Transfer Order Use Case
 date: 2023-03-01 12:00:00 +0200
 tags: hardware opcuamqtt
-image: /assets/2024-08-30/title.png
+image: /assets/2024-10-25/title.png
 read_more_links:
   - name: Barcode Bliss - Part I - Integrating ProGlove Scanners with Peakboard
     url: /Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html
@@ -12,105 +12,97 @@ read_more_links:
   - name: ProGlove Documentation
     url: https://docs.proglove.com/en/connect-gateway-to-your-network-using-mqtt-integration.html
 downloads:
-  - name: ProGloveTestCenter.pbmx
-    url: /assets/2024-08-14/ProGloveTestCenter.pbmx
+  - name: SAPProGloveTransferOrder.pbmx
+    url: /assets/2024-10-25/SAPProGloveTransferOrder.pbmx
 ---
-In the [first part](/Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html) of our ProGlove miniseries, we discussed the basics of integrating ProGlove scanners into Peakboard applications. We used both the USB and MQTT modes to get the scan event, along with some metadata.
+In the [first part](/Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html) and [second part](/Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html) of our ProGlove mini series, we discussed the basics of integrating ProGlove scanners into Peakboard applications. We used both the USB and MQTT modes to get the scan event, along with some metadata. And we also discovered options to send feedback to the scanner - can be as a light with variouse colors or even the small display that is mounted to the scanner.
+In this article we will learn how to put together what we already learned and build a complete use case. The use case is to handle a typical transfer order from SAP only by using Peakboard and ProGlove.
 
-In this article, we'll discuss some options for providing user feedback to the user performing a scan. This is especially useful for cases where the user doesn't want to look at the screen all the time, but may need to if something goes wrong, in order to learn more about the scan. A typical use case is when a user is scanning all the products of an order:
-1. The user scans all the products.
-2. If there are any products that don't belong to the order, the user gets negative feedback. 
+## How the process works
 
-We will discuss two examples. The first only gives positive and negative feedback with an LED. The second provides more information: A storage bin and some attributes of the scanned product will show up on the scanner display.
+A transfer order in SAP is a standard object to indicate that some goods must be collected from the warehouse and put to different location. This can useful to feed production needs or to fullfill a customer order. Usually these transfer orders are handled with SAP transaction LT01, LT02 etc... in the SAP system.
 
-## Feedback by LED
+Here's the process how to handle a transfer order in our ProGlove / Peakboard scenario:
 
-The [Mark 3 model](https://proglove.com/products/hardware/mark-3/) is equipped with variable-color LEDs that provide user feedback. Giving feedback to the scanner via MQTT works in the same way as when submitting a scan event, but the direction and the JSON changes.
+1. The worker is scanning a QR code to indicate the start of a new transfer order process, so the system is looking up the next untouched transfer order from SAP
+2. The line items of the TO are displayed on the screen and the warehouse bin of the first line is shown on the scanner display
+3. The worker is finding the warehouse bin and scans the code of the warehouse bin to indicate that he has arrived at the correct warehouse bin. The scan makes sure that the worker is not grabbing goods from the wrong bin. It's a double check.
+4. After having scanned the correct bin that quantity of goods is dayiplayed on ProGlove, so the worker can pick the goods.
+5. The worker confirms the picking with a double click on the ProGlove button
+6. The double clicks confirms the picking and the next line items is activated, so the next warehouse bin is displayed for the worker on the ProGlove display. Then go to step 3
+7. Repeat the steps 3-6 until all line items are picked by the worker. 
 
-We're sending our message to this topic:
-```
-Peakboard/gateway/PGGW402650394/feedback!
-```
+The overall process progress is displayed on the Peakboard screen. So in case something goes wrong or the worker loses orientation he can always walk back to the display and check the current situation. It's not necessary for the worker to have the screen in sight all the time because all necessary information are seeable on the ProGlove screen.
 
-* `Peakboard` is the configured main topic.
-* `gateway` is just a keyword because we're addressing the gateway.
-* `PGGW402650394` is the serial number of the gateway.
-* `feedback!` is the event type we're triggering.
+The screenshot shows an order where the first two line items are already picked and confirmed. The third one is currently in the process of being picked. The rest of the lines are still in waiting state.
 
-To learn more, see the [ProGlove Docs](https://docs.proglove.com/en/worker-feedback-command.html).
+![image](/assets/2024-10-25/010.png)
 
-Here's an example JSON string that's sent to the scanner:
+## The data sources
 
-{% highlight json %}
-{
-  "api_version": "1.0",
-  "event_type": "feedback!",
-  "event_id": "02114da8-feae-46e3-8b00-a3f7ea8672df",
-  "time_created": 1546300800000,
-  "device_serial": "M2MR111100928",
-  "feedback_action_id": "FEEDBACK_POSITIVE"
-}
-{% endhighlight %}
+Let's have a look at the necessary data connections. This screenshot shows a simple SAP connection. To get the line items for a tranfer order we just use a query for the table LTAP. In a more real life scenario it might be usful to put the logic into an RFC function module to determine the next active transfer order.
 
-There are two important attributes within the JSON:
-* `device_serial` must be set to the serial number of the scanner we want to send the feedback to. This is important because there could be more than one scanner connected to the gateway.
-* `feedback_action_id` is a constant that defines the light that needs to flash. In our example, we use `FEEDBACK_POSITIVE` for the green light and `FEEDBACK_NEGATIVE` for the red light.
+![image](/assets/2024-10-25/020.png)
 
-In our demo environment, we place two buttons to showcase the feedback function:
+For the ProGlove connectivity we use a typical MQTT connection and some data paths to extract the useful information from the JSON string that is sent from ProGlove. The information we need is the scanned code, the serial number (to send back information to the display of the same scanner) and the information if the user has double clicked.
 
-![image](/assets/2024-08-30/010.png)
+![image](/assets/2024-10-25/030.png)
 
-The MQTT message is sent with a single MQTT publish command. In the following screenshot, we send the JSON string to the topic from before, by using the existing MQTT connection, which refers to the data source we created in the [first part of this series](/Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html).
+The last thing we need is a table-like variable to store the order items. We need a separate list instead of the original SAP data source data because we need to add the 'Status' column to indicate if the item is already open (O), active (A) or done (D).
 
-Then, we use a multiline string with placeholders. We exchange the placeholder `#[SerialNo]#` with the serial number from the last scan. We look this up from the first row in the data source.
+![image](/assets/2024-10-25/040.png)
 
-The second button works exactly the same, but uses `FEEDBACK_NEGATIVE` in the JSON.
+## The UI 
 
-![image](/assets/2024-08-30/020.png)
+The UI is pretty simple. We only use a QR code with a fixed value ("$Order_Start$") and a styled list. The details of the color and icon change according to the items state is not explained here. We can look that up in the pbmx that can be downloaded [here](/assets/2024-10-25/SAPProGloveTransferOrder.pbmx).
 
-The following video shows how the scan of the canned tomatoes is presented on the screen. And then a positive and negative feedback is sent back to the scanner to light up the LEDs. 
+![image](/assets/2024-10-25/050.png)
 
-{% include youtube.html id="EFzW1Y6QYvA" %}
+## The application logic
 
-## Feedback by display
+The actual application logic (aka the magic behind) is happening in the refreshed event of the MQTT data source. This process is triggered every time the worker is doing something with the ProGove scanner. We distinguish netween three cases.
 
-Now, we'll try out another ProGlove model: The [Mark Display](https://proglove.com/products/hardware/mark-display/).
-It offers even more options for user feedback, because it comes with a display.
+1. The 'Order Started' barcode is scanned
+2. The warehouse bin is scanned 
+3. The button on the scanner is double clicked
 
-Setting the display content works similarly to setting the LEDs: We send a `display!` MQTT message to the gateway.
+It doesn't make sense to go through any single command in detail, but here are the three cases on high level basis:
 
-ProGlove offers different kinds of templates for displaying the message on the display. You can see these templates in the [ProGlove templates documentation](https://docs.proglove.com/en/screen-templates.html). In our case, we use a simple template called PG1, which has two variable fields, a header, and a body text.
+### Auxiliary functions
 
-The following JSON string shows an example of the `display!` command. Besides the name of the template and the serial number of the destination scanner, there are two variable fields we need to fill:
-* `display_field_header` is the upper part of the display template.
-* `display_field_text` is the lower part of the display template with a smaller font.
+We use three different functions for the actual sending of the MQTT message to the display and the lights of the scanner. The only purpose here is encapsulate the complete JSON and make sure the main function is easier to understand. How the JSON works is well explained in the second parter of the article series.
 
-{% highlight json %}
-{
-    "api_version": "1.0",
-    "event_type": "display!",
-    "event_id": "21d22d49-efbe-4e0c-b109-2e9afb7acacc",
-    "time_created": 1546300800000,
-    "time_validity_duration": 0,
-    "device_serial": "MDMR000006406",
-    "display_template_id": "PG1",
-    "display_refresh_type": "DEFAULT",
-    "display_fields": [{
-        "display_field_id": 1,
-        "display_field_header": "Storage Unit",
-        "display_field_text": "R15"
-    }]
-}
-{% endhighlight %}
+![image](/assets/2024-10-25/055.png)
 
-Let's switch to Peakboard Designer. In our test app, we use two dynamic text fields to define the values, and a button to initiate the process.
+### 1. The order is started
 
-![image](/assets/2024-08-30/030.png)
+In case we receive the scan of the string "$order_started$" the user wants to start a new order. So we send feedback to the ProGlove display that the order has started. Then we query the data from SAP and fill our variable list with the items (just loop over the original source). Then we send positiv feedback (green light), set the first column to A for active and send the bin information to the display.
 
-What happens behind the button is quite similar to our first example, but we now have three placeholders instead of one. These dynamically create the JSON string with the serial number and two dynamic display texts.
+![image](/assets/2024-10-25/060.png)
 
-![image](/assets/2024-08-30/040.png)
+### 2. The bin is scanned
 
-In the following video, you can see the final result. A barcode is scanned and the feedback is sent back to the scanner, to show it on the display.
+If the bin is scanned we check, if the bin is correct by comparing it to the bin of the active line item. This action is necessary to check if the worker is about to pick from the correct bin. If this is the case, we send him the quantity to pick. If not, we send an error message.
 
-{% include youtube.html id="dfIobBdu6-w" %}
+![image](/assets/2024-10-25/070.png)
+
+### 3. Confirming the pick
+
+When the user has finished the pick he is supposed to confirm this by double clicking on the ProGlove button. The current line item is set to D for Done and we send the worker the next bin in the list.
+
+![image](/assets/2024-10-25/080.png)
+
+## result and conclusion
+
+We learned in this article how easy it is to build a Peakboard application to feed a ProGlove scanner with all information of an SAP transfer order and build the complete process to handle the whole picking process. All other details of the Peakboard app are not important to understand the logic and the architecture of the app. 
+
+The most impressive point to show here is how the power of Peakboard and the power of ProGlove can be combined to build a perfect and secure process.
+
+The building of the app and the actual application can be also checked in this video:
+
+(The video is not ready yet. This link will be replaced as soon as it's available.)
+
+{% include youtube.html id="XXX" %}
+
+
+

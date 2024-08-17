@@ -24,6 +24,7 @@ This blog features a wide variety of articles about different types of hardware 
 
 - [Barcode Bliss - Part I - Integrating ProGlove Scanners with Peakboard](/Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html)
 - [Barcode Bliss - Part II - Sending Feedback to ProGlove Scanners](/Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html)
+- [Barcode Bliss - Part III - Bringing ProGlove and SAP together - Transfer Order Use Case](/Barcode-Bliss-Part-III-Bringing-ProGlove-and-SAP-together-Transfer-Order-Use-Case.html)
 
 ### E-Ink Displays
 

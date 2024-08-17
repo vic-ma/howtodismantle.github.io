@@ -1,12 +1,14 @@
 ---
 layout: post
 title: Barcode Bliss - Part I - Integrating ProGlove Scanners with Peakboard
-date: 2023-03-01 12:00:00 +0200
+date: 2024-08-14 12:00:00 +0200
 tags: hardware opcuamqtt
 image: /assets/2024-08-14/title.png
 read_more_links:
   - name: Barcode Bliss - Part II - Sending Feedback to ProGlove Scanners
     url: /Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html
+  - name: Barcode Bliss - Part III - Bringing ProGlove and SAP together - Transfer Order Use Case
+    url: /Barcode-Bliss-Part-III-Bringing-ProGlove-and-SAP-together-Transfer-Order-Use-Case.html
   - name: ProGlove Documentation
     url: https://docs.proglove.com/en/connect-gateway-to-your-network-using-mqtt-integration.html
 downloads:
@@ -20,6 +22,8 @@ ProGlove creates next-generation barcode scanners that are integrated into a glo
 In this article, we'll discuss how to configure a ProGlove scanner and integrate the scan event into a Peakboard application.
 
 In the [second part of this mini-series](/Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html), we will go one step further and give the barcode scanner user feedback about the scan, like if the scanned code was processed successfully. The feedback can be given by a simple green or red light or even a small display on the scanner.
+
+In [the third part of the series](/Barcode-Bliss-Part-III-Bringing-ProGlove-and-SAP-together-Transfer-Order-Use-Case.html) we will build a full blown use case by handling a transfer order from SAP with ProGlove.
 
 ## Configuration
 
