@@ -15,90 +15,104 @@ downloads:
   - name: SAPProGloveTransferOrder.pbmx
     url: /assets/2024-10-25/SAPProGloveTransferOrder.pbmx
 ---
-In the [first part](/Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html) and [second part](/Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html) of our ProGlove mini series, we discussed the basics of integrating ProGlove scanners into Peakboard applications. We used both the USB and MQTT modes to get the scan event, along with some metadata. And we also discovered options to send feedback to the scanner - can be as a light with variouse colors or even the small display that is mounted to the scanner.
-In this article we will learn how to put together what we already learned and build a complete use case. The use case is to handle a typical transfer order from SAP only by using Peakboard and ProGlove.
+In [part one](/Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html) and [part two](/Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html) of our ProGlove mini-series, we discussed the basics of integrating ProGlove scanners into Peakboard applications. We used both the USB and MQTT modes to get the scan event and related metadata. We also discussed options to send feedback to the scanner operator, such as a light with various colors and a small display that's mounted to the scanner.
 
-## How the process works
+In this article, we'll put together what we've already learned, in order to build a complete use case. We will handle a typical transfer order from SAP using only Peakboard and ProGlove.
 
-A transfer order in SAP is a standard object to indicate that some goods must be collected from the warehouse and put to different location. This can useful to feed production needs or to fullfill a customer order. Usually these transfer orders are handled with SAP transaction LT01, LT02 etc... in the SAP system.
+## Process overview
 
-Here's the process how to handle a transfer order in our ProGlove / Peakboard scenario:
+In SAP, a transfer order is a standard object that indicates that some goods must be collected from the warehouse and moved to different location. Transfer orders can be used to feed production needs or to fulfill a customer order. Transfer orders are usually handled in SAP with transaction LT01, LT02, etc.
 
-1. The worker is scanning a QR code to indicate the start of a new transfer order process, so the system is looking up the next untouched transfer order from SAP
-2. The line items of the TO are displayed on the screen and the warehouse bin of the first line is shown on the scanner display
-3. The worker is finding the warehouse bin and scans the code of the warehouse bin to indicate that he has arrived at the correct warehouse bin. The scan makes sure that the worker is not grabbing goods from the wrong bin. It's a double check.
-4. After having scanned the correct bin that quantity of goods is dayiplayed on ProGlove, so the worker can pick the goods.
-5. The worker confirms the picking with a double click on the ProGlove button
-6. The double clicks confirms the picking and the next line items is activated, so the next warehouse bin is displayed for the worker on the ProGlove display. Then go to step 3
-7. Repeat the steps 3-6 until all line items are picked by the worker. 
+Here's the process for handling a transfer order with ProGlove and Peakboard:
 
-The overall process progress is displayed on the Peakboard screen. So in case something goes wrong or the worker loses orientation he can always walk back to the display and check the current situation. It's not necessary for the worker to have the screen in sight all the time because all necessary information are seeable on the ProGlove screen.
+1. The worker scans a QR code to indicate the start of a new transfer order process.
+2. The system looks up the next untouched transfer order from SAP.
+3. The screen shows the line items of the transfer order, and the scanner display shows the warehouse bin of the first line.
+4. The worker finds the warehouse bin and scans the code of the bin. The scan makes sure that the worker is not grabbing goods from the wrong bin.
+5. ProGlove display specifies the quantity of goods to take.
+6. The worker takes out that many goods from the bin.
+7. The worker confirms that they have the goods by double-clicking the ProGlove button.
+8. The next line items are activated, and the ProGlove display shows the next warehouse bin.
+9. Repeat steps 3-6 until all line items have been retrieved by the worker. 
 
-The screenshot shows an order where the first two line items are already picked and confirmed. The third one is currently in the process of being picked. The rest of the lines are still in waiting state.
+The overall progress is displayed on the Peakboard screen. So in case something goes wrong or the worker gets lost, they can always walk back to the display and analyze the current situation. It's not necessary for the worker to have the screen in sight at all times, because all the necessary information is shown on the ProGlove display.
+
+The following screenshot shows an order where the first two line items have already been retrieved. The third line item is currently being retrieved. The remaining line items are still in the pending state.
 
 ![image](/assets/2024-10-25/010.png)
 
 ## The data sources
 
-Let's have a look at the necessary data connections. This screenshot shows a simple SAP connection. To get the line items for a tranfer order we just use a query for the table LTAP. In a more real life scenario it might be usful to put the logic into an RFC function module to determine the next active transfer order.
+Let's take a look at the necessary data connections. The following screenshot shows a simple SAP connection. To get the line items for a transfer order, we use a query for the LTAP table. In a real world scenario, it might be useful to put the logic into an RFC function module to determine the next active transfer order.
 
 ![image](/assets/2024-10-25/020.png)
 
-For the ProGlove connectivity we use a typical MQTT connection and some data paths to extract the useful information from the JSON string that is sent from ProGlove. The information we need is the scanned code, the serial number (to send back information to the display of the same scanner) and the information if the user has double clicked.
+For the ProGlove connectivity, we use a standard MQTT connection along with some data paths. That way, we can extract the useful information from the JSON string that's sent from ProGlove. We need the following information:
+* The scanned code.
+* The serial number (to send back information to the display of the same scanner).
+* Information about if the user double-clicked.
 
 ![image](/assets/2024-10-25/030.png)
 
-The last thing we need is a table-like variable to store the order items. We need a separate list instead of the original SAP data source data because we need to add the 'Status' column to indicate if the item is already open (O), active (A) or done (D).
+The last thing we need is a table-like variable to store the order items. We need a separate list from the original SAP data source data, because we need to add a `Status` column. This column specifies the status of an item:
+* "O" - Already open
+* "A" - Active
+* "D" - Done
 
 ![image](/assets/2024-10-25/040.png)
 
 ## The UI 
 
-The UI is pretty simple. We only use a QR code with a fixed value ("$Order_Start$") and a styled list. The details of the color and icon change according to the items state is not explained here. We can look that up in the pbmx that can be downloaded [here](/assets/2024-10-25/SAPProGloveTransferOrder.pbmx).
+The UI is pretty simple. We use a QR code with a fixed value, `$Order_Start$`, and a styled list. To learn how the color and icon change according to the item state, see [the PBMX](/assets/2024-10-25/SAPProGloveTransferOrder.pbmx).
 
 ![image](/assets/2024-10-25/050.png)
 
 ## The application logic
 
-The actual application logic (aka the magic behind) is happening in the refreshed event of the MQTT data source. This process is triggered every time the worker is doing something with the ProGove scanner. We distinguish netween three cases.
+The application logic (the magic behind everything) happens in the refreshed event of the MQTT data source. This process is triggered every time the worker does something with the ProGove scanner. There are three cases:
 
-1. The 'Order Started' barcode is scanned
-2. The warehouse bin is scanned 
-3. The button on the scanner is double clicked
+* The "Order Started" barcode is scanned.
+* The warehouse bin is scanned.
+* The button on the scanner is double-clicked.
 
-It doesn't make sense to go through any single command in detail, but here are the three cases on high level basis:
+It doesn't make sense to go through any single command in detail, but the following are the three high-level cases.
 
 ### Auxiliary functions
 
-We use three different functions for the actual sending of the MQTT message to the display and the lights of the scanner. The only purpose here is encapsulate the complete JSON and make sure the main function is easier to understand. How the JSON works is well explained in the second parter of the article series.
+We use three different functions to send the MQTT message to the display and the lights of the scanner. The purpose is to encapsulate the JSON and make the main function easier to understand. How the JSON works is explained in [part two](/Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html) of this article series.
 
 ![image](/assets/2024-10-25/055.png)
 
-### 1. The order is started
+#### The order is started
 
-In case we receive the scan of the string "$order_started$" the user wants to start a new order. So we send feedback to the ProGlove display that the order has started. Then we query the data from SAP and fill our variable list with the items (just loop over the original source). Then we send positiv feedback (green light), set the first column to A for active and send the bin information to the display.
+If we receive a scan of the string `$order_started$`, that means the user wants to start a new order. Here's what we do:
+1. Tell the ProGlove display that the order has started.
+2. Query the data from SAP and fill our variable list with the items (just loop over the original source).
+3. Send positive feedback (green light).
+4. Set the first column to "A" for active.
+5. Send the bin information to the display.
 
 ![image](/assets/2024-10-25/060.png)
 
-### 2. The bin is scanned
+#### The bin is scanned
 
-If the bin is scanned we check, if the bin is correct by comparing it to the bin of the active line item. This action is necessary to check if the worker is about to pick from the correct bin. If this is the case, we send him the quantity to pick. If not, we send an error message.
+If the bin is scanned, we check if the bin is correct by comparing it to the bin of the active line item. This action is necessary to check if the worker is about to pick from the correct bin. If that is the case, we send the worker the quantity to pick. If not, we send an error message.
 
 ![image](/assets/2024-10-25/070.png)
 
-### 3. Confirming the pick
+#### Confirm the pick
 
-When the user has finished the pick he is supposed to confirm this by double clicking on the ProGlove button. The current line item is set to D for Done and we send the worker the next bin in the list.
+When the worker has finished picking up the goods, they confirm this by double-clicking the ProGlove button. The current line item is set to "D" for "Done," and we send the worker the next bin on the list.
 
 ![image](/assets/2024-10-25/080.png)
 
-## result and conclusion
+## Result and conclusion
 
-We learned in this article how easy it is to build a Peakboard application to feed a ProGlove scanner with all information of an SAP transfer order and build the complete process to handle the whole picking process. All other details of the Peakboard app are not important to understand the logic and the architecture of the app. 
+In this article, we learned how easy it is to build a Peakboard application that feeds a ProGlove scanner with all the information about an SAP transfer order. We learned how to build the complete picking process. All other details about the Peakboard app are not necessary to understand the logic and architecture of the app.
 
-The most impressive point to show here is how the power of Peakboard and the power of ProGlove can be combined to build a perfect and secure process.
+The most impressive part here is how the power of Peakboard and the power of ProGlove can be combined to build a perfect and secure process.
 
-The building of the app and the actual application can be also checked in this video:
+Here's a video that shows off the application and the process of building it:
 
 (The video is not ready yet. This link will be replaced as soon as it's available.)
 
