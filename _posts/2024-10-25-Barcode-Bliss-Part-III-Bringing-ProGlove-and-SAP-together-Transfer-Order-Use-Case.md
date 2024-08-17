@@ -29,10 +29,10 @@ Here's the process for handling a transfer order in our ProGlove and Peakboard s
 1. The system looks up the next untouched transfer order from SAP.
 2. The screen shows the line items of the transfer order, and the scanner display shows the warehouse bin of the first line.
 3. The worker finds the warehouse bin and scans the code of the bin to indicate that they have arrived at the correct warehouse bin. The scan makes sure that the worker is not grabbing goods from the wrong bin.
-4. The quantity of goods is displayed on ProGlove, so the worker can pick the goods.
-5. The worker confirms the picking by double clicking the ProGlove button.
-6. The double clicks confirms the picking and the next line items is activated, so the next warehouse bin is displayed for the worker on the ProGlove display. Then go to step 3
-7. Repeat the steps 3-6 until all line items are picked by the worker. 
+4. ProGlove display specifies the quantity of goods and the worker takes out the goods.
+5. The worker confirms that they have the goods by double-clicking the ProGlove button.
+6. The next line items are activated, so the ProGlove display shows the next warehouse bin.
+7. Repeat the steps 3-6 until all line items have been retrieved by the worker. 
 
 The overall process progress is displayed on the Peakboard screen. So in case something goes wrong or the worker loses orientation he can always walk back to the display and check the current situation. It's not necessary for the worker to have the screen in sight all the time because all necessary information are seeable on the ProGlove screen.
 
