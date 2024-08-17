@@ -21,7 +21,7 @@ In this article, we will learn how to put together what we've already learned in
 
 ## Process overview
 
-A transfer order in SAP is a standard object to indicate that some goods must be collected from the warehouse and put to different location. This can useful to feed production needs or to fullfill a customer order. Usually these transfer orders are handled with SAP transaction LT01, LT02 etc... in the SAP system.
+A transfer order in SAP is a standard object that indicates that some goods must be collected from the warehouse and moved to different location. Transfer orders can be used to feed production needs or to fulfill a customer order. These transfer orders are usually handled with SAP transaction LT01, LT02, etc. in the SAP system.
 
 Here's the process how to handle a transfer order in our ProGlove / Peakboard scenario:
 
