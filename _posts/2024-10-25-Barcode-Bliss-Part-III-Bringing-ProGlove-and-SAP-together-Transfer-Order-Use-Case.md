@@ -23,13 +23,14 @@ In this article, we will learn how to put together what we've already learned in
 
 A transfer order in SAP is a standard object that indicates that some goods must be collected from the warehouse and moved to different location. Transfer orders can be used to feed production needs or to fulfill a customer order. These transfer orders are usually handled with SAP transaction LT01, LT02, etc. in the SAP system.
 
-Here's the process how to handle a transfer order in our ProGlove / Peakboard scenario:
+Here's the process for handling a transfer order in our ProGlove and Peakboard scenario:
 
-1. The worker is scanning a QR code to indicate the start of a new transfer order process, so the system is looking up the next untouched transfer order from SAP
-2. The line items of the TO are displayed on the screen and the warehouse bin of the first line is shown on the scanner display
-3. The worker is finding the warehouse bin and scans the code of the warehouse bin to indicate that he has arrived at the correct warehouse bin. The scan makes sure that the worker is not grabbing goods from the wrong bin. It's a double check.
-4. After having scanned the correct bin that quantity of goods is dayiplayed on ProGlove, so the worker can pick the goods.
-5. The worker confirms the picking with a double click on the ProGlove button
+1. The worker scans a QR code to indicate the start of a new transfer order process.
+1. The system looks up the next untouched transfer order from SAP.
+2. The screen shows the line items of the transfer order, and the scanner display shows the warehouse bin of the first line.
+3. The worker finds the warehouse bin and scans the code of the bin to indicate that they have arrived at the correct warehouse bin. The scan makes sure that the worker is not grabbing goods from the wrong bin.
+4. The quantity of goods is displayed on ProGlove, so the worker can pick the goods.
+5. The worker confirms the picking by double clicking the ProGlove button.
 6. The double clicks confirms the picking and the next line items is activated, so the next warehouse bin is displayed for the worker on the ProGlove display. Then go to step 3
 7. Repeat the steps 3-6 until all line items are picked by the worker. 
 
