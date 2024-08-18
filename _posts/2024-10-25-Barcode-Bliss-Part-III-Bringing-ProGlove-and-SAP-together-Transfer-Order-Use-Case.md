@@ -17,7 +17,7 @@ downloads:
 ---
 In [part one](/Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html) and [part two](/Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html) of our ProGlove mini-series, we discussed the basics of integrating ProGlove scanners into Peakboard applications. We used both the USB and MQTT modes to get the scan event and related metadata. We also discussed options to send feedback to the scanner operator, such as a light with various colors or even a small display that's mounted to the scanner.
 
-In this article, we will learn how to put together what we've already learned in order to build a complete use case. The use case is to handle a typical transfer order from SAP using only Peakboard and ProGlove.
+In this article, you will learn how to put together what we've already learned in order to build a complete use case. We will handle a typical transfer order from SAP using only Peakboard and ProGlove.
 
 ## Process overview
 
@@ -98,13 +98,13 @@ If the bin is scanned, we check if the bin is correct by comparing it to the bin
 
 #### Confirm the pick
 
-When the user has finished the pick he is supposed to confirm this by double-clicking on the ProGlove button. The current line item is set to D for Done and we send the worker the next bin in the list.
+When the worker has finished picking up the goods, they confirm this by double-clicking the ProGlove button. The current line item is set to "D" for "Done," and we send the worker the next bin in the list.
 
 ![image](/assets/2024-10-25/080.png)
 
-## result and conclusion
+## Result and conclusion
 
-We learned in this article how easy it is to build a Peakboard application to feed a ProGlove scanner with all information of an SAP transfer order and build the complete process to handle the whole picking process. All other details of the Peakboard app are not important to understand the logic and the architecture of the app. 
+In this article, we learned how easy it is to build a Peakboard application that feeds a ProGlove scanner with all the information about an SAP transfer order and build the complete process to handle the whole picking process. All other details of the Peakboard app are not important to understand the logic and the architecture of the app. 
 
 The most impressive point to show here is how the power of Peakboard and the power of ProGlove can be combined to build a perfect and secure process.
 
