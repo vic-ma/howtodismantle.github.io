@@ -108,7 +108,7 @@ When the worker has finished picking up the goods, they confirm this by double-c
 
 ## Result and conclusion
 
-In this article, we learned how easy it is to build a Peakboard application that feeds a ProGlove scanner with all the information of an SAP transfer order. We learned how to build the complete picking process. All other details about the Peakboard app are not necessary to understand the logic and the architecture of the app.
+In this article, we learned how easy it is to build a Peakboard application that feeds a ProGlove scanner with all the information about an SAP transfer order. We learned how to build the complete picking process. All other details about the Peakboard app are not necessary to understand the logic and architecture of the app.
 
 The most impressive part here is how the power of Peakboard and the power of ProGlove can be combined to build a perfect and secure process.
 
