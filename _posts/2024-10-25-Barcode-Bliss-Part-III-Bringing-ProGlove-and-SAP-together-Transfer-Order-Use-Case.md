@@ -46,7 +46,10 @@ Let's take a look at the necessary data connections. The following screenshot sh
 
 ![image](/assets/2024-10-25/020.png)
 
-For the ProGlove connectivity, we use a standard MQTT connection along with some data paths in order to extract the useful information from the JSON string that's sent from ProGlove. The information we need is the scanned code, the serial number (to send back information to the display of the same scanner), and information about if the user double-clicked.
+For the ProGlove connectivity, we use a standard MQTT connection along with some data paths in order to extract the useful information from the JSON string that's sent from ProGlove. We need the following information:
+* The scanned code.
+* The serial number (to send back information to the display of the same scanner).
+* Information about if the user double-clicked.
 
 ![image](/assets/2024-10-25/030.png)
 
@@ -89,11 +92,11 @@ If we receive a scan of the string `$order_started$`, that means the user wants 
 
 #### The bin is scanned
 
-If the bin is scanned we check, if the bin is correct by comparing it to the bin of the active line item. This action is necessary to check if the worker is about to pick from the correct bin. If this is the case, we send him the quantity to pick. If not, we send an error message.
+If the bin is scanned, we check if the bin is correct by comparing it to the bin of the active line item. This action is necessary to check if the worker is about to pick from the correct bin. If that is the case, we send the worker the quantity to pick. If not, we send an error message.
 
 ![image](/assets/2024-10-25/070.png)
 
-#### Confirming the pick
+#### Confirm the pick
 
 When the user has finished the pick he is supposed to confirm this by double-clicking on the ProGlove button. The current line item is set to D for Done and we send the worker the next bin in the list.
 
