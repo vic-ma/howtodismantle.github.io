@@ -63,17 +63,17 @@ The last thing we need is a table-like variable to store the order items. We nee
 
 ## The UI 
 
-The UI is pretty simple. We use a QR code with a fixed value, `$Order_Start$`, and a styled list. The details of the color and icon change according to the items state is not explained here. You can look that up in [the PBMX](/assets/2024-10-25/SAPProGloveTransferOrder.pbmx).
+The UI is pretty simple. We use a QR code with a fixed value, `$Order_Start$`, and a styled list. To learn how the color and icon change according to the item state, see [the PBMX](/assets/2024-10-25/SAPProGloveTransferOrder.pbmx).
 
 ![image](/assets/2024-10-25/050.png)
 
 ## The application logic
 
-The application logic (the magic behind everything) happens in the refreshed event of the MQTT data source. This process is triggered every time the worker does something with the ProGove scanner. We distinguish between three cases:
+The application logic (the magic behind everything) happens in the refreshed event of the MQTT data source. This process is triggered every time the worker does something with the ProGove scanner. There are three cases:
 
-1. The "Order Started" barcode is scanned
-2. The warehouse bin is scanned 
-3. The button on the scanner is double-clicked
+* The "Order Started" barcode is scanned.
+* The warehouse bin is scanned.
+* The button on the scanner is double-clicked.
 
 It doesn't make sense to go through any single command in detail, but the following are the three high-level cases.
 
