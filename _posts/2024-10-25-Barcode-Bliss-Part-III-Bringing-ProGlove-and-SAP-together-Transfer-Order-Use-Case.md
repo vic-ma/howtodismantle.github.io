@@ -79,13 +79,13 @@ It doesn't make sense to go through any single command in detail, but the follow
 
 ### Auxiliary functions
 
-We use three different functions to send the MQTT message to the display and the lights of the scanner. The purpose is to encapsulate the JSON and make sure the main function is easier to understand. How the JSON works is explained in [part two](/Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html) of this article series.
+We use three different functions to send the MQTT message to the display and the lights of the scanner. The purpose is to encapsulate the JSON and make the main function easier to understand. How the JSON works is explained in [part two](/Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html) of this article series.
 
 ![image](/assets/2024-10-25/055.png)
 
 #### The order is started
 
-If we receive a scan of the string `$order_started$`, that means the user wants to start a new order. So here's what we do:
+If we receive a scan of the string `$order_started$`, that means the user wants to start a new order. Here's what we do:
 1. Tell the ProGlove display that the order has started.
 2. Query the data from SAP and fill our variable list with the items (just loop over the original source).
 3. Send positive feedback (green light).
@@ -102,17 +102,17 @@ If the bin is scanned, we check if the bin is correct by comparing it to the bin
 
 #### Confirm the pick
 
-When the worker has finished picking up the goods, they confirm this by double-clicking the ProGlove button. The current line item is set to "D" for "Done," and we send the worker the next bin in the list.
+When the worker has finished picking up the goods, they confirm this by double-clicking the ProGlove button. The current line item is set to "D" for "Done," and we send the worker the next bin on the list.
 
 ![image](/assets/2024-10-25/080.png)
 
 ## Result and conclusion
 
-In this article, we learned how easy it is to build a Peakboard application that feeds a ProGlove scanner with all the information about an SAP transfer order and build the complete process to handle the whole picking process. All other details of the Peakboard app are not important to understand the logic and the architecture of the app. 
+In this article, we learned how easy it is to build a Peakboard application that feeds a ProGlove scanner with all the information of an SAP transfer order. We learned how to build the complete picking process. All other details about the Peakboard app are not necessary to understand the logic and the architecture of the app.
 
-The most impressive point to show here is how the power of Peakboard and the power of ProGlove can be combined to build a perfect and secure process.
+The most impressive part here is how the power of Peakboard and the power of ProGlove can be combined to build a perfect and secure process.
 
-The building of the app and the actual application can be also checked in this video:
+Here's a video that shows off the application and the process of building it:
 
 (The video is not ready yet. This link will be replaced as soon as it's available.)
 
