@@ -15,15 +15,15 @@ downloads:
   - name: SAPProGloveTransferOrder.pbmx
     url: /assets/2024-10-25/SAPProGloveTransferOrder.pbmx
 ---
-In [part one](/Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html) and [part two](/Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html) of our ProGlove mini-series, we discussed the basics of integrating ProGlove scanners into Peakboard applications. We used both the USB and MQTT modes to get the scan event and related metadata. We also discussed options to send feedback to the scanner operator, such as a light with various colors or even a small display that's mounted to the scanner.
+In [part one](/Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html) and [part two](/Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html) of our ProGlove mini-series, we discussed the basics of integrating ProGlove scanners into Peakboard applications. We used both the USB and MQTT modes to get the scan event and related metadata. We also discussed options to send feedback to the scanner operator, such as a light with various colors and a small display that's mounted to the scanner.
 
-In this article, you will learn how to put together what we've already learned in order to build a complete use case. We will handle a typical transfer order from SAP using only Peakboard and ProGlove.
+In this article, we'll put together what we've already learned, in order to build a complete use case. We will handle a typical transfer order from SAP using only Peakboard and ProGlove.
 
 ## Process overview
 
-A transfer order in SAP is a standard object that indicates that some goods must be collected from the warehouse and moved to different location. Transfer orders can be used to feed production needs or to fulfill a customer order. These transfer orders are usually handled with SAP transaction LT01, LT02, etc. in the SAP system.
+In SAP, a transfer order is a standard object that indicates that some goods must be collected from the warehouse and moved to different location. Transfer orders can be used to feed production needs or to fulfill a customer order. Transfer orders are usually handled in SAP with transaction LT01, LT02, etc.
 
-Here's the process for handling a transfer order in our ProGlove and Peakboard scenario:
+Here's the process for handling a transfer order with ProGlove and Peakboard:
 
 1. The worker scans a QR code to indicate the start of a new transfer order process.
 1. The system looks up the next untouched transfer order from SAP.
