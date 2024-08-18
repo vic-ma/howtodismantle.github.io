@@ -46,27 +46,27 @@ Let's take a look at the necessary data connections. The following screenshot sh
 
 ![image](/assets/2024-10-25/020.png)
 
-For the ProGlove connectivity, we use a standard MQTT connection along with some data paths in order to extract the useful information from the JSON string that's sent from ProGlove. The information we need is the scanned code, the serial number (to send back information to the display of the same scanner), and information about if the user double clicked.
+For the ProGlove connectivity, we use a standard MQTT connection along with some data paths in order to extract the useful information from the JSON string that's sent from ProGlove. The information we need is the scanned code, the serial number (to send back information to the display of the same scanner), and information about if the user double-clicked.
 
 ![image](/assets/2024-10-25/030.png)
 
-The last thing we need is a table-like variable to store the order items. We need a separate list instead of the original SAP data source data because we need to add the 'Status' column to indicate if the item is already open (O), active (A) or done (D).
+The last thing we need is a table-like variable to store the order items. We need a separate list instead of the original SAP data source data, because we need to add the `Status` column to indicate if the item is already open (O), active (A), or done (D).
 
 ![image](/assets/2024-10-25/040.png)
 
 ## The UI 
 
-The UI is pretty simple. We only use a QR code with a fixed value ("$Order_Start$") and a styled list. The details of the color and icon change according to the items state is not explained here. We can look that up in the pbmx that can be downloaded [here](/assets/2024-10-25/SAPProGloveTransferOrder.pbmx).
+The UI is pretty simple. We use a QR code with a fixed value, `$Order_Start$`, and a styled list. The details of the color and icon change according to the items state is not explained here. You can look that up in [the PBMX](/assets/2024-10-25/SAPProGloveTransferOrder.pbmx).
 
 ![image](/assets/2024-10-25/050.png)
 
 ## The application logic
 
-The actual application logic (aka the magic behind) is happening in the refreshed event of the MQTT data source. This process is triggered every time the worker is doing something with the ProGove scanner. We distinguish netween three cases.
+The application logic (the magic behind everything) happens in the refreshed event of the MQTT data source. This process is triggered every time the worker does something with the ProGove scanner. We distinguish between three cases:
 
-1. The 'Order Started' barcode is scanned
+1. The *Order Started* barcode is scanned
 2. The warehouse bin is scanned 
-3. The button on the scanner is double clicked
+3. The button on the scanner is double-clicked
 
 It doesn't make sense to go through any single command in detail, but here are the three cases on high level basis:
 
@@ -90,7 +90,7 @@ If the bin is scanned we check, if the bin is correct by comparing it to the bin
 
 ### 3. Confirming the pick
 
-When the user has finished the pick he is supposed to confirm this by double clicking on the ProGlove button. The current line item is set to D for Done and we send the worker the next bin in the list.
+When the user has finished the pick he is supposed to confirm this by double-clicking on the ProGlove button. The current line item is set to D for Done and we send the worker the next bin in the list.
 
 ![image](/assets/2024-10-25/080.png)
 
