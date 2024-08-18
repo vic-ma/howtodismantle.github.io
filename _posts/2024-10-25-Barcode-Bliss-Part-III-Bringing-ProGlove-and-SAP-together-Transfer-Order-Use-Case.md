@@ -64,15 +64,15 @@ The UI is pretty simple. We use a QR code with a fixed value, `$Order_Start$`, a
 
 The application logic (the magic behind everything) happens in the refreshed event of the MQTT data source. This process is triggered every time the worker does something with the ProGove scanner. We distinguish between three cases:
 
-1. The *Order Started* barcode is scanned
+1. The "Order Started" barcode is scanned
 2. The warehouse bin is scanned 
 3. The button on the scanner is double-clicked
 
-It doesn't make sense to go through any single command in detail, but here are the three cases on high level basis:
+It doesn't make sense to go through any single command in detail, but the following are the three high-level cases.
 
 ### Auxiliary functions
 
-We use three different functions for the actual sending of the MQTT message to the display and the lights of the scanner. The only purpose here is encapsulate the complete JSON and make sure the main function is easier to understand. How the JSON works is well explained in the second parter of the article series.
+We use three different functions to send the MQTT message to the display and the lights of the scanner. The purpose is to encapsulate the JSON and make sure the main function is easier to understand. How the JSON works is explained in [part two](/Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html) of this article series.
 
 ![image](/assets/2024-10-25/055.png)
 
