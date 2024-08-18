@@ -34,19 +34,19 @@ Here's the process for handling a transfer order in our ProGlove and Peakboard s
 6. The next line items are activated, so the ProGlove display shows the next warehouse bin.
 7. Repeat the steps 3-6 until all line items have been retrieved by the worker. 
 
-The overall process progress is displayed on the Peakboard screen. So in case something goes wrong or the worker loses orientation he can always walk back to the display and check the current situation. It's not necessary for the worker to have the screen in sight all the time because all necessary information are seeable on the ProGlove screen.
+The overall progress is displayed on the Peakboard screen. So in case something goes wrong or the worker gets lost, they can always walk back to the display and analyze the current situation. It's not necessary for the worker to have the screen in sight at all times, because all the necessary information is shown on the ProGlove display.
 
-The screenshot shows an order where the first two line items are already picked and confirmed. The third one is currently in the process of being picked. The rest of the lines are still in waiting state.
+The following screenshot shows an order where the first two line items are already picked and confirmed. The third one is currently being picked. The rest of the lines are still in the waiting state.
 
 ![image](/assets/2024-10-25/010.png)
 
 ## The data sources
 
-Let's have a look at the necessary data connections. This screenshot shows a simple SAP connection. To get the line items for a tranfer order we just use a query for the table LTAP. In a more real life scenario it might be usful to put the logic into an RFC function module to determine the next active transfer order.
+Let's take a look at the necessary data connections. The following screenshot shows a simple SAP connection. To get the line items for a transfer order, we use a query for the LTAP table. In a real world scenario, it might be useful to put the logic into an RFC function module to determine the next active transfer order.
 
 ![image](/assets/2024-10-25/020.png)
 
-For the ProGlove connectivity we use a typical MQTT connection and some data paths to extract the useful information from the JSON string that is sent from ProGlove. The information we need is the scanned code, the serial number (to send back information to the display of the same scanner) and the information if the user has double clicked.
+For the ProGlove connectivity, we use a standard MQTT connection along with some data paths in order to extract the useful information from the JSON string that's sent from ProGlove. The information we need is the scanned code, the serial number (to send back information to the display of the same scanner), and information about if the user double clicked.
 
 ![image](/assets/2024-10-25/030.png)
 
