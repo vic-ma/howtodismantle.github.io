@@ -76,19 +76,24 @@ We use three different functions to send the MQTT message to the display and the
 
 ![image](/assets/2024-10-25/055.png)
 
-### 1. The order is started
+#### The order is started
 
-In case we receive the scan of the string "$order_started$" the user wants to start a new order. So we send feedback to the ProGlove display that the order has started. Then we query the data from SAP and fill our variable list with the items (just loop over the original source). Then we send positiv feedback (green light), set the first column to A for active and send the bin information to the display.
+If we receive a scan of the string `$order_started$`, that means the user wants to start a new order. So here's what we do:
+1. Tell the ProGlove display that the order has started.
+2. Query the data from SAP and fill our variable list with the items (just loop over the original source).
+3. Send positive feedback (green light).
+4. Set the first column to "A" for active.
+5. Send the bin information to the display.
 
 ![image](/assets/2024-10-25/060.png)
 
-### 2. The bin is scanned
+#### The bin is scanned
 
 If the bin is scanned we check, if the bin is correct by comparing it to the bin of the active line item. This action is necessary to check if the worker is about to pick from the correct bin. If this is the case, we send him the quantity to pick. If not, we send an error message.
 
 ![image](/assets/2024-10-25/070.png)
 
-### 3. Confirming the pick
+#### Confirming the pick
 
 When the user has finished the pick he is supposed to confirm this by double-clicking on the ProGlove button. The current line item is set to D for Done and we send the worker the next bin in the list.
 
