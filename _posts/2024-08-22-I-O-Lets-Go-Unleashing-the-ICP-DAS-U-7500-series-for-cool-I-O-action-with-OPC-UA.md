@@ -1,7 +1,7 @@
 ---
 layout: post
 title: I/O, Let's Go - Unleashing the ICP DAS U-7500 series for cool I/O action with OPC UA 
-date: 2023-03-01 12:00:00 +0200
+date: 2024-08-22 12:00:00 +0200
 tags: hardware opcuamqtt
 image: /assets/2024-08-22/title.png
 read_more_links:
