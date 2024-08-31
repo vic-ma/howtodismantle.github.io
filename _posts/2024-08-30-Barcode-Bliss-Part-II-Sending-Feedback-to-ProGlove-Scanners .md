@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Barcode Bliss - Part II - Sending Feedback to ProGlove Scanners
-date: 2023-03-01 12:00:00 +0200
+date: 2024-08-31 12:00:00 +0200
 tags: hardware opcuamqtt
 image: /assets/2024-08-30/title.png
 read_more_links:

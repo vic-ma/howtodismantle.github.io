@@ -114,9 +114,7 @@ The most impressive part here is how the power of Peakboard and the power of Pro
 
 Here's a video that shows off the application and the process of building it:
 
-(The video is not ready yet. This link will be replaced as soon as it's available.)
-
-{% include youtube.html id="XXX" %}
+{% include youtube.html id="0NR78z-Igq0" %}
 
 
 
