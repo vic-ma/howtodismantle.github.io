@@ -1,7 +1,7 @@
 ---
 layout: post
 title: I/O, Let's go - The hitchhiker's guide to I/O devices 
-date: 2023-03-01 12:00:00 +0200
+date: 2024-09-15 12:00:00 +0200
 tags: hardware opcuamqtt api
 image: /assets/2024-09-15/title.png
 read_more_links:
