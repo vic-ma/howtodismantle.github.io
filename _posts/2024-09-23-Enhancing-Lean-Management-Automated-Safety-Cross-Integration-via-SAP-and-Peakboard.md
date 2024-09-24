@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Enhancing Lean Management - Automated Safety Cross Integration via SAP and Peakboard
-date: 2023-03-01 12:00:00 +0200
+date: 2024-09-23 12:00:00 +0200
 tags: sap
 image: /assets/2024-09-23/title.png
 read_more_links:
