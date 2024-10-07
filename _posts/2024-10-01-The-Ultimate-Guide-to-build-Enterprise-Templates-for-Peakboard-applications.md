@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Ultimate Guide to Building an Enterprise Template for Peakboard Applications
-date: 2023-01-28 12:00:00 +0200
+date: 2024-10-01 12:00:00 +0200
 tags: administration bestpractice
 image: /assets/2024-10-01/title.png
 read_more_links:
