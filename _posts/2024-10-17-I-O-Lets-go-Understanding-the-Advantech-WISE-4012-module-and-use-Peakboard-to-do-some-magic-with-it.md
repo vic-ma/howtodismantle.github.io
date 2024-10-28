@@ -1,7 +1,7 @@
 ---
 layout: post
 title: I/O, Let's go - Understanding the Advantech WISE-4012 module and use Peakboard to do some magic with it
-date: 2023-03-01 12:00:00 +0200
+date: 2024-10-17 12:00:00 +0200
 tags: hardware opcuamqtt api
 image: /assets/2024-10-17/title.png
 read_more_links:
