@@ -16,25 +16,25 @@ downloads:
 
 Since the official release of Peakboard BYOD in 2023, more and more Peakboard users have installed the BYOD runtime on their own devices. This is especially popular in environments with special requirements for screens---for example, in food production or in extreme heat or dirt.
 
-One of the screens often seen in these environments come from the German manufacturer [GETT](https://gett-group.com/panel-pc). Some of their bestsellers are the Black Line Panel PCs. These come with an RFID reader and 6 special-purpose buttons.
+One of the screens often seen in these environments come from the German manufacturer [GETT](https://gett-group.com/panel-pc). Some of their bestsellers are the BlackLine Panel PCs. These come with an RFID reader and 6 special-purpose buttons.
 
-In this article, you'll learn how to let Peakboard applications interact with these buttons. If you're a proud owner of a Black Line PC, feel free to download [the showcase](/assets/2024-11-02/GettBlackLineShowcase.pbmx) and try it out on your own.
+In this article, you'll learn how to let Peakboard applications interact with these buttons. If you're a proud owner of a BlackLine PC, feel free to download [the showcase](/assets/2024-11-02/GettBlackLineShowcase.pbmx) and try it out on your own.
 
 ![image](/assets/2024-11-02/010.jpeg)
 
-## Getting the button press event
+## Get the button press event
 
-GETT designed the buttons in a way, that the the press of a button just simulates the the user presses a button on a regular keyboard. That makes it super easy to catch the event within the Peakboard application just by using the global "Key pressed" event.
+GETT designed their buttons to simulate a normal keyboard press. That makes it super easy to catch the event within the Peakboard application by using the global "Key pressed" event.
 
 ![image](/assets/2024-11-02/020.png)
 
-Within the "Key pressed" event, we just check, if the pressed key is one of the function keys (F1 to F6) and then call the corresponding screen according to the function key. That's all!
+Within the "Key pressed" event, we check if the pressed key is one of the function keys (F1 to F6), and then show the corresponding screen. That's all!
 
 ![image](/assets/2024-11-02/030.png)
 
 ## Let the keys light up
 
-The pure button press is not the only nice feature combined with the GETT Black Line. The button experience even gets better when addressing the button's underlying LED lighting. For a direct interaction between Peakboard and the button lights we need the GETT extensions. It can be installed as any other extension too, in the extension section of the data sources.
+The pure button press is not the only nice feature combined with the GETT BlackLine. The button experience even gets better when addressing the button's underlying LED lighting. For a direct interaction between Peakboard and the button lights we need the GETT extensions. It can be installed as any other extension too, in the extension section of the data sources.
 
 ![image](/assets/2024-11-02/040.png)
 
@@ -64,6 +64,6 @@ If the feature makes sense usually is determined by the use cases. Most customer
 
 ## result
 
-The short video shows the script from above in action when running on a GETT Black Line PC.
+The short video shows the script from above in action when running on a GETT BlackLine PC.
 
 {% include youtube.html id="y2L8xzesbls" %}
