@@ -54,25 +54,25 @@ Also, here's a website for [converting hex codes and RGB values](https://www.rap
 
 ![image](/assets/2024-11-02/060.png)
 
-In our script, we don't change the color at the exact same time that we change the screen. We use the Activation event of a screen to start a timer of 300ms. And after that timer expires, we change the colors. So in reality the screen shows up in the same moment the actual color change of the button takes place.
+In our script, we don't change the color at the exact same time that we change the screen. We use the activation event of a screen to start a timer of 300ms. Once that timer expires, we change the colors.
 
-The reason for this is that it always takes some factions of a second before the screen loads.
+The reason for this is that it always takes some factions of a second before the screen loads. The added delay makes the screen show up at the exact same time that the buttons change color.
 
 ![image](/assets/2024-11-02/070.png)
 
 ## One more thing
 
-Setting the colors of the buttons as explained above is by far the most common use case of the GETT extension, however it also provides some more features what you can do with the buttons.
+Setting the colors of the buttons as explained above is by far the most common use case of the GETT extension. However, it also allows you to do some others things:
 
-- Activate / Deactivate the blink mode (just let the button blink)
-- Activate / Deactivate the switch mode (use the button to let the user swap between states)
+- Activate/deactivate the blink mode (makes the button blink)
+- Activate/deactivate the switch mode (use the button to let the user swap between states)
 - Set a delay feature to force the user to use a long press to activate something
 
 If the feature makes sense usually is determined by the use cases. Most customer use customized buttons, so not only pure `F1` to `F6` like in the sample pictures.
 
 ![image](/assets/2024-11-02/080.png)
 
-## result
+## Result
 
 The short video shows the script from above in action when running on a GETT BlackLine PC.
 
