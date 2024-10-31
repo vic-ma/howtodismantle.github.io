@@ -32,9 +32,11 @@ Within the "Key pressed" event, we check if the pressed key is one of the functi
 
 ![image](/assets/2024-11-02/030.png)
 
-## Let the keys light up
+## Make the keys light up
 
-The pure button press is not the only nice feature combined with the GETT BlackLine. The button experience even gets better when addressing the button's underlying LED lighting. For a direct interaction between Peakboard and the button lights we need the GETT extensions. It can be installed as any other extension too, in the extension section of the data sources.
+The simple button press is not the only nice feature that the GETT BlackLine offers. The button experience gets even better when we use the button's underlying LED lighting.
+
+For Peakboard to be able to use the button lights, we need the GETT extension. It can be installed like any other extension, in the extension section of the data sources.
 
 ![image](/assets/2024-11-02/040.png)
 
