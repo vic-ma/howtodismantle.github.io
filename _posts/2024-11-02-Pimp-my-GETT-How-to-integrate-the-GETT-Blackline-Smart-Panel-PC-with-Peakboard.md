@@ -64,16 +64,16 @@ The reason for this is that it always takes some factions of a second before the
 
 Setting the colors of the buttons as explained above is by far the most common use case of the GETT extension. However, it also allows you to do some others things:
 
-- Activate/deactivate the blink mode (makes the button blink)
-- Activate/deactivate the switch mode (use the button to let the user swap between states)
-- Set a delay feature to force the user to use a long press to activate something
+- Activate/deactivate the blink mode (makes the button blink).
+- Activate/deactivate the switch mode (use the button to swap between states).
+- Force the user to use a long press to activate the button.
 
-If the feature makes sense usually is determined by the use cases. Most customer use customized buttons, so not only pure `F1` to `F6` like in the sample pictures.
+Whether the feature makes sense is usually determined by the use case. Most customers use customized buttons, not just `F1` to `F6` like in our example.
 
 ![image](/assets/2024-11-02/080.png)
 
 ## Result
 
-The short video shows the script from above in action when running on a GETT BlackLine PC.
+The following short video shows the script from above in action when running on a GETT BlackLine PC.
 
 {% include youtube.html id="y2L8xzesbls" %}
