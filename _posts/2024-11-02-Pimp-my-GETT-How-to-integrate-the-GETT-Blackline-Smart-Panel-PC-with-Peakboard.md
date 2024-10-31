@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pimp my GETT - How to integrate the GETT Blackline Smart Panel PC with Peakboard
+title: Pimp my GETT - How to integrate the GETT BlackLine Smart Panel PC with Peakboard
 date: 2023-03-01 12:00:00 +0200
 tags: hardware
 image: /assets/2024-11-02/title.jpg
@@ -28,7 +28,7 @@ GETT designed their buttons to simulate a normal keyboard press. That makes it s
 
 ![image](/assets/2024-11-02/020.png)
 
-Within the "Key pressed" event, we check if the pressed key is one of the function keys (F1 to F6), and then show the corresponding screen. That's all!
+Within the "Key pressed" event, we check if the pressed key is one of the function keys (`F1` to `F6`), and then show the corresponding screen. That's all!
 
 ![image](/assets/2024-11-02/030.png)
 
@@ -36,11 +36,13 @@ Within the "Key pressed" event, we check if the pressed key is one of the functi
 
 The simple button press is not the only nice feature that the GETT BlackLine offers. The button experience gets even better when we use the button's underlying LED lighting.
 
-For Peakboard to be able to use the button lights, we need the GETT extension. It can be installed like any other extension, in the extension section of the data sources.
+For Peakboard to be able to use the button lights, we need the "Gett HMI Keys" extension. It can be installed like any other extension, in the extension section of the data sources.
 
 ![image](/assets/2024-11-02/040.png)
 
-To use this we need exactly one instance of the datasource available in the project, so we just add it, refresh the data and that's it. No need to provide any additional properties. In fact it can be seen as a fake datasource without proper data. The only reason we need this, is that the built-in-functions are now available to be used in the Building Blocks.
+To control the lights, we need exactly one instance of the data source available in the project. So we just add the data source, refresh the data, and that's it. No need to provide any additional properties.
+
+In fact, you can see this as a fake data source without any proper data. The only reason we need it is to give us access to the built-in functions, in Building Blocks.
 
 ![image](/assets/2024-11-02/050.png)
 
@@ -60,7 +62,7 @@ Setting the colors of the buttons as explained above is by far the most common u
 - Activate / Deactivate the switch mode (use the button to let the user swap between states)
 - Set a delay feature to force the user to use a long press to activate something
 
-If the feature makes sense usually is determined by the use cases. Most customer use customized buttons, so not only pure F1 to F6 like in the sample pictures.
+If the feature makes sense usually is determined by the use cases. Most customer use customized buttons, so not only pure `F1` to `F6` like in the sample pictures.
 
 ![image](/assets/2024-11-02/080.png)
 
