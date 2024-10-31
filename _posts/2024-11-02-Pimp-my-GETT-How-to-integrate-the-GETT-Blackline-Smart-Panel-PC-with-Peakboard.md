@@ -46,11 +46,17 @@ In fact, you can see this as a fake data source without any proper data. The onl
 
 ![image](/assets/2024-11-02/050.png)
 
-Let's assume we want to have the buttons to be lighted with a white border. And we want the border to turn into orange when the corresponding screen is activated. So let's check how to do the color change. The screenshot shows how to call the function SetMultipleKeyColor. We need to to set the color to white (hey code FFFFFF) for the five inactive buttons and one to orange for the active one (color code FFA500). There's a [web page](https://www.rapidtables.com/convert/color/hex-to-rgb.html) for converting colors into Hex codes, in case we don't know which code to use.
+Let's say we want to give the buttons a white border. And we want the border to turn orange when the corresponding screen is activated.
+
+The following screenshot shows how to call the `SetMultipleKeyColor` function. We set the five inactive buttons to white (color code `#FFFFFF`). And we set the active one to orange (color code `#FFA500`).
+
+Also, here's a website for [converting hex codes and RGB values](https://www.rapidtables.com/convert/color/hex-to-rgb.html).
 
 ![image](/assets/2024-11-02/060.png)
 
-In our sample pbmx we can see, that the color change doesn't take place immediately in the moment the activation of the screen happens. The reason for this is the it always takes some factions of second until the screen builds up. So we use the Activation event of a screen to actually activate a timer of 300ms. And then do the actualy color change when the timer is event is fired. So in reality the screen shows up in the same moment the actual color change of the button takes place.
+In our script, we don't change the color at the exact same time that we change the screen. We use the Activation event of a screen to start a timer of 300ms. And after that timer expires, we change the colors. So in reality the screen shows up in the same moment the actual color change of the button takes place.
+
+The reason for this is that it always takes some factions of a second before the screen loads.
 
 ![image](/assets/2024-11-02/070.png)
 
