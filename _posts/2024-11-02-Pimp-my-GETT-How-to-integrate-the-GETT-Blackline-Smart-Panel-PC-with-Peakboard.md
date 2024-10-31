@@ -46,15 +46,15 @@ You can see this as a fake data source without any real data. The only reason we
 
 ![image](/assets/2024-11-02/050.png)
 
-Let's say we want to give the buttons a white border. And we want the border to turn orange when the corresponding screen is activated.
+Let's say we want to give the buttons a white light. And we want the button to turn orange when the corresponding screen is activated. The following screenshot shows how we do this.
 
-The following screenshot shows how to call the `SetMultipleKeyColor` function. We set the five inactive buttons to white (color code `#FFFFFF`). And we set the active one to orange (color code `#FFA500`).
+We use the `SetMultipleKeyColor` function. We set the five inactive buttons to white (color code `#FFFFFF`). And we set the active one to orange (color code `#FFA500`).
 
 Also, here's a website for [converting hex codes and RGB values](https://www.rapidtables.com/convert/color/hex-to-rgb.html).
 
 ![image](/assets/2024-11-02/060.png)
 
-In our script, we don't change the color at the exact same time that we change the screen. We use the activation event of a screen to start a timer of 300ms. Once that timer expires, we change the colors.
+In our script, we don't change the colors at the exact same time that we change the screen. We use the activation event of a screen to start a timer of 300ms. Once that timer expires, we change the colors.
 
 The reason for this is that it always takes some factions of a second before the screen loads. The added delay makes the screen show up at the exact same time that the buttons change color.
 
