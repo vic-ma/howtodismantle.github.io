@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pimp my GETT - How to integrate the GETT Blackline Smart Panel PC with Peakboard 
+title: Pimp my GETT - How to integrate the GETT Blackline Smart Panel PC with Peakboard
 date: 2023-03-01 12:00:00 +0200
 tags: hardware
 image: /assets/2024-11-02/title.jpg
@@ -13,10 +13,12 @@ downloads:
   - name: GettBlackLineShowcase.pbmx
     url: /assets/2024-11-02/GettBlackLineShowcase.pbmx
 ---
-Since the official release of Peakboard BYOD in 2023 more and more Peakboard users installed the BYOD runtime on their own devices. This is especially popular in environments with special requirements for certain types of screens other than than regular consumer screens - e.g. in food production or under other conditions like extreme heat or extreme dirt.
+
+Since the official release of Peakboard BYOD in 2023, more and more Peakboard users have installed the BYOD runtime on their own devices. This is especially popular in environments with special requirements for screens---for example, in food production or in extreme heat or dirt.
+
 One of the screens often seen in these environments come from the German manufacturer [GETT](https://gett-group.com/panel-pc).
 
-One of their bestsellers are the Black Line Panel PCs. They come with an RFID reader and 6 special purpose buttons. In this article we want to to discuss the technical details about how to let Peakboard applications interact with these buttons. If you are a proud owner of a Black Line PC already, feel free to download the show case and try it out on your own. 
+Some of their bestsellers are the Black Line Panel PCs. They come with an RFID reader and 6 special purpose buttons. In this article we want to to discuss the technical details about how to let Peakboard applications interact with these buttons. If you are a proud owner of a Black Line PC already, feel free to download the show case and try it out on your own.
 
 ![image](/assets/2024-11-02/010.jpeg)
 
@@ -36,11 +38,11 @@ The pure button press is not the only nice feature combined with the GETT Black 
 
 ![image](/assets/2024-11-02/040.png)
 
-To use this we need exactly one instance of the datasource available in the project, so we just add it, refresh the data and that's it. No need to provide any additional properties. In fact it can be seen as a fake datasource without proper data. The only reason we need this, is that the built-in-functions are now available to be used in the Building Blocks. 
+To use this we need exactly one instance of the datasource available in the project, so we just add it, refresh the data and that's it. No need to provide any additional properties. In fact it can be seen as a fake datasource without proper data. The only reason we need this, is that the built-in-functions are now available to be used in the Building Blocks.
 
 ![image](/assets/2024-11-02/050.png)
 
-Let's assume we want to have the buttons to be lighted with a white border. And we want the border to turn into orange when the corresponding screen is activated. So let's check how to do the color change. The screenshot shows how to call the function SetMultipleKeyColor. We need to to set the color to white (hey code FFFFFF) for the five inactive buttons and one to orange for the active one (color code FFA500). There's a [web page](https://www.rapidtables.com/convert/color/hex-to-rgb.html) for converting colors into Hex codes, in case we don't know which code to use. 
+Let's assume we want to have the buttons to be lighted with a white border. And we want the border to turn into orange when the corresponding screen is activated. So let's check how to do the color change. The screenshot shows how to call the function SetMultipleKeyColor. We need to to set the color to white (hey code FFFFFF) for the five inactive buttons and one to orange for the active one (color code FFA500). There's a [web page](https://www.rapidtables.com/convert/color/hex-to-rgb.html) for converting colors into Hex codes, in case we don't know which code to use.
 
 ![image](/assets/2024-11-02/060.png)
 
@@ -52,9 +54,9 @@ In our sample pbmx we can see, that the color change doesn't take place immediat
 
 Setting the colors of the buttons as explained above is by far the most common use case of the GETT extension, however it also provides some more features what you can do with the buttons.
 
-* Activate / Deactivate the blink mode (just let the button blink)
-* Activate / Deactivate the switch mode (use the button to let the user swap between states)
-* Set a delay feature to force the user to use a long press to activate something
+- Activate / Deactivate the blink mode (just let the button blink)
+- Activate / Deactivate the switch mode (use the button to let the user swap between states)
+- Set a delay feature to force the user to use a long press to activate something
 
 If the feature makes sense usually is determined by the use cases. Most customer use customized buttons, so not only pure F1 to F6 like in the sample pictures.
 
@@ -65,6 +67,3 @@ If the feature makes sense usually is determined by the use cases. Most customer
 The short video shows the script from above in action when running on a GETT Black Line PC.
 
 {% include youtube.html id="y2L8xzesbls" %}
-
-
-
