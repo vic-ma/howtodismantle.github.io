@@ -16,9 +16,9 @@ downloads:
 
 Since the official release of Peakboard BYOD in 2023, more and more Peakboard users have installed the BYOD runtime on their own devices. This is especially popular in environments with special requirements for screens---for example, in food production or in extreme heat or dirt.
 
-One of the screens often seen in these environments come from the German manufacturer [GETT](https://gett-group.com/panel-pc).
+One of the screens often seen in these environments come from the German manufacturer [GETT](https://gett-group.com/panel-pc). Some of their bestsellers are the Black Line Panel PCs. These come with an RFID reader and 6 special-purpose buttons.
 
-Some of their bestsellers are the Black Line Panel PCs. They come with an RFID reader and 6 special purpose buttons. In this article we want to to discuss the technical details about how to let Peakboard applications interact with these buttons. If you are a proud owner of a Black Line PC already, feel free to download the show case and try it out on your own.
+In this article, you'll learn how to let Peakboard applications interact with these buttons. If you're a proud owner of a Black Line PC, feel free to download [the showcase](/assets/2024-11-02/GettBlackLineShowcase.pbmx) and try it out on your own.
 
 ![image](/assets/2024-11-02/010.jpeg)
 
