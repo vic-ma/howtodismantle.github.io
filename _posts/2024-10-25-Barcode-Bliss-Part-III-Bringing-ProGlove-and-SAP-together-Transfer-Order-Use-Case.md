@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Barcode Bliss - Part III - Bringing ProGlove and SAP together - Transfer Order Use Case
-date: 2023-03-01 12:00:00 +0200
+date: 2024-10-25 12:00:00 +0200
 tags: hardware opcuamqtt
 image: /assets/2024-10-25/title.png
 read_more_links:
