@@ -33,10 +33,44 @@ Every Bosch cam comes with a web interface. However the more sophisticated setti
 
 ![image](/assets/2024-11-09/020.png)
 
-The actual miracle is happening in the VCA tab. Here we can add so called tasks. A task represents a certain action how the cam is supposed to react when something happens within the cam's sight. 
+The actual miracle is happening in the VCA tab. Here we can add so called tasks. A task represents a certain action how the cam is supposed to react when something happens within the cam's sight. For our project we need two tasks, one for Lot A and one for Lot B.
+
+We can add or change the tasks in the configuration manager.
+
+![image](/assets/2024-11-09/030.png)
+
+When creating a task the cam comes with different actions. In our case the action is "Occupancy".
+
+![image](/assets/2024-11-09/040.png)
+
+In the occupancy task we have to link the task to an actual field where the task is applied to. The screenshot shows the task for Lot A. we can see the field is highlghted on the right side and integrated in the cam picture. Furthermore we need to define the so called Interscetion trigger. It defines, that even a small edge of the destination object in the field triggers the event. Of course we could also define, that the whole car must be located within the field, but hat doesn't make sense in our use case.
+
+![image](/assets/2024-11-09/050.png)
+
+![image](/assets/2024-11-09/060.png)
+
+## MQTT and configuring the data source
+
+Let's check how our task configuration looks like on the MQTT side.
+The cam generates MQTT message every time a task is triggered or in whatever form changes. The screenshot shows the raw view on the MQTT message and the tree of different topics.
+
+![image](/assets/2024-11-09/070.png)
+
+Let's have a look at the Peakboard side. In the data source we defined two sbscriptions with the complex topics. By using the simple data path "Data.Count" it's not necessary to implement a script to get the actual value. The Peakboard engine is doing it for us and translates the JSON to a useful payload that can e used right away.
+
+![image](/assets/2024-11-09/080.png)
+
+The rest is almost not worth to mention. We just bind a nice tile to he two values of the data source.
+
+![image](/assets/2024-11-09/090.png)
+
+## Result
+
+If we take a final look at the result, we can see, how good the occupancy detection works. As soon as car enters or leaves the two fields, the data is adjusted and is reflected in the Peakboard board. Cars outside of the fields are no counted.
+
+![image](/assets/2024-11-09/100.png)
 
 
-{% include youtube.html id="ztthsCF4USw" %}
 
 
 
