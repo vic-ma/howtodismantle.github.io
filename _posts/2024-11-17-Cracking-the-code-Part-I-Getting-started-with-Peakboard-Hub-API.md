@@ -14,7 +14,7 @@ downloads:
     url: /assets/2024-11-17/PeakboardHubAPIPart1.cs
 ---
 
-Since its official release in 2022, Peakboard Hub has become more and more popular among customers. Initially, it was only designed to be an administration interface for environments with 20+ boxes. Since then, many functions have been added, and there's also a SaaS offering for customers who don't want to host their Hub on premises.
+Since its official release in 2022, Peakboard Hub has become more and more popular among customers. Initially, it was only designed to be an administration interface for environments with 20+ boxes. Since then, many API endpoints have been added, and there's also a SaaS offering for customers who don't want to host their Hub on premises.
 
 By end of the 2024, Peakboard introduced an official API, which lets you connect Peakboard Hub to countless other systems, especially in the cloud. Today, we'll kick off a new series of articles that demonstrate what you can do with the Peakboard Hub API and how to integrate it.
 
@@ -37,7 +37,7 @@ After creating the new key, we copy it.
 
 ## Authentication
 
-Before we can make our first API call, we must turn our API key into an access token. To do that, we use the public API function `/public-api/v1/auth/token`.
+Before we can make our first API call, we must turn our API key into an access token. To do that, we use the public API endpoint `/public-api/v1/auth/token`.
 
 It requires us to submit our API key in the header of the request. If successful, it returns a JSON string that contains an `accessToken` that we can use later.
 
@@ -46,11 +46,11 @@ The following code demonstrates the authentication process in C#. Feel free to d
 Here's how the script works:
 
 1. Add the key to the header.
-1. Call the token function.
+1. Call the `auth/token` endpoint.
 1. Get the token from the response.
-1. Put the token in the header for future calls. Remove the API key from the header for future calls, because we only need it for the `auth/token` function.
+1. Put the token in the header for future calls. Remove the API key from the header for future calls, because we only need it for the `auth/token` endpoint.
 
-After this sequence, the `HttpClient` object is ready to be used with any other API call that is within the scope of the initial API key.
+After this sequence, the `HttpClient` object is ready to be used with any API call that is within the scope of the initial API key.
 
 {% highlight cs %}
 lusing Newtonsoft.Json.Linq;
@@ -85,7 +85,7 @@ return;
 
 ## Actual call
 
-The actual call is straight forward just by re-using the client object. In this example we just list all boxes that are registered within the hub by calling "/public-api/v1/box" and then loop over the de-serialized JSON string
+For the actual call, we reuse the client object. In the following example, we list all boxes that are registered in the Hub by calling the `/public-api/v1/box` and then loop over the de-serialized JSON string
 
 {% highlight cs %}
 response = client.GetAsync(BaseURL + "/public-api/v1/box").Result;
@@ -107,11 +107,11 @@ The console output should look like this. We note, that most boxes except one is
 
 ![image](/assets/2024-11-17/040.png)
 
-## List of functions
+## List of endpoints
 
-Here is a list of functions that are currently available with version 1of the Peakboard Hub API. We go through all these functions in various articles and various environments.
+Here is a list of endpoints that are currently available with version 1of the Peakboard Hub API. We go through all these endpoints in various articles and various environments.
 
-| Function          | Op.           | Description​                               | More Information​​                                                                                                 |
+| Endpoint          | Op.           | Description​                               | More Information​​                                                                                                 |
 | ----------------- | ------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
 | /v1/auth/token    | Get           | Turns the API key into an access token     | see this article                                                                                                   |
 | -------------     | ------------- | -------------                              | -------------                                                                                                      |
