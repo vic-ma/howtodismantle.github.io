@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cam like a Bosch - Part II - Inegrate Cam Images and Streams into Peakboard Applications
+title: Cam like a Bosch - Part II - Integrate Cam Images and Streams into Peakboard Applications
 date: 2023-03-01 12:00:00 +0200
 tags: hardware
 image: /assets/2024-12-11/title.jpg

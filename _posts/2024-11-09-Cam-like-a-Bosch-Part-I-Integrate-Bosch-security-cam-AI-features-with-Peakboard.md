@@ -11,8 +11,8 @@ read_more_links:
     url: https://www.boschsecurity.com/us/en/news/product-news/flexidome-5100i/
   - name: YouTube - Integrate a Bosch IP camera system on your dashboard
     url: https://www.youtube.com/watch?v=ztthsCF4USw&ab_channel=PeakboardEN
-  - name: Cam like a Bosch - Part II - Inegrate Cam Images and Streams into Peakboard Applications
-    url: /Cam-like-a-Bosch-Part-II-Inegrate-Cam-Images-and-Streams-into-Peakboard-Applications.html
+  - name: Cam like a Bosch - Part II - Integrate Cam Images and Streams into Peakboard Applications
+    url: /Cam-like-a-Bosch-Part-II-Integrate-Cam-Images-and-Streams-into-Peakboard-Applications.html
 downloads:
   - name: BoschCamParkingLotMonitoring.pbmx
     url: /assets/2024-11-09/BoschCamParkingLotMonitoring.pbmx

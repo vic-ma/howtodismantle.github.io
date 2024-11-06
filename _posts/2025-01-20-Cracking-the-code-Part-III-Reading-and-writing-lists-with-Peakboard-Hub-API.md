@@ -7,6 +7,8 @@ image: /assets/2025-01-20/title.png
 read_more_links:
   - name: Cracking the code - Part I - Getting started with Peakboard Hub API
     url: /2024-11-17-Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html
+  - name: Cracking the code - Part II - Calling functions remotely
+    url: /Cracking-the-code-Part-II-Calling-functions-remotely.html
 downloads:
   - name: PeakboardHubAPIPart1.cs
     url: /assets/2024-11-17/PeakboardHubAPIPart1.cs

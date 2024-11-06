@@ -1,12 +1,14 @@
 ---
 layout: post
 title: Cracking the code - Part I - Getting started with Peakboard Hub API 
-date: 2023-03-01 00:00:00 +0200
+date: 2023-03-01 12:00:00 +0200
 tags: api peakboardhub
 image: /assets/2024-11-17/title.png
 read_more_links:
   - name: Cracking the code - Part II - Calling functions remotely
     url: /Cracking-the-code-Part-II-Calling-functions-remotely.html
+  - name: Cracking the code - Part III - Reading and writing lists with Peakboard Hub API
+    url: /Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html
 downloads:
   - name: PeakboardHubAPIPart1.cs
     url: /assets/2024-11-17/PeakboardHubAPIPart1.cs
@@ -103,7 +105,7 @@ The console output should look like this. We note, that most boxes except one of
 Here is a list of functions that are currently available with version 1.
 
 
-| Function | http Operation | Description​ | More Information​​ |
+| Function | Op. | Description​ | More Information​​ |
 | ------------- | ------------- | ------------- | ------------- |
 | /v1/auth/token  | Get | Turns the API key into an access token | see this article |
 | ------------- | ------------- | ------------- | ------------- |
@@ -119,11 +121,11 @@ Here is a list of functions that are currently available with version 1.
 | /v1/box/variables  | Get | List all variables of a box |  |
 | /v1/box/variables  | Put | Changes a variable value on a box |  |
 | ------------- | ------------- | ------------- | ------------- |
-| /v1/lists  | Get | Lists all lists on the Hub | [Reading and writing Hub lists](2025-01-20-Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API) |
-| /v1/lists/list | Post | Returns Hub list data by using SQL | [Reading and writing Hub lists](2025-01-20-Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API) |
+| /v1/lists  | Get | Lists all lists on the Hub | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
+| /v1/lists/list | Post | Returns Hub list data by using SQL | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
 | /v1/lists/list | Get |  Returns Hub list data |  |
-| /v1/lists/items  | Post | Add a new record to a Hub list | [Reading and writing Hub lists](2025-01-20-Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API) |
-| /v1/lists/items  | Put | Changes the data of a record in a Hub list | [Reading and writing Hub lists](2025-01-20-Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API) |
-| /v1/lists/items  | Delte | Deletes a record from a Hub list | [Reading and writing Hub lists](2025-01-20-Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API) |
+| /v1/lists/items  | Post | Add a new record to a Hub list | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
+| /v1/lists/items  | Put | Changes the data of a record in a Hub list | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
+| /v1/lists/items  | Delte | Deletes a record from a Hub list | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
 
 
