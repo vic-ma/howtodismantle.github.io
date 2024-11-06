@@ -37,16 +37,20 @@ After creating the new key, we copy it.
 
 ## Authentication
 
-Before we can make our first API call, we must turn the API key into an access token. There's a public API function available to do that: `/public-api/v1/auth/token`. It requires us to submit our API key in the header of the request. If successful, it returns a JSON string that contains an `accessToken` that we can use later.
+Before we can make our first API call, we must turn our API key into an access token. To do that, we use the public API function `/public-api/v1/auth/token`.
 
-The following code shows how to do that in C#. Feel free to download the whole [CS file](/assets/2024-11-17/PeakboardHubAPIPart1.cs) for this example. We use the NuGet package Newtonsoft.Json to perform the JSON operations.
+It requires us to submit our API key in the header of the request. If successful, it returns a JSON string that contains an `accessToken` that we can use later.
 
-- We add the key to the header
-- Call the token function
-- Get the token from the response and put it in the header for the next call
-- remove the API key from the header, because we only needed it for the first call
+The following code demonstrates the authentication process in C#. Feel free to download the whole [CS file](/assets/2024-11-17/PeakboardHubAPIPart1.cs) for this example. We use the NuGet package Newtonsoft.Json to perform the JSON operations.
 
-After that sequence, the HttpClient object is ready to be used with any other API call that is within the scope of the initial API key.
+Here's how the script works:
+
+1. Add the key to the header.
+1. Call the token function.
+1. Get the token from the response.
+1. Put the token in the header for future calls. Remove the API key from the header for future calls, because we only need it for the `auth/token` function.
+
+After this sequence, the `HttpClient` object is ready to be used with any other API call that is within the scope of the initial API key.
 
 {% highlight cs %}
 lusing Newtonsoft.Json.Linq;
