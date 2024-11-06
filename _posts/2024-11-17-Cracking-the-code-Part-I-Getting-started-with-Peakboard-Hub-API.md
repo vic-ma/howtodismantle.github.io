@@ -85,7 +85,7 @@ return;
 
 ## Actual call
 
-For the actual call, we reuse the client object. In the following example, we list all boxes that are registered in the Hub by calling the `/public-api/v1/box` and then loop over the de-serialized JSON string
+For the actual call, we reuse the client object. In the following example, we list all boxes that are registered in the Hub by calling the `/public-api/v1/box` endpoint. We then loop over the deserialized JSON string
 
 {% highlight cs %}
 response = client.GetAsync(BaseURL + "/public-api/v1/box").Result;
@@ -109,7 +109,7 @@ The console output should look like this. We note, that most boxes except one is
 
 ## List of endpoints
 
-Here is a list of endpoints that are currently available with version 1of the Peakboard Hub API. We go through all these endpoints in various articles and various environments.
+Here is a list of endpoints that are currently available in version 1 of the Peakboard Hub API. We go through all these endpoints in various articles and various environments.
 
 | Endpoint          | Op.           | Description​                               | More Information​​                                                                                                 |
 | ----------------- | ------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
