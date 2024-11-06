@@ -14,14 +14,14 @@ downloads:
     url: /assets/2024-11-17/PeakboardHubAPIPart1.cs
 ---
 
-Since its official release in 2022, Peakboard Hub has become more and more popular among customers. Initially, it was only designed to be an administration interface for environments with 20+ boxes. Since then, a large number of functions have been added, and there's also a SaaS offering available for customers who don't want to host their Hub on-premise.
+Since its official release in 2022, Peakboard Hub has become more and more popular among customers. Initially, it was only designed to be an administration interface for environments with 20+ boxes. Since then, many functions have been added, and there's also a SaaS offering for customers who don't want to host their Hub on premises.
 
-As by end of the year 2024 Peakboard introduced an official API that opens a huge number of possibilities to connect the Peakboard Hub to uncountable other systems, especially in the cloud. With today's article we kick off a new series of articles about what you can do with the Peakboard Hub API and how to integrate it.
+By end of the 2024, Peakboard introduced an official API, which lets you connect Peakboard Hub to countless other systems, especially in the cloud. Today, we'll kick off a new series of articles that demonstrate what you can do with the Peakboard Hub API and how to integrate it.
 
 ## The API key
 
-The first thing we need to get things started is an API key.
-The idea is, that the key is related to a user group. So only the lists, boxes, alerts, etc. are accessible through the key that are marked to be available in the corresponding user group.
+The first thing we need is a Peakboard Hub API key.
+An API key is related to a user group. So only the lists, boxes, alerts, etc. that are accessible through the key that are marked to be available in the corresponding user group.
 
 To add a new key we move to the user groups of an organsiation and find the key list there.
 
