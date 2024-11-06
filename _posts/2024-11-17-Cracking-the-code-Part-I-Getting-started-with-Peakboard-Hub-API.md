@@ -13,16 +13,16 @@ downloads:
   - name: PeakboardHubAPIPart1.cs
     url: /assets/2024-11-17/PeakboardHubAPIPart1.cs
 ---
-Since its official release back in 2022 the Peakboard Hub got more and more popular among customers. Initially it was designed only to build an administration interface for a environment with 20+ boxes. Since then there has been not only an increasing number function added but there's also a Saas offering available for customers who don't want to host their hub on prem.
+Since its official release back in 2022 the Peakboard Hub got more and more popular among customers. Initially it was designed only to build an administration interface for environments with 20+ boxes. Since then there have been not only an increasing number function added but there's also a Saas offering available for customers who don't want to host their hub on prem.
 
 As by end of the year 2024 Peakboard introduced an official API that opens a huge number of possibilities to connect the Peakboard Hub to uncountable other systems, especially in the cloud. With today's article we kick off a new series of articles about what you can do with the Peakboard Hub API and how to integrate it.
 
 ## The API key
 
-The first thing we nedd to get things started is an API key.
+The first thing we need to get things started is an API key.
 The idea is, that the key is related to a user group. So only the lists, boxes, alerts, etc. are accessible through the key that are marked to be available in the corresponding user group.
 
-To add a new key we move to the groups of an organsiation and find the key list there.
+To add a new key we move to the user groups of an organsiation and find the key list there.
 
 ![image](/assets/2024-11-17/010.png)
 
@@ -36,16 +36,16 @@ After creating the new key it can be copied to the clipboard.
 
 ## Authenfication
 
-Before we can do our first API call, we must turn the API key into an access to token. There's a public API function available to do that: "/public-api/v1/auth/token". It requires to submit the API key in the header of the request. If successful, it returns a JSON string the contains the "accessToken" that can be sued later.
+Before we can do our first API call, we must turn the API key into an access token. There's a public API function available to do that: "/public-api/v1/auth/token". It requires to submit the API key in the header of the request. If successful, it returns a JSON string that contains the "accessToken" that can be used later.
 
 The following code shows how to do that in C#. Feel free to download the whole [cs file](/assets/2024-11-17/PeakboardHubAPIPart1.cs) for this example. We use the nuget package Newtonsoft.Json to do the JSON operations.
 
 - We add the key to the header
 - Call the token function
-- Get the token from he response and put it in te header for the next call
+- Get the token from the response and put it in the header for the next call
 - remove the API key from the header, because we only needed it for the first call
 
-After that squence, the HttpClient object is ready to be used with any other API call that is within the scope of the initial API key.
+After that sequence, the HttpClient object is ready to be used with any other API call that is within the scope of the initial API key.
 
 {% highlight cs %}
 lusing Newtonsoft.Json.Linq;
@@ -96,13 +96,13 @@ The actual call is straight forward just by re-using the client object. In this 
         Console.WriteLine("Error during call -> " + response.StatusCode + response.ReasonPhrase);
 {% endhighlight %}
 
-The console output should look like this. We note, that most boxes except one offline.
+The console output should look like this. We note, that most boxes except one is offline.
 
 ![image](/assets/2024-11-17/040.png)
 
 ## List of functions
 
-Here is a list of functions that are currently available with version 1.
+Here is a list of functions that are currently available with version 1of the Peakboard Hub API. We go through all these functions in various articles and various environments.
 
 
 | Function | Op. | Description​ | More Information​​ |
