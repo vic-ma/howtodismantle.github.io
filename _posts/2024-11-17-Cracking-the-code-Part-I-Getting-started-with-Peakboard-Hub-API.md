@@ -21,13 +21,13 @@ By end of the 2024, Peakboard introduced an official API, which lets you connect
 ## The API key
 
 The first thing we need is a Peakboard Hub API key.
-An API key is related to a user group. So only the lists, boxes, alerts, etc. that are accessible through the key that are marked to be available in the corresponding user group.
+An API key is related to a user group. So an API key can only access the lists, boxes, alerts, etc. that are available to the corresponding user group.
 
-To add a new key we move to the user groups of an organsiation and find the key list there.
+To add a new API key, we go to the user groups of an organization and look for the key list. Then, we click **Add**.
 
 ![image](/assets/2024-11-17/010.png)
 
-When adding a new key, we can define the scope of the key (e.g. restricted to only reading list), along with the validity period. Although it's an option to generate a key that never expires, it's a good habbit to restrict the time and then renew the key on a regular basis.
+We define the scope of the key (e.g. restricted to only reading lists), along with the expiration period. Although it's possible to generate a key that never expires, it's best practice to have an expiration date and renew the key on a regular basis.
 
 ![image](/assets/2024-11-17/020.png)
 
