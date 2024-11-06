@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cracking the code - Part I - Getting started with Peakboard Hub API 
+title: Cracking the code - Part I - Getting started with Peakboard Hub API
 date: 2023-03-01 12:00:00 +0200
 tags: api peakboardhub
 image: /assets/2024-11-17/title.png
@@ -13,7 +13,8 @@ downloads:
   - name: PeakboardHubAPIPart1.cs
     url: /assets/2024-11-17/PeakboardHubAPIPart1.cs
 ---
-Since its official release back in 2022 the Peakboard Hub got more and more popular among customers. Initially it was designed only to build an administration interface for environments with 20+ boxes. Since then there have been not only an increasing number function added but there's also a Saas offering available for customers who don't want to host their hub on prem.
+
+Since its official release in 2022, Peakboard Hub has become more and more popular among customers. Initially, it was only designed to be an administration interface for environments with 20+ boxes. Since then, a large number of functions have been added, and there's also a SaaS offering available for customers who don't want to host their Hub on-premise.
 
 As by end of the year 2024 Peakboard introduced an official API that opens a huge number of possibilities to connect the Peakboard Hub to uncountable other systems, especially in the cloud. With today's article we kick off a new series of articles about what you can do with the Peakboard Hub API and how to integrate it.
 
@@ -55,25 +56,26 @@ const string APIKey = "XXX";
 
 using (HttpClient client = new HttpClient())
 {
-    client.DefaultRequestHeaders.Add("apiKey",APIKey);
-    HttpResponseMessage response = client.GetAsync(BaseURL + "/public-api/v1/auth/token").Result;
-    var responseBody = response.Content.ReadAsStringAsync().Result;
-    if (response.IsSuccessStatusCode)
-    {
-        var rawdata = JObject.Parse(responseBody);
-        client.DefaultRequestHeaders.Add("Authorization", "Bearer " + rawdata["accessToken"]?.ToString());
-        client.DefaultRequestHeaders.Remove("apiKey");
-        Console.WriteLine("Access Token succesfully received " + rawdata["accessToken"]?.ToString());
-    }
-    else                {
-        Console.WriteLine("Error during authentification");
-        Console.WriteLine(responseBody.ToString());
-        return;
-    }
+client.DefaultRequestHeaders.Add("apiKey",APIKey);
+HttpResponseMessage response = client.GetAsync(BaseURL + "/public-api/v1/auth/token").Result;
+var responseBody = response.Content.ReadAsStringAsync().Result;
+if (response.IsSuccessStatusCode)
+{
+var rawdata = JObject.Parse(responseBody);
+client.DefaultRequestHeaders.Add("Authorization", "Bearer " + rawdata["accessToken"]?.ToString());
+client.DefaultRequestHeaders.Remove("apiKey");
+Console.WriteLine("Access Token succesfully received " + rawdata["accessToken"]?.ToString());
+}
+else {
+Console.WriteLine("Error during authentification");
+Console.WriteLine(responseBody.ToString());
+return;
+}
 
     // Do something useful and call a real API
 
-    Console.WriteLine("Finished, yay!");                    
+    Console.WriteLine("Finished, yay!");
+
 }
 {% endhighlight %}
 
@@ -82,8 +84,8 @@ using (HttpClient client = new HttpClient())
 The actual call is straight forward just by re-using the client object. In this example we just list all boxes that are registered within the hub by calling "/public-api/v1/box" and then loop over the de-serialized JSON string
 
 {% highlight cs %}
-    response = client.GetAsync(BaseURL + "/public-api/v1/box").Result;
-    responseBody = response.Content.ReadAsStringAsync().Result;
+response = client.GetAsync(BaseURL + "/public-api/v1/box").Result;
+responseBody = response.Content.ReadAsStringAsync().Result;
 
     if (response.IsSuccessStatusCode)
     {
@@ -94,6 +96,7 @@ The actual call is straight forward just by re-using the client object. In this 
     }
     else
         Console.WriteLine("Error during call -> " + response.StatusCode + response.ReasonPhrase);
+
 {% endhighlight %}
 
 The console output should look like this. We note, that most boxes except one is offline.
@@ -104,28 +107,25 @@ The console output should look like this. We note, that most boxes except one is
 
 Here is a list of functions that are currently available with version 1of the Peakboard Hub API. We go through all these functions in various articles and various environments.
 
-
-| Function | Op. | Description​ | More Information​​ |
-| ------------- | ------------- | ------------- | ------------- |
-| /v1/auth/token  | Get | Turns the API key into an access token | see this article |
-| ------------- | ------------- | ------------- | ------------- |
-| /v1/box  | Get | Lists all boxes within the group | see this article |
-| /v1/box/functions  | Get | List all shared function of a box | [Calling function remotely](/Cracking-the-code-Part-II-Calling-functions-remotely.html) |
-| /v1/box/function | Post | Executes a shared function on a box | [Calling function remotely](/Cracking-the-code-Part-II-Calling-functions-remotely.html) |
-| ------------- | ------------- | ------------- | ------------- |
-| /v1/box/lists  | Get | List all lists of a box |  |
-| /v1/box/lists  | Put | Changes data in a list on a box |  |
-| /v1/box/lists  | Delete | Deletes records of a list on a box |  |
-| /v1/box/lists  | Post | Adds a data row to a list on a box |  |
-| ------------- | ------------- | ------------- | ------------- |
-| /v1/box/variables  | Get | List all variables of a box |  |
-| /v1/box/variables  | Put | Changes a variable value on a box |  |
-| ------------- | ------------- | ------------- | ------------- |
-| /v1/lists  | Get | Lists all lists on the Hub | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
-| /v1/lists/list | Post | Returns Hub list data by using SQL | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
-| /v1/lists/list | Get |  Returns Hub list data |  |
-| /v1/lists/items  | Post | Add a new record to a Hub list | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
-| /v1/lists/items  | Put | Changes the data of a record in a Hub list | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
-| /v1/lists/items  | Delte | Deletes a record from a Hub list | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
-
-
+| Function          | Op.           | Description​                               | More Information​​                                                                                                 |
+| ----------------- | ------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| /v1/auth/token    | Get           | Turns the API key into an access token     | see this article                                                                                                   |
+| -------------     | ------------- | -------------                              | -------------                                                                                                      |
+| /v1/box           | Get           | Lists all boxes within the group           | see this article                                                                                                   |
+| /v1/box/functions | Get           | List all shared function of a box          | [Calling function remotely](/Cracking-the-code-Part-II-Calling-functions-remotely.html)                            |
+| /v1/box/function  | Post          | Executes a shared function on a box        | [Calling function remotely](/Cracking-the-code-Part-II-Calling-functions-remotely.html)                            |
+| -------------     | ------------- | -------------                              | -------------                                                                                                      |
+| /v1/box/lists     | Get           | List all lists of a box                    |                                                                                                                    |
+| /v1/box/lists     | Put           | Changes data in a list on a box            |                                                                                                                    |
+| /v1/box/lists     | Delete        | Deletes records of a list on a box         |                                                                                                                    |
+| /v1/box/lists     | Post          | Adds a data row to a list on a box         |                                                                                                                    |
+| -------------     | ------------- | -------------                              | -------------                                                                                                      |
+| /v1/box/variables | Get           | List all variables of a box                |                                                                                                                    |
+| /v1/box/variables | Put           | Changes a variable value on a box          |                                                                                                                    |
+| -------------     | ------------- | -------------                              | -------------                                                                                                      |
+| /v1/lists         | Get           | Lists all lists on the Hub                 | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
+| /v1/lists/list    | Post          | Returns Hub list data by using SQL         | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
+| /v1/lists/list    | Get           | Returns Hub list data                      |                                                                                                                    |
+| /v1/lists/items   | Post          | Add a new record to a Hub list             | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
+| /v1/lists/items   | Put           | Changes the data of a record in a Hub list | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
+| /v1/lists/items   | Delte         | Deletes a record from a Hub list           | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
