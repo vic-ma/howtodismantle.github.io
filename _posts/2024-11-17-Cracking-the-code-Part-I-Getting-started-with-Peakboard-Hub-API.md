@@ -31,15 +31,15 @@ We define the scope of the key (e.g. restricted to only reading lists), along wi
 
 ![image](/assets/2024-11-17/020.png)
 
-After creating the new key it can be copied to the clipboard.
+After creating the new key, we copy it.
 
 ![image](/assets/2024-11-17/030.png)
 
-## Authenfication
+## Authentication
 
-Before we can do our first API call, we must turn the API key into an access token. There's a public API function available to do that: "/public-api/v1/auth/token". It requires to submit the API key in the header of the request. If successful, it returns a JSON string that contains the "accessToken" that can be used later.
+Before we can make our first API call, we must turn the API key into an access token. There's a public API function available to do that: `/public-api/v1/auth/token`. It requires us to submit our API key in the header of the request. If successful, it returns a JSON string that contains an `accessToken` that we can use later.
 
-The following code shows how to do that in C#. Feel free to download the whole [cs file](/assets/2024-11-17/PeakboardHubAPIPart1.cs) for this example. We use the nuget package Newtonsoft.Json to do the JSON operations.
+The following code shows how to do that in C#. Feel free to download the whole [CS file](/assets/2024-11-17/PeakboardHubAPIPart1.cs) for this example. We use the NuGet package Newtonsoft.Json to perform the JSON operations.
 
 - We add the key to the header
 - Call the token function
