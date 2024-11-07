@@ -41,17 +41,19 @@ The first thing we do is add the cam to the Configuration Manager. After, we con
 
 The real magic happens in the **VCA** tab. Here, we can add "tasks." A task represents an action that the cam performs when something happens in the cam's view. For our project, we need two tasks, one for Lot A and one for Lot B.
 
-We can add or change the tasks in the configuration manager.
+We can add or change the cam's tasks in the Configuration Manager.
 
 ![image](/assets/2024-11-09/030.png)
 
-When creating a task the cam comes with different actions. In our case the action is "Occupancy".
+We need to select a trigger for our tasks. In our case, the trigger is "Object in field."
 
 ![image](/assets/2024-11-09/040.png)
 
-In the occupancy task we have to link the task to an actual field where the task is applied to. The screenshot shows the task for Lot A. we can see the field is highlighted on the right side and integrated in the cam picture. Furthermore we need to define the so called Interscetion trigger. It defines, that even a small edge of the destination object in the field triggers the event. Of course we could also define, that the whole car must be located within the field, but that doesn't make sense in our use case.
+We then link the task to an actual field where the task is applied to. The following screenshot shows the task for Lot A. You can see that the field is highlighted on the right side and integrated into the cam picture.
 
 ![image](/assets/2024-11-09/050.png)
+
+We also set the intersection trigger to "edge of box." That way, even if only part of a car is in the field, it still triggers the event. Of course, we could also make it so that the whole car must be in the field, but that doesn't make sense in our case.
 
 ![image](/assets/2024-11-09/060.png)
 
