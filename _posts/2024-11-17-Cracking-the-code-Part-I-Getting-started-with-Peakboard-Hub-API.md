@@ -16,12 +16,12 @@ downloads:
 
 Since its official release in 2022, Peakboard Hub has become more and more popular among customers. Initially, it was only designed to be an administration interface for environments with 20+ boxes. Since then, many API endpoints have been added, and there's also a SaaS offering for customers who don't want to host their Hub on premises.
 
-By end of the 2024, Peakboard introduced an official API, which lets you connect Peakboard Hub to countless other systems, especially in the cloud. Today, we'll kick off a new series of articles that demonstrate what you can do with the Peakboard Hub API and how to integrate it.
+At the end of the 2024, Peakboard introduced an official API for Peakboard Hub. This API lets you connect Peakboard Hub to countless other systems, especially in the cloud. Today, we'll kick off a new series of articles that show what you can do with the API and how to integrate it.
 
 ## The API key
 
 The first thing we need is a Peakboard Hub API key.
-An API key is related to a user group. So an API key can only access the lists, boxes, alerts, etc. that are available to the corresponding user group.
+An API key is related to a user group, so a key can only access the lists, boxes, alerts, etc. that are available to the corresponding user group.
 
 To add a new API key, we go to the user groups of an organization and look for the key list. Then, we click **Add**.
 
@@ -42,15 +42,6 @@ Before we can make our first API call, we must turn our API key into an access t
 It requires us to submit our API key in the header of the request. If successful, it returns a JSON string that contains an `accessToken` that we can use later.
 
 The following code demonstrates the authentication process in C#. Feel free to download the whole [CS file](/assets/2024-11-17/PeakboardHubAPIPart1.cs) for this example. We use the NuGet package Newtonsoft.Json to perform the JSON operations.
-
-Here's how the script works:
-
-1. Add the key to the header.
-1. Call the `auth/token` endpoint.
-1. Get the token from the response.
-1. Put the token in the header for future calls. Remove the API key from the header for future calls, because we only need it for the `auth/token` endpoint.
-
-After this sequence, the `HttpClient` object is ready to be used with any API call that is within the scope of the initial API key.
 
 {% highlight cs %}
 lusing Newtonsoft.Json.Linq;
@@ -82,6 +73,14 @@ return;
 
 }
 {% endhighlight %}
+
+Here's how the script works:
+
+1. Call the `auth/token` endpoint, with the key in the header.
+1. Get the token from the response.
+1. Put the token in the header for future calls. Remove the API key from the header for future calls, because we only needed it for the `auth/token` endpoint.
+
+After this sequence, the `HttpClient` object is ready to be used with any API call that is within the scope of the initial API key.
 
 ## Actual call
 
