@@ -119,16 +119,16 @@ Here's a list of endpoints that are currently available in version 1 of the Peak
 | `/v1/box/function`  | `POST`        | Execute a shared function on a Box.        | [Calling function remotely](/Cracking-the-code-Part-II-Calling-functions-remotely.html)                            |
 | -------------       | ------------- | -------------                              | -------------                                                                                                      |
 | `/v1/box/lists`     | `GET`         | List all lists of a Box.                   |                                                                                                                    |
-| `/v1/box/lists`     | `PUT`         | Changes data in a list on a Box.           |                                                                                                                    |
-| `/v1/box/lists`     | `DELETE`      | Deletes records of a list on a Box.        |                                                                                                                    |
-| `/v1/box/lists`     | `POST`        | Adds a data row to a list on a Box.        |                                                                                                                    |
+| `/v1/box/lists`     | `PUT`         | Change data in a list on a Box.            |                                                                                                                    |
+| `/v1/box/lists`     | `DELETE`      | Delete records of a list on a Box.         |                                                                                                                    |
+| `/v1/box/lists`     | `POST`        | Add a data row to a list on a Box.         |                                                                                                                    |
 | -------------       | ------------- | -------------                              | -------------                                                                                                      |
 | `/v1/box/variables` | `GET`         | List all variables of a Box.               |                                                                                                                    |
-| `/v1/box/variables` | `PUT`         | Changes a variable value on a Box.         |                                                                                                                    |
+| `/v1/box/variables` | `PUT`         | Change a variable value on a Box.          |                                                                                                                    |
 | -------------       | ------------- | -------------                              | -------------                                                                                                      |
-| `/v1/lists`         | `GET`         | Lists all lists on the Hub                 | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
-| `/v1/lists/list`    | `POST`        | Returns Hub list data by using SQL         | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
-| `/v1/lists/list`    | `GET`         | Returns Hub list data                      |                                                                                                                    |
-| `/v1/lists/items`   | `POST`        | Add a new record to a Hub list             | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
-| `/v1/lists/items`   | `PUT`         | Changes the data of a record in a Hub list | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
-| `/v1/lists/items`   | `DELETE`      | Deletes a record from a Hub list           | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
+| `/v1/lists`         | `GET`         | List all lists on the Hub                  | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
+| `/v1/lists/list`    | `POST`        | Return Hub list data by using SQL          | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
+| `/v1/lists/list`    | `GET`         | Return Hub list data.                      |                                                                                                                    |
+| `/v1/lists/items`   | `POST`        | Add a new record to a Hub list.            | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
+| `/v1/lists/items`   | `PUT`         | Change the data of a record in a Hub list. | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
+| `/v1/lists/items`   | `DELETE`      | Delete a record from a Hub list.           | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
