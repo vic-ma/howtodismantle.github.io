@@ -21,7 +21,7 @@ The German company Bosch offers an innovative camera called FLEXIDOME indoor 510
 
 The camera can detect objects that are in its view. For example, it can detect people or vehicles and do a lot of magical stuff with this information. 
 
-In this article, we will give a brief overview of how to configure the Bosch camera and connect it to a Peakboard application. In the [second part of this Bosch camera series](/Cam-like-a-Bosch-Part-II-Integrate-Cam-Images-and-Streams-into-Peakboard-Applications.html), we will discuss options for integrating the camera image into a Peakboard dashboard.
+In this article, we'll give a brief overview of how to configure the Bosch camera and connect it to a Peakboard application. In the [second part of this Bosch camera series](/Cam-like-a-Bosch-Part-II-Integrate-Cam-Images-and-Streams-into-Peakboard-Applications.html), we'll discuss options for integrating the camera image into a Peakboard dashboard.
 
 There's also a nice [Youtube video](https://www.youtube.com/watch?v=ztthsCF4USw&ab_channel=PeakboardEN) that covers this topic.
 
@@ -35,7 +35,7 @@ We call the upper row of parking spots Lot A, and we call the bottom row Lot B. 
 
 Every Bosch camera comes with a web interface. However, advanced settings can only be changed through a desktop application called the "Configuration Manager."
 
-The first thing we do is add the camera to the Configuration Manager. After, we connect the camera to an MQTT broker. In our case, we choose the Peakboard MQTT broker for the templates, but any broker will do.
+The first thing we do is add the camera to the Configuration Manager. Then, we connect the camera to an MQTT broker. In our case, we choose the Peakboard MQTT broker for the templates, but any broker will do.
 
 ![image](/assets/2024-11-09/020.png)
 
@@ -60,7 +60,7 @@ We also set the intersection trigger to "edge of box." That way, even if only pa
 Let's see what our task configuration looks like on the MQTT side.
 The camera generates an MQTT message each time a task is triggered or changes in some way.
 
-The following screenshot shows the topics tree for the MQTT message, which goes all the way down to the payload.
+The following screenshot shows the topics tree for the MQTT message, which goes all the way down to the payload:
 
 ![image](/assets/2024-11-09/070.png)
 
@@ -76,7 +76,7 @@ Then, we bind a nice tile to the two values of the data source.
 
 ## Result
 
-If you take a final look at the result, you can see how well the occupancy detection works. As soon as a car enters or leaves one of the two fields, the data is adjusted and reflected in the Peakboard screen. Cars outside the lots are not counted.
+If you take a look at the final result, you can see how well the occupancy detection works. As soon as a car enters or leaves one of the two fields, the data is adjusted and reflected in the Peakboard screen. Cars outside the lots are not counted.
 
 ![image](/assets/2024-11-09/100.png)
 
