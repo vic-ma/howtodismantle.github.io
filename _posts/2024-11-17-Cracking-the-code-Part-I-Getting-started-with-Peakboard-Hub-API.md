@@ -98,7 +98,6 @@ For the actual API call, we reuse the client object. In the following example, w
     }
     else
         Console.WriteLine("Error during call -> " + response.StatusCode + response.ReasonPhrase);
-
 {% endhighlight %}
 
 The console output should look like this. We note that all boxes except one are offline.
