@@ -73,25 +73,6 @@ using (HttpClient client = new HttpClient())
 }
 {% endhighlight %}
 
-## Actual call
-
-The actual call is straight forward just by re-using the client object. In this example we just list all boxes that are registered within the hub by calling "/public-api/v1/box" and then loop over the de-serialized JSON string
-
-{% highlight cs %}
-    response = client.GetAsync(BaseURL + "/public-api/v1/box").Result;
-    responseBody = response.Content.ReadAsStringAsync().Result;
-
-    if (response.IsSuccessStatusCode)
-    {
-        JArray rawlist = JArray.Parse(responseBody);
-        Console.WriteLine($"Found {rawlist.Count} boxes");
-        foreach(var row in rawlist)
-            Console.WriteLine($"{row["name"]} - {row["boxID"]} - {row["runtimeVersion"]} - {row["state"]}");
-    }
-    else
-        Console.WriteLine("Error during call -> " + response.StatusCode + response.ReasonPhrase);
-{% endhighlight %}
-
 Here's how the script works:
 
 1. Call the `auth/token` endpoint, with the key in the header.
