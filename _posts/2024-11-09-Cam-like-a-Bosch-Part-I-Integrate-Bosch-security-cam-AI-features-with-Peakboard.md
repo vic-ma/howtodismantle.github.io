@@ -39,17 +39,15 @@ The first thing we do is add the cam to the Configuration Manager. After, we con
 
 ![image](/assets/2024-11-09/020.png)
 
-The real magic happens in the **VCA** tab. Here, we can add "tasks." A task sends an MQTT message every time a certain condition is met. For our project, we need two tasks, one for Lot A and one for Lot B.
-
-We can add or change the cam's tasks in the Configuration Manager.
+The real magic happens in the **VCA > Tasks** tab. Here, we can add "tasks." A task sends an MQTT message whenever a specified trigger occurs. For our project, we need two tasks: one for Lot A and one for Lot B.
 
 ![image](/assets/2024-11-09/030.png)
 
-We need to select a trigger for our tasks. In our case, the trigger is "Object in field."
+We select a trigger for our tasks. In our case, the trigger is "Object in field."
 
 ![image](/assets/2024-11-09/040.png)
 
-We then link the task to an actual field where the task is applied to. The following screenshot shows the task for Lot A. You can see that the field is highlighted on the right side and integrated into the cam picture.
+We then apply the task to a field in the camera's view. The following screenshot shows the task for Lot A. You can see that the field is highlighted on the right side and integrated into the cam picture.
 
 ![image](/assets/2024-11-09/050.png)
 
