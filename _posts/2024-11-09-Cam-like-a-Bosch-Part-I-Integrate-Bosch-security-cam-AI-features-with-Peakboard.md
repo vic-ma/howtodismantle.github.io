@@ -39,7 +39,7 @@ The first thing we do is add the cam to the Configuration Manager. After, we con
 
 ![image](/assets/2024-11-09/020.png)
 
-The real magic happens in the **VCA** tab. Here, we can add "tasks." A task represents an action that the cam performs when something happens in the cam's view. For our project, we need two tasks, one for Lot A and one for Lot B.
+The real magic happens in the **VCA** tab. Here, we can add "tasks." A task sends an MQTT message every time a certain condition is met. For our project, we need two tasks, one for Lot A and one for Lot B.
 
 We can add or change the cam's tasks in the Configuration Manager.
 
@@ -59,22 +59,26 @@ We also set the intersection trigger to "edge of box." That way, even if only pa
 
 ## MQTT and configuring the data source
 
-Let's check how our task configuration looks like on the MQTT side.
-The cam generates a MQTT message every time a task is triggered or in whatever form changes. The screenshot shows the raw view on the MQTT message and the tree of different topics down to the actual payload.
+Let's see what our task configuration looks like on the MQTT side.
+The cam generates an MQTT message every time a task is triggered or in whatever form changes.
+
+The following screenshot shows the raw view on the MQTT message and the tree of different topics down to the actual payload.
 
 ![image](/assets/2024-11-09/070.png)
 
-Let's have a look at the Peakboard side. In the data source we defined two sbscriptions with the complex topics. By using the simple data path "Data.Count" it's not necessary to implement a script to get the actual value from the JSON message. The Peakboard engine is doing it for us and translates the JSON to a useful payload that can be used right away.
+Let's take a look at the Peakboard side. In the data source, we define two subscriptions with the complex topics.
+
+We use the simple data path `Data.Count`, so it's not necessary to implement a script to get the actual value from the JSON message. The Peakboard engine does it for us and translates the JSON into a useful payload that can be used directly.
 
 ![image](/assets/2024-11-09/080.png)
 
-The rest is almost not worth to mention. We just bind a nice tile to the two values of the data source.
+Then, we bind a nice tile to the two values of the data source.
 
 ![image](/assets/2024-11-09/090.png)
 
 ## Result
 
-If we take a final look at the result, we can see, how good the occupancy detection works. As soon as car enters or leaves the two fields, the data is adjusted and is reflected in the Peakboard board. Cars outside of the fields are not counted.
+If you take a final look at the result, you can see how well the occupancy detection works. As soon as a car enters or leaves one of the two fields, the data is adjusted and reflected in the Peakboard board. Cars outside the lots are not counted.
 
 ![image](/assets/2024-11-09/100.png)
 
