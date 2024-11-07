@@ -86,8 +86,8 @@ After this sequence, the `HttpClient` object is ready to be used with any API ca
 For the actual API call, we reuse the client object. In the following example, we list all boxes that are registered in the Hub by calling the `/public-api/v1/box` endpoint. We then loop over the deserialized JSON string.
 
 {% highlight cs %}
-response = client.GetAsync(BaseURL + "/public-api/v1/box").Result;
-responseBody = response.Content.ReadAsStringAsync().Result;
+    response = client.GetAsync(BaseURL + "/public-api/v1/box").Result;
+    responseBody = response.Content.ReadAsStringAsync().Result;
 
     if (response.IsSuccessStatusCode)
     {
