@@ -51,27 +51,45 @@ const string APIKey = "XXX";
 
 using (HttpClient client = new HttpClient())
 {
-client.DefaultRequestHeaders.Add("apiKey",APIKey);
-HttpResponseMessage response = client.GetAsync(BaseURL + "/public-api/v1/auth/token").Result;
-var responseBody = response.Content.ReadAsStringAsync().Result;
-if (response.IsSuccessStatusCode)
-{
-var rawdata = JObject.Parse(responseBody);
-client.DefaultRequestHeaders.Add("Authorization", "Bearer " + rawdata["accessToken"]?.ToString());
-client.DefaultRequestHeaders.Remove("apiKey");
-Console.WriteLine("Access Token succesfully received " + rawdata["accessToken"]?.ToString());
-}
-else {
-Console.WriteLine("Error during authentification");
-Console.WriteLine(responseBody.ToString());
-return;
-}
+    client.DefaultRequestHeaders.Add("apiKey",APIKey);
+    HttpResponseMessage response = client.GetAsync(BaseURL + "/public-api/v1/auth/token").Result;
+    var responseBody = response.Content.ReadAsStringAsync().Result;
+    if (response.IsSuccessStatusCode)
+    {
+        var rawdata = JObject.Parse(responseBody);
+        client.DefaultRequestHeaders.Add("Authorization", "Bearer " + rawdata["accessToken"]?.ToString());
+        client.DefaultRequestHeaders.Remove("apiKey");
+        Console.WriteLine("Access Token succesfully received " + rawdata["accessToken"]?.ToString());
+    }
+    else                {
+        Console.WriteLine("Error during authentification");
+        Console.WriteLine(responseBody.ToString());
+        return;
+    }
 
     // Do something useful and call a real API
 
     Console.WriteLine("Finished, yay!");
-
 }
+{% endhighlight %}
+
+## Actual call
+
+The actual call is straight forward just by re-using the client object. In this example we just list all boxes that are registered within the hub by calling "/public-api/v1/box" and then loop over the de-serialized JSON string
+
+{% highlight cs %}
+    response = client.GetAsync(BaseURL + "/public-api/v1/box").Result;
+    responseBody = response.Content.ReadAsStringAsync().Result;
+
+    if (response.IsSuccessStatusCode)
+    {
+        JArray rawlist = JArray.Parse(responseBody);
+        Console.WriteLine($"Found {rawlist.Count} boxes");
+        foreach(var row in rawlist)
+            Console.WriteLine($"{row["name"]} - {row["boxID"]} - {row["runtimeVersion"]} - {row["state"]}");
+    }
+    else
+        Console.WriteLine("Error during call -> " + response.StatusCode + response.ReasonPhrase);
 {% endhighlight %}
 
 Here's how the script works:
