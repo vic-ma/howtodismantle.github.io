@@ -111,17 +111,17 @@ The console output should look like this. We note, that most boxes except one is
 
 Here is a list of endpoints that are currently available in version 1 of the Peakboard Hub API. We go through all these endpoints in various articles and various environments.
 
-| Endpoint            | Op.           | Description​                               | More Information​​                                                                                                 |
+| Endpoint            | Op.           | Description                                | More Information​​                                                                                                 |
 | ------------------- | ------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
 | `/v1/auth/token`    | `GET`         | Turns the API key into an access token     | see this article                                                                                                   |
 | -------------       | ------------- | -------------                              | -------------                                                                                                      |
-| `/v1/box            | `GET`         | Lists all boxes within the group           | see this article`                                                                                                  |
+| `/v1/box`           | `GET`         | Lists all boxes within the group           | see this article                                                                                                   |
 | `/v1/box/functions` | `GET`         | List all shared function of a box          | [Calling function remotely](/Cracking-the-code-Part-II-Calling-functions-remotely.html)                            |
 | `/v1/box/function`  | `POST`        | Executes a shared function on a box        | [Calling function remotely](/Cracking-the-code-Part-II-Calling-functions-remotely.html)                            |
 | -------------       | ------------- | -------------                              | -------------                                                                                                      |
 | `/v1/box/lists`     | `GET`         | List all lists of a box                    |                                                                                                                    |
 | `/v1/box/lists`     | `PUT`         | Changes data in a list on a box            |                                                                                                                    |
-| `/v1/box/lists`     | Delete        | Deletes records of a list on a box         |                                                                                                                    |
+| `/v1/box/lists`     | `DELETE`      | Deletes records of a list on a box         |                                                                                                                    |
 | `/v1/box/lists`     | `POST`        | Adds a data row to a list on a box         |                                                                                                                    |
 | -------------       | ------------- | -------------                              | -------------                                                                                                      |
 | `/v1/box/variables` | `GET`         | List all variables of a box                |                                                                                                                    |
@@ -129,7 +129,7 @@ Here is a list of endpoints that are currently available in version 1 of the Pea
 | -------------       | ------------- | -------------                              | -------------                                                                                                      |
 | `/v1/lists`         | `GET`         | Lists all lists on the Hub                 | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
 | `/v1/lists/list`    | `POST`        | Returns Hub list data by using SQL         | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
-| `/v1/lists/list`    | Get           | Returns Hub list data                      |                                                                                                                    |
+| `/v1/lists/list`    | `GET`         | Returns Hub list data                      |                                                                                                                    |
 | `/v1/lists/items`   | `POST`        | Add a new record to a Hub list             | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
 | `/v1/lists/items`   | `PUT`         | Changes the data of a record in a Hub list | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
-| `/v1/lists/items`   | Delete        | Deletes a record from a Hub list           | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
+| `/v1/lists/items`   | `DELETE`      | Deletes a record from a Hub list           | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
