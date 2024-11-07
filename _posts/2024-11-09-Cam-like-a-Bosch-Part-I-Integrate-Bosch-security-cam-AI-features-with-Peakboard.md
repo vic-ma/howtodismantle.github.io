@@ -17,13 +17,17 @@ downloads:
   - name: BoschCamParkingLotMonitoring.pbmx
     url: /assets/2024-11-09/BoschCamParkingLotMonitoring.pbmx
 ---
-The German company Bosch offers a very innovative camera that calls itself FLEXIDOME indoor 5100i IR - 8MP. Ad it's not only a regular security camera but it comes with a couple of nice and interestig AI features for monitoring the public space. The camera can detect objects that are in its sight, e.g. people or different kinds of vehicles and do a lot of magical stuff with this information. 
+The German company Bosch offers an innovative camera that called FLEXIDOME indoor 5100i IR - 8MP. Not only is it a regular security camera, but it also comes with a couple of interesting AI features for monitoring the public space. 
 
-In this article we will discuss a brief overview on how to configure the Bosch cam and connect it to a Peakboard application. In a [second part of this Bosch cam series](/Cam-like-a-Bosch-Part-II-Inegrate-Cam-Images-and-Streams-into-Peakboard-Applications.html), we will discuss the options to integrate the camera image into the dashboard.
+The camera can detect objects that are in its view. For example, it can detect people or vehicles and do a lot of magical stuff with this information. 
 
-Please note, that there's also a nice [Youtube video](https://www.youtube.com/watch?v=ztthsCF4USw&ab_channel=PeakboardEN) available discussing this topic.
+In this article, we will give a brief overview of how to configure the Bosch cam and connect it to a Peakboard application. In the [second part of this Bosch cam series](/Cam-like-a-Bosch-Part-II-Inegrate-Cam-Images-and-Streams-into-Peakboard-Applications.html), we will discuss the options for integrating the camera image into a Peakboard dashboard.
 
-The problem we want to solve can be seen in the next picture. It shows the bird view of a parking lot. As we can see, there are two rows to park multiple cars. The upper stripe of parking spots we call Lot A and the bottom one we call Lot B. The objective is to build a dashboard that shows the current level of oocupancy for these two stripes.
+There's also a nice [Youtube video](https://www.youtube.com/watch?v=ztthsCF4USw&ab_channel=PeakboardEN) that covers this topic.
+
+The following picture highlights the problem we want to solve. It shows a bird's-eye view of a parking lot. As you can see, there are two rows of parking.
+
+We call the upper row of parking spots Lot A, and we call the bottom row Lot B. The objective is to build a dashboard that shows the current level of occupancy for these two lots.
 
 ![image](/assets/2024-11-09/010.png)
 
