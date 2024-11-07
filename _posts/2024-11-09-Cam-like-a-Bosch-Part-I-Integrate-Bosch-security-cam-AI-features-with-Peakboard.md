@@ -21,7 +21,7 @@ The German company Bosch offers an innovative camera called FLEXIDOME indoor 510
 
 The camera can detect objects that are in its view. For example, it can detect people or vehicles and do a lot of magical stuff with this information. 
 
-In this article, we will give a brief overview of how to configure the Bosch camera and connect it to a Peakboard application. In the [second part of this Bosch camera series](/Cam-like-a-Bosch-Part-II-Inegrate-Cam-Images-and-Streams-into-Peakboard-Applications.html), we will discuss options for integrating the camera image into a Peakboard dashboard.
+In this article, we will give a brief overview of how to configure the Bosch camera and connect it to a Peakboard application. In the [second part of this Bosch camera series](/Cam-like-a-Bosch-Part-II-Integrate-Cam-Images-and-Streams-into-Peakboard-Applications.html), we will discuss options for integrating the camera image into a Peakboard dashboard.
 
 There's also a nice [Youtube video](https://www.youtube.com/watch?v=ztthsCF4USw&ab_channel=PeakboardEN) that covers this topic.
 
@@ -47,7 +47,7 @@ We select a trigger for our tasks. In our case, the trigger is "Object in field.
 
 ![image](/assets/2024-11-09/040.png)
 
-We then apply the task to a field in the camera's view. The following screenshot shows the task for Lot A. You can see that the field is highlighted on the right side and integrated into the camera picture.
+We then apply the task to a field in the camera's view. The following screenshot shows the task and field for Lot A. You can see the field highlighted in the camera's view.
 
 ![image](/assets/2024-11-09/050.png)
 
