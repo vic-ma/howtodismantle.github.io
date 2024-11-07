@@ -52,71 +52,32 @@ layout: base
                     <div id="article-content" class="prose prose-dismantle text-gray-900 dark:text-light dark:prose-invert">
                         {{ content }}
                     </div>
-
-                    <!-- Next/Previous Articles -->
-                    <div class="mt-16 pt-8 border-t border-gray-200">
-                        <div class="grid grid-cols-2 gap-8">
-                            {% if page.previous.url %}
-                            <a href="{{ page.previous.url }}" class="group">
-                                <p class="text-sm text-gray-500 mb-2">← Previous Article</p>
-                                <h3 class="text-lg font-semibold text-gray-900 dark:text-light group-hover:text-secondary">{{ page.previous.title }}</h3>
-                            </a>
-                            {% endif %}
-                            
-                            {% if page.next.url %}
-                            <a href="{{ page.next.url }}" class="group text-right">
-                                <p class="text-sm text-gray-500 mb-2">Next Article →</p>
-                                <h3 class="text-lg font-semibold text-gray-900 dark:text-light group-hover:text-secondary">{{ page.next.title }}</h3>
-                            </a>
-                            {% endif %}
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Side content -->
                 <div class="lg:col-span-3 border-l border-gray-200 p-8">
-                    <div class="sticky top-8 space-y-8">
+                    <div class="sticky top-20 space-y-8">
+                        <!-- Read More -->
                         <div class="break-words">
                             {% include read-more-new.html downloads=page.downloads rml=page.read_more_links %}
                         </div>
 
-                        <!-- Newsletter Signup -->
-                        <div id="mc_embed_shell">
-                            <div id="mc_embed_signup" class="text-white bg-stone-300 dark:bg-primary rounded-xl not-prose p-4">
-                                <form action="https://how-to-dismantle-a-peakboard-box.us21.list-manage.com/subscribe/post?u=9783fc3c865a7042e2d9a86eb&amp;id=ba316d630a&amp;f_id=0047ece6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-                                    <div id="mc_embed_signup_scroll">
-                                        <p class="font-bold text-lg text-gray-900 dark:text-light">Newsletter</p>
-                                        <p class="text-base text-gray-900 dark:text-light/80 mt-2 mb-4">Want to get notified when a new article is published? Sign up below!</p>
-
-                                        <div class="mc-field-group">
-                                            <label for="mce-EMAIL" class="block text-sm font-medium leading-6 text-gray-900 dark:text-light">Email *</label>
-                                            <div class="mt-2">
-                                                <input type="email" name="EMAIL" id="mce-EMAIL" required class="email block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-tertiary sm:text-sm sm:leading-6" />
-                                            </div>
-                                        </div>
-
-                                        <div class="mc-field-group mt-2">
-                                            <label for="mce-FNAME" class="block text-sm font-medium leading-6 text-gray-900 dark:text-light">Name *</label>
-                                            <div class="mt-2">
-                                                <input type="text" name="FNAME" id="mce-FNAME" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-tertiary sm:text-sm sm:leading-6" />
-                                            </div>
-                                        </div>
-
-                                        <div id="mce-responses" class="clear foot mt-4">
-                                            <div class="response block text-sm font-bold leading-6 text-red-700 dark:text-red-500" id="mce-error-response" style="display: none;"></div>
-                                            <div class="response block text-sm font-bold leading-6 text-green-700 dark:text-green-500" id="mce-success-response" style="display: none;"></div>
-                                        </div>
-                                        <div aria-hidden="true" style="position: absolute; left: -5000px;">
-                                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
-                                            <input type="text" name="b_9783fc3c865a7042e2d9a86eb_ba316d630a" tabindex="-1" value="">
-                                        </div>
-                                        <div class="optionalParent mt-4">
-                                            <div class="clear foot">
-                                                <input type="submit" name="subscribe" id="mc-embedded-subscribe" value="Subscribe" class="rounded-md bg-secondary px-4 py-2 text-sm font-semibold text-white cursor-pointer shadow-sm hover:bg-secondary/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tertiary">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                        <!-- Next/Previous Articles -->
+                        <div class="break-words">
+                            <div class="space-y-8">
+                                {% if page.previous.url %}
+                                <a href="{{ page.previous.url }}" class="group block">
+                                    <p class="text-sm text-gray-500 mb-2">← Previous Article</p>
+                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-light group-hover:text-secondary">{{ page.previous.title }}</h3>
+                                </a>
+                                {% endif %}
+                                
+                                {% if page.next.url %}
+                                <a href="{{ page.next.url }}" class="group block">
+                                    <p class="text-sm text-gray-500 mb-2">Next Article →</p>
+                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-light group-hover:text-secondary">{{ page.next.title }}</h3>
+                                </a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -133,6 +94,25 @@ layout: base
         imgs[i].classList.add("cursor-pointer", "hover:brightness-80");
     }
     function showImg(img) { SimpleLightbox.open({ items: [img.getAttribute("src")] }); }
+
+    // Reading progress functionality
+    const progressBar = document.getElementById('reading-progress');
+    const progressContainer = document.getElementById('reading-progress-container');
+    
+    window.addEventListener('scroll', () => {
+        // Calculate scroll progress
+        const winScroll = document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        
+        // Update progress bar width
+        progressBar.style.width = scrolled + '%';
+        
+        // Show/hide progress bar based on scroll position
+        if (winScroll > 100) {
+            progressContainer.style.opacity = '1';
+        } else {
+            progressContainer.style.opacity = '0';
+        }
+    });
 </script>
-<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-<script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>

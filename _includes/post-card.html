@@ -1,38 +1,36 @@
 {% assign year = post.date | date: "%Y" %}
 {% assign month = post.date | date: "%m" %}
 
-<article class="flex flex-col items-start bg-stone-200 dark:bg-slate-800 rounded-2xl shadow-inner" data-date="{{ year }}-{{ month }}">
+<article class="flex flex-col overflow-hidden rounded-xl bg-white dark:bg-blackground shadow-sm border border-gray-200 dark:border-gray-800">
     <div class="relative w-full">
         <a href="{{ include.post.url }}">
-            <img src="{{ include.post.image }}" alt="{{ include.post.title }}" class="aspect-[16/9] w-full rounded-t-2xl object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
-            <div class="absolute inset-0 rounded-t-2xl ring-1 ring-inset ring-gray-900/10"></div>
+            <img src="{{ include.post.image }}" alt="{{ include.post.title }}" class="aspect-[16/9] w-full object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
         </a>
     </div>
-    <div class="max-w-xl px-4 py-4">
-        <div class="flex flex-wrap items-center justify-between gap-x-1 text-sm">
-            <p class="text-gray-900/80 shrink-0 dark:text-light/80"><span class="text-xl text-secondary px-1">{</span>{{ include.post.date | date_to_string }}<span class="text-xl text-secondary px-1">}</span><p>
-            <p class="text-gray-900/80 dark:text-light/80">
-                <span class="text-xl text-secondary pl-1">{</span>
-                {% for tag in include.post.tags %}
-                  {% assign tag_page = site.pages | where: 'category', tag | first %}
-                  <a href="/category/{{ tag | slugify }}" class="cursor-pointer hover:underline hover:text-secondary">{{ tag_page.title }}</a>{% unless forloop.last %} •{% endunless %}
-                {% endfor %}
-                <span class="text-xl text-secondary pr-1">}</span>
-            </p>
-        </div>
-        <a href="{{ include.post.url }}" class="group relative">
-            <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 dark:text-light group-hover:text-secondary">
-                <span class="absolute inset-0"></span>
-                {{ include.post.title }}
+    <div class="flex flex-col justify-between flex-1 p-6">
+        <div>
+            <div class="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
+                <span>{{ include.post.date | date: "%B %d, %Y" }}</span>
+                <span>•</span>
+                <span>{% include reading_time.html content=include.post.content %} read</span>
+            </div>
+            <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <a href="{{ include.post.url }}">{{ include.post.title }}</a>
             </h3>
-
-            <p class="mt-4 line-clamp-3 text-sm leading-6 text-gray-900 dark:text-light group-hover:text-secondary">{{ include.post.content | strip_html | truncatewords: 50 }}</p>
-
-            <p class="mt-4 line-clamp-3 text-sm leading-6 text-gray-900 dark:text-light group-hover:text-secondary italic">Read more
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline mr-2">
+            <div class="flex flex-wrap gap-2 mt-2">
+                {% for tag in include.post.tags %}
+                    <a href="/category/{{ tag | slugify }}" class="text-sm text-gray-500 dark:text-gray-400 hover:text-secondary">#{{ tag }}</a>
+                {% endfor %}
+            </div>
+            <p class="mt-4 text-gray-500 dark:text-gray-400">{{ include.post.content | strip_html | truncatewords: 50 }}</p>
+        </div>
+        <div class="mt-4">
+            <a href="{{ include.post.url }}" class="inline-flex items-center px-4 py-2 rounded-lg bg-secondary text-white hover:bg-secondary/90 transition-colors">
+                Read more
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
-            </p>
-        </a>
+            </a>
+        </div>
     </div>
 </article>
