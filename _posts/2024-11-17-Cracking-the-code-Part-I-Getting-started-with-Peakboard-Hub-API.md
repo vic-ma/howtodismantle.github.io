@@ -80,11 +80,11 @@ Here's how the script works:
 1. Get the token from the response.
 1. Put the token in the header for future calls. Remove the API key from the header for future calls, because we only needed it for the `auth/token` endpoint.
 
-After this sequence, the `HttpClient` object is ready to be used with any API call that is within the scope of the initial API key.
+After this sequence, the `HttpClient` object is ready to be used with any API call that is within the scope of the API key.
 
-## Actual call
+## Actual API call
 
-For the actual call, we reuse the client object. In the following example, we list all boxes that are registered in the Hub by calling the `/public-api/v1/box` endpoint. We then loop over the deserialized JSON string
+For the actual API call, we reuse the client object. In the following example, we list all boxes that are registered in the Hub by calling the `/public-api/v1/box` endpoint. We then loop over the deserialized JSON string.
 
 {% highlight cs %}
 response = client.GetAsync(BaseURL + "/public-api/v1/box").Result;
@@ -102,29 +102,29 @@ responseBody = response.Content.ReadAsStringAsync().Result;
 
 {% endhighlight %}
 
-The console output should look like this. We note, that most boxes except one is offline.
+The console output should look like this. We note that all boxes except one are offline.
 
 ![image](/assets/2024-11-17/040.png)
 
-## List of endpoints
+## List of Hub API endpoints
 
-Here is a list of endpoints that are currently available in version 1 of the Peakboard Hub API. We go through all these endpoints in various articles and various environments.
+Here's a list of endpoints that are currently available in version 1 of the Peakboard Hub API. We go through all these endpoints in various articles.
 
 | Endpoint            | Op.           | Description                                | More Information​​                                                                                                 |
 | ------------------- | ------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `/v1/auth/token`    | `GET`         | Turns the API key into an access token     | see this article                                                                                                   |
+| `/v1/auth/token`    | `GET`         | Turn the API key into an access token.     | See this current article.                                                                                          |
 | -------------       | ------------- | -------------                              | -------------                                                                                                      |
-| `/v1/box`           | `GET`         | Lists all boxes within the group           | see this article                                                                                                   |
-| `/v1/box/functions` | `GET`         | List all shared function of a box          | [Calling function remotely](/Cracking-the-code-Part-II-Calling-functions-remotely.html)                            |
-| `/v1/box/function`  | `POST`        | Executes a shared function on a box        | [Calling function remotely](/Cracking-the-code-Part-II-Calling-functions-remotely.html)                            |
+| `/v1/box`           | `GET`         | List all Boxes within the group.           | See this current article.                                                                                          |
+| `/v1/box/functions` | `GET`         | List all shared functions of a Box.        | [Calling function remotely](/Cracking-the-code-Part-II-Calling-functions-remotely.html)                            |
+| `/v1/box/function`  | `POST`        | Execute a shared function on a Box.        | [Calling function remotely](/Cracking-the-code-Part-II-Calling-functions-remotely.html)                            |
 | -------------       | ------------- | -------------                              | -------------                                                                                                      |
-| `/v1/box/lists`     | `GET`         | List all lists of a box                    |                                                                                                                    |
-| `/v1/box/lists`     | `PUT`         | Changes data in a list on a box            |                                                                                                                    |
-| `/v1/box/lists`     | `DELETE`      | Deletes records of a list on a box         |                                                                                                                    |
-| `/v1/box/lists`     | `POST`        | Adds a data row to a list on a box         |                                                                                                                    |
+| `/v1/box/lists`     | `GET`         | List all lists of a Box.                   |                                                                                                                    |
+| `/v1/box/lists`     | `PUT`         | Changes data in a list on a Box.           |                                                                                                                    |
+| `/v1/box/lists`     | `DELETE`      | Deletes records of a list on a Box.        |                                                                                                                    |
+| `/v1/box/lists`     | `POST`        | Adds a data row to a list on a Box.        |                                                                                                                    |
 | -------------       | ------------- | -------------                              | -------------                                                                                                      |
-| `/v1/box/variables` | `GET`         | List all variables of a box                |                                                                                                                    |
-| `/v1/box/variables` | `PUT`         | Changes a variable value on a box          |                                                                                                                    |
+| `/v1/box/variables` | `GET`         | List all variables of a Box.               |                                                                                                                    |
+| `/v1/box/variables` | `PUT`         | Changes a variable value on a Box.         |                                                                                                                    |
 | -------------       | ------------- | -------------                              | -------------                                                                                                      |
 | `/v1/lists`         | `GET`         | Lists all lists on the Hub                 | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
 | `/v1/lists/list`    | `POST`        | Returns Hub list data by using SQL         | [Reading and writing Hub lists](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) |
