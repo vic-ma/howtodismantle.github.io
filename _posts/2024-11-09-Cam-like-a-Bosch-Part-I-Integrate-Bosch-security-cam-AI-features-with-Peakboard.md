@@ -33,11 +33,13 @@ We call the upper row of parking spots Lot A, and we call the bottom row Lot B. 
 
 ## Configuring the cam
 
-Every Bosch cam comes with a web interface. However the more sophisticated settings must be done through a desktop application called the "Configuration Manager". The first thing we must do after adding the cam to the configurartion manager is to connect the cam to an MQTT broker. Here in our case we just choose the Peakboard MQTT broker for the templates, but any broker will do it.
+Every Bosch cam comes with a web interface. However, the more advanced settings must be changed through a desktop application called the "Configuration Manager."
+
+The first thing we do is add the cam to the Configuration Manager. After, we connect the cam to an MQTT broker. In our case, we choose the Peakboard MQTT broker for the templates, but any broker will do.
 
 ![image](/assets/2024-11-09/020.png)
 
-The actual miracle is happening in the VCA tab. Here we can add so called tasks. A task represents a certain action how the cam is supposed to react when something happens within the cam's sight. For our project we need two tasks, one for Lot A and one for Lot B.
+The real magic happens in the **VCA** tab. Here, we can add "tasks." A task represents an action that the cam performs when something happens in the cam's view. For our project, we need two tasks, one for Lot A and one for Lot B.
 
 We can add or change the tasks in the configuration manager.
 
