@@ -17,11 +17,11 @@ downloads:
   - name: BoschCamParkingLotMonitoring.pbmx
     url: /assets/2024-11-09/BoschCamParkingLotMonitoring.pbmx
 ---
-The German company Bosch offers an innovative camera that called FLEXIDOME indoor 5100i IR - 8MP. Not only is it a regular security camera, but it also comes with a couple of interesting AI features for monitoring the public space. 
+The German company Bosch offers an innovative camera called FLEXIDOME indoor 5100i IR - 8MP. Not only is it a normal security camera, but it also comes with a couple of interesting AI features for monitoring public spaces. 
 
 The camera can detect objects that are in its view. For example, it can detect people or vehicles and do a lot of magical stuff with this information. 
 
-In this article, we will give a brief overview of how to configure the Bosch cam and connect it to a Peakboard application. In the [second part of this Bosch cam series](/Cam-like-a-Bosch-Part-II-Inegrate-Cam-Images-and-Streams-into-Peakboard-Applications.html), we will discuss the options for integrating the camera image into a Peakboard dashboard.
+In this article, we will give a brief overview of how to configure the Bosch cam and connect it to a Peakboard application. In the [second part of this Bosch cam series](/Cam-like-a-Bosch-Part-II-Inegrate-Cam-Images-and-Streams-into-Peakboard-Applications.html), we will discuss options for integrating the camera image into a Peakboard dashboard.
 
 There's also a nice [Youtube video](https://www.youtube.com/watch?v=ztthsCF4USw&ab_channel=PeakboardEN) that covers this topic.
 
@@ -31,9 +31,9 @@ We call the upper row of parking spots Lot A, and we call the bottom row Lot B. 
 
 ![image](/assets/2024-11-09/010.png)
 
-## Configuring the cam
+## Configure the cam
 
-Every Bosch cam comes with a web interface. However, the more advanced settings must be changed through a desktop application called the "Configuration Manager."
+Every Bosch cam comes with a web interface. However, advanced settings can only be changed through a desktop application called the "Configuration Manager."
 
 The first thing we do is add the cam to the Configuration Manager. After, we connect the cam to an MQTT broker. In our case, we choose the Peakboard MQTT broker for the templates, but any broker will do.
 
