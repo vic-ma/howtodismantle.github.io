@@ -55,18 +55,18 @@ We also set the intersection trigger to "edge of box." That way, even if only pa
 
 ![image](/assets/2024-11-09/060.png)
 
-## MQTT and configuring the data source
+## Configure the data source
 
 Let's see what our task configuration looks like on the MQTT side.
-The camera generates an MQTT message every time a task is triggered or in whatever form changes.
+The camera generates an MQTT message each time a task is triggered or changes in some way.
 
-The following screenshot shows the raw view on the MQTT message and the tree of different topics down to the actual payload.
+The following screenshot shows the topics tree for the MQTT message, which goes all the way down to the payload.
 
 ![image](/assets/2024-11-09/070.png)
 
 Let's take a look at the Peakboard side. In the data source, we define two subscriptions with the complex topics.
 
-We use the simple data path `Data.Count`, so it's not necessary to implement a script to get the actual value from the JSON message. The Peakboard engine does it for us and translates the JSON into a useful payload that can be used directly.
+We use the simple data path `Data.Count`, so it's not necessary to implement a script to get the actual value from the JSON message. The Peakboard engine does it for us and translates the JSON into a payload that can be used directly.
 
 ![image](/assets/2024-11-09/080.png)
 
@@ -76,7 +76,7 @@ Then, we bind a nice tile to the two values of the data source.
 
 ## Result
 
-If you take a final look at the result, you can see how well the occupancy detection works. As soon as a car enters or leaves one of the two fields, the data is adjusted and reflected in the Peakboard board. Cars outside the lots are not counted.
+If you take a final look at the result, you can see how well the occupancy detection works. As soon as a car enters or leaves one of the two fields, the data is adjusted and reflected in the Peakboard screen. Cars outside the lots are not counted.
 
 ![image](/assets/2024-11-09/100.png)
 
