@@ -21,7 +21,7 @@ The German company Bosch offers an innovative camera called FLEXIDOME indoor 510
 
 The camera can detect objects that are in its view. For example, it can detect people or vehicles and do a lot of magical stuff with this information. 
 
-In this article, we will give a brief overview of how to configure the Bosch cam and connect it to a Peakboard application. In the [second part of this Bosch cam series](/Cam-like-a-Bosch-Part-II-Inegrate-Cam-Images-and-Streams-into-Peakboard-Applications.html), we will discuss options for integrating the camera image into a Peakboard dashboard.
+In this article, we will give a brief overview of how to configure the Bosch camera and connect it to a Peakboard application. In the [second part of this Bosch camera series](/Cam-like-a-Bosch-Part-II-Inegrate-Cam-Images-and-Streams-into-Peakboard-Applications.html), we will discuss options for integrating the camera image into a Peakboard dashboard.
 
 There's also a nice [Youtube video](https://www.youtube.com/watch?v=ztthsCF4USw&ab_channel=PeakboardEN) that covers this topic.
 
@@ -31,11 +31,11 @@ We call the upper row of parking spots Lot A, and we call the bottom row Lot B. 
 
 ![image](/assets/2024-11-09/010.png)
 
-## Configure the cam
+## Configure the camera
 
-Every Bosch cam comes with a web interface. However, advanced settings can only be changed through a desktop application called the "Configuration Manager."
+Every Bosch camera comes with a web interface. However, advanced settings can only be changed through a desktop application called the "Configuration Manager."
 
-The first thing we do is add the cam to the Configuration Manager. After, we connect the cam to an MQTT broker. In our case, we choose the Peakboard MQTT broker for the templates, but any broker will do.
+The first thing we do is add the camera to the Configuration Manager. After, we connect the camera to an MQTT broker. In our case, we choose the Peakboard MQTT broker for the templates, but any broker will do.
 
 ![image](/assets/2024-11-09/020.png)
 
@@ -47,7 +47,7 @@ We select a trigger for our tasks. In our case, the trigger is "Object in field.
 
 ![image](/assets/2024-11-09/040.png)
 
-We then apply the task to a field in the camera's view. The following screenshot shows the task for Lot A. You can see that the field is highlighted on the right side and integrated into the cam picture.
+We then apply the task to a field in the camera's view. The following screenshot shows the task for Lot A. You can see that the field is highlighted on the right side and integrated into the camera picture.
 
 ![image](/assets/2024-11-09/050.png)
 
@@ -58,7 +58,7 @@ We also set the intersection trigger to "edge of box." That way, even if only pa
 ## MQTT and configuring the data source
 
 Let's see what our task configuration looks like on the MQTT side.
-The cam generates an MQTT message every time a task is triggered or in whatever form changes.
+The camera generates an MQTT message every time a task is triggered or in whatever form changes.
 
 The following screenshot shows the raw view on the MQTT message and the tree of different topics down to the actual payload.
 
