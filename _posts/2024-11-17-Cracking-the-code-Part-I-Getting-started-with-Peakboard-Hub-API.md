@@ -14,7 +14,7 @@ downloads:
     url: /assets/2024-11-17/PeakboardHubAPIPart1.cs
 ---
 
-Since its official release in 2022, Peakboard Hub has become more and more popular among customers. Initially, it was only designed to be an administration interface for environments with 20+ boxes. Since then, many API endpoints have been added, and there's also a SaaS offering for customers who don't want to host their Hub on premises.
+Since its official release in 2022, Peakboard Hub has become more and more popular among customers. Initially, it was only designed to be an administration interface for environments with 20+ boxes. Since then, many more functions have been added, and there's also a SaaS offering for customers who don't want to host their Hub on premises.
 
 At the end of the 2024, Peakboard introduced an official API for Peakboard Hub. This API lets you connect Peakboard Hub to countless other systems, especially in the cloud. Today, we'll kick off a new series of articles that show what you can do with the API and how to integrate it.
 
