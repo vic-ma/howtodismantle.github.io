@@ -35,6 +35,14 @@ After creating the new key, we copy it.
 
 ![image](/assets/2024-11-17/030.png)
 
+## Base URL
+
+The base URL of the API depends on if we connect to the HUB online or Hub on prem.
+In case of Hub Online the base URL is "https://api.peakboard.com". 
+If the Hub server is installed on prem the url depends on the configuration. We can look it up in the IIS console. The screenshot shows the default configuration with the Hub Api as its own site under port 20688, so the base URL is "http://<MyHubSerer>:20388".
+
+![image](/assets/2024-11-17/035.png)
+
 ## Authentication
 
 Before we can make our first API call, we must turn our API key into an access token. To do that, we use the public API endpoint `/public-api/v1/auth/token`.
@@ -46,7 +54,7 @@ The following code demonstrates the authentication process in C#. Feel free to d
 {% highlight cs %}
 using Newtonsoft.Json.Linq;
 
-const string BaseURL = "http://hub.peakboard.com";
+const string BaseURL = "https://api.peakboard.com";
 const string APIKey = "XXX";
 
 using (HttpClient client = new HttpClient())

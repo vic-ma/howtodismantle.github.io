@@ -74,6 +74,8 @@ For the connectivity, you can choose between OPC, MQTT and Modbus. The nice thin
 
 Estimated cost: 700-900 EUR
 
+Here's a relevant article on this blog: [I/O, Let's Go - Going crazy for Pepperl+Fuchs IO-Link-Master ICE2-8IOL-G65L-V1D](/I-O-Lets-Go-Going-crazy-for-Pepperl-Fuchs-IO-Link-Master-ICE2-8IOL-G65L-V1D)
+
 [Click here to jump directly to the vendor](https://www.pepperl-fuchs.com/germany/de/classid_4996.htm?view=productdetails&prodid=96749
 )
 
