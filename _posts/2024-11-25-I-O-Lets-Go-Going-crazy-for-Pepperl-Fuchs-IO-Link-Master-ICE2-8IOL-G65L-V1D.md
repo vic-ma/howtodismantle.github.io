@@ -12,7 +12,7 @@ read_more_links:
     url: https://www.pepperl-fuchs.com/germany/de/classid_4996.htm?view=productdetails&prodid=96749
 downloads:
   - name: PFIOLinkMaster.pbmx
-    url: /assets/2024-10-25/PFIOLinkMaster.pbmx
+    url: /assets/2024-11-25/PFIOLinkMaster.pbmx
 ---
 In this blog, we already discussed the usage of various ways to integrate sensors into a Peakboard application. A summary of these articles is available in [The hitchhiker's guide to I/O devices](/I-O-Lets-go-The-hitchikers-guide-to-I-O-devices.html). In today's article we will have a look at a very sophistcated and a bit more expensive type of I/O modules - an IO-Link master. The big main difference to the other I/O modules is, that an IO-Link doesn't use just blank wires to connect the sensors, but instead implements the IO-Link plug. So the sensor must offer this IO-Link plug to be used with an IO-Link master.
 
