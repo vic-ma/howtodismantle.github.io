@@ -41,7 +41,7 @@ The base URL of the API depends on whether we're using Peakboard Hub Online or P
 
 For Peakboard Hub Online, the base URL is `https://api.peakboard.com`.
 
-For Peakboard Hub on premises, the base URL depends on the configuration. You can find it in the IIS console. The following screenshot shows the default configuration with the Hub API as its own site, under port 20688. So, the base URL is `http://<MyHubSerer>:20388`.
+For Peakboard Hub on premises, the base URL depends on the configuration. You can find it in the IIS console. The following screenshot shows the default configuration with the Hub API as its own site, under port 20688. So, the base URL is `http://<MyHubSerer>:20688`.
 
 ![image](/assets/2024-11-17/035.png)
 
