@@ -37,9 +37,11 @@ After creating the new key, we copy it.
 
 ## Base URL
 
-The base URL of the API depends on if we connect to the HUB online or Hub on prem.
-In case of Hub Online the base URL is "https://api.peakboard.com". 
-If the Hub server is installed on prem the url depends on the configuration. We can look it up in the IIS console. The screenshot shows the default configuration with the Hub Api as its own site under port 20688, so the base URL is "http://<MyHubSerer>:20388".
+The base URL of the API depends on whether we're using Peakboard Hub Online or Peakboard Hub on premises.
+
+For Peakboard Hub Online, the base URL is `https://api.peakboard.com`.
+
+For Peakboard Hub on premises, the base URL depends on the configuration. You can find it in the IIS console. The following screenshot shows the default configuration with the Hub API as its own site, under port 20688. So, the base URL is `http://<MyHubSerer>:20688`.
 
 ![image](/assets/2024-11-17/035.png)
 
