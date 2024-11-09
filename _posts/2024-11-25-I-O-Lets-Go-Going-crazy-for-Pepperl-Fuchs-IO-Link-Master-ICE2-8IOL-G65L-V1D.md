@@ -14,7 +14,7 @@ downloads:
   - name: PFIOLinkMaster.pbmx
     url: /assets/2024-10-25/PFIOLinkMaster.pbmx
 ---
-In this blog, we already discussed the usage of various ways to integrate sensors into a Peakboard application. A summary of these articles is available in [The hitchhiker's guide to I/O devices](/I-O-Lets-go-The-hitchikers-guide-to-I-O-devices.html). In today's article we will have a look at a very sophistcated and a bit more expensive type of I/O modules - an IO-Link master. The big main difference to the other I/O modules is, that an IO-Link doesn't use just blank wires to connect the sensors, but insteand implments the IO-Link plug. So the sensor must offer this IO-Link plug to be used with an IO-Link master.
+In this blog, we already discussed the usage of various ways to integrate sensors into a Peakboard application. A summary of these articles is available in [The hitchhiker's guide to I/O devices](/I-O-Lets-go-The-hitchikers-guide-to-I-O-devices.html). In today's article we will have a look at a very sophistcated and a bit more expensive type of I/O modules - an IO-Link master. The big main difference to the other I/O modules is, that an IO-Link doesn't use just blank wires to connect the sensors, but instead implements the IO-Link plug. So the sensor must offer this IO-Link plug to be used with an IO-Link master.
 
 The IO-Link Master we use in this article will be the Pepperl+Fuchs IO-Link-Master ICE2-8IOL-G65L-V1D.
 
@@ -32,7 +32,7 @@ In the web interface of our IO Link master, we can find the section "Attched Dev
 
 ![image](/assets/2024-11-25/030.png)
 
-When we switch to the Port 3 tab, because we pluuged the ensor into the physcial port 3, we can see the details of he sensor provided by the vednor in the IODD file. The matching between the physical sensor and the IODD file happens with the help of the unique product id.
+When we switch to the Port 3 tab, because we pluuged the ensor into the physcial port 3, we can see the details of the sensor provided by the vendor in the IODD file. The matching between the physical sensor and the IODD file happens with the help of the unique product id.
 
 ![image](/assets/2024-11-25/040.png)
 
@@ -43,7 +43,7 @@ There are several ways to access the IO Link master from the data consumer side.
 - The OPC UA option comes with a server, so we can connect Peakboard directly to the IO Link master, while MQTT always needs a broker in between.
 - As through IODD file, the IO Link master knows exactly what kind of data is coming from he sensor and how it must be interpreted. So we don't need to worry too much about looping though JSON or other data conversions. We can just drag & drop the ready-to-use value from the OPC UA source.
 
-After we created a new data source to OPC UA, we add two new subscription. The OPC UA nodes can be just drilled through and here we see the full power of this IO Link procedere with IODD file. We can see, that already the correct metadata is shown under the corresponding port and attached device. The OPC UA server already "knows" that this sensor has two relevant data values, the distance and the state if there's an object within the scope of the sensor. And also the correct data types are reflected there. We can even see a breif explanation of the value on the right side.
+After we created a new data source to OPC UA, we add two new subscription. The OPC UA nodes can be just drilled through and here we see the full power of this IO Link procedere with IODD file: We can see, that already the correct metadata is shown under the corresponding port and attached device. The OPC UA server already "knows" that this sensor has two relevant data values, the distance and the state if there's an object within the scope of the sensor. And also the correct data types are reflected there. We can even see a brief explanation of the value on the right side.
 
 ![image](/assets/2024-11-25/050.png)
 
@@ -57,7 +57,7 @@ The board itself is easy to build. We just bind the OPC UA source to a text fiel
 
 ## result
 
-The following gifs are showing the final result. The object in he cone of the sensor causes the corresponding value to be flagged as occupied and also give the corect disctance between th sensor and the object.
+The following gifs are showing the final result. The object in the cone of the sensor causes the corresponding value to be flagged as occupied and also gives the corect disctance between the sensor and the object.
 
 ![image](/assets/2024-11-25/result0.gif)
 
