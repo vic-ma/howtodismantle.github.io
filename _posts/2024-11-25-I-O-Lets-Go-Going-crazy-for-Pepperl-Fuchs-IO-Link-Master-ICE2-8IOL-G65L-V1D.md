@@ -18,11 +18,11 @@ In this blog, we already discussed the usage of various ways to integrate sensor
 
 The IO-Link Master we use in this article will be the Pepperl+Fuchs IO-Link-Master ICE2-8IOL-G65L-V1D.
 
-![image](/assets/2024-10-25/010.png)
+![image](/assets/2024-11-25/010.png)
 
 And the sensor we will use is a Pepperl+Fuchs UC250-F77-EP-IO-V31. This is an ultrasonic distance sensor that meassures the distance to the next object located in the range of the sensors with the help of ultrasonic sound waves. It can be used to check, if an area is occupied by something (e.g. if there is a person standing nearby) or an object is passing by, and if so, what is the distance between the sensor and the object.
 
-![image](/assets/2024-10-25/020.png)
+![image](/assets/2024-11-25/020.png)
 
 ## IO-Link Master Configuration
 
@@ -30,11 +30,11 @@ Like other I/O modules the IO Link Master comes with a web interface. The idea o
 
 In the web interface of our IO Link master, we can find the section "Attched Devices -> IOD files" and upload the file there to the master.
 
-![image](/assets/2024-10-25/030.png)
+![image](/assets/2024-11-25/030.png)
 
 When we switch to the Port 3 tab, because we pluuged the ensor into the physcial port 3, we can see the details of he sensor provided by the vednor in the IODD file. The matching between the physical sensor and the IODD file happens with the help of the unique product id.
 
-![image](/assets/2024-10-25/040.png)
+![image](/assets/2024-11-25/040.png)
 
 ## Accessing the data from Peakboard
 
@@ -45,23 +45,23 @@ There are several ways to access the IO Link master from the data consumer side.
 
 After we created a new data source to OPC UA, we add two new subscription. The OPC UA nodes can be just drilled through and here we see the full power of this IO Link procedere with IODD file. We can see, that already the correct metadata is shown under the corresponding port and attached device. The OPC UA server already "knows" that this sensor has two relevant data values, the distance and the state if there's an object within the scope of the sensor. And also the correct data types are reflected there. We can even see a breif explanation of the value on the right side.
 
-![image](/assets/2024-10-25/050.png)
+![image](/assets/2024-11-25/050.png)
 
 So that's how the fully set up data source looks like.
 
-![image](/assets/2024-10-25/060.png)
+![image](/assets/2024-11-25/060.png)
 
 The board itself is easy to build. We just bind the OPC UA source to a text field and to an icon that switches its appearance according to a conditional formatting rule.
 
-![image](/assets/2024-10-25/070.png)
+![image](/assets/2024-11-25/070.png)
 
 ## result
 
 The following gifs are showing the final result. The object in he cone of the sensor causes the corresponding value to be flagged as occupied and also give the corect disctance between th sensor and the object.
 
-![image](/assets/2024-10-25/result0.gif)
+![image](/assets/2024-11-25/result0.gif)
 
-![image](/assets/2024-10-25/result1.gif)
+![image](/assets/2024-11-25/result1.gif)
 
 
 
