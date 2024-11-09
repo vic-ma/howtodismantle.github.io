@@ -51,21 +51,27 @@ There are several ways to access the IO-Link master from the data consumer side.
 - The OPC UA option comes with a server, so we can connect Peakboard directly to the IO-Link master, while MQTT always needs a broker in between.
 - With IODD file, the IO-Link master knows exactly what kind of data is coming from the sensor and how to interpret it. So we don't need to worry too much about looping though JSON or other data conversions. We can just drag & drop the ready-to-use value from the OPC UA source.
 
-After we created a new data source to OPC UA, we add two new subscription. The OPC UA nodes can be just drilled through and here we see the full power of this IO-Link procedere with IODD file: We can see, that already the correct metadata is shown under the corresponding port and attached device. The OPC UA server already "knows" that this sensor has two relevant data values, the distance and the state if there's an object within the scope of the sensor. And also the correct data types are reflected there. We can even see a brief explanation of the value on the right side.
+After we create a new OPC UA data source, we add two new subscriptions. The OPC UA nodes can be drilled through, and here, we see the full power of the IO-Link with IODD file procedure.
+
+You can see that the correct metadata is shown under the corresponding port and attached device. The OPC UA server already "knows" that this sensor has two relevant data values:
+* Whether there's an object within the scope of the sensor
+* The distance of the object
+
+And the correct data types are reflected there. We can even see a brief description of the value on the right side.
 
 ![image](/assets/2024-11-25/050.png)
 
-So that's how the fully set up data source looks like.
+So that's what the fully set up data source looks like.
 
 ![image](/assets/2024-11-25/060.png)
 
-The board itself is easy to build. We just bind the OPC UA source to a text field and to an icon that switches its appearance according to a conditional formatting rule.
+The board itself is easy to build. We bind the OPC UA source to a text field and to an icon that switches its appearance according to a conditional formatting rule.
 
 ![image](/assets/2024-11-25/070.png)
 
-## result
+## Result
 
-The following gifs are showing the final result. The object in the cone of the sensor causes the corresponding value to be flagged as occupied and also gives the corect disctance between the sensor and the object.
+The following GIFs show the final result. Moving a hand towards and away from the sensor causes the "distance" and "object found" values to change appropriately.
 
 ![image](/assets/2024-11-25/result0.gif)
 
