@@ -44,12 +44,12 @@ We plugged our sensor into the physical port 3. So, when we switch to the **Port
 
 ![image](/assets/2024-11-25/040.png)
 
-## Accessing the data from Peakboard
+## Access the data from Peakboard
 
-There are several ways to access the IO-Link master from the data consumer side. Of course it comes with a built-in MQTT connection, which is always a nice choice. But for the next step, we will make use of the built-in OPC UA server endpoint that is also provided. Using OPC UA over MQTT in that context has two advantages to consider:
+There are several ways to access the IO-Link master from the data consumer side. Of course, it comes with a built-in MQTT connection, which is always a good choice. But for this next step, we will make use of the built-in OPC UA server endpoint. Using OPC UA over MQTT in this context has two advantages:
 
 - The OPC UA option comes with a server, so we can connect Peakboard directly to the IO-Link master, while MQTT always needs a broker in between.
-- As through IODD file, the IO-Link master knows exactly what kind of data is coming from he sensor and how it must be interpreted. So we don't need to worry too much about looping though JSON or other data conversions. We can just drag & drop the ready-to-use value from the OPC UA source.
+- With IODD file, the IO-Link master knows exactly what kind of data is coming from the sensor and how to interpret it. So we don't need to worry too much about looping though JSON or other data conversions. We can just drag & drop the ready-to-use value from the OPC UA source.
 
 After we created a new data source to OPC UA, we add two new subscription. The OPC UA nodes can be just drilled through and here we see the full power of this IO-Link procedere with IODD file: We can see, that already the correct metadata is shown under the corresponding port and attached device. The OPC UA server already "knows" that this sensor has two relevant data values, the distance and the state if there's an object within the scope of the sensor. And also the correct data types are reflected there. We can even see a brief explanation of the value on the right side.
 
