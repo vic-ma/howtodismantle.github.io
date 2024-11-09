@@ -14,19 +14,27 @@ downloads:
   - name: PFIOLinkMaster.pbmx
     url: /assets/2024-11-25/PFIOLinkMaster.pbmx
 ---
-In this blog, we already discussed the usage of various ways to integrate sensors into a Peakboard application. A summary of these articles is available in [The hitchhiker's guide to I/O devices](/I-O-Lets-go-The-hitchikers-guide-to-I-O-devices.html). In today's article we will have a look at a very sophistcated and a bit more expensive type of I/O modules - an IO-Link master. The big main difference to the other I/O modules is, that an IO-Link doesn't use just blank wires to connect the sensors, but instead implements the IO-Link plug. So the sensor must offer this IO-Link plug to be used with an IO-Link master.
+In this blog, we've discussed different ways to integrate sensors into a Peakboard application. You can see an overview of these articles in [The hitchhiker's guide to I/O devices](/I-O-Lets-go-The-hitchikers-guide-to-I-O-devices.html).
 
-The IO-Link Master we use in this article will be the Pepperl+Fuchs IO-Link-Master ICE2-8IOL-G65L-V1D.
+In today's article we'll take a look at a sophisticated and slightly more expensive type of I/O module---an IO-Link master.
+
+The main difference between the IO-Link master and other I/O modules is that the IO-Link doesn't use blank wires to connect the sensors. Instead, it uses the IO-Link plug. A sensor must provide this IO-Link plug in order to be used with an IO-Link master.
+
+The IO-Link master we'll use in this article is the Pepperl+Fuchs IO-Link-Master ICE2-8IOL-G65L-V1D.
 
 ![image](/assets/2024-11-25/010.png)
 
-And the sensor we will use is a Pepperl+Fuchs UC250-F77-EP-IO-V31. This is an ultrasonic distance sensor that meassures the distance to the next object located in the range of the sensors with the help of ultrasonic sound waves. It can be used to check, if an area is occupied by something (e.g. if there is a person standing nearby) or an object is passing by, and if so, what is the distance between the sensor and the object.
+And the sensor we'll use is the Pepperl+Fuchs UC250-F77-EP-IO-V31. This is an ultrasonic distance sensor that measures the distance to the next object that's within range of the sensors, with the help of ultrasonic sound waves. 
+
+It can check if an area is occupied by something (e.g. if there is a person standing nearby). It can also tell if an object is passing by and how far away it is.
 
 ![image](/assets/2024-11-25/020.png)
 
-## IO-Link Master Configuration
+## IO-Link master configuration
 
-Like other I/O modules the IO Link Master comes with a web interface. The idea of IO-Link principle is that the way an IO Link device works is described in a so called IODD file (IO Device Description). The easiest way to get the IODD file for our sensor is to go to the website [https://ioddfinder.io-link.com/] and look up the exact sensor name and then download the IODD from there.
+Like other I/O modules, the IO-Link Master comes with a web interface. The idea behind the IO-Link is that the way an IO-Link device works is described in an IODD file (IO device description file).
+
+The easiest way to get the IODD file for our sensor is to go to the [IODD Finder website](https://ioddfinder.io-link.com/) and enter our sensor's exact name.
 
 In the web interface of our IO Link master, we can find the section "Attched Devices -> IOD files" and upload the file there to the master.
 
