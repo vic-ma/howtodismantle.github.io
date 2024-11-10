@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Cracking the code - Part III - Reading and writing lists with Peakboard Hub API
-date: 2025-01-20 00:00:00 +0200
+date: 2023-03-01 03:00:00 +0200
 tags: api peakboardhub
-image: /assets/2025-01-20/title.png
+image: /assets/2025-02-05/title.png
 read_more_links:
   - name: Cracking the code - Part I - Getting started with Peakboard Hub API
-    url: /2024-11-17-Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html
+    url: /Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html
   - name: Cracking the code - Part II - Calling functions remotely
     url: /Cracking-the-code-Part-II-Calling-functions-remotely.html
 downloads:
