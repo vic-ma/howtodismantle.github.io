@@ -1219,6 +1219,14 @@ select {
   font-weight: 700;
 }
 
+.prose-dismantle :where(code):not(:where([class~="not-prose"] *))::before {
+  content: "";
+}
+
+.prose-dismantle :where(code):not(:where([class~="not-prose"] *))::after {
+  content: "";
+}
+
 .visible {
   visibility: visible;
 }

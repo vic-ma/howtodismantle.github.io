@@ -48,6 +48,12 @@ module.exports = {
                         strong: {
                             'font-weight': 700,
                         },
+                        'code::before': {
+                            content: '""'
+                        },
+                        'code::after': {
+                            content: '""'
+                        }
                     },
                 }
             }),
