@@ -94,20 +94,18 @@ print(f"Record with id {id} was deleted")
 
 # Get table data with the help of SQL command
 
-body = """Select * from Stockinfo"""
-#headers = {'Content-Type': 'text/plain'}
-headers = {
-    "Content-Type": "*/*",
-    "accept": "*/*"
+body = {
+  "sql": "select Locked, count(*) as Counter from stockinfo group by locked"
 }
-response = mySession.post(BaseURL + "/public-api/v1/lists/list", json=body, headers=headers)
-
-print(response.reason)
-print(response.json())
+response = mySession.post(BaseURL + "/public-api/v1/lists/list", json=body)
 
 if response.status_code != 200:
     sys.exit("Unable to obtain list data")
 
+columns = [col['name'] for col in response.json()['columns']]
+items = [{entry['column']: entry['value'] for entry in item} for item in response.json()['items']]
+
+print(pandas.DataFrame(items, columns=columns))
 
 
 

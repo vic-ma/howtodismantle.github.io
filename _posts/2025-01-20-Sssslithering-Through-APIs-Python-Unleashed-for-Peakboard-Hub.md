@@ -153,3 +153,31 @@ if response.status_code != 200:
 print(f"Record with id {id} was deleted")
 {% endhighlight %}
 
+## Do crazy stuff with SQL
+
+A very special endpoint is the POST command to /public-api/v1/lists/list. It allows to execute an SQL command. The cool thing is that we can do data aggregation with it and let the database do the work. Depending on the use case that can reduce the amount of data dramatically.
+
+Let's assume we are not interested in every record of our stockinfo table. We want to know, how many records are in the table that are marked with "locked=true" and how many are there with "Locked=false". The correct SQL get exactly this information is "select Locked, count(*) as Counter from stockinfo group by locked".
+
+An here's the sample how to shoot this SQL against the endpoint and get a table of aggregated data back. We use the pandas-function to print out the result table formatted.
+
+{% highlight python %}
+# Get table data with the help of SQL command
+
+body = {
+  "sql": "select Locked, count(*) as Counter from stockinfo group by locked"
+}
+response = mySession.post(BaseURL + "/public-api/v1/lists/list", json=body)
+
+if response.status_code != 200:
+    sys.exit("Unable to obtain list data")
+
+columns = [col['name'] for col in response.json()['columns']]
+items = [{entry['column']: entry['value'] for entry in item} for item in response.json()['items']]
+
+print(pandas.DataFrame(items, columns=columns))
+{% endhighlight %}
+
+Here's the final output:
+
+![image](/assets/2025-01-20/030.png)
