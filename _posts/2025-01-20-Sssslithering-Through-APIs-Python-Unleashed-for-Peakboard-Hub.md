@@ -14,9 +14,7 @@ downloads:
   - name: PeakboardHubAPIPlayground.py
     url: /assets/2025-01-20/PeakboardHubAPIPlayground.py
 ---
-A couple of weeks ago we already started with an introduction to the Peakboard Hub API: [Getting started](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html). And also there's another article on how to use the API to [manage lists on the Peakbord Hub](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html)
-
-This article is all about using the Peakboard Hub API in Python. Let's get right into it....
+A couple of weeks ago, we gave an [introduction to the Peakboard Hub API](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html). We also have a guide for using the API to [manage lists in Peakboard Hub](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html). This article is all about using the Peakboard Hub API in Python. Let's get started.
 
 ![image](/assets/2025-01-20/005.png)
 
