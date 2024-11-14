@@ -18,11 +18,9 @@ A couple of weeks ago, we gave an [introduction to the Peakboard Hub API](/Crack
 
 ![image](/assets/2025-01-20/005.png)
 
-## Authentification
+## Authentication
 
-Beside the typical import for API calls "import requests" we're also importing "pandas" for table formatting and "sys" to create some nice code in case we want to exit. The base URL depends on which Peakboard instance is supposed to be addressed. The sample shows the regular Hub Online. Please check the other articles on more information about to get the API key.
-
-We submit the key in the header of the first call. When the calls was successful we can easily extract the access token from the response body and build a session instance with it. So in all later calls we don't need to worry about authentification as long as as we use the session instance. 
+Here's what the start of our Python script looks like:
 
 {% highlight python %}
 import requests
@@ -43,6 +41,15 @@ print("Succesfully authorized until " + response.json()["validUntill"])
 mySession = requests.Session()
 mySession.headers.update({"Authorization": "Bearer " + accesstoken})
 {% endhighlight %}
+
+We use the following imports:
+* `requests`, for API calls
+* `pandas`, for table formatting
+* `sys`, for program termination
+
+The Peakboard Hub API's base URL depends on the Peakboard Hub instance we are addressing. In our script, we're using the standard Hub Online. See our [introductory article](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) to learn more about base URLs and API keys.
+
+We submit the key in the header of the first call. Then, we extract the access token from the response body and build a session instance with it. For all future calls, we won't need to worry about authentication, so long as we use the session instance. 
 
 ## Get all lists
 
