@@ -53,7 +53,7 @@ We submit the key in the header of the first call. Then, we extract the access t
 
 ## Get all lists
 
-To get all the available lists in our Peakboard Hub, we use a simple `GET` call. Then, we loop over the response body's JSON string in order to print all the table names.
+To get all the available lists in our Peakboard Hub, we send a `GET` request to the `/public-api/v1/lists` endpoint. Then, we loop over the response body's JSON string in order to print all the table names.
 
 {% highlight python %}
 # Get all lists
@@ -71,7 +71,7 @@ for item in response.json():
 
 ## Get list data
 
-To get the list data, we use another simple `GET` call. We send the command in the query (name of table and sort order). After we get the result, we turn the columns and records of the table into collections. We print the formatted table by using the `pandas` library: `pandas.DataFrame(...)`.
+To get the data in a list, we send a `GET` request to the `/public-api/v1/lists/list` endpoint, with a query string that specifies the table name and sort order. After we get the result, we turn the columns and records of the table into collections. We print the formatted table by using the `pandas` library: `pandas.DataFrame(...)`.
 
 {% highlight python %}
 # Get data of a list
@@ -117,7 +117,7 @@ print("New record added under ID " + str(id))#
 
 ## Edit a record
 
-Editing a record works similiar to creating a record but with a PUT command to /public-api/v1/lists/items. Beside the list name we must add the row ID of the data to be edited.
+To edit a record, we send a  `PUT` command to the `/public-api/v1/lists/items` endpoint. Beside the list name we must add the row ID of the data to be edited.
 
 {% highlight python %}
 # Edit a record
