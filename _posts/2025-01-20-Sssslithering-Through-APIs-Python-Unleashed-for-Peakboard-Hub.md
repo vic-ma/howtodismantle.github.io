@@ -14,17 +14,13 @@ downloads:
   - name: PeakboardHubAPIPlayground.py
     url: /assets/2025-01-20/PeakboardHubAPIPlayground.py
 ---
-A couple of weeks ago we already started with an introduction to the Peakboard Hub API: [Getting started](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html). And also there's another article on how to use the API to [manage lists on the Peakbord Hub](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html)
-
-This article is all about using the Peakboard Hub API in Python. Let's get right into it....
+A couple of weeks ago, we gave an [introduction to the Peakboard Hub API](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html). We also have a guide for using the API to [manage lists in Peakboard Hub](/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html). This article is all about using the Peakboard Hub API in Python. Let's get started.
 
 ![image](/assets/2025-01-20/005.png)
 
-## Authentification
+## Authentication
 
-Beside the typical import for API calls "import requests" we're also importing "pandas" for table formatting and "sys" to create some nice code in case we want to exit. The base URL depends on which Peakboard instance is supposed to be addressed. The sample shows the regular Hub Online. Please check the other articles on more information about to get the API key.
-
-We submit the key in the header of the first call. When the calls was successful we can easily extract the access token from the response body and build a session instance with it. So in all later calls we don't need to worry about authentification as long as as we use the session instance. 
+Here's how to handle Peakboard Hub API authentication in Python:
 
 {% highlight python %}
 import requests
@@ -46,9 +42,18 @@ mySession = requests.Session()
 mySession.headers.update({"Authorization": "Bearer " + accesstoken})
 {% endhighlight %}
 
+We use the following imports:
+* `requests`, for API calls
+* `pandas`, for table formatting
+* `sys`, for program termination
+
+The Peakboard Hub API's base URL changes based on the Peakboard Hub instance we're addressing. In our script, we're using the standard Hub Online. See our [introductory article](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) to learn more about base URLs and authentication.
+
+We submit our API key in the header of a request to the `/public-api/v1/auth/token` endpoint. Then, we extract the access token from the response body and build a session instance with it. For all future calls, we won't need to worry about authentication, so long as we use the session instance. 
+
 ## Get all lists
 
-Obtaining all available lists from the Hub is a simple GET call. We just loop over the array that is returned in the response body's JSON string.
+To get all the available lists in our Peakboard Hub, we send a `GET` request to the `/public-api/v1/lists` endpoint. Then, we loop over the response body's JSON string in order to print all the table names.
 
 {% highlight python %}
 # Get all lists
@@ -66,7 +71,9 @@ for item in response.json():
 
 ## Get list data
 
-With a second simple GET call we receive the actual list data. The actual command is sent in the query (Name of table and sorting). With the result we make use of the "pandas" lib. The columns of the table and each record are turned into collections and just formatted by use of this external library with one single easy call "pandas.DataFrame(...)".
+To get the data in a list, we send a `GET` request to the `/public-api/v1/lists/list` endpoint, with a query string that specifies the table name and sort order.
+
+After we get the result, we turn the columns and records of the table into collections. We print the formatted table by using the `pandas` library: `pandas.DataFrame(...)`.
 
 {% highlight python %}
 # Get data of a list
@@ -87,7 +94,7 @@ print(pandas.DataFrame(items, columns=columns))
 
 ## Create a record
 
-Creating a new record is done through a POST call to /public-api/v1/lists/items. The sample code shows how to construct a body with the name of the list and the actual data to be added. The strcuture is so simple that it can be cosidered as self-explainary. When the call is succesful we can read the ID of the record from the JSON that is returned in the response.
+To create a record, we send a `POST` request to the `/public-api/v1/lists/items` endpoint. The following example code shows how to construct a body with the name of the list and the data to be added. If the call succeeds, we read the ID of the record from the response body's JSON string.
 
 {% highlight python %}
 # create a new record
@@ -97,7 +104,7 @@ body = {
     "data": {
         "MaterialNo": "0815",
         "Quantity": 5,
-        "locked": False  
+        "locked": False
     }
 }
 
@@ -112,7 +119,11 @@ print("New record added under ID " + str(id))#
 
 ## Edit a record
 
-Editing a record works similiar to creating a record but with a PUT command to /public-api/v1/lists/items. Beside the list name we must add the row ID of the data to be edited.
+To edit a record, we send a `PUT` request to the `/public-api/v1/lists/items` endpoint. In the request body, we provide the following properties:
+
+* `listName` - The name of the list we want to edit.
+* `rowId` - The ID of the record we want to edit.
+* `data` - The column name and new data for that column.
 
 {% highlight python %}
 # Edit a record
@@ -135,7 +146,7 @@ print(f"Record with id {id} was changed")
 
 ## Delete a record
 
-To complete the series we have a final look at deleting data by using the DELETE call to /public-api/v1/lists/items. We must provide the name of the list and ID to be deleted. That's all.
+To delete a record, we send a `DELETE` request to the `/public-api/v1/lists` endpoint. We provide the name of the list and the record ID to be deleted.
 
 {% highlight python %}
 # delete a record
@@ -155,11 +166,15 @@ print(f"Record with id {id} was deleted")
 
 ## Do crazy stuff with SQL
 
-A very special endpoint is the POST command to /public-api/v1/lists/list. It allows to execute an SQL command. The cool thing is that we can do data aggregation with it and let the database do the work. Depending on the use case that can reduce the amount of data dramatically.
+A special endpoint is `/public-api/v1/lists/list`, which takes a `POST` request. This endpoint allows us to execute a SQL command. The cool thing is that we can do data aggregation with it and let the database do all the work. Depending on the use case, this can dramatically reduce the amount of data we receive.
 
-Let's assume we are not interested in every record of our stockinfo table. We want to know, how many records are in the table that are marked with "locked=true" and how many are there with "Locked=false". The correct SQL get exactly this information is "select Locked, count(*) as Counter from stockinfo group by locked".
+Let's assume that we're not interested in every record in our `stockinfo` table. We only want to know how many records in the table are marked with `locked=true` and how many are marked with `locked=false`. This is the SQL command that gets exactly this information:
 
-An here's the sample how to shoot this SQL against the endpoint and get a table of aggregated data back. We use the pandas-function to print out the result table formatted.
+{% highlight sql %}
+select Locked, count(*) as Counter from stockinfo group by locked
+{% endhighlight %}
+
+And here's how to use this SQL command with the endpoint to get a table of aggregated data back. We use the `pandas` function to print out a formatted result table.
 
 {% highlight python %}
 # Get table data with the help of SQL command
@@ -178,6 +193,6 @@ items = [{entry['column']: entry['value'] for entry in item} for item in respons
 print(pandas.DataFrame(items, columns=columns))
 {% endhighlight %}
 
-Here's the final output:
+Here's what the output looks like:
 
 ![image](/assets/2025-01-20/030.png)
