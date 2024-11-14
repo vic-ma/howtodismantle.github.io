@@ -92,7 +92,7 @@ print(pandas.DataFrame(items, columns=columns))
 
 ## Create a record
 
-To create a record, we send a `POST` request to the `/public-api/v1/lists/items` endpoint. The code example shows how to construct a body with the name of the list and the actual data to be added. If the call succeeds, we read the ID of the record from the response body's JSON string.
+To create a record, we send a `POST` request to the `/public-api/v1/lists/items` endpoint. The example code shows how to construct a body with the name of the list and the actual data to be added. If the call succeeds, we read the ID of the record from the response body's JSON string.
 
 {% highlight python %}
 # create a new record
@@ -144,7 +144,7 @@ print(f"Record with id {id} was changed")
 
 ## Delete a record
 
-To complete the series we have a final look at deleting data by using the DELETE call to /public-api/v1/lists/items. We must provide the name of the list and ID to be deleted. That's all.
+To delete a record, we send a `DELETE` request to the `/public-api/v1/lists` endpoint. We must provide the name of the list and ID to be deleted.
 
 {% highlight python %}
 # delete a record
@@ -164,11 +164,15 @@ print(f"Record with id {id} was deleted")
 
 ## Do crazy stuff with SQL
 
-A very special endpoint is the POST command to /public-api/v1/lists/list. It allows to execute an SQL command. The cool thing is that we can do data aggregation with it and let the database do the work. Depending on the use case that can reduce the amount of data dramatically.
+A special endpoint is `/public-api/v1/lists/list`, which takes a `POST` request. This endpoint allows us to execute a SQL command. The cool thing is that we can do data aggregation with it and let the database do all the work. Depending on the use case, this can reduce the amount of data dramatically.
 
-Let's assume we are not interested in every record of our stockinfo table. We want to know, how many records are in the table that are marked with "locked=true" and how many are there with "Locked=false". The correct SQL get exactly this information is "select Locked, count(*) as Counter from stockinfo group by locked".
+Let's assume that we are not interested in every record of our `stockinfo` table. We want to know how many records in the table are marked with `locked=true` and how many are marked with `locked=false`. This is the SQL command that gets exactly this information:
 
-An here's the sample how to shoot this SQL against the endpoint and get a table of aggregated data back. We use the pandas-function to print out the result table formatted.
+{% highlight sql %}
+select Locked, count(*) as Counter from stockinfo group by locked
+{% endhighlight %}
+
+And here's the  how to shoot this SQL against the endpoint and get a table of aggregated data back. We use the pandas-function to print out the result table formatted.
 
 {% highlight python %}
 # Get table data with the help of SQL command
