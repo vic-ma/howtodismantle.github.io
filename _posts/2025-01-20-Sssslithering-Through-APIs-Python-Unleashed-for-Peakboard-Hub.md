@@ -146,7 +146,7 @@ print(f"Record with id {id} was changed")
 
 ## Delete a record
 
-To delete a record, we send a `DELETE` request to the `/public-api/v1/lists` endpoint. We must provide the name of the list and ID to be deleted.
+To delete a record, we send a `DELETE` request to the `/public-api/v1/lists` endpoint. We provide the name of the list and the record ID to be deleted.
 
 {% highlight python %}
 # delete a record
@@ -166,15 +166,15 @@ print(f"Record with id {id} was deleted")
 
 ## Do crazy stuff with SQL
 
-A special endpoint is `/public-api/v1/lists/list`, which takes a `POST` request. This endpoint allows us to execute a SQL command. The cool thing is that we can do data aggregation with it and let the database do all the work. Depending on the use case, this can reduce the amount of data dramatically.
+A special endpoint is `/public-api/v1/lists/list`, which takes a `POST` request. This endpoint allows us to execute a SQL command. The cool thing is that we can do data aggregation with it and let the database do all the work. Depending on the use case, this can dramatically reduce the amount of data we receive.
 
-Let's assume that we are not interested in every record of our `stockinfo` table. We want to know how many records in the table are marked with `locked=true` and how many are marked with `locked=false`. This is the SQL command that gets exactly this information:
+Let's assume that we're not interested in every record in our `stockinfo` table. We only want to know how many records in the table are marked with `locked=true` and how many are marked with `locked=false`. This is the SQL command that gets exactly this information:
 
 {% highlight sql %}
 select Locked, count(*) as Counter from stockinfo group by locked
 {% endhighlight %}
 
-And here's how to use this SQL command with the endpoint and get a table of aggregated data back. We use the `pandas` function to print out a formatted result table.
+And here's how to use this SQL command with the endpoint to get a table of aggregated data back. We use the `pandas` function to print out a formatted result table.
 
 {% highlight python %}
 # Get table data with the help of SQL command
