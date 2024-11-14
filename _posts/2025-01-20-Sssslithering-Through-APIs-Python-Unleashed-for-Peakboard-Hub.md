@@ -117,7 +117,11 @@ print("New record added under ID " + str(id))#
 
 ## Edit a record
 
-To edit a record, we send a  `PUT` command to the `/public-api/v1/lists/items` endpoint. Beside the list name we must add the row ID of the data to be edited.
+To edit a record, we send a `PUT` request to the `/public-api/v1/lists/items` endpoint. In the request body, we provide the following properties:
+
+* `listName` - The name of the list we want to edit.
+* `rowId` - The ID of the record we want to edit.
+* `data` - The column name and new value for that column.
 
 {% highlight python %}
 # Edit a record
