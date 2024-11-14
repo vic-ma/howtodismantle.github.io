@@ -1,76 +1,15 @@
 <!doctype html>
 <html lang="en" class="h-full">
-<head>{% include head.html %}</head>
+<head>
+    {% include head.html %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
 <body class="font-sans flex flex-col min-h-full bg-stone-100 dark:bg-blackground">
-
-<!--[if lte IE 9]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-<![endif]-->
-
-<div class="flex-auto">
-
     {% include header.html %}
-
-    <div class="grid grid-cols-1 lg:grid-cols-10 gap-x-8 bg-stone-100 dark:bg-blackground">
-
-        <div class="lg:col-span-2">
-            {% include sidemenu.html %}
-        </div>
-
-        {% if page.layout == 'post' %}
-            <div class="lg:ml-8 lg:col-span-5 px-4">{{ content }}</div>
-            <div class="lg:ml-8 lg:col-span-3 mt-8 px-4">
-                {% if page.image %}<img src="{{ page.image }}" alt="{{ page.title }}" class="w-full rounded-xl mb-4">{% endif %}
-                {% include read-more-new.html downloads=page.downloads rml=page.read_more_links %}
-
-                <div id="mc_embed_shell" class="mt-4">
-                    <div id="mc_embed_signup" class="text-white bg-stone-300 dark:bg-primary rounded-xl not-prose p-4">
-                        <form action="https://how-to-dismantle-a-peakboard-box.us21.list-manage.com/subscribe/post?u=9783fc3c865a7042e2d9a86eb&amp;id=ba316d630a&amp;f_id=0047ece6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-                            <div id="mc_embed_signup_scroll">
-                                <p class="font-bold text-lg text-gray-900 dark:text-light">Newsletter</p>
-                                <p class="text-base text-gray-900 dark:text-light/80 mt-2 mb-4">Want to get notified when a new article is published? Sign up below!</p>
-
-                                <div class="mc-field-group">
-                                    <label for="mce-EMAIL" class="block text-sm font-medium leading-6 text-gray-900 dark:text-light">Email *</label>
-                                    <div class="mt-2">
-                                        <input type="email" name="EMAIL" id="mce-EMAIL" required class="email block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-tertiary sm:text-sm sm:leading-6" />
-                                    </div>
-                                </div>
-
-                                <div class="mc-field-group mt-2">
-                                    <label for="mce-FNAME" class="block text-sm font-medium leading-6 text-gray-900 dark:text-light">Name *</label>
-                                    <div class="mt-2">
-                                        <input type="text" name="FNAME" id="mce-FNAME" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-tertiary sm:text-sm sm:leading-6" />
-                                    </div>
-                                </div>
-
-                                <div id="mce-responses" class="clear foot mt-4">
-                                    <div class="response block text-sm font-bold leading-6 text-red-700 dark:text-red-500" id="mce-error-response" style="display: none;"></div>
-                                    <div class="response block text-sm font-bold leading-6 text-green-700 dark:text-green-500" id="mce-success-response" style="display: none;"></div>
-                                </div>
-                                <div aria-hidden="true" style="position: absolute; left: -5000px;">
-                                    /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */
-                                    <input type="text" name="b_9783fc3c865a7042e2d9a86eb_ba316d630a" tabindex="-1" value="">
-                                </div>
-                                <div class="optionalParent mt-4">
-                                    <div class="clear foot">
-                                        <input type="submit" name="subscribe" id="mc-embedded-subscribe" value="Subscribe" class="rounded-md bg-secondary px-4 py-2 text-sm font-semibold text-white cursor-pointer shadow-sm hover:bg-secondary/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tertiary">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script></div>
-            </div>
-        {% else %}
-            <div class="mx-8 lg:col-span-8 lg:ml-8 lg:mr-32">{{ content }}</div>
-        {% endif %}
-
-    </div>
-</div>
-{% include footer.html %}
-{% include sidemenu-date-script.html %}
-<!--<script src="{{ '/assets/app.js' | relative_url }}?{{ site.time | date: '%s%N' }}"></script>-->
+    <main class="flex-auto w-full">
+        {{ content }}
+    </main>
+    {% include footer.html %}
+    {% include sidemenu-date-script.html %}
 </body>
-
 </html>

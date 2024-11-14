@@ -63,7 +63,17 @@ module.exports = {
                 primary: '#143761',
                 secondary: '#21AFE1',
                 light: '#ECEBE4',
-            }
+            },
+            keyframes: {
+                highlight: {
+                    '0%': { backgroundColor: 'transparent' },
+                    '50%': { backgroundColor: 'rgb(33 175 225 / 0.1)' },
+                    '100%': { backgroundColor: 'transparent' },
+                },
+            },
+            animation: {
+                highlight: 'highlight 2s ease-in-out',
+            },
         },
         fontFamily: {
             title: ['HelveticaDisplayBlack'],
