@@ -20,7 +20,7 @@ A couple of weeks ago, we gave an [introduction to the Peakboard Hub API](/Crack
 
 ## Authentication
 
-Here's what the start of our Python script looks like:
+Here's how to handle Peakboard Hub API authentication in Python:
 
 {% highlight python %}
 import requests
@@ -47,9 +47,9 @@ We use the following imports:
 * `pandas`, for table formatting
 * `sys`, for program termination
 
-The Peakboard Hub API's base URL depends on the Peakboard Hub instance we are addressing. In our script, we're using the standard Hub Online. See our [introductory article](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) to learn more about base URLs and API keys.
+The Peakboard Hub API's base URL changes based on the Peakboard Hub instance we're addressing. In our script, we're using the standard Hub Online. See our [introductory article](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) to learn more about base URLs and authentication.
 
-We submit the key in the header of the first call. Then, we extract the access token from the response body and build a session instance with it. For all future calls, we won't need to worry about authentication, so long as we use the session instance. 
+We submit our API key in the header of a request to the `/public-api/v1/auth/token` endpoint. Then, we extract the access token from the response body and build a session instance with it. For all future calls, we won't need to worry about authentication, so long as we use the session instance. 
 
 ## Get all lists
 
@@ -71,7 +71,9 @@ for item in response.json():
 
 ## Get list data
 
-To get the data in a list, we send a `GET` request to the `/public-api/v1/lists/list` endpoint, with a query string that specifies the table name and sort order. After we get the result, we turn the columns and records of the table into collections. We print the formatted table by using the `pandas` library: `pandas.DataFrame(...)`.
+To get the data in a list, we send a `GET` request to the `/public-api/v1/lists/list` endpoint, with a query string that specifies the table name and sort order.
+
+After we get the result, we turn the columns and records of the table into collections. We print the formatted table by using the `pandas` library: `pandas.DataFrame(...)`.
 
 {% highlight python %}
 # Get data of a list
@@ -92,7 +94,7 @@ print(pandas.DataFrame(items, columns=columns))
 
 ## Create a record
 
-To create a record, we send a `POST` request to the `/public-api/v1/lists/items` endpoint. The example code shows how to construct a body with the name of the list and the actual data to be added. If the call succeeds, we read the ID of the record from the response body's JSON string.
+To create a record, we send a `POST` request to the `/public-api/v1/lists/items` endpoint. The following example code shows how to construct a body with the name of the list and the data to be added. If the call succeeds, we read the ID of the record from the response body's JSON string.
 
 {% highlight python %}
 # create a new record
@@ -121,7 +123,7 @@ To edit a record, we send a `PUT` request to the `/public-api/v1/lists/items` en
 
 * `listName` - The name of the list we want to edit.
 * `rowId` - The ID of the record we want to edit.
-* `data` - The column name and new value for that column.
+* `data` - The column name and new data for that column.
 
 {% highlight python %}
 # Edit a record
@@ -191,6 +193,6 @@ items = [{entry['column']: entry['value'] for entry in item} for item in respons
 print(pandas.DataFrame(items, columns=columns))
 {% endhighlight %}
 
-Here's the final output:
+Here's what the output looks like:
 
 ![image](/assets/2025-01-20/030.png)
