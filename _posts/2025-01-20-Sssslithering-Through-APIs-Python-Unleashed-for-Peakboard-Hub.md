@@ -102,7 +102,7 @@ body = {
     "data": {
         "MaterialNo": "0815",
         "Quantity": 5,
-        "locked": False  
+        "locked": False
     }
 }
 
@@ -172,7 +172,7 @@ Let's assume that we are not interested in every record of our `stockinfo` table
 select Locked, count(*) as Counter from stockinfo group by locked
 {% endhighlight %}
 
-And here's the  how to shoot this SQL against the endpoint and get a table of aggregated data back. We use the pandas-function to print out the result table formatted.
+And here's how to use this SQL command with the endpoint and get a table of aggregated data back. We use the `pandas` function to print out a formatted result table.
 
 {% highlight python %}
 # Get table data with the help of SQL command
