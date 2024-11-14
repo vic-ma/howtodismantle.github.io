@@ -11,50 +11,13 @@
                 <a href="/about" class="text-gray-600 dark:text-light/80 hover:text-secondary">About</a>
                 <a href="/hardwareguide" class="text-gray-600 dark:text-light/80 hover:text-secondary">Hardware Guide</a>
                 
-                <!-- Categories Dropdown -->
-                <div class="relative group">
-                    <button class="text-gray-600 dark:text-light/80 hover:text-secondary flex items-center">
-                        Categories
-                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="absolute left-0 mt-2 w-56 bg-white dark:bg-blackground rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                        {% assign tag_pages = site.pages | where: 'layout', 'category' | sort: 'weight' %}
-                        {% for tag_page in tag_pages %}
-                            {% for tag in site.tags %}
-                                {% if tag[0] == tag_page.category %}
-                                    <a href="/category/{{ tag[0] | slugify }}" class="block px-4 py-2 text-sm text-gray-700 dark:text-light/80 hover:bg-gray-100 dark:hover:bg-primary">
-                                        {{ tag_page.title }} ({{ tag[1].size }})
-                                    </a>
-                                {% endif %}
-                            {% endfor %}
-                        {% endfor %}
-                    </div>
-                </div>
+                <!-- Categories Link -->
+                <a href="/#categories-section" 
+                   class="text-gray-600 dark:text-light/80 hover:text-secondary">
+                    Categories
+                </a>
 
-                <!-- Archive Dropdown -->
-                <div class="relative group">
-                    <button class="text-gray-600 dark:text-light/80 hover:text-secondary flex items-center">
-                        Archive
-                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-blackground rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                        {% for post in site.posts %}
-                            {% assign currentdate = post.date | date: "%B %Y" %}
-                            {% assign year = post.date | date: "%Y" %}
-                            {% assign month = post.date | date: "%m" %}
-                            {% if currentdate != date %}
-                                <a href="/?archive={{ year }}-{{ month }}" class="block px-4 py-2 text-sm text-gray-700 dark:text-light/80 hover:bg-gray-100 dark:hover:bg-primary">
-                                    {{ currentdate }}
-                                </a>
-                                {% assign date = currentdate %}
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
+                <a href="/archive" class="text-gray-600 dark:text-light/80 hover:text-secondary">Archive</a>
             </nav>
 
             <!-- Mobile menu button -->
@@ -72,49 +35,17 @@
             <a href="/about" class="block py-2 text-gray-600 dark:text-light/80 hover:text-secondary">About</a>
             <a href="/hardwareguide" class="block py-2 text-gray-600 dark:text-light/80 hover:text-secondary">Hardware Guide</a>
             
-            <!-- Mobile Categories -->
-            <button onclick="toggleSection('categories')" class="w-full text-left py-2 text-gray-600 dark:text-light/80 hover:text-secondary flex items-center justify-between">
+            <!-- Mobile Categories Link -->
+            <a href="/#categories-section" 
+               class="block py-2 text-gray-600 dark:text-light/80 hover:text-secondary">
                 Categories
-                <svg id="categories-icon" class="w-4 h-4 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-            </button>
-            <div id="categories-section" class="hidden pl-4">
-                {% for tag_page in tag_pages %}
-                    {% for tag in site.tags %}
-                        {% if tag[0] == tag_page.category %}
-                            <a href="/category/{{ tag[0] | slugify }}" class="block py-2 text-sm text-gray-600 dark:text-light/80 hover:text-secondary">
-                                {{ tag_page.title }} ({{ tag[1].size }})
-                            </a>
-                        {% endif %}
-                    {% endfor %}
-                {% endfor %}
-            </div>
+            </a>
 
-            <!-- Mobile Archive -->
-            <button onclick="toggleSection('archive')" class="w-full text-left py-2 text-gray-600 dark:text-light/80 hover:text-secondary flex items-center justify-between">
-                Archive
-                <svg id="archive-icon" class="w-4 h-4 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-            </button>
-            <div id="archive-section" class="hidden pl-4">
-                {% for post in site.posts %}
-                    {% assign currentdate = post.date | date: "%B %Y" %}
-                    {% assign year = post.date | date: "%Y" %}
-                    {% assign month = post.date | date: "%m" %}
-                    {% if currentdate != date %}
-                        <a href="/?archive={{ year }}-{{ month }}" class="block py-2 text-sm text-gray-600 dark:text-light/80 hover:text-secondary">
-                            {{ currentdate }}
-                        </a>
-                        {% assign date = currentdate %}
-                    {% endif %}
-                {% endfor %}
-            </div>
+            <a href="/archive" class="block py-2 text-gray-600 dark:text-light/80 hover:text-secondary">Archive</a>
         </div>
     </div>
 
-    <!-- Add this right before the closing header tag -->
+    <!-- Reading progress bar -->
     <div id="reading-progress-container" class="h-[3px] w-full opacity-0 transition-opacity duration-300">
         <div id="reading-progress" class="h-full bg-secondary w-0 transition-all duration-150"></div>
     </div>
@@ -123,12 +54,5 @@
 <script>
     function toggleMobileMenu() {
         document.getElementById('mobile-menu').classList.toggle('hidden');
-    }
-
-    function toggleSection(section) {
-        const sectionElement = document.getElementById(`${section}-section`);
-        const iconElement = document.getElementById(`${section}-icon`);
-        sectionElement.classList.toggle('hidden');
-        iconElement.classList.toggle('rotate-180');
     }
 </script>

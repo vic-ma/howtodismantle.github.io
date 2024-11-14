@@ -3,84 +3,81 @@ layout: base
 ---
 
 <div class="mx-auto max-w-7xl px-6 lg:px-8">
-  <!-- First 2 posts in alternating layout -->
+  <!-- Featured Posts Section -->
   <div class="mt-10">
     {% for post in site.posts limit:2 %}
-      <div class="flex flex-col md:flex-row gap-8 {% if forloop.index == 2 %}md:flex-row-reverse{% endif %} p-6 bg-white dark:bg-blackground shadow-sm border border-gray-200 dark:border-gray-800 
-        {% if forloop.first %}
-          rounded-t-xl border-b-0 mb-4
-        {% else %}
-          rounded-b-xl
-        {% endif %}">
+      <div class="flex flex-col md:flex-row gap-8 
+        {% if forloop.index == 2 %}md:flex-row-reverse{% endif %} 
+        p-6 bg-white dark:bg-blackground shadow-sm border border-gray-200 dark:border-gray-800 
+        {% if forloop.first %}rounded-t-xl border-b-0 mb-4{% else %}rounded-b-xl{% endif %}">
+        
+        <!-- Post Content -->
         <div class="flex-1 flex flex-col justify-center">
+          <!-- Post Metadata -->
           <div class="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
             <span>{{ post.date | date: "%B %d, %Y" }}</span>
             <span>•</span>
             <span>{% include reading_time.html content=post.content %} read</span>
           </div>
+          
+          <!-- Post Title and Tags -->
           <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             <a href="{{ post.url }}">{{ post.title }}</a>
           </h2>
-          <div class="flex flex-wrap gap-2 mt-2">
-            {% for tag in post.tags %}
-              <a href="/category/{{ tag | slugify }}" class="text-sm text-gray-500 dark:text-gray-400 hover:text-secondary">#{{ tag }}</a>
-            {% endfor %}
-          </div>
+          {% include post-tags.html tags=post.tags %}
+          
+          <!-- Post Excerpt and CTA -->
           <p class="mt-4 text-gray-500 dark:text-gray-400">{{ post.excerpt | strip_html | truncatewords: 50 }}</p>
-          <div class="mt-4">
-            <a href="{{ post.url }}" class="inline-flex items-center px-4 py-2 rounded-lg bg-secondary text-white hover:bg-secondary/90 transition-colors">
-              Read more
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-              </svg>
-            </a>
-          </div>
+          {% include read-more-button.html url=post.url %}
         </div>
-        <div class="flex-1">
-          {% if post.image %}
+
+        <!-- Post Image -->
+        {% if post.image %}
+          <div class="flex-1">
             <div class="h-full max-h-[400px] relative">
               <img src="{{ post.image }}" alt="{{ post.title }}" class="absolute inset-0 w-full h-full object-cover rounded-lg">
             </div>
-          {% endif %}
-        </div>
+          </div>
+        {% endif %}
       </div>
     {% endfor %}
   </div>
 
-  <!-- Categories section -->
-  <div class="mt-16">
+  <!-- Categories Section -->
+  <div id="categories-section" class="mt-16 scroll-mt-20">
     <h2 class="text-2xl font-bold mb-6">Our Categories</h2>
     <div class="flex flex-wrap gap-4">
-      {% assign tag_pages = site.pages | where: 'layout', 'category' | sort: 'weight' %}
-      {% for tag_page in tag_pages %}
-        {% for tag in site.tags %}
-          {% if tag[0] == tag_page.category %}
-            {% assign color = forloop.index | modulo: 6 %}
-            {% assign bg_color = "" %}
-            {% case color %}
-              {% when 0 %}{% assign bg_color = "bg-secondary" %}
-              {% when 1 %}{% assign bg_color = "bg-secondary" %}
-              {% when 2 %}{% assign bg_color = "bg-secondary" %}
-              {% when 3 %}{% assign bg_color = "bg-secondary" %}
-              {% when 4 %}{% assign bg_color = "bg-secondary" %}
-              {% when 5 %}{% assign bg_color = "bg-secondary" %}
-            {% endcase %}
-            <a href="/category/{{ tag[0] | slugify }}" class="px-4 py-2 rounded-full text-white {{ bg_color }} hover:opacity-90">
-              {{ tag_page.title }} ({{ tag[1].size }})
-            </a>
-          {% endif %}
-        {% endfor %}
+      {% assign sorted_tags = site.pages | where: 'layout', 'category' | sort: 'weight' %}
+      {% for tag_page in sorted_tags %}
+        {% assign tag = site.tags[tag_page.category] %}
+        {% if tag %}
+          <a href="/category/{{ tag_page.category | slugify }}" 
+             class="px-4 py-2 rounded-full text-white bg-secondary hover:opacity-90">
+            {{ tag_page.title }} ({{ tag.size }})
+          </a>
+        {% endif %}
       {% endfor %}
     </div>
   </div>
 
-  <!-- Remaining posts in 2-column grid -->
+  <!-- Article Grid -->
   <div class="mt-16">
     <h2 class="text-2xl font-bold mb-6">All Articles</h2>
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-      {% for post in site.posts offset:2 %}
+      {% for post in site.posts offset:2 limit:10 %}
         {% include post-card.html post=post %}
       {% endfor %}
+    </div>
+    
+    <!-- Archive Button -->
+    <div class="mt-12 text-center">
+      <a href="/archive" 
+         class="inline-flex items-center px-6 py-3 text-base font-medium rounded-lg text-white bg-secondary hover:opacity-90 transition-opacity">
+        Browse All Articles
+        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
     </div>
   </div>
 </div>

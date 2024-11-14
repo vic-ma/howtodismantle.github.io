@@ -1,0 +1,56 @@
+---
+layout: base
+---
+
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <div class="mt-10">
+    <h1 class="text-3xl font-bold mb-8">Article Archive</h1>
+
+    {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+    
+    {% for year in postsByYear %}
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold mb-6">{{ year.name }}</h2>
+        
+        {% assign postsByMonth = year.items | group_by_exp:"post", "post.date | date: '%B'" %}
+        {% for month in postsByMonth %}
+          <div class="mb-8">
+            <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">{{ month.name }}</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {% for post in month.items %}
+                <div class="bg-white dark:bg-blackground p-6 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-secondary dark:hover:border-secondary transition-colors flex flex-col h-full">
+                  <div class="flex flex-1">
+                    <div class="flex-1">
+                      <div class="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400 mb-2">
+                        <span>{{ post.date | date: "%B %d, %Y" }}</span>
+                        <span>•</span>
+                        <span>{% include reading_time.html content=post.content %} read</span>
+                      </div>
+                      
+                      <h4 class="text-lg font-semibold">
+                        <a href="{{ post.url }}" class="hover:text-secondary">{{ post.title }}</a>
+                      </h4>
+                      
+                      {% include post-tags.html tags=post.tags %}
+                    </div>
+                    
+                    {% if post.image %}
+                      <div class="ml-6 flex-shrink-0">
+                        <img src="{{ post.image }}" alt="{{ post.title }}" class="w-32 h-32 object-cover rounded-lg">
+                      </div>
+                    {% endif %}
+                  </div>
+                  
+                  <div class="mt-4">
+                    {% include read-more-button.html url=post.url %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</div> 
