@@ -53,7 +53,7 @@ We submit the key in the header of the first call. Then, we extract the access t
 
 ## Get all lists
 
-Obtaining all available lists from the Hub is a simple GET call. We just loop over the array that is returned in the response body's JSON string.
+To get all the available lists in our Peakboard Hub, we use a simple `GET` call. Then, we loop over the response body's JSON string in order to print all the table names.
 
 {% highlight python %}
 # Get all lists
@@ -71,7 +71,7 @@ for item in response.json():
 
 ## Get list data
 
-With a second simple GET call we receive the actual list data. The actual command is sent in the query (Name of table and sorting). With the result we make use of the "pandas" lib. The columns of the table and each record are turned into collections and just formatted by use of this external library with one single easy call "pandas.DataFrame(...)".
+To get the list data, we use another simple `GET` call. We send the command in the query (name of table and sort order). After we get the result, we turn the columns and rows of the table into collections. We print the formatted table by using the `pandas` library: `pandas.DataFrame(...)`.
 
 {% highlight python %}
 # Get data of a list
