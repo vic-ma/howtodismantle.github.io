@@ -71,7 +71,7 @@ for item in response.json():
 
 ## Get list data
 
-To get the list data, we use another simple `GET` call. We send the command in the query (name of table and sort order). After we get the result, we turn the columns and rows of the table into collections. We print the formatted table by using the `pandas` library: `pandas.DataFrame(...)`.
+To get the list data, we use another simple `GET` call. We send the command in the query (name of table and sort order). After we get the result, we turn the columns and records of the table into collections. We print the formatted table by using the `pandas` library: `pandas.DataFrame(...)`.
 
 {% highlight python %}
 # Get data of a list
@@ -92,7 +92,7 @@ print(pandas.DataFrame(items, columns=columns))
 
 ## Create a record
 
-Creating a new record is done through a POST call to /public-api/v1/lists/items. The sample code shows how to construct a body with the name of the list and the actual data to be added. The strcuture is so simple that it can be cosidered as self-explainary. When the call is succesful we can read the ID of the record from the JSON that is returned in the response.
+To create a record, we send a `POST` request to the `/public-api/v1/lists/items` endpoint. The code example shows how to construct a body with the name of the list and the actual data to be added. If the call succeeds, we read the ID of the record from the response body's JSON string.
 
 {% highlight python %}
 # create a new record
