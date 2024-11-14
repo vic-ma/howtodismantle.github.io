@@ -1,0 +1,144 @@
+---
+layout: base
+---
+
+<div id="search-app" class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mt-10">
+        <h1 class="text-3xl font-bold mb-8">Search Articles</h1>
+
+        <!-- Search Input -->
+        <div class="mb-8">
+            <div class="relative">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    v-model="searchQuery"
+                    @input="performSearch"
+                    placeholder="Type to search articles..."
+                    class="w-full px-4 py-3 border border-gray-200 dark:border-gray-800 rounded-lg focus:ring-secondary focus:border-0
+                           bg-white dark:bg-blackground dark:text-light
+                           text-lg"
+                />
+                <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Results -->
+        <div v-if="searchResults.length" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div v-for="result in searchResults" :key="result.refIndex" 
+                 class="bg-white dark:bg-blackground p-6 rounded-lg border border-gray-200 dark:border-gray-800 
+                        hover:border-secondary dark:hover:border-secondary transition-colors">
+                <div class="flex">
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400 mb-2">
+                            <span v-text="result.item.date"></span>
+                        </div>
+                        
+                        <h3 class="text-lg font-semibold mb-2">
+                            <a :href="result.item.url" class="hover:text-secondary" v-html="highlightText(result.item.title, result.matches, 'title')"></a>
+                        </h3>
+                        
+                        <p class="text-gray-600 dark:text-gray-300 line-clamp-2 mb-4" v-html="highlightText(result.item.content, result.matches, 'content')"></p>
+
+                        <!-- Updated Read More Button -->
+                        <div class="mt-4">
+                            <a :href="result.item.url" 
+                               class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-secondary hover:bg-secondary/90 transition-colors">
+                                Read More
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Post Image -->
+                    <div v-if="result.item.image" class="ml-6 flex-shrink-0">
+                        <img :src="result.item.image" :alt="result.item.title" class="w-32 h-32 object-cover rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- No Results State -->
+        <div v-else-if="searchQuery" class="text-center py-12 text-gray-500 dark:text-gray-400">
+            No results found for "{{ searchQuery }}"
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/vue@3.4.21/dist/vue.global.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+<script>
+const { createApp, ref, onMounted } = Vue
+
+createApp({
+    setup() {
+        const searchQuery = ref('')
+        const searchResults = ref([])
+        const fuse = ref(null)
+
+        const highlightText = (text, matches, key) => {
+            if (!matches) return text
+            
+            const match = matches.find(m => m.key === key)
+            if (!match) return text
+
+            let highlightedText = text
+            const indices = match.indices.sort((a, b) => b[0] - a[0])
+            
+            indices.forEach(([start, end]) => {
+                const before = highlightedText.substring(0, start)
+                const highlight = highlightedText.substring(start, end + 1)
+                const after = highlightedText.substring(end + 1)
+                highlightedText = `${before}<mark class="bg-secondary/30 rounded px-1">${highlight}</mark>${after}`
+            })
+
+            return highlightedText
+        }
+
+        onMounted(async () => {
+            try {
+                const response = await fetch('/search.json')
+                const posts = await response.json()
+                
+                fuse.value = new Fuse(posts, {
+                    keys: [
+                        { name: 'title', weight: 0.5 },
+                        { name: 'content', weight: 0.3 }
+                    ],
+                    includeScore: true,
+                    includeMatches: true,
+                    threshold: 0.3,
+                    distance: 1000,
+                    ignoreLocation: true,
+                    minMatchCharLength: 3
+                })
+            } catch (error) {
+                console.error('Error initializing search:', error)
+            }
+        })
+
+        const performSearch = () => {
+            if (!searchQuery.value.trim() || !fuse.value) {
+                searchResults.value = []
+                return
+            }
+
+            searchResults.value = fuse.value.search(searchQuery.value)
+        }
+
+        return {
+            searchQuery,
+            searchResults,
+            performSearch,
+            highlightText
+        }
+    }
+}).mount('#search-app')
+</script> 
