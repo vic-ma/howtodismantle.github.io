@@ -3,7 +3,7 @@ title: About
 layout: about
 hero:
   title: About Me
-  subtitle: Learn more about our mission and what drives us
+  subtitle: Learn more about the mission of this blog
   image_header: /assets/img/michelleheader.png
 ---
 
@@ -18,4 +18,6 @@ It's nice to have you here, but please make sure to understand:
 5. For any questions around the articles feel free to use the [Peakboard reddit](https://www.reddit.com/r/Peakboard/).
 
 Love, Michelle
+
+![image](/assets/img/michelle.png)
 
