@@ -2,7 +2,7 @@
 title: About
 layout: about
 hero:
-  title: About Us
+  title: About Me
   subtitle: Learn more about our mission and what drives us
   # image_header: /assets/img/header.jpeg
 ---

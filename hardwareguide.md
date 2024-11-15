@@ -4,6 +4,7 @@ layout: hardwareguide
 hero:
   title: Hardware Guide
   subtitle: Comprehensive information about hardware compatibility and setup
+  image_header: /assets/img/hardwareheader.png
 ---
 
 ## Peakboard Hardware Guide
