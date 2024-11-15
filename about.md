@@ -4,7 +4,7 @@ layout: about
 hero:
   title: About Me
   subtitle: Learn more about our mission and what drives us
-  # image_header: /assets/img/header.jpeg
+  image_header: /assets/img/michelleheader.png
 ---
 
 ## Dear visitor!
