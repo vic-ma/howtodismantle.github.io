@@ -38,19 +38,6 @@ layout: base
                         <span class="text-sm text-gray-600">{% include reading_time.html content=page.content %} read</span>
                     </div>
                     <div class="flex items-center space-x-4">
-                        
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://{{ site.url }}{{ page.url }}&quote={{ page.title }}" 
-                           target="_blank" 
-                           class="text-gray-600 hover:text-blue-500" 
-                           title="Share on Facebook">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url=https://{{ site.url }}{{ page.url }}" 
-                           target="_blank" 
-                           class="text-gray-600 hover:text-blue-400" 
-                           title="Share on Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
                         <button onclick="copyPageUrl()" 
                                 class="text-gray-600 hover:text-gray-800" 
                                 title="Copy link">
