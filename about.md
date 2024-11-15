@@ -1,6 +1,10 @@
 ---
 title: About
 layout: about
+hero:
+  title: About Us
+  subtitle: Learn more about our mission and what drives us
+  # image_header: /assets/img/header.jpeg
 ---
 
 ## Dear visitor!

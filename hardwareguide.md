@@ -1,6 +1,9 @@
 ---
 title: Hardware Guide
 layout: hardwareguide
+hero:
+  title: Hardware Guide
+  subtitle: Comprehensive information about hardware compatibility and setup
 ---
 
 ## Peakboard Hardware Guide
