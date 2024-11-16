@@ -4,6 +4,7 @@ title: Cracking the code - Part I - Getting started with Peakboard Hub API
 date: 2023-03-01 12:00:00 +0200
 tags: api peakboardhub
 image: /assets/2024-11-17/title.png
+image_header: /assets/2024-11-17/title_landscape.png
 read_more_links:
   - name: Cracking the code - Part II - Calling functions remotely
     url: /Cracking-the-code-Part-II-Calling-functions-remotely.html
