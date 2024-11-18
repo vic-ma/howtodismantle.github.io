@@ -1,19 +1,8 @@
 name: Compress Images
 on:
-  pull_request:
-    paths:
-      - '*/**.jpg'
-      - '*/**.jpeg'
-      - '*/**.png'
-      - '*/**.webp'
-  push:
-    branches:
-      - main
-    paths:
-      - '*/**.jpg'
-      - '*/**.jpeg'
-      - '*/**.png'
-      - '*/**.webp'
+  workflow_dispatch:
+  schedule:
+    - cron: '00 23 * * 0'
 jobs:
   build:
     name: calibreapp/image-actions
@@ -23,6 +12,16 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
       - name: Compress Images
+        id: compress
         uses: calibreapp/image-actions@1.1.0
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
+          compressOnly: true
+      - name: Create New Pull Request If Needed
+        if: steps.compress.outputs.markdown != ''
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: Compressed Images Nightly
+          branch-suffix: timestamp
+          commit-message: Compressed Images
+          body: ${{ steps.compress.outputs.markdown }}
