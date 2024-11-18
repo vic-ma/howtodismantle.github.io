@@ -2,8 +2,8 @@ import requests
 import sys
 import pandas
 
-BaseURL = "http://20.218.250.53:17545";
-APIKey = "833a288049e1efe5527f10d81332746ccf484857";
+BaseURL = "http://api.peakboard.com";
+APIKey = "xxx";
 
 response = requests.get(BaseURL + "/public-api/v1/auth/token", headers={'apiKey': APIKey})
 
