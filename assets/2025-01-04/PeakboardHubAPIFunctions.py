@@ -25,7 +25,7 @@ if response.status_code != 200:
     sys.exit("Unable to obtain the functions of a box")
 
 for item in response.json():
-    print(f"Table found: {item['name']}")
+    print(f"Table found: {item['Name']}")
 
 # Call a function
 
