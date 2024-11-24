@@ -124,8 +124,8 @@ Here's a list of endpoints that are currently available in version 1 of the Peak
 | `/v1/auth/token`    | `GET`         | Turn the API key into an access token.     | See this current article.                                                                                          |
 | -------------       | ------------- | -------------                              | -------------                                                                                                      |
 | `/v1/box`           | `GET`         | List all Boxes within the group.           | See this current article.                                                                                          |
-| `/v1/box/functions` | `GET`         | List all shared functions of a Box.        | [Calling function remotely](/Cracking-the-code-Part-II-Calling-functions-remotely.html)                            |
-| `/v1/box/function`  | `POST`        | Execute a shared function on a Box.        | [Calling function remotely](/Cracking-the-code-Part-II-Calling-functions-remotely.html)                            |
+| `/v1/box/functions` | `GET`         | List all shared functions of a Box.        | [Calling functions remotely](/Cracking-the-code-Part-II-Calling-functions-remotely.html)                            |
+| `/v1/box/function`  | `POST`        | Execute a shared function on a Box.        | [Calling functions remotely](/Cracking-the-code-Part-II-Calling-functions-remotely.html)                            |
 | -------------       | ------------- | -------------                              | -------------                                                                                                      |
 | `/v1/box/lists`     | `GET`         | List all lists of a Box.                   |                                                                                                                    |
 | `/v1/box/lists`     | `PUT`         | Change data in a list on a Box.            |                                                                                                                    |
