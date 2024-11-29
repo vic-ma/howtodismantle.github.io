@@ -15,8 +15,8 @@ read_more_links:
   - name: Cam like a Bosch - Part II - Integrate Cam Images and Streams into Peakboard Applications
     url: /Cam-like-a-Bosch-Part-II-Integrate-Cam-Images-and-Streams-into-Peakboard-Applications.html
 downloads:
-  - name: BoschCamParkingLotMonitoring.pbmx
-    url: /assets/2024-11-09/BoschCamParkingLotMonitoring.pbmx
+  - name: BoschCamParkingLot.pbmx
+    url: /assets/2024-11-09/BoschCamParkingLot.pbmx
 ---
 The German company Bosch offers an innovative camera called FLEXIDOME indoor 5100i IR - 8MP. Not only is it a normal security camera, but it also comes with a couple of interesting AI features for monitoring public spaces. 
 

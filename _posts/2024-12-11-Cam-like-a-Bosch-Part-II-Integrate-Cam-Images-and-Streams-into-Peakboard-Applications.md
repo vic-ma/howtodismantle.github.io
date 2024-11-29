@@ -19,8 +19,8 @@ read_more_links:
   - name: How to request a RTSP multicast stream from a BOSCH IP camera?
     url: https://community.boschsecurity.com/t5/Security-Video/How-to-request-a-RTSP-multicast-stream-from-a-BOSCH-IP-camera/ta-p/16494
 downloads:
-  - name: BoschCamParkingLotMonitoring.pbmx
-    url: /assets/2024-11-09/BoschCamParkingLotMonitoring.pbmx
+  - name: BoschCamParkingLot.pbmx
+    url: /assets/2024-11-09/BoschCamParkingLot.pbmx
 ---
 A couple of weeks ago we discussed how to use the Bosch security cam to [monitor the occupancy level of a parking lot](/Cam-like-a-Bosch-Part-I-Integrate-Bosch-security-cam-AI-features-with-Peakboard.html). In today's article we will discuss how to integrate the actual camera image in the Peakboard application. We can use two different basic technologies: Just a web image that is downloaded and refreshed reguarly, or we use the RTSP stream after we configured it in the camera's backend.
 
