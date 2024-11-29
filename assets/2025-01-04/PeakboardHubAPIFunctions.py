@@ -2,8 +2,8 @@ import requests
 import sys
 import pandas
 
-BaseURL = "http://20.218.250.53:17545";
-APIKey = "CLPD7jq1le5I6E61WZ3dGRzH961Eqprkq26qJDY0";
+BaseURL = "https://api.peakboard.com";
+APIKey = "87eee08b31f0e3b2549c80cf22a6636b66d5066a";
 
 response = requests.get(BaseURL + "/public-api/v1/auth/token", headers={'apiKey': APIKey})
 
@@ -30,19 +30,23 @@ for item in response.json():
 # Call a function
 
 body = {
-    "listName": "stockinfo",
-    "data": {
-        "MaterialNo": "0815",
-        "Quantity": 5,
-        "locked": False 
+  "boxId": "PB0000PT",
+  "functionName": "SubmitAlarm",
+  "parameters": [
+    {
+      "name": "AlarmTime",
+      "value": 10
+    },
+    {
+      "name": "AlarmMessage",
+      "value": "We have a serious problem here"
     }
+  ]
 }
 
-response = mySession.post(BaseURL + "/public-api/v1/lists/items", json=body)
+response = mySession.post(BaseURL + "/public-api/v1/box/function", json=body)
 
 if response.status_code != 200:
-    sys.exit("Unable to create a new record. Return is " + response.reason)
+    sys.exit("Unable to call the function. Return is " + response.reason)
 
-id = response.json()["addedItem"][0]["value"]
-
-print("New record added under ID " + str(id))
+print(response.json())
