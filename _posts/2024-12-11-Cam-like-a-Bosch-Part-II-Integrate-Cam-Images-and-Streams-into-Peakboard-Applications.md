@@ -3,7 +3,8 @@ layout: post
 title: Cam like a Bosch - Part II - Integrate Cam Images and Streams into Peakboard Applications
 date: 2023-03-01 12:00:00 +0200
 tags: hardware
-image: /assets/2024-12-11/title.jpg
+image: /assets/2024-12-11/title.png
+image_header: /assets/2024-12-11/title_landscape.jpg
 read_more_links:
   - name: Cam like a Bosch - Part I - Integrate Bosch security cam AI features with Peakboard
     url: /Cam-like-a-Bosch-Part-I-Integrate-Bosch-security-cam-AI-features-with-Peakboard.html
