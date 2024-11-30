@@ -56,17 +56,28 @@ The Bosch cam comes with 4 different streaming endpoints to support 4 different 
 
 ![image](/assets/2024-12-11/020.png)
 
-## Embedd the stream in Peakboard
+## Embed the stream in Peakboard
 
-For emebdding the stream in the Video Control of the Peakboard application, we use a similiar URL as the single image option, but a different protocol. For streaming we use [RTSP](https://en.wikipedia.org/wiki/Real-Time_Streaming_Protocol). Actually all cameras for professional use do support this protocol. The "inst" parameter defines the stream endpoint as confiugured in the back end (in our case it's stream endpoint 2), along with user name and password: "rtsp://service:Peakboard_2023@192.168.20.152/?inst=2".
+To embed the stream in the video control of our Peakboard application, we use a similar URL to the single image option, but with a different protocol. For streaming, we use [RTSP](https://en.wikipedia.org/wiki/Real-Time_Streaming_Protocol). Actually, all professional-grade cameras support this protocol.
 
-In case we want some more metadata to be displayed directly in the stream (e.g. the recognized types of vehicles), we can use the parameters "meta" and "vcd". Then the URL would look like this: "rtsp://service:Peakboard_2023@192.168.20.152/?inst=2&meta=1&vcd=1".
-To find out more about the parameters and their usage, we refer to the pdf documentation that is accessible [here](https://community.boschsecurity.com/varuj77995/attachments/varuj77995/bt_community-tkb-video/241/1/RTSP%20usage%20with%20Bosch%20Video%20IP%20Devices.pdf).
+The `inst` parameter defines the stream endpoint, as configured in the back end (in our case, it's stream endpoint 2), along with the username and password:
+
+{% highlight url %}
+rtsp://service:Peakboard_2023@192.168.20.152/?inst=2.
+{% endhighlight %}
+
+In case we want some more metadata to be displayed directly in the stream (e.g. the recognized types of vehicles), we can use the parameters `meta` and `vcd`. Then, the URL would look like this:
+
+{% highlight url %}
+rtsp://service:Peakboard_2023@192.168.20.152/?inst=2&meta=1&vcd=1
+{% endhighlight %}
+
+To find out more about the parameters and their usage, refer to the [PDF documentation](https://community.boschsecurity.com/varuj77995/attachments/varuj77995/bt_community-tkb-video/241/1/RTSP%20usage%20with%20Bosch%20Video%20IP%20Devices.pdf).
 
 ![image](/assets/2024-12-11/020.png)
 
-## result
+## Result
 
-Here's the result of our demo board for the parking lot. We can even see in the screenshot that the actual qualtity of the static image is better than the stream as we have configured the stream in a very low resolution.
+Here's the result of our demo board for the parking lot. You can even see in the screenshot that the quality of the static image is better than the stream, because we configured the stream with a very low resolution.
 
 ![image](/assets/2024-12-11/result.png)
