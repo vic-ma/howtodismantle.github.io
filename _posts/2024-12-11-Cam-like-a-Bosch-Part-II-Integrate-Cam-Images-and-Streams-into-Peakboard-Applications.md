@@ -36,15 +36,21 @@ The story is different when we monitor moving traffic or even a machine with mov
 
 ## Embed the camera picture
 
-For using the Bosch cam image we just use a regular Web Page control and just put in the URL for the image directly in the URL field.
-As we need to authenticate against the source, we just put user name and passwort into the URL just in front of the IP or server name: "UserName:Password@ServerName/...". Here is the sample for our current demo envorment: "http://service:Peakboard_2023@192.168.20.152/snap.jpg?JpegCam=1"
-The refresh time in seconds can be set as a control property. No need for any programming to manage the automatic refresh.
+To embed the Bosch cam image, we use a regular web page control. In the URL field, we enter the URL of the image.
+
+To authenticate against the source, we enter our credentials into the URL, just in front of the IP address or server name: `UserName:Password@ServerName/...`. Here's an example for our current demo environment:
+
+{% highlight url %}
+`http://service:Peakboard_2023@192.168.20.152/snap.jpg?JpegCam=1`
+{% endhighlight %}
+
+We can set the refresh time in seconds, as a control property. No need for any programming to manage the automatic refresh.
 
 ![image](/assets/2024-12-11/010.png)
 
 ## Configure the stream
 
-Before we can use the camera stream in our application we need to configure it carefully. The screenshots show to web interface for the stream configuration. It is very important to adjust the stream resultion and the frame rate to a reasonable value. In our case 512x288 pixel with frame rate of 6 (frames per second) is totally sufficient. The default values are often redicolous high (Full HD or even 4k resolution with frame rate of 30 FPS). This does not only maximize the necessary bandwidth without any need. It can also lead to the problem, that the stream is not working at all, because the bandwidth is too high for the network.
+Before we can use the camera stream in our application, we need to configure it carefully. It's important to set the stream resolution and the frame rate to a reasonable value. In our case, 512x288 pixels at 6 FPS (frames per second) is totally sufficient. The default values are often ridiculously high (Full HD or even 4k resolution with frame rate of 30 FPS). This unnecessarily wastes bandwidth, and could even cause the stream to fail, if the network can't handle the bandwidth.
 
 The Bosch cam comes with 4 different streaming endpoints to support 4 different stream settings. The screenshot shows our configuration as the second stream.
 
