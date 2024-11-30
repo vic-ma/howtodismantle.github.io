@@ -22,10 +22,17 @@ downloads:
   - name: BoschCamParkingLot.pbmx
     url: /assets/2024-11-09/BoschCamParkingLot.pbmx
 ---
-A couple of weeks ago we discussed how to use the Bosch security cam to [monitor the occupancy level of a parking lot](/Cam-like-a-Bosch-Part-I-Integrate-Bosch-security-cam-AI-features-with-Peakboard.html). In today's article we will discuss how to integrate the actual camera image in the Peakboard application. We can use two different basic technologies: Just a web image that is downloaded and refreshed reguarly, or we use the RTSP stream after we configured it in the camera's backend.
+A couple of weeks ago, we discussed how to use the Bosch security cam to [monitor the occupancy level of a parking lot](/Cam-like-a-Bosch-Part-I-Integrate-Bosch-security-cam-AI-features-with-Peakboard.html). In today's article, we'll discuss how to integrate the camera image into the Peakboard application.
 
-The big advantage of embedding a camera image rather than a stream is the technical complexity and also a massively reduced network bandwidth. But the best choice is defined by the actual use case. In our case, monitoring a parking lot and its occupancy, the image option is the samrtest choice because the situation doesn't change within seconds. It will most likely change within minutes. So refreshing the image on a minutely basis is perfecty sufficient for the viewer.
-The story is completely different when we monitor moving traffic or even a machine with moving parts. Here the use of streaming makes much more sense to inform the viewer immedietely about any new situation.
+There are two different methods:
+* Regularly download and refresh a web image.
+* Use the RTSP stream from the camera.
+
+By embedding a web image rather than a stream, we reduce the technical complexity and network bandwidth. But the best choice is determined by the use case.
+
+For monitoring a parking lot and its occupancy, the image option is the best choice, because the situation doesn't change within seconds. Instead, it should take minutes for the situation to change. So refreshing the image every minute is perfect sufficient for the viewer.
+
+The story is different when we monitor moving traffic or even a machine with moving parts. Here, the use of streaming makes much more sense, because we'd want to inform the viewer immediately about any new information.
 
 ## Embed the camera picture
 
