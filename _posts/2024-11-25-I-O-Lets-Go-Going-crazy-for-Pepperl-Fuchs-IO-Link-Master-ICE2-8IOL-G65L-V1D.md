@@ -1,7 +1,7 @@
 ---
 layout: post
 title: I/O, Let's Go - Going crazy for Pepperl+Fuchs IO-Link-Master ICE2-8IOL-G65L-V1D
-date: 2023-03-01 12:00:00 +0200
+date: 2024-11-25 12:00:00 +0200
 tags: hardware opcuamqtt api
 image: /assets/2024-11-25/title.png
 image_header: /assets/2024-11-25/title_landscape.png
