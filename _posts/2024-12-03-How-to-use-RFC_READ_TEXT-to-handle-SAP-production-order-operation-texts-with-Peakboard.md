@@ -16,8 +16,8 @@ downloads:
   - name: SAPPOOperationText.pbmx
     url: /assets/2024-12-03/SAPPOOperationText.pbmx
 ---
-SAP connectivity is tradionally one of the [huge topics](https://how-to-dismantle-a-peakboard-box.com/category/sap) on this blog - especially in the area of production and production planning. In this article we will take a look at long texts. The term "long text" refers to a certain pattern that is used in lot of SAP contexts and business objects to store additional information to the object that is not bound to any length restriction. Long texts in SAP are handled in the same way regardless of the SAP module. 
-In out sample we will handle long texts of an operation that is bound to a SAP production order. But the function module we're using to read the text can be used for any long text.
+SAP connectivity is tradionally one of the [huge topics](https://how-to-dismantle-a-peakboard-box.com/category/sap) on this blog - especially in the area of production and production planning. In this article we will take a look at long texts. The term "long text" refers to a certain pattern that is used in lots of SAP contexts and business objects to store additional information to the object that is not bound to any length restriction. Long texts in SAP are handled in the same way regardless of the SAP module. 
+In our sample we will handle long texts of an operation that is bound to a SAP production order. But the function module we're using to read the text can be used for any long text.
 
 ## Long text in SAP
 
@@ -29,7 +29,7 @@ The two screenhots show how a long text in SAP looks like. We start from the ope
 
 ## Building the Peakboard application
 
-We already discussed the download of a production order in [this article](/Dismantle-BAPI_PRODORD_GET_DETAIL-How-to-get-production-order-details-from-SAP.html). We learned how to use BAPI_PRODORD_GET_DETAIL to get a list of components that are used in the order. In this first step we do exactly the same but download the operations.
+We already discussed the download of a production order in [this article](/Dismantle-BAPI_PRODORD_GET_DETAIL-How-to-get-production-order-details-from-SAP.html). We learned how to use BAPI_PRODORD_GET_DETAIL to get a list of components that are used in the order. In this first step we do exactly the same but download the operations instead of components.
 
 In the Peakboard application we place two text fields for the production order number and operation number and bind it to two variables we will use later.
 
@@ -57,18 +57,18 @@ What we have now is access to all the structured operation's fields, e.g. the sh
 
 ## RFC_READ_TEXT
 
-The function module RFC_READ_TEXT can be used to download long text remotely, however the way to use it might not be as expected. There's a table named TEXT_LINES that must be filled with two attributes and a long compound key to identify the text. Sending these values to the function module let it fill the table with text lines of the text we request.
+The function module RFC_READ_TEXT can be used to download long text remotely, however the way to use it might not be as expected. There's a table named TEXT_LINES that must be filled with two attributes and a long compound key to identify the text. Sending these values to the function module makes it fill the table with text lines of the text we request.
 Initially we must fill the table with these values:
 
 * TDOBJECT is the name of the business object to be queried, in our case AUFK which represents the production order.
 * TDID is name of the sub object to identify which text is to be queried, in our case it's AVOT which stands for the production order operation text.
-* TDNAME is a compound key. In our case the pattern is MMMXXXXXXXXXXYYYY, where MMM is the client, XXXXXXXXXX is the routing number of the operation, and YYYY is the counter of the operation
+* TDNAME is a compound key. In our case the pattern is MMMXXXXXXXXXXYYYY, where MMM is the client, XXXXXXXXXX is the routing number of the operation, and YYYY is the counter of the operation.
 
 The compound key might feel very strange for people who are unfamiliar with SAP compound keys, but actaully it's easy to handle, because the "client" is fixed, and routing number and counter are both easy accessible from the operation table that is returned by the BAPI_PRODORD_GET_DETAIL function.
 
 ![image](/assets/2024-12-03/055.png)
 
-Here's is the script that is processed to get the texts. First the table element is built and filled with the three attributes. The key is concatenated from the operations tables.
+Here's is the script that is processed to get the texts. First the table element is built and filled with the three attributes. The key is concatenated from the operations table.
 The next step is to execute the XQL. The term "TEXT_LINES = @MyLines INTO @Outputlines" is ued to indicate that the table is sent from the caller to SAP and also is returned from SAP.
 In the last part, we just iterate of over the text lines of the return table and concatenate the lines to one single string with line breaks.
 
@@ -81,7 +81,7 @@ local TextKey = '800' .. data.MyOperation.first.ROUTING_NO .. data.MyOperation.f
 
 vals.MyLines = {
   { TDOBJECT = 'AUFK',
-    TDNAME =  '800000001462300000006',
+    TDNAME =  TextKey,
     TDID =  'AVOT'
   }
 }
