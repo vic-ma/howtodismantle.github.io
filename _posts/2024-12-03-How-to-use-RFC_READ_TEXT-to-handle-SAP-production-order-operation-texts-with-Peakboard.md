@@ -56,24 +56,24 @@ We are only interested in the operation that the user provided in the text field
 
 ![image](/assets/2024-12-03/050.png)
 
-We now have access to all the structured operation's fields, including the short description text and the work center. But how do we download the long text for the operation? The magic happens in the refreshed script of the dataflow. The refreshed script will execute each time the dataflow refreshes.
+We now have access to all the structured operation's fields, including the short description text and the work center. But how do we download the long text for the operation? The magic happens in the refreshed script of the dataflow. The refreshed script executes each time the dataflow refreshes.
 
 ## `RFC_READ_TEXT`
 
-You can use the function module `RFC_READ_TEXT` to download long text remotely. However, the way to use it isn't as you might expect. There's a table named `TEXT_LINES` that must be filled with two attributes, as well as a long compound key that identifies the text. Sending these values to the function module makes it fill the table with text lines of the text we request.
+You can use the function module `RFC_READ_TEXT` to download long texts remotely. However, the way to use it isn't as you might expect. You must fill a table called `TEXT_LINES` with two attributes, as well as a long compound key that identifies the text. Sending these values to the function module makes it fill the table with text lines from the text we request.
 Initially, we must fill the table with these values:
 
 | Value | Description |
 | --- | --- |
 | `TDOBJECT` | The name of the business object to be queried. In our case, this is `AUFK`, which represents the production order. |
-| `TDID` | The name of the sub object that identifies the text to be queried. In our case, it's `AVOT`, which is the production order operation text. |
+| `TDID` | The name of the sub object that identifies the text to be queried. In our case, this is `AVOT`, which is the production order operation text. |
 | `TDNAME` | A compound key. In our case, the pattern is `MMMXXXXXXXXXXYYYY`, where `MMM` is the client, `XXXXXXXXXX` is the routing number of the operation, and `YYYY` is the counter of the operation. |
 
-The compound key might feel strange if you're unfamiliar with them, but they're actually easy to handle. The "client" is fixed, and routing number and counter are both easily accessible from the operation table that is returned by the `BAPI_PRODORD_GET_DETAIL` function.
+The compound key might feel strange if you're unfamiliar with compound keys, but they're actually easy to handle. The "client" is fixed, and routing number and counter are both easily accessible from the operation table that is returned by the `BAPI_PRODORD_GET_DETAIL` function.
 
 ![image](/assets/2024-12-03/055.png)
 
-Here's the script that gets the texts.
+Here's the script that gets the texts:
 
 {% highlight lua %}
 local con = connections.getfromid('As4kF5peAjw+3MIuEQf3Fc1kEeY=')
@@ -107,7 +107,7 @@ screens['Screen1'].TxtDescriptionLong.text = LongText
 
 Here's how it works:
 1. Build the table element and fill it with the three attributes. Concatenate the key from the operations table.
-2. Execute the XQL. The line, `TEXT_LINES = @MyLines INTO @Outputlines` indicates that the table is sent from the caller to SAP and also is returned from SAP.
+2. Execute the XQL. The line, `TEXT_LINES = @MyLines INTO @Outputlines` indicates that the table is sent from the caller to SAP and is also returned from SAP.
 3. Iterate of over the text lines of the return table and concatenate the lines to a single string with line breaks.
 
 ## Result
