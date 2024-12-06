@@ -18,7 +18,7 @@ downloads:
 ---
 SAP connectivity is a [big topic](https://how-to-dismantle-a-peakboard-box.com/category/sap) on this blog---especially when it comes to production and production planning. In this article, we'll take a look at long texts.
 
-The term "long text" refers to a pattern that is used in many SAP contexts and business objects to store additional information to the object that is not bound to any length restriction. Long texts in SAP are handled in the same way, regardless of the SAP module.
+The term "long text" refers to a pattern that is used in many SAP contexts and business objects. A long text lets you store additional information to an object, without any length restriction. All SAP modules handle long texts in the same way.
 
 In our example, we will handle long texts of an operation that is bound to a SAP production order. However, the function module we're using to read the text can be used for any long text.
 
@@ -34,7 +34,7 @@ The following screenshots show what a long text in SAP looks like. We start from
 
 In a previous article, we explained how to [download a production order](/Dismantle-BAPI_PRODORD_GET_DETAIL-How-to-get-production-order-details-from-SAP.html). We used `BAPI_PRODORD_GET_DETAIL` to get a list of components that are used in the order.
 
-Here, we do the same thing, except we download the operations instead of components. In the Peakboard application, we place two text fields for the production order number and operation number and bind it to two variables that we will use later.
+Here, we do the same thing, except we download the operations instead of the components. In the Peakboard application, we place two text fields for the production order number and operation number and bind them to two variables that we will use later.
 
 ![image](/assets/2024-12-03/030.png)
 
@@ -52,11 +52,11 @@ EXECUTE FUNCTION 'BAPI_PRODORD_GET_DETAIL'
 
 ![image](/assets/2024-12-03/040.png)
 
-We are only interested in the operation that the user provided in the text field. So, we use a data flow to filter the operation list for the operation the user wants.
+We are only interested in the operation that the user provided in the text field. So, we use a dataflow to filter the operation list for the operation the user wants.
 
 ![image](/assets/2024-12-03/050.png)
 
-We now have access to all the structured operation's fields, including the short description text and the work center. But how do we download the long text for the operation? The magic happens in the refreshed script of the data flow. The refreshed script will execute each time the data flow refreshes.
+We now have access to all the structured operation's fields, including the short description text and the work center. But how do we download the long text for the operation? The magic happens in the refreshed script of the dataflow. The refreshed script will execute each time the dataflow refreshes.
 
 ## `RFC_READ_TEXT`
 
