@@ -108,10 +108,10 @@ screens['Screen1'].TxtDescriptionLong.text = LongText
 Here's how it works:
 1. Build the table element and fill it with the three attributes. Concatenate the key from the operations table.
 2. Execute the XQL. The line, `TEXT_LINES = @MyLines INTO @Outputlines` indicates that the table is sent from the caller to SAP and is also returned from SAP.
-3. Iterate of over the text lines of the return table and concatenate the lines to a single string with line breaks.
+3. Iterate over the text lines of the return table and concatenate the lines to a single string with line breaks.
 
 ## Result
 
-This video shows the final result. The button triggers the reload of the source, and then the dataflow is triggered automatically. And finally, the long text is queried from SAP in the refreshed script.
+This video shows the final result. The button triggers the reload of the source, and the dataflow is triggered automatically. Finally, the long text is queried from SAP in the refreshed script.
 
 ![image](/assets/2024-12-03/result.gif)
