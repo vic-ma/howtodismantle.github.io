@@ -65,23 +65,15 @@ Initially, we must fill the table with these values:
 
 | Value | Description |
 | --- | --- |
-| `TDOBJECT` | The name of the business object to be queried, in our case AUFK which represents the production order. |
-| `TDID` | The name of the sub object to identify which text is to be queried, in our case it's AVOT which stands for the production order operation text. |
-| `TDNAME` | A compound key. In our case the pattern is MMMXXXXXXXXXXYYYY, where MMM is the client, XXXXXXXXXX is the routing number of the operation, and YYYY is the counter of the operation. |
+| `TDOBJECT` | The name of the business object to be queried. In our case, this is `AUFK`, which represents the production order. |
+| `TDID` | The name of the sub object that identifies the text to be queried. In our case, it's `AVOT`, which is the production order operation text. |
+| `TDNAME` | A compound key. In our case, the pattern is `MMMXXXXXXXXXXYYYY`, where `MMM` is the client, `XXXXXXXXXX` is the routing number of the operation, and `YYYY` is the counter of the operation. |
 
-
-
-* TDOBJECT is the name of the business object to be queried, in our case AUFK which represents the production order.
-* TDID is name of the sub object to identify which text is to be queried, in our case it's AVOT which stands for the production order operation text.
-* TDNAME is a compound key. In our case the pattern is MMMXXXXXXXXXXYYYY, where MMM is the client, XXXXXXXXXX is the routing number of the operation, and YYYY is the counter of the operation.
-
-The compound key might feel very strange for people who are unfamiliar with SAP compound keys, but actaully it's easy to handle, because the "client" is fixed, and routing number and counter are both easy accessible from the operation table that is returned by the BAPI_PRODORD_GET_DETAIL function.
+The compound key might feel strange if you're unfamiliar with them, but they're actually easy to handle. The "client" is fixed, and routing number and counter are both easily accessible from the operation table that is returned by the `BAPI_PRODORD_GET_DETAIL` function.
 
 ![image](/assets/2024-12-03/055.png)
 
-Here's is the script that is processed to get the texts. First the table element is built and filled with the three attributes. The key is concatenated from the operations table.
-The next step is to execute the XQL. The term "TEXT_LINES = @MyLines INTO @Outputlines" is ued to indicate that the table is sent from the caller to SAP and also is returned from SAP.
-In the last part, we just iterate of over the text lines of the return table and concatenate the lines to one single string with line breaks.
+Here's the script that gets the texts.
 
 {% highlight lua %}
 local con = connections.getfromid('As4kF5peAjw+3MIuEQf3Fc1kEeY=')
@@ -113,8 +105,13 @@ end
 screens['Screen1'].TxtDescriptionLong.text = LongText
 {% endhighlight %}
 
+Here's how it works:
+1. Build the table element and fill it with the three attributes. Concatenate the key from the operations table.
+2. Execute the XQL. The line, `TEXT_LINES = @MyLines INTO @Outputlines` indicates that the table is sent from the caller to SAP and also is returned from SAP.
+3. Iterate of over the text lines of the return table and concatenate the lines to a single string with line breaks.
+
 ## Result
 
-The video show the final result. The reload of the source is triggered through the button, then the dataflows is triggered automatically. And finally the long text is queried from SAP in the refreshed script.
+This video shows the final result. The button triggers the reload of the source, and then the dataflow is triggered automatically. And finally, the long text is queried from SAP in the refreshed script.
 
 ![image](/assets/2024-12-03/result.gif)
