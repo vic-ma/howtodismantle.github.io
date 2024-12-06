@@ -16,22 +16,25 @@ downloads:
   - name: SAPPOOperationText.pbmx
     url: /assets/2024-12-03/SAPPOOperationText.pbmx
 ---
-SAP connectivity is tradionally one of the [huge topics](https://how-to-dismantle-a-peakboard-box.com/category/sap) on this blog - especially in the area of production and production planning. In this article we will take a look at long texts. The term "long text" refers to a certain pattern that is used in lots of SAP contexts and business objects to store additional information to the object that is not bound to any length restriction. Long texts in SAP are handled in the same way regardless of the SAP module. 
-In our sample we will handle long texts of an operation that is bound to a SAP production order. But the function module we're using to read the text can be used for any long text.
+SAP connectivity is a [big topic](https://how-to-dismantle-a-peakboard-box.com/category/sap) on this blog---especially when it comes to production and production planning. In this article, we'll take a look at long texts.
+
+The term "long text" refers to a pattern that is used in many SAP contexts and business objects to store additional information to the object that is not bound to any length restriction. Long texts in SAP are handled in the same way, regardless of the SAP module.
+
+In our example, we will handle long texts of an operation that is bound to a SAP production order. However, the function module we're using to read the text can be used for any long text.
 
 ## Long text in SAP
 
-The two screenhots show how a long text in SAP looks like. We start from the operation line and double click on the text column to view and edit the long text. This text is what we will download to out Peakboard application.
+The following screenshots show what a long text in SAP looks like. We start from the operation line. Then, we double-click on the text column to view and edit the long text. This text is what our Peakboard application will download.
 
 ![image](/assets/2024-12-03/010.png)
 
 ![image](/assets/2024-12-03/020.png)
 
-## Building the Peakboard application
+## Build the Peakboard application
 
-We already discussed the download of a production order in [this article](/Dismantle-BAPI_PRODORD_GET_DETAIL-How-to-get-production-order-details-from-SAP.html). We learned how to use BAPI_PRODORD_GET_DETAIL to get a list of components that are used in the order. In this first step we do exactly the same but download the operations instead of components.
+In a previous article, we explained how to [download a production order](/Dismantle-BAPI_PRODORD_GET_DETAIL-How-to-get-production-order-details-from-SAP.html). We explained how to use `BAPI_PRODORD_GET_DETAIL` to get a list of components that are used in the order. In the first step, we do exactly the same, but we download the operations instead of components.
 
-In the Peakboard application we place two text fields for the production order number and operation number and bind it to two variables we will use later.
+In the Peakboard application, we place two text fields for the production order number and operation number and bind it to two variables we will use later.
 
 ![image](/assets/2024-12-03/030.png)
 
