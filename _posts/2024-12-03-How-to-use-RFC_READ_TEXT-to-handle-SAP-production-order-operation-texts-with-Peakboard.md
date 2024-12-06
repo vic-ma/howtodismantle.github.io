@@ -63,10 +63,11 @@ We now have access to all the structured operation's fields, including the short
 You can use the function module `RFC_READ_TEXT` to download long text remotely. However, the way to use it isn't as you might expect. There's a table named `TEXT_LINES` that must be filled with two attributes, as well as a long compound key that identifies the text. Sending these values to the function module makes it fill the table with text lines of the text we request.
 Initially, we must fill the table with these values:
 
-
-TDOBJECT | The name of the business object to be queried, in our case AUFK which represents the production order.
-TDID | The name of the sub object to identify which text is to be queried, in our case it's AVOT which stands for the production order operation text.
-TDNAME | A compound key. In our case the pattern is MMMXXXXXXXXXXYYYY, where MMM is the client, XXXXXXXXXX is the routing number of the operation, and YYYY is the counter of the operation.
+| Value | Description |
+| --- | --- |
+| `TDOBJECT` | The name of the business object to be queried, in our case AUFK which represents the production order. |
+| `TDID` | The name of the sub object to identify which text is to be queried, in our case it's AVOT which stands for the production order operation text. |
+| `TDNAME` | A compound key. In our case the pattern is MMMXXXXXXXXXXYYYY, where MMM is the client, XXXXXXXXXX is the routing number of the operation, and YYYY is the counter of the operation. |
 
 
 
