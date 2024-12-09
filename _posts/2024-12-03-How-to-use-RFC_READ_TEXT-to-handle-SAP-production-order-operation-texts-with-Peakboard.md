@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to use RFC_READ_TEXT to handle SAP production order operation texts with Peakboard
-date: 2023-03-01 12:00:00 +0200
+date: 2024-12-03 12:00:00 +0200
 tags: sap
 image: /assets/2024-12-03/title.png
 image_header: /assets/2024-12-03/title_landscape.png
