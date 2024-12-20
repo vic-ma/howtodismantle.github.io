@@ -1,41 +1,43 @@
 ---
 layout: post
 title: Iterating Through 2024 - The Year in Debug Mode
-date: 2023-03-01 12:00:00 +0200
+date: 2023-12-19 12:00:00 +0200
 tags: basics
 image: /assets/2024-12-19/title.png
 image_header: /assets/2024-12-19/title_landscape.png
 ---
+The year is almost over and it's time to step back for a second and reflect. In 2024 more than 50 articles where published on this beatiful blog site. Most of them inpsired by readers who keep on posting questions and requesting articles.
+I want to say thank you for all the kind feedback and the suggestions. 
+This week we don't have any new article but we will have a thematic iteration throught what we have done in 2024.
+Enjoy you time with family and friends wherever you are! Merry Christmas in case you celebrate!
 
+See you in January with lots of new nerdy Peakboard stuff!
+
+Love, Michelle
 
 ## SAP
 
-SAP on Steroids - 10 Epic Use Cases and how to build them
-/SAP-on-Steroids-10-Epic-Use-Case-and-how-to-do-it.html
+[SAP on Steroids - 10 Epic Use Cases and how to build them](/SAP-on-Steroids-10-Epic-Use-Case-and-how-to-do-it.html)
 
-SAP on fire - how to perfectly integrate LUA scripting with SAP
-/SAP-on-fire-how-to-perfectly-integrate-LUA-scripting-with-SAP.html
+[SAP on fire - how to perfectly integrate LUA scripting with SAP](/SAP-on-fire-how-to-perfectly-integrate-LUA-scripting-with-SAP.html)
 
-[Dismantle SAP Production - How to get the next work orders of a workplace by using COOIS transaction in Peakboard]
-(/Dismantle-SAP-Production-How-to-get-the-next-work-orders-of-a-workplace-by-using-COOIS-transaction-in-Peakboard.html)
+[Dismantle SAP Production - How to get the next work orders of a workplace by using COOIS transaction in Peakboard](/Dismantle-SAP-Production-How-to-get-the-next-work-orders-of-a-workplace-by-using-COOIS-transaction-in-Peakboard.html)
 
-Dismantle SAP Production - Build a Production Order Confirmation Terminal with no code
-/SAP-Production-Build-a-Production-Order-Confirmation-Terminal-with-no-code.html
+[Dismantle SAP Production - Build a Production Order Confirmation Terminal with no code](/SAP-Production-Build-a-Production-Order-Confirmation-Terminal-with-no-code.html)
 
-Dismantle BAPI_PRODORD_GET_DETAIL - How to get production order details from SAP
-/Dismantle-BAPI_PRODORD_GET_DETAIL-How-to-get-production-order-details-from-SAP.html
+[Dismantle BAPI_PRODORD_GET_DETAIL - How to get production order details from SAP](/Dismantle-BAPI_PRODORD_GET_DETAIL-How-to-get-production-order-details-from-SAP.html)
 
-Dismantle Hubspot API - Create an interactive form to submit contact data directly to Hubspot by using a REST API
-/Dismantle-Hubspot-API-Create-an-interactive-form-to-submit-contact-data-directly-to-Hubspot-by-using-REST-API.html
+[Dismantle Hubspot API - Create an interactive form to submit contact data directly to Hubspot by using a REST API](/Dismantle-Hubspot-API-Create-an-interactive-form-to-submit-contact-data-directly-to-Hubspot-by-using-REST-API.html)
 
-Matryoshka Dolls - Surviving SAP's Multi-Nested RFC Parameters Maze
-/Matryoshka-Dolls-Surviving-SAPs-Multi-Nested-Parameters-Maze.html
+[Matryoshka Dolls - Surviving SAP's Multi-Nested RFC Parameters Maze](/Matryoshka-Dolls-Surviving-SAPs-Multi-Nested-Parameters-Maze.html)
 
-Expect the unexpected - How to handle SAP exceptions in LUA scripting
-/Expect-the-unexpected-How-to-handle-SAP-exceptions-in-LUA-scripting.html
+[Expect the unexpected - How to handle SAP exceptions in LUA scripting](/Expect-the-unexpected-How-to-handle-SAP-exceptions-in-LUA-scripting.html)
 
-How to use RFC_READ_TEXT to handle SAP production order operation texts with Peakboard
-/How-to-use-RFC_READ_TEXT-to-handle-SAP-production-order-operation-texts-with-Peakboard.html
+[How to use RFC_READ_TEXT to handle SAP production order operation texts with Peakboard](/How-to-use-RFC_READ_TEXT-to-handle-SAP-production-order-operation-texts-with-Peakboard.html)
+
+[New ways to access SAP - How OData saves the Day in the SAP Soap Opera](/New-ways-to-access-SAP-How-OData-saves-the-Day-in-the-SAP-Soap-Opera.html)
+
+[Enhancing Lean Management - Automated Safety Cross Integration via SAP and Peakboard](/Enhancing-Lean-Management-Automated-Safety-Cross-Integration-via-SAP-and-Peakboard.html)
 
 ## BI
 
@@ -47,7 +49,6 @@ Brick by Brick - Connecting Databricks and Peakboard
 
 Brick by Brick - Writing data back to Databricks from a Peakboard application
 /Brick-by-Brick-Writing-data-back-to-Databricks-from-a-Peakboard-application.html
-
 
 The Great Data Tango - Mastering PowerBI and Peakboard Integration with Filter
 /The-Great-Data-Tango-Mastering-PowerBI-and-Peakboard-Integration-with-Filter.html
@@ -140,17 +141,10 @@ I/O, Let's Go - Unleashing the ICP DAS ET-2254 with MQTT and Peakboard
 Data Deep Dive - Techniques for Mastering Complex JSON and understand that Global Warming is real
 /Data-Deep-Dive-Techniques-for-Mastering-Complex-JSON-and-understand-that-Global-Warming-is-real.html
 
-New ways to access SAP - How OData saves the Day in the SAP Soap Opera
-/New-ways-to-access-SAP-How-OData-saves-the-Day-in-the-SAP-Soap-Opera.html
-
 ## Peakboard Hub API
 
 Cracking the code - Part I - Getting started with Peakboard Hub API
 /Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html
-
-
-/Enhancing-Lean-Management-Automated-Safety-Cross-Integration-via-SAP-and-Peakboard.html
-Enhancing Lean Management - Automated Safety Cross Integration via SAP and Peakboard
 
 ## Misc
 
