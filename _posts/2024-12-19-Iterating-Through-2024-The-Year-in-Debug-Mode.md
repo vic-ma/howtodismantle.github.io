@@ -1,21 +1,29 @@
 ---
 layout: post
 title: Iterating Through 2024 - The Year in Debug Mode
-date: 2023-12-19 12:00:00 +0200
+date: 2024-12-19 12:00:00 +0200
 tags: basics
 image: /assets/2024-12-19/title.png
 image_header: /assets/2024-12-19/title_landscape.png
 ---
-The year is almost over and it's time to step back for a second and reflect. In 2024 more than 50 articles where published on this beatiful blog site. Most of them inpsired by readers who keep on posting questions and requesting articles.
-I want to say thank you for all the kind feedback and the suggestions. 
-This week we don't have any new article but we will have a thematic iteration throught what we have done in 2024.
-Enjoy you time with family and friends wherever you are! Merry Christmas in case you celebrate!
+The year is almost over, and it’s time to take a step back and reflect. In 2024, more than 50 articles were published on this beautiful blog site—most of them inspired by readers who continue to ask questions and suggest new topics.
 
-See you in January with lots of new nerdy Peakboard stuff!
+I want to express my heartfelt thanks for all your kind feedback and thoughtful suggestions.
 
-Love, Michelle
+While we don’t have a new article this week, we’ll take a thematic look back at everything we’ve accomplished in 2024.
+
+Enjoy your time with family and friends, wherever you are! And Merry Christmas to those who celebrate!
+
+See you in January with lots of new, nerdy Peakboard content!
+
+Love,
+Michelle
+
+![image](/assets/2024-12-19/010.png)
 
 ## SAP
+
+SAP is the number one data source for most Peakboard projects. Especially in the are of production.
 
 [SAP on Steroids - 10 Epic Use Cases and how to build them](/SAP-on-Steroids-10-Epic-Use-Case-and-how-to-do-it.html)
 
@@ -41,17 +49,13 @@ Love, Michelle
 
 ## BI
 
-Mastering the Merge - A Guide to Seamless Tableau Integration in Peakboard Applications
-/Mastering-the-Merge-A-Guide-to-Seamless-Tableau-Integration-in-Peakboard-Applications.html
+[Mastering the Merge - A Guide to Seamless Tableau Integration in Peakboard Applications](/Mastering-the-Merge-A-Guide-to-Seamless-Tableau-Integration-in-Peakboard-Applications.html)
 
-Brick by Brick - Connecting Databricks and Peakboard
-/Brick-by-Brick-Connecting-Databricks-and-Peakboard.html
+[Brick by Brick - Connecting Databricks and Peakboard](/Brick-by-Brick-Connecting-Databricks-and-Peakboard.html)
 
-Brick by Brick - Writing data back to Databricks from a Peakboard application
-/Brick-by-Brick-Writing-data-back-to-Databricks-from-a-Peakboard-application.html
+[Brick by Brick - Writing data back to Databricks from a Peakboard application](/Brick-by-Brick-Writing-data-back-to-Databricks-from-a-Peakboard-application.html)
 
-The Great Data Tango - Mastering PowerBI and Peakboard Integration with Filter
-/The-Great-Data-Tango-Mastering-PowerBI-and-Peakboard-Integration-with-Filter.html
+[The Great Data Tango - Mastering PowerBI and Peakboard Integration with Filter](/The-Great-Data-Tango-Mastering-PowerBI-and-Peakboard-Integration-with-Filter.html)
 
 
 ## Hardware and IOT
@@ -151,8 +155,3 @@ Cracking the code - Part I - Getting started with Peakboard Hub API
 The Ultimate Guide to Building an Enterprise Template for Peakboard Applications
 /The-Ultimate-Guide-to-build-Enterprise-Templates-for-Peakboard-applications.html
 
-
-
-
-
-![image](/assets/2024-12-19/010.png)
