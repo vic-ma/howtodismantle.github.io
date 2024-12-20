@@ -19,7 +19,7 @@ See you in January with lots of new, nerdy Peakboard content!
 Love,
 Michelle
 
-![image](/assets/2024-12-19/010.png)
+![image](/assets/2024-12-19/title.png)
 
 ## SAP
 
@@ -60,98 +60,67 @@ SAP is the number one data source for most Peakboard projects. Especially in the
 
 ## Hardware and IOT
 
-Dismantle the smart.click Button - How to build an order and alert system with a narrowband IoT button
-/Dismantle-the-smart.click-button-How-to-build-an-order-and-alert-system-with-a-narrowband-IoT-button.html
+[Dismantle the smart.click Button - How to build an order and alert system with a narrowband IoT button](/Dismantle-the-smart.click-button-How-to-build-an-order-and-alert-system-with-a-narrowband-IoT-button.html)
 
-Integrating Node-RED and Peakboard - Part I - Real-time calculator
-/Integrating-Node-RED-and-Peakboard-Part-I-Real-time-calculator.html
+[Integrating Node-RED and Peakboard - Part I - Real-time calculator](/Integrating-Node-RED-and-Peakboard-Part-I-Real-time-calculator.html)
 
-Integrating Node-RED and Peakboard - Part II - Sending Alerts to a Peakboard application
-/Integrating-Node-RED-and-Peakboard-Part-II-Sending-Alerts-to-an-Peakboard-application.html
+[Integrating Node-RED and Peakboard - Part II - Sending Alerts to a Peakboard application](/Integrating-Node-RED-and-Peakboard-Part-II-Sending-Alerts-to-an-Peakboard-application.html)
 
-Modbus Madness - How to address a Modbus RTU sensor from scratch
-/Modbus-Madness-How-to-address-a-modbus-RTU-sensor-from-scratch.html
+[Modbus Madness - How to address a Modbus RTU sensor from scratch](/Modbus-Madness-How-to-address-a-modbus-RTU-sensor-from-scratch.html)
 
-/I-O-Lets-go-The-hitchikers-guide-to-I-O-devices.html
-I/O, Let's go - The hitchhiker's guide to I/O devices
+[/I-O-Lets-go-The-hitchikers-guide-to-I-O-devices.html](I/O, Let's go - The hitchhiker's guide to I/O devices)
 
-/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html
-I/O, Let's Go - Unleashing the ICP DAS U-7500 series for cool I/O action with OPC UA
+[/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html](I/O, Let's Go - Unleashing the ICP DAS U-7500 series for cool I/O action with OPC UA)
 
-Beckhoff on my mind - Part 1 - Connecting TwinCAT PLCs
-/Beckhoff-on-my-mind-Part-1-Connecting-Twincat-PLCs.html
+[Beckhoff on my mind - Part 1 - Connecting TwinCAT PLCs](/Beckhoff-on-my-mind-Part-1-Connecting-Twincat-PLCs.html)
 
-Beckhoff on my mind - Part 2 - Writing back to TwinCAT PLCs
-/Beckhoff-on-my-mind-Part-2-Writing-back-to-Twincat-PLCs.html
+[Beckhoff on my mind - Part 2 - Writing back to TwinCAT PLCs](/Beckhoff-on-my-mind-Part-2-Writing-back-to-Twincat-PLCs.html)
 
+[Barcode Bliss - Part II - Sending Feedback to ProGlove Scanners](/Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html)
 
+[Barcode Bliss - Part I - Integrating ProGlove Scanners with Peakboard](/Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html)
 
-Barcode Bliss - Part II - Sending Feedback to ProGlove Scanners
-/Barcode-Bliss-Part-II-Sending-Feedback-to-ProGlove-Scanners.html
+[Barcode Bliss - Part III - Bringing ProGlove and SAP together - Transfer Order Use Case](/Barcode-Bliss-Part-III-Bringing-ProGlove-and-SAP-together-Transfer-Order-Use-Case.html)
 
-Barcode Bliss - Part I - Integrating ProGlove Scanners with Peakboard
-/Barcode-Bliss-Part-I-Integrating-ProGlove-Scanners-with-Peakboard.html
+[Cam like a Bosch - Part I - Integrate Bosch security cam AI features with Peakboard](/Cam-like-a-Bosch-Part-I-Integrate-Bosch-security-cam-AI-features-with-Peakboard.html)
 
-Barcode Bliss - Part III - Bringing ProGlove and SAP together - Transfer Order Use Case
-/Barcode-Bliss-Part-III-Bringing-ProGlove-and-SAP-together-Transfer-Order-Use-Case.html
+[/I-O-Lets-go-Understanding-the-Advantech-WISE-4012-module-and-use-Peakboard-to-do-some-magic-with-it.html](I/O, Let's go - Understanding the Advantech WISE-4012 module and use Peakboard to do some magic with it)
 
+[I/O, Let's Go - Going crazy for Pepperl+Fuchs IO-Link-Master ICE2-8IOL-G65L-V1D](/I-O-Lets-Go-Going-crazy-for-Pepperl-Fuchs-IO-Link-Master-ICE2-8IOL-G65L-V1D.html)
 
+[ByeBye Paper - Going paperless with Peakboard, SAP, and Woutex e-Ink Displays](/ByeBye-Paper-Going-paperless-with-Peakboard-and-Woutex-e-Ink-Displays.html)
 
-Cam like a Bosch - Part I - Integrate Bosch security cam AI features with Peakboard
-/Cam-like-a-Bosch-Part-I-Integrate-Bosch-security-cam-AI-features-with-Peakboard.html
-
-/I-O-Lets-go-Understanding-the-Advantech-WISE-4012-module-and-use-Peakboard-to-do-some-magic-with-it.html
-I/O, Let's go - Understanding the Advantech WISE-4012 module and use Peakboard to do some magic with it
-
-I/O, Let's Go - Going crazy for Pepperl+Fuchs IO-Link-Master ICE2-8IOL-G65L-V1D
-/I-O-Lets-Go-Going-crazy-for-Pepperl-Fuchs-IO-Link-Master-ICE2-8IOL-G65L-V1D.html
-
-ByeBye Paper - Going paperless with Peakboard, SAP, and Woutex e-Ink Displays
-/ByeBye-Paper-Going-paperless-with-Peakboard-and-Woutex-e-Ink-Displays.html
-
-Pimp my GETT - How to integrate the GETT BlackLine Smart Panel PC with Peakboard
-/Pimp-my-GETT-How-to-integrate-the-GETT-Blackline-Smart-Panel-PC-with-Peakboard.html
+[Pimp my GETT - How to integrate the GETT BlackLine Smart Panel PC with Peakboard](/Pimp-my-GETT-How-to-integrate-the-GETT-Blackline-Smart-Panel-PC-with-Peakboard.html)
 
 ## Robots
 
-/When-Boards-Meet-Wheels-Part-I-How-to-connect-Peakboard-and-wheel.me-robots.html
-When Boards Meet Wheels - Part I - How to connect Peakboard and wheel.me robots
+[When Boards Meet Wheels - Part I - How to connect Peakboard and wheel.me robots](/When-Boards-Meet-Wheels-Part-I-How-to-connect-Peakboard-and-wheel.me-robots.html)
 
-/When-Boards-Meet-Wheels-Part-II-Navigate-wheel.me-robots-with-Peaboard.html
-When Boards Meet Wheels - Part II - Navigate wheel.me robots with Peakboard
+[When Boards Meet Wheels - Part II - Navigate wheel.me robots with Peakboard](/When-Boards-Meet-Wheels-Part-II-Navigate-wheel.me-robots-with-Peaboard.html)
 
 ## Office 365
 
-Reading and writing Sharepoint lists with Graph extension
-/Reading-and-writing-Sharepoint-lists-with-Graph-extension.html
+[/Reading-and-writing-Sharepoint-lists-with-Graph-extension.html](Reading and writing Sharepoint lists with Graph extension)
 
-Mastering dynamic file loading - How to load CSV files without knowing their names
-/Mastering-dynamic-file-loading-How-to-load-CSV-files-without-knowing-their-name.html
+[Mastering dynamic file loading - How to load CSV files without knowing their names](/Mastering-dynamic-file-loading-How-to-load-CSV-files-without-knowing-their-name.html)
 
-Unlocking Microsoft's Dataverse with Peakboard
-/Unlocking-Microsofts-Dataverse-with-Peakboard.html
+[Unlocking Microsoft's Dataverse with Peakboard](/Unlocking-Microsofts-Dataverse-with-Peakboard.html)
 
 ## API and Nerd stuff
 
-Taming JSON - How to use JPath in Peakboard scripts
-/Taming-the-wild-JSon-How-to-use-JPath-in-Peakboard-scripts.html
+[Taming JSON - How to use JPath in Peakboard scripts](/Taming-the-wild-JSon-How-to-use-JPath-in-Peakboard-scripts.html)
 
-Catch Me If You Can - The ultimate Guide on how to handle Exceptions in Lu
-/Catch-Me-If-You-Can-The-ultimate-Guide-on-how-to-handle-Exceptions-in-LUA.html
+[Catch Me If You Can - The ultimate Guide on how to handle Exceptions in Lua](/Catch-Me-If-You-Can-The-ultimate-Guide-on-how-to-handle-Exceptions-in-LUA.html)
 
-I/O, Let's Go - Unleashing the ICP DAS ET-2254 with MQTT and Peakboard
-/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html
+[I/O, Let's Go - Unleashing the ICP DAS ET-2254 with MQTT and Peakboard](/I-O-Lets-Go-Unleashing-the-ICP-DAS-ET-2254-with-MQTT-and-Peakboard.html)
 
-Data Deep Dive - Techniques for Mastering Complex JSON and understand that Global Warming is real
-/Data-Deep-Dive-Techniques-for-Mastering-Complex-JSON-and-understand-that-Global-Warming-is-real.html
+[Data Deep Dive - Techniques for Mastering Complex JSON and understand that Global Warming is real](/Data-Deep-Dive-Techniques-for-Mastering-Complex-JSON-and-understand-that-Global-Warming-is-real.html)
 
 ## Peakboard Hub API
 
-Cracking the code - Part I - Getting started with Peakboard Hub API
-/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html
+Cracking the code - Part I - Getting started with Peakboard Hub API](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html)
 
 ## Misc
 
-The Ultimate Guide to Building an Enterprise Template for Peakboard Applications
-/The-Ultimate-Guide-to-build-Enterprise-Templates-for-Peakboard-applications.html
+[The Ultimate Guide to Building an Enterprise Template for Peakboard Applications](/The-Ultimate-Guide-to-build-Enterprise-Templates-for-Peakboard-applications.html)
 
