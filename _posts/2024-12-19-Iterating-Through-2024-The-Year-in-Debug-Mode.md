@@ -118,7 +118,7 @@ SAP is the number one data source for most Peakboard projects. Especially in the
 
 ## Peakboard Hub API
 
-Cracking the code - Part I - Getting started with Peakboard Hub API](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html)
+[Cracking the code - Part I - Getting started with Peakboard Hub API](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html)
 
 ## Misc
 
