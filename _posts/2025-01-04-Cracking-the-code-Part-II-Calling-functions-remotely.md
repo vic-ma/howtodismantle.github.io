@@ -15,15 +15,15 @@ downloads:
     url: /assets/2025-01-04/PeakboardHubAPIFunctions.py
 ---
 In our [first article about the Peakboard Hub API](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) we learned how to to get an API key, establish the connection to the Hub and get information about the boxes that are connected to the hub.
-In today's article we will discuss, how to call shared, public functions on a box from the outside. So let's assume you're running a third paty application and you need to inform people within the factory about a certain things and submit information to them. In that use case we would call the Peakboard Hub API to let the Hub initiated a function on the Peakboard application that is running on one or more boxes. In the example of this article we will submit an alarm to the box along with a paramter that states how any seconds the alarm is supposed to be shown. A second function is there to check, if currently an alarm is displayed. So we can use it to confirm that the alarm is shown.
+In today's article we will discuss, how to call shared, public functions on a box from the outside. So let's assume you're running a third party application and you need to inform people within the factory about a certain thing and submit information to them. In that use case we would call the Peakboard Hub API to let the Hub initiate a function on the Peakboard application that is running on one or more boxes. In the example of this article we will submit an alarm to the box along with a paramater that states how many seconds the alarm is supposed to be shown. A second function is there to check, if currently an alarm is displayed. So we can use it to confirm that the alarm is shown.
 
-## Build the Peakboatd application
+## Build the Peakboard application
 
 The Peakboard application is very simple. In the center of the screen we have one single text box showing the alarm in red color ("N/A" if no alarm is set). We use the integer variable "SecondsLeft" to count the number of seconds that are left to display the alarm.
 
 ![image](/assets/2025-01-04/010.png)
 
-Let's have a look at the first function "SubmitAlarm". It takes two paramaters: "AlarmTime" for the number of seconds to show the alarm message. And "AlarmMessage", a string to represent the alarm message itself. When the function is called, the text box shows the alarm message and the number of seconds is stored in the variable.
+Let's have a look at the first function "SubmitAlarm". It takes two parameters: "AlarmTime" for the number of seconds to show the alarm message. And "AlarmMessage", a string to represent the alarm message itself. When the function is called, the text box shows the alarm message and the number of seconds is stored in the variable.
 
 ![image](/assets/2025-01-04/020.png)
 
@@ -63,7 +63,7 @@ mySession = requests.Session()
 mySession.headers.update({"Authorization": "Bearer " + accesstoken})
 {% endhighlight %}
 
-As some kind of additional exercise, we will now query some information with "/public-api/v1/box/functions" about what functions are available on our box. The response baody will also contain all informations about the function and parameters. In this case we just list the names of the available functions.
+As some kind of additional exercise, we will now query some information with "/public-api/v1/box/functions" about what functions are available on our box. The response body will also contain all informations about the function and parameters. In this case we just list the names of the available functions.
 
 {% highlight python %}
 
@@ -163,3 +163,8 @@ print(f"Is alarm set? -> {response.text}")
 Here's the result in console output:
 
 ![image](/assets/2025-01-04/070.png)
+
+And the actual alarm output on the box as seen from the Peakboard Hub portal.
+
+![image](/assets/2025-01-04/080.png)
+
