@@ -24,8 +24,10 @@ response = mySession.get(BaseURL + "/public-api/v1/box/functions?boxId=PB0000PT"
 if response.status_code != 200:
     sys.exit("Unable to obtain the functions of a box")
 
+print(response.json())
+
 for item in response.json():
-    print(f"Table found: {item['Name']}")
+    print(f"Function found: {item['Name']}")
 
 # Call a function
 
@@ -49,4 +51,18 @@ response = mySession.post(BaseURL + "/public-api/v1/box/function", json=body)
 if response.status_code != 200:
     sys.exit("Unable to call the function. Return is " + response.reason)
 
-print(response.json())
+print("Alarm set succesfully....")
+
+## Call a function with return value
+
+body = {
+  "boxId": "PB0000PT",
+  "functionName": "IsAlarmActive"
+}
+
+response = mySession.post(BaseURL + "/public-api/v1/box/function", json=body)
+
+if response.status_code != 200:
+    sys.exit("Unable to call the function. Return is " + response.reason)
+
+print(f"Is alarm set? -> {response.text}")
