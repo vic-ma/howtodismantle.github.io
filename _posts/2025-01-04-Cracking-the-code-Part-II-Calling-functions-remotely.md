@@ -19,15 +19,23 @@ In today's article, we will discuss how to call shared, public functions on a bo
 
 Let's assume we're running a third party application, and we need to notify people inside the factory about something. In this case, we would call the Peakboard Hub API to let the Hub run a function on the Peakboard application that is running on one or more boxes.
 
-In this article, we will run an alarm on the box and send a parameter that specifies how many seconds the alarm should run for. We will also create a second function to check if currently an alarm is displayed. So we can use it to confirm that the alarm is shown.
+In this article, we will run an alarm on the box and send a parameter that specifies how many seconds the alarm should run for. We will also create a second function to check if currently an alarm is displayed. That way, we can use it to confirm that the alarm is shown.
 
 ## Build the Peakboard application
 
-The Peakboard application is very simple. In the center of the screen we have one single text box showing the alarm in red color ("N/A" if no alarm is set). We use the integer variable "SecondsLeft" to count the number of seconds that are left to display the alarm.
+The Peakboard application is simple. In the center of the screen, we have a text box:
+* It shows the alarm message in a red color
+* It shows "N/A" if there's no alarm
+
+We use the integer variable `SecondsLeft` to track the number of seconds the alarm will continue running for.
 
 ![image](/assets/2025-01-04/010.png)
 
-Let's have a look at the first function "SubmitAlarm". It takes two parameters: "AlarmTime" for the number of seconds to show the alarm message. And "AlarmMessage", a string to represent the alarm message itself. When the function is called, the text box shows the alarm message and the number of seconds is stored in the variable.
+Let's take a look at the first function, `SubmitAlarm`. It takes two parameters:
+* `AlarmTime`, the number of seconds to display the alarm message.
+* `AlarmMessage`, a string that contains the alarm message itself.
+
+When `SubmitAlarm` is called, the text box shows the alarm message and the number of seconds is stored in the variable.
 
 ![image](/assets/2025-01-04/020.png)
 
