@@ -14,8 +14,12 @@ downloads:
   - name: PeakboardHubAPIFunctions.py
     url: /assets/2025-01-04/PeakboardHubAPIFunctions.py
 ---
-In our [first article about the Peakboard Hub API](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) we learned how to to get an API key, establish the connection to the Hub and get information about the boxes that are connected to the hub.
-In today's article we will discuss, how to call shared, public functions on a box from the outside. So let's assume you're running a third party application and you need to inform people within the factory about a certain thing and submit information to them. In that use case we would call the Peakboard Hub API to let the Hub initiate a function on the Peakboard application that is running on one or more boxes. In the example of this article we will submit an alarm to the box along with a paramater that states how many seconds the alarm is supposed to be shown. A second function is there to check, if currently an alarm is displayed. So we can use it to confirm that the alarm is shown.
+In our [first article](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) about the Peakboard Hub API, we discussed how to get an API key, establish the connection to the Hub, and get information about the boxes that are connected to the hub.
+In today's article, we will discuss how to call shared, public functions on a box from the outside.
+
+Let's assume we're running a third party application, and we need to notify people inside the factory about something. In this case, we would call the Peakboard Hub API to let the Hub run a function on the Peakboard application that is running on one or more boxes.
+
+In this article, we will run an alarm on the box and send a parameter that specifies how many seconds the alarm should run for. We will also create a second function to check if currently an alarm is displayed. So we can use it to confirm that the alarm is shown.
 
 ## Build the Peakboard application
 
