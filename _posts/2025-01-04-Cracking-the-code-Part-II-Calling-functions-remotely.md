@@ -14,34 +14,46 @@ downloads:
   - name: PeakboardHubAPIFunctions.py
     url: /assets/2025-01-04/PeakboardHubAPIFunctions.py
 ---
-In our [first article about the Peakboard Hub API](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) we learned how to to get an API key, establish the connection to the Hub and get information about the boxes that are connected to the hub.
-In today's article we will discuss, how to call shared, public functions on a box from the outside. So let's assume you're running a third party application and you need to inform people within the factory about a certain thing and submit information to them. In that use case we would call the Peakboard Hub API to let the Hub initiate a function on the Peakboard application that is running on one or more boxes. In the example of this article we will submit an alarm to the box along with a paramater that states how many seconds the alarm is supposed to be shown. A second function is there to check, if currently an alarm is displayed. So we can use it to confirm that the alarm is shown.
+In our [first article](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) about the Peakboard Hub API, we discussed how to get an API key, establish a connection to the Hub, and get information about the boxes that are connected to the hub.
+In today's article, we will discuss how to call shared, public functions on a box from the outside.
+
+Let's assume we're running a third party application, and we need to notify people inside our factory about something. In this case, we can call the Peakboard Hub API to have the Hub run a function on a Peakboard Box.
+
+In this article, we will run an alarm on the box and send a parameter that specifies how many seconds the alarm should run for. We will also use a second function to check if an alarm is currently displayed. That way, we can use it to confirm that the alarm is working properly.
 
 ## Build the Peakboard application
 
-The Peakboard application is very simple. In the center of the screen we have one single text box showing the alarm in red color ("N/A" if no alarm is set). We use the integer variable "SecondsLeft" to count the number of seconds that are left to display the alarm.
+The Peakboard application is simple. In the center of the screen, we have a text box:
+* If there's an alarm, it shows the alarm message in a red color.
+* If there's no alarm, it shows "N/A."
+
+We use the integer variable `SecondsLeft` to track the number of seconds the alarm will continue running for.
 
 ![image](/assets/2025-01-04/010.png)
 
-Let's have a look at the first function "SubmitAlarm". It takes two parameters: "AlarmTime" for the number of seconds to show the alarm message. And "AlarmMessage", a string to represent the alarm message itself. When the function is called, the text box shows the alarm message and the number of seconds is stored in the variable.
+Let's take a look at the first function, `SubmitAlarm`. It takes two parameters:
+* `AlarmTime`, the number of seconds to display the alarm message.
+* `AlarmMessage`, a string that contains the alarm message itself.
+
+When `SubmitAlarm` is called, the text box shows the alarm message, and the number of seconds is stored in the `SecondsLeft` variable.
 
 ![image](/assets/2025-01-04/020.png)
 
-The second function "IsAlarmActive" doesn't take any parameters, but returns a boolean variable depending if the the number of seconds is greater than 0 (alarm is active) or not (no alarm is active).
+The second function, `IsAlarmActive`, doesn't take any parameters. It returns a boolean that specifies if the number of seconds remaining on the alarm is greater than 0 (alarm is active) or not (alarm is inactive).
 
 ![image](/assets/2025-01-04/030.png)
 
-The function within the timer event is just for counting down the seconds which are left and then setting the text back to "N/A" after the time is up.
+The function in the timer event is used to count the time that's left, and to set the text back to "N/A" once the time is up.
 
 ![image](/assets/2025-01-04/040.png)
 
-## Calling the API
+## Call the API
 
-Let's assume the application is actively running on a box and the box is connected to the Hub. The screenshot show the box in the Hub portal.
+Let's assume the application is actively running on a box and that the box is connected to the Hub. This screenshot shows the box in the Hub portal:
 
-![image](/assets/2025-01-04/040.png)
+![image](/assets/2025-01-04/050.png)
 
-The first we need to do is to connect to the Hub and exchange the API key with a access token we will need for the real calls later.
+The first thing we need to do is connect to the Hub and exchange the API key with an access token that we will need for the real calls later.
 
 {% highlight python %}
 import requests
@@ -63,7 +75,7 @@ mySession = requests.Session()
 mySession.headers.update({"Authorization": "Bearer " + accesstoken})
 {% endhighlight %}
 
-As some kind of additional exercise, we will now query some information with "/public-api/v1/box/functions" about what functions are available on our box. The response body will also contain all informations about the function and parameters. In this case we just list the names of the available functions.
+As an additional exercise, we will get the functions that are available on our box with the `/public-api/v1/box/functions` endpoint. The response body contains comprehensive information about the functions and their parameters. In our case, we only need the names of the available functions.
 
 {% highlight python %}
 
@@ -80,11 +92,11 @@ for item in response.json():
     print(f"Function found: {item['Name']}")
 {% endhighlight %}
 
-the output of this code in our example will be:
+The output of the code looks like this:
 
 ![image](/assets/2025-01-04/060.png)
 
-Here's the whole JSON response with all the metadata. We can see the two function with its corresponding in and out parameters:
+Here's the entire JSON response with all the metadata. You can see the two functions with their corresponding in and out parameters:
 
 {% highlight python %}
 [ {
@@ -116,7 +128,7 @@ Here's the whole JSON response with all the metadata. We can see the two functio
 
 # Call a function
 
-Let's call the shared function now by using "/public-api/v1/box/function". We can see in the body how a dedicated box is addressed with its name. We also submit the name of the function to be called along with the parameters.
+We call the shared function with the `/public-api/v1/box/function` endpoint. You can see how a dedicated box is addressed by its name (`boxId`). We also submit the name of the function to be called along with the parameters.
 
 {% highlight python %}
 body = {
@@ -142,7 +154,7 @@ if response.status_code != 200:
 print("Alarm set succesfully....")
 {% endhighlight %}
 
-The second function we want to call is the "IsAlarmActive" function. It has a return parameter, that can be read in the response body. It's not emebedded in any kind of JSON, but printed directly in the body.
+The second function we need to call is `IsAlarmActive`. It has a return parameter that can be read in the response body. It's not embedded in any kind of JSON, but rather printed directly in the body.
 
 {% highlight python %}
 ## Call a function with return value
@@ -160,11 +172,11 @@ if response.status_code != 200:
 print(f"Is alarm set? -> {response.text}")
 {% endhighlight %}
 
-Here's the result in console output:
+Here's the result in the console output:
 
 ![image](/assets/2025-01-04/070.png)
 
-And the actual alarm output on the box as seen from the Peakboard Hub portal.
+And here's what the actual alarm looks like on the box, as seen from the Peakboard Hub portal:
 
 ![image](/assets/2025-01-04/080.png)
 
