@@ -92,11 +92,11 @@ for item in response.json():
     print(f"Function found: {item['Name']}")
 {% endhighlight %}
 
-The output of this code looks like:
+The output of the code looks like this:
 
 ![image](/assets/2025-01-04/060.png)
 
-Here's the entire JSON response with all the metadata. We can see the two functions with their corresponding in and out parameters:
+Here's the entire JSON response with all the metadata. You can see the two functions with their corresponding in and out parameters:
 
 {% highlight python %}
 [ {
@@ -128,7 +128,7 @@ Here's the entire JSON response with all the metadata. We can see the two functi
 
 # Call a function
 
-We call the shared function with the `/public-api/v1/box/function` endpoint. You can see in the body how a dedicated box is addressed with its name. We also submit the name of the function to be called along with the parameters.
+We call the shared function with the `/public-api/v1/box/function` endpoint. You can see how a dedicated box is addressed by its name (`boxId`). We also submit the name of the function to be called along with the parameters.
 
 {% highlight python %}
 body = {
@@ -176,7 +176,7 @@ Here's the result in the console output:
 
 ![image](/assets/2025-01-04/070.png)
 
-And here's the actual alarm output on the box, as seen from the Peakboard Hub portal:
+And here's what the actual alarm looks like on the box, as seen from the Peakboard Hub portal:
 
 ![image](/assets/2025-01-04/080.png)
 
