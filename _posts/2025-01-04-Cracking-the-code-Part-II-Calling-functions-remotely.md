@@ -39,7 +39,7 @@ When `SubmitAlarm` is called, the text box shows the alarm message and the numbe
 
 ![image](/assets/2025-01-04/020.png)
 
-The second function "IsAlarmActive" doesn't take any parameters, but returns a boolean variable depending if the the number of seconds is greater than 0 (alarm is active) or not (no alarm is active).
+The second function, `IsAlarmActive`, doesn't take any parameters. It returns a boolean that specifies if the number of seconds remaining on the alarm is greater than 0 (alarm is active) or not (alarm is inactive).
 
 ![image](/assets/2025-01-04/030.png)
 
@@ -47,7 +47,7 @@ The function within the timer event is just for counting down the seconds which 
 
 ![image](/assets/2025-01-04/040.png)
 
-## Calling the API
+## Call the API
 
 Let's assume the application is actively running on a box and the box is connected to the Hub. The screenshot show the box in the Hub portal.
 
