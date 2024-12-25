@@ -14,12 +14,12 @@ downloads:
   - name: PeakboardHubAPIFunctions.py
     url: /assets/2025-01-04/PeakboardHubAPIFunctions.py
 ---
-In our [first article](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) about the Peakboard Hub API, we discussed how to get an API key, establish the connection to the Hub, and get information about the boxes that are connected to the hub.
+In our [first article](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) about the Peakboard Hub API, we discussed how to get an API key, establish a connection to the Hub, and get information about the boxes that are connected to the hub.
 In today's article, we will discuss how to call shared, public functions on a box from the outside.
 
-Let's assume we're running a third party application, and we need to notify people inside the factory about something. In this case, we would call the Peakboard Hub API to let the Hub run a function on the Peakboard application that is running on one or more boxes.
+Let's assume we're running a third party application, and we need to notify people inside our factory about something. In this case, we can call the Peakboard Hub API to have the Hub run a function on a Peakboard Box.
 
-In this article, we will run an alarm on the box and send a parameter that specifies how many seconds the alarm should run for. We will also create a second function to check if currently an alarm is displayed. That way, we can use it to confirm that the alarm is shown.
+In this article, we will run an alarm on the box and send a parameter that specifies how many seconds the alarm should run for. We will also use a second function to check if an alarm is currently displayed. That way, we can use it to confirm that the alarm is working properly.
 
 ## Build the Peakboard application
 
@@ -75,7 +75,7 @@ mySession = requests.Session()
 mySession.headers.update({"Authorization": "Bearer " + accesstoken})
 {% endhighlight %}
 
-As an additional exercise, we will get the functions that are available on our box with the `/public-api/v1/box/functions` endpoint. The response body contains information about the functions and their parameters. In this case we, list the names of the available functions.
+As an additional exercise, we will get the functions that are available on our box with the `/public-api/v1/box/functions` endpoint. The response body contains comprehensive information about the functions and their parameters. In our case, we only need the names of the available functions.
 
 {% highlight python %}
 
@@ -92,11 +92,11 @@ for item in response.json():
     print(f"Function found: {item['Name']}")
 {% endhighlight %}
 
-the output of this code in our example will be:
+The output of this code looks like:
 
 ![image](/assets/2025-01-04/060.png)
 
-Here's the whole JSON response with all the metadata. We can see the two function with its corresponding in and out parameters:
+Here's the entire JSON response with all the metadata. We can see the two functions with their corresponding in and out parameters:
 
 {% highlight python %}
 [ {
@@ -128,7 +128,7 @@ Here's the whole JSON response with all the metadata. We can see the two functio
 
 # Call a function
 
-Let's call the shared function now by using "/public-api/v1/box/function". We can see in the body how a dedicated box is addressed with its name. We also submit the name of the function to be called along with the parameters.
+We call the shared function with the `/public-api/v1/box/function` endpoint. You can see in the body how a dedicated box is addressed with its name. We also submit the name of the function to be called along with the parameters.
 
 {% highlight python %}
 body = {
@@ -154,7 +154,7 @@ if response.status_code != 200:
 print("Alarm set succesfully....")
 {% endhighlight %}
 
-The second function we want to call is the "IsAlarmActive" function. It has a return parameter, that can be read in the response body. It's not emebedded in any kind of JSON, but printed directly in the body.
+The second function we need to call is `IsAlarmActive`. It has a return parameter that can be read in the response body. It's not embedded in any kind of JSON, but rather printed directly in the body.
 
 {% highlight python %}
 ## Call a function with return value
@@ -172,11 +172,11 @@ if response.status_code != 200:
 print(f"Is alarm set? -> {response.text}")
 {% endhighlight %}
 
-Here's the result in console output:
+Here's the result in the console output:
 
 ![image](/assets/2025-01-04/070.png)
 
-And the actual alarm output on the box as seen from the Peakboard Hub portal.
+And here's the actual alarm output on the box, as seen from the Peakboard Hub portal:
 
 ![image](/assets/2025-01-04/080.png)
 
