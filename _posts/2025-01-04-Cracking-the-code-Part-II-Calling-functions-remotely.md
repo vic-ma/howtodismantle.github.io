@@ -24,8 +24,8 @@ In this article, we will run an alarm on the box and send a parameter that speci
 ## Build the Peakboard application
 
 The Peakboard application is simple. In the center of the screen, we have a text box:
-* It shows the alarm message in a red color
-* It shows "N/A" if there's no alarm
+* If there's an alarm, it shows the alarm message in a red color.
+* If there's no alarm, it shows "N/A."
 
 We use the integer variable `SecondsLeft` to track the number of seconds the alarm will continue running for.
 
@@ -35,7 +35,7 @@ Let's take a look at the first function, `SubmitAlarm`. It takes two parameters:
 * `AlarmTime`, the number of seconds to display the alarm message.
 * `AlarmMessage`, a string that contains the alarm message itself.
 
-When `SubmitAlarm` is called, the text box shows the alarm message and the number of seconds is stored in the variable.
+When `SubmitAlarm` is called, the text box shows the alarm message, and the number of seconds is stored in the variable.
 
 ![image](/assets/2025-01-04/020.png)
 
@@ -43,17 +43,17 @@ The second function, `IsAlarmActive`, doesn't take any parameters. It returns a 
 
 ![image](/assets/2025-01-04/030.png)
 
-The function within the timer event is just for counting down the seconds which are left and then setting the text back to "N/A" after the time is up.
+The function in the timer event is used to count the time that's left, and to set the text back to "N/A" once the time is up.
 
 ![image](/assets/2025-01-04/040.png)
 
 ## Call the API
 
-Let's assume the application is actively running on a box and the box is connected to the Hub. The screenshot show the box in the Hub portal.
+Let's assume the application is actively running on a box and the box is connected to the Hub. This screenshot shows the box in the Hub portal:
 
 ![image](/assets/2025-01-04/040.png)
 
-The first we need to do is to connect to the Hub and exchange the API key with a access token we will need for the real calls later.
+The first thing we need to do is connect to the Hub and exchange the API key with an access token that we will need for the real calls later.
 
 {% highlight python %}
 import requests
