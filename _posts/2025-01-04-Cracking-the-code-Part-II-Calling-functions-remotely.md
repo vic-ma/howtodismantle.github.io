@@ -35,7 +35,7 @@ Let's take a look at the first function, `SubmitAlarm`. It takes two parameters:
 * `AlarmTime`, the number of seconds to display the alarm message.
 * `AlarmMessage`, a string that contains the alarm message itself.
 
-When `SubmitAlarm` is called, the text box shows the alarm message, and the number of seconds is stored in the variable.
+When `SubmitAlarm` is called, the text box shows the alarm message, and the number of seconds is stored in the `SecondsLeft` variable.
 
 ![image](/assets/2025-01-04/020.png)
 
@@ -49,9 +49,9 @@ The function in the timer event is used to count the time that's left, and to se
 
 ## Call the API
 
-Let's assume the application is actively running on a box and the box is connected to the Hub. This screenshot shows the box in the Hub portal:
+Let's assume the application is actively running on a box and that the box is connected to the Hub. This screenshot shows the box in the Hub portal:
 
-![image](/assets/2025-01-04/040.png)
+![image](/assets/2025-01-04/050.png)
 
 The first thing we need to do is connect to the Hub and exchange the API key with an access token that we will need for the real calls later.
 
