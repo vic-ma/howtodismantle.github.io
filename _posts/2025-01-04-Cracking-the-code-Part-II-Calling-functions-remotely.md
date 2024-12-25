@@ -75,7 +75,7 @@ mySession = requests.Session()
 mySession.headers.update({"Authorization": "Bearer " + accesstoken})
 {% endhighlight %}
 
-As some kind of additional exercise, we will now query some information with "/public-api/v1/box/functions" about what functions are available on our box. The response body will also contain all informations about the function and parameters. In this case we just list the names of the available functions.
+As an additional exercise, we will get the functions that are available on our box with the `/public-api/v1/box/functions` endpoint. The response body contains information about the functions and their parameters. In this case we, list the names of the available functions.
 
 {% highlight python %}
 
