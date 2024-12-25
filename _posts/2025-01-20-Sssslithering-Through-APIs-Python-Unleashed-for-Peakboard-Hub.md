@@ -2,7 +2,7 @@
 layout: post
 title: Sssslithering Through APIs - Python Unleashed for Peakboard Hub
 date: 2023-03-01 03:00:00 +0200
-tags: api peakboardhub
+tags: api peakboardhub peakboardhubapi
 image: /assets/2025-01-20/title.png
 image_header: /assets/2025-01-20/title_landscape.png
 read_more_links:
