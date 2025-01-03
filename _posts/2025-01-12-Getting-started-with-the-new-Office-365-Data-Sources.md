@@ -17,7 +17,7 @@ With today's article we will do some basic introduction of all Office 365 data s
 
 ## Understanding Authorisation options
 
-The access of the data source to the Office 365 backend can be done through two major ways. The first way is a "Multi-tenant Application" way, which means, that only one valid user account and nothing more is necessary to give Peakboard the permission to log on, read and potentially modify data. To make this work, the Office 365 admin must allow this kind of external access. Especially when we start with the first steps of extenral office 365 connectivity goind this way is easier to do as there's are no addtional objects in the backend systemto configure.
+The access of the data source to the Office 365 backend can be done through two major ways. The first way is a "Multi-tenant Application" way, which means, that only one valid user account and nothing more is necessary to give Peakboard the permission to log on, read and potentially modify data. To make this work, the Office 365 admin must allow this kind of external access. Especially when we start with the first steps of extenral office 365 connectivity goind this way is easier to do as there's are no additional objects in the backend system to configure.
 
 The second, and officially by Microsoft recommended way, is to go throgh a single-tenant application by using a registered App. The major advantage of using a registered app is, that it gives admins full control over any kind of permissions that are granted to one single application with giving more than necessary. And the admin can also withdraw the consent for the app at any time for all users without any impact on any other activity within the company. So when it comes to a large enterprise solution, this might be the way to go.
 
@@ -33,7 +33,7 @@ After confirming to give Peakboard the right to access the data the data source 
 
 ## Single-tenant Application
 
-Using the second option of authentification is a bit more tricky and requires to set up a registered app in you Microsoft Entra ID backend, which can be reached though Azure Portal under this link: [https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps). If this link doesn't work we just use the regular menu to access Entry ID.
+Using the second option of authentification is a bit more tricky and requires to set up a registered app in you Microsoft Entra ID backend, which can be reached though Azure Portal under this link: [https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps). If this link doesn't work we just use the regular menu to access Microsoft Entra ID.
 
 We can find the app registration on the menu on the left and create a new entry
 
