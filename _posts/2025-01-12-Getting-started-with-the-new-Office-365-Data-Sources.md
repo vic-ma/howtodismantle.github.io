@@ -31,7 +31,7 @@ For multi-tenant access, the only thing we need to do is the typical Office 365 
 
 ![image](/assets/2025-01-12/006.png)
 
-After granting Peakboard the appropriate permissions, the data source can be used right away.
+After granting Peakboard the appropriate permissions, the data source can be used immediately.
 
 ## Single-tenant application
 
@@ -55,13 +55,13 @@ The last thing we need to do is to allow "public client flows" during the authen
 
 ![image](/assets/2025-01-12/040.png)
 
-The Application ID and CLient ID of the registered app is what we need to put into the data source and then go through the authorisation process.
+We need to put the Application ID and Client ID of the registered app into the data source and then go through the authorization process.
 
 ![image](/assets/2025-01-12/050.png)
 
 ![image](/assets/2025-01-12/060.png)
 
-## result and conclusion
+## Result and conclusion
 
-After sucssfully going through the process of authenfication we can use the data source right away. It is highly reommanded to re-use the connection when using multiple data source based on Office 365 connectivity.
+After successfully going through authentication process we can use the data source immediately. It is highly commanded to reuse the connection when creating multiple data source based on Office 365 connectivity.
 
