@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cracking the code - Part II - Calling functions remotely by using Peakboard Hub API
-date: 2023-03-01 12:00:00 +0200
+date: 2025-01-04 00:00:00 +0200
 tags: api peakboardhub peakboardhubapi
 image: /assets/2025-01-04/title.png
 image_header: /assets/2025-01-04/title_landscape.png

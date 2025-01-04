@@ -7,9 +7,7 @@ image: /assets/2025-01-12/title.jpg
 image_header: /assets/2025-01-12/title_landscape.jpg
 read_more_links:
   - name: All Office 365 articles
-    url: https://how-to-dismantle-a-peakboard-box.com/category/office365
-  - name: Cracking the code - Part II - Calling functions remotely
-    url: /category/msgraph
+    url: /category/office365
 ---
 More than 1.5 years ago we introduced a series of articles around the [Microsoft Graph API](https://how-to-dismantle-a-peakboard-box.com/category/msgraph). We used the Graph API to access a lot of different objects from Microsoft's Office 365 offering: calendars, Sharepoint lists, Teams chats and a lot more...
 In early 2025 Peakboard introduces some new data sources to meet the requirements to access these objects without knowing the details of the Graph API. The API is still used but it's encapsulated in the data sources, which makes it much easier for the Peakboard users to utilize it.
