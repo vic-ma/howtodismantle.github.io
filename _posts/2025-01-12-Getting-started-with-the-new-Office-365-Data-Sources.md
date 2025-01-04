@@ -9,8 +9,10 @@ read_more_links:
   - name: All Office 365 articles
     url: /category/office365
 ---
-More than 1.5 years ago we introduced a series of articles around the [Microsoft Graph API](https://how-to-dismantle-a-peakboard-box.com/category/msgraph). We used the Graph API to access a lot of different objects from Microsoft's Office 365 offering: calendars, Sharepoint lists, Teams chats and a lot more...
-In early 2025 Peakboard introduces some new data sources to meet the requirements to access these objects without knowing the details of the Graph API. The API is still used but it's encapsulated in the data sources, which makes it much easier for the Peakboard users to utilize it.
+Over a year ago, we published a series of articles about the [Microsoft Graph API](https://how-to-dismantle-a-peakboard-box.com/category/msgraph). We used the Graph API to access different objects from Microsoft 365: calendars, SharePoint lists, Teams chats, and a lot more.
+
+In early 2025, Peakboard introduced new data sources that let you access Microsoft 365 objects without having to use the Graph API. The Graph API is still being used under the hood, but it's encapsulated in the data sources, making it much easier for Peakboard users.
+
 With today's article we will do some basic introduction of all Office 365 data sources - especially around athentification and authorization. So we don't need to repeat this information every time we use on the new components.
 
 ## Understanding Authorisation options
