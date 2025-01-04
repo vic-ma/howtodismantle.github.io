@@ -35,7 +35,7 @@ After granting Peakboard the appropriate permissions, the data source can be use
 
 ## Single-tenant application
 
-The single-tenant application method is a bit more tricky and requires us to set up a registered app in the Microsoft Entra ID backend. To do this, we go to the [Azure Portal](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps). If this link doesn't work, you can use the regular menu to access Microsoft Entra ID.
+The single-tenant application method is a bit trickier and requires us to set up a registered app in the Microsoft Entra ID backend. To do this, we go to the [Azure Portal](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps). If that link doesn't work, you can always use the regular menu to access Microsoft Entra ID.
 
 We can find the app registration on the menu on the left and create a new entry:
 
@@ -45,13 +45,13 @@ We give the new registration a nice name and leave all values to default (unless
 
 ![image](/assets/2025-01-12/020.png)
 
-The most important step is to give the registered app the required permissions. The following screenshot shows a typical API permission. `Tasks` refers to the to-do items in Office, and `ReadWrite` refers to the permissions for reading and modifying the tasks. All potential permissions can be accessed through a tree of permissions that becomes visible when adding a new permission.
+The most important step is to give the registered app the necessary permissions. The following screenshot shows a typical API permission. `Tasks` refers to the to-do items in Office, and `ReadWrite` refers to the permissions for reading and modifying the tasks. All potential permissions can be accessed through a tree of permissions that becomes visible when adding a new permission.
 
 Besides the Graph API permissions, which are the basis for the Office 365 data source in Peakboard, there are other permissions available, like access to Power BI.
 
 ![image](/assets/2025-01-12/030.png)
 
-The last thing we need to do is to allow "public client flows" during the authentication process. This is mandatory for any external desktop application like Peakboard Designer.
+The last thing we need to do is allow "public client flows" during the authentication process. This is mandatory for any external desktop applications like Peakboard Designer.
 
 ![image](/assets/2025-01-12/040.png)
 
@@ -63,5 +63,5 @@ We need to put the Application ID and Client ID of the registered app into the d
 
 ## Result and conclusion
 
-After successfully going through authentication process we can use the data source immediately. It is highly commanded to reuse the connection when using multiple data source based on Office 365 connectivity.
+After successfully going through the authentication process, we can use the new data source immediately. It is highly recommended to reuse the connection when creating multiple data source based on Office 365 connectivity.
 
