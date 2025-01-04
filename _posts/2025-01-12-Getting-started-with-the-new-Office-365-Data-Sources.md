@@ -9,19 +9,19 @@ read_more_links:
   - name: All Office 365 articles
     url: /category/office365
 ---
-Over a year ago, we published a series of articles about the [Microsoft Graph API](https://how-to-dismantle-a-peakboard-box.com/category/msgraph). We used the Graph API to access different objects from Office 365: calendars, SharePoint lists, Teams chats, and a lot more.
+Over a year ago, we published a series of articles about the [Microsoft Graph API](https://how-to-dismantle-a-peakboard-box.com/category/msgraph). We used the Graph API to access different objects from Office 365: calendars, SharePoint lists, Teams chats, and more.
 
-In early 2025, Peakboard introduced new data sources that let you access Office 365 objects without having to use the Graph API. The Graph API is still being used under the hood, but it's encapsulated in the data sources, making it much easier for Peakboard users.
+In early 2025, Peakboard introduced new data sources that allow you access Office 365 objects without having to use the Graph API. The Graph API is still being used under the hood, but it's encapsulated in the data sources, making it much easier for Peakboard users.
 
-In today's article, we will give a basic introduction of all the new Office 365 data sources, focusing on authentication and authorization. That way, we won't need to repeat this information in future articles.
+In today's article, we will give a basic introduction of the new Office 365 data sources, focusing on authentication and authorization. That way, we won't need to repeat this information in future articles.
 
-## Authorization
+## Authorization methods
 
-There are two methods for the data source to gain access to the Office 365 backend.
+There are two methods for a data source to gain access to the Office 365 backend.
 
 The first method is multi-tenant application. With this method, Peakboard uses a valid user account to log in, read, and potentially modify data. To make this work, the Office 365 admin must allow this kind of external access. This is the easier method, because there are no additional objects in the backend system to configure.
 
-The second method, and the one recommended by Microsoft, is to go through a single-tenant application by using a registered app. The main advantage of this is that it gives the Office 365 admin full control over which permissions are granted. This lets the admin give only the necessary permissions. The admin can also withdraw the consent for the app at any time, for all users, without impacting any other activity within the company. So when it comes to a large enterprise solution, this might be the way to go.
+The second method, and the one recommended by Microsoft, is to go through a single-tenant application by using a registered app. The main advantage of this is that it gives the Office 365 admin full control over which permissions are granted. This lets the admin give only the necessary permissions. The admin can also withdraw the permissions from the app at any time, for all users, without impacting any other activity within the company. So when it comes to a large enterprise solution, this might be the way to go.
 
 ![image](/assets/2025-01-12/005.png)
 
@@ -63,5 +63,5 @@ We need to put the Application ID and Client ID of the registered app into the d
 
 ## Result and conclusion
 
-After successfully going through authentication process we can use the data source immediately. It is highly commanded to reuse the connection when creating multiple data source based on Office 365 connectivity.
+After successfully going through authentication process we can use the data source immediately. It is highly commanded to reuse the connection when using multiple data source based on Office 365 connectivity.
 
