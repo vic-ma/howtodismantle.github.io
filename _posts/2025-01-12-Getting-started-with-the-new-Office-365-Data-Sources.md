@@ -17,9 +17,11 @@ In today's article, we will give a basic introduction of all the new Office 365 
 
 ## Authorization
 
-The access of the data source to the Office 365 backend can be done through two major ways. The first way is a "Multi-tenant Application" way, which means, that only one valid user account and nothing more is necessary to give Peakboard the permission to log on, read and potentially modify data. To make this work, the Office 365 admin must allow this kind of external access. Especially when we start with the first steps of extenral office 365 connectivity goind this way is easier to do as there's are no additional objects in the backend system to configure.
+There are two methods for the data source to gain access to the Office 365 backend.
 
-The second, and officially by Microsoft recommended way, is to go throgh a single-tenant application by using a registered App. The major advantage of using a registered app is, that it gives admins full control over any kind of permissions that are granted to one single application with giving more than necessary. And the admin can also withdraw the consent for the app at any time for all users without any impact on any other activity within the company. So when it comes to a large enterprise solution, this might be the way to go.
+The first method is "Multi-tenant Application." With this method, Peakboard uses a valid user account to log in, read, and potentially modify data. To make this work, the Office 365 admin must allow this kind of external access. This is the easier method, because there are no additional objects in the backend system to configure.
+
+The second method, and the one recommended by Microsoft, is to go through a single-tenant application by using a registered app. The main advantage of this is that it gives the Office 365 admin full control over which permissions are granted. This lets the admin give only the necessary permissions. The admin can also withdraw the consent for the app at any time, for all users, without impacting any other activity within the company. So when it comes to a large enterprise solution, this might be the way to go.
 
 ![image](/assets/2025-01-12/005.png)
 
