@@ -51,7 +51,7 @@ Besides the Graph API permissions, which are the basis for the Office 365 data s
 
 ![image](/assets/2025-01-12/030.png)
 
-The last thing we need to do is to allow the "Public Client flow" for during the authenfication process. That is mandatory for any exnternal desktop application like the Peakboard designer.
+The last thing we need to do is to allow "public client flows" during the authentication process. This is mandatory for any external desktop application like Peakboard Designer.
 
 ![image](/assets/2025-01-12/040.png)
 
