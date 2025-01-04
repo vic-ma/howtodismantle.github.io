@@ -31,22 +31,23 @@ For multi-tenant access, the only thing we need to do is the typical Office 365 
 
 ![image](/assets/2025-01-12/006.png)
 
-After confirming to give Peakboard the right to access the data the data source is authorized and can be used right away.
+After granting Peakboard the appropriate permissions, the data source can be used right away.
 
-## Single-tenant Application
+## Single-tenant application
 
-Using the second option of authentification is a bit more tricky and requires to set up a registered app in you Microsoft Entra ID backend, which can be reached though Azure Portal under this link: [https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps). If this link doesn't work we just use the regular menu to access Microsoft Entra ID.
+The single-tenant application method is a bit more tricky and requires us to set up a registered app in the Microsoft Entra ID backend. To do this, we go to the [Azure Portal](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps). If this link doesn't work, you can use the regular menu to access Microsoft Entra ID.
 
-We can find the app registration on the menu on the left and create a new entry
+We can find the app registration on the menu on the left and create a new entry:
 
 ![image](/assets/2025-01-12/010.png)
 
-We give the new registration a nice name and leave all values to default unless otherwise stated here.
+We give the new registration a nice name and leave all values to default (unless otherwise stated):
 
 ![image](/assets/2025-01-12/020.png)
 
-The most important part is to give the registered app the necessary permission to let it do the right things in the name of the user who uses the app. The screenshot shows a typical API permission. "Tasks" stand for the ToDo items in the Office and the "ReadWrite" stands for reading and modifying the tasks. All potential permissions can be accessed through a tree of permissions that be access when adding a new one.
-Beside the Graph API, which is the basis for the Office 365 data source in Peakboard, there are other permission available like access to Power BI.
+The most important step is to give the registered app the required permissions. The following screenshot shows a typical API permission. `Tasks` refers to the to-do items in Office, and `ReadWrite` refers to the permissions for reading and modifying the tasks. All potential permissions can be accessed through a tree of permissions that becomes visible when adding a new permission.
+
+Besides the Graph API, which is the basis for the Office 365 data source in Peakboard, there are other permissions available, like access to Power BI.
 
 ![image](/assets/2025-01-12/030.png)
 
