@@ -47,7 +47,7 @@ We give the new registration a nice name and leave all values to default (unless
 
 The most important step is to give the registered app the required permissions. The following screenshot shows a typical API permission. `Tasks` refers to the to-do items in Office, and `ReadWrite` refers to the permissions for reading and modifying the tasks. All potential permissions can be accessed through a tree of permissions that becomes visible when adding a new permission.
 
-Besides the Graph API, which is the basis for the Office 365 data source in Peakboard, there are other permissions available, like access to Power BI.
+Besides the Graph API permissions, which are the basis for the Office 365 data source in Peakboard, there are other permissions available, like access to Power BI.
 
 ![image](/assets/2025-01-12/030.png)
 
