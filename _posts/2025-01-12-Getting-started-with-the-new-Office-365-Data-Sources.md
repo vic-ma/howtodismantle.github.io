@@ -9,13 +9,13 @@ read_more_links:
   - name: All Office 365 articles
     url: /category/office365
 ---
-Over a year ago, we published a series of articles about the [Microsoft Graph API](https://how-to-dismantle-a-peakboard-box.com/category/msgraph). We used the Graph API to access different objects from Microsoft 365: calendars, SharePoint lists, Teams chats, and a lot more.
+Over a year ago, we published a series of articles about the [Microsoft Graph API](https://how-to-dismantle-a-peakboard-box.com/category/msgraph). We used the Graph API to access different objects from Office 365: calendars, SharePoint lists, Teams chats, and a lot more.
 
-In early 2025, Peakboard introduced new data sources that let you access Microsoft 365 objects without having to use the Graph API. The Graph API is still being used under the hood, but it's encapsulated in the data sources, making it much easier for Peakboard users.
+In early 2025, Peakboard introduced new data sources that let you access Office 365 objects without having to use the Graph API. The Graph API is still being used under the hood, but it's encapsulated in the data sources, making it much easier for Peakboard users.
 
-With today's article we will do some basic introduction of all Office 365 data sources - especially around athentification and authorization. So we don't need to repeat this information every time we use on the new components.
+In today's article, we will give a basic introduction of all the new Office 365 data sources, focusing on authentication and authorization. That way, we won't need to repeat this information in future articles.
 
-## Understanding Authorisation options
+## Authorization
 
 The access of the data source to the Office 365 backend can be done through two major ways. The first way is a "Multi-tenant Application" way, which means, that only one valid user account and nothing more is necessary to give Peakboard the permission to log on, read and potentially modify data. To make this work, the Office 365 admin must allow this kind of external access. Especially when we start with the first steps of extenral office 365 connectivity goind this way is easier to do as there's are no additional objects in the backend system to configure.
 
