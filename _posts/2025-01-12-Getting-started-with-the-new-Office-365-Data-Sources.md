@@ -19,7 +19,7 @@ In today's article, we will give a basic introduction of all the new Office 365 
 
 There are two methods for the data source to gain access to the Office 365 backend.
 
-The first method is "Multi-tenant Application." With this method, Peakboard uses a valid user account to log in, read, and potentially modify data. To make this work, the Office 365 admin must allow this kind of external access. This is the easier method, because there are no additional objects in the backend system to configure.
+The first method is multi-tenant application. With this method, Peakboard uses a valid user account to log in, read, and potentially modify data. To make this work, the Office 365 admin must allow this kind of external access. This is the easier method, because there are no additional objects in the backend system to configure.
 
 The second method, and the one recommended by Microsoft, is to go through a single-tenant application by using a registered app. The main advantage of this is that it gives the Office 365 admin full control over which permissions are granted. This lets the admin give only the necessary permissions. The admin can also withdraw the consent for the app at any time, for all users, without impacting any other activity within the company. So when it comes to a large enterprise solution, this might be the way to go.
 
@@ -27,7 +27,7 @@ The second method, and the one recommended by Microsoft, is to go through a sing
 
 ## Multi-tenant access
 
-For the multi tenant access the only thing we need to do is to go through a typical Office 365 authorisation process. Usually with 2FA or other additional steps - depending on the configuration of security backenend. 
+For multi-tenant access, the only thing we need to do is the typical Office 365 authorization process. This is usually with 2FA or other steps, depending on the configuration of the security backend. 
 
 ![image](/assets/2025-01-12/006.png)
 
