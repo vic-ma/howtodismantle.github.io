@@ -9,54 +9,59 @@ read_more_links:
   - name: All Office 365 articles
     url: /category/office365
 ---
-More than 1.5 years ago we introduced a series of articles around the [Microsoft Graph API](https://how-to-dismantle-a-peakboard-box.com/category/msgraph). We used the Graph API to access a lot of different objects from Microsoft's Office 365 offering: calendars, Sharepoint lists, Teams chats and a lot more...
-In early 2025 Peakboard introduces some new data sources to meet the requirements to access these objects without knowing the details of the Graph API. The API is still used but it's encapsulated in the data sources, which makes it much easier for the Peakboard users to utilize it.
-With today's article we will do some basic introduction of all Office 365 data sources - especially around athentification and authorization. So we don't need to repeat this information every time we use on the new components.
+Over a year ago, we published a series of articles about the [Microsoft Graph API](https://how-to-dismantle-a-peakboard-box.com/category/msgraph). We used the Graph API to access different objects from Office 365: calendars, SharePoint lists, Teams chats, and more.
 
-## Understanding Authorisation options
+In early 2025, Peakboard introduced new data sources that allow you access Office 365 objects without having to use the Graph API. The Graph API is still being used under the hood, but it's encapsulated in the data sources, making it much easier for Peakboard users.
 
-The access of the data source to the Office 365 backend can be done through two major ways. The first way is a "Multi-tenant Application" way, which means, that only one valid user account and nothing more is necessary to give Peakboard the permission to log on, read and potentially modify data. To make this work, the Office 365 admin must allow this kind of external access. Especially when we start with the first steps of extenral office 365 connectivity goind this way is easier to do as there's are no additional objects in the backend system to configure.
+In today's article, we will give a basic introduction of the new Office 365 data sources, focusing on authentication and authorization. That way, we won't need to repeat this information in future articles.
 
-The second, and officially by Microsoft recommended way, is to go throgh a single-tenant application by using a registered App. The major advantage of using a registered app is, that it gives admins full control over any kind of permissions that are granted to one single application with giving more than necessary. And the admin can also withdraw the consent for the app at any time for all users without any impact on any other activity within the company. So when it comes to a large enterprise solution, this might be the way to go.
+## Authorization methods
+
+There are two methods for a data source to gain access to the Office 365 backend.
+
+The first method is multi-tenant application. With this method, Peakboard uses a valid user account to log in, read, and potentially modify data. To make this work, the Office 365 admin must allow this kind of external access. This is the easier method, because there are no additional objects in the backend system to configure.
+
+The second method, and the one recommended by Microsoft, is to go through a single-tenant application by using a registered app. The main advantage of this is that it gives the Office 365 admin full control over which permissions are granted. This lets the admin give only the necessary permissions. The admin can also withdraw the permissions from the app at any time, for all users, without impacting any other activity within the company. So when it comes to a large enterprise solution, this might be the way to go.
 
 ![image](/assets/2025-01-12/005.png)
 
 ## Multi-tenant access
 
-For the multi tenant access the only thing we need to do is to go through a typical Office 365 authorisation process. Usually with 2FA or other additional steps - depending on the configuration of security backenend. 
+For multi-tenant access, the only thing we need to do is the typical Office 365 authorization process. This is usually with 2FA or other steps, depending on the configuration of the security backend. 
 
 ![image](/assets/2025-01-12/006.png)
 
-After confirming to give Peakboard the right to access the data the data source is authorized and can be used right away.
+After granting Peakboard the appropriate permissions, the data source can be used immediately.
 
-## Single-tenant Application
+## Single-tenant application
 
-Using the second option of authentification is a bit more tricky and requires to set up a registered app in you Microsoft Entra ID backend, which can be reached though Azure Portal under this link: [https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps). If this link doesn't work we just use the regular menu to access Microsoft Entra ID.
+The single-tenant application method is a bit trickier and requires us to set up a registered app in the Microsoft Entra ID backend. To do this, we go to the [Azure Portal](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps). If that link doesn't work, you can always use the regular menu to access Microsoft Entra ID.
 
-We can find the app registration on the menu on the left and create a new entry
+We can find the app registration on the menu on the left and create a new entry:
 
 ![image](/assets/2025-01-12/010.png)
 
-We give the new registration a nice name and leave all values to default unless otherwise stated here.
+We give the new registration a nice name and leave all values to default (unless otherwise stated):
 
 ![image](/assets/2025-01-12/020.png)
 
-The most important part is to give the registered app the necessary permission to let it do the right things in the name of the user who uses the app. The screenshot shows a typical API permission. "Tasks" stand for the ToDo items in the Office and the "ReadWrite" stands for reading and modifying the tasks. All potential permissions can be accessed through a tree of permissions that be access when adding a new one.
-Beside the Graph API, which is the basis for the Office 365 data source in Peakboard, there are other permission available like access to Power BI.
+The most important step is to give the registered app the necessary permissions. The following screenshot shows a typical API permission. `Tasks` refers to the to-do items in Office, and `ReadWrite` refers to the permissions for reading and modifying the tasks. All potential permissions can be accessed through a tree of permissions that becomes visible when adding a new permission.
+
+Besides the Graph API permissions, which are the basis for the Office 365 data source in Peakboard, there are other permissions available, like access to Power BI.
 
 ![image](/assets/2025-01-12/030.png)
 
-The last thing we need to do is to allow the "Public Client flow" for during the authenfication process. That is mandatory for any exnternal desktop application like the Peakboard designer.
+The last thing we need to do is allow "public client flows" during the authentication process. This is mandatory for any external desktop applications like Peakboard Designer.
 
 ![image](/assets/2025-01-12/040.png)
 
-The Application ID and CLient ID of the registered app is what we need to put into the data source and then go through the authorisation process.
+We need to put the Application ID and Client ID of the registered app into the data source and then go through the authorization process.
 
 ![image](/assets/2025-01-12/050.png)
 
 ![image](/assets/2025-01-12/060.png)
 
-## result and conclusion
+## Result and conclusion
 
-After sucssfully going through the process of authenfication we can use the data source right away. It is highly reommanded to re-use the connection when using multiple data source based on Office 365 connectivity.
+After successfully going through the authentication process, we can use the new data source immediately. It is highly recommended to reuse the connection when creating multiple data source based on Office 365 connectivity.
 
