@@ -33,13 +33,13 @@ The To Do list itself is a simple table with all the common attributes like titl
 
 ![image](/assets/2025-02-13/020.png)
 
-Later, we want to show all the open tasks in our list to the end user. So, we filter out all the completed tasks with a simple dataflow that filters out tasks with the status `notStarted`.
+Later, we want to show all the open tasks in our list to the end user. So, we create a simple dataflow that filters for tasks with the status `notStarted`.
 
 ![image](/assets/2025-02-13/030.png)
 
-## Building the main screen
+## Build the main screen
 
-For the main screen we just use a styled list to present the task and bind this list to "OpenTasks" dataflow.
+For the main screen, we use a styled list to present the task. We bind this list to the `OpenTasks` dataflow.
 
 ![image](/assets/2025-02-13/040.png)
 
