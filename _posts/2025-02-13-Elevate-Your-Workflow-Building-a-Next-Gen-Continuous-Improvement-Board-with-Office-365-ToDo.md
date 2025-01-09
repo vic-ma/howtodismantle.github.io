@@ -13,19 +13,23 @@ downloads:
     url: /assets/2025-02-13/FactoryCITaskTracking.pbmx
 ---
 
-With the new Office 365 data sources, introduced by the Peakboard dev team in early 2025, you can access Microsoft To Do with just a few clicks. In this article, you will learn how to set up the Office 365 To Do data source. We will build a standard board where factory workers can track their daily tasks around improving the production processes --- a "Continuous Improvement (CI) Board." In our sample application we can let the end user create new tasks or set existing tasks to "done". The data backend will be a todo list that is located within the Office 365 space.
+With the new Office 365 data sources, introduced by the Peakboard dev team in early 2025, you can access Microsoft To Do with just a few clicks. In this article, you will learn how to set up the Office 365 To Do data source. We will build a standard board where factory workers can track their daily tasks around improving the production processes --- a "Continuous Improvement (CI) Board."
 
-For authentification against the Office 365 backend everythig is explained in this article [Getting started with the new Office 365 Data Sources](/Getting-started-with-the-new-Office-365-Data-Sources.html), so connecting to Office 365 is not part of this article.
+In our example application, the end user can create new tasks or set existing tasks to "done." The data backend will be a To Do list that is located in our Office 365 space.
+
+To learn how to authenticate with the Office 365 backend, see [Getting started with the new Office 365 Data Sources](/Getting-started-with-the-new-Office-365-Data-Sources.html).
 
 ## Set up the backend
 
-To access the To Do application of Office 365 we can use [this link](https://to-do.office.com/). For our CI board we just create a dedicated CI list.
+To access the Office 365 To Do application, we can use [this link](https://to-do.office.com/). For our CI board, we create a dedicated CI list:
 
 ![image](/assets/2025-02-13/010.png)
 
 ## Set up the data source
 
-After having created a new To Do list instance we [authorize against the Office 365 account](/Getting-started-with-the-new-Office-365-Data-Sources.html). All accessibe To Do lists show up in the combo box. The To Do list itself is just a simple table with all common attributes like title, description, due date, priority, status, etc....
+After having created a new To Do list instance, we [authorize the Office 365 account](/Getting-started-with-the-new-Office-365-Data-Sources.html). All accessible To Do lists show up in the combo box.
+
+The To Do list itself is a simple table with all the common attributes like title, description, due date, priority, status, etc.
 
 ![image](/assets/2025-02-13/020.png)
 
