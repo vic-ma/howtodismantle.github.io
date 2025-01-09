@@ -61,7 +61,7 @@ The screen has text boxes for the title, description, and due date of the new ta
 
 ![image](/assets/2025-02-13/080.png)
 
-Let's look at the Building Blocks of the **Create Task** command button. The button calls a function that is offered by the To Do data source. After the creation of the task, we refresh the data source and jump back to the overview screen.
+Let's look at the Building Blocks of the **Create Task** command button. The button calls a function that's provided by the To Do data source. After the creation of the task, we refresh the data source and jump back to the overview screen.
 
 ![image](/assets/2025-02-13/090.png)
 
