@@ -33,7 +33,7 @@ The To Do list itself is a simple table with all the common attributes like titl
 
 ![image](/assets/2025-02-13/020.png)
 
-Later we want to show all open tasks in our list to the end user, so we need to filter out all completed task by using a simple dataflow with a filter for tasks with Status "notStarted".
+Later, we want to show all the open tasks in our list to the end user. So, we filter out all the completed tasks with a simple dataflow that filters out tasks with the status `notStarted`.
 
 ![image](/assets/2025-02-13/030.png)
 
