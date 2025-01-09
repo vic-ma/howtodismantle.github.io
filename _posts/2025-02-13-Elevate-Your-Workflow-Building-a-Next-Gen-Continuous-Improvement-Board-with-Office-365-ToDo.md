@@ -3,8 +3,8 @@ layout: post
 title: Elevate Your Workflow - Building a Next-Gen Continuous Improvement Board with Office 365 ToDo
 date: 2023-03-01 03:00:00 +0200
 tags: office365
-image: /assets/2025-01-12/title.jpg
-image_header: /assets/2025-01-12/title_landscape.jpg
+image: /assets/2025-02-13/title.png
+image_header: /assets/2025-02-13/title_landscape.png
 read_more_links:
   - name: All Office 365 articles
     url: /category/office365
