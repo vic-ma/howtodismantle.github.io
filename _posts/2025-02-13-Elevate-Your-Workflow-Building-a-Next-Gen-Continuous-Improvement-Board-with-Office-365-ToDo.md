@@ -12,7 +12,7 @@ downloads:
   - name: FactoryCITaskTracking.pbmx
     url: /assets/2025-02-13/FactoryCITaskTracking.pbmx
 ---
-With the new Office 365 data source, which were introduced early 2025 by the Peakboard dev team, access to Microsoft ToDo can be done within a few clicks. In this article we learn how to set up the Office 365 ToDo data source and build a typical board where factory workers can track their daily tasks around improving the prodction processes. In out sample application we can let the end user create new tasks or set existing tasks to "done". The data backend will be a todo list that is located within the Office 365 space.
+With the new Office 365 data sources, which were introduced early 2025 by the Peakboard dev team, access to Microsoft ToDo can be done within a few clicks. In this article we learn how to set up the Office 365 ToDo data source and build a typical board where factory workers can track their daily tasks around improving the prodcution processes - a "Continuous Improvement (CI) Board"  In our sample application we can let the end user create new tasks or set existing tasks to "done". The data backend will be a todo list that is located within the Office 365 space.
 
 For authentification against the Office 365 backend everythig is explained in this article [Getting started with the new Office 365 Data Sources](/Getting-started-with-the-new-Office-365-Data-Sources.html), so connecting to Office 365 is not part of this article.
 
@@ -56,7 +56,7 @@ The screen offers a text boxes for the title, description and due date of the ne
 
 ![image](/assets/2025-02-13/080.png)
 
-Let's jump into the Building Blocks of the "Create Task" command button. We just call another function that is offered by the ToDo data source. AFter the creation of the task we refresh the data source and jump back to the overview screen.
+Let's jump into the Building Blocks of the "Create Task" command button. We just call another function that is offered by the ToDo data source. After the creation of the task we refresh the data source and jump back to the overview screen.
 
 ![image](/assets/2025-02-13/090.png)
 
