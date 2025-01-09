@@ -2,8 +2,8 @@ import requests
 import sys
 import pandas
 
-BaseURL = "http://api.peakboard.com";
-APIKey = "xxx";
+BaseURL = "https://api.peakboard.com";
+APIKey = "XXX";
 
 response = requests.get(BaseURL + "/public-api/v1/auth/token", headers={'apiKey': APIKey})
 
@@ -95,7 +95,7 @@ print(f"Record with id {id} was deleted")
 # Get table data with the help of SQL command
 
 body = {
-  "sql": "select Locked, count(*) as Counter from stockinfo group by locked"
+  "sql": "select Locked, count(*) as Counter from stockinfo group by Locked"
 }
 response = mySession.post(BaseURL + "/public-api/v1/lists/list", json=body)
 
