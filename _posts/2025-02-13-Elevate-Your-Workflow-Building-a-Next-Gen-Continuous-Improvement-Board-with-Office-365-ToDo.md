@@ -21,13 +21,13 @@ To learn how to authenticate with the Office 365 backend, see [Getting started w
 
 ## Set up the backend
 
-To access the Office 365 To Do application, we can use [this link](https://to-do.office.com/). For our CI board, we create a dedicated CI list:
+To access the Office 365 To Do application, we use [this link](https://to-do.office.com/). For our CI board, we create a dedicated CI list:
 
 ![image](/assets/2025-02-13/010.png)
 
 ## Set up the data source
 
-After having created a new To Do list instance, we [authorize the Office 365 account](/Getting-started-with-the-new-Office-365-Data-Sources.html). All accessible To Do lists show up in the combo box.
+After having created a new To Do list instance, we [authorize against the Office 365 account](/Getting-started-with-the-new-Office-365-Data-Sources.html). All accessible To Do lists show up in the combo box.
 
 The To Do list itself is a simple table with all the common attributes like title, description, due date, priority, status, etc.
 
@@ -43,30 +43,32 @@ For the main screen, we use a styled list to present the task. We bind this list
 
 ![image](/assets/2025-02-13/040.png)
 
-In the list item editor we choose the attributes to be displayed. in our case it's only the title and the due date. Also we place a button on the item for the user to set a list item to "done".
+In the list item editor we choose the attributes to be displayed. In our case, we only add the title and the due date. We also place a button on the item that lets the user set a list item to `done`.
 
 ![image](/assets/2025-02-13/050.png)
 
-Let's look behind the code of the "done" button. Within the building blocks there are several blocks availabe to manipulate To Do list items. In our case we just set "Task completed" to true. The ID of the task is accessible from the menu. It refers to the current instance of the styled list item. So literally we just need to connect those two blocks and combine it to one single command, followed by a refresh of the list.
+Let's look behind the code of the **Done** button. In Building Blocks, there are several blocks that manipulate To Do list items. In our case, we set "task completed" to true.
+
+The ID of the task is accessible from the menu. It refers to the current instance of the styled list item. So we need to connect those two blocks and combine it to a single command, followed by a refresh of the list.
 
 ![image](/assets/2025-02-13/060.png)
 
 ## Create a new task
 
-To let the user create a new task, we just build a new screen and let the user jump to that new screen.
+To let the user create a new task, we build a new screen and let the user jump to that screen.
 
 ![image](/assets/2025-02-13/070.png)
 
-The screen offers a text boxes for the title, description and due date of the new task.
+The screen has text boxes for the title, description, and due date of the new task.
 
 ![image](/assets/2025-02-13/080.png)
 
-Let's jump into the Building Blocks of the "Create Task" command button. We just call another function that is offered by the To Do data source. After the creation of the task we refresh the data source and jump back to the overview screen.
+Let's jump into the Building Blocks of the **Create Task** command button. The button calls a function that is offered by the To Do data source. After the creation of the task, we refresh the data source and jump back to the overview screen.
 
 ![image](/assets/2025-02-13/090.png)
 
-## result
+## Result
 
-The short video shows the final result. First we create a new task and then set it to done.
+This short video shows the final result. We create a new task and then set it to done.
 
 ![image](/assets/2025-02-13/result.gif)
