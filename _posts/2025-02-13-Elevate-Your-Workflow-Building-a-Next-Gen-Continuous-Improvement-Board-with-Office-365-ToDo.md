@@ -43,13 +43,11 @@ For the main screen, we use a styled list to present the task. We bind this list
 
 ![image](/assets/2025-02-13/040.png)
 
-In the list item editor we choose the attributes to be displayed. In our case, we only add the title and the due date. We also place a button on the item that lets the user set a list item to `done`.
+In the list item editor, we choose the attributes to be displayed. In our case, we only add the title and the due date. We also place a button on the item that lets the user set a list item to "Done."
 
 ![image](/assets/2025-02-13/050.png)
 
-Let's look behind the code of the **Done** button. In Building Blocks, there are several blocks that manipulate To Do list items. In our case, we set "task completed" to true.
-
-The ID of the task is accessible from the menu. It refers to the current instance of the styled list item. So we need to connect those two blocks and combine it to a single command, followed by a refresh of the list.
+Let's look behind the code of the **Done** button. In Building Blocks, there are several blocks that manipulate To Do list items. In our case, we set "task completed" to true. The ID of the task is accessible from the menu. It refers to the current instance of the styled list item. So, we need to connect those two blocks and combine them into a single command, followed by a refresh of the list.
 
 ![image](/assets/2025-02-13/060.png)
 
@@ -63,7 +61,7 @@ The screen has text boxes for the title, description, and due date of the new ta
 
 ![image](/assets/2025-02-13/080.png)
 
-Let's jump into the Building Blocks of the **Create Task** command button. The button calls a function that is offered by the To Do data source. After the creation of the task, we refresh the data source and jump back to the overview screen.
+Let's look at the Building Blocks of the **Create Task** command button. The button calls a function that is offered by the To Do data source. After the creation of the task, we refresh the data source and jump back to the overview screen.
 
 ![image](/assets/2025-02-13/090.png)
 
