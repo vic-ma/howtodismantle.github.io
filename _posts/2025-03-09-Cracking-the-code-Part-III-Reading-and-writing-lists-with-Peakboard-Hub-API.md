@@ -243,9 +243,9 @@ If the action is successful, the response body will contain the corresponding st
 }
 {% endhighlight %}
 
-## Deleting data
+## Delete data
 
-To delete a record, we use an `HTTP DELETE` command. We provide the name of the list and the ID of the record to be deleted in the HTTP body:
+To delete a record, we use an `HTTP DELETE` request. In the request body, we provide the name of the list and the ID of the record to be deleted:
 
 
 {% highlight json %}
