@@ -12,29 +12,35 @@ read_more_links:
   - name: Cracking the code - Part II - Calling functions remotely
     url: /Cracking-the-code-Part-II-Calling-functions-remotely.html
 ---
-Welcome to the third part of Peakboard Hub API series. If you're not familiar with the basics, like how to get an API key and how to use it to obtain and handle an access token, first check out the [Getting started](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) article.
 
-One of the typical use cases for the Peakboard Hub is using the Hub as a data storage. That's why there are a couple of functions available to read and write the data of a hub list which we will discuss in this article.
+Welcome to the third part of our Peakboard Hub API series. To learn the basics, like how to get an API key and access token, see our [getting started](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) article.
 
-| Endpoint            | Op.           | Description |
-| ------------------- | ------------- | ------------- |
-| `/v1/lists`         | `GET`         | List all lists on the Hub  |
-| `/v1/lists/list`    | `GET`         | Return Hub list  |
-| `/v1/lists/list`    | `POST`        | Return Hub list data by using SQL |
-| `/v1/lists/items`   | `POST`        | Add a new record to a Hub list.            | 
-| `/v1/lists/items`   | `PUT`         | Change the data of a record in a Hub list. | 
-| `/v1/lists/items`   | `DELETE`      | Delete a record from a Hub list.           | 
+A common use case for Peakboard Hub is using the Hub for data storage. That's why the Hub API has endpoints for reading and writing data to a Hub list. We will discuss these endpoints in this article.
 
-In this article we will use the stockinfo list as a sample.
+| Endpoint          | Method   | Description                                  |
+| ----------------- | -------- | -------------------------------------------- |
+| `/v1/lists`       | `GET`    | Return a list of all lists in the Hub.       |
+| `/v1/lists/list`  | `GET`    | Return a Hub list.                           |
+| `/v1/lists/list`  | `POST`   | Return Hub list data by using a SQL statement.|
+| `/v1/lists/items` | `POST`   | Add a new record to a Hub list.              |
+| `/v1/lists/items` | `PUT`    | Change the data of a record in a Hub list.   |
+| `/v1/lists/items` | `DELETE` | Delete a record from a Hub list.             |
+
+In this article, we will use the `StockInfo` list as an example.
 
 ![image](/assets/2025-03-09/010.png)
 
-The correct prefix to form the whole URL depends on the Peakboard Hub you're using. In case of Peakboard Hub Online it's "https://api.peakboard.com". The Swagger portal for playing around with the function can be found [here](https://api.peakboard.com/public-api/index.html). 
+The correct URL prefix (origin) depends on the version of Peakboard Hub that you're using. This is the correct prefix for Peakboard Hub Online:
 
-## List all lists with GET `/v1/lists`
+{% highlight url %}
+https://api.peakboard.com
+{% endhighlight %}
 
-Nothing important to say here. This function returns a list of all available lists that are within the scope of the current API key context.
-The sample shows the return message.
+You can also try out the different endpoints in the [Swagger portal](https://api.peakboard.com/public-api/index.html).
+
+## List all lists with `GET /v1/lists`
+
+This endpoint returns a list of all available lists that are within the scope of the current API key context. Here is an example response:
 
 {% highlight json %}
 [
@@ -49,23 +55,25 @@ The sample shows the return message.
 ]
 {% endhighlight %}
 
-## Get the data with `/lists/list`
+## Get the data with `GET /lists/list`
 
-Using GET `/lists/list` is the easiest way to access the data content of a list. Here are the query parameters:
+Using `GET /lists/list` is the easiest way to access the contents of a list. Here are the query parameters:
 
-- Name is the name of the list
-- SortColumn is the name of the column to be used for sorting
-- SortOrder can be Asc or Desc
-- SkipRows is omiting a certain number of rows to enable pagination
-- MaxRows is the maximal number of rows.
+| Parameter    | Description                                         |
+| ------------ | --------------------------------------------------- |
+| `Name`       | The name of the list.                               |
+| `SortColumn` | The name of the column to use for sorting.          |
+| `SortOrder`  | Either `Asc` for ascending or `Desc` for descending. |
+| `SkipRows`   | Omit a certain number of rows to enable pagination. |
+| `MaxRows`    | The maximum number of rows to return.               |
 
-Let's a build a sample call bei using HTTP GET to get one single row with the highest material number:
+Let's build an example call that uses an `HTTP GET` request to get the row with the highest material number:
 
 {% highlight url %}
 /v1/lists/list?Name=Stockinfo&SortColumn=MaterialNo&SortOrder=Desc&MaxRows=1
 {% endhighlight %}
 
-Here's the result of that call. It consists of a arrays of columns including the meta data type under the "columns" node. Under the "items" node we find an array of data rows. It's a name/value pair array.
+Here's the response to that call. It consists of an array of columns, including the metadata under the `columns` node. Under the `items` node, there's an array of data rows. It's a name-value pair array.
 
 {% highlight json %}
 {
@@ -116,13 +124,15 @@ Here's the result of that call. It consists of a arrays of columns including the
 
 ## SQL access to the data
 
-The same endpoint `/lists/list` can be also used in a POST call to submit a real SQL statement and let the Peakboard Hub Database do some work for you. This a perfect way to aggregate the data before it's transferred. So no need to transfer large batches of data when you only need an  aggregated view. Let's imagine we want to know only the number of locked and unlocked stock records from our sample table. The correct SQL would be 
+The same endpoint, `/lists/list`, can also be used in a `POST` call to submit a SQL statement and let the Peakboard Hub Database do some work for you. This is the perfect way to aggregate the data before it's returned to you. That way, there's no need to transfer large batches of data when you only need an aggregated view.
+
+Suppose we want to know the number of locked and unlocked stock records from our example table. Here is the correct SQL:
 
 {% highlight sql %}
 select Locked, count(*) as Counter from stockinfo group by locked
 {% endhighlight %}
 
-So we just wrap this SQL statement into a JSON envelope and submit it the HTTP body to the API endpoint.
+So, we wrap this SQL statement into a JSON envelope and submit it in the body of a `POST` request to the API endpoint:
 
 {% highlight json %}
 {
@@ -130,7 +140,7 @@ So we just wrap this SQL statement into a JSON envelope and submit it the HTTP b
 }
 {% endhighlight %}
 
-Here's the result.
+Here's the response:
 
 {% highlight json %}
 {
@@ -171,11 +181,9 @@ Here's the result.
 }
 {% endhighlight %}
 
-## Adding new data by posting to `/v1/lists/items`
+## Add new data with `POST /v1/lists/items`
 
-The endpoint `/v1/lists/items` can be used for any data manipulation. A POST call to this endpoint will create a new record.
-Here's the body for the record creation:
-
+The `/v1/lists/items` endpoint can be used for any sort of data manipulation. A `POST` call to this endpoint will create a new record. Here's an example request body for record creation:
 
 {% highlight json %}
 {
@@ -183,12 +191,12 @@ Here's the body for the record creation:
     "data": {
         "MaterialNo": "0815",
         "Quantity": 5,
-        "locked": false 
+        "locked": false
     }
 }
 {% endhighlight %}
 
-After successful record creation the API returns the whole record including its ID to identify the record.
+After a successful record creation, the API returns the entire record, including its ID, which identifies the record.
 
 {% highlight json %}
 {
@@ -213,9 +221,9 @@ After successful record creation the API returns the whole record including its 
 }
 {% endhighlight %}
 
-## Changing data 
+## Change data
 
-To change an existing record in a list we use the same endpoint as for the data creation: `/v1/lists/items`. However we use PUT instead of POST. The body is slightly different as we need to provide the ID of the record to be changed. The sample shows how to set the "Quantity" field to a new value.
+To change an existing record in a list, we use the same endpoint as for data creation: `/v1/lists/items`. However, we use `PUT` instead of `POST`. The body is slightly different, because we need to provide the ID of the record to be changed. This example shows how to set the `Quantity` field to a new value:
 
 {% highlight json %}
 {
@@ -227,7 +235,7 @@ To change an existing record in a list we use the same endpoint as for the data 
 }
 {% endhighlight %}
 
-If the acction is succesful the response body is filled with the cooresponding state to confirm.
+If the action is successful, the response body will contain the corresponding state, to confirm:
 
 {% highlight json %}
 {
@@ -235,9 +243,10 @@ If the acction is succesful the response body is filled with the cooresponding s
 }
 {% endhighlight %}
 
-## Deleting data
+## Delete data
 
-For deleting a record we use a HTTP DELETE command and provide the name of the list and the ID of the record to be deleted in the HTTP body.
+To delete a record, we use an `HTTP DELETE` request. In the request body, we provide the name of the list and the ID of the record to be deleted:
+
 
 {% highlight json %}
 {
@@ -246,11 +255,10 @@ For deleting a record we use a HTTP DELETE command and provide the name of the l
 }
 {% endhighlight %}
 
-The confirmation for the Peakboard servern works similiar to the Change of data.
+The confirmation for the Peakboard server works similarly to the change of data:
 
 {% highlight json %}
 {
   "state": "Success"
 }
 {% endhighlight %}
-
