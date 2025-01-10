@@ -44,14 +44,14 @@ This endpoint returns a list of all available lists that are within the scope of
 
 {% highlight json %}
 [
-{
-"id": 1085,
-"name": "Booking"
-},
-{
-"id": 1084,
-"name": "StockInfo"
-}
+  {
+    "id": 1085,
+    "name": "Booking"
+  },
+  {
+    "id": 1084,
+    "name": "StockInfo"
+  }
 ]
 {% endhighlight %}
 
@@ -77,48 +77,48 @@ Here's the response to that call. It consists of an array of columns, including 
 
 {% highlight json %}
 {
-"columns": [
-{
-"name": "ID",
-"elementName": "ID",
-"type": "Number"
-},
-{
-"name": "MaterialNo",
-"elementName": "MaterialNo",
-"type": "String"
-},
-{
-"name": "Quantity",
-"elementName": "Quantity",
-"type": "Number"
-},
-{
-"name": "Locked",
-"elementName": "Locked",
-"type": "Boolean"
-}
-],
-"items": [
-[
-{
-"column": "ID",
-"value": 4
-},
-{
-"column": "MaterialNo",
-"value": "4716"
-},
-{
-"column": "Quantity",
-"value": 810
-},
-{
-"column": "Locked",
-"value": true
-}
-]
-]
+  "columns": [
+    {
+      "name": "ID",
+      "elementName": "ID",
+      "type": "Number"
+    },
+    {
+      "name": "MaterialNo",
+      "elementName": "MaterialNo",
+      "type": "String"
+    },
+    {
+      "name": "Quantity",
+      "elementName": "Quantity",
+      "type": "Number"
+    },
+    {
+      "name": "Locked",
+      "elementName": "Locked",
+      "type": "Boolean"
+    }
+  ],
+  "items": [
+    [
+      {
+        "column": "ID",
+        "value": 4
+      },
+      {
+        "column": "MaterialNo",
+        "value": "4716"
+      },
+      {
+        "column": "Quantity",
+        "value": 810
+      },
+      {
+        "column": "Locked",
+        "value": true
+      }
+    ]
+  ]
 }
 {% endhighlight %}
 
@@ -142,40 +142,40 @@ Here's the result.
 
 {% highlight json %}
 {
-"columns": [
-{
-"name": "Locked",
-"elementName": "Locked",
-"type": "Boolean"
-},
-{
-"name": "Counter",
-"elementName": "Counter",
-"type": null
-}
-],
-"items": [
-[
-{
-"column": "Locked",
-"value": false
-},
-{
-"column": "Counter",
-"value": 1
-}
-],
-[
-{
-"column": "Locked",
-"value": true
-},
-{
-"column": "Counter",
-"value": 3
-}
-]
-]
+  "columns": [
+    {
+      "name": "Locked",
+      "elementName": "Locked",
+      "type": "Boolean"
+    },
+    {
+      "name": "Counter",
+      "elementName": "Counter",
+      "type": null
+    }
+  ],
+  "items": [
+    [
+      {
+        "column": "Locked",
+        "value": false
+      },
+      {
+        "column": "Counter",
+        "value": 1
+      }
+    ],
+    [
+      {
+        "column": "Locked",
+        "value": true
+      },
+      {
+        "column": "Counter",
+        "value": 3
+      }
+    ]
+  ]
 }
 {% endhighlight %}
 
@@ -186,12 +186,12 @@ Here's the body for the record creation:
 
 {% highlight json %}
 {
-"listName": "stockinfo",
-"data": {
-"MaterialNo": "0815",
-"Quantity": 5,
-"locked": false
-}
+  "listName": "stockinfo",
+  "data": {
+    "MaterialNo": "0815",
+    "Quantity": 5,
+    "locked": false
+  }
 }
 {% endhighlight %}
 
@@ -199,24 +199,24 @@ After successful record creation the API returns the whole record including its 
 
 {% highlight json %}
 {
-"addedItem": [
-{
-"column": "ID",
-"value": 13
-},
-{
-"column": "MaterialNo",
-"value": "0815"
-},
-{
-"column": "Quantity",
-"value": 5
-},
-{
-"column": "Locked",
-"value": false
-}
-]
+  "addedItem": [
+    {
+      "column": "ID",
+      "value": 13
+    },
+    {
+      "column": "MaterialNo",
+      "value": "0815"
+    },
+    {
+      "column": "Quantity",
+      "value": 5
+    },
+    {
+      "column": "Locked",
+      "value": false
+    }
+  ]
 }
 {% endhighlight %}
 
@@ -226,11 +226,11 @@ To change an existing record in a list we use the same endpoint as for the data 
 
 {% highlight json %}
 {
-"rowId": 13,
-"listName": "stockinfo",
-"data": {
-"Quantity": 30
-}
+  "rowId": 13,
+  "listName": "stockinfo",
+  "data": {
+    "Quantity": 30
+  }
 }
 {% endhighlight %}
 
@@ -238,7 +238,7 @@ If the acction is succesful the response body is filled with the cooresponding s
 
 {% highlight json %}
 {
-"state": "Success"
+  "state": "Success"
 }
 {% endhighlight %}
 
@@ -248,8 +248,8 @@ For deleting a record we use a HTTP DELETE command and provide the name of the l
 
 {% highlight json %}
 {
-"listName": "stockinfo",
-"rowId": 13
+  "listName": "stockinfo",
+  "rowId": 13
 }
 {% endhighlight %}
 
@@ -257,6 +257,6 @@ The confirmation for the Peakboard servern works similiar to the Change of data.
 
 {% highlight json %}
 {
-"state": "Success"
+  "state": "Success"
 }
 {% endhighlight %}
