@@ -17,20 +17,22 @@ Welcome to the third part of our Peakboard Hub API series. To learn the basics, 
 
 One of the typical use cases for Peakboard Hub is using the Hub for data storage. That's why there are functions that read and write the data of a Hub list. We will discuss these functions in this article.
 
-| Endpoint          | Op.      | Description                                |
-| ----------------- | -------- | ------------------------------------------ |
-| `/v1/lists`       | `GET`    | List all lists on the Hub                  |
-| `/v1/lists/list`  | `GET`    | Return Hub list                            |
-| `/v1/lists/list`  | `POST`   | Return Hub list data by using SQL          |
-| `/v1/lists/items` | `POST`   | Add a new record to a Hub list.            |
-| `/v1/lists/items` | `PUT`    | Change the data of a record in a Hub list. |
-| `/v1/lists/items` | `DELETE` | Delete a record from a Hub list.           |
+| Endpoint          | Method   | Description                                  |
+| ----------------- | -------- | -------------------------------------------- |
+| `/v1/lists`       | `GET`    | Return all lists in the Hub.                 |
+| `/v1/lists/list`  | `GET`    | Return a Hub list.                           |
+| `/v1/lists/list`  | `POST`   | Return Hub list data by using a SQL command. |
+| `/v1/lists/items` | `POST`   | Add a new record to a Hub list.              |
+| `/v1/lists/items` | `PUT`    | Change the data of a record in a Hub list.   |
+| `/v1/lists/items` | `DELETE` | Delete a record from a Hub list.             |
 
-In this article we will use the stockinfo list as a sample.
+In this article, we will use the `StockInfo` list as an example.
 
 ![image](/assets/2025-03-09/010.png)
 
-The correct prefix to form the whole URL depends on the Peakboard Hub you're using. In case of Peakboard Hub Online it's "https://api.peakboard.com". The Swagger portal for playing around with the function can be found [here](https://api.peakboard.com/public-api/index.html).
+The correct URL prefix (origin) depends on the version of Peakboard Hub that you're using. For Peakboard Hub Online, it's `https://api.peakboard.com`.
+
+You can also The Swagger portal for playing around with the function can be found [here](https://api.peakboard.com/public-api/index.html).
 
 ## List all lists with GET `/v1/lists`
 
