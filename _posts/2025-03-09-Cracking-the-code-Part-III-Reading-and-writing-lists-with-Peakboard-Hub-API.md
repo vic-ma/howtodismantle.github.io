@@ -15,7 +15,7 @@ read_more_links:
 
 Welcome to the third part of our Peakboard Hub API series. To learn the basics, like how to get an API key and how to use it to obtain and handle an access token, see our [getting started](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) article.
 
-One of the typical use cases for Peakboard Hub is using the Hub for data storage. That's why there are functions that read and write the data of a Hub list. We will discuss these functions in this article.
+One of the typical use cases for Peakboard Hub is using the Hub for data storage. That's why there are endpoints that read and write the data of a Hub list. We will discuss these endpoints in this article.
 
 | Endpoint          | Method   | Description                                  |
 | ----------------- | -------- | -------------------------------------------- |
@@ -30,13 +30,17 @@ In this article, we will use the `StockInfo` list as an example.
 
 ![image](/assets/2025-03-09/010.png)
 
-The correct URL prefix (origin) depends on the version of Peakboard Hub that you're using. For Peakboard Hub Online, it's `https://api.peakboard.com`.
+The correct URL prefix (origin) depends on the version of Peakboard Hub that you're using. This is the correct prefix for Peakboard Hub Online:
 
-You can also The Swagger portal for playing around with the function can be found [here](https://api.peakboard.com/public-api/index.html).
+{% highlight url %}
+https://api.peakboard.com
+{% endhighlight %}
+
+You can also try out the different endpoints in the [Swagger portal](https://api.peakboard.com/public-api/index.html).
 
 ## List all lists with GET `/v1/lists`
 
-Nothing important to say here. This function returns a list of all available lists that are within the scope of the current API key context.
+Nothing important to say here. This endpoint returns a list of all available lists that are within the scope of the current API key context.
 The sample shows the return message.
 
 {% highlight json %}
