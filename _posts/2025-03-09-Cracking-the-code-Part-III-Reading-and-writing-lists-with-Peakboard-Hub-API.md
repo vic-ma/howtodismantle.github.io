@@ -12,24 +12,25 @@ read_more_links:
   - name: Cracking the code - Part II - Calling functions remotely
     url: /Cracking-the-code-Part-II-Calling-functions-remotely.html
 ---
-Welcome to the third part of Peakboard Hub API series. If you're not familiar with the basics, like how to get an API key and how to use it to obtain and handle an access token, first check out the [Getting started](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) article.
 
-One of the typical use cases for the Peakboard Hub is using the Hub as a data storage. That's why there are a couple of functions available to read and write the data of a hub list which we will discuss in this article.
+Welcome to the third part of our Peakboard Hub API series. To learn the basics, like how to get an API key and how to use it to obtain and handle an access token, see our [getting started](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) article.
 
-| Endpoint            | Op.           | Description |
-| ------------------- | ------------- | ------------- |
-| `/v1/lists`         | `GET`         | List all lists on the Hub  |
-| `/v1/lists/list`    | `GET`         | Return Hub list  |
-| `/v1/lists/list`    | `POST`        | Return Hub list data by using SQL |
-| `/v1/lists/items`   | `POST`        | Add a new record to a Hub list.            | 
-| `/v1/lists/items`   | `PUT`         | Change the data of a record in a Hub list. | 
-| `/v1/lists/items`   | `DELETE`      | Delete a record from a Hub list.           | 
+One of the typical use cases for Peakboard Hub is using the Hub for data storage. That's why there are functions that read and write the data of a Hub list. We will discuss these functions in this article.
+
+| Endpoint          | Op.      | Description                                |
+| ----------------- | -------- | ------------------------------------------ |
+| `/v1/lists`       | `GET`    | List all lists on the Hub                  |
+| `/v1/lists/list`  | `GET`    | Return Hub list                            |
+| `/v1/lists/list`  | `POST`   | Return Hub list data by using SQL          |
+| `/v1/lists/items` | `POST`   | Add a new record to a Hub list.            |
+| `/v1/lists/items` | `PUT`    | Change the data of a record in a Hub list. |
+| `/v1/lists/items` | `DELETE` | Delete a record from a Hub list.           |
 
 In this article we will use the stockinfo list as a sample.
 
 ![image](/assets/2025-03-09/010.png)
 
-The correct prefix to form the whole URL depends on the Peakboard Hub you're using. In case of Peakboard Hub Online it's "https://api.peakboard.com". The Swagger portal for playing around with the function can be found [here](https://api.peakboard.com/public-api/index.html). 
+The correct prefix to form the whole URL depends on the Peakboard Hub you're using. In case of Peakboard Hub Online it's "https://api.peakboard.com". The Swagger portal for playing around with the function can be found [here](https://api.peakboard.com/public-api/index.html).
 
 ## List all lists with GET `/v1/lists`
 
@@ -38,14 +39,14 @@ The sample shows the return message.
 
 {% highlight json %}
 [
-  {
-    "id": 1085,
-    "name": "Booking"
-  },
-  {
-    "id": 1084,
-    "name": "StockInfo"
-  }
+{
+"id": 1085,
+"name": "Booking"
+},
+{
+"id": 1084,
+"name": "StockInfo"
+}
 ]
 {% endhighlight %}
 
@@ -69,64 +70,64 @@ Here's the result of that call. It consists of a arrays of columns including the
 
 {% highlight json %}
 {
-  "columns": [
-    {
-      "name": "ID",
-      "elementName": "ID",
-      "type": "Number"
-    },
-    {
-      "name": "MaterialNo",
-      "elementName": "MaterialNo",
-      "type": "String"
-    },
-    {
-      "name": "Quantity",
-      "elementName": "Quantity",
-      "type": "Number"
-    },
-    {
-      "name": "Locked",
-      "elementName": "Locked",
-      "type": "Boolean"
-    }
-  ],
-  "items": [
-    [
-      {
-        "column": "ID",
-        "value": 4
-      },
-      {
-        "column": "MaterialNo",
-        "value": "4716"
-      },
-      {
-        "column": "Quantity",
-        "value": 810
-      },
-      {
-        "column": "Locked",
-        "value": true
-      }
-    ]
-  ]
+"columns": [
+{
+"name": "ID",
+"elementName": "ID",
+"type": "Number"
+},
+{
+"name": "MaterialNo",
+"elementName": "MaterialNo",
+"type": "String"
+},
+{
+"name": "Quantity",
+"elementName": "Quantity",
+"type": "Number"
+},
+{
+"name": "Locked",
+"elementName": "Locked",
+"type": "Boolean"
+}
+],
+"items": [
+[
+{
+"column": "ID",
+"value": 4
+},
+{
+"column": "MaterialNo",
+"value": "4716"
+},
+{
+"column": "Quantity",
+"value": 810
+},
+{
+"column": "Locked",
+"value": true
+}
+]
+]
 }
 {% endhighlight %}
 
 ## SQL access to the data
 
-The same endpoint `/lists/list` can be also used in a POST call to submit a real SQL statement and let the Peakboard Hub Database do some work for you. This a perfect way to aggregate the data before it's transferred. So no need to transfer large batches of data when you only need an  aggregated view. Let's imagine we want to know only the number of locked and unlocked stock records from our sample table. The correct SQL would be 
+The same endpoint `/lists/list` can be also used in a POST call to submit a real SQL statement and let the Peakboard Hub Database do some work for you. This a perfect way to aggregate the data before it's transferred. So no need to transfer large batches of data when you only need an aggregated view. Let's imagine we want to know only the number of locked and unlocked stock records from our sample table. The correct SQL would be
 
 {% highlight sql %}
-select Locked, count(*) as Counter from stockinfo group by locked
+select Locked, count(\*) as Counter from stockinfo group by locked
 {% endhighlight %}
 
 So we just wrap this SQL statement into a JSON envelope and submit it the HTTP body to the API endpoint.
 
 {% highlight json %}
 {
-  "sql": "select Locked, count(*) as Counter from stockinfo group by locked"
+"sql": "select Locked, count(\*) as Counter from stockinfo group by locked"
 }
 {% endhighlight %}
 
@@ -134,40 +135,40 @@ Here's the result.
 
 {% highlight json %}
 {
-  "columns": [
-    {
-      "name": "Locked",
-      "elementName": "Locked",
-      "type": "Boolean"
-    },
-    {
-      "name": "Counter",
-      "elementName": "Counter",
-      "type": null
-    }
-  ],
-  "items": [
-    [
-      {
-        "column": "Locked",
-        "value": false
-      },
-      {
-        "column": "Counter",
-        "value": 1
-      }
-    ],
-    [
-      {
-        "column": "Locked",
-        "value": true
-      },
-      {
-        "column": "Counter",
-        "value": 3
-      }
-    ]
-  ]
+"columns": [
+{
+"name": "Locked",
+"elementName": "Locked",
+"type": "Boolean"
+},
+{
+"name": "Counter",
+"elementName": "Counter",
+"type": null
+}
+],
+"items": [
+[
+{
+"column": "Locked",
+"value": false
+},
+{
+"column": "Counter",
+"value": 1
+}
+],
+[
+{
+"column": "Locked",
+"value": true
+},
+{
+"column": "Counter",
+"value": 3
+}
+]
+]
 }
 {% endhighlight %}
 
@@ -176,15 +177,14 @@ Here's the result.
 The endpoint `/v1/lists/items` can be used for any data manipulation. A POST call to this endpoint will create a new record.
 Here's the body for the record creation:
 
-
 {% highlight json %}
 {
-    "listName": "stockinfo",
-    "data": {
-        "MaterialNo": "0815",
-        "Quantity": 5,
-        "locked": false 
-    }
+"listName": "stockinfo",
+"data": {
+"MaterialNo": "0815",
+"Quantity": 5,
+"locked": false
+}
 }
 {% endhighlight %}
 
@@ -192,38 +192,38 @@ After successful record creation the API returns the whole record including its 
 
 {% highlight json %}
 {
-  "addedItem": [
-    {
-      "column": "ID",
-      "value": 13
-    },
-    {
-      "column": "MaterialNo",
-      "value": "0815"
-    },
-    {
-      "column": "Quantity",
-      "value": 5
-    },
-    {
-      "column": "Locked",
-      "value": false
-    }
-  ]
+"addedItem": [
+{
+"column": "ID",
+"value": 13
+},
+{
+"column": "MaterialNo",
+"value": "0815"
+},
+{
+"column": "Quantity",
+"value": 5
+},
+{
+"column": "Locked",
+"value": false
+}
+]
 }
 {% endhighlight %}
 
-## Changing data 
+## Changing data
 
 To change an existing record in a list we use the same endpoint as for the data creation: `/v1/lists/items`. However we use PUT instead of POST. The body is slightly different as we need to provide the ID of the record to be changed. The sample shows how to set the "Quantity" field to a new value.
 
 {% highlight json %}
 {
-  "rowId": 13,
-  "listName": "stockinfo",
-  "data": {
-    "Quantity": 30
-  }
+"rowId": 13,
+"listName": "stockinfo",
+"data": {
+"Quantity": 30
+}
 }
 {% endhighlight %}
 
@@ -231,7 +231,7 @@ If the acction is succesful the response body is filled with the cooresponding s
 
 {% highlight json %}
 {
-  "state": "Success"
+"state": "Success"
 }
 {% endhighlight %}
 
@@ -241,8 +241,8 @@ For deleting a record we use a HTTP DELETE command and provide the name of the l
 
 {% highlight json %}
 {
-  "listName": "stockinfo",
-  "rowId": 13
+"listName": "stockinfo",
+"rowId": 13
 }
 {% endhighlight %}
 
@@ -250,7 +250,6 @@ The confirmation for the Peakboard servern works similiar to the Change of data.
 
 {% highlight json %}
 {
-  "state": "Success"
+"state": "Success"
 }
 {% endhighlight %}
-
