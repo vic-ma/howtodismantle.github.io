@@ -129,14 +129,14 @@ The same endpoint, `/lists/list`, can be also used in a `POST` call to submit a 
 Suppose we want to know the number of locked and unlocked stock records from our example table. Here is the correct SQL:
 
 {% highlight sql %}
-select Locked, count(\*) as Counter from stockinfo group by locked
+select Locked, count(*) as Counter from stockinfo group by locked
 {% endhighlight %}
 
 So, we wrap this SQL statement into a JSON envelope and submit it in the body of a `POST` request to the API endpoint:
 
 {% highlight json %}
 {
-"sql": "select Locked, count(\*) as Counter from stockinfo group by locked"
+  "sql": "select Locked, count(*) as Counter from stockinfo group by locked"
 }
 {% endhighlight %}
 
@@ -187,12 +187,12 @@ The `/v1/lists/items` endpoint can be used for any sort of data manipulation. A 
 
 {% highlight json %}
 {
-  "listName": "stockinfo",
-  "data": {
-    "MaterialNo": "0815",
-    "Quantity": 5,
-    "locked": false
-  }
+    "listName": "stockinfo",
+    "data": {
+        "MaterialNo": "0815",
+        "Quantity": 5,
+        "locked": false
+    }
 }
 {% endhighlight %}
 
@@ -246,6 +246,7 @@ If the action is successful, the response body will contain the corresponding st
 ## Deleting data
 
 To delete a record, we use an `HTTP DELETE` command. We provide the name of the list and the ID of the record to be deleted in the HTTP body:
+
 
 {% highlight json %}
 {
