@@ -3,7 +3,7 @@ layout: post
 title: Cracking the code - Part III - Reading and writing lists with Peakboard Hub API
 date: 2023-03-01 03:00:00 +0200
 tags: api peakboardhub peakboardhubapi
-image: /assets/2025-02-05/title.png
+image: /assets/2025-09-09/title.png
 read_more_links:
   - name: Peakboard Hub API Swagger portal
     url: https://api.peakboard.com/public-api/index.html
@@ -29,9 +29,11 @@ In this article we will use the stockinfo list as a sample.
 
 ![image](/assets/2025-03-09/010.png)
 
-## List all lists with `/v1/lists`
+The correct prefix to form the whole URL depends on the Peakboard Hub you're using. In case of Peakboard Hub Online it's "https://api.peakboard.com". The Swagger portal for playing around with the function can be found [here](https://api.peakboard.com/public-api/index.html). 
 
-Nothing important to say here. This function resturns a list of all available lists that are within the scope of the current API key context.
+## List all lists with GET `/v1/lists`
+
+Nothing important to say here. This function returns a list of all available lists that are within the scope of the current API key context.
 The sample shows the return message.
 
 {% highlight json %}
@@ -49,7 +51,7 @@ The sample shows the return message.
 
 ## Get the data with `/lists/list`
 
-Using `/lists/list` is the easiest way to access the data content of a list. Here are the query paramters:
+Using GET `/lists/list` is the easiest way to access the data content of a list. Here are the query parameters:
 
 - Name is the name of the list
 - SortColumn is the name of the column to be used for sorting
@@ -244,7 +246,7 @@ For deleting a record we use a HTTP DELETE command and provide the name of the l
 }
 {% endhighlight %}
 
-The confirmation for the Peakboard servern works similiar to the CHange of data.
+The confirmation for the Peakboard servern works similiar to the Change of data.
 
 {% highlight json %}
 {
