@@ -73,7 +73,7 @@ Let's build an example call that uses an `HTTP GET` request to get the row with 
 /v1/lists/list?Name=Stockinfo&SortColumn=MaterialNo&SortOrder=Desc&MaxRows=1
 {% endhighlight %}
 
-Here's the response to that call. It consists of an array of columns, including the metadata type under the `columns` node. Under the `items` node, we find an array of data rows. It's a name-value pair array.
+Here's the response to that call. It consists of an array of columns, including the metadata under the `columns` node. Under the `items` node, there's an array of data rows. It's a name-value pair array.
 
 {% highlight json %}
 {
@@ -124,7 +124,7 @@ Here's the response to that call. It consists of an array of columns, including 
 
 ## SQL access to the data
 
-The same endpoint, `/lists/list`, can be also used in a `POST` call to submit a SQL statement and let the Peakboard Hub Database do some work for you. This is the perfect way to aggregate the data before it's returned to you. That way, there's no need to transfer large batches of data when you only need an aggregated view.
+The same endpoint, `/lists/list`, can also be used in a `POST` call to submit a SQL statement and let the Peakboard Hub Database do some work for you. This is the perfect way to aggregate the data before it's returned to you. That way, there's no need to transfer large batches of data when you only need an aggregated view.
 
 Suppose we want to know the number of locked and unlocked stock records from our example table. Here is the correct SQL:
 
