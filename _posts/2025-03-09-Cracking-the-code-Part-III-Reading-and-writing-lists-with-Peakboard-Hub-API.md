@@ -181,10 +181,9 @@ Here's the response:
 }
 {% endhighlight %}
 
-## Adding new data by posting to `/v1/lists/items`
+## Add new data with `POST /v1/lists/items`
 
-The endpoint `/v1/lists/items` can be used for any data manipulation. A POST call to this endpoint will create a new record.
-Here's the body for the record creation:
+The `/v1/lists/items` endpoint can be used for any sort of data manipulation. A `POST` call to this endpoint will create a new record. Here's an example request body for record creation:
 
 {% highlight json %}
 {
@@ -197,7 +196,7 @@ Here's the body for the record creation:
 }
 {% endhighlight %}
 
-After successful record creation the API returns the whole record including its ID to identify the record.
+After a successful record creation, the API returns the entire record, including its ID, which identifies the record.
 
 {% highlight json %}
 {
@@ -222,9 +221,9 @@ After successful record creation the API returns the whole record including its 
 }
 {% endhighlight %}
 
-## Changing data
+## Change data
 
-To change an existing record in a list we use the same endpoint as for the data creation: `/v1/lists/items`. However we use PUT instead of POST. The body is slightly different as we need to provide the ID of the record to be changed. The sample shows how to set the "Quantity" field to a new value.
+To change an existing record in a list, we use the same endpoint as for data creation: `/v1/lists/items`. However, we use `PUT` instead of `POST`. The body is slightly different, because we need to provide the ID of the record to be changed. This example shows how to set the `Quantity` field to a new value:
 
 {% highlight json %}
 {
@@ -236,7 +235,7 @@ To change an existing record in a list we use the same endpoint as for the data 
 }
 {% endhighlight %}
 
-If the acction is succesful the response body is filled with the cooresponding state to confirm.
+If the action is successful, the response body will contain the corresponding state, to confirm:
 
 {% highlight json %}
 {
@@ -246,7 +245,7 @@ If the acction is succesful the response body is filled with the cooresponding s
 
 ## Deleting data
 
-For deleting a record we use a HTTP DELETE command and provide the name of the list and the ID of the record to be deleted in the HTTP body.
+To delete a record, we use an `HTTP DELETE` command. We provide the name of the list and the ID of the record to be deleted in the HTTP body:
 
 {% highlight json %}
 {
@@ -255,7 +254,7 @@ For deleting a record we use a HTTP DELETE command and provide the name of the l
 }
 {% endhighlight %}
 
-The confirmation for the Peakboard servern works similiar to the Change of data.
+The confirmation for the Peakboard server works similarly to the change of data:
 
 {% highlight json %}
 {
