@@ -3,7 +3,7 @@ layout: post
 title: Cracking the code - Part III - Reading and writing lists with Peakboard Hub API
 date: 2023-03-01 03:00:00 +0200
 tags: api peakboardhub peakboardhubapi
-image: /assets/2025-09-09/title.png
+image: /assets/2025-03-09/title.png
 read_more_links:
   - name: Peakboard Hub API Swagger portal
     url: https://api.peakboard.com/public-api/index.html
