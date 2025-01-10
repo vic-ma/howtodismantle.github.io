@@ -19,7 +19,7 @@ One of the typical use cases for Peakboard Hub is using the Hub for data storage
 
 | Endpoint          | Method   | Description                                  |
 | ----------------- | -------- | -------------------------------------------- |
-| `/v1/lists`       | `GET`    | Return all lists in the Hub.                 |
+| `/v1/lists`       | `GET`    | Return a list of all lists in the Hub.       |
 | `/v1/lists/list`  | `GET`    | Return a Hub list.                           |
 | `/v1/lists/list`  | `POST`   | Return Hub list data by using a SQL command. |
 | `/v1/lists/items` | `POST`   | Add a new record to a Hub list.              |
@@ -38,10 +38,9 @@ https://api.peakboard.com
 
 You can also try out the different endpoints in the [Swagger portal](https://api.peakboard.com/public-api/index.html).
 
-## List all lists with GET `/v1/lists`
+## List all lists with `GET /v1/lists`
 
-Nothing important to say here. This endpoint returns a list of all available lists that are within the scope of the current API key context.
-The sample shows the return message.
+This endpoint returns a list of all available lists that are within the scope of the current API key context. Here is an example response:
 
 {% highlight json %}
 [
@@ -56,15 +55,17 @@ The sample shows the return message.
 ]
 {% endhighlight %}
 
-## Get the data with `/lists/list`
+## Get the data with `GET /lists/list`
 
-Using GET `/lists/list` is the easiest way to access the data content of a list. Here are the query parameters:
+Using `GET /lists/list` is the easiest way to access the contents of a list. Here are the query parameters:
 
-- Name is the name of the list
-- SortColumn is the name of the column to be used for sorting
-- SortOrder can be Asc or Desc
-- SkipRows is omiting a certain number of rows to enable pagination
-- MaxRows is the maximal number of rows.
+| Parameter    | Description                                         |
+| ------------ | --------------------------------------------------- |
+| `Name`       | The name of the list.                               |
+| `SortColumn` | The name of the column to use for sorting.          |
+| `SortOrder`  | Either `Asc` or `Desc`.                             |
+| `SkipRows`   | Omit a certain number of rows to enable pagination. |
+| `MaxRows`    | The maximum number of rows to return.               |
 
 Let's a build a sample call bei using HTTP GET to get one single row with the highest material number:
 
