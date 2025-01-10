@@ -13,9 +13,9 @@ read_more_links:
     url: /Cracking-the-code-Part-II-Calling-functions-remotely.html
 ---
 
-Welcome to the third part of our Peakboard Hub API series. To learn the basics, like how to get an API key and how to use it to obtain and handle an access token, see our [getting started](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) article.
+Welcome to the third part of our Peakboard Hub API series. To learn the basics, like how to get an API key and access token, see our [getting started](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) article.
 
-One of the typical use cases for Peakboard Hub is using the Hub for data storage. That's why there are endpoints that read and write the data of a Hub list. We will discuss these endpoints in this article.
+A common use case for Peakboard Hub is using the Hub for data storage. That's why the Hub API has endpoints for reading and writing data to a Hub list. We will discuss these endpoints in this article.
 
 | Endpoint          | Method   | Description                                  |
 | ----------------- | -------- | -------------------------------------------- |
@@ -63,7 +63,7 @@ Using `GET /lists/list` is the easiest way to access the contents of a list. Her
 | ------------ | --------------------------------------------------- |
 | `Name`       | The name of the list.                               |
 | `SortColumn` | The name of the column to use for sorting.          |
-| `SortOrder`  | Either `Asc` or `Desc`.                             |
+| `SortOrder`  | Either `Asc` for ascending or `Desc` for descending. |
 | `SkipRows`   | Omit a certain number of rows to enable pagination. |
 | `MaxRows`    | The maximum number of rows to return.               |
 
