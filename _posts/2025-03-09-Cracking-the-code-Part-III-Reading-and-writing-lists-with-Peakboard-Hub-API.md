@@ -21,7 +21,7 @@ One of the typical use cases for Peakboard Hub is using the Hub for data storage
 | ----------------- | -------- | -------------------------------------------- |
 | `/v1/lists`       | `GET`    | Return a list of all lists in the Hub.       |
 | `/v1/lists/list`  | `GET`    | Return a Hub list.                           |
-| `/v1/lists/list`  | `POST`   | Return Hub list data by using a SQL command. |
+| `/v1/lists/list`  | `POST`   | Return Hub list data by using a SQL statement.|
 | `/v1/lists/items` | `POST`   | Add a new record to a Hub list.              |
 | `/v1/lists/items` | `PUT`    | Change the data of a record in a Hub list.   |
 | `/v1/lists/items` | `DELETE` | Delete a record from a Hub list.             |
@@ -124,13 +124,15 @@ Here's the response to that call. It consists of an array of columns, including 
 
 ## SQL access to the data
 
-The same endpoint `/lists/list` can be also used in a POST call to submit a real SQL statement and let the Peakboard Hub Database do some work for you. This a perfect way to aggregate the data before it's transferred. So no need to transfer large batches of data when you only need an aggregated view. Let's imagine we want to know only the number of locked and unlocked stock records from our sample table. The correct SQL would be
+The same endpoint, `/lists/list`, can be also used in a `POST` call to submit a SQL statement and let the Peakboard Hub Database do some work for you. This is the perfect way to aggregate the data before it's returned to you. That way, there's no need to transfer large batches of data when you only need an aggregated view.
+
+Suppose we want to know the number of locked and unlocked stock records from our example table. Here is the correct SQL:
 
 {% highlight sql %}
 select Locked, count(\*) as Counter from stockinfo group by locked
 {% endhighlight %}
 
-So we just wrap this SQL statement into a JSON envelope and submit it the HTTP body to the API endpoint.
+So, we wrap this SQL statement into a JSON envelope and submit it in the body of a `POST` request to the API endpoint:
 
 {% highlight json %}
 {
@@ -138,7 +140,7 @@ So we just wrap this SQL statement into a JSON envelope and submit it the HTTP b
 }
 {% endhighlight %}
 
-Here's the result.
+Here's the response:
 
 {% highlight json %}
 {
