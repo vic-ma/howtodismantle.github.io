@@ -67,13 +67,13 @@ Using `GET /lists/list` is the easiest way to access the contents of a list. Her
 | `SkipRows`   | Omit a certain number of rows to enable pagination. |
 | `MaxRows`    | The maximum number of rows to return.               |
 
-Let's a build a sample call bei using HTTP GET to get one single row with the highest material number:
+Let's build an example call that uses an `HTTP GET` request to get the row with the highest material number:
 
 {% highlight url %}
 /v1/lists/list?Name=Stockinfo&SortColumn=MaterialNo&SortOrder=Desc&MaxRows=1
 {% endhighlight %}
 
-Here's the result of that call. It consists of a arrays of columns including the meta data type under the "columns" node. Under the "items" node we find an array of data rows. It's a name/value pair array.
+Here's the response to that call. It consists of an array of columns, including the metadata type under the `columns` node. Under the `items` node, we find an array of data rows. It's a name-value pair array.
 
 {% highlight json %}
 {
