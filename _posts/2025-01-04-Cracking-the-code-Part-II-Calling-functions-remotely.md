@@ -13,6 +13,8 @@ read_more_links:
 downloads:
   - name: PeakboardHubAPIFunctions.py
     url: /assets/2025-01-04/PeakboardHubAPIFunctions.py
+  - name: AlarmScreen.pbmx
+    url: /assets/2025-01-04/AlarmScreen.pbmx 
 ---
 In our [first article](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) about the Peakboard Hub API, we discussed how to get an API key, establish a connection to the Hub, and get information about the boxes that are connected to the hub.
 In today's article, we will discuss how to call shared, public functions on a box from the outside.
