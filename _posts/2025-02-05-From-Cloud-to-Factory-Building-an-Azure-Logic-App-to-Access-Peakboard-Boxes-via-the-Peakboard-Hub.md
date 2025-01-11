@@ -55,7 +55,7 @@ The actual access token is returned in the JSON string of the response body. To 
         }
     }
 }
-{% highlight python %}
+{% endhighlight %}
 
 ![image](/assets/2025-02-05/060.png)
 
@@ -76,7 +76,7 @@ For the actual alarm to be submitted we call the endpoint POST "/box/function". 
     }
   ]
 }
-{% highlight python %}
+{% endhighlight %}
 
 Here's how the call looks like in the design mode. 
 
