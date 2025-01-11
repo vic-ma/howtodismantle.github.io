@@ -6,8 +6,10 @@ on:
 jobs:
   build:
     name: calibreapp/image-actions
-    permissions: write-all
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
