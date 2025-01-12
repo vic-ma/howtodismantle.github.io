@@ -12,7 +12,7 @@ downloads:
   - name: AlarmScreen.pbmx
     url: /assets/2025-01-04/AlarmScreen.pbmx 
 ---
-With the Peakboard Hub Online it's easily possible to connect cloud apps and services ti applications that run on the worker's WOrkplace in a factory. That's one of the main ideas behind connecting the boxes to the Hub. In this article we will discuss, how to use an Azure Logic App to build a simple workflow to call functions in a Peakboard app. The possibilities of this techniques are endless.
+With the Peakboard Hub Online it's easily possible to connect cloud apps and services to applications that run on the worker's Workplace in a factory. That's one of the main ideas behind connecting the boxes to the Hub. In this article we will discuss, how to use an Azure Logic App to build a simple workflow to call functions in a Peakboard app. The possibilities of this techniques are endless.
 
 The Azure Logic App uses the regular API to communicate with the Hub. And Hub in turn has a secure connection through the firewall of the customer factory to the box. That makes it perfectly secure to bridge the gap between cloud services and apps and any kind of entity that resides directly in the highly sensitive area of production IT.
 
@@ -32,7 +32,7 @@ And also we need an API key with at least the scope "write:box" to allow a 3rd p
 
 ![image](/assets/2025-02-05/040.png)
 
-## Build the AZure Logic App
+## Build the Azure Logic App
 
 Before we steps into the details of each step, how does our Logic work? We need three steps to call the function:
 
@@ -40,7 +40,7 @@ Before we steps into the details of each step, how does our Logic work? We need 
 2. Parse the JSON string that is returned by the authentification
 3. Call the actualy API to execute the function
 
-AFter having a created a new Logic App in the AZure portal, we add the first http call as shown in the screenshot. The endpoint GET "/auth/token" receives the API key within an additional header with key "apiKey".
+After having a created a new Logic App in the Azure portal, we add the first http call as shown in the screenshot. The endpoint GET "/auth/token" receives the API key within an additional header with key "apiKey".
 
 ![image](/assets/2025-02-05/050.png)
 
@@ -82,15 +82,15 @@ Here's how the call looks like in the design mode.
 
 ![image](/assets/2025-02-05/070.png)
 
-The addtional header "Authorization" is simple concatenate from the term "Bearer " with the token that is extracted from the JSON in the previous parsing step.
+The additional header "Authorization" is a simple concatenate from the term "Bearer " with the token that is extracted from the JSON in the previous parsing step.
 
 ![image](/assets/2025-02-05/080.png)
 
-Of course in our sample we don't catch any kind of exceptions or other problems that might occur to make sure the example is easy to understand. In a real world application we must consider that authnetification might go wrong or the box is not available to be called.
+Of course in our sample we don't catch any kind of exceptions or other problems that might occur to make sure the example is easy to understand. In a real world application we must consider that authentification might go wrong or the box is not available to be called.
 
 ## result
 
-We can try out the app simply by running in manually. ALl boxes should have green check marks if no problems occur.
+We can try out the app simply by running the Logic App manually. ALl workflow steps should have green check marks if no problems occur.
 
 ![image](/assets/2025-02-05/090.png)
 
