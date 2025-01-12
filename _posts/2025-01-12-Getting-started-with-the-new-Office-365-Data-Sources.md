@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Getting started with the new Office 365 Data Sources
-date: 2023-03-01 03:00:00 +0200
+date: 2025-01-12 00:00:00 +0000
 tags: office365
 image: /assets/2025-01-12/title.jpg
 image_header: /assets/2025-01-12/title_landscape.jpg
