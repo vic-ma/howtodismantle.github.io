@@ -12,9 +12,9 @@ downloads:
   - name: AlarmScreen.pbmx
     url: /assets/2025-01-04/AlarmScreen.pbmx 
 ---
-With Peakboard Hub Online, it's easy to connect cloud apps and services to applications that run in a worker's workplace in a factory. That's one of the main benefits of connecting Peakboard Boxes to the Hub. In this article we will discuss, how to use an Azure Logic App to build a simple workflow to call functions in a Peakboard app. The possibilities of this techniques are endless.
+With Peakboard Hub Online, it's easy to connect cloud apps and services to applications that run in a worker's workplace in a factory. That's one of the main benefits of connecting Peakboard Boxes to the Hub. In this article we'll explain how to use an Azure Logic App to build a simple workflow that calls functions in a Peakboard app. The possibilities of this technique are endless.
 
-The Azure Logic App uses the regular API to communicate with the Hub. And Hub in turn has a secure connection through the firewall of the customer factory to the box. That makes it perfectly secure to bridge the gap between cloud services and apps and any kind of entity that resides directly in the highly sensitive area of production IT.
+The Azure Logic App uses the standard API to communicate with the Hub. And the Hub has a secure connection through the firewall of the customer's factory, to the Box. This makes it perfectly secure to bridge the gap between cloud services and apps and any kind of entity that sits directly in the highly sensitive area of production IT.
 
 ## The Peakboard app and other requirements
 
