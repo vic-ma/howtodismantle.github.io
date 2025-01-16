@@ -14,31 +14,31 @@ downloads:
 ---
 With Peakboard Hub Online, it's easy to connect cloud apps and services to applications that run in a worker's workplace in a factory. That's one of the main benefits of connecting Peakboard Boxes to the Hub. In this article we'll explain how to use an Azure Logic App to build a simple workflow that calls functions in a Peakboard app. The possibilities of this technique are endless.
 
-The Azure Logic App uses the standard API to communicate with the Hub. And the Hub has a secure connection through the firewall of the customer's factory, to the Box. This makes it perfectly secure to bridge the gap between cloud services and apps and any kind of entity that sits directly in the highly sensitive area of production IT.
+The Azure Logic App uses the standard Hub API to communicate with the Hub. And the Hub has a secure connection through the firewall of the customer's factory, to the Box. This makes it perfectly secure to bridge the gap between cloud services and apps and any kind of entity that sits directly in the highly sensitive area of production IT.
 
 ## The Peakboard app and other requirements
 
-In our example we use the Alarm app that we already discussed in the [article about how to call a function by using the API](/Cracking-the-code-Part-II-Calling-functions-remotely.html). This app exposes a function called "SubmitAlarm" and just displays the alarm message in the screen for a given number of seconds (which is the second parameter for the function).
+For our example, we'll use the Alarm app that we discussed in our article about [calling functions with the Peakboard Hub API](/Cracking-the-code-Part-II-Calling-functions-remotely.html). The app exposes a function called `SubmitAlarm` and displays the alarm message on the screen for a given number of seconds (the second parameter for the function).
 
-We want to use the Azure Logic App later to trigger that function on the box. The logic of the function is very simple.
+We want to use the Azure Logic App to trigger that function on the Box. The logic of the function is simple:
 
 ![image](/assets/2025-02-05/020.png)
 
-The box we want to use is registered in the Peakboard Hub.
+The Box we want to use is registered in the Peakboard Hub:
 
 ![image](/assets/2025-02-05/030.png)
 
-And also we need an API key with at least the scope "write:box" to allow a 3rd party caller to execute the function.
+We also need an API key with a minimum scope of `write:box`. This will allow a third-party caller (the Azure Logic App) to execute the function.
 
 ![image](/assets/2025-02-05/040.png)
 
 ## Build the Azure Logic App
 
-Before we steps into the details of each step, how does our Logic work? We need three steps to call the function:
+Here's what the Azure Logic App needs to do to call the function:
 
-1. Authenticate against the Hub API with our API key
-2. Parse the JSON string that is returned by the authentification
-3. Call the actualy API to execute the function
+1. Authenticate against the Hub API with our API key.
+2. Parse the JSON string that is returned.
+3. Call the Hub API to execute the function.
 
 After having a created a new Logic App in the Azure portal, we add the first http call as shown in the screenshot. The endpoint GET "/auth/token" receives the API key within an additional header with key "apiKey".
 
