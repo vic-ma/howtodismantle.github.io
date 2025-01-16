@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cloud to Factory - Building an Azure Logic App to Access Peakboard Boxes via the Peakboard Hub
+title: Cloud to Factory - Building an Azure Logic App to Access Peakboard Boxes with Peakboard Hub
 date: 2023-03-01 00:00:00 +0200
 tags: peakboardhubapi peakboardhub
 image: /assets/2025-02-05/title.png
@@ -12,39 +12,39 @@ downloads:
   - name: AlarmScreen.pbmx
     url: /assets/2025-01-04/AlarmScreen.pbmx 
 ---
-With the Peakboard Hub Online it's easily possible to connect cloud apps and services to applications that run on the worker's Workplace in a factory. That's one of the main ideas behind connecting the boxes to the Hub. In this article we will discuss, how to use an Azure Logic App to build a simple workflow to call functions in a Peakboard app. The possibilities of this techniques are endless.
+With Peakboard Hub Online, it's easy to connect cloud apps and services to applications that run in a worker's workplace in a factory. That's one of the main benefits of connecting Peakboard Boxes to the Hub. In this article, we'll explain how to use an Azure logic app to build a simple workflow that calls functions in a Peakboard app. The possibilities of this technique are endless.
 
-The Azure Logic App uses the regular API to communicate with the Hub. And Hub in turn has a secure connection through the firewall of the customer factory to the box. That makes it perfectly secure to bridge the gap between cloud services and apps and any kind of entity that resides directly in the highly sensitive area of production IT.
+The Azure logic app uses the standard Hub API to communicate with the Hub. And the Hub has a secure connection through the firewall of the customer's factory, to the Box. This makes it perfectly secure to bridge the gap between cloud services/apps and any entity that sits in the highly secure area of production IT.
 
 ## The Peakboard app and other requirements
 
-In our example we use the Alarm app that we already discussed in the [article about how to call a function by using the API](/Cracking-the-code-Part-II-Calling-functions-remotely.html). This app exposes a function called "SubmitAlarm" and just displays the alarm message in the screen for a given number of seconds (which is the second parameter for the function).
+For our Peakboard app, we'll use the Alarm app that we built in our article about [calling functions with the Peakboard Hub API](/Cracking-the-code-Part-II-Calling-functions-remotely.html). The app exposes a function called `SubmitAlarm`. This function displays a message on screen for a number of seconds. The message and number of seconds are the parameters of the function
 
-We want to use the Azure Logic App later to trigger that function on the box. The logic of the function is very simple.
+We want to use the logic app to trigger this function on the Box. The logic of the function is simple:
 
 ![image](/assets/2025-02-05/020.png)
 
-The box we want to use is registered in the Peakboard Hub.
+The Box we want to use is registered in Peakboard Hub:
 
 ![image](/assets/2025-02-05/030.png)
 
-And also we need an API key with at least the scope "write:box" to allow a 3rd party caller to execute the function.
+We also need an API key with a minimum scope of `write:box`. This will allow a third-party caller (like the logic app) to execute the Box function.
 
 ![image](/assets/2025-02-05/040.png)
 
-## Build the Azure Logic App
+## Build the logic app
 
-Before we steps into the details of each step, how does our Logic work? We need three steps to call the function:
+Here's what the logic app needs to do to call the Box function:
 
-1. Authenticate against the Hub API with our API key
-2. Parse the JSON string that is returned by the authentification
-3. Call the actualy API to execute the function
+1. Authenticate against the Hub API with our API key.
+2. Parse the JSON string that is returned.
+3. Call the Hub API to execute the Box function.
 
-After having a created a new Logic App in the Azure portal, we add the first http call as shown in the screenshot. The endpoint GET "/auth/token" receives the API key within an additional header with key "apiKey".
+We create a new logic app in the Azure portal. Then, we add the first HTTP call, as shown in the following screenshot. The endpoint `GET /auth/token` accepts the API key in a header called `apiKey`.
 
 ![image](/assets/2025-02-05/050.png)
 
-The actual access token is returned in the JSON string of the response body. To make the token available we use a "Parse JSON" block in the logic app. The schema that is used for parsing the JSON string can either by typed manually or just copied from this template.
+The access token is returned in the JSON string response body. To make the token available, we use a "Parse JSON" block in the logic app. Here's the schema for parsing the JSON string:
 
 {% highlight json %}
 {
@@ -59,7 +59,7 @@ The actual access token is returned in the JSON string of the response body. To 
 
 ![image](/assets/2025-02-05/060.png)
 
-For the actual alarm to be submitted we call the endpoint POST "/box/function". The body of the request contains the JSON to trigger the right function on the right box with the right parameters:
+To submit the alarm request, we call the endpoint `POST /box/function`. The body of the request is a JSON string that specifies the Box, function, and parameters:
 
 {% highlight json %}
 {
@@ -78,22 +78,22 @@ For the actual alarm to be submitted we call the endpoint POST "/box/function". 
 }
 {% endhighlight %}
 
-Here's how the call looks like in the design mode. 
+Here's what the call looks like in the design mode. 
 
 ![image](/assets/2025-02-05/070.png)
 
-The additional header "Authorization" is a simple concatenate from the term "Bearer " with the token that is extracted from the JSON in the previous parsing step.
+The additional header, `Authorization`, is a simple concatenation of the term `Bearer ` and the token that is extracted from the JSON string in the previous parsing step.
 
 ![image](/assets/2025-02-05/080.png)
 
-Of course in our sample we don't catch any kind of exceptions or other problems that might occur to make sure the example is easy to understand. In a real world application we must consider that authentification might go wrong or the box is not available to be called.
+Of course, in our example, we don't catch any kind of exceptions or other problems that might occur. This is to make sure the example is easy to understand. In a real world application, we must consider that authentication could fail, or the box might not be available.
 
-## result
+## Result
 
-We can try out the app simply by running the Logic App manually. ALl workflow steps should have green check marks if no problems occur.
+You can try out the app by running the logic app manually. All the workflow steps should have green checkmarks if there are no problems.
 
 ![image](/assets/2025-02-05/090.png)
 
-And the alarm is submitted to the box and displayed on the screen.
+The alarm request is submitted to the Box and displayed on screen:
 
 ![image](/assets/2025-02-05/100.png)
