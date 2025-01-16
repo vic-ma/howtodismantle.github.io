@@ -18,7 +18,7 @@ The Azure logic app uses the standard Hub API to communicate with the Hub. And t
 
 ## The Peakboard app and other requirements
 
-For our Peakboard app, we'll use the Alarm app that we built in our article about [calling functions with the Peakboard Hub API](/Cracking-the-code-Part-II-Calling-functions-remotely.html). The app exposes a function called `SubmitAlarm`. This function displays an alarm message (first parameter) on screen for a given number of seconds (second parameter).
+For our Peakboard app, we'll use the Alarm app that we built in our article about [calling functions with the Peakboard Hub API](/Cracking-the-code-Part-II-Calling-functions-remotely.html). The app exposes a function called `SubmitAlarm`. This function displays a message on screen for a number of seconds. The message and number of seconds are the parameters of the function
 
 We want to use the logic app to trigger this function on the Box. The logic of the function is simple:
 
@@ -40,11 +40,11 @@ Here's what the logic app needs to do to call the Box function:
 2. Parse the JSON string that is returned.
 3. Call the Hub API to execute the Box function.
 
-We create a new Logic App in the Azure portal. Then, we add the first HTTP call, as shown in the following screenshot. The endpoint `GET /auth/token` accepts the API key in a header called `apiKey`.
+We create a new logic app in the Azure portal. Then, we add the first HTTP call, as shown in the following screenshot. The endpoint `GET /auth/token` accepts the API key in a header called `apiKey`.
 
 ![image](/assets/2025-02-05/050.png)
 
-The access token is returned in the JSON string response body. To make the token available, we use a "Parse JSON" block in the logic app. The schema for parsing the JSON string can be copied from here:
+The access token is returned in the JSON string response body. To make the token available, we use a "Parse JSON" block in the logic app. Here's the schema for parsing the JSON string:
 
 {% highlight json %}
 {
