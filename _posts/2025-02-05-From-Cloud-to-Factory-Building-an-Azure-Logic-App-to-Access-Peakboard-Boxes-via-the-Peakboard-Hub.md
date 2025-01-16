@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cloud to Factory - Building an Azure Logic App to Access Peakboard Boxes via the Peakboard Hub
+title: Cloud to Factory - Building an Azure Logic App to Access Peakboard Boxes with Peakboard Hub
 date: 2023-03-01 00:00:00 +0200
 tags: peakboardhubapi peakboardhub
 image: /assets/2025-02-05/title.png
@@ -12,7 +12,7 @@ downloads:
   - name: AlarmScreen.pbmx
     url: /assets/2025-01-04/AlarmScreen.pbmx 
 ---
-With the Peakboard Hub Online it's easily possible to connect cloud apps and services to applications that run on the worker's Workplace in a factory. That's one of the main ideas behind connecting the boxes to the Hub. In this article we will discuss, how to use an Azure Logic App to build a simple workflow to call functions in a Peakboard app. The possibilities of this techniques are endless.
+With Peakboard Hub Online, it's easy to connect cloud apps and services to applications that run in a worker's workplace in a factory. That's one of the main benefits of connecting Peakboard Boxes to the Hub. In this article we will discuss, how to use an Azure Logic App to build a simple workflow to call functions in a Peakboard app. The possibilities of this techniques are endless.
 
 The Azure Logic App uses the regular API to communicate with the Hub. And Hub in turn has a secure connection through the firewall of the customer factory to the box. That makes it perfectly secure to bridge the gap between cloud services and apps and any kind of entity that resides directly in the highly sensitive area of production IT.
 
