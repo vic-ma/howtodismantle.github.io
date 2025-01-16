@@ -14,21 +14,21 @@ downloads:
 ---
 With Peakboard Hub Online, it's easy to connect cloud apps and services to applications that run in a worker's workplace in a factory. That's one of the main benefits of connecting Peakboard Boxes to the Hub. In this article, we'll explain how to use an Azure logic app to build a simple workflow that calls functions in a Peakboard app. The possibilities of this technique are endless.
 
-The logic app uses the standard Hub API to communicate with the Hub. And the Hub has a secure connection through the firewall of the customer's factory, to the Box. This makes it perfectly secure to bridge the gap between cloud services/apps and any entity that sits in the highly secure area of production IT.
+The Azure logic app uses the standard Hub API to communicate with the Hub. And the Hub has a secure connection through the firewall of the customer's factory, to the Box. This makes it perfectly secure to bridge the gap between cloud services/apps and any entity that sits in the highly secure area of production IT.
 
 ## The Peakboard app and other requirements
 
-For our Peakboard app, we'll use the Alarm app that we built in our article about [calling functions with the Peakboard Hub API](/Cracking-the-code-Part-II-Calling-functions-remotely.html). The app exposes a function called `SubmitAlarm` and displays the alarm message on the screen for a given number of seconds (the second parameter for the function).
+For our Peakboard app, we'll use the Alarm app that we built in our article about [calling functions with the Peakboard Hub API](/Cracking-the-code-Part-II-Calling-functions-remotely.html). The app exposes a function called `SubmitAlarm`. This function displays an alarm message (first parameter) on screen for a given number of seconds (second parameter).
 
-We want to use the logic app to trigger the function on the Box. The logic of the function is simple:
+We want to use the logic app to trigger this function on the Box. The logic of the function is simple:
 
 ![image](/assets/2025-02-05/020.png)
 
-The Box we want to use is registered in the Peakboard Hub:
+The Box we want to use is registered in Peakboard Hub:
 
 ![image](/assets/2025-02-05/030.png)
 
-We also need an API key with a minimum scope of `write:box`. This will allow a third-party caller (the logic app) to execute the Box function.
+We also need an API key with a minimum scope of `write:box`. This will allow a third-party caller (like the logic app) to execute the Box function.
 
 ![image](/assets/2025-02-05/040.png)
 
@@ -90,10 +90,10 @@ Of course, in our example, we don't catch any kind of exceptions or other proble
 
 ## Result
 
-You can try out the app by running the logic app manually. All workflow steps should have green check marks if no problems occur.
+You can try out the app by running the logic app manually. All the workflow steps should have green checkmarks if there are no problems.
 
 ![image](/assets/2025-02-05/090.png)
 
-And the alarm is submitted to the box and displayed on the screen.
+The alarm request is submitted to the Box and displayed on screen:
 
 ![image](/assets/2025-02-05/100.png)
