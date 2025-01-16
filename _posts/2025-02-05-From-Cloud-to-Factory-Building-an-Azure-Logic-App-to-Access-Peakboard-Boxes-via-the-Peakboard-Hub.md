@@ -59,7 +59,7 @@ The access token is returned in the JSON string response body. To make the token
 
 ![image](/assets/2025-02-05/060.png)
 
-For the actual alarm to be submitted we call the endpoint POST "/box/function". The body of the request contains the JSON to trigger the right function on the right box with the right parameters:
+To submit the alarm request, we call the endpoint `POST /box/function`. The body of the request is a JSON string that specifies the Box, function, and parameters:
 
 {% highlight json %}
 {
