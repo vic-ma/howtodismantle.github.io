@@ -44,7 +44,7 @@ We create a new Logic App in the Azure portal. Then, we add the first HTTP call,
 
 ![image](/assets/2025-02-05/050.png)
 
-The access token is returned in the JSON string response body. To make the token available, we use a "Parse JSON" block in the Azure Logic App. The schema for parsing the JSON string can be typed manually or copied from this template:
+The access token is returned in the JSON string response body. To make the token available, we use a "Parse JSON" block in the Azure Logic App. The schema for parsing the JSON string can be copied from here:
 
 {% highlight json %}
 {
