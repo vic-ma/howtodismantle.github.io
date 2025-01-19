@@ -18,9 +18,10 @@ downloads:
   - name: ESCPOSPrinter.pbmx
     url: /assets/2025-01-28/ESCPOSPrinter.pbmx
 ---
-Peakboard as a platform for any kind of industrial applications is very often used together with other devices. Often that's true for huge manufactoring machines or conveyers, but also for simple things like printers. Although we already discussed [how to get rid of paper and use e-ink displays](/ByeBye-Paper-Going-paperless-with-Peakboard-and-Woutex-e-Ink-Displays.html), we still often find printed tags, papers, or labels in modern logistic processes.
+In industrial applications, Peakboard Boxes are often connected to other devices. This is true for large manufacturing machines and conveyor systems, but also for smaller devices like printers. We've discussed how to use Peakboard with [e-ink displays](/ByeBye-Paper-Going-paperless-with-Peakboard-and-Woutex-e-Ink-Displays.html), but we often still find printed tags, papers, and labels in modern logistic processes. So in today's article, we will discuss how to integrate a label printer into Peakboard.
 
-In today's article we will go our first steps and learn how to integrate a label printer. In our sample we will use a printer of the SRP-Q300 Series provided by Bixolon. Peakboard is based on Microsoft Windows, so it would be obvious to use the Windows driver model interact with a Windows hosted piece of software and a printer. We don't do this. The main reason is performance. Responsiveness is a crucial point in any human to machine interaction. So we communicate directly between our Peakboard application and the printer on the basis of direct TCP/IP connection. That's by far the fastest and most responiviest way to do it.
+For our example, we'll use an SRP-Q300 series printer from Bixolon. Peakboard is based on Microsoft Windows, so it would be obvious to use a Windows driver to communicate with the printer. However, we don't do this, because of performance reasons. Responsiveness is critical in any human-machine interaction. So, our Peakboard application will instead communicate directly with the printer through a TCP/IP connection. This is by far the fastest way to communicate.
+
 In a modern world of label printing, there are mainly two important protocols to by used in that cases. One is called ZPL (Zebra Programming Language), the other one is ESC/POS (Epson Standard Code for Point of Sale). For our example, the Bixon printer, we will use ESC/POS commands that are encapsulated in some high level commands provided by the POS data source extension.
 
 ## The extension
