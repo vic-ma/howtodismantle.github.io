@@ -58,5 +58,5 @@ The rest of the application is just to display the current status of the MQTT se
 
 The screenshot shows the result after the button has been pressed. As we can see in the JSON string the type of is "S" which means the button has been pressed only once for a short moment.
 
-![image](/assets/2025-02-21/070.png)
+![image](/assets/2025-02-21/080.png)
 
