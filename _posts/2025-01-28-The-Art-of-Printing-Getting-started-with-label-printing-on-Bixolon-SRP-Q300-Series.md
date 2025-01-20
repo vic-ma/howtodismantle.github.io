@@ -48,8 +48,7 @@ The printing process is triggered by a single function provided by the printer d
 
 To make it easier for Peakboard users, the POS Printer data source offers simpler commands that are translated into ESC/POS. For more information, see the [extension commands](https://github.com/Peakboard/PeakboardExtensions/tree/master/POSPrinter). Although it's possible to mix both the simple commands and ESC/POS commands, we'll only use the simple commands in our example and save the ESC/POS commands for a future article.
 
-In our example, we use the following command string. The first line prints out the coffee shop logo. It's a just a simple png image with less than 300px of width that is added to the Peakboad project as local resource. The preceding "~(CentralAlign)~" makes it centered.
-Then we see three actual text parts, the product, the size, the addition. And we end up with a command for cutting the paper. That's it.
+In our example, we use the following command string.
 
 {% highlight text %}
 ~(CentralAlign)~~(Image:Starpeak_small.png)~
@@ -61,7 +60,13 @@ Additions: Cream
 ~(FullCutAfterFeed:2)~
 {% endhighlight %}
 
-The whole label is created using the POS printer extension high level language, no pure ESC/POS.
+Here's a breakdown:
+
+1. The first line prints out the coffee shop logo. It's a just a simple PNG image (smaller than 300px) that we added to the Peakboad project as local resource. The preceding `~(CentralAlign)~` centers the image.
+2. Then, we have three text parts: the product, the size, and the addition
+3. Finally, we end with a command for cutting the paper.
+
+The whole label is created using the POS Printer extension's high level language. We don't use any pure ESC/POS.
 
 ## The code
 
