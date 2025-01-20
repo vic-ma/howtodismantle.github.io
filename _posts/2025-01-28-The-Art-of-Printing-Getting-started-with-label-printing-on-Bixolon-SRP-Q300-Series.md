@@ -22,21 +22,23 @@ In industrial applications, Peakboard Boxes are often connected to other devices
 
 For our example, we'll use an SRP-Q300 series printer from Bixolon. Peakboard is based on Microsoft Windows, so it would be obvious to use a Windows driver to communicate with the printer. However, we don't do this, because of performance reasons. Responsiveness is critical in any human-machine interaction. So, our Peakboard application will instead communicate directly with the printer through a TCP/IP connection. This is by far the fastest way to communicate.
 
-In a modern world of label printing, there are mainly two important protocols to by used in that cases. One is called ZPL (Zebra Programming Language), the other one is ESC/POS (Epson Standard Code for Point of Sale). For our example, the Bixon printer, we will use ESC/POS commands that are encapsulated in some high level commands provided by the POS data source extension.
+In the modern world of label printing, there are two main protocols that are used. They are ZPL (Zebra Programming Language) and ESC/POS (Epson Standard Code for Point of Sale). For our example, we will use higher level commands provided by the POS data source extension that encapsulate ESC/POS commands.
 
 ## The extension
 
-To make it as easy as possible, we will use a Peakboard extension called "POS Printer". More information about this extension can be found directly at [github](https://github.com/Peakboard/PeakboardExtensions/tree/master/POSPrinter), or on the [extension website](https://templates.peakboard.com/extensions/POSPrinter/index).
+To make things as easy as possible, we'll use a Peakboard extension called "POS Printer." For more information about this extension, see the [POS Printer GitHub](https://github.com/Peakboard/PeakboardExtensions/tree/master/POSPrinter) or the [POS Printer extension page](https://templates.peakboard.com/extensions/POSPrinter/index).
 
 ![image](/assets/2025-01-28/010.png)
 
-In the data source, we fill the ip address and a port on which the printer is listening to our commands. The Bixolon SRP-Q300 printer we're using in this article doesn't provide any web interface for configuration. We can check the manual to find out the network configuration.
+In the data source, we enter the IP address and port on which the printer is listening to our commands. Our Bixolon SRP-Q300 printer doesn't provide any web interface for configuration. We can check the manual to find the network configuration.
 
 ![image](/assets/2025-01-28/020.png)
 
-## Preparing the Peakboard application
+## Prepare the Peakboard application
 
-The actual Peakboard application is pretty simple. Beside the data source for the printer connectivity we have three combo boxes for letting the user select the product, the size and addition to be printed on a label. We do this like it would be done in a coffee shop to take the order first and then print a label with all the details that used in the actual preparation process. the three combo boxes are fed from three variable lists containing the products, sizes and additions. The actual magic is happening behind the button. 
+The actual Peakboard application is pretty simple. Besides the data source for the printer connectivity, we also add three combo boxes. These let the user select the product, the size, and the addition to be printed on a label.
+
+The application works like a coffee shop, where we take the order first and then print a label with all the details that are used in the preparation process. The options for the three combo boxes are taken from three variable lists containing the products, sizes, and additions. The actual magic happens behind the button. 
 
 ![image](/assets/2025-01-28/030.png)
 
