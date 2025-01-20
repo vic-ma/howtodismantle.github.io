@@ -48,11 +48,11 @@ For our example MQTT-enabled sensor, we use a [Shelly button](/Building-an-emerg
 
 ## Build the Peakboard app
 
-For the MQTT source, we choose `localhost` as the MQTT broker address. So when the Peakboard application is running, the broker can always be reached as `localhost`. Furthermore, we subscribe to the MQTT node where the Shelly button is submitting its events to. 
+For the MQTT source, we choose `localhost` as the MQTT broker address. So when the Peakboard application is running, the broker can always be reached as `localhost`. We also subscribe to the MQTT node where the Shelly button is submitting its events to. 
 
 ![image](/assets/2025-02-21/060.png)
 
-The rest of the application displays the current status of the MQTT server and also the incoming JSON string sent by the button.
+The rest of the application displays the current status of the MQTT server and the JSON string sent by the button.
 
 ![image](/assets/2025-02-21/070.png)
 
