@@ -14,17 +14,17 @@ downloads:
   - name: MQTTDIY.pbmx
     url: /assets/2025-02-21/MQTTDIY.pbmx
 ---
-We've already discussed many projects that use MQTT to communicate between the Peakboard application and all kinds of sensors or other hardware and software entities. MQTT is a super easy and nice option to couple all these entities together. Especially because there's no need for the entities to "know" each other. They just submit their messages to an MQTT broker or subscribe to messages from the broker.
+On this blog, we've explored many projects that use MQTT to communicate between Peakboard apps and sensors and other hardware and software entities. MQTT is a nice and easy option to couple all these entities together. Especially because there's no need for the entities to "know" each other. They just submit their messages to an MQTT broker or subscribe to messages from the broker.
 
 The downside of MQTT is that we need an MQTT broker. So even when there's only one sensor and one Peakboard application, we need an additional server to exchange the MQTT messages.
 
-In this article, we will discuss a nice and easy way to turn a Peakboard Box into a fully functional MQTT broker. So in a simple scenario with one sensor and one Peakboard application, no additional server is necessary. The sensors connect directly to a Peakboard Box that exposes an MQTT broker endpoint. So we can avoid the set-up of a separate MQTT server.
+In this article, we'll explore an easy way to turn a Peakboard Box into a fully functional MQTT broker. So in a simple scenario with one sensor and one Peakboard application, no additional server is necessary. The sensors connect directly to a Peakboard Box that exposes an MQTT broker endpoint. This way, we can avoid the set-up of a separate MQTT server.
 
 If scenarios get more complex (e.g. 5 sensors and multiple boxes with bidirectional message exchange), we must carefully evaluate if this technique still makes sense. For a good, robust architecture, it might be better to switch back to the traditional, separate MQTT server, and not rely on a single Box.
 
 ## Install and use the MQTT Server extension
 
-To set up an MQTT broker along with the Peakboard application, we use MQTT Server extension, which can be installed directly from the extension pane when creating a new data source:
+To set up an MQTT broker alongside the Peakboard application, we use the MQTT Server extension, which can be installed directly from the extension pane when creating a new data source:
 
 ![image](/assets/2025-02-21/010.png)
 
