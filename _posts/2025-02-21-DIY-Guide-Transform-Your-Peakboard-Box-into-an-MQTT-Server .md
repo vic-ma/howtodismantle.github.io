@@ -32,19 +32,17 @@ The MQTT server only needs to know which port to listen to for incoming connecti
 
 ![image](/assets/2025-02-21/020.png)
 
-The server needs a start command to open the endpoint for external connections. That's why we set up a timer that runs once. This timer event calls the `Start` function of the MQTT Server data source.
+The server needs a start command to open the endpoint for external connections. That's why we set up a timer that runs once. This timer event calls the `start` function of the MQTT Server data source.
 
 ![image](/assets/2025-02-21/030.png)
 
-When Peakboard attempts to open a TCP/IP port to the outside world for the first time, it will trigger the Windows firewall. So, you need to allow Peakboard to access to open the port through the Windows Defender pop up:
+When Peakboard attempts to open a TCP/IP port to the outside world for the first time, it will trigger the Windows firewall. So, you need to allow Peakboard to open the port:
 
 ![image](/assets/2025-02-21/040.png)
 
 ## Configure a button to send MQTT messages
 
-For our example MQTT-enabled sensor, we use a Shelly button. In [this article](/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html) we discuss how to set up and use this kind of button.
-
-Each time the button is pressed, a JSON string is sent to the dedicated MQTT broker. In our example, the MQTT broker is the Peakboard Box. So, we put the IP address of the box in the corresponding field of the Shelly button web configuration.
+For our example MQTT-enabled sensor, we use a [Shelly button](/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html). Each time the button is pressed, a JSON string is sent to the dedicated MQTT broker. In our example, the MQTT broker is the Peakboard Box. So, we put the IP address of the Box in the **Server** field of the Shelly button web configuration.
 
 ![image](/assets/2025-02-21/050.png)
 
