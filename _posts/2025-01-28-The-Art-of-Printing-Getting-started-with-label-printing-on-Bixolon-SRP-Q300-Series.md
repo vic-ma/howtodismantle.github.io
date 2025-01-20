@@ -70,11 +70,11 @@ The whole label is created using the POS Printer extension's high level language
 
 ## The code
 
-The screenshot shows the Building Block for sending the command. We're using the placeholder replacement block to replace the three literals in the string mentioned above with dynamic values from the user input.
+The following screenshot shows the Building Block for sending the command. We're using the placeholder replacement block to replace the three literals in our command string above with dynamic values from the user input.
 
 ![image](/assets/2025-01-28/040.png)
 
-For LUA lovers, here's the LUA code that does the same:
+For LUA lovers, here's the equivalent LUA code:
 
 {% highlight lua %}
 local _ = data.MyPrinter.print(string.gsubph([[~(CentralAlign)~~(Image:Starpeak_small.png)~
@@ -92,7 +92,7 @@ Additions: #[Addition]#
 
 ## Result
 
-The videos shows the final result in action. It's very impressive to see that the printing starts almost without any delays. 
+This video shows the final result in action. It's impressive that the printing starts almost without any delay. 
 
 {% include youtube.html id="pdjLAC5k6fA" %}
 
