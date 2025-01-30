@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Art of Printing - Getting started with label printing on Seiko SLP720RT
-date: 2023-03-01 02:00:00 +0200
+date: 2025-01-28 02:00:00 +0200
 tags: hardware printing
 image: /assets/2025-01-28/title.png
 image_header: /assets/2025-01-28/title_landscape.png
