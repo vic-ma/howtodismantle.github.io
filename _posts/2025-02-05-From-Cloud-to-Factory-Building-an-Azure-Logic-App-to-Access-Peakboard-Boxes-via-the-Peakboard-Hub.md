@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cloud to Factory - Building an Azure Logic App to Access Peakboard Boxes with Peakboard Hub
-date: 2023-03-01 00:00:00 +0200
+date: 2025-02-05 00:00:00 +0200
 tags: peakboardhubapi peakboardhub
 image: /assets/2025-02-05/title.png
 image_header: /assets/2025-02-05/title_landscape.png
