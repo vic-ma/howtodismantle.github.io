@@ -38,6 +38,10 @@ This blog features a wide variety of articles about different types of hardware 
 
 - [ByeBye Paper - Going paperless with Peakboard, SAP, and Woutex e-Ink Displays](/ByeBye-Paper-Going-paperless-with-Peakboard-and-Woutex-e-Ink-Displays.html)
 
+### Captron Pick by Light
+
+- [Lights On - A Step-by-Step Guide to Designing a Pick-by-Light System with Captron and Peakboard](/Lights-On-A-Step-by-Step-Guide-to-Designing-a-Pick-by-Light-System-with-Captron-and-Peakboard.html)
+
 ### Beckhoff Twincat
 
 - [Beckhoff on my mind - Part 1 - Connecting TwinCAT PLCs ](/Beckhoff-on-my-mind-Part-1-Connecting-Twincat-PLCs.html)
