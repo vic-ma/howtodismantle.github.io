@@ -47,10 +47,11 @@ This blog features a wide variety of articles about different types of hardware 
 - [Beckhoff on my mind - Part 1 - Connecting TwinCAT PLCs ](/Beckhoff-on-my-mind-Part-1-Connecting-Twincat-PLCs.html)
 - [Beckhoff on my mind - Part 2 - Writing back to TwinCAT PLCs ](/Beckhoff-on-my-mind-Part-2-Writing-back-to-Twincat-PLCs.html)
 
-### Shelly
+### Shelly Devices
 
 - [Building an emergency button with Shelly Button1 and MQTT ](/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html)
 - [Fun with Shelly Plug S - Switching Power on and off ](/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html)
+- [Peakboard Meets Shelly - Building a Smart Dashboard for Tracking Temperature and Humidity](/Peakboard-Meets-Shelly-Building-a-Smart-Dashboard-for-Tracking-Temperature-and-Humidity.html)
 
 ### PUSR RS232 RS485 Modbus RTU to Modbus TCP
 
