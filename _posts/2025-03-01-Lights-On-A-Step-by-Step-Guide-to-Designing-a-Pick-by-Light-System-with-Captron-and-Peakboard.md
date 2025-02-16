@@ -14,8 +14,9 @@ downloads:
 ---
 On this blog, we often discuss how Peakboard application can communicate with hardware components that are used in manufacturing and logistics. In today's article, we'll take a detailed look at a pick-by-light system from Captron. Captron is a German manufacturer based in the beautiful state of Bavaria, Southern Germany.
 
-Captron provides different PbL technologies, one of them is the LED strip as shown on [this page](https://captron-solutions.com/en/pick-by-light_hardware/led-strips/). The strip is mounted on the racks of the warehouses or workplaces in manfacturing to help the workers to get goods from the correct warehouse bin. We can see the system in action on the video on this [page](https://captron-solutions.com/en/pick-by-light/).
-In the sample of today's article we will build a Peakboard application to manage these LED strips. The actual order for the picking of the goods is presented in a table of the application. As soon as the picking process is confirmed in the application, the corresponding part of the LED strip is switched off. This final process can be seen in the video at the bottom of the page.
+One of the PBL technologies Captron makes is an [LED strip](https://captron-solutions.com/en/pick-by-light_hardware/led-strips/). This strip is mounted onto the racks of manufacturing warehouses and workplaces, to help the workers take goods from the correct warehouse bin. You can see the system in action from the video on the [Captron PBL page](https://captron-solutions.com/en/pick-by-light/).
+
+In this article, we will build a Peakboard application that controls these LED strips. The list of goods to pick is given to the application as a table. As soon as the picking process is confirmed in the application, the corresponding part of the LED strip is switched off. This final process can be seen in the video at the bottom of this page.
 
 ## Mounting and configuing the LED strip
 
@@ -37,7 +38,7 @@ The second data structure we need contains the meta data of our warehouse rack. 
 
 ![image](/assets/2025-03-01/040.png)
 
-Our application has only one data source. It's the connection to the MQTT broker. Actually we only need this connection to send out command to switch the lights on off. So using it as a tradional data source is not necessary. However as we need it it anyway, we subscribe to a dedicated MQTT node that represents the health status of the Captron PbL controller. The topic we need to subscribe is "captron.com/SEH200/nd/EU-CravenWealthyFruit/Pub/MAM". The literal "EU-CravenWealthyFruit" refers to the Unique ID we noted earlier from the web interface. The health status is sbumitted in a JSON string that is described in the Captron PbL manual. 
+Our application has only one data source. It's the connection to the MQTT broker. Actually we only need this connection to send out command to switch the lights on off. So using it as a tradional data source is not necessary. However as we need it it anyway, we subscribe to a dedicated MQTT node that represents the health status of the Captron PBL controller. The topic we need to subscribe is "captron.com/SEH200/nd/EU-CravenWealthyFruit/Pub/MAM". The literal "EU-CravenWealthyFruit" refers to the Unique ID we noted earlier from the web interface. The health status is sbumitted in a JSON string that is described in the Captron PBL manual. 
 
 ![image](/assets/2025-03-01/050.png)
 
