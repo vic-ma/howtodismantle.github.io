@@ -51,7 +51,13 @@ After this table is created during the set-up of the rack, it doesn't need to be
 
 ![image](/assets/2025-03-01/040.png)
 
-Our application has only one data source. It's the connection to the MQTT broker. Actually we only need this connection to send out command to switch the lights on off. So using it as a tradional data source is not necessary. However as we need it it anyway, we subscribe to a dedicated MQTT node that represents the health status of the Captron PBL controller. The topic we need to subscribe is "captron.com/SEH200/nd/EU-CravenWealthyFruit/Pub/MAM". The literal "EU-CravenWealthyFruit" refers to the Unique ID we noted earlier from the web interface. The health status is sbumitted in a JSON string that is described in the Captron PBL manual. 
+Our application has only one data source, which is the connection to the MQTT broker. We need this connection to send the command to switch the lights on and off. So, we subscribe to a dedicated MQTT node that represents the health status of the Captron PBL controller. This is the topic we subscribe to:
+
+{% highlight url %}
+captron.com/SEH200/nd/EU-CravenWealthyFruit/Pub/MAM
+{% endhighlight %}
+
+The literal `EU-CravenWealthyFruit` is the Unique ID that we copied from the web interface. The health status is submitted in a JSON string, as described in the Captron PBL manual. 
 
 ![image](/assets/2025-03-01/050.png)
 
