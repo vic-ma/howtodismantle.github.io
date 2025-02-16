@@ -16,9 +16,15 @@ On this blog, we often discuss how Peakboard application can communicate with ha
 
 One of the PBL technologies Captron makes is an [LED strip](https://captron-solutions.com/en/pick-by-light_hardware/led-strips/). This strip is mounted onto the racks of manufacturing warehouses and workplaces, to help the workers take goods from the correct warehouse bin. You can see the system in action from the video on the [Captron PBL page](https://captron-solutions.com/en/pick-by-light/).
 
-In this article, we will build a Peakboard application that controls these LED strips. The list of goods to pick is given to the application as a table. As soon as the picking process is confirmed in the application, the corresponding part of the LED strip is switched off. This final process can be seen in the video at the bottom of this page.
+In this article, we will build a Peakboard application that controls these LED strips. Here's how it works:
+1. The application takes in a list of goods to pick, as a table.
+2. The application lights up the LED strips next to the items that need to be picked.
+3. The worker picks an item and marks it as picked on the application. The application turns off that LED strip.
+4. The worker continues picking until all LED strips are off.
 
-## Mounting and configuing the LED strip
+You can view the complete process in the video at the bottom of this page.
+
+## Mount and configure the LED strip
 
 The LED strips are mounted on the warehouse racks and wired to a control unit as shown in the picture. The control unit can handle up to four strips.
 
