@@ -27,19 +27,23 @@ You can view the complete process in the video at the bottom of this page.
 
 ## Mount and configure the LED strip
 
-The LED strips are mounted on the warehouse racks and wired to a control unit as shown in the picture. The control unit can handle up to four strips.
+The LED strips are mounted onto the warehouse racks and wired to a control unit, as shown in the following photo. The control unit can handle up to four strips.
 
 ![image](/assets/2025-03-01/010.png)
 
-As soon as the control unit is connected to the local network, a simple web based configuration page can be accessed through the browser. The only thing we need to configure is the connection to a MQTT broker. And we need to note the so called Unique ID. We will need it later for the MQTT exchange. That's all.
+As soon as the control unit is connected to the local network, a simple web-based configuration page can be accessed through the browser. The only thing we need to configure is the connection to an MQTT broker. We also need to copy the Unique ID. We'll need it later for the MQTT exchange.
 
 ![image](/assets/2025-03-01/020.png)
 
-## Preparing the application
+## Prepare the application
 
-The first data structure we need is the actual order lines as shown in the screenshot. There are typical columns, like Material number, quantity and the warehouse location, or warehouse bin where the goods are stored. Let's assume this data structure is filled from an ERP system. We won't do that here because we discussed that process in many other article (e.g. getting a [transfer order from SAP][/Barcode-Bliss-Part-III-Bringing-ProGlove-and-SAP-together-Transfer-Order-Use-Case.html]). In our sample we just fill this table with random sample data as soon as the user clicks on the "Launch new order" button to keep it as simple as possible. The detais can be seen directly in the [downloadable pbmx](/assets/2025-03-01/CaptronPBL.pbmx).
+The first data structure we need is the actual order lines, as shown in the following screenshot:
 
 ![image](/assets/2025-03-01/030.png)
+
+There are the typical columns, like material number, quantity, and the warehouse location or bin where the goods are stored. Let's assume this data structure has been filled by an ERP system. We won't go through that process here, because we've covered it in previous articles (e.g. [getting a transfer order from SAP][/Barcode-Bliss-Part-III-Bringing-ProGlove-and-SAP-together-Transfer-Order-Use-Case.html]).
+
+For our example, we just fill this table with random sample data as soon as the user clicks on the "Launch new order" button to keep it as simple as possible. The detais can be seen directly in the [downloadable pbmx](/assets/2025-03-01/CaptronPBL.pbmx).
 
 The second data structure we need contains the meta data of our warehouse rack. Every warehouse bin has a corresponding LED start and end number. So according to this table we can later switch the light on or off depending on if the warehouse is used in the current order or not. This table must be maintained only once during the set up of the rack. It's also an option to maintain this meta data together with warehouse master data of the ERP system (like SAP or Business Central). But this depends on the use case and the ERP system.
 
