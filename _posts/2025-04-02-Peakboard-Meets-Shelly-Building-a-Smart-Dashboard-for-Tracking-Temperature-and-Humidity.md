@@ -16,7 +16,7 @@ downloads:
   - name: ShellyHT.pbmx
     url: /assets/2025-04-02/ShellyHT.pbmx
 ---
-More than two years ago, there were already two articles about [Shelly products](): One about [how to use the button](/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html) and another about [how to use the power plug](/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html). Lot's of time has passed since then and many readers came back who actually used the Shelly products even in a professional, industrial environment. Today we want to have a closer look at a relatively new product: The Shelly [Humidity and Temperature sensor](https://www.shelly.com/products/shelly-h-t-gen3-matte-black). It comes with a e-ink display and WiFi connection. How to configure the Wifi connection during initial setup is explained in the [documentation](https://www.shelly.com/blogs/documentation/shelly-h-t-gen3?srsltid=AfmBOop_uRRkBuYODH76QXhhOjD3FCpFxvW4KtqyH2xq85LxG6U4f19C).
+More than two years ago, there were already two articles about Shelly products: One about [how to use the button](/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html) and another about [how to use the power plug](/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html). Lots of time has passed since then and many readers came back who actually used the Shelly products even in a professional, industrial environment. Today we want to have a closer look at a relatively new product: The Shelly [Humidity and Temperature sensor](https://www.shelly.com/products/shelly-h-t-gen3-matte-black). It comes with a e-ink display and WiFi connection. How to configure the Wifi connection during initial setup is explained in the [documentation](https://www.shelly.com/blogs/documentation/shelly-h-t-gen3?srsltid=AfmBOop_uRRkBuYODH76QXhhOjD3FCpFxvW4KtqyH2xq85LxG6U4f19C).
 
 In our example we will use MQTT to build a dashbaord with Peakboard for showing the current temperature and humidity as provided by the Shelly sensor. We also will build our own historisation and store the values for later analysis in the Peakboard Hub.
 
@@ -24,7 +24,7 @@ In our example we will use MQTT to build a dashbaord with Peakboard for showing 
 
 ## Shelly sensor configuration
 
-Our Shelly sensor offers two ways for configuration. It comes with a built-in web interface that can be access during the setup process (see documentation), or the configuration can be also done through the SHelly cloud services, provided that it's configured properly. If it's necessary to avoid any kind of outside connection because of security restrictions within the factory, a cloud connection is NOT mandatory. The screenshot shows the cloud based configuration dialog. The only point we need to configure here is the MQTT connectivity. We use a public MQTT broker, but a private one will do the same. Beside the adress we need to provide a suffix which is used to detemine the MQTT topic.
+Our Shelly sensor offers two ways for configuration. It comes with a built-in web interface that can be access during the setup process (see documentation), or the configuration can be also done through the Shelly cloud services, provided that it's configured properly. If it's necessary to avoid any kind of outside connection because of security restrictions within the factory, a cloud connection is NOT mandatory. The screenshot shows the cloud based configuration dialog. The only point we need to configure here is the MQTT connectivity. We use a public MQTT broker, but a private one will do the same. Beside the adress we need to provide a suffix which is used to detemine the MQTT topic.
 
 ![image](/assets/2025-04-02/010.png)
 
@@ -35,7 +35,7 @@ We must understand that for energy saving purpose the sensor is going sleep betw
 
 ## Building the Peakboard app
 
-On the Peakboard side we will need a MQTT conection. As shwon in the screenshot we must subscribe to three different topics for temperature, humditiy and time:
+On the Peakboard side we will need a MQTT conection. As shown in the screenshot we must subscribe to three different topics for temperature, humditiy and time:
 
 - MyShellyTemperature/status/humidity:0
 - MyShellyTemperature/status/temperature:0
@@ -55,7 +55,7 @@ To show the values to the end user we just use tiles, bind it to the source and 
 
 ## Historizations
 
-To store the values for future analysis, we will set up a table in [Peakboard Hub](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html). Just a time stamp and two integer columns fpr Temperature and Humidity.
+To store the values for future analysis, we will set up a table in [Peakboard Hub](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html). Just a time stamp and two integer columns for temperature and humidity.
 
 ![image](/assets/2025-04-02/070.png)
 
@@ -67,7 +67,7 @@ For the chart we use a simple line chart and connect it directly to the source. 
 
 ![image](/assets/2025-04-02/090.png)
 
-The last thing we need to do, is to store the current values on a regular basis into the list. For thta purpose we set up a timer that is triggered every 10 minutes and takes the value from the data flow and just appends in on the list. That's all we need to do.
+The last thing we need to do, is to store the current values on a regular basis into the list. For that purpose we set up a timer that is triggered every 10 minutes and takes the value from the data flow and just appends in on the list. That's all we need to do.
 
 ![image](/assets/2025-04-02/100.png)
 
