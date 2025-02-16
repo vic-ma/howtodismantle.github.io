@@ -37,15 +37,17 @@ As soon as the control unit is connected to the local network, a simple web-base
 
 ## Prepare the application
 
-The first data structure we need is the actual order lines, as shown in the following screenshot:
+The first table we need contains the order lines, as shown in the following screenshot:
 
 ![image](/assets/2025-03-01/030.png)
 
 There are the typical columns, like material number, quantity, and the warehouse location or bin where the goods are stored. Let's assume this data structure has been filled by an ERP system. We won't go through that process here, because we've covered it in previous articles (e.g. [getting a transfer order from SAP][/Barcode-Bliss-Part-III-Bringing-ProGlove-and-SAP-together-Transfer-Order-Use-Case.html]).
 
-For our example, we just fill this table with random sample data as soon as the user clicks on the "Launch new order" button to keep it as simple as possible. The detais can be seen directly in the [downloadable pbmx](/assets/2025-03-01/CaptronPBL.pbmx).
+For our example, we fill this table with random placeholder data as soon as the user clicks on the **Launch new order** button, to keep things as simple as possible. To see the details, check out the [PBMX](/assets/2025-03-01/CaptronPBL.pbmx).
 
-The second data structure we need contains the meta data of our warehouse rack. Every warehouse bin has a corresponding LED start and end number. So according to this table we can later switch the light on or off depending on if the warehouse is used in the current order or not. This table must be maintained only once during the set up of the rack. It's also an option to maintain this meta data together with warehouse master data of the ERP system (like SAP or Business Central). But this depends on the use case and the ERP system.
+The second table we need contains the metadata of our warehouse rack. Each warehouse bin has a corresponding LED start and end number. So, using this table, we can switch the light on or off, as needed.
+
+After this table is created during the set-up of the rack, it doesn't need to be modified. There's also the option of maintaining this metadata together with warehouse master data of the ERP system (like SAP or Business Central). But this depends on your use case and your ERP system.
 
 ![image](/assets/2025-03-01/040.png)
 
