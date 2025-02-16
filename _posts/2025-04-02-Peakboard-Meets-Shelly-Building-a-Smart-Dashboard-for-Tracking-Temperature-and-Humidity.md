@@ -26,7 +26,7 @@ In our example we will use MQTT to build a dashbaord with Peakboard for showing 
 
 Our Shelly sensor offers two ways for configuration. It comes with a built-in web interface that can be access during the setup process (see documentation), or the configuration can be also done through the Shelly cloud services, provided that it's configured properly. If it's necessary to avoid any kind of outside connection because of security restrictions within the factory, a cloud connection is NOT mandatory. The screenshot shows the cloud based configuration dialog. The only point we need to configure here is the MQTT connectivity. We use a public MQTT broker, but a private one will do the same. Beside the adress we need to provide a suffix which is used to detemine the MQTT topic.
 
-![image](/assets/2025-04-02/010.png)
+![image](/assets/2025-04-02/020.png)
 
 The sensor will send out a bunch of MQTT message every couple of minutes. Beside lots of meta and health information we can find temperature and humdity along with a unix time stamp with the exact time of the last measurement. The screenshot shows the MQTT message as subscribed with MQTT explorer.
 We must understand that for energy saving purpose the sensor is going sleep between two measurements. It evens discoonnects from WiFi during that sleep time. So we usually can't ping the sensor within the local network. 
@@ -53,7 +53,7 @@ To show the values to the end user we just use tiles, bind it to the source and 
 
 ![image](/assets/2025-04-02/060.png)
 
-## Historizations
+## Historization
 
 To store the values for future analysis, we will set up a table in [Peakboard Hub](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html). Just a time stamp and two integer columns for temperature and humidity.
 
