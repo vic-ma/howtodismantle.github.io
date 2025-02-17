@@ -58,30 +58,30 @@ os.date("%Y-%m-%d %H:%M:%S", tonumber(item.Unixtime))
 
 ![image](/assets/2025-04-02/050.png)
 
-To show the values to the end user we just use tiles, bind it to the source and make sure the data is formatted correctly along with a unit.
+To display the values to the user, we use tiles, bind it to the source, and make sure the data is formatted correctly with a unit.
 
 ![image](/assets/2025-04-02/060.png)
 
 ## Historization
 
-To store the values for future analysis, we will set up a table in [Peakboard Hub](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html). Just a time stamp and two integer columns for temperature and humidity.
+To store the values for future analysis, we set up a table in [Peakboard Hub](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html). We use a time stamp and two integer columns for temperature and humidity.
 
 ![image](/assets/2025-04-02/070.png)
 
-In the Peakboard app we set up a data connection to this list and query the last 100 records. We need that as data supply for the chart.
+In the Peakboard app, we set up a data connection to this Hub list and query the last 100 records. This will supply the data for our chart.
 
 ![image](/assets/2025-04-02/080.png)
 
-For the chart we use a simple line chart and connect it directly to the source. In our sample we have two separate charts. One for temperature and one for humditiy.
+For our chart, we use a simple line chart and connect it to the Hub list data connection. In our example, we have two separate charts: one for temperature and one for humidity.
 
 ![image](/assets/2025-04-02/090.png)
 
-The last thing we need to do, is to store the current values on a regular basis into the list. For that purpose we set up a timer that is triggered every 10 minutes and takes the value from the data flow and just appends in on the list. That's all we need to do.
+The last thing we need is to write the current values regularly to the list. To do that, we set up a timer that triggers every 10 minutes and takes the value from the data flow and just appends in to the list:
 
 ![image](/assets/2025-04-02/100.png)
 
 ## Result
 
-The last screenshot shows the final result in action. The realtime data is displayed from the SHelly H&T sensor and has been transmitted via MQTT. On regular timely basis these values are stored in a Hub list and then queried again from the hub list to be the basis for the value history charts that goes back to the last 100 data points.
+The following screenshot shows the final result in action. The real-time data is sent from the Shelly H&T sensor to Peakboard, via MQTT. On a regular basis, these values are stored in a Hub list and then queried again from the Hub list to be the basis for the value history charts, which go back to the last 100 data points.
 
 ![image](/assets/2025-04-02/result.png)
