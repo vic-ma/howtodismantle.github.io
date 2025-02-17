@@ -14,14 +14,14 @@ downloads:
 ---
 On this blog, we often discuss how Peakboard application can communicate with hardware components that are used in manufacturing and logistics. In today's article, we'll take a detailed look at a pick-by-light system from Captron. Captron is a German manufacturer based in the beautiful state of Bavaria, Southern Germany.
 
-One of the PBL technologies Captron makes is an [LED strip](https://captron-solutions.com/en/pick-by-light_hardware/led-strips/). This strip is mounted onto the racks of manufacturing warehouses and workplaces, to help the workers take goods from the correct warehouse bin. You can see the system in action from the video on the [Captron PBL page](https://captron-solutions.com/en/pick-by-light/).
+One of the PBL technologies Captron makes is an [LED strip](https://captron-solutions.com/en/pick-by-light_hardware/led-strips/). This strip is mounted onto the racks of manufacturing warehouses and workplaces, to help the workers take items from the correct warehouse bin. You can see the system in action from the video on the [Captron PBL page](https://captron-solutions.com/en/pick-by-light/).
 
 In this article, we will build a Peakboard application that controls these LED strips. Here's how it works:
 
-1. The application takes in a table that contains the list of goods to pick.
-2. The application lights up the LED strips next to the items that need to be picked.
-3. The worker picks a good and marks it as picked on the application. The application turns off that LED strip.
-4. The worker continues picking goods until all LED strips are off.
+1. The application takes in a table that contains the list of items to pick.
+2. The application lights up the LEDs next to the items that need to be picked.
+3. The worker picks an item and marks it as picked on the application. The application turns off the corresponding LEDs.
+4. The worker continues picking items until all LED strips are off.
 
 You can view the complete process in the video at the bottom of this page.
 
@@ -41,7 +41,7 @@ The first table we need contains the order lines, as shown in the following scre
 
 ![image](/assets/2025-03-01/030.png)
 
-There are the typical columns, like material number, quantity, and the warehouse location or bin where the goods are stored. Let's assume this data structure has been filled by an ERP system. We won't go through that process here, because we've covered it in previous articles (e.g. [getting a transfer order from SAP][/Barcode-Bliss-Part-III-Bringing-ProGlove-and-SAP-together-Transfer-Order-Use-Case.html]).
+There are the typical columns, like material number, quantity, and the warehouse location or bin where the items are stored. Let's assume this data structure has been filled by an ERP system. We won't go through that process here, because we've covered it in previous articles (e.g. [getting a transfer order from SAP][/Barcode-Bliss-Part-III-Bringing-ProGlove-and-SAP-together-Transfer-Order-Use-Case.html]).
 
 For our example, we fill this table with random placeholder data as soon as the user clicks on the **Launch New Order** button, to keep things as simple as possible. To see the details, check out the [PBMX](/assets/2025-03-01/CaptronPBL.pbmx).
 
@@ -123,6 +123,6 @@ The last thing we need to add is the **Done** button. In the list of order items
 
 ## Result
 
-In the result video, you can see the entire picking process. The order is initiated by pressing the **Launch New Order** button. The three picking items are displayed and the three corresponding warehouse bins are indicated by the LED strip. As soon as picking item is confirmed to be "done" the light is switched off.
+In the result video, you can see the entire picking process. The order is initiated by pressing the **Launch New Order** button. The three items to pick are displayed, and the three corresponding warehouse bins are indicated by the LED strip. As soon as picking item is marked as done by the user, the light switches off.
 
 {% include youtube.html id="s8Uh0ExfEk8" %}
