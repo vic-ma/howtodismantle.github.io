@@ -61,10 +61,15 @@ The literal `EU-CravenWealthyFruit` is the Unique ID that we copied from the web
 
 ![image](/assets/2025-03-01/050.png)
 
-## Building and sending the light commands
+## Build and send the light commands
 
-The actual miracle of our application is done in the function SyncLights. The MQTT command is a JSON string that is sent later to the topic "captron.com/SEH200/nd/EU-CravenWealthyFruit/Set/Data/LedStrip". Here we have the Unique ID again. Let's have a look at the JSON.
-As we can see we need to provide the information to which of the LED strips the command is sent. In our case it's the first one "LED_STRIP_1". Then we nned to provide the dedicated segments for the lights to be maniuplated. The sample shows the first ten LEDs (StartLED 0 to StopLED 10). The effect 1 means static light, and the color is green. As the "Segments" part is an array, so we can provide multiple of those.
+The magic of this application happens in the `SyncLights` function. The MQTT command is a JSON string that is sent to this topic (notice the Unique ID appears here):
+
+{% highlight url %}
+captron.com/SEH200/nd/EU-CravenWealthyFruit/Set/Data/LedStrip
+{% endhighlight %}
+
+Here's an example command:
 
 {% highlight json %}
 { "Content": "/Set/Data/LedStrip",
@@ -80,6 +85,14 @@ As we can see we need to provide the information to which of the LED strips the 
     ] 
 } }
 {% endhighlight %}
+
+As you can see, we need to specify which of the LED strips to send the command to. In this example, it's `LED_STRIP_1`, which is the first LED strip.
+
+Then, we specify the settings for a segment of the LED strip by adding an element to the `Segments` array (a segment can affect the entire LED strip, or just a part).
+
+We specify the range of LEDs on the strip to modify using `StartLED` and `StopLED`. In this example, we modify the first ten LEDs (LEDs 0 to 10). Then, we set `Effect` to 1, which is a static light. We also set the color to green (RGB value of `0,150,0`).
+
+Because `Segments` is an array, we can add additional segments by adding elements to the array.
 
 Here's the Building Blocks structure to put the JSON file together:
 
