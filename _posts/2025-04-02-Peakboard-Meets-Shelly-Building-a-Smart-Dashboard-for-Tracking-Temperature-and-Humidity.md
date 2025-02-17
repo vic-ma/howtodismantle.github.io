@@ -16,63 +16,72 @@ downloads:
   - name: ShellyHT.pbmx
     url: /assets/2025-04-02/ShellyHT.pbmx
 ---
-More than two years ago, there were already two articles about Shelly products: One about [how to use the button](/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html) and another about [how to use the power plug](/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html). Lots of time has passed since then and many readers came back who actually used the Shelly products even in a professional, industrial environment. Today we want to have a closer look at a relatively new product: The Shelly [Humidity and Temperature sensor](https://www.shelly.com/products/shelly-h-t-gen3-matte-black). It comes with a e-ink display and WiFi connection. How to configure the Wifi connection during initial setup is explained in the [documentation](https://www.shelly.com/blogs/documentation/shelly-h-t-gen3?srsltid=AfmBOop_uRRkBuYODH76QXhhOjD3FCpFxvW4KtqyH2xq85LxG6U4f19C).
+Over two years ago, we published two articles about Shelly products: One about [how to use the button](/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html) and another about [how to use the power plug](/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html). A lot of time has passed since then, and many readers have come back and have actually used Shelly products in a professional industrial environment.
 
-In our example we will use MQTT to build a dashbaord with Peakboard for showing the current temperature and humidity as provided by the Shelly sensor. We also will build our own historisation and store the values for later analysis in the Peakboard Hub.
+Today, we'll take a closer look at a relatively new product: The Shelly [Humidity and Temperature sensor](https://www.shelly.com/products/shelly-h-t-gen3-matte-black). It comes with an e-ink display and supports a Wi-Fi connection. To learn how to configure the Wi-Fi connection during the initial setup, see the [official documentation](https://www.shelly.com/blogs/documentation/shelly-h-t-gen3?srsltid=AfmBOop_uRRkBuYODH76QXhhOjD3FCpFxvW4KtqyH2xq85LxG6U4f19C).
+
+In our example, we'll use MQTT to build a Peakboard dashboard that displays the current temperature and humidity from the Shelly sensor. We'll also store the values in Peakboard Hub and build charts to analyze the historical data.
 
 ![image](/assets/2025-04-02/010.png)
 
 ## Shelly sensor configuration
 
-Our Shelly sensor offers two ways for configuration. It comes with a built-in web interface that can be access during the setup process (see documentation), or the configuration can be also done through the Shelly cloud services, provided that it's configured properly. If it's necessary to avoid any kind of outside connection because of security restrictions within the factory, a cloud connection is NOT mandatory. The screenshot shows the cloud based configuration dialog. The only point we need to configure here is the MQTT connectivity. We use a public MQTT broker, but a private one will do the same. Beside the adress we need to provide a suffix which is used to detemine the MQTT topic.
+Our Shelly sensor offers two options for configuration. It comes with a built-in web interface that can be accessed during the setup process (see the official documentation). The configuration can be also done through the Shelly cloud services, provided that it's configured properly. However, if it's necessary to avoid any kind of outside connection due to security restrictions, then a cloud connection can be avoided (it's not mandatory).
+
+The following screenshot shows the cloud-based configuration dialog. The only thing we need to configure here is the MQTT connectivity. We use a public MQTT broker, but a private one does the same. Besides the address, we also need to provide a suffix, which determines the MQTT topic.
 
 ![image](/assets/2025-04-02/020.png)
 
-The sensor will send out a bunch of MQTT message every couple of minutes. Beside lots of meta and health information we can find temperature and humdity along with a unix time stamp with the exact time of the last measurement. The screenshot shows the MQTT message as subscribed with MQTT explorer.
-We must understand that for energy saving purpose the sensor is going sleep between two measurements. It evens discoonnects from WiFi during that sleep time. So we usually can't ping the sensor within the local network. 
+The sensor sends multiple MQTT messages every couple of minutes. Besides metadata and health information, we can also find the temperature and humidity, along with a Unix timestamp with the exact time of the last measurement. The following screenshot shows the MQTT message, in MQTT Explorer.
+
+It's important to note that the Shelly sensor goes to sleep in between the two measurements, to save energy. It evens disconnects from Wi-Fi during that time. So we usually can't ping the sensor within the local network.
 
 ![image](/assets/2025-04-02/030.png)
 
-## Building the Peakboard app
+## Build the Peakboard app
 
-On the Peakboard side we will need a MQTT conection. As shown in the screenshot we must subscribe to three different topics for temperature, humditiy and time:
+On the Peakboard side, we need an MQTT connection. As shown in the following screenshot, we subscribe to three different topics: temperature, humidity, and time.
 
-- MyShellyTemperature/status/humidity:0
-- MyShellyTemperature/status/temperature:0
-- MyShellyTemperature/status/sys
+- `MyShellyTemperature/status/humidity:0`
+- `MyShellyTemperature/status/temperature:0`
+- `MyShellyTemperature/status/sys`
 
-and then use the data path to find the need value within the JSON formatted message.
+We then use the data path to find the desired value within the JSON message.
 
 ![image](/assets/2025-04-02/040.png)
 
-For turning the Unix timestamp into a nicely formatted value we use a data flow along with single line of LUA code for the formatting: os.date("%Y-%m-%d %H:%M:%S", tonumber(item.Unixtime))
+In order to turn the Unix timestamp into a properly formatted value, we use a data flow, along with single line of LUA code:
+
+{% highlight lua %}
+os.date("%Y-%m-%d %H:%M:%S", tonumber(item.Unixtime))
+{% endhighlight %}
 
 ![image](/assets/2025-04-02/050.png)
 
-To show the values to the end user we just use tiles, bind it to the source and make sure the data is formatted correctly along with a unit.
+To display the values to the user, we use tiles, bind it to the source, and make sure the data is formatted correctly with a unit.
 
 ![image](/assets/2025-04-02/060.png)
 
-## Historization
+## Historical analysis
 
-To store the values for future analysis, we will set up a table in [Peakboard Hub](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html). Just a time stamp and two integer columns for temperature and humidity.
+To store the values for future analysis, we create a list in [Peakboard Hub](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html). We add a timestamp column and two integer columns for the temperature and humidity.
 
 ![image](/assets/2025-04-02/070.png)
 
-In the Peakboard app we set up a data connection to this list and query the last 100 records. We need that as data supply for the chart.
+In the Peakboard app, we set up a data connection to this Hub list and query the last 100 records. This will supply the data for our historical data charts.
 
 ![image](/assets/2025-04-02/080.png)
 
-For the chart we use a simple line chart and connect it directly to the source. In our sample we have two separate charts. One for temperature and one for humditiy.
+For our charts, we use a simple line chart and connect it to the Hub list data connection. In our example, we have two separate charts: one for temperature and one for humidity.
 
 ![image](/assets/2025-04-02/090.png)
 
-The last thing we need to do, is to store the current values on a regular basis into the list. For that purpose we set up a timer that is triggered every 10 minutes and takes the value from the data flow and just appends in on the list. That's all we need to do.
+The last thing we need is to write the current values regularly to the Hub list. To do that, we set up a timer that triggers every 10 minutes and takes the value from the data flow and appends in to the list:
 
 ![image](/assets/2025-04-02/100.png)
 
 ## Result
 
-The last screenshot shows the final result in action. The realtime data is displayed from the SHelly H&T sensor and has been transmitted via MQTT. On regular timely basis these values are stored in a Hub list and then queried again from the hub list to be the basis for the value history charts that goes back to the last 100 data points.
+The following screenshot shows the final result in action. The real-time data is sent from the Shelly H&T sensor to Peakboard, via MQTT. On a regular basis, these values are stored in a Hub list. The Hub list is also queried to create the historical data charts, which show the last 100 data points.
 
 ![image](/assets/2025-04-02/result.png)
