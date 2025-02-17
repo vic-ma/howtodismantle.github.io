@@ -43,7 +43,7 @@ The first table we need contains the order lines, as shown in the following scre
 
 There are the typical columns, like material number, quantity, and the warehouse location or bin where the goods are stored. Let's assume this data structure has been filled by an ERP system. We won't go through that process here, because we've covered it in previous articles (e.g. [getting a transfer order from SAP][/Barcode-Bliss-Part-III-Bringing-ProGlove-and-SAP-together-Transfer-Order-Use-Case.html]).
 
-For our example, we fill this table with random placeholder data as soon as the user clicks on the **Launch new order** button, to keep things as simple as possible. To see the details, check out the [PBMX](/assets/2025-03-01/CaptronPBL.pbmx).
+For our example, we fill this table with random placeholder data as soon as the user clicks on the **Launch New Order** button, to keep things as simple as possible. To see the details, check out the [PBMX](/assets/2025-03-01/CaptronPBL.pbmx).
 
 The second table we need contains the metadata of our warehouse rack. Each warehouse bin has a corresponding LED start and end number. So, using this table, we can switch the light on or off, as needed.
 
@@ -88,9 +88,9 @@ Here's an example command:
 
 As you can see, we need to specify which of the LED strips to send the command to. In this example, it's `LED_STRIP_1`, which is the first LED strip.
 
-Then, we specify the settings for a segment of the LED strip by adding an element to the `Segments` array. A segment can control the entire LED strip, or just a part of it.
+We control the lights of the LED strip by using the `Segments` array. A segment is a group of consecutive LEDs on the LED strip.
 
-We specify the range of LEDs on the strip to modify using `StartLED` and `StopLED`. In this example, we modify the first ten LEDs (LEDs 0 to 10). Then, we set `Effect` to 1, which is a static light. We also set the color to green (RGB value of `0,150,0`).
+We specify the range of LEDs of a segment by using `StartLED` and `StopLED`. In this example, we have a single segment that consists of the first ten LEDs (LEDs 0 to 10). The segment's `Effect` is 1, which is a static light. The segment's color is green (RGB value of `0,150,0`).
 
 Because `Segments` is an array, we can add additional segments by adding elements to the array.
 
@@ -100,11 +100,11 @@ Here's the Building Blocks script that puts the JSON file together:
 
 Here's how it works:
 1. Begin the MQTT message with some static text.
-2. Loop over the order items from the order table. As long as the `State` is `A` (meaning "active"), we create a new segment to switch the light on.
+2. Loop over the order items from the order table. If the `State` of an item is `A`, that means it's active. For active items, we create a new segment to switch the light on.
 3. We look up the index of the table entry in the warehouse bin table to get the bin number.
-4. The segment is built with a placeholder template that replaces the start and end LED. The start and end LED numbers are looked up from the WareHouse bin tables, according to the bin index.
+4. We create the segment element by using a placeholder template and filling in the start and end LED. The start and end LED numbers are retrieved from the warehouse bin tables, according to the bin index.
 5. Close the JSON array.
-6. Send out the JSON command to the MQTT broker.
+6. Send the JSON command to the MQTT broker.
 
 Here's the JSON with the placeholders in it:
 
@@ -117,12 +117,12 @@ Here's the JSON with the placeholders in it:
 },
 {% endhighlight %}
 
-The last thing we need to add, is the "Done" button. In the list of order items the user can hit "Done" to indicate that the items is picked. So we set the state of the item to "D":
+The last thing we need to add is the **Done** button. In the list of order items, the user can hit **Done** to indicate that the item has been picked. In that case, we set the state of the item to `D`:
 
 ![image](/assets/2025-03-01/070.png)
 
-## result
+## Result
 
-In the result video we can see the whole picking process. The order is initiated by pressing the button. The three picking items are displayed and the three corresponding warehouse bins are indicated by the LED strip. As soon as picking item is confirmed to be "done" the light is switched off.
+In the result video, you can see the entire picking process. The order is initiated by pressing the **Launch New Order** button. The three picking items are displayed and the three corresponding warehouse bins are indicated by the LED strip. As soon as picking item is confirmed to be "done" the light is switched off.
 
 {% include youtube.html id="s8Uh0ExfEk8" %}
