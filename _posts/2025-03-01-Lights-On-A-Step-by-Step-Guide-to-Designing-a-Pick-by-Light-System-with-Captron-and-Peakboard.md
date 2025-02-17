@@ -88,20 +88,23 @@ Here's an example command:
 
 As you can see, we need to specify which of the LED strips to send the command to. In this example, it's `LED_STRIP_1`, which is the first LED strip.
 
-Then, we specify the settings for a segment of the LED strip by adding an element to the `Segments` array (a segment can affect the entire LED strip, or just a part).
+Then, we specify the settings for a segment of the LED strip by adding an element to the `Segments` array. A segment can control the entire LED strip, or just a part of it.
 
 We specify the range of LEDs on the strip to modify using `StartLED` and `StopLED`. In this example, we modify the first ten LEDs (LEDs 0 to 10). Then, we set `Effect` to 1, which is a static light. We also set the color to green (RGB value of `0,150,0`).
 
 Because `Segments` is an array, we can add additional segments by adding elements to the array.
 
-Here's the Building Blocks structure to put the JSON file together:
+Here's the Building Blocks script that puts the JSON file together:
 
-1. We start with some static MQTT
-2. We loop over the order items. As long as the "State" is "A" for "Active", we build a new segment to switch the light on
-3. We look up the index of the table entry in the warehouse bin table for the corresponding entry for the bin number
-4. The actual segment is built with a placeholder template that replaces start and end LED. The start and LED number is looked up from the WareHouse bin tables according to the bin index.
-5. We close the JSON array
-6. We send out the JSON command to the MQTT broker
+![image](/assets/2025-03-01/060.png)
+
+Here's how it works:
+1. Begin the MQTT message with some static text.
+2. Loop over the order items from the order table. As long as the `State` is `A` (meaning "active"), we create a new segment to switch the light on.
+3. We look up the index of the table entry in the warehouse bin table to get the bin number.
+4. The segment is built with a placeholder template that replaces the start and end LED. The start and end LED numbers are looked up from the WareHouse bin tables, according to the bin index.
+5. Close the JSON array.
+6. Send out the JSON command to the MQTT broker.
 
 Here's the JSON with the placeholders in it:
 
@@ -113,8 +116,6 @@ Here's the JSON with the placeholders in it:
 "Colors": [ { "R": 0, "G": 150, "B": 0 } ]
 },
 {% endhighlight %}
-
-![image](/assets/2025-03-01/060.png)
 
 The last thing we need to add, is the "Done" button. In the list of order items the user can hit "Done" to indicate that the items is picked. So we set the state of the item to "D":
 
