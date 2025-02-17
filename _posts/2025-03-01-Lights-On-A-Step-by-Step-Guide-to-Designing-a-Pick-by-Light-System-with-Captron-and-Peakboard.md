@@ -21,7 +21,7 @@ In this article, we will build a Peakboard application that controls these LED s
 1. The application takes in a table that contains the list of items to pick.
 2. The application lights up the LEDs next to the items that need to be picked.
 3. The worker picks an item and marks it as picked on the application. The application turns off the corresponding LEDs.
-4. The worker continues picking items until all LED strips are off.
+4. The worker continues picking items until all LEDs are off.
 
 You can view the complete process in the video at the bottom of this page.
 
@@ -41,11 +41,11 @@ The first table we need contains the order lines, as shown in the following scre
 
 ![image](/assets/2025-03-01/030.png)
 
-There are the typical columns, like material number, quantity, and the warehouse location or bin where the items are stored. Let's assume this data structure has been filled by an ERP system. We won't go through that process here, because we've covered it in previous articles (e.g. [getting a transfer order from SAP][/Barcode-Bliss-Part-III-Bringing-ProGlove-and-SAP-together-Transfer-Order-Use-Case.html]).
+There are the typical columns, like material number, quantity, and the warehouse location or bin where the items are stored. Let's assume this data structure has been filled by an ERP system. We won't go through that process here, because we've covered it in previous articles (e.g. [getting a transfer order from SAP](/Barcode-Bliss-Part-III-Bringing-ProGlove-and-SAP-together-Transfer-Order-Use-Case.html)).
 
 For our example, we fill this table with random placeholder data as soon as the user clicks on the **Launch New Order** button, to keep things as simple as possible. To see the details, check out the [PBMX](/assets/2025-03-01/CaptronPBL.pbmx).
 
-The second table we need contains the metadata of our warehouse rack. Each warehouse bin has a corresponding LED start and end number. So, using this table, we can switch the light on or off, as needed.
+The second table we need contains the metadata of our warehouse rack. Each warehouse bin has a corresponding LED start and end number, which specify the range of LEDs underneath that bin. So, using this table, we can switch the LEDs on or off, as needed.
 
 After this table is created during the set-up of the rack, it doesn't need to be modified. There's also the option of maintaining this metadata together with warehouse master data of the ERP system (like SAP or Business Central). But this depends on your use case and your ERP system.
 
@@ -123,6 +123,6 @@ The last thing we need to add is the **Done** button. In the list of order items
 
 ## Result
 
-In the result video, you can see the entire picking process. The order is initiated by pressing the **Launch New Order** button. The three items to pick are displayed, and the three corresponding warehouse bins are indicated by the LED strip. As soon as picking item is marked as done by the user, the light switches off.
+In the following video, you can see the entire picking process. The order is initiated by pressing the **Launch New Order** button. The three items to pick are displayed, and the three corresponding warehouse bins are indicated by the LED strip. As soon as an item is marked as done by the user, the light switches off.
 
 {% include youtube.html id="s8Uh0ExfEk8" %}
