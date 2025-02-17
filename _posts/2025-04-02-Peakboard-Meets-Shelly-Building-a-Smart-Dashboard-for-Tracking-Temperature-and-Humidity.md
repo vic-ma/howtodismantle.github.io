@@ -18,7 +18,7 @@ downloads:
 ---
 Over two years ago, we published two articles about Shelly products: One about [how to use the button](/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html) and another about [how to use the power plug](/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html). A lot of time has passed since then, and many readers have come back and have actually used Shelly products in a professional industrial environment.
 
-Today, we'll take a closer look at a relatively new product: The Shelly [Humidity and Temperature sensor](https://www.shelly.com/products/shelly-h-t-gen3-matte-black). It comes with an e-ink display and Wi-Fi connection. To learn how to configure the Wi-Fi connection during the initial setup, see the [official documentation](https://www.shelly.com/blogs/documentation/shelly-h-t-gen3?srsltid=AfmBOop_uRRkBuYODH76QXhhOjD3FCpFxvW4KtqyH2xq85LxG6U4f19C).
+Today, we'll take a closer look at a relatively new product: The Shelly [Humidity and Temperature sensor](https://www.shelly.com/products/shelly-h-t-gen3-matte-black). It comes with an e-ink display and supports a Wi-Fi connection. To learn how to configure the Wi-Fi connection during the initial setup, see the [official documentation](https://www.shelly.com/blogs/documentation/shelly-h-t-gen3?srsltid=AfmBOop_uRRkBuYODH76QXhhOjD3FCpFxvW4KtqyH2xq85LxG6U4f19C).
 
 In our example, we'll use MQTT to build a Peakboard dashboard that displays the current temperature and humidity from the Shelly sensor. We'll also store the values in Peakboard Hub and build charts to analyze the historical data.
 
@@ -26,13 +26,13 @@ In our example, we'll use MQTT to build a Peakboard dashboard that displays the 
 
 ## Shelly sensor configuration
 
-Our Shelly sensor offers two options for configuration. It comes with a built-in web interface that can be accessed during the setup process (see the official documentation). The configuration can be also done through the Shelly cloud services, provided that it's configured properly. However, if it's necessary to avoid any kind of outside connection due to security restrictions, then a cloud connection can be avoided.
+Our Shelly sensor offers two options for configuration. It comes with a built-in web interface that can be accessed during the setup process (see the official documentation). The configuration can be also done through the Shelly cloud services, provided that it's configured properly. However, if it's necessary to avoid any kind of outside connection due to security restrictions, then a cloud connection can be avoided (it's not mandatory).
 
-The following screenshot shows the cloud-based configuration dialog. The only thing we need to configure here is the MQTT connectivity. We use a public MQTT broker, but a private one will do the same. Besides the address, we also need to provide a suffix, which is used to determine the MQTT topic.
+The following screenshot shows the cloud-based configuration dialog. The only thing we need to configure here is the MQTT connectivity. We use a public MQTT broker, but a private one does the same. Besides the address, we also need to provide a suffix, which determines the MQTT topic.
 
 ![image](/assets/2025-04-02/020.png)
 
-The sensor sends multiple MQTT messages every couple of minutes. Besides metadata and health information, we can also find the temperature and humidity, along with a Unix timestamp with the exact time of the last measurement. The following screenshot shows the MQTT message, in MQTT explorer.
+The sensor sends multiple MQTT messages every couple of minutes. Besides metadata and health information, we can also find the temperature and humidity, along with a Unix timestamp with the exact time of the last measurement. The following screenshot shows the MQTT message, in MQTT Explorer.
 
 It's important to note that the Shelly sensor goes to sleep between the two measurements, to save energy. It evens disconnects from Wi-Fi during that sleep time. So we usually can't ping the sensor within the local network. 
 
