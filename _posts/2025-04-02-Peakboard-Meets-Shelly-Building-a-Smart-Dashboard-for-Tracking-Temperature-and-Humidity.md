@@ -32,25 +32,29 @@ The following screenshot shows the cloud-based configuration dialog. The only th
 
 ![image](/assets/2025-04-02/020.png)
 
-The sensor will send out a bunch of MQTT messages every couple of minutes. Besides metadata and health information, we can also find the temperature and humidity along with a Unix time stamp with the exact time of the last measurement. The following screenshot shows the MQTT message, as subscribed with MQTT explorer.
+The sensor will send a bunch of MQTT messages every couple of minutes. Besides metadata and health information, we can also find the temperature and humidity along with a Unix time stamp with the exact time of the last measurement. The following screenshot shows the MQTT message, as subscribed with MQTT explorer.
 
 It's important to note that for energy saving purposes, the sensor goes to sleep between the two measurements. It evens disconnects from Wi-Fi during that sleep time. So we usually can't ping the sensor within the local network. 
 
 ![image](/assets/2025-04-02/030.png)
 
-## Building the Peakboard app
+## Build the Peakboard app
 
-On the Peakboard side we will need a MQTT conection. As shown in the screenshot we must subscribe to three different topics for temperature, humditiy and time:
+On the Peakboard side, we need an MQTT connection. As shown in the following screenshot, we subscribe to three different topics: temperature, humidity, and time.
 
-- MyShellyTemperature/status/humidity:0
-- MyShellyTemperature/status/temperature:0
-- MyShellyTemperature/status/sys
+- `MyShellyTemperature/status/humidity:0`
+- `MyShellyTemperature/status/temperature:0`
+- `MyShellyTemperature/status/sys`
 
-and then use the data path to find the need value within the JSON formatted message.
+We then use the data path to find the desired value within the JSON message.
 
 ![image](/assets/2025-04-02/040.png)
 
-For turning the Unix timestamp into a nicely formatted value we use a data flow along with single line of LUA code for the formatting: os.date("%Y-%m-%d %H:%M:%S", tonumber(item.Unixtime))
+In order to turn the Unix timestamp into a properly formatted value, we use a data flow, along with single line of LUA code:
+
+{% highlight lua %}
+os.date("%Y-%m-%d %H:%M:%S", tonumber(item.Unixtime))
+{% endhighlight %}
 
 ![image](/assets/2025-04-02/050.png)
 
