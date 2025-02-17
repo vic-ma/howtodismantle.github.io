@@ -34,7 +34,7 @@ The following screenshot shows the cloud-based configuration dialog. The only th
 
 The sensor sends multiple MQTT messages every couple of minutes. Besides metadata and health information, we can also find the temperature and humidity, along with a Unix timestamp with the exact time of the last measurement. The following screenshot shows the MQTT message, in MQTT Explorer.
 
-It's important to note that the Shelly sensor goes to sleep in between the two measurements, to save energy. It evens disconnects from Wi-Fi during that time. So we usually can't ping the sensor within the local network. 
+It's important to note that the Shelly sensor goes to sleep in between the two measurements, to save energy. It evens disconnects from Wi-Fi during that time. So we usually can't ping the sensor within the local network.
 
 ![image](/assets/2025-04-02/030.png)
 
