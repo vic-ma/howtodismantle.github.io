@@ -16,20 +16,25 @@ downloads:
   - name: ShellyHT.pbmx
     url: /assets/2025-04-02/ShellyHT.pbmx
 ---
-More than two years ago, there were already two articles about Shelly products: One about [how to use the button](/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html) and another about [how to use the power plug](/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html). Lots of time has passed since then and many readers came back who actually used the Shelly products even in a professional, industrial environment. Today we want to have a closer look at a relatively new product: The Shelly [Humidity and Temperature sensor](https://www.shelly.com/products/shelly-h-t-gen3-matte-black). It comes with a e-ink display and WiFi connection. How to configure the Wifi connection during initial setup is explained in the [documentation](https://www.shelly.com/blogs/documentation/shelly-h-t-gen3?srsltid=AfmBOop_uRRkBuYODH76QXhhOjD3FCpFxvW4KtqyH2xq85LxG6U4f19C).
+Over two years ago, we published two articles about Shelly products: One about [how to use the button](/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html) and another about [how to use the power plug](/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html). A lot of time has passed since then and many readers have come back and have actually used Shelly products in a professional, industrial environment.
 
-In our example we will use MQTT to build a dashbaord with Peakboard for showing the current temperature and humidity as provided by the Shelly sensor. We also will build our own historisation and store the values for later analysis in the Peakboard Hub.
+Today we'll take a closer look at a relatively new product: The Shelly [Humidity and Temperature sensor](https://www.shelly.com/products/shelly-h-t-gen3-matte-black). It comes with an e-ink display and Wi-Fi connection. To learn how to configure the Wi-Fi connection during the initial setup, see the [official documentation](https://www.shelly.com/blogs/documentation/shelly-h-t-gen3?srsltid=AfmBOop_uRRkBuYODH76QXhhOjD3FCpFxvW4KtqyH2xq85LxG6U4f19C).
+
+In our example we'll use MQTT to build a dashboard with Peakboard for showing the current temperature and humidity, as provided by the Shelly sensor. We'll also build our own historization and store the values for later analysis in Peakboard Hub.
 
 ![image](/assets/2025-04-02/010.png)
 
 ## Shelly sensor configuration
 
-Our Shelly sensor offers two ways for configuration. It comes with a built-in web interface that can be access during the setup process (see documentation), or the configuration can be also done through the Shelly cloud services, provided that it's configured properly. If it's necessary to avoid any kind of outside connection because of security restrictions within the factory, a cloud connection is NOT mandatory. The screenshot shows the cloud based configuration dialog. The only point we need to configure here is the MQTT connectivity. We use a public MQTT broker, but a private one will do the same. Beside the adress we need to provide a suffix which is used to detemine the MQTT topic.
+Our Shelly sensor offers two options for configuration. It comes with a built-in web interface that can be accessed during the setup process (see the official documentation). The configuration can be also done through the Shelly cloud services, provided that it's configured properly. However, if it's necessary to avoid any kind of outside connection due to security restrictions within the factory, then a cloud connection can be avoided.
+
+The following screenshot shows the cloud-based configuration dialog. The only thing we need to configure here is the MQTT connectivity. We use a public MQTT broker, but a private one will do the same. Beside the address, we also need to provide a suffix, which is used to determine the MQTT topic.
 
 ![image](/assets/2025-04-02/020.png)
 
-The sensor will send out a bunch of MQTT message every couple of minutes. Beside lots of meta and health information we can find temperature and humdity along with a unix time stamp with the exact time of the last measurement. The screenshot shows the MQTT message as subscribed with MQTT explorer.
-We must understand that for energy saving purpose the sensor is going sleep between two measurements. It evens discoonnects from WiFi during that sleep time. So we usually can't ping the sensor within the local network. 
+The sensor will send out a bunch of MQTT messages every couple of minutes. Besides metadata and health information, we can also find the temperature and humidity along with a Unix time stamp with the exact time of the last measurement. The following screenshot shows the MQTT message, as subscribed with MQTT explorer.
+
+It's important to note that for energy saving purposes, the sensor goes to sleep between the two measurements. It evens disconnects from Wi-Fi during that sleep time. So we usually can't ping the sensor within the local network. 
 
 ![image](/assets/2025-04-02/030.png)
 
