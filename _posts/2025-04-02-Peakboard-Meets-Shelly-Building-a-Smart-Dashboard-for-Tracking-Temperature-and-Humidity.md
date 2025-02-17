@@ -20,7 +20,7 @@ Over two years ago, we published two articles about Shelly products: One about [
 
 Today, we'll take a closer look at a relatively new product: The Shelly [Humidity and Temperature sensor](https://www.shelly.com/products/shelly-h-t-gen3-matte-black). It comes with an e-ink display and Wi-Fi connection. To learn how to configure the Wi-Fi connection during the initial setup, see the [official documentation](https://www.shelly.com/blogs/documentation/shelly-h-t-gen3?srsltid=AfmBOop_uRRkBuYODH76QXhhOjD3FCpFxvW4KtqyH2xq85LxG6U4f19C).
 
-In our example, we'll use MQTT to build a Peakboard dashboard that displays the current temperature and humidity from the Shelly sensor. We'll also build our own history charts and store the values for later analysis in Peakboard Hub.
+In our example, we'll use MQTT to build a Peakboard dashboard that displays the current temperature and humidity from the Shelly sensor. We'll also store the values in Peakboard Hub and build charts to analyze the historical data.
 
 ![image](/assets/2025-04-02/010.png)
 
@@ -32,7 +32,7 @@ The following screenshot shows the cloud-based configuration dialog. The only th
 
 ![image](/assets/2025-04-02/020.png)
 
-The sensor sends multiple MQTT messages every couple of minutes. Besides metadata and health information, we can also find the temperature and humidity, along with a Unix time stamp with the exact time of the last measurement. The following screenshot shows the MQTT message, in MQTT explorer.
+The sensor sends multiple MQTT messages every couple of minutes. Besides metadata and health information, we can also find the temperature and humidity, along with a Unix timestamp with the exact time of the last measurement. The following screenshot shows the MQTT message, in MQTT explorer.
 
 It's important to note that the Shelly sensor goes to sleep between the two measurements, to save energy. It evens disconnects from Wi-Fi during that sleep time. So we usually can't ping the sensor within the local network. 
 
@@ -62,9 +62,9 @@ To display the values to the user, we use tiles, bind it to the source, and make
 
 ![image](/assets/2025-04-02/060.png)
 
-## Historization
+## Historical analysis
 
-To store the values for future analysis, we set up a table in [Peakboard Hub](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html). We use a time stamp and two integer columns for temperature and humidity.
+To store the values for future analysis, we set up a table in [Peakboard Hub](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html). We add a timestamp column and two integer columns for the temperature and humidity.
 
 ![image](/assets/2025-04-02/070.png)
 
@@ -72,16 +72,16 @@ In the Peakboard app, we set up a data connection to this Hub list and query the
 
 ![image](/assets/2025-04-02/080.png)
 
-For our chart, we use a simple line chart and connect it to the Hub list data connection. In our example, we have two separate charts: one for temperature and one for humidity.
+For our historical data charts, we use a simple line chart and connect it to the Hub list data connection. In our example, we have two separate charts: one for temperature and one for humidity.
 
 ![image](/assets/2025-04-02/090.png)
 
-The last thing we need is to write the current values regularly to the list. To do that, we set up a timer that triggers every 10 minutes and takes the value from the data flow and just appends in to the list:
+The last thing we need is to write the current values regularly to the Hub list. To do that, we set up a timer that triggers every 10 minutes and takes the value from the data flow and appends in to the list:
 
 ![image](/assets/2025-04-02/100.png)
 
 ## Result
 
-The following screenshot shows the final result in action. The real-time data is sent from the Shelly H&T sensor to Peakboard, via MQTT. On a regular basis, these values are stored in a Hub list and then queried again from the Hub list to be the basis for the value history charts, which go back to the last 100 data points.
+The following screenshot shows the final result in action. The real-time data is sent from the Shelly H&T sensor to Peakboard, via MQTT. On a regular basis, these values are stored in a Hub list. The Hub list is also queried to create the historical data charts, which show the last 100 data points.
 
 ![image](/assets/2025-04-02/result.png)
