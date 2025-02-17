@@ -34,7 +34,7 @@ The following screenshot shows the cloud-based configuration dialog. The only th
 
 The sensor sends multiple MQTT messages every couple of minutes. Besides metadata and health information, we can also find the temperature and humidity, along with a Unix timestamp with the exact time of the last measurement. The following screenshot shows the MQTT message, in MQTT Explorer.
 
-It's important to note that the Shelly sensor goes to sleep between the two measurements, to save energy. It evens disconnects from Wi-Fi during that sleep time. So we usually can't ping the sensor within the local network. 
+It's important to note that the Shelly sensor goes to sleep in between the two measurements, to save energy. It evens disconnects from Wi-Fi during that time. So we usually can't ping the sensor within the local network. 
 
 ![image](/assets/2025-04-02/030.png)
 
@@ -64,15 +64,15 @@ To display the values to the user, we use tiles, bind it to the source, and make
 
 ## Historical analysis
 
-To store the values for future analysis, we set up a table in [Peakboard Hub](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html). We add a timestamp column and two integer columns for the temperature and humidity.
+To store the values for future analysis, we create a list in [Peakboard Hub](/Peakboard-Hub-Online-An-introduction-for-complete-beginners.html). We add a timestamp column and two integer columns for the temperature and humidity.
 
 ![image](/assets/2025-04-02/070.png)
 
-In the Peakboard app, we set up a data connection to this Hub list and query the last 100 records. This will supply the data for our chart.
+In the Peakboard app, we set up a data connection to this Hub list and query the last 100 records. This will supply the data for our historical data charts.
 
 ![image](/assets/2025-04-02/080.png)
 
-For our historical data charts, we use a simple line chart and connect it to the Hub list data connection. In our example, we have two separate charts: one for temperature and one for humidity.
+For our charts, we use a simple line chart and connect it to the Hub list data connection. In our example, we have two separate charts: one for temperature and one for humidity.
 
 ![image](/assets/2025-04-02/090.png)
 
