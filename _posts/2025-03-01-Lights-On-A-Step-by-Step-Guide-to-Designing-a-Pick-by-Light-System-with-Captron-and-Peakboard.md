@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Lights On - A Step-by-Step Guide to Designing a Pick-by-Light System with Captron and Peakboard
-date: 2023-03-01 03:00:00 +0200
+date: 2025-03-01 03:00:00 +0200
 tags: hardware
 image: /assets/2025-03-01/title.png
 image_header: /assets/2025-03-01/title_landscape.png
