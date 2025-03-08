@@ -22,7 +22,7 @@ This blog features a wide variety of articles about different types of hardware 
 ### Printers
 
 - [The Art of Printing - Getting started with label printing on Seiko SLP720RT](/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html)
-- [The Art of Printing - Mastering Bixolon SRP-Q300 Series label printer with with enhanced ESC/POS commands and tables](/The Art-of-Printing-Mastering-Bixolon-SRP-Q300-Series-label-printer-with-with-enhanced-ESCPOS-commands-and-tables.html)
+- [The Art of Printing - Mastering Bixolon SRP-Q300 Series label printer with with enhanced ESC/POS commands and tables](/The-Art-of-Printing-Mastering-Bixolon-SRP-Q300-Series-label-printer-with-with-enhanced-ESCPOS-commands-and-tables.html)
 
 ### wheel.me AGVs
 
