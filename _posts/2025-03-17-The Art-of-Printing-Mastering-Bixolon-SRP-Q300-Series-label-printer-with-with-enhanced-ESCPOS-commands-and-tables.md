@@ -137,8 +137,8 @@ Here's the result on paper, which already comes pretty close to a professional l
 
 ![image](/assets/2025-03-17/030.png)
 
-## result and conclusion
+## Result and conclusion
 
-Beside getting to know the beautiful Bixolon printer we learned how to print tables and how to use pure ESC/POS commands. We must carefully consider pure ESC/POS commands (hard to build and might get complicated fast) versus built-in markup language (easy to use but potentially limited).
+Besides getting to know the beautiful Bixolon printer, we also learned how to print tables and how to use pure ESC/POS commands. It's important to carefully consider when to use pure ESC/POS commands. Pure commands are hard to write and can get complicated fast. On the other hand, the built-in markup language is easy to use but potentially limiting.
 
 {% include youtube.html id="JxS4E6D1dJw" %}
