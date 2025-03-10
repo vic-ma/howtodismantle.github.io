@@ -18,7 +18,7 @@ downloads:
   - name: ESCPOSPrinter.pbmx
     url: /assets/2025-03-17/ESCPOSPrinter.pbmx
 ---
-A few weeks ago, we discussed [how to print with Peakboard](/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html). We learned how to use the POS printer extension and how to use the simplified internal commands to send ESC/POS commands to the printer. In this article, we will deepen our understanding with some new aspects of printing:
+A few weeks ago, we discussed [how to print with Peakboard](/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html). We learned how to use the POS printer extension and how to use the simplified internal commands to send ESC/POS commands to the printer. In this article, we will deepen our understanding with the following:
 
 1. How to use the Bixolon SRP-Q300 printer
 2. How to print tables
@@ -28,13 +28,13 @@ A few weeks ago, we discussed [how to print with Peakboard](/The-Art-of-Printing
 
 The Bixolon SRP-Q300 printer we're using today is a super lightweight 80mm POS printer. It's typically used in the hospitality industry, to print receipts. So in today's example, we'll use the printer to print receipts for the Starpeak coffee shop. 
 
-The Bixolon printer doesn't come with a web interface, but it can be easily configured using the function keys. To learn how to do that, see the [user manual](https://www.bixolon.com/_upload/manual/Manual_User_SRP-Q300302_ENG_V2.00.pdf). Initially, the printer gets the IP address from the network's DHCP server. So in most situations, no explicit configuration is necessary.
+The Bixolon printer doesn't come with a web interface, but it can be easily configured using the function keys. To learn how to do that, see the [user manual](https://www.bixolon.com/_upload/manual/Manual_User_SRP-Q300302_ENG_V2.00.pdf). Initially, the printer gets the IP address from the network's DHCP server. So in most situations, no manual configuration is necessary.
 
 ![image](/assets/2025-03-17/010.png)
 
 ## Print a table
 
-In our [first article about printing](https://how-to-dismantle-a-peakboard-box.com/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html), we explained that there are several ways to send commands to POS printers. The easiest way is to use Peakboard's own simplified markup language, which is automatically translated to ESC/POS commands before being sent to the printer (see [here](https://github.com/Peakboard/PeakboardExtensions/tree/master/POSPrinter) for a list of full commands). Peakboard's POS markup language is much easier to write than standard ESC/POS commands.
+In our [first article about printing](https://how-to-dismantle-a-peakboard-box.com/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html), we explained that there are several ways to send commands to POS printers. The easiest way is to use Peakboard's own simplified markup language, which is automatically translated to ESC/POS commands before being sent to the printer (see the [full list of commands](https://github.com/Peakboard/PeakboardExtensions/tree/master/POSPrinter)). Peakboard's POS markup language is much easier to use than standard ESC/POS commands.
 
 What we haven't seen so far is how to print tables. To print a table, we need to embed an HTML-like definition into the POS commands:
 
@@ -82,7 +82,7 @@ Let's discuss a completely different approach. The pre-defined POS markup comman
 ~(PureESCPOS: <MyPureCommands>)~
 {% endhighlight %}
 
-Here's the corresponding LUA example:
+Here's a LUA example:
 
 {% highlight lua %}
 local ESC = "\x1B"
@@ -129,9 +129,9 @@ local _ = data.MyPrinter.print("~(PureESCPOS: " .. receipt .. ")~")
 {% endhighlight %}
 
 Here's how it works:
-1. We build the ESC/POS commands by using plain text and hex commands. The hex commands for line feed and other formatting purposes is done with constants. That improves readability.
-2. We wrap this string with the `PureESCPOS` markup command.
-3. We send this string to the printer.
+1. We build the ESC/POS commands by using plain text and hex commands. The hex commands for line feed and other formatting behavior is done with constants. This improves readability.
+2. We wrap the commands string with the `PureESCPOS` markup command.
+3. We send the wrapped command to the printer.
 
 Here's the result on paper, which already comes pretty close to a professional label:
 
