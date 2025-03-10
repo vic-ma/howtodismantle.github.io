@@ -22,7 +22,7 @@ A few weeks ago, we discussed [how to print with Peakboard](/The-Art-of-Printing
 
 1. How to use the Bixolon SRP-Q300 printer
 2. How to print tables
-3. How to use raw ESC/POS commands, if a command is not available as a simplified command
+3. How to use pure ESC/POS commands, if a command is not available as a simplified command
 
 ## Bixolon SRP-Q300
 
@@ -76,13 +76,13 @@ Here's what the result looks like:
 
 ## Printing pure ESC/POS commands
 
-Let's discuss a completely different approach. The pre-defined POS markup commands might not be sufficient for our printing project, or maybe we already have a ESC/POS command set for a complex layout that we want to use. In that case we can just submit pure ESC/POS commands within the POS markup commands like this:
+Let's discuss a completely different approach. The pre-defined POS markup commands might not be sufficient for our printing project, or maybe we already have an ESC/POS command set for a complex layout that we want to use. In that case, we can submit pure ESC/POS commands within the simplified POS markup commands, like this:
 
 {% highlight text %}
-~(PureESCPOS: <MyPureCOmmands>)~
+~(PureESCPOS: <MyPureCommands>)~
 {% endhighlight %}
 
-Here's the corresponding LUA example. First we build the ESC/POS commands by using plain text and hex commands. The hex commands for line feed and other formatting purpose is done throught constants. That improves readabaility. Then we wrap this string into the markup command discussed earlier and at last we shoot this string against the printer. That's it.
+Here's the corresponding LUA example:
 
 {% highlight lua %}
 local ESC = "\x1B"
@@ -128,7 +128,12 @@ local receipt = INIT ..
 local _ = data.MyPrinter.print("~(PureESCPOS: " .. receipt .. ")~")
 {% endhighlight %}
 
-Here's the result on paper which already comes pretty close to a professional lable.
+Here's how it works:
+1. We build the ESC/POS commands by using plain text and hex commands. The hex commands for line feed and other formatting purposes is done with constants. That improves readability.
+2. We wrap this string with the `PureESCPOS` markup command.
+3. We send this string to the printer.
+
+Here's the result on paper, which already comes pretty close to a professional label:
 
 ![image](/assets/2025-03-17/030.png)
 
