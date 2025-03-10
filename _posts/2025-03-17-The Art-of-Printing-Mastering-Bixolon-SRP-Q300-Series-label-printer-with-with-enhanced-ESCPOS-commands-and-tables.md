@@ -36,13 +36,13 @@ The Bixolon printer doesn't come with a web interface, but it can be easily conf
 
 In our [first article about printing](https://how-to-dismantle-a-peakboard-box.com/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html), we explained that there are several ways to send commands to POS printers. The easiest way is to use Peakboard's own simplified markup language, which is automatically translated to ESC/POS commands before being sent to the printer (see [here](https://github.com/Peakboard/PeakboardExtensions/tree/master/POSPrinter) for a list of full commands). Peakboard's POS markup language is much easier to write than standard ESC/POS commands.
 
-What we haven't see so far is how to print tables. When it comes to tables some kind of html like definition is used to embedd tables in the POS commands:
+What we haven't seen so far is how to print tables. To print a table, we need to embed an HTML-like definition into the POS commands:
 
 {% highlight text %}
 ~(PosTable:<CommaSeparatedColumnsWith>:<ActualHTMLStyleTable>)~
 {% endhighlight %}
 
-Let's take a look at concrete example with some LUA code to initiate the printing process. First we build the html-like table, then we call the "print" function of the data source based on the POS printer extension. The printer function takes two markup commands: One for the table with 3 columns and one for the feed and cut of the paper. That's it.
+Let's take a look at a concrete example with some LUA code. The following code initiates the printing process. 
 
 {% highlight lua %}
 local table = [[
@@ -66,7 +66,11 @@ local table = [[
 local _ = data.MyPrinter.print("~(PosTable:20,14,14:" .. table .. ")~~(FullCutAfterFeed:2)~")
 {% endhighlight %}
 
-Here's how the result looks like:
+Here's how it works:
+1. We build the HTML-like table.
+2. We call the `print` function of the data source, based on the POS printer extension. The printer function takes two markup commands: One for the table with 3 columns, and one for the feed and cut of the paper.
+
+Here's what the result looks like:
 
 ![image](/assets/2025-03-17/020.png)
 
