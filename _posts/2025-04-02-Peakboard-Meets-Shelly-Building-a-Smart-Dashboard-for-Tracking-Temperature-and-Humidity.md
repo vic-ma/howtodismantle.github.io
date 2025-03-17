@@ -5,6 +5,7 @@ date: 2023-03-01 01:00:00 +0200
 tags: hardware opcuamqtt
 image: /assets/2025-04-02/title.png
 image_landscape: /assets/2025-04-02/title_landscape.png
+bg_alternative: true
 read_more_links:
   - name: Shelly H&T Gen3
     url: https://www.shelly.com/products/shelly-h-t-gen3-matte-black
