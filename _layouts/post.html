@@ -17,7 +17,7 @@ layout: base
     <div class="absolute bottom-0 left-0 right-0 px-8 pb-32">
         <div class="max-w-7xl mx-auto">
             {% if page.bg_alternative %}
-            <div class="bg-white dark:bg-blackground rounded-xl p-8 shadow-xl">
+            <div class="bg-white/80 dark:bg-blackground/80 rounded-xl p-4 shadow-xl">
             {% endif %}
                 <p class="text-sm {% unless page.bg_alternative %}text-white/80{% else %}text-gray-600 dark:text-gray-400{% endunless %} mb-4">Published in 
                     {% for tag in page.tags %}
@@ -25,7 +25,7 @@ layout: base
                     {% endfor %}
                 </p>
                 <h1 class="text-5xl font-bold {% unless page.bg_alternative %}text-white{% else %}text-gray-900 dark:text-white{% endunless %} mt-2 leading-tight">{{ page.title }}</h1>
-                <p class="text-xl {% unless page.bg_alternative %}text-white/80{% else %}text-gray-600 dark:text-gray-400{% endunless %} mt-6">{{ page.description }}</p>
+                <p class="text-xl {% unless page.bg_alternative %}text-white/80{% else %}text-gray-600 dark:text-gray-400{% endunless %} {% if page.description %}mt-6{% endif %}">{{ page.description }}</p>
             {% if page.bg_alternative %}
             </div>
             {% endif %}
