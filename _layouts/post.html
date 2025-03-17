@@ -17,7 +17,7 @@ layout: base
     <div class="absolute bottom-0 left-0 right-0 px-8 pb-32">
         <div class="max-w-7xl mx-auto">
             {% if page.bg_alternative %}
-            <div class="bg-white/80 dark:bg-blackground/80 rounded-xl p-4 shadow-xl">
+            <div class="bg-white/80 dark:bg-blackground/80 rounded-xl p-8 shadow-xl">
             {% endif %}
                 <p class="text-sm {% unless page.bg_alternative %}text-white/80{% else %}text-gray-600 dark:text-gray-400{% endunless %} mb-4">Published in 
                     {% for tag in page.tags %}
