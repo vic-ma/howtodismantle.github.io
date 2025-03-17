@@ -5,6 +5,7 @@ date: 2025-03-01 03:00:00 +0200
 tags: hardware
 image: /assets/2025-03-01/title.png
 image_header: /assets/2025-03-01/title_landscape.png
+bg_alternative: true
 read_more_links:
   - name: Captron Pick-by-light
     url: https://captron-solutions.com/en/pick-by-light/
