@@ -3,8 +3,8 @@ layout: post
 title: SharePoint Lists in Beast Mode – Powered by Peakboard
 date: 2023-03-01 00:00:00 +0000
 tags: office365
-image: /assets/2025-03-25/title.jpg
-image_header: /assets/2025-03-25/title_landscape.jpg
+image: /assets/2025-03-25/title.png
+image_header: /assets/2025-03-25/title_landscape.png
 bg_alternative: true
 read_more_links:
   - name: All Office 365 articles
