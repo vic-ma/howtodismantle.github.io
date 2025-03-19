@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 2025-04-18 Peak-a-Boo! Revealing Peakboard Hub List Data in your Power BI Dashboards
+title: Peak-a-Boo! Revealing Peakboard Hub List Data in your Power BI Dashboards
 date: 2023-03-01 03:00:00 +0200
 tags: api peakboardhub peakboardhubapi office365
 image: /assets/2025-04-18/title.png
