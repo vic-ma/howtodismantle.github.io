@@ -15,9 +15,9 @@ downloads:
   - name: Office365Sharepointlist.pbmx
     url: /assets/2025-03-25/Office365Sharepointlist.pbmx
 ---
-In the first major update of 2025, the Peakboard dev team added a new series of Office 365 data sources. Office 365 has become increasingly important as a backend for a lot of companies, with many different use cases. In today's article, we'll discuss how to read and write SharePoint lists from Peakboard applications. For other Office 365 related topics, see this [Office 365 overview](/category/office365).
+In the first major update of 2025, the Peakboard dev team added a new series of Office 365 data sources. Office 365 has become increasingly important as a backend for many companies, with many different use cases. In today's article, we'll discuss how to read and write SharePoint lists from Peakboard applications. You can also check out our other [Office 365 articles](/category/office365).
 
-SharePoint lists may be a wise choice for data storage, especially when the data is used or processed within the Office 365 universe (e.g., Power Automate).
+SharePoint lists may be a wise choice for data storage, especially when the data is used or processed within the Office 365 ecosystem (e.g., in Power Automate).
 
 Every Office 365 data source handles authentication in the same way. To learn more about how to authenticate against the Office 365 back end, see our [authentication guide](/Getting-started-with-the-new-Office-365-Data-Sources.html).
 
