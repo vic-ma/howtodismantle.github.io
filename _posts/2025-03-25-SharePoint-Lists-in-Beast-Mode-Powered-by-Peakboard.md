@@ -83,26 +83,26 @@ To get the information we want, we add a "Parse table data from JSON" transforma
 
 ![image](/assets/2025-03-25/040.png)
 
-To set a value of a SharePoint list we can it through the email address, the display name or the internal ID. In most cases the email address is the easiest way to do:
+To set the value of a SharePoint list, we can add it using the person's email address, display name, or internal ID. In most cases, the email address is the easiest method:
 
 ![image](/assets/2025-03-25/045.png)
 
 ## Columns with symbols and functions
 
-In our example list there are columns, which are translated into symbols or have other functions. The Status value "Blocked" let the row turn red in SharePoint.
+In our example list, there are columns that are translated into symbols, or have other functions. The Status value "Blocked" turns the row red in SharePoint.
 
 ![image](/assets/2025-03-25/050.png)
 
-These columns are pure string columns internally and will be handled like this by the Peakboard data source. So only the pure value will be displayed in the table output.
+These columns are pure string columns internally and will be treated as such by the Peakboard data source. So only the pure value will be displayed in the table output.
 
 ![image](/assets/2025-03-25/051.png)
 
-The same principle is applied when setting the content. It's important to match the value exactly to trigger the translation into symbols or other effects on the SharePoint side.
+The same principle is applied when setting the content. It's important to match the value exactly, in order to trigger the translation into symbols or use other effects on the SharePoint side.
 
 ![image](/assets/2025-03-25/055.png)
 
-## conclusion
+## Conclusion
 
-With the new data source, SharePoint lists can be easily read and modified. With certain columns types we need to understand the internal principals and use them correctly.
+With the new data sources, SharePoint lists can now be easily read and modified. With certain columns types we need to understand the internal principals and use them correctly.
 
 
