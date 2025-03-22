@@ -19,22 +19,22 @@ In the first major update of 2025, the Peakboard dev team added a new series of 
 
 SharePoint lists may be a wise choice for data storage, especially when the data is used or processed within the Office 365 ecosystem (e.g., in Power Automate).
 
-Every Office 365 data source handles authentication in the same way. To learn more about how to authenticate against the Office 365 back end, see our [authentication guide](/Getting-started-with-the-new-Office-365-Data-Sources.html).
+Every Office 365 data source handles authentication in the same way. To learn more about how to authenticate against the Office 365 backend, see our [getting started guide](/Getting-started-with-the-new-Office-365-Data-Sources.html).
 
-For this article, we'll use an issue tracker list in SharePoint as an example. This issue tracker list lets anyone add and track problems in the factory. It has a title and description text, along with some more interesting columns:
+For this article, we'll use an issue tracker list in SharePoint as an example. This issue tracker list lets anyone add and track problems in the factory. It has a title and description, along with some more interesting columns:
 * `Assigned To` - a link to a SharePoint user.
 * `Date Reported` - the date that the report was made.
 * `Status` - a status string.
 
-It this article, we'll discuss how to read, process, and write all of these special columns.
+It this article, we'll explain how to read, process, and write to all of these special columns.
 
 ![image](/assets/2025-03-25/010.png)
 
 ## Configure the data source
 
-After successfully authenticating to the Office 365 backend, we provide the name of the SharePoint site and the SharePoint list using the two combo boxes. Below these combo boxes, there's a **Show user display name** options. We'll discuss this later.
+After successfully authenticating with the Office 365 backend, we provide the name of our SharePoint site and SharePoint list, using the combo boxes. Below these combo boxes, there's a **Show user display name** option. We'll discuss this later.
 
-The first column of each SharePoint list always `ID`. It contains a unique number representing the row. We need this in order to modify or delete the data.  
+The first column of each SharePoint list always `ID`. It contains a unique number representing the row. We need the `ID` in order to modify or delete data.
 
 ![image](/assets/2025-03-25/020.png)
 
