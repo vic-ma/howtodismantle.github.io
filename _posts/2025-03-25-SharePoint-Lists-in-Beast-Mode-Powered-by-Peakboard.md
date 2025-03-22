@@ -34,13 +34,13 @@ It this article, we'll discuss how to read, process, and write all of these spec
 
 After successfully authenticating to the Office 365 backend, we provide the name of the SharePoint site and the SharePoint list using the two combo boxes. Below these combo boxes, there's a **Show user display name** options. We'll discuss this later.
 
-The first column of each SharePoint list always called "ID" and contains a unique number representing the row. It will be needed for modifying or deleting the data.  
+The first column of each SharePoint list always `ID`. It contains a unique number representing the row. We need this in order to modify or delete the data.  
 
 ![image](/assets/2025-03-25/020.png)
 
 ## Date values
 
-The first special column is "DateReported". The original date's format depends on the language settings of the users and the site: e.g. "1/30/2025 8:00:00 AM". For the formatting in a control the regular default formatting of Peakboard can be used. Peakboard automatically realizes the date and is doing the expected formatted automatically without any flaws. The screenshot shows a German format used in the table.
+The first special column is `DateReported`. The original date format depends on the language settings of the site and the users (e.g. `1/30/2025 8:00:00 AM"`). To properly format the date in a control, we can use the default Peakboard formatter. Peakboard automatically detects the date format and can handle it without any issues. The following screenshot shows a German format used in the table:
 
 ![image](/assets/2025-03-25/030.png)
 
