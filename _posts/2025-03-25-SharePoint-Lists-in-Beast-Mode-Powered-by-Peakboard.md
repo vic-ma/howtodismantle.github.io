@@ -15,13 +15,18 @@ downloads:
   - name: Office365Sharepointlist.pbmx
     url: /assets/2025-03-25/Office365Sharepointlist.pbmx
 ---
-With the first big update in 2025 the Peakboard dev team launched a new series of Office 365 data sources. Office 365 has become more and more important as a backend for lots of different use cases in companies. In today's article we will discuss how to read and write and Sharepoint lists from Peakboard applications. For other Office 365 related topics we can check [this overview](/category/office365).
+In the first major update of 2025, the Peakboard dev team added a new series of Office 365 data sources. Office 365 has become increasingly important as a backend for a lot of companies, with many different use cases. In today's article, we'll discuss how to read and write Sharepoint lists from Peakboard applications. For other Office 365 related topics, see this [Office 365 overview](/category/office365).
 
-Sharepoint lists might by a wise choice to store data especially when the data is used or processed within the Office 365 universe, e.g. Power Automate.
+Sharepoint lists may be a wise choice for data storage, especially when the data is used or processed within the Office 365 universe (e.g., Power Automate).
 
-Every Office 365 data source has the same options and principles of authentifction against the Office 365 backend. We won't discuss the details about aunthentification here as it's already handled in [this article](/Getting-started-with-the-new-Office-365-Data-Sources.html). Is you're not familiar, please read in advance.
+Every Office 365 data source handles authentication in the same way. To learn more about how to authenticate against the Office 365 back end, see our [authentication guide](/Getting-started-with-the-new-Office-365-Data-Sources.html).
 
-As an example we're using an issue tracker list in Sharepoint. This issue tracker list has the purpose that everyone can add and track problems within the factory. Beside a title and description text, it comes with some more interesting columns to discuss. An "Assigned To" column that contains a link to a SharePoint user, "Date Reported" column with a date, and a Status column that is translated into a symbol. It this article we will discuss how to read, process and write all of these special columns.
+For this article, we'll use an issue tracker list in Sharepoint as an example. This issue tracker list lets anyone add and track problems in the factory. It has a title and description text, along with some more interesting columns:
+* `Assigned To` - a link to a SharePoint user.
+* `Date Reported` - the date that the report was made.
+* `Status` - a status translated into a symbol.
+
+It this article, we will discuss how to read, process, and write all of these special columns.
 
 ![image](/assets/2025-03-25/010.png)
 
