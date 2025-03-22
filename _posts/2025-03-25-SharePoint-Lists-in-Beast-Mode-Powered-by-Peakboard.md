@@ -40,20 +40,23 @@ The first column of each SharePoint list always `ID`. It contains a unique numbe
 
 ## Date values
 
-The first special column is `DateReported`. The original date format depends on the language settings of the site and the users (e.g. `1/30/2025 8:00:00 AM"`). To properly format the date in a control, we can use the default Peakboard formatter. Peakboard automatically detects the date format and can handle it without any issues. The following screenshot shows a German format used in the table:
+The first special column is `DateReported`. The original date format depends on the language settings of the site and the users (e.g., `1/30/2025 8:00:00 AM`).
+
+To properly format the date in a control, we use the default Peakboard formatter. Peakboard automatically detects the date format and can handle it without any issues. The following screenshot shows a German date format used in the table:
 
 ![image](/assets/2025-03-25/030.png)
 
 ![image](/assets/2025-03-25/035.png)
 
-The same will work when setting a date during record crateation through a building block. In the example we use a technical format: YYYY-MM-DD.
+The same thing works when setting a date during record creation, with Building Blocks. In the following example, we use a more technical format (`YYYY-MM-DD`):
 
 ![image](/assets/2025-03-25/036.png)
 
 ## Links to users
 
-Columns that contains references to SharePoint users by default come with a large JSON string to describe the user, including the name, email address and lots of other things. 
-If we need only the name, we can check the setting "Show user display name" in the data source. To get more attributes of the user we leave the setting to fales. This example show the JSON string that is contained in the column in the complex case:
+By default, columns that contain references to SharePoint users come with a large JSON string that describes the user. This string includes the user's including the name, email address and many other things.
+
+If we only need the name, we can check the setting **Show user display name** in our data source. To get additional attributes of the user, we uncheck the setting. This is what a complete JSON string looks like:
 
 {% highlight json %}
 {
@@ -76,7 +79,7 @@ If we need only the name, we can check the setting "Show user display name" in t
 }
 {% endhighlight %}
 
-To get the information we want, we just use a "Parse table data from JSON" transformation step within a data flow. The sceenshot shows how to extract the "First Name" from the string and put it in a separate column.
+To get the information we want, we add a "Parse table data from JSON" transformation step within a data flow. The following screenshot shows how to extract the `FirstName` from the string and put it in a separate column.
 
 ![image](/assets/2025-03-25/040.png)
 
