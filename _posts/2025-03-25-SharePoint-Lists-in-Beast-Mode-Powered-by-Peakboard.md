@@ -24,7 +24,7 @@ Every Office 365 data source handles authentication in the same way. To learn mo
 For this article, we'll use an issue tracker list in SharePoint as an example. This issue tracker list lets anyone add and track problems in the factory. It has a title and description, along with some more interesting columns:
 * `Assigned To` - a link to a SharePoint user.
 * `Date Reported` - the date that the report was made.
-* `Status` - a status string that can function as a symbol.
+* `Status` - a status string that transforms into a symbol in SharePoint.
 
 It this article, we'll explain how to read, process, and write to all of these special columns.
 
@@ -103,6 +103,6 @@ The same principle is applied when setting the content. It's important to match 
 
 ## Conclusion
 
-With the new data sources, SharePoint lists can now be easily read and modified. With certain columns types we need to understand the internal principals and use them correctly.
+With the new data sources, SharePoint lists can now be easily read and modified. With certain columns types, we need to understand the internal principals and use them correctly.
 
 
