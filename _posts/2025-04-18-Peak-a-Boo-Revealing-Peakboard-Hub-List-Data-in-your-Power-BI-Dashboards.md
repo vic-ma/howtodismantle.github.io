@@ -29,21 +29,21 @@ These basics are explained in our [Peakboard Hub getting started article](/Crack
 
 The example list we'll use in today's article is called StockInfo, as shown in the following screenshot. It contains three useful columns: `MaterialNo`, `Quantity`, and `Locked`.
 
-The Power BI solution we will build is generic. You can change the name of the table our finished command, and it'll work perfectly with any other table.
+The Power BI solution we will build is generic. You can take our finished command, change the name of the table, and it'll work perfectly with any other table.
 
 ![image](/assets/2025-04-18/010.png)
 
-## Set up Power BI table
+## Set up the Power BI table
 
-In Power BI, we create a new table with a blank query:s
+In Power BI, we create a new table with a blank query:
 
 ![image](/assets/2025-04-18/020.png)
 
-In the query, we can switch to the advanced editor in order to edit the underlying command. This script contains exactly one command that must be modified for the API call. If you're not familiar with these Power BI M queries, see this [video about M queries](https://www.youtube.com/watch?v=N8qYRSqRz84&ab_channel=DhruvinShah).
+In the query, we switch to the advanced editor in order to edit the underlying command. This script contains exactly one command that must be modified for the API call. If you're not familiar with these Power BI M queries, see this [video about M queries](https://www.youtube.com/watch?v=N8qYRSqRz84&ab_channel=DhruvinShah).
 
 ![image](/assets/2025-04-18/030.png)
 
-Our final command consists of 3 steps:
+The command we are building will consist of 3 steps:
 
 1. Turn the API key into an access token.
 2. Get the list table data as a JSON string.
@@ -63,7 +63,7 @@ response = Json.Document(Web.Contents(url, options)),
 AccessToken = response[accessToken],
 {% endhighlight %}
 
-1. We specify the URL for getting a token.
+1. We specify the API endpoint for getting a token.
 2. We build a list of headers with a single entry: the API key.
 3. We place the list of headers into a list of options.
 4. We make an API call to the URL, with the list of options.
