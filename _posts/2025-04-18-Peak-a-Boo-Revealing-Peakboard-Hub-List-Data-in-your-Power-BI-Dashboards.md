@@ -17,8 +17,9 @@ downloads:
   - name: StockInfoPowerBI.pbix
     url: /assets/2025-04-18/StockInfoPowerBI.pbix
 ---
-The Peakboard Hub is not only for box administration tasks. It's often used to store data. Whenever data is stored, data analysis is around the corner. That's our topic today. We will discuss how to use Power BI to consume data that is stored in the Peakboard Hub.
-As requirement we need to understand some basics around the Peakboard Hub API, especially how to get an API key, how to authenticate against the API backend, receive an access token and then do the actual call. These basics are explained in the article [Cracking the code - Part I - Getting started with Peakboard Hub API](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html). 
+Peakboard Hub is not only for Box-related administration tasks. It's often used to store data. Whenever data is stored, data analysis is around the corner. That's our topic today. We will discuss how to use Power BI to consume data that is stored inside  Peakboard Hub.
+
+Before diving into this article, you need to understand some basics around the Peakboard Hub API, especially how to get an API key, how to authenticate against the API backend, how to receive an access token, and how to make the actual API call. These basics are explained in our [Peakboard Hub getting started article](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html). 
 
 The sample list we're using in today's article is the stockinfo table as shown in the screenshot. It contains three useful columns. The Power BI solution we're discussing and building is very generic. We can use it and just exchange the name of the table and then it will run with any other table completely genericly.
 
