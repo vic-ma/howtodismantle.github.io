@@ -40,14 +40,14 @@ In the query, we can switch to the advanced editor in order to edit the underlyi
 Our final command consists of 3 steps:
 
 1. Turn the API key into an access token.
-2. Get the list table data as JSON string.
+2. Get the list table data as a JSON string.
 3. Turn the JSON string into a table.
 
 We will discuss each of the 3 parts separately.
 
 ![image](/assets/2025-04-18/040.png)
 
-## Turning the API key into an access token
+## Turn the API key into an access token
 
 {% highlight text %}
 url = "https://api.peakboard.com/public-api/v1/auth/token",
@@ -57,9 +57,13 @@ response = Json.Document(Web.Contents(url, options)),
 AccessToken = response[accessToken],
 {% endhighlight %}
 
-In the first part we define the URL to get the token. We need to build a list of headers with one entry: the API key. This list of headers goes into a list of options, that is used call the API. The variable "response" represents a tree of objects in the JSON response. We can easily address the access token by using brackets.
+1. We specify the URL for getting a token.
+2. We build a list of headers with a single entry: the API key.
+3. We place the list of headers into a list of options.
+4. We make an API call to the URL, with the list of options.
+5. The response represents a tree of objects in the JSON response string. We retrieve the access token from the response by using brackets.
 
-## Get the list table data as JSON string
+## Get the list table data as a JSON string
 
 {% highlight text %}
 listurl = "https://api.peakboard.com/public-api/v1/lists/list?Name=stockinfo",
@@ -68,7 +72,7 @@ listoptions = [ Headers = listheaders ],
 listresponse = Json.Document(Web.Contents(listurl, listoptions)),
 {% endhighlight %}
 
-The actual call to get the data works very similiar. But in that case we need to provide an "Authorization" header instead of the API key. When everything goes well the JSON string with the actual list data is stored in the "listresponse" variable.
+The process for getting the data is similar to the process for getting the access token. But in this case, we need to provide an `Authorization` header instead of the API key. If the request succeeds, `listrespones` will contain the JSON string of the list data.
 
 ## Process the JSON string into a useful table
 
