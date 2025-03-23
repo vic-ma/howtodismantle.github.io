@@ -66,7 +66,7 @@ AccessToken = response[accessToken],
 1. We specify the API endpoint for getting a token.
 2. We build a list of headers with a single entry: the API key.
 3. We place the list of headers into a list of options.
-4. We make an API call to the URL, with the list of options.
+4. We make an API call to the endpoint, with the list of options.
 5. The response represents a tree of objects in the JSON response string. We retrieve the access token from the response by using brackets.
 
 ## Get the list table data as a JSON string
@@ -78,7 +78,7 @@ listoptions = [ Headers = listheaders ],
 listresponse = Json.Document(Web.Contents(listurl, listoptions)),
 {% endhighlight %}
 
-The process for getting the data is similar to the process for getting the access token. But in this case, we need to provide an `Authorization` header instead of the API key. If the request succeeds, `listrespones` will contain the JSON string of the list data.
+The process for getting the data is similar to the process for getting the access token. But in this case, we need to provide an `Authorization` header instead of the API key. If the request succeeds, `listresponse` will contain the JSON string of the list data.
 
 ## Turn the JSON string into a table
 
@@ -156,7 +156,7 @@ ResultTable = Table.FromRecords(RecordsList)
 
 The command we created can be easily modified to work with any of your tables, by changing the API key and the name of the table.
 
-Here's the complete command, as a reference, for copy and pasting:
+Here's the complete command, as a reference, and for copy and pasting:
 
 {% highlight text %}
 let
