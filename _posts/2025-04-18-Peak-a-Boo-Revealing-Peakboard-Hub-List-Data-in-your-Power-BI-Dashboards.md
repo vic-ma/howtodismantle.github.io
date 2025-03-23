@@ -21,7 +21,9 @@ Peakboard Hub is not only for Box-related administration tasks. It's often used 
 
 Before diving into this article, you need to understand some basics around the Peakboard Hub API, especially how to get an API key, how to authenticate against the API backend, how to receive an access token, and how to make the actual API call. These basics are explained in our [Peakboard Hub getting started article](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html). 
 
-The sample list we're using in today's article is the stockinfo table as shown in the screenshot. It contains three useful columns. The Power BI solution we're discussing and building is very generic. We can use it and just exchange the name of the table and then it will run with any other table completely genericly.
+The example list we'll use in today's article is called StockInfo, as shown in the following screenshot. It contains three useful columns.
+
+The Power BI solution we're discussing and building is very generic. You can replicate the steps and change the name of the table, and it'll work with any other table perfectly.
 
 ![image](/assets/2025-04-18/010.png)
 
