@@ -74,9 +74,9 @@ listresponse = Json.Document(Web.Contents(listurl, listoptions)),
 
 The process for getting the data is similar to the process for getting the access token. But in this case, we need to provide an `Authorization` header instead of the API key. If the request succeeds, `listrespones` will contain the JSON string of the list data.
 
-## Process the JSON string into a useful table
+## Turn the JSON string into a table
 
-As a reminder here's how the JSON string looks like. The meta data and the actual table is distributed over two arrays. The actual table data is stored in key/value pairs.
+Here's what the JSON string looks like. The metadata and the table are distributed over two arrays. The table data is stored as key-value pairs.
 
 {% highlight json %}
 {
@@ -125,8 +125,7 @@ As a reminder here's how the JSON string looks like. The meta data and the actua
 }
 {% endhighlight %}
 
-First we need to convert the two arrays into two lists containing the headers and the items. 
-Then both lists are transformed by using the "List.Transform" command. It can apply a function to each element of the list. For the columns we just extract the "name". For the actual data we need one more step. The value of a table cell is addressed by using "item[value]". Then we have a list of values. With "Record.FromList" we transform this list of values into a single record. All the single records are transformed into a new table by using another "List.Transform". 
+Here's the code for turning the string into a table:
 
 {% highlight text %}
 Columns = listresponse[columns],
@@ -140,6 +139,12 @@ RecordsList = List.Transform(Items, each
 ),
 ResultTable = Table.FromRecords(RecordsList)
 {% endhighlight %}
+
+1. We convert the two arrays into two lists containing the headers and the items.
+2. We transform both lists with the `List.Transform` function, which applies a function to each element of the list.
+  * For the columns, we extract the `name`.
+  * For the data, we perform one more step. We get the value of a table cell by doing `item[value]`. Then, we have a list of values. With `Record.FromList`, we transform this list of values into a single record.
+3. We transform all the single records into a new table by using another `List.Transform`. 
 
 ## Result
 
