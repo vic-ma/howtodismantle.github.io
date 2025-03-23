@@ -17,13 +17,19 @@ downloads:
   - name: StockInfoPowerBI.pbix
     url: /assets/2025-04-18/StockInfoPowerBI.pbix
 ---
-Peakboard Hub is not only for Box-related administration tasks. It's often used to store data. Whenever data is stored, data analysis is around the corner. That's our topic today. We will discuss how to use Power BI to consume data that is stored inside  Peakboard Hub.
+Peakboard Hub is not only for Box-related administration tasks. It's often used to store data. Whenever data is stored, data analysis is around the corner. That's our topic for today. We will discuss how to use Power BI to consume data that's stored inside Peakboard Hub.
 
-Before diving into this article, you need to understand some basics around the Peakboard Hub API, especially how to get an API key, how to authenticate against the API backend, how to receive an access token, and how to make the actual API call. These basics are explained in our [Peakboard Hub getting started article](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html). 
+Before reading this article, you need to understand the basics of the Peakboard Hub API, especially the following:
+* How to get an API key.
+* How to authenticate against the API backend.
+* How to receive an access token.
+* How to make the actual API call.
 
-The example list we'll use in today's article is called StockInfo, as shown in the following screenshot. It contains three useful columns.
+These basics are explained in our [Peakboard Hub getting started article](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html). 
 
-The Power BI solution we're discussing and building is very generic. You can replicate the steps and change the name of the table, and it'll work with any other table perfectly.
+The example list we'll use in today's article is called StockInfo, as shown in the following screenshot. It contains three useful columns: `MaterialNo`, `Quantity`, and `Locked`.
+
+The Power BI solution we will build is generic. You can change the name of the table our finished command, and it'll work perfectly with any other table.
 
 ![image](/assets/2025-04-18/010.png)
 
