@@ -148,8 +148,9 @@ ResultTable = Table.FromRecords(RecordsList)
 
 ## Result
 
-The command we created can be easily adjusted by just changing the API key and the name of the table. Then it works with any table.
-Here's the complete command as reference and for copy and paste:
+The command we created can be easily modified to work with any of your tables, by changing the API key and the name of the table.
+
+Here's the complete command, as a reference, for copy and pasting:
 
 {% highlight text %}
 let
@@ -176,7 +177,7 @@ in
     ResultTable
 {% endhighlight %}
 
-And here's the final result in Power BI preview:
+And here's the final result in the Power BI preview:
 
 ![image](/assets/2025-04-18/050.png)
 
