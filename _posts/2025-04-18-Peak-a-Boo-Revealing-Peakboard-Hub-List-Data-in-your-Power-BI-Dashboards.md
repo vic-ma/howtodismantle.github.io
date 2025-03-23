@@ -29,23 +29,23 @@ The Power BI solution we're discussing and building is very generic. You can rep
 
 ## Set up Power BI table
 
-In Power BI we create a new table with a blank query.
+In Power BI, we create a new table with a blank query:s
 
 ![image](/assets/2025-04-18/020.png)
 
-In the query we can switch to the advanced editor for the editing the underlying command. This script contains exactly one command that must be modfied for the API call. If you're not familiar with these Power BI M queries, here's a [perfect video](https://www.youtube.com/watch?v=N8qYRSqRz84&ab_channel=DhruvinShah) that explains the concept of M queries.
+In the query, we can switch to the advanced editor in order to edit the underlying command. This script contains exactly one command that must be modified for the API call. If you're not familiar with these Power BI M queries, see this [video about M queries](https://www.youtube.com/watch?v=N8qYRSqRz84&ab_channel=DhruvinShah).
 
 ![image](/assets/2025-04-18/030.png)
 
-Our final command basically consists of 3 parts:
+Our final command consists of 3 steps:
 
-1. Turning the API key into an access token
-2. Get the list table data as JSON string
-3. process the JSON string into a useful table
+1. Turn the API key into an access token.
+2. Get the list table data as JSON string.
+3. Turn the JSON string into a table.
+
+We will discuss each of the 3 parts separately.
 
 ![image](/assets/2025-04-18/040.png)
-
-We will discuss these 3 parts separately.
 
 ## Turning the API key into an access token
 
