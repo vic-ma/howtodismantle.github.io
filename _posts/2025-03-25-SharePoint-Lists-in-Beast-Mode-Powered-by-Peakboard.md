@@ -24,7 +24,7 @@ Every Office 365 data source handles authentication in the same way. To learn mo
 For this article, we'll use an issue tracker list in SharePoint as an example. This issue tracker list lets anyone add and track problems in the factory. It has a title and description, along with some more interesting columns:
 * `Assigned To` - a link to a SharePoint user.
 * `Date Reported` - the date that the report was made.
-* `Status` - a status string.
+* `Status` - a status string that can function as a symbol.
 
 It this article, we'll explain how to read, process, and write to all of these special columns.
 
@@ -48,15 +48,15 @@ To properly format the date in a control, we use the default Peakboard formatter
 
 ![image](/assets/2025-03-25/035.png)
 
-The same thing works when setting a date during record creation, with Building Blocks. In the following example, we use a more technical format (`YYYY-MM-DD`):
+The same thing works when setting a date during record creation, using Building Blocks. In the following example, we use a more technical format (`YYYY-MM-DD`):
 
 ![image](/assets/2025-03-25/036.png)
 
 ## Links to users
 
-By default, columns that contain references to SharePoint users come with a large JSON string that describes the user. This string includes the user's including the name, email address and many other things.
+By default, columns that contain references to SharePoint users come with a large JSON string that describes the user. This string includes the user's name, email address and many other things.
 
-If we only need the name, we can check the setting **Show user display name** in our data source. To get additional attributes of the user, we uncheck the setting. This is what a complete JSON string looks like:
+If we only need the name, we can enable the setting, **Show user display name**, in our data source. To get additional attributes of the user, we disable the setting. This is what a complete JSON string looks like:
 
 {% highlight json %}
 {
@@ -79,21 +79,21 @@ If we only need the name, we can check the setting **Show user display name** in
 }
 {% endhighlight %}
 
-To get the information we want, we add a "Parse table data from JSON" transformation step within a data flow. The following screenshot shows how to extract the `FirstName` from the string and put it in a separate column.
+To get the information we want, we add a "Parse table data from JSON" transformation step within a data flow. The following screenshot shows how to extract the `FirstName` from the JSON string and put it in a separate column.
 
 ![image](/assets/2025-03-25/040.png)
 
-To set the value of a SharePoint list, we can add it using the person's email address, display name, or internal ID. In most cases, the email address is the easiest method:
+To set the value of a SharePoint list, we can use the person's email address, display name, or internal ID. In most cases, the email address is the easiest method:
 
 ![image](/assets/2025-03-25/045.png)
 
 ## Columns with symbols and functions
 
-In our example list, there are columns that are translated into symbols, or have other functions. The Status value "Blocked" turns the row red in SharePoint.
+In our example list, there are columns that are translated into symbols, or have other functions. The Status value `Blocked` turns the row red in SharePoint.
 
 ![image](/assets/2025-03-25/050.png)
 
-These columns are pure string columns internally and will be treated as such by the Peakboard data source. So only the pure value will be displayed in the table output.
+Internally, these columns are simple strings, and they will be treated as such by the Peakboard data source. So they won't have any color or formatting in the Peakboard table output:
 
 ![image](/assets/2025-03-25/051.png)
 
