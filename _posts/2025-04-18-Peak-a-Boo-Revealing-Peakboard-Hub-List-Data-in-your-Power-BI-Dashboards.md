@@ -17,34 +17,43 @@ downloads:
   - name: StockInfoPowerBI.pbix
     url: /assets/2025-04-18/StockInfoPowerBI.pbix
 ---
-The Peakboard Hub is not only for box administration tasks. It's often used to store data. Whenever data is stored, data analysis is around the corner. That's our topic today. We will discuss how to use Power BI to consume data that is stored in the Peakboard Hub.
-As requirement we need to understand some basics around the Peakboard Hub API, especially how to get an API key, how to authenticate against the API backend, receive an access token and then do the actual call. These basics are explained in the article [Cracking the code - Part I - Getting started with Peakboard Hub API](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html). 
+Peakboard Hub is not only for Box-related administration tasks. It's often used to store data. Whenever data is stored, data analysis is around the corner. That's our topic for today. We will discuss how to use Power BI to consume data that's stored inside Peakboard Hub.
 
-The sample list we're using in today's article is the stockinfo table as shown in the screenshot. It contains three useful columns. The Power BI solution we're discussing and building is very generic. We can use it and just exchange the name of the table and then it will run with any other table completely genericly.
+Before reading this article, you need to understand the basics of the Peakboard Hub API, especially the following:
+* How to get an API key.
+* How to authenticate against the API backend.
+* How to receive an access token.
+* How to make the actual API call.
+
+These basics are explained in our [Peakboard Hub getting started article](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html). 
+
+The example list we'll use in today's article is called StockInfo, as shown in the following screenshot. It contains three useful columns: `MaterialNo`, `Quantity`, and `Locked`.
+
+The Power BI solution we will build is generic. You can take our finished command, change the name of the table, and it'll work perfectly with any other table.
 
 ![image](/assets/2025-04-18/010.png)
 
-## Set up Power BI table
+## Set up the Power BI table
 
-In Power BI we create a new table with a blank query.
+In Power BI, we create a new table with a blank query:
 
 ![image](/assets/2025-04-18/020.png)
 
-In the query we can switch to the advanced editor for the editing the underlying command. This script contains exactly one command that must be modfied for the API call. If you're not familiar with these Power BI M queries, here's a [perfect video](https://www.youtube.com/watch?v=N8qYRSqRz84&ab_channel=DhruvinShah) that explains the concept of M queries.
+In the query, we switch to the advanced editor in order to edit the underlying command. This script contains exactly one command that must be modified for the API call. If you're not familiar with these Power BI M queries, see this [video about M queries](https://www.youtube.com/watch?v=N8qYRSqRz84&ab_channel=DhruvinShah).
 
 ![image](/assets/2025-04-18/030.png)
 
-Our final command basically consists of 3 parts:
+The command we are building will consist of 3 steps:
 
-1. Turning the API key into an access token
-2. Get the list table data as JSON string
-3. process the JSON string into a useful table
+1. Turn the API key into an access token.
+2. Get the list table data as a JSON string.
+3. Turn the JSON string into a table.
+
+We will discuss each of the 3 parts separately.
 
 ![image](/assets/2025-04-18/040.png)
 
-We will discuss these 3 parts separately.
-
-## Turning the API key into an access token
+## Turn the API key into an access token
 
 {% highlight text %}
 url = "https://api.peakboard.com/public-api/v1/auth/token",
@@ -54,9 +63,13 @@ response = Json.Document(Web.Contents(url, options)),
 AccessToken = response[accessToken],
 {% endhighlight %}
 
-In the first part we define the URL to get the token. We need to build a list of headers with one entry: the API key. This list of headers goes into a list of options, that is used call the API. The variable "response" represents a tree of objects in the JSON response. We can easily address the access token by using brackets.
+1. We specify the API endpoint for getting a token.
+2. We build a list of headers with a single entry: the API key.
+3. We place the list of headers into a list of options.
+4. We make an API call to the endpoint, with the list of options.
+5. The response represents a tree of objects in the JSON response string. We retrieve the access token from the response by using brackets.
 
-## Get the list table data as JSON string
+## Get the list table data as a JSON string
 
 {% highlight text %}
 listurl = "https://api.peakboard.com/public-api/v1/lists/list?Name=stockinfo",
@@ -65,11 +78,11 @@ listoptions = [ Headers = listheaders ],
 listresponse = Json.Document(Web.Contents(listurl, listoptions)),
 {% endhighlight %}
 
-The actual call to get the data works very similiar. But in that case we need to provide an "Authorization" header instead of the API key. When everything goes well the JSON string with the actual list data is stored in the "listresponse" variable.
+The process for getting the data is similar to the process for getting the access token. But in this case, we need to provide an `Authorization` header instead of the API key. If the request succeeds, `listresponse` will contain the JSON string of the list data.
 
-## Process the JSON string into a useful table
+## Turn the JSON string into a table
 
-As a reminder here's how the JSON string looks like. The meta data and the actual table is distributed over two arrays. The actual table data is stored in key/value pairs.
+Here's what the JSON string looks like. The metadata and the table are distributed over two arrays. The table data is stored as key-value pairs.
 
 {% highlight json %}
 {
@@ -118,8 +131,7 @@ As a reminder here's how the JSON string looks like. The meta data and the actua
 }
 {% endhighlight %}
 
-First we need to convert the two arrays into two lists containing the headers and the items. 
-Then both lists are transformed by using the "List.Transform" command. It can apply a function to each element of the list. For the columns we just extract the "name". For the actual data we need one more step. The value of a table cell is addressed by using "item[value]". Then we have a list of values. With "Record.FromList" we transform this list of values into a single record. All the single records are transformed into a new table by using another "List.Transform". 
+Here's the code for turning the string into a table:
 
 {% highlight text %}
 Columns = listresponse[columns],
@@ -134,10 +146,17 @@ RecordsList = List.Transform(Items, each
 ResultTable = Table.FromRecords(RecordsList)
 {% endhighlight %}
 
+1. We convert the two arrays into two lists containing the headers and the items.
+2. We transform both lists with the `List.Transform` function, which applies a function to each element of the list.
+  * For the columns, we extract the `name`.
+  * For the data, we perform one more step. We get the value of a table cell by doing `item[value]`. Then, we have a list of values. With `Record.FromList`, we transform this list of values into a single record.
+3. We transform all the single records into a new table by using another `List.Transform`. 
+
 ## Result
 
-The command we created can be easily adjusted by just changing the API key and the name of the table. Then it works with any table.
-Here's the complete command as reference and for copy and paste:
+The command we created can be easily modified to work with any of your tables, by changing the API key and the name of the table.
+
+Here's the complete command, as a reference, and for copy and pasting:
 
 {% highlight text %}
 let
@@ -164,7 +183,7 @@ in
     ResultTable
 {% endhighlight %}
 
-And here's the final result in Power BI preview:
+And here's the final result in the Power BI preview:
 
 ![image](/assets/2025-04-18/050.png)
 
