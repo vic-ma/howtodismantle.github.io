@@ -8,14 +8,14 @@ image_header: /assets/2025-03-01/title_landscape.png
 bg_alternative: true
 read_more_links:
   - name: Captron Pick-by-light
-    url: https://captron-solutions.com/en/pick-by-light/
+    url: https://www.captron.de/produkte/pick-by-light/
 downloads:
   - name: CaptronPBL.pbmx
     url: /assets/2025-03-01/CaptronPBL.pbmx
 ---
 On this blog, we often discuss how Peakboard application can communicate with hardware components that are used in manufacturing and logistics. In today's article, we'll take a detailed look at a pick-by-light system from Captron. Captron is a German manufacturer based in the beautiful state of Bavaria, Southern Germany.
 
-One of the PBL technologies Captron makes is an [LED strip](https://captron-solutions.com/en/pick-by-light_hardware/led-strips/). This strip is mounted onto the racks of manufacturing warehouses and workplaces, to help the workers take items from the correct warehouse bin. You can see the system in action from the video on the [Captron PBL page](https://captron-solutions.com/en/pick-by-light/).
+One of the PBL technologies Captron makes is an [LED strip](https://www.captron.de/produkte/pick-by-light/). This strip is mounted onto the racks of manufacturing warehouses and workplaces, to help the workers take items from the correct warehouse bin. You can see the system in action from the video on the [Captron PBL page](https://www.captron.de/produkte/pick-by-light/).
 
 In this article, we will build a Peakboard application that controls these LED strips. Here's how it works:
 
