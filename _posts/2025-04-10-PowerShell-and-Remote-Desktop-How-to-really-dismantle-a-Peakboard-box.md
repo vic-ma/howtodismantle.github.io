@@ -10,7 +10,7 @@ read_more_links:
   - name: More articles around administration topics
     url: /category/administration
 ---
-The Peakboard boxes are designed and prepared to work as smooth as possible as soon as the customer takes it out from the packaging and connects it to power and network. The Peakboard runtime is configured in a way to work perfectly and safe on this hardware. As all non-essential software components other than the Peakboard kernel are switched off or put to hibernation the number of potential entry points from ourside intruders is reduced as much as possible.
+The Peakboard Box is designed to be functional as soon as the customer takes it out of the box and connects it to power and a network. The Peakboard runtime is configured in a way to work perfectly and safe on this hardware. As all non-essential software components other than the Peakboard kernel are switched off or put to hibernation the number of potential entry points from ourside intruders is reduced as much as possible.
 However sometimes it might by necessary for administrators to access the Peakboard boxes on an administrationive level. This possible. The Peakboard box runs on WIndows and the credentials for this windows system are handed over ot the customer during the physical delivery process.
 Why would someone need this credentials to gain access to administration level?
 
