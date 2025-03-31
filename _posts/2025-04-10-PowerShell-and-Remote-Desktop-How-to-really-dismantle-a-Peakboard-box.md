@@ -14,7 +14,7 @@ The Peakboard Box is designed to be functional as soon as the customer takes it 
 
 However, it's sometimes necessary for administrators to manage Peakboard boxes on an administrative level. This is possible. The Peakboard Box runs on Windows, and the credentials for the Windows system are given to the customer during the physical delivery.
 
-Here are some examples of things you can do with administrative priviledges:
+Here are some examples of things you can do with administrative privileges:
 
 - Install Windows updates
 - Install additional software to align the computer with internal security compliance guidelines
@@ -25,11 +25,15 @@ Here are some examples of things you can do with administrative priviledges:
 
 Before we step into the technical details, you must understand that accessing the Peakboard Box with administrative-level credentials might pose a security risk, and it might reduce the stability of the system. So you should only engage in these activities when necessary.
 
-## Log in with PowerShell
+We will use Remote Desktop to manage a Peakboard Box. But before we can do that, we first need to prepare the Peakbord Box for Remote Desktop, by using PowerShell.
 
-Here's how to log into a Peakboard Box's system, with PowerShell. Make sure to run PowerShell as an administrator.
+## Prepare for Remote Desktop with PowerShell
+
+First, run PowerShell as an administrator:
 
 ![image](/assets/2025-04-10/010.png)
+
+Then, run these commands:
 
 {% highlight powershell %}
 net start winrm
@@ -37,11 +41,11 @@ Set-Item WSMan:\localhost\Client\TrustedHosts -Value {IP}
 Enter-PSSession -ComputerName {IP} -Credential {Box Hostname}\pbadmin
 {% endhighlight %}
 
-Here's a breakdown of the commands:
+Here's an explanation:
 
 1. We start the `winrm` service, because we need it to manage remote administration task on other machines (like our Peakboard Box).
 2. We whitelist the IP address of the Peakboard Box.
-3. We start a remote session in the Peakboard Box. You will be prompted for the adminstrator's password.
+3. We start a remote session in the Peakboard Box. There is a prompt for the adminstrator's password.
 
 ![image](/assets/2025-04-10/020.png)
 
@@ -58,9 +62,9 @@ exit
 
 ![image](/assets/2025-04-10/030.png)
 
-## Logon via Remote Desktop Connection
+## Log in with Remote Desktop
 
-Now all the preparations are done to use RDP to logon to the box. Just launch RDP by using the Windows search function for RDP and then use the IP-address, and the admin credentials to initiate a RDP session. After having logged on succesfully you can see an almost fully black desktop with an open DOS console. We can just type in "explorer" in the console and confirm with Enter, then the regular desktop environment will be launched with the typical Windows task bar at the bottom.
+Now we can log into the Peakboard Box with Remote Desktop. Just launch RDP by using the Windows search function for RDP and then use the IP-address, and the admin credentials to initiate a RDP session. After having logged on succesfully you can see an almost fully black desktop with an open DOS console. We can just type in "explorer" in the console and confirm with Enter, then the regular desktop environment will be launched with the typical Windows task bar at the bottom.
 
 ![image](/assets/2025-04-10/040.png)
 
