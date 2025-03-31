@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Print Charming - How ZPL Turns Your Bixolon XD5-40 into a Label Wizard
+title: Print Charming - How ZPL Turns Your Bixolon XD5-40 printer into a Label Wizard
 date: 2023-03-01 02:00:00 +0200
 tags: hardware printing
 image: /assets/2025-04-26/title.png
