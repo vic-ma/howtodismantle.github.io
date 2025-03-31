@@ -72,11 +72,10 @@ Now, we can log into the Peakboard Box with Remote Desktop. Here are the steps:
 
 ![image](/assets/2025-04-10/040.png)
 
-## Exchanging files with the box
+## Exchange files with the Box
 
-If we need to exchange files with the box (e.g. for installing an ODBC driver), we just use the share "\\{Boxname}\Share" to move the file from a remote machine to the box. We can easily access it then from within our RDP or PowerShell session.
+If you need to exchange files with the Box (e.g. to install an ODBC driver), use the `\\{Boxname}\Share` share. You can easily access it then from within the Remote Desktop or PowerShell session.
 
 ## Conclusion
 
-We learned how to access the box via PowerShell and Remote Desktop connection. One again, we must understand that doing so might have a negative impact on safety and stability when done in a wrong way.
-
+We explained how to access a Peakboard Box with PowerShell and Remote Desktop. Remember, doing so could have a negative impact on safety and stability when done improperly.
