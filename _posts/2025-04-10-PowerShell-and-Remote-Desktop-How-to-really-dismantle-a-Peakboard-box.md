@@ -41,6 +41,8 @@ Enter-PSSession -ComputerName {IP} -Credential {Box Hostname}\pbadmin
 
 ![image](/assets/2025-04-10/020.png)
 
+![image](/assets/2025-04-10/025.png)
+
 After having successfully established the PS session, we must change a value in the registry of the box to enable remote desktop connections. By default it's disabled. We also need to open the port for remote desktop in the firewall. Then we can exit the remote session and close the PS console.
 
 {% highlight powershell %}
