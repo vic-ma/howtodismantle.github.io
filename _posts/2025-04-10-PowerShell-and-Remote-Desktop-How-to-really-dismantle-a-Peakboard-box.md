@@ -10,11 +10,11 @@ read_more_links:
   - name: More articles around administration topics
     url: /category/administration
 ---
-The Peakboard Box is designed to be functional as soon as the customer takes it out of the box and connects it to power and a network. The Peakboard runtime is designed to work perfectly and securely on the Peakboard Box's hardware. All non-essential software components are switched off or put to hibernation. This reduces the attack surface.
+The Peakboard Box is designed to start working as soon as you take it out of the box and connect it to power and a network. The Peakboard runtime is designed to run securely on the Peakboard Box's hardware. All non-essential software components are switched off or put into hibernation. This reduces the attack surface.
 
-However, it's sometimes necessary for administrators to manage Peakboard boxes on an administrative level. This is possible. The Peakboard Box runs on Windows, and the credentials for the Windows system are given to the customer during the physical delivery.
+However, it's sometimes necessary to manage Peakboard Boxes on an administrative level. This is possible. The Peakboard Box runs on Windows, and the credentials for the Windows system are given to you during the physical delivery of the Box.
 
-Here are some examples of things you can do with administrative privileges:
+Here are some tasks that require administrative privileges:
 
 - Install Windows updates
 - Install additional software to align the computer with internal security compliance guidelines
