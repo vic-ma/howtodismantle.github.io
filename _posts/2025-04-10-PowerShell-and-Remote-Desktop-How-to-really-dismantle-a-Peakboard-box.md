@@ -43,13 +43,11 @@ Here's a breakdown of the commands:
 2. We whitelist the IP address of the Peakboard Box.
 3. We start a remote session in the Peakboard Box. You will be prompted for the adminstrator's password.
 
-
-
 ![image](/assets/2025-04-10/020.png)
 
 ![image](/assets/2025-04-10/025.png)
 
-After having successfully established the PS session, we must change a value in the registry of the box to enable remote desktop connections. By default it's disabled. We also need to open the port for remote desktop in the firewall. Then we can exit the remote session and close the PS console.
+After having successfully established the PS session, we change a value in the registry of the Box to enable remote desktop connections. (It's disabled by default.) We also open the port for remote desktop in the firewall. Then, we exit the remote session and close the PS console.
 
 {% highlight powershell %}
 Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
