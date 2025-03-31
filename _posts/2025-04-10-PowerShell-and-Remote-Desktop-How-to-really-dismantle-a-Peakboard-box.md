@@ -27,19 +27,23 @@ Before we step into the technical details, you must understand that accessing th
 
 ## Log in with PowerShell
 
-Follow these steps to log into a Peakboard Box's system, with PowerShell. Make sure to run PowerShell as administrator.
+Here's how to log into a Peakboard Box's system, with PowerShell. Make sure to run PowerShell as an administrator.
 
 ![image](/assets/2025-04-10/010.png)
-
-1. The service `winrm` will be needed to manage remote administration task on other machines
-2. The IP address of the box but must be white-listed
-3. We can enter a remote session in the box through the IP. The adminstrator's password must be provided in a separate credential prompt.
 
 {% highlight powershell %}
 net start winrm
 Set-Item WSMan:\localhost\Client\TrustedHosts -Value {IP}
 Enter-PSSession -ComputerName {IP} -Credential {Box Hostname}\pbadmin
 {% endhighlight %}
+
+Here's a breakdown of the commands:
+
+1. We start the `winrm` service, because we need it to manage remote administration task on other machines (like our Peakboard Box).
+2. We whitelist the IP address of the Peakboard Box.
+3. We start a remote session in the Peakboard Box. You will be prompted for the adminstrator's password.
+
+
 
 ![image](/assets/2025-04-10/020.png)
 
