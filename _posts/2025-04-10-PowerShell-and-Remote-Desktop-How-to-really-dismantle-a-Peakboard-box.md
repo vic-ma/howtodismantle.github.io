@@ -25,13 +25,13 @@ Here are some examples of things you can do with administrative priviledges:
 
 Before we step into the technical details, you must understand that accessing the Peakboard Box with administrative-level credentials might pose a security risk, and it might reduce the stability of the system. So you should only engage in these activities when necessary.
 
-## Logon via Powershell
+## Log in with PowerShell
 
-The following three commands show how to logon on the box via Pwershell. We make sure to start the Powershell console under Administrator's priviliges.
+Follow these steps to log into a Peakboard Box's system, with PowerShell. Make sure to run PowerShell as administrator.
 
 ![image](/assets/2025-04-10/010.png)
 
-1. The service "winrm" will be needed to manage remote administration task on other machines
+1. The service `winrm` will be needed to manage remote administration task on other machines
 2. The IP address of the box but must be white-listed
 3. We can enter a remote session in the box through the IP. The adminstrator's password must be provided in a separate credential prompt.
 
@@ -64,9 +64,9 @@ Now all the preparations are done to use RDP to logon to the box. Just launch RD
 
 ## Exchanging files with the box
 
-If we need to exchange files with the box (e.g. for installing an ODBC driver), we just use the share "\\{Boxname}\Share" to move the file from a remote machine to the box. We can easily access it then from within our RDP or Powershell session.
+If we need to exchange files with the box (e.g. for installing an ODBC driver), we just use the share "\\{Boxname}\Share" to move the file from a remote machine to the box. We can easily access it then from within our RDP or PowerShell session.
 
 ## Conclusion
 
-We learned how to access the box via Powershell and Remote Desktop connection. One again, we must understand that doing so might have a negative impact on safety and stability when done in a wrong way.
+We learned how to access the box via PowerShell and Remote Desktop connection. One again, we must understand that doing so might have a negative impact on safety and stability when done in a wrong way.
 
