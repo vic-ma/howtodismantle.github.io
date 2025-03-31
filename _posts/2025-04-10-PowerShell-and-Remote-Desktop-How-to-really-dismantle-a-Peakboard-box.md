@@ -14,7 +14,7 @@ The Peakboard Box is designed to start working as soon as you take it out of the
 
 However, it's sometimes necessary to manage Peakboard Boxes on an administrative level. This is possible. The Peakboard Box runs on Windows, and the credentials for the Windows system are given to you during the physical delivery of the Box.
 
-Here are some tasks that require administrative privileges:
+Here are some tasks that require administrative privileges to perform:
 
 - Install Windows updates
 - Install additional software to align the computer with internal security compliance guidelines
@@ -23,9 +23,9 @@ Here are some tasks that require administrative privileges:
 - Manually install Peakboard runtime updates
 - Bring the device into the AD domain
 
-Before we step into the technical details, you must understand that accessing the Peakboard Box with administrative-level credentials might pose a security risk, and it might reduce the stability of the system. So you should only engage in these activities when necessary.
+Before we dive into the technical details, you must understand that accessing a Peakboard Box with administrative privileges poses a security risk, and it could reduce the stability of the system. So you should only engage in these activities when necessary.
 
-We will use Remote Desktop to manage a Peakboard Box. But before we can do that, we first need to prepare the Peakbord Box for Remote Desktop, by using PowerShell.
+We will use Remote Desktop to manage a Peakboard Box. But before we can do that, we first need to prepare the Peakbord Box for Remote Desktop. We will use PowerShell to do this.
 
 ## Prepare for Remote Desktop with PowerShell
 
