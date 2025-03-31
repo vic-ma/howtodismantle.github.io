@@ -68,7 +68,7 @@ Now, we can log into the Peakboard Box with Remote Desktop. Here are the steps:
 
 1. Launch Remote Desktop by using the Windows search function. 
 2. Use the IP address and the admin credentials of the box to initiate a Remote Desktop session. After having logged on successfully, you will see a black desktop with a single terminal window open.
-3. Type `explorer` into the terminal and confirm with Enter, then the regular desktop environment will be launched with the typical Windows task bar at the bottom.
+3. Type `explorer` into the terminal and press `Enter`. Then, the standard Windows desktop environment will launch.
 
 ![image](/assets/2025-04-10/040.png)
 
