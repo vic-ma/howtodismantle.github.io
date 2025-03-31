@@ -10,18 +10,20 @@ read_more_links:
   - name: More articles around administration topics
     url: /category/administration
 ---
-The Peakboard Box is designed to be functional as soon as the customer takes it out of the box and connects it to power and a network. The Peakboard runtime is configured in a way to work perfectly and safe on this hardware. As all non-essential software components other than the Peakboard kernel are switched off or put to hibernation the number of potential entry points from ourside intruders is reduced as much as possible.
-However sometimes it might by necessary for administrators to access the Peakboard boxes on an administrationive level. This possible. The Peakboard box runs on WIndows and the credentials for this windows system are handed over ot the customer during the physical delivery process.
-Why would someone need this credentials to gain access to administration level?
+The Peakboard Box is designed to be functional as soon as the customer takes it out of the box and connects it to power and a network. The Peakboard runtime is designed to work perfectly and securely on the Peakboard Box's hardware. All non-essential software components are switched off or put to hibernation. This reduces the attack surface.
 
-- Install windows updates
-- Install additional software to make the computer aligned with the internal security compliance guidelines of the customer
-- Install additional software for the application that runs on the Peakboard runtime (e.g. ODBC drivers)
+However, it's sometimes necessary for administrators to manage Peakboard boxes on an administrative level. This is possible. The Peakboard Box runs on Windows, and the credentials for the Windows system are given to the customer during the physical delivery.
+
+Here are some examples of things you can do with administrative priviledges:
+
+- Install Windows updates
+- Install additional software to align the computer with internal security compliance guidelines
+- Install additional software for an application that runs on the Peakboard runtime (e.g. ODBC drivers)
 - Track and monitor error events in the event log
 - Manually install Peakboard runtime updates
 - Bring the device into the AD domain
 
-Before we step into the technical details, we must understand, that accessing the Peakboard box under administration credentials might be a threat to security or might reduce the stability of the system. So it's advised to reduce these kind of activities to an absolute minimum.
+Before we step into the technical details, you must understand that accessing the Peakboard Box with administrative-level credentials might pose a security risk, and it might reduce the stability of the system. So you should only engage in these activities when necessary.
 
 ## Logon via Powershell
 
