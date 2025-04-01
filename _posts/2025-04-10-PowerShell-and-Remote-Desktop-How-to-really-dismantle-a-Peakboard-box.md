@@ -25,7 +25,7 @@ Here are some tasks that require administrative privileges to perform:
 
 Before we dive into the technical details, you must understand that accessing a Peakboard Box with administrative privileges poses a security risk, and it could reduce the stability of the system. So you should only engage in these activities when necessary.
 
-We will use Remote Desktop to manage a Peakboard Box. But before we can do that, we first need to prepare the Peakbord Box for Remote Desktop. We will use PowerShell to do this.
+We will use Remote Desktop to manage a Peakboard Box. But before we can do that, we first need to prepare the Peakboard Box for Remote Desktop. We will use PowerShell to do this.
 
 ## Prepare for Remote Desktop with PowerShell
 
@@ -43,15 +43,15 @@ Enter-PSSession -ComputerName {IP} -Credential {Box Hostname}\pbadmin
 
 Here's an explanation:
 
-1. We start the `winrm` service, because we need it to manage remote administration task on other machines (like our Peakboard Box).
-2. We whitelist the IP address of the Peakboard Box.
-3. We start a remote session in the Peakboard Box. There is a prompt for the adminstrator's password.
+1. We start the `winrm` service, because we need it to manage remote administration tasks on other machines (like our Peakboard Box).
+2. We whitelist the IP address of our Peakboard Box.
+3. We start a remote session in our Peakboard Box. There is a prompt for the adminstrator password.
 
 ![image](/assets/2025-04-10/020.png)
 
 ![image](/assets/2025-04-10/025.png)
 
-After having successfully established the PS session, we change a value in the registry of the Box to enable remote desktop connections. (It's disabled by default.) We also open the port for remote desktop in the firewall. Then, we exit the remote session and close the PS console.
+After having successfully established the PowerShell session, we run these commands:
 
 {% highlight powershell %}
 Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
@@ -60,6 +60,12 @@ exit
 exit
 {% endhighlight %}
 
+Here's an explanation.
+
+1. We change a value in the registry of the Box to enable remote desktop connections. (It's disabled by default.)
+2. We open the port for remote desktop in the firewall.
+3. We exit the remote session and close PowerShell console.
+
 ![image](/assets/2025-04-10/030.png)
 
 ## Log in with Remote Desktop
@@ -67,7 +73,7 @@ exit
 Now, we can log into the Peakboard Box with Remote Desktop. Here are the steps:
 
 1. Launch Remote Desktop by using the Windows search function. 
-2. Use the IP address and the admin credentials of the box to initiate a Remote Desktop session. After having logged on successfully, you will see a black desktop with a single terminal window open.
+2. Use the IP address and the admin credentials of the Box to initiate a Remote Desktop session. After having logged on successfully, you will see a black desktop with a single terminal window open.
 3. Type `explorer` into the terminal and press `Enter`. Then, the standard Windows desktop environment will launch.
 
 ![image](/assets/2025-04-10/040.png)
