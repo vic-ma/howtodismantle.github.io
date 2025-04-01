@@ -10,28 +10,30 @@ read_more_links:
   - name: More articles around administration topics
     url: /category/administration
 ---
-The Peakboard boxes are designed and prepared to work as smooth as possible as soon as the customer takes it out from the packaging and connects it to power and network. The Peakboard runtime is configured in a way to work perfectly and safe on this hardware. As all non-essential software components other than the Peakboard kernel are switched off or put to hibernation the number of potential entry points from ourside intruders is reduced as much as possible.
-However sometimes it might by necessary for administrators to access the Peakboard boxes on an administrationive level. This possible. The Peakboard box runs on WIndows and the credentials for this windows system are handed over ot the customer during the physical delivery process.
-Why would someone need this credentials to gain access to administration level?
+The Peakboard Box is designed to start working as soon as you take it out of the box and connect it to power and a network. The Peakboard runtime is designed to run securely on the Peakboard Box's hardware. All non-essential software components are switched off or put into hibernation. This reduces the attack surface.
 
-- Install windows updates
-- Install additional software to make the computer aligned with the internal security compliance guidelines of the customer
-- Install additional software for the application that runs on the Peakboard runtime (e.g. ODBC drivers)
+However, it's sometimes necessary to manage Peakboard Boxes on an administrative level. This is possible. The Peakboard Box runs on Windows, and the credentials for the Windows system are given to you during the physical delivery of the Box.
+
+Here are some tasks that require administrative privileges to perform:
+
+- Install Windows updates
+- Install additional software to align the computer with internal security compliance guidelines
+- Install additional software for an application that runs on the Peakboard runtime (e.g. ODBC drivers)
 - Track and monitor error events in the event log
 - Manually install Peakboard runtime updates
 - Bring the device into the AD domain
 
-Before we step into the technical details, we must understand, that accessing the Peakboard box under administration credentials might be a threat to security or might reduce the stability of the system. So it's advised to reduce these kind of activities to an absolute minimum.
+Before we dive into the technical details, you must understand that accessing a Peakboard Box with administrative privileges poses a security risk, and it could reduce the stability of the system. So you should only engage in these activities when necessary.
 
-## Logon via Powershell
+We will use Remote Desktop to manage a Peakboard Box. But before we can do that, we first need to prepare the Peakboard Box for Remote Desktop. We will use PowerShell to do this.
 
-The following three commands show how to logon on the box via Pwershell. We make sure to start the Powershell console under Administrator's priviliges.
+## Prepare for Remote Desktop with PowerShell
+
+First, run PowerShell as an administrator:
 
 ![image](/assets/2025-04-10/010.png)
 
-1. The service "winrm" will be needed to manage remote administration task on other machines
-2. The IP address of the box but must be white-listed
-3. We can enter a remote session in the box through the IP. The adminstrator's password must be provided in a separate credential prompt.
+Then, run these commands:
 
 {% highlight powershell %}
 net start winrm
@@ -39,11 +41,17 @@ Set-Item WSMan:\localhost\Client\TrustedHosts -Value {IP}
 Enter-PSSession -ComputerName {IP} -Credential {Box Hostname}\pbadmin
 {% endhighlight %}
 
+Here's an explanation:
+
+1. We start the `winrm` service, because we need it to manage remote administration tasks on other machines (like our Peakboard Box).
+2. We whitelist the IP address of our Peakboard Box.
+3. We start a remote session in our Peakboard Box. There is a prompt for the adminstrator password.
+
 ![image](/assets/2025-04-10/020.png)
 
 ![image](/assets/2025-04-10/025.png)
 
-After having successfully established the PS session, we must change a value in the registry of the box to enable remote desktop connections. By default it's disabled. We also need to open the port for remote desktop in the firewall. Then we can exit the remote session and close the PS console.
+After having successfully established the PowerShell session, we run these commands:
 
 {% highlight powershell %}
 Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
@@ -52,19 +60,32 @@ exit
 exit
 {% endhighlight %}
 
+Here's an explanation.
+
+1. We change a value in the registry of the Box to enable remote desktop connections. (It's disabled by default.)
+2. We open the port for remote desktop in the firewall.
+3. We exit the remote session and close PowerShell console.
+
 ![image](/assets/2025-04-10/030.png)
 
-## Logon via Remote Desktop Connection
+## Log in with Remote Desktop
 
-Now all the preparations are done to use RDP to logon to the box. Just launch RDP by using the Windows search function for RDP and then use the IP-address, and the admin credentials to initiate a RDP session. After having logged on succesfully you can see an almost fully black desktop with an open DOS console. We can just type in "explorer" in the console and confirm with Enter, then the regular desktop environment will be launched with the typical Windows task bar at the bottom.
+Now, we can log into the Peakboard Box with Remote Desktop. Here are the steps:
+
+1. Launch Remote Desktop by using the Windows search function. 
+2. Use the IP address and the admin credentials of the Box to initiate a Remote Desktop session. After having logged on successfully, you will see a black desktop with a single terminal window open.
+3. Type `explorer` into the terminal and press `Enter`. Then, the standard Windows desktop environment will launch.
 
 ![image](/assets/2025-04-10/040.png)
 
-## Exchanging files with the box
+## Exchange files with the Box
 
-If we need to exchange files with the box (e.g. for installing an ODBC driver), we just use the share "\\{Boxname}\Share" to move the file from a remote machine to the box. We can easily access it then from within our RDP or Powershell session.
+If you need to exchange files with the Box (e.g. to install an ODBC driver), use the following share:
+```
+\\{Boxname}\Share
+```
+Then, you can access the files from within the Remote Desktop or PowerShell session.
 
 ## Conclusion
 
-We learned how to access the box via Powershell and Remote Desktop connection. One again, we must understand that doing so might have a negative impact on safety and stability when done in a wrong way.
-
+We explained how to access a Peakboard Box with PowerShell and Remote Desktop. Remember, doing so could have a negative impact on safety and stability when done improperly.
