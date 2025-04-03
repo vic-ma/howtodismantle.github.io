@@ -19,11 +19,11 @@ In 2011, SAP launched SAP Hana. This was a completely new kind of database. It w
 
 But Hana can be also used "directly," as normal database, outside the context of SAP. In today's article, we will explain how to read from and write to SAP Hana databases, from a Peakboard application.
 
-## Get the endpoint to the SAP Hana database
+## Get the endpoint for our SAP Hana database
 
-In our example we will use a Hana instance hosted directly at SAP BTP, a cloud based service provided by SAP. Accessing Hana instances that are hosted elesewhere work similiar, only the structure of the SQL endpoint might differ, depending if it's hosted on AWS, Azure or even on prem.
+For this article, we will use a Hana instance hosted in SAP BTP---a cloud service from SAP. For Hana instances that are hosted elsewhere (e.g. AWS, Azure, on-prem), the steps are almost identical. The only thing that changes is the structure of the SQL endpoint.
 
-The screenshot shows the running Hana instance in the central cloud administration. In the context menu we have the option to copy the SQL endpoint to access the system. We will need it later. 
+The following screenshot shows the running Hana instance in the central cloud administration. In the context menu we have the option to copy the SQL endpoint to access the system. We will need it later. 
 
 ![image](/assets/2025-05-04/010.png)
 
