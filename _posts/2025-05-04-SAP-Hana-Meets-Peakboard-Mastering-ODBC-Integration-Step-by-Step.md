@@ -9,10 +9,6 @@ bg_alternative: true
 read_more_links:
   - name: Download SAP HANA client tools
     url: https://tools.hana.ondemand.com/#hanatools
-  - name: YouTube - Getting Started With M Language in Power Query | Basic to Advanced
-    url: https://www.youtube.com/watch?v=N8qYRSqRz84&ab_channel=DhruvinShah
-  - name: Cracking the code - Part II - Calling functions remotely
-    url: /Cracking-the-code-Part-II-Calling-functions-remotely.html
 downloads:
   - name: SAPHanaTest.pbix
     url: /assets/2025-05-04/SAPHanaTest.pbmx
