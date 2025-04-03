@@ -17,9 +17,7 @@ downloads:
 ---
 In 2011, SAP launched SAP Hana. This was a completely new kind of database. It was designed to replace SQL Server, Oracle, and Informix as the database backend of choice for SAP systems. Now, more than a decade later, running SAP with anything other than Hana is almost unthinkable.
 
-Besides using Hana as a backend for SAP applications, the database can be also used "directly," as normal database, outside the context of SAP.
-
-In today's article we will learn how to use direct access to SAP Hana databases from within the Peakboard application for both reading and writing.
+But Hana can be also used "directly," as normal database, outside the context of SAP. In today's article, we will explain how to read from and write to SAP Hana databases, from a Peakboard application.
 
 ## Get the endpoint to the SAP Hana database
 
