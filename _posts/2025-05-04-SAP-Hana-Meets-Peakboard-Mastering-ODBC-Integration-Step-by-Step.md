@@ -81,7 +81,8 @@ To make our app work on a Peakboard Box, we install the ODBC driver on the Box:
 
 ## Result and conclusion
 
-Using ODBC to access databases that are not natively supported by Peakboard is straight forward. Sometimes it might by tricky to build the right connection string. It is very important to install the ODBC driver binaries also on the box, otherwise the Peakboard app will fail to load properly.
-The final screenshot shows the demo pbmx of our example as it runs directly on the box.
+It's straightforward to use ODBC to access databases that are not natively supported by Peakboard. Sometimes, it might be a little tricky to get the correct connection string. It is very important to also install the ODBC driver on the Box. Otherwise, your Peakboard app will not load properly.
+
+This screenshot shows our demo application, running directly on a Box:
 
 ![image](/assets/2025-05-04/040.png)
