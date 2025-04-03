@@ -41,9 +41,9 @@ We will use the Hana ODBC driver to access the database. To install it, we follo
 
 ## Add an ODBC data source
 
-To access the Hana ODBC driver in the Peakboard Designer, we create a new ODBC data source. It takes two strings:
+To access the Hana ODBC driver in Peakboard Designer, we create a new ODBC data source. It takes two strings:
 * "Connection string", which tells the data source how to connect to our database.
-* "Statement," which is the SQL statement to executed against the database.
+* "Statement," which is the SQL statement to execute against the database.
 
 ### Connection string
 Here are the parts of the connection string:
@@ -65,7 +65,7 @@ For our example, we will access a demo table that contains some stock informatio
 
 To get the data from the table, we use this SQL statement:
 {% highlight sql %}
-`SELECT * FROM stock_information`
+select * from stock_information
 {% endhighlight %}
 
 ![image](/assets/2025-05-04/030.png)
