@@ -35,24 +35,31 @@ We will use the Hana ODBC driver to access the database. To install it, we follo
 
 1. Download the [64-bit binaries for Windows](https://tools.hana.ondemand.com/#hanatools). 
 2. Unzip the file.
-3. Launch the executable dbinst.exe to install all necessary client libraries, which includes the ODBC driver.
+3. Launch `dbinst.exe` to install all necessary client libraries, which includes the ODBC driver.
 
 ![image](/assets/2025-05-04/010.png)
 
-## Using the ODBC data source
+## Add an ODBC data source
 
-To access the Hana ODBC driver in the Peakboard designer we create a new data ODBC data source. It only has one text field for the connection string and one for the SQL command to be executed against the database.
+To access the Hana ODBC driver in the Peakboard Designer, we create a new ODBC data source. It takes two strings:
+* "Connection string", which tells the data source how to connect to our database.
+* "Statement," which is the SQL statement to executed against the database.
+
+### Connection string
 Here are the parts of the connection string:
 
-- DRIVERS is the techical name of the ODBC driver
-- SERVERNODE is the SQL endpoint which we copied earlier
-- UID, PWD are the values for user name and password to access the database
+- `DRIVERS`, the technical name of the ODBC driver.
+- `SERVERNODE`, the SQL endpoint which we copied earlier.
+- `UID`, the username for the database.
+- `PWD`, the password for the database.
 
 Here's a sample of how a connection string should look like:
 
 {% highlight text %}
 DRIVER={HDBODBC};SERVERNODE=f0dfd2cf-d606-4bef-b9ac-8d7baebccb11.hana.trial-us10.hanacloud.ondemand.com:443;UID=DBADMIN;PWD=MyDirtySecret;
 {% endhighlight %}
+
+### SQL statement
 
 In our example we will access a demo table that contains some stock information. To rebuild the table we can use [this SQL statement](/assets/2025-05-04/warehousetable.txt). So the corresponding SQL statement is "select * from stock_information" to retrieve the data.
 
