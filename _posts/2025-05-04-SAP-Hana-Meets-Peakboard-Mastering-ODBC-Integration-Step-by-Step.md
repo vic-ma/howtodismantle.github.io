@@ -15,17 +15,17 @@ downloads:
   - name: warehousetable.txt
     url: /assets/2025-05-04/warehousetable.txt
 ---
-In 2011, SAP launched SAP Hana. This was a completely new kind of database. It was designed to replace SQL Server, Oracle, and Informix as the database backend of choice for SAP systems. Now, more than a decade later, running SAP with anything other than Hana is almost unthinkable.
+In 2011, SAP launched SAP Hana, a completely new type of database. It was designed to replace SQL Server, Oracle, and Informix as the database backend of choice for SAP systems. Now, more than a decade later, running SAP with anything other than Hana is almost unthinkable.
 
-But Hana can be also used "directly," as normal database, outside the context of SAP. In today's article, we will explain how to read from and write to SAP Hana databases, from a Peakboard application.
+But Hana can be also used "directly," as normal database, outside the context of SAP. In this article, we will explain how to read from and write to SAP Hana databases, from a Peakboard application.
 
 ## Get the endpoint for our SAP Hana database
 
-For this article, we will use a Hana instance hosted in SAP BTP---a cloud service from SAP. For Hana instances that are hosted elsewhere (e.g. AWS, Azure, on-prem), the steps are almost identical. The only thing that changes is the structure of the SQL endpoint.
+For this article, we will use a Hana instance hosted on SAP BTP---a cloud service from SAP. For Hana instances that are hosted elsewhere (e.g. AWS, Azure, on-prem), the steps are identical. The only thing that changes is the SQL endpoint.
 
 The following screenshot shows our Hana instance, as it appears in our Hana administration dashboard. To [get the SQL endpoint](https://help.sap.com/docs/hana-cloud-data-lake/interactive-sql-dbisql-context-sensitive-help-for-data-lake-relational-engine/get-sap-hana-database-connection-properties) for our database, we perform these steps:
 1. Open the context menu for our endpoint.
-2. Select **Copy SQL Endpoint**
+2. Select **Copy SQL Endpoint**.
 
 ![image](/assets/2025-05-04/010.png)
 
