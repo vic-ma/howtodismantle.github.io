@@ -31,7 +31,11 @@ The following screenshot shows our Hana instance, as it appears in our Hana admi
 
 ## Set up client tools
 
-We will use the Hana ODBC driver to access the database. It can be download from the [Hana tools website](https://tools.hana.ondemand.com/#hanatools). We will need the 64 bit binaries for windows. After unzipping the file we can launch the executable dbinst.exe to install all necessary client libraries, which includes the ODBC driver.
+We will use the Hana ODBC driver to access the database. To install it, we follow these steps:
+
+1. Download the [64-bit binaries for Windows](https://tools.hana.ondemand.com/#hanatools). 
+2. Unzip the file.
+3. Launch the executable dbinst.exe to install all necessary client libraries, which includes the ODBC driver.
 
 ![image](/assets/2025-05-04/010.png)
 
