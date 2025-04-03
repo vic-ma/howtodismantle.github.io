@@ -15,7 +15,9 @@ downloads:
   - name: warehousetable.txt
     url: /assets/2025-05-04/warehousetable.txt
 ---
-In 2011, SAP launched SAP Hana. This was a completely new type of database, designed to replace SQL Server, Oracle and Informix as the database backend for SAP systems. Now, more than a decade later, running SAP on other databases than Hana is alomost unthinkable. Beside using Hana as backend for regular SAP applications the database can be also used "directly" as normal database, not enecssarily in the context of tradional SAP business applications.
+In 2011, SAP launched SAP Hana. This was a completely new kind of database. It was designed to replace SQL Server, Oracle, and Informix as the database backend of choice for SAP systems. Now, more than a decade later, running SAP with anything other than Hana is almost unthinkable.
+
+Besides using Hana as a backend for SAP applications, the database can be also used "directly," as normal database, outside the context of SAP.
 
 In today's article we will learn how to use direct access to SAP Hana databases from within the Peakboard application for both reading and writing.
 
