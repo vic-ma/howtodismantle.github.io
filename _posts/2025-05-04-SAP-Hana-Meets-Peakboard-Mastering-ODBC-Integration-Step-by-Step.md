@@ -53,7 +53,7 @@ Here are the parts of the connection string:
 - `UID`, the username for the database.
 - `PWD`, the password for the database.
 
-Here's a sample of how a connection string should look like:
+Here's an example of a connection string:
 
 {% highlight text %}
 DRIVER={HDBODBC};SERVERNODE=f0dfd2cf-d606-4bef-b9ac-8d7baebccb11.hana.trial-us10.hanacloud.ondemand.com:443;UID=DBADMIN;PWD=MyDirtySecret;
@@ -61,7 +61,12 @@ DRIVER={HDBODBC};SERVERNODE=f0dfd2cf-d606-4bef-b9ac-8d7baebccb11.hana.trial-us10
 
 ### SQL statement
 
-In our example we will access a demo table that contains some stock information. To rebuild the table we can use [this SQL statement](/assets/2025-05-04/warehousetable.txt). So the corresponding SQL statement is "select * from stock_information" to retrieve the data.
+For our example, we will access a demo table that contains some stock information. If you are following along and want to reproduce the demo table, you can use these [SQL statements](/assets/2025-05-04/warehousetable.txt).
+
+To get the data from the table, we use this SQL statement:
+{% highlight sql %}
+`SELECT * FROM stock_information`
+{% endhighlight %}
 
 ![image](/assets/2025-05-04/030.png)
 
