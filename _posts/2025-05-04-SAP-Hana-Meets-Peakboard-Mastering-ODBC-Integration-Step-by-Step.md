@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SAP Hana Meets Peakboard: Mastering ODBC Integration Step-by-Step
+title: SAP Hana Meets Peakboard - Mastering ODBC Integration Step-by-Step
 date: 2023-03-01 03:00:00 +0200
 tags: sap bi
 image: /assets/2025-05-04/title.png
