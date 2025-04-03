@@ -23,17 +23,15 @@ But Hana can be also used "directly," as normal database, outside the context of
 
 For this article, we will use a Hana instance hosted in SAP BTP---a cloud service from SAP. For Hana instances that are hosted elsewhere (e.g. AWS, Azure, on-prem), the steps are almost identical. The only thing that changes is the structure of the SQL endpoint.
 
-The following screenshot shows our Hana instance, as it appears in our Hana administration dashboard. To [get the SQL endpoint](https://help.sap.com/docs/hana-cloud-data-lake/interactive-sql-dbisql-context-sensitive-help-for-data-lake-relational-engine/get-sap-hana-database-connection-properties) for our system, we perform these steps:
+The following screenshot shows our Hana instance, as it appears in our Hana administration dashboard. To [get the SQL endpoint](https://help.sap.com/docs/hana-cloud-data-lake/interactive-sql-dbisql-context-sensitive-help-for-data-lake-relational-engine/get-sap-hana-database-connection-properties) for our database, we perform these steps:
 1. Open the context menu for our endpoint.
 2. Select **Copy SQL Endpoint**
 
-We open the context menu on our the Hana instance, and we copy the SQL endpoint for accessing the system. We will need this later. 
-
 ![image](/assets/2025-05-04/010.png)
 
-## Set up the client tools
+## Set up client tools
 
-We will use the Hana ODBC driver to access the system. It can be download from the [Hana tools website](https://tools.hana.ondemand.com/#hanatools). We will need the 64 bit binaries for windows. After unzipping the file we can launch the executable dbinst.exe to install all necessary client libraries, which includes the ODBC driver.
+We will use the Hana ODBC driver to access the database. It can be download from the [Hana tools website](https://tools.hana.ondemand.com/#hanatools). We will need the 64 bit binaries for windows. After unzipping the file we can launch the executable dbinst.exe to install all necessary client libraries, which includes the ODBC driver.
 
 ![image](/assets/2025-05-04/010.png)
 
