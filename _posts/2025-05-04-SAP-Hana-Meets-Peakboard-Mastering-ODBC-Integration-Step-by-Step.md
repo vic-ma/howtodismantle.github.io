@@ -23,7 +23,11 @@ But Hana can be also used "directly," as normal database, outside the context of
 
 For this article, we will use a Hana instance hosted in SAP BTP---a cloud service from SAP. For Hana instances that are hosted elsewhere (e.g. AWS, Azure, on-prem), the steps are almost identical. The only thing that changes is the structure of the SQL endpoint.
 
-The following screenshot shows the running Hana instance in the central cloud administration. In the context menu we have the option to copy the SQL endpoint to access the system. We will need it later. 
+The following screenshot shows our Hana instance, as it appears in our Hana administration dashboard. To [get the SQL endpoint](https://help.sap.com/docs/hana-cloud-data-lake/interactive-sql-dbisql-context-sensitive-help-for-data-lake-relational-engine/get-sap-hana-database-connection-properties) for our system, we perform these steps:
+1. Open the context menu for our endpoint.
+2. Select **Copy SQL Endpoint**
+
+We open the context menu on our the Hana instance, and we copy the SQL endpoint for accessing the system. We will need this later. 
 
 ![image](/assets/2025-05-04/010.png)
 
