@@ -10,12 +10,12 @@ read_more_links:
   - name: Download SAP HANA client tools
     url: https://tools.hana.ondemand.com/#hanatools
 downloads:
-  - name: SAPHanaTest.pbix
+  - name: SAPHanaTest.pbmx
     url: /assets/2025-05-04/SAPHanaTest.pbmx
   - name: warehousetable.txt
     url: /assets/2025-05-04/warehousetable.txt
 ---
-Back in 2011 SAP launched SAP Hana. A completely new kind of database built to replace SQL Server, Oracle and Informix as typical database backends for SAP systems. Now, more than a decade later, running SAP on other databases than Hana is alomost unthinkable. Beside using Hana as backend for regular SAP applications the database can be also used "directly" as normal database, not enecssarily in the context of tradional SAP business applications.
+In 2011, SAP launched SAP Hana. This was a completely new type of database, designed to replace SQL Server, Oracle and Informix as the database backend for SAP systems. Now, more than a decade later, running SAP on other databases than Hana is alomost unthinkable. Beside using Hana as backend for regular SAP applications the database can be also used "directly" as normal database, not enecssarily in the context of tradional SAP business applications.
 
 In today's article we will learn how to use direct access to SAP Hana databases from within the Peakboard application for both reading and writing.
 
