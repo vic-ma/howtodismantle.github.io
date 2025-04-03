@@ -70,16 +70,16 @@ To get the data from the table, we use this SQL statement:
 
 ![image](/assets/2025-05-04/030.png)
 
-## Get the ODBC driver on the box
+## Install the ODBC driver on the Peakboard Box
 
-To make the pbmx work on a Peakboard box, we need to make the ODBC driver available on the box. Here's the step-by-step guide on how to do that:
+To make our app work on a Peakboard Box, we install the ODBC driver on the Box:
 
-1. Copy the installation binaries to the share folder \\{Boxname}\Share (we will need admin credentials to do this)
-2. Unzip it
-3. Open a Powershell session to the box as described in [this article](/PowerShell-and-Remote-Desktop-How-to-really-dismantle-a-Peakboard-box.html)
-4. Execute \\{Boxname}\Share\dbinst.exe within the Powershell session
+1. Copy the installation binaries to the share folder, `\\{Boxname}\Share` (admin credentials needed).
+2. Unzip the binaries.
+3. Start a PowerShell session and connect to the Box, as described in [this article](/PowerShell-and-Remote-Desktop-How-to-really-dismantle-a-Peakboard-box.html).
+4. Execute `\\{Boxname}\Share\dbinst.exe` inside the PowerShell session.
 
-## result and conclusion
+## Result and conclusion
 
 Using ODBC to access databases that are not natively supported by Peakboard is straight forward. Sometimes it might by tricky to build the right connection string. It is very important to install the ODBC driver binaries also on the box, otherwise the Peakboard app will fail to load properly.
 The final screenshot shows the demo pbmx of our example as it runs directly on the box.
