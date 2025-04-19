@@ -9,6 +9,8 @@ bg_alternative: true
 read_more_links:
   - name: Peakboard Hub API Swagger portal
     url: https://api.peakboard.com/public-api/index.html
+  - name: Peakboard Hub API getting started
+    url: /Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html
 downloads:
   - name: Iflow TransferOrderToPeakboardHub.zip
     url: /assets/2025-04-26/TransferOrderToPeakboardHub.zip
