@@ -78,13 +78,21 @@ We apply the XPath command `//AccessToken` to the XML body in order to get the a
 
 ![image](/assets/2025-04-26/060.png)
 
-## Add a header with our access token.
+## Add a header with our access token
 
 We add an `Authorization` header, in order to authenticate our API calls. We set the header to `Bearer`, combined with our access token.
 
 ![image](/assets/2025-04-26/070.png)
 
-For the body we use the JSON that is needed to feed the Peakboard Hub API. In our table we will store four values: "FromLocation", "ToLocation" is the router of the transfer order, "MaterialNo" the Product to be moved, and "Quantity" the amount of products. The actual value are taken from the headers by using an expression (e.g. "${header.FromLocation}"). So the caller of this integration flow can submit his values just by adding this to the query string of the URL later.
+## Set request body
+
+Our request body needs to be a JSON string with the data that we want to store in the Peakboard Hub table. There are four values we need:
+* `FromLocation`
+* `ToLocation`
+* `MaterialNo`
+* `Quantity`
+
+We get these values from the headers of the request sent to our integration flow. This means that the caller of this integration flow can submit their values by putting them into the query string of their API call.
 
 ![image](/assets/2025-04-26/080.png)
 
