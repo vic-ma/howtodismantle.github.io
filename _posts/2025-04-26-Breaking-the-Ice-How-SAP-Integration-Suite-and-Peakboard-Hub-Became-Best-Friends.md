@@ -17,32 +17,34 @@ downloads:
 ---
 The future of SAP is clear: Everything will be cloud based. The age of on-prem SAP systems is over. And when it comes to connecting systems with one another other---both SAP and non-SAP---the best solution is SAP BTP (Bussiness Technology Platform).
 
-A big part of SAP BTP is the SAP Integration Suite. This is where all the API magic happens and where communication with the outside world is built and configured (more precisely, outside-of-SAP world). One of the artifacts we can build in the SAP integration Suite is an Integration Flow (iFlow). This is what we will do today.
+A big part of SAP BTP is the SAP Integration Suite. This is where all the API magic happens and where communication with the outside world is built and configured (more precisely, outside-of-SAP world). One of the artifacts we can build in the SAP Integration Suite is an integration flow (iFlow). This is what we will do today.
 
 We will build an iFlow that submits a transfer order to Peakboard Hub, and stores it in the transfer order table. That way, the iFlow can be used like a blueprint for a general SAP-Peakboard-Hub communications.
 
-## The requirements
+## Setup
 
-First we need a simple table in the Peakboard Hub to store our transfer orders.
+First, we create a simple table in Peakboard Hub to store our transfer orders:
 
 ![image](/assets/2025-04-26/010.png)
 
-Beside this we will need an API key. How to get that we can find out in our [Peakboard Hub API getting started article](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html). 
+Next, we get an API key. You can learn how to do this in our [Peakboard Hub API getting started](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) article.
 
-Beside this we will need a valid SAP BTP account and create a new package and a new Integration Flow. 
+We also need a valid SAP BTP account.
 
-## The strategy
+Finally, we create a new package and a new Integration Flow. 
 
-The Integration FLow we're building will follow these steps:
+## Build the integration flow
 
-1. Set The API key to the correct header
-2. Call the Peakboard Hub to get an Access Token
-3. Convert the answer of the access token call into XML
-4. Use XPath to get the access token from the XML body and store it in a property
-5. Get the access token from the property and put it into the header, Prepare the body for the next call
-6. Call the Peakboard Hub API to store the values of the transfer order into the table
+We will build an integration flow that does the following:
+1. Set The API key to the correct header.
+2. Call Peakboard Hub to get an access token.
+3. Convert the response from the access token request into XML.
+4. Extract the access token from the XML body and store it in a property, using XPath.
+5. Get the access token from the property and put it into the header.
+5. Prepare the body for the next call.
+6. Call the Peakboard Hub API to store the values of the transfer order into the table.
 
-Here's the how the complete integration flow looks like:
+Here's what the complete integration flow looks like inside SAP:
 
 ![image](/assets/2025-04-26/020.png)
 
