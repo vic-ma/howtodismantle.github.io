@@ -36,7 +36,7 @@ Finally, we create a new package and a new Integration Flow.
 ## Build the integration flow
 
 We will build an integration flow that does the following:
-1. Set The API key to the correct header.
+1. Add header with our API key.
 2. Call Peakboard Hub to get an access token.
 3. Convert the response from the access token request into XML.
 4. Extract the access token from the XML body and store it in a property, using XPath.
@@ -44,17 +44,17 @@ We will build an integration flow that does the following:
 5. Prepare the body for the next call.
 6. Call the Peakboard Hub API to store the values of the transfer order into the table.
 
-Here's what the complete integration flow looks like inside SAP:
+Here's what the complete integration flow looks like:
 
 ![image](/assets/2025-04-26/020.png)
 
-## Set The API key to the correct header
+### Add header with our API key
 
-In the first step we set the API key to the header, so that it's submitted in the next call
+For our first step, we add an `apiKey` header with our API key.  We need this header in order to get our access token in the next step.
 
 ![image](/assets/2025-04-26/030.png)
 
-## 2. Call the Peakboard Hub to get an Access Token
+## Call Peakboard Hub to get an Access Token
 
 The next step is a Request/Response block calling the external URL "https://api.peakboard.com/public-api/v1/auth/token" to receive the access token.
 
