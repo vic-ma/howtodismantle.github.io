@@ -36,19 +36,19 @@ Finally, we create a new package and a new Integration Flow.
 ## Build the integration flow
 
 We will build an integration flow that does the following:
-1. Add header with our API key.
+1. Add a header with our API key.
 2. Call Peakboard Hub to get an access token.
 3. Convert the response from the access token request into XML.
-4. Extract the access token from the XML body and store it in a property, using XPath.
-5. Get the access token from the property and put it into the header.
-5. Prepare the body for the next call.
+4. Use XPath to extract the access token from the XML body and store it in a property.
+5. Add a header with our access token.
+5. Set request body.
 6. Call the Peakboard Hub API to store the values of the transfer order into the table.
 
 Here's what the complete integration flow looks like:
 
 ![image](/assets/2025-04-26/020.png)
 
-### Add header with our API key
+### Add a header with our API key
 
 For our first step, we add an `apiKey` header with our API key.  We need this header in order to get our access token in the next step.
 
@@ -72,15 +72,15 @@ We need to get the token from the API response. But processing JSON in an SAP in
 
 ![image](/assets/2025-04-26/050.png)
 
-## Extract the access token from the XML body and store it in a property, using XPath
+## Use XPath to extract the access token from the XML body and store it in a property
 
-In this step we apply the XPath command "//AccessToken" to the XML body to get the Access token and store in an internal property.
+We apply the XPath command `//AccessToken` to the XML body in order to get the access token and store it in an internal property.
 
 ![image](/assets/2025-04-26/060.png)
 
-## 5. Get the access token from the property and put it into the header, Prepare the body for the next call
+## Add a header with our access token.
 
-We need to prepare header and body for the next call of the Peakboard Hub API. For the header we use the stored access token from the property and store it together with the literal "Bearer".
+We add an `Authorization` header, in order to authenticate our API calls. We set the header to `Bearer`, combined with our access token.
 
 ![image](/assets/2025-04-26/070.png)
 
