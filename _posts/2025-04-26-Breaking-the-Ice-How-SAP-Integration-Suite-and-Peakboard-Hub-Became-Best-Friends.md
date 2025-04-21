@@ -56,17 +56,23 @@ For our first step, we add an `apiKey` header with our API key.  We need this he
 
 ## Call Peakboard Hub to get an Access Token
 
-The next step is a Request/Response block calling the external URL "https://api.peakboard.com/public-api/v1/auth/token" to receive the access token.
+The next step is a Request/Response block that calls this external URL:
+
+{% highlight url %}
+https://api.peakboard.com/public-api/v1/auth/token
+{% endhighlight %}
+
+This Peakboard Hub API call returns an access token.
 
 ![image](/assets/2025-04-26/040.png)
 
-## 3. Convert the answer of the access token call into XML
+## Convert the response from the access token request into XML
 
-Processing JSON in SAP Integration Flow is tricky. It's much easier to use XPath later. That's why we convert the response body of the last call into XML.
+We need to get the token from the API response. But processing JSON in an SAP integration flow is tricky. So instead, we will use XPath get the token. In order to use XPath, we first need to convert the response body into XML:
 
 ![image](/assets/2025-04-26/050.png)
 
-## 4. Use XPath to get the access token from the XML body and store it in a property
+## Extract the access token from the XML body and store it in a property, using XPath
 
 In this step we apply the XPath command "//AccessToken" to the XML body to get the Access token and store in an internal property.
 
