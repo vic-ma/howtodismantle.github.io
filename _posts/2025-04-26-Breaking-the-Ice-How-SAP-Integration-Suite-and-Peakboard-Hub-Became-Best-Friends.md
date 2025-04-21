@@ -103,13 +103,13 @@ The final step is to call the table store endpoint of the Peakboard Hub API:
 https://api.peakboard.com/public-api/v1/lists/items
 ```
 
-In this case it's a POST call. The authentication method is set to none, as we're doing the authentication in our header that we created earlier.
+In this case, it's a `POST` call. We set the authentication method to **None**, because we're using our header from earlier to authenticate ourselves.
 
 ![image](/assets/2025-04-26/090.png)
 
-After building these steps, we save and deploy the service.
+After completing all these steps, we save and deploy the service.
 
-## result and test
+## Result and test
 
 The screenshot shows the actual service as it is called through Postman. The values to be stored are submitted as query parameters. So they will be mapped into the JSON during the process. As we see, our integration service returns the repsonse body ofr the Peakboard Hub API. This is done automatically as this call as last one to be processed in the flow.
 
