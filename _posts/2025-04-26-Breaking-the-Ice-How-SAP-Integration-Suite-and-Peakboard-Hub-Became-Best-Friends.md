@@ -58,9 +58,9 @@ For our first step, we add an `apiKey` header with our API key.  We need this he
 
 The next step is a Request/Response block that calls this external URL:
 
-{% highlight url %}
+```url
 https://api.peakboard.com/public-api/v1/auth/token
-{% endhighlight %}
+```
 
 This Peakboard Hub API call returns an access token.
 
@@ -96,9 +96,14 @@ We get these values from the headers of the request sent to our integration flow
 
 ![image](/assets/2025-04-26/080.png)
 
-## 6. Call the Peakboard Hub API to store the values of the transfer order into the table
+## Call the Peakboard Hub API to store the values of the transfer order into the table
 
-The last step is the actual call of the table store function "https://api.peakboard.com/public-api/v1/lists/items". In this case it's a POST call. The authentication method is set to none, as we're doing the authentication in our header that we created earlier.
+The final step is to call the table store endpoint of the Peakboard Hub API:
+```url
+https://api.peakboard.com/public-api/v1/lists/items
+```
+
+In this case it's a POST call. The authentication method is set to none, as we're doing the authentication in our header that we created earlier.
 
 ![image](/assets/2025-04-26/090.png)
 
