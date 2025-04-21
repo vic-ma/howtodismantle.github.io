@@ -15,7 +15,11 @@ downloads:
   - name: Iflow TransferOrderToPeakboardHub.zip
     url: /assets/2025-04-26/TransferOrderToPeakboardHub.zip
 ---
-The long term strategy of SAP is very clear: Everything will be cloud based. The time of on-prem SAP systems is over. And when it comes to connecting the systems with each other - both SAP and non-SAP - the ultimate answer will be SAP BTP - Bussiness Technology Platform. One of the big part of SAP BTP is the so called SAP Integation Suite. Here all the API magic happens and the communication with the outside world (or better said outside-SAP world) is built and configured. One of the artifacts we can build in the SAP integration Suite is the Integration FLow, or just iflow. This is what we will do today. We will build an iflow that submits a transfer order to the Peakboard Hub and stores it in the transfer order table. So that iflow can be used as some kind of blueprint for a general SAP-Peakboard-Hub-communication.
+The future of SAP is clear: Everything will be cloud based. The age of on-prem SAP systems is over. And when it comes to connecting systems with one another other---both SAP and non-SAP---the best solution is SAP BTP (Bussiness Technology Platform).
+
+A big part of SAP BTP is the SAP Integration Suite. This is where all the API magic happens and where communication with the outside world is built and configured (more precisely, outside-of-SAP world). One of the artifacts we can build in the SAP integration Suite is an Integration Flow (iFlow). This is what we will do today.
+
+We will build an iFlow that submits a transfer order to Peakboard Hub, and stores it in the transfer order table. That way, the iFlow can be used like a blueprint for a general SAP-Peakboard-Hub communications.
 
 ## The requirements
 
