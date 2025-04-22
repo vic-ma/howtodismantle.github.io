@@ -111,11 +111,11 @@ After completing all these steps, we save and deploy the service.
 
 ## Result and test
 
-The screenshot shows the actual service as it is called through Postman. The values to be stored are submitted as query parameters. So they will be mapped into the JSON during the process. As we see, our integration service returns the repsonse body ofr the Peakboard Hub API. This is done automatically as this call as last one to be processed in the flow.
+The following screenshot shows our service handling a call sent from Postman. The values to be stored are submitted as query parameters. They are mapped to the JSON during the process. As you can see, our integration service returns the response body of the Peakboard Hub API. This is done automatically, because this call is last one to be processed in the flow.
 
 ![image](/assets/2025-04-26/100.png)
 
-And here's how the data looks like in the Hub table.
+And here's what the data looks like in the Peakboard Hub table:
 
 ![image](/assets/2025-04-26/110.png)
 
