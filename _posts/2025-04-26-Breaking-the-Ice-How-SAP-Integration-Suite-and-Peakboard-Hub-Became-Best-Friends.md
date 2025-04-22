@@ -19,7 +19,7 @@ The future of SAP is clear: Everything will be cloud based. The age of on-prem S
 
 A big part of SAP BTP is the SAP Integration Suite. This is where all the API magic happens, and where communication with the outside world is built and configured (more precisely, the outside-of-SAP world). One of the artifacts we can build with the SAP Integration Suite is an integration flow (iFlow). This is what we will do today.
 
-We will build an iFlow that submits a transfer order to Peakboard Hub, and stores it in the transfer order table. That way, we can use the iFlow like a blueprint for general SAP to Peakboard-Hub communications.
+We will build an iFlow that submits a transfer order to Peakboard Hub, and stores it in the transfer order table. That way, we can use the iFlow like a blueprint for general SAP-to-Peakboard-Hub communications.
 
 ## Setup
 
@@ -27,11 +27,7 @@ First, we create a simple table in Peakboard Hub to store our transfer orders:
 
 ![image](/assets/2025-04-26/010.png)
 
-Next, we get an API key. You can learn how to do this in our [Peakboard Hub API getting started](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) article.
-
-We also need a valid SAP BTP account.
-
-Finally, we create a new package and a new Integration Flow. 
+Next, we get an API key. You can learn how to do this in our [Peakboard Hub API getting started](/Cracking-the-code-Part-I-Getting-started-with-Peakboard-Hub-API.html) article. We also need a valid SAP BTP account.  And finally, we create a new package and a new integration flow. 
 
 ## Build the integration flow
 
@@ -41,7 +37,7 @@ We will build an integration flow that does the following:
 3. Convert the response from the access token request into XML.
 4. Use XPath to extract the access token from the XML body and store it in a property.
 5. Add a header with our access token.
-5. Set request body.
+5. Set the request body.
 6. Call the Peakboard Hub API to store the values of the transfer order into the table.
 
 Here's what the complete integration flow looks like:
@@ -50,13 +46,13 @@ Here's what the complete integration flow looks like:
 
 ### Add a header with our API key
 
-For our first step, we add an `apiKey` header with our API key.  We need this header in order to get our access token in the next step.
+For our first step, we add an `apiKey` header that contains our API key.  We need this header in order to get our access token in the next step.
 
 ![image](/assets/2025-04-26/030.png)
 
-## Call Peakboard Hub to get an Access Token
+## Call Peakboard Hub to get an access token
 
-The next step is a Request/Response block that calls this external URL:
+The next step is a request/response block that calls this external URL:
 
 ```url
 https://api.peakboard.com/public-api/v1/auth/token
@@ -98,7 +94,7 @@ We get these values from the headers of the request sent to our integration flow
 
 ## Call the Peakboard Hub API to store the values of the transfer order into the table
 
-The final step is to call the table store endpoint of the Peakboard Hub API:
+The final step is to call the table-store endpoint of the Peakboard Hub API:
 ```url
 https://api.peakboard.com/public-api/v1/lists/items
 ```
