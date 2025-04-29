@@ -115,9 +115,10 @@ In the code behind the print button, we just replace the three placeholders with
 
 ![image](/assets/2025-05-12/050.png)
 
-
 ## result
 
 In the video we can see, how the actual lable is printed on Bixolon XD5-40.
 
 {% include youtube.html id="XDnLkoAyqEw" %}
+
+![image](/assets/2025-05-12/060.png)
