@@ -29,19 +29,17 @@ In today's article, we will explain how to use the Zebra programming language, o
 
 For our demo, we will use the [Bixolon XD5-40](https://bixoloneu.com/product/xd5-40-series/) printer. It's a compact, direct-thermal and thermal-transfer label printer designed for high-performance barcode and label printing in professional environments. It's typically used in logistics, retail, healthcare, and manufacturing. This printer excels at producing shipping labels, product tags, barcode stickers, and other adhesive labels with precision and speed.
 
-To make the printer available to our Peakboard application, we connect both our application and printer to the same network.
-
-The only thing we need to get it working is the IP adress within the local network. With the Peakboard printer extension, no additional drivers must be installed.
+In order for Peakboard to communicate with our printer, we connect our printer to the same network that our Peakboard application runs on. Then, we write down the IP address of our printer, within the local network (we will need this later). With the Peakboard printer extension, we don't need any additional drivers.
 
 ![image](/assets/2025-05-12/010.png)
 
 ## ZPL
 
-ZPL - Zebra programming language - is used to design and print labels, barcodes, and receipts on Zebra thermal printers. It's a text-based language — essentially a series of ASCII commands that describe what the printed output should look like
+ZPL is used to design and print labels, barcodes, and receipts, on Zebra thermal printers. It's a text-based language. It uses ASCII commands to describe what the printed output should look like.
 
-A perfect and easy-to-understand introduction on ZPL can be found [here](https://labelary.com/zpl.html).
+For more information about ZPL, check out this great, easy-to-understand [introduction to ZPL](https://labelary.com/zpl.html).
 
-Here's a minimum intro:
+Here's a very basic ZPL example:
 
 {% highlight text %}
 ^XA
@@ -49,12 +47,14 @@ Here's a minimum intro:
 ^XZ
 {% endhighlight %}
 
-.. and here's the explanation:
+And here's an explanation of the different parts:
 
-- "^XA" starts the label format.
-- "^FO50,50" positions the field.
-- "^FDHello, World!^FS" prints some text.
-- "^XZ" ends the label.
+| Part                  | Explanation             |
+| --------------------- | ----------------------- |
+| `^XA`                 | Begin the label format. |
+| `^FO50,50`            | Position the field.     |
+| `^FDHello, World!^FS` | Prints some text.       |
+| `^XZ`                 | End the label format.   |
 
 The perfect tool in the context of ZPL is the [Labelary ZPL designer](https://labelary.com/viewer.html). It's very helpful to develop the base layout of the label. After having settled the layout we can just replace all variable values with placeholders and fill it in Peakboard.
 
