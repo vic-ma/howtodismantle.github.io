@@ -56,7 +56,7 @@ And here's an explanation of how the example works:
 | `^FDHello, World!^FS` | Print some text.        |
 | `^XZ`                 | End the label format.   |
 
-The perfect tool for ZPL is the [Labelary ZPL designer](https://labelary.com/viewer.html). It's very useful for creating the base layout of your label. After having settled the layout we can just replace all variable values with placeholders and fill it in Peakboard.
+The perfect tool for working with ZPL is the [Labelary ZPL designer](https://labelary.com/viewer.html). We use it to create the base layout of our label. After that, we replace all the variables with placeholders. Then, in Peakboard, we can replace these placeholders with whatever we want, using Building Blocks.
 
 ![image](/assets/2025-05-12/020.png)
 
