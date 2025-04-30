@@ -21,8 +21,10 @@ downloads:
   - name: ZPLPrinterDemo.pbmx
     url: /assets/2025-05-12/ZPLPrinterDemo.pbmx
 ---
-A couple of weeks ago, [we already introduced how to print with Peakboard](/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html). We learned how to use the printer extension by using some high level commands. In [another article](/The-Art-of-Printing-Mastering-Bixolon-SRP-Q300-Series-label-printer-with-with-enhanced-ESCPOS-commands-and-tables.html) we learned how to mix printer commands and lowlevel ESC/POS commands.
-In today's article we will discuss the usage of the Zebra programming language ZPL, it's a printer control language developed by Zebra Technologies — a company that specializes in barcode printing and labeling solutions.
+A couple of weeks ago, we gave an introduction on [how to print with Peakboard](/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html), where we explained how to use the printer extension with high level commands. In [another article](/The-Art-of-Printing-Mastering-Bixolon-SRP-Q300-Series-label-printer-with-with-enhanced-ESCPOS-commands-and-tables.html), we explained how to mix printer commands and low-level ESC/POS commands.
+
+In today's article, we will explain how to use the Zebra programming language, or ZPL. It's a printer control language developed by Zebra Technologies---a company that specializes in barcode printing and labeling solutions.
+
 We build and print a typical shipping label
 
 ## Bixolon XD5-40
