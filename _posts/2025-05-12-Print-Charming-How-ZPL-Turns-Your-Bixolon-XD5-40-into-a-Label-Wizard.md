@@ -27,7 +27,9 @@ In today's article, we will explain how to use the Zebra programming language, o
 
 ## Bixolon XD5-40
 
-In our example we will use the Bixolon XD5-40 printer. It's a compact, direct thermal and thermal transfer label printer designed for high-performance barcode and label printing in various professional environments. Typically used in logistics, retail, healthcare, and manufacturing, this printer excels at producing shipping labels, product tags, barcode stickers, and other adhesive labels with precision and speed. To use it, we simply connect it to the same network as the Peakboard application. That's it. For more details about the printer [here's some additional information](https://bixoloneu.com/product/xd5-40-series/).
+For our demo, we will use the [Bixolon XD5-40](https://bixoloneu.com/product/xd5-40-series/) printer. It's a compact, direct-thermal and thermal-transfer label printer designed for high-performance barcode and label printing in professional environments. It's typically used in logistics, retail, healthcare, and manufacturing. This printer excels at producing shipping labels, product tags, barcode stickers, and other adhesive labels with precision and speed.
+
+To make the printer available to our Peakboard application, we connect both our application and printer to the same network.
 
 The only thing we need to get it working is the IP adress within the local network. With the Peakboard printer extension, no additional drivers must be installed.
 
