@@ -47,16 +47,16 @@ Here's a very basic ZPL example:
 ^XZ
 {% endhighlight %}
 
-And here's an explanation of the different parts:
+And here's an explanation of how the example works:
 
 | Part                  | Explanation             |
 | --------------------- | ----------------------- |
 | `^XA`                 | Begin the label format. |
 | `^FO50,50`            | Position the field.     |
-| `^FDHello, World!^FS` | Prints some text.       |
+| `^FDHello, World!^FS` | Print some text.        |
 | `^XZ`                 | End the label format.   |
 
-The perfect tool in the context of ZPL is the [Labelary ZPL designer](https://labelary.com/viewer.html). It's very helpful to develop the base layout of the label. After having settled the layout we can just replace all variable values with placeholders and fill it in Peakboard.
+The perfect tool for ZPL is the [Labelary ZPL designer](https://labelary.com/viewer.html). It's very useful for creating the base layout of your label. After having settled the layout we can just replace all variable values with placeholders and fill it in Peakboard.
 
 ![image](/assets/2025-05-12/020.png)
 
