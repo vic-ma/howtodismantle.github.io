@@ -27,17 +27,19 @@ In today's article, we'll explain how to use the Zebra programming language, or 
 
 ## Bixolon XD5-40
 
-For our demo, we'll use the [Bixolon XD5-40](https://bixoloneu.com/product/xd5-40-series/) printer. It's a compact, direct-thermal and thermal-transfer label printer designed for high-performance barcode and label printing, in professional environments. It's typically used in logistics, retail, healthcare, and manufacturing. This printer excels at producing shipping labels, product tags, barcode stickers, and other adhesive labels with precision and speed.
+For our demo, we'll use the [Bixolon XD5-40](https://bixoloneu.com/product/xd5-40-series/) printer. It's a compact, direct-thermal and thermal-transfer label printer designed for high-performance barcode and label printing, in professional environments. It's typically used in the logistics, retail, healthcare, and manufacturing industries. This printer excels at creating shipping labels, product tags, barcode stickers, and other adhesive labels, with speed and precision.
 
-In order for Peakboard to communicate with our printer, we connect our printer to the same network that our Peakboard application runs on. Then, we write down the IP address of our printer, within the local network (we will need this later). With the Peakboard printer extension, we don't need any additional drivers.
+We connect our printer to the same network that our Peakboard application runs on. Then, we write down the IP address of our printer, within the local network (we will need this later). With the Peakboard printer extension, we don't need any additional drivers.
 
 ![image](/assets/2025-05-12/010.png)
 
 ## ZPL
 
-ZPL is used to design and print labels, barcodes, and receipts, on Zebra thermal printers. It's a text-based language. It uses ASCII commands to describe what the printed output should look like.
+ZPL is used to design and print labels, barcodes, and receipts, on Zebra thermal printers. It's a text-based language. It uses ASCII commands to specify what the printed output should look like.
 
 For more information about ZPL, check out this great, easy-to-understand [introduction to ZPL](https://labelary.com/zpl.html).
+
+### Example
 
 Here's a very basic ZPL example:
 
@@ -47,7 +49,7 @@ Here's a very basic ZPL example:
 ^XZ
 {% endhighlight %}
 
-And here's an explanation of how the example works:
+And here's an explanation of how it works:
 
 | Part                  | Explanation             |
 | --------------------- | ----------------------- |
