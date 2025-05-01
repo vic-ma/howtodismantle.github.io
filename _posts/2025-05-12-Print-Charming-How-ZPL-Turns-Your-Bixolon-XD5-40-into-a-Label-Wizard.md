@@ -117,7 +117,7 @@ Here's the ZPL code for our label:
 ^XZ
 {% endhighlight %}
 
-Here's the Building Blocks code that executes when the user presses the **Print Label** button.
+Here's the Building Blocks code that executes when the user presses the **Print Label** button:
 
 ![image](/assets/2025-05-12/050.png)
 
