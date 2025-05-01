@@ -58,13 +58,15 @@ And here's an explanation of how it works:
 | `^FDHello, World!^FS` | Print some text.        |
 | `^XZ`                 | End the label format.   |
 
-The perfect tool for working with ZPL is the [Labelary ZPL designer](https://labelary.com/viewer.html). We use it to create the base layout of our label. After that, we replace all the variables with placeholders. Then, in Peakboard, we can replace these placeholders with whatever we want, using Building Blocks.
+The perfect tool for working with ZPL is the [Labelary ZPL designer](https://labelary.com/viewer.html). We use it to create the base layout of our label. After that, we replace all the variables with Peakboard placeholders (like `#[Size]#`).
+
+Later on, in Peakboard, we will use Building Blocks to replace the placeholders with our actual data.
 
 ![image](/assets/2025-05-12/020.png)
 
 ## The Peakboard application
 
-In our Peakboard application, we add a data source to connect to the printer with the POS printer extension:
+In our Peakboard application, we add a data source to connect to our printer, using the POS printer extension:
 
 ![image](/assets/2025-05-12/030.png)
 
@@ -72,7 +74,7 @@ We create a simple UI that lets the user enter a delivery number, package size, 
 
 ![image](/assets/2025-05-12/040.png)
 
-Out shipping label contains a couple of elements, like the sender address, receiver address, a base-64-encoded company logo, and three example placeholders: `#[DeliveryNumber]#`, `#[Size]#` and `#[Weight]#`.
+Out shipping label contains a couple of elements, like the sender address, receiver address, a base-64-encoded company logo, and three Peakboard placeholders: `#[DeliveryNumber]#`, `#[Size]#` and, `#[Weight]#`.
 Here's the ZPL code for our label:
 
 {% highlight text %}
@@ -115,9 +117,13 @@ Here's the ZPL code for our label:
 ^XZ
 {% endhighlight %}
 
-In the code behind the print button, we just replace the three placeholders with the actual values from the user and send the result string to the printer. So the whole printing process is done with only one building block. In real life we might need to get the sender's address from the ERP system first. But to keep it simple we skip this step and just use a fxied sender's address as sample.
+Here's the Building Blocks code that executes when the user presses the **Print Label** button.
 
 ![image](/assets/2025-05-12/050.png)
+
+It takes our ZPL code and replaces the three placeholders with the values entered by the user. Then, it sends the resulting string to the printer.
+
+In the real world, you might need to get the sender's address from your ERP system first. But to keep it simple for our example, we skip this step and instead use a fixed sender's address.
 
 ## Result
 
