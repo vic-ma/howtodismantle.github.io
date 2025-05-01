@@ -23,11 +23,11 @@ downloads:
 ---
 A couple of weeks ago, we gave an introduction on [how to print with Peakboard](/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html), where we explained how to use the printer extension with high-level commands. In another article, we explained how to mix high-level commands with low-level [ESC/POS commands](/The-Art-of-Printing-Mastering-Bixolon-SRP-Q300-Series-label-printer-with-with-enhanced-ESCPOS-commands-and-tables.html).
 
-In today's article, we will explain how to use the Zebra programming language, or ZPL, for short. It's a printer control language developed by Zebra Technologies---a company that specializes in barcode printing and labeling solutions. We will use ZPL to build and print a typical shipping label.
+In today's article, we'll explain how to use the Zebra programming language, or ZPL, for short. It's a printer control language developed by Zebra Technologies---a company that specializes in barcode printing and labeling solutions. We'll use ZPL to build and print a standard shipping label.
 
 ## Bixolon XD5-40
 
-For our demo, we will use the [Bixolon XD5-40](https://bixoloneu.com/product/xd5-40-series/) printer. It's a compact, direct-thermal and thermal-transfer label printer designed for high-performance barcode and label printing in professional environments. It's typically used in logistics, retail, healthcare, and manufacturing. This printer excels at producing shipping labels, product tags, barcode stickers, and other adhesive labels with precision and speed.
+For our demo, we'll use the [Bixolon XD5-40](https://bixoloneu.com/product/xd5-40-series/) printer. It's a compact, direct-thermal and thermal-transfer label printer designed for high-performance barcode and label printing, in professional environments. It's typically used in logistics, retail, healthcare, and manufacturing. This printer excels at producing shipping labels, product tags, barcode stickers, and other adhesive labels with precision and speed.
 
 In order for Peakboard to communicate with our printer, we connect our printer to the same network that our Peakboard application runs on. Then, we write down the IP address of our printer, within the local network (we will need this later). With the Peakboard printer extension, we don't need any additional drivers.
 
@@ -60,18 +60,18 @@ The perfect tool for working with ZPL is the [Labelary ZPL designer](https://lab
 
 ![image](/assets/2025-05-12/020.png)
 
-## The Peakboard Application
+## The Peakboard application
 
-In the Peakboard application we need a data source to connect to the printer with Pos printer extension
+In our Peakboard application, we add a data source to connect to the printer with the POS printer extension:
 
 ![image](/assets/2025-05-12/030.png)
 
-For the example we use a very simple UI and let the user type in a Delivery Number, the size of the package and the Weight.
+We create a simple UI that lets the user enter a delivery number, package size, and package weight:
 
 ![image](/assets/2025-05-12/040.png)
 
-Out shipping label contains a couple of elements, e.g. the sender address, receiver address, a base-64-encoded company logo and three example placeholders #[DeliveryNumber]#, #[Size]# and #[Weight]#.
-Here's the ZPL coded label for our shipping process:
+Out shipping label contains a couple of elements, like the sender address, receiver address, a base-64-encoded company logo, and three example placeholders: `#[DeliveryNumber]#`, `#[Size]#` and `#[Weight]#`.
+Here's the ZPL code for our label:
 
 {% highlight text %}
 ^XA
@@ -117,9 +117,9 @@ In the code behind the print button, we just replace the three placeholders with
 
 ![image](/assets/2025-05-12/050.png)
 
-## result
+## Result
 
-In the video we can see, how the actual lable is printed on Bixolon XD5-40.
+This video shows our application printing a label on a Bixolon XD5-40:
 
 {% include youtube.html id="XDnLkoAyqEw" %}
 
