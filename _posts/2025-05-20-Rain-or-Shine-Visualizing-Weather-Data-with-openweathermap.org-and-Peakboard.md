@@ -7,9 +7,9 @@ image: /assets/2025-05-20/title.png
 image_landscape: /assets/2025-05-20/title_landscape.png
 bg_alternative: true
 read_more_links:
-- name: Openweathermap.org API current
+  - name: Openweathermap.org API current
     url: https://openweathermap.org/current
-- name: Openweathermap.org API forecast
+  - name: Openweathermap.org API forecast
     url: https://openweathermap.org/forecast16
   - name: LUA time and date formatting 
     url: https://www.lua.org/pil/22.1.html
