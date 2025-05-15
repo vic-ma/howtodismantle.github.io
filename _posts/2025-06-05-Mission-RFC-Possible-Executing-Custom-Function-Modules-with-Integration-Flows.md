@@ -12,8 +12,8 @@ read_more_links:
   - name: Download CLoud Connector
     url: https://tools.hana.ondemand.com/#cloud
 downloads:
-  - name: Iflow SAPDeliveries.zip
-    url: /assets/2025-06-05/SAPDeliveries.zip
+  - name: Iflow Z_PB_DELIVERY_MONITOR.zip
+    url: /assets/2025-06-05/Z_PB_DELIVERY_MONITOR.zip
   - name: SAPDeliveries.pbmx
     url: /assets/2025-06-05/SAPDeliveries.pbmx
 ---
