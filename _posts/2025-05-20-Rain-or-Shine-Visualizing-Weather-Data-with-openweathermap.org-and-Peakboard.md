@@ -17,7 +17,9 @@ downloads:
   - name: WeatherForecast.pbmx
     url: /assets/2025-05-20/WeatherForecast.pbmx
 ---
-Openweathermap.org is a very simple, easy-to-use weather API provider for any place in the world. It's the data backend for lots of website, apps and other applications. And the best thing: Some API endpoints are free of charge as long as we only use a limited number of calls. In this wrticle we will learn, how to use the openweathermap.org API for the current weather but also to build a weather forecast for the next days. Beside the API calls we will discuss some topics around time formatting and how to set an image dynmically by using a LUA script. The screenshot shows the final result of the application we will build.
+[OpenWeatherMap](https://openweathermap.org) provides a simple, easy-to-use weather API for anywhere in the world. It runs in the data backend of many website, apps, and other applications. And here's the best thing: Some API endpoints are free of charge, so long as you don't exceed a certain quota.
+
+In this article, we will explain how to use the OpenWeatherMap API for the current weather, and how to build a weather forecast for the next few days. We will also discuss how to handle time formatting, and how to set an image dynmically, with LUA. This is the final result of the application we will build:
 
 ![image](/assets/2025-05-20/010.png)
 
