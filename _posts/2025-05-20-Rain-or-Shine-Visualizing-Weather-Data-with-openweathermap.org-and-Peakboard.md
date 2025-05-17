@@ -35,9 +35,21 @@ Next, we go to the **API Keys** tab. We generate a new API key and copy it down.
 
 ![image](/assets/2025-05-20/030.png)
 
-## Preparing the Current Weather data source
+## Prepare the current weather data source
 
-In the Peakboard project we choose JSON data source for the first API call. The URL to call is "api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={APIKey}". "city" is just the name of the city and the appid is the key we noted earlier. As we want metric units we provide the "metric" value for the "units" attribute. The API also support geographical coordinates and other features. The details can be found in the [API doc](https://openweathermap.org/current).
+In Peakboard Designer, we create a new JSON data source. We will use this for our current weather API call.
+
+This is the base URL:
+```url
+https://api.openweathermap.org
+```
+
+This is the URL path:
+```url
+/data/2.5/weather?q={city}&units=metric&appid={APIKey}
+```
+Replace `{city}` with the name of the city you want. Replace `{APIKey}` with your API key.
+We want metric units, so we set the `units` attribute to `metric`. The API also supports geographical coordinates and other features. To learn more, check out the [API docs](https://openweathermap.org/current).
 
 http://api.openweathermap.org/data/2.5/weather?q=Taipei&units=metric&appid=59067774c1363255
 
