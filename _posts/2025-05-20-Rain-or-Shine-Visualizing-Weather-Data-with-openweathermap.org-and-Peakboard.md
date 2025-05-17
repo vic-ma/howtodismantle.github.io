@@ -23,11 +23,13 @@ In this article, we will explain how to use the OpenWeatherMap API for the curre
 
 ![image](/assets/2025-05-20/010.png)
 
-## Preparing the account
+## Account setup
 
-For getting access to the API we need an account at openweathermap.org. We need to subscribe to a free plan as shown in the screenshot by clicking on the subscribe button of the API we need to use - Current Weather and Daily Forecast. Under the tab "API Keys" we generate a new API key. We will need it later for the API calls. 
+We first create an account at [openweathermap.org](https://openweathermap.org). Next, we click the **Subscribe** button of our desired APIs, "current weather data" and "daily forecast 16 days."
 
 ![image](/assets/2025-05-20/015.png)
+
+Next, we go to the **API Keys** tab. We generate a new API key and copy it down. 
 
 ![image](/assets/2025-05-20/020.png)
 
