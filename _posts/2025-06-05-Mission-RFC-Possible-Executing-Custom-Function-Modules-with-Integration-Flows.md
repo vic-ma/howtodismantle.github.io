@@ -114,7 +114,7 @@ When the function module gets more complicated, the path for processing the body
 
 ## Result
 
-We just use a table control with some fancy formatting to present the data. The screenshot shows the final result of the Peakboard application.
+We use a table control with some fancy formatting to present the data. This screenshot shows the final result of the Peakboard application:
 
 ![image](/assets/2025-06-05/140.png)
 
