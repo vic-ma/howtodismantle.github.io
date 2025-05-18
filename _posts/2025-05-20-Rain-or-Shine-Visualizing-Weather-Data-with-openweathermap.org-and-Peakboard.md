@@ -53,7 +53,7 @@ This is the URL path:
 Replace `{city}` with the name of the city you want. Replace `{APIKey}` with your API key from earlier.
 We also want metric units, so we set the `units` field to `metric`. The API also supports geographical coordinates and other features. To learn more, see the [API docs](https://openweathermap.org/current).
 
-Here is our API call. It generates a table with exactly one row. That row contains the weather data of the specified city.
+Here is our API call. It generates a table with exactly one row. That row contains the weather data for the specified city.
 ```url
 http://api.openweathermap.org/data/2.5/weather?q=Taipei&units=metric&appid=59067774c1363255
 ```
@@ -78,7 +78,7 @@ To display the weather data to the user, we add icons and text boxes. We also se
 
 ![image](/assets/2025-05-20/060.png)
 
-Finally, we add the dynamic weather icons with an image control. The API returns a field called `icon`, which contains an [icon code](https://openweathermap.org/weather-conditions). We use that image code to get the appropriate icon. Here is the URL:
+Finally, we add the dynamic weather icons with an image control. The API returns a field called `icon`, which contains an [icon code](https://openweathermap.org/weather-conditions). We use that image code to get the appropriate icon, by plugging it into this URL:
 ```url
 https://openweathermap.org/img/wn/{code}@2x.png
 ```
@@ -100,7 +100,7 @@ screens['Screen1'].imgCurrentWeather.source = table.concat({'http://openweatherm
 
 ## Prepare the weather forecast
 
-For the daily forecast, we change the call slightly: We use `forecast` instead of `weather`, in the endpoint. The rest of the logic stays the same. This example shows how to use the geographical coordinates, instead of the city name.
+For the daily forecast, we change the call slightly: We use `forecast` instead of `weather`, in the endpoint. The rest of the logic stays the same. This example shows how to use the geographical coordinates, instead of the city name:
 
 ```url
 http://api.openweathermap.org/data/2.5/forecast/daily?lat=25.0375198&lon=121.5636796&units=metric&appid=59067774c13632559
