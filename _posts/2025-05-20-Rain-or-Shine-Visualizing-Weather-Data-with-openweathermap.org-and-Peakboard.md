@@ -51,9 +51,10 @@ This is the URL path:
 Replace `{city}` with the name of the city you want. Replace `{APIKey}` with your API key.
 We want metric units, so we set the `units` attribute to `metric`. The API also supports geographical coordinates and other features. To learn more, check out the [API docs](https://openweathermap.org/current).
 
+Here is our API call. It generates a table with exactly one row. That row contains the weather data of the specified city.
+```url
 http://api.openweathermap.org/data/2.5/weather?q=Taipei&units=metric&appid=59067774c1363255
-
-The call generates a table with exactly one row that contains the weather data of the choosen place.
+```
 
 ![image](/assets/2025-05-20/040.png)
 
