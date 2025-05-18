@@ -100,11 +100,13 @@ screens['Screen1'].imgCurrentWeather.source = table.concat({'http://openweatherm
 
 For the daily forecast, we change the call slightly: We use `forecast` instead of `weather`, in the endpoint. The rest of the logic stays the same. This example shows how to use the geographical coordinates, instead of the city name.
 
+```url
 http://api.openweathermap.org/data/2.5/forecast/daily?lat=25.0375198&lon=121.5636796&units=metric&appid=59067774c13632559
+```
 
 ![image](/assets/2025-05-20/070.png)
 
-We want to present the daily forecast data in a list later, so we need to turn the unix timestamp into the weekday to present it to the viewer. Similiar as with the current weather, we do that for the "dt" column in data flow and use "return os.date('%a', item.dt )" to update the column. The character "%a" repeesents the weekday value.
+Later, we want to present the daily forecast data in a list. So, we turn the Unix timestamp into the day of the week, and then present it to the viewer. Just like with the current weather, we do that for the `dt` column in a data flow and use `return os.date('%a', item.dt )` to update the column. The character `%a` repeesents the day of the wee.
 
 ![image](/assets/2025-05-20/090.png)
 
