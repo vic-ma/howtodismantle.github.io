@@ -53,7 +53,7 @@ The [SAP Cloud Connector](https://tools.hana.ondemand.com/#cloud) must be instal
 
 ## Build the integration flow
 
-Our integration flow needs to translate an incoming HTTP call into an RFC call. Here's an overview of the steps it takes:
+Our integration flow translates an incoming HTTP call into an RFC call. Here's an overview of the steps it takes:
 
 1. Configure the incoming HTTP call.
 2. Prepare the XML for the RFC call.
@@ -79,7 +79,7 @@ It's also important to allow the parameter `i_vstel` to be routed from the exter
 
 ### Prepare the XML for the RFC call
 
-The payload that represents the RFC call is in XML. To form this XML with complex function modules, see [this article](https://community.sap.com/t5/technology-blog-posts-by-sap/cloud-integration-creating-xml-structure-for-remote-function-call-rfc-that/ba-p/13559556). For our relatively simple function module, this is the XML. The actual value of shipping point for the parameter `I_VSTEL` is filled with the script expression `${header.i_vstel}`. So, it's taken dynamically from the header.
+The payload that represents the RFC call is in XML. For our relatively simple function module, this is the XML. The actual value of shipping point for the parameter `I_VSTEL` is filled with the script expression `${header.i_vstel}`. So, it's taken dynamically from the header.
 
 {% highlight xml %}
 <ns1:Z_PB_DELIVERY_MONITOR xmlns:ns1="urn:sap-com:document:sap:rfc:functions">
@@ -89,9 +89,11 @@ The payload that represents the RFC call is in XML. To form this XML with comple
 
 ![image](/assets/2025-06-05/090.png)
 
+There are different steps if you want to [form the XML with complex function modules](https://community.sap.com/t5/technology-blog-posts-by-sap/cloud-integration-creating-xml-structure-for-remote-function-call-rfc-that/ba-p/13559556).
+
 ### Make the RFC call
 
-The RFC call is sent with a request reply step. The only thing we need to configure is the name of the destination (see above). The payload and the name of the function module to call is defined in the XML. 
+We send the RFC call with a request reply step. The only thing we need to configure is the name of the destination (see above). The payload and the name of the function module to call is defined in the XML. 
 
 ![image](/assets/2025-06-05/100.png)
 
@@ -109,9 +111,9 @@ The caller of the service must be authenticated. The easiest way to do this is t
 
 ## The Peakboard application
 
-In Peakboard Designer, we create a new JSON data source. It makes a call to our integration flow, with one query parameter called `I_VSTEL`. To choose the right path to the table data within the JSON string, we click on the three dots. This helps us select the right path.
+In Peakboard Designer, we create a new JSON data source. It makes a call to our integration flow, with one query parameter called `I_VSTEL`. To choose the right path to the table data within the JSON string, we click on the three dots. This opens up a helper that makes things a lot easier.
 
-When the function module gets more complicated, the path for processing the body might also get more complicated. But in our case, the main payload is simply the table of deliveries.
+If the function module is more complicated, the path for processing the body may also be more complicated. But in our case, the main payload is simply the table of deliveries.
 
 ![image](/assets/2025-06-05/130.png)
 
