@@ -96,9 +96,9 @@ Here's the LUA version:
 screens['Screen1'].imgCurrentWeather.source = table.concat({'http://openweathermap.org/img/wn/', data.WeatherActual[0].icon, '@2x.png'})
 {% endhighlight %}
 
-## Preparing the weather forecast
+## Prepare the weather forecast
 
-For the daily forecast we use a different call, it's "forecast" instead of "weather" in the URL. The rest of the logic stays the same. The example shows how to use the geographical coordinates instead of the city name.
+For the daily forecast, we change the call slightly: We use `forecast` instead of `weather`, in the endpoint. The rest of the logic stays the same. This example shows how to use the geographical coordinates, instead of the city name.
 
 http://api.openweathermap.org/data/2.5/forecast/daily?lat=25.0375198&lon=121.5636796&units=metric&appid=59067774c13632559
 
@@ -126,7 +126,7 @@ for index = 0, data.ForecastWithDate.count - 1 do
 end
 {% endhighlight %}
 
-## result and enhancements
+## Result and enhancements
 
 As we saw, it's very easy to use and adjust the openweather.org API for our needs. There are many more features that are not mentioned in this article, e.g. different styles of icons, wind, gusts, other weather phenomens, temperature curves and a lot more. There are many other API calls that are all listed in the API documentation.
 
