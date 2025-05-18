@@ -25,7 +25,9 @@ In this article, we'll explain how to use the OpenWeatherMap API for the current
 
 ## Account setup
 
-We first create an account at [openweathermap.org](https://openweathermap.org). Next, we click the **Subscribe** buttons for our desired APIs: **Current Weather Data** and **Daily Forecast 16 days.**
+We first create an account at [openweathermap.org](https://openweathermap.org). Next, we click the **Subscribe** buttons for our desired APIs:
+* **Current Weather Data**
+* **Daily Forecast 16 days**
 
 ![image](/assets/2025-05-20/015.png)
 
@@ -35,7 +37,7 @@ Next, we go to the **API Keys** tab. We generate a new API key and copy it down.
 
 ![image](/assets/2025-05-20/030.png)
 
-## Prepare the current weather data source
+## Prepare the current-weather data source
 
 In Peakboard Designer, we create a new JSON data source. We will use this for our current weather API call.
 
@@ -48,8 +50,8 @@ This is the URL path:
 ```url
 /data/2.5/weather?q={city}&units=metric&appid={APIKey}
 ```
-Replace `{city}` with the name of the city you want. Replace `{APIKey}` with your API key.
-We want metric units, so we set the `units` attribute to `metric`. The API also supports geographical coordinates and other features. To learn more, check out the [API docs](https://openweathermap.org/current).
+Replace `{city}` with the name of the city you want. Replace `{APIKey}` with your API key from earlier.
+We also want metric units, so we set the `units` field to `metric`. The API also supports geographical coordinates and other features. To learn more, see the [API docs](https://openweathermap.org/current).
 
 Here is our API call. It generates a table with exactly one row. That row contains the weather data of the specified city.
 ```url
