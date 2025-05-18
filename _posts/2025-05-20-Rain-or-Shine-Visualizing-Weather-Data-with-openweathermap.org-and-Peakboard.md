@@ -110,15 +110,15 @@ Later, we want to present the daily forecast data in a list. So, we turn the Uni
 
 ![image](/assets/2025-05-20/090.png)
 
-For the list, we choose a "styled list" that generates an item for each row. The principle is the same as with the first data source. We have several formatted values and also an image control
+For the list, we choose a "styled list" that generates an item for each row. The principle is the same as with the first data source. We add several formatted values, as well as an image control.
 
 ![image](/assets/2025-05-20/100.png)
 
-Currently it's not possible to bind the url of an image to an image control like we do the data binding with the other columns of the data source. For setting the image content to the dynamically generated URL we use the refreshed script of the data flow.
+Currently it's not possible to bind the url of an image to an image control like we do with the other columns of the data source. In order to set the image content to the dynamically generated URL, we use the refreshed script of the data flow.
 
 ![image](/assets/2025-05-20/110.png)
 
-Here's the LUA code. We just loop over the table and set the URL for every instance of a forecasted day.
+Here's the LUA code. We loop over the table and set the URL for each instance of a forecasted day.
 
 {% highlight lua %}
 local i = 0
@@ -130,7 +130,7 @@ end
 
 ## Result and enhancements
 
-As we saw, it's very easy to use and adjust the openweather.org API for our needs. There are many more features that are not mentioned in this article, e.g. different styles of icons, wind, gusts, other weather phenomens, temperature curves and a lot more. There are many other API calls that are all listed in the API documentation.
+As you can see, it's easy to use the OpenWeatherMap API. There are many other features that we did not mention. For example, different styles of icons, wind, gusts, other weather phenomena, and temperature curves. There are also many other API endpoints listed in the API documentation.
 
 ![image](/assets/2025-05-20/010.png)
 
