@@ -70,13 +70,13 @@ We define the route for the external call. In our case, we use the name of the f
 
 ![image](/assets/2025-06-05/080.png)
 
-It's also important to allow the parameter `i_vstel` to be routed from the external caller to a header within the integration flow.
+It's also important to allow the parameter `i_vstel` to be routed from the external caller into a header within the integration flow.
 
 ![image](/assets/2025-06-05/075.png)
 
 ### Prepare the XML for the RFC call
 
-The actual payload that represents the RFC call is coded in XML. How to form this XML with complex function modules can be checked in [this article](https://community.sap.com/t5/technology-blog-posts-by-sap/cloud-integration-creating-xml-structure-for-remote-function-call-rfc-that/ba-p/13559556). So for our relatively simple function module this is the XML. The actual value of shipping point for the parameter I_VSTEL is filled by the script expression "${header.i_vstel}", so it's taken dynamically from the header.
+The payload that represents the RFC call is in XML. To form this XML with complex function modules, see [this article](https://community.sap.com/t5/technology-blog-posts-by-sap/cloud-integration-creating-xml-structure-for-remote-function-call-rfc-that/ba-p/13559556). For our relatively simple function module, this is the XML. The actual value of shipping point for the parameter `I_VSTEL` is filled with the script expression `${header.i_vstel}`. So, it's taken dynamically from the header.
 
 {% highlight xml %}
 <ns1:Z_PB_DELIVERY_MONITOR xmlns:ns1="urn:sap-com:document:sap:rfc:functions">
@@ -88,17 +88,17 @@ The actual payload that represents the RFC call is coded in XML. How to form thi
 
 ### Make the RFC call
 
-The actual RFC call is done through a Request/Response element. The only thing we need to configure is the name of the destination (see above). That's all. The payload and the name of the function module to be called is defined in the XML. 
+The RFC call is sent with a request reply step. The only thing we need to configure is the name of the destination (see above). The payload and the name of the function module to call is defined in the XML. 
 
 ![image](/assets/2025-06-05/100.png)
 
 ### Translate the RFC call's response
 
-The answer from the RFC call is coded in XML as part of the message body. As it's easier to handle JSON on the Peakboard side, we just translate the XML code into JSON by using the corresponding element.
+The response from the RFC call is in XML, as part of the message body. It's easier to deal with JSON than RFC, when we're in Peakboard. So, we translate the XML code into JSON with an XML to JSON converter.
 
 ![image](/assets/2025-06-05/110.png)
 
-## Authentification
+## Authentication
 
 The caller of the service mut be authenticated. The easiest way to do this is to go to the Integration Runtime in BTP portal and generate a pair of Service Keys. The Client ID and CLient Secret can be used for the call with Basic Authentification as user name and password.
 
