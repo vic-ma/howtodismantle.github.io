@@ -18,8 +18,8 @@ downloads:
     url: /assets/2025-06-05/SAPDeliveries.pbmx
 ---
 A couple of weeks ago, we took introduced SAP BTP and the SAP Integration Suite. We discussed how to [connect an integration flow to Peakboard Hub](/Breaking-the-Ice-How-SAP-Integration-Suite-and-Peakboard-Hub-Became-Best-Friends.html).
-In this article we will discuss how to build an Integration Flow that exposes a JSON endpoint to be called by an Peakboard application. This new Integration Flow internally calls an RFC function module in SAP. The SAP system is connected to BTP via a cloud connector.
-This is a typical scenario for customer who still have on prem SAP systems, but want to use BTP and the Integration Suite for their communication to the non-SAP world like Peakboard.
+
+In this article, we will explain how to build an integration flow that exposes a JSON endpoint that can be called by a Peakboard application. This integration flow internally calls an RFC function module in SAP. The SAP system is connected to BTP with a cloud connector. This setup is typical of a customer who has on-prem SAP systems, but would like to use BTP and the Integration Suite to communicate to the non-SAP world (like a Peakboard application).
 
 ## The RFC function module
 
@@ -53,16 +53,16 @@ The SAP Cloud Connector must be installed on the on prem side of the SAP system 
 
 ![image](/assets/2025-06-05/060.png)
 
-## Building the Integration Flow
+## Building the integration flow
 
-For the Integration Flow we want to translate an inncoming HTTPS call into a the RFC call. So the steps we need to to do is:
+For the integration flow we want to translate an inncoming HTTPS call into a the RFC call. So the steps we need to to do is:
 
 1. Configure the HTTPS call that is coming from a sender
 2. Prepare the XML for the RFC call
 3. Do the actual RFC call
 4. Translate the XML answer from the RFC into JSON (and return it to the caller)
 
-The screenshot shows the whole Integration Flow
+The screenshot shows the whole integration flow
 
 ![image](/assets/2025-06-05/070.png)
 
