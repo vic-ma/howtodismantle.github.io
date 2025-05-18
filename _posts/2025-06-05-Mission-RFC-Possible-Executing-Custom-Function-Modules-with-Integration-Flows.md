@@ -17,13 +17,14 @@ downloads:
   - name: SAPDeliveries.pbmx
     url: /assets/2025-06-05/SAPDeliveries.pbmx
 ---
-A couple of weeks ago, we took introduced SAP BTP and the SAP Integration Suite. We discussed how to [connect an integration flow to Peakboard Hub](/Breaking-the-Ice-How-SAP-Integration-Suite-and-Peakboard-Hub-Became-Best-Friends.html).
+A couple of weeks ago, we took introduced SAP BTP and the SAP Integration Suite. We explained how to [connect an integration flow to Peakboard Hub](/Breaking-the-Ice-How-SAP-Integration-Suite-and-Peakboard-Hub-Became-Best-Friends.html).
+In this article, we will explain how to build an integration flow that exposes a JSON endpoint that Peakboard can call.
 
-In this article, we will explain how to build an integration flow that exposes a JSON endpoint that can be called by a Peakboard application. This integration flow internally calls an RFC function module in SAP. The SAP system is connected to BTP with a cloud connector. This setup is typical of a customer who has on-prem SAP systems, but would like to use BTP and the Integration Suite to communicate to the non-SAP world (like a Peakboard application).
+This integration flow calls an RFC function module in SAP. The SAP system is connected to BTP with a Cloud Connector. This setup is typical of a customer who has on-prem SAP systems, but would like to use BTP and the Integration Suite to communicate with the non-SAP programs (like a Peakboard application).
 
 ## The RFC function module
 
-In our example, we use a simple custom function module called `Z_PB_DELIVERY_MONITOR`. It has one import parameter, `I_VSTEL`, which represents a shipping point. It returns a table of delivery rows that are currently in the shipping process on this shipping point.
+In our example, we use a simple custom function module called `Z_PB_DELIVERY_MONITOR`. It has one import parameter, `I_VSTEL`, which represents a shipping point. It returns a table of delivery rows that are in the shipping process on the shipping point.
 
 The following screenshots show a call in the test cockpit of transaction SE37. When we submit the shipping point `I_VTEL = 1000`, it returns 11 deliveries that are about to be shipped. The integration flow that we want to build receives the shipping point, `I_VSTEL`, as query parameter, and returns the deliveries as a JSON table.
 
