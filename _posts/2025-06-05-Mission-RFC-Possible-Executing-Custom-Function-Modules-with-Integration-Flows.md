@@ -64,13 +64,13 @@ This screenshot shows the whole integration flow:
 
 Now, let's explain each step in more detail.
 
-### Configure the HTTPS call that is coming from a sender
+### Configure the incoming HTTP call
 
-No much to do here other than just defining the route for the external call. In our case we just use the name of the function module.
+We define the route for the external call. In our case, we use the name of the function module.
 
 ![image](/assets/2025-06-05/080.png)
 
-It's also imprtant to allow the parameter i_vstel to be routed from the external caller to be a header within the integration flow.
+It's also important to allow the parameter `i_vstel` to be routed from the external caller to a header within the integration flow.
 
 ![image](/assets/2025-06-05/075.png)
 
@@ -86,13 +86,13 @@ The actual payload that represents the RFC call is coded in XML. How to form thi
 
 ![image](/assets/2025-06-05/090.png)
 
-### Do the actual RFC call
+### Make the RFC call
 
 The actual RFC call is done through a Request/Response element. The only thing we need to configure is the name of the destination (see above). That's all. The payload and the name of the function module to be called is defined in the XML. 
 
 ![image](/assets/2025-06-05/100.png)
 
-### Translate the XML answer from the RFC into JSON (and return it to the caller)
+### Translate the RFC call's response
 
 The answer from the RFC call is coded in XML as part of the message body. As it's easier to handle JSON on the Peakboard side, we just translate the XML code into JSON by using the corresponding element.
 
