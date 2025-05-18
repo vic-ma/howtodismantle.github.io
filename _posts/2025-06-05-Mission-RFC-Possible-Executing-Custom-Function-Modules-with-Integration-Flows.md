@@ -43,18 +43,20 @@ The [SAP Cloud Connector](https://tools.hana.ondemand.com/#cloud) must be instal
    ![image](/assets/2025-06-05/030.png)
 5. Switch to the BTP portal and select the corresponding sub-account. Select the **Cloud Connectors** tab. You can see the active connection under **Exposed Back-End Systems**.
    ![image](/assets/2025-06-05/040.png)
-6. Select **Destination**. Enter the typical attributes like the application server, instance number, etc. Later, in the integration flow, we refer to the destination name. The integration flow finds its connection through the corresponding attributes. It "finds" the route through Cloud Connector. The check connection command tests this route.
+6. Select **Destination**. Enter the typical attributes like the application server, instance number, etc. Later, in the integration flow, we refer to the destination name. The integration flow finds its connection through the corresponding attributes. It "finds" the route through Cloud Connector.
    ![image](/assets/2025-06-05/050.png)
+7. Click the **Check Connection** button to verify the connection works.
    ![image](/assets/2025-06-05/060.png)
 
-## Building the integration flow
+## Build the integration flow
 
-For the integration flow we want to translate an inncoming HTTPS call into a the RFC call. So the steps we need to to do is:
+For the integration flow, we want to translate an incoming HTTP call into an RFC call. Here are the steps to do so:
 
-1. Configure the HTTPS call that is coming from a sender
-2. Prepare the XML for the RFC call
-3. Do the actual RFC call
-4. Translate the XML answer from the RFC into JSON (and return it to the caller)
+1. Configure the incoming HTTP call.
+2. Prepare the XML for the RFC call.
+3. Make the RFC call.
+4. Translate the RFC call's response from XML to JSON.
+5. Return the JSON string to the caller.
 
 The screenshot shows the whole integration flow
 
