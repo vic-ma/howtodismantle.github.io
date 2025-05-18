@@ -23,10 +23,9 @@ In this article, we will explain how to build an integration flow that exposes a
 
 ## The RFC function module
 
-In our example we use a very simple, custom function module called Z_PB_DELIVERY_MONITOR. It has one Import parameter I_VSTEL which repesents a shipping point. And it returns a table of delivery rows that are currently in the handled and in the shipping process on this shipping point.
-The screenshot shows a call in the test cockpit of transaction SE37. When we submit the shipping point I_VTEL = 1000 it returns 11  deliveries that are currently about to be shipped.
+In our example, we use a simple custom function module called `Z_PB_DELIVERY_MONITOR`. It has one import parameter, `I_VSTEL`, which represents a shipping point. It returns a table of delivery rows that are currently in the shipping process on this shipping point.
 
-The integration flow we want to build will receive the shippint point I_VSTEL as query parameter and returns the deliveries as JSON table.
+The following screenshots show a call in the test cockpit of transaction SE37. When we submit the shipping point `I_VTEL = 1000`, it returns 11 deliveries that are about to be shipped. The integration flow that we want to build receives the shipping point, `I_VSTEL`, as query parameter, and returns the deliveries as a JSON table.
 
 ![image](/assets/2025-06-05/010.png)
 
@@ -34,10 +33,10 @@ The integration flow we want to build will receive the shippint point I_VSTEL as
 
 ## Set up the Cloud Connector
 
-The SAP Cloud Connector must be installed on the on prem side of the SAP system that should be brought to the cloud. The binaries can be download [here](https://tools.hana.ondemand.com/#cloud). Here are the steps that must be taken to fully connect it to the BTP portal:
+The [SAP Cloud Connector](https://tools.hana.ondemand.com/#cloud) must be installed in the on-prem side of the SAP system. To connect it to the BTP portal, follow these steps:
 
-1. The installed instance of the Cloud Connector can be be configured through https://localhost:8443/.
-2. In the Cloud Connector configuration, we must provide the subaccount of the BTP instance we want to connect to (the ID and the region is necessary. It can be looked up directly in the BTP).
+1. Configure the installed instance of the Cloud Connector through https://localhost:8443/.
+2. In the Cloud Connector configuration, provide the subaccount of the BTP instance you want to connect to (You need the ID and region. You can look it up directly in the BTP).
 3. In the sub menu of the sub account we choose the item "Cloud to on-premises" and create a new "Mapping virtual to Internal System". In our case the system is an ABAP system. We must then provide all typical attribute like application host, instance number and also credentials for logging on to the system. 
 4. Below the system entry we must provide the Resources we want to connect to. That's the name of our function module. The screenshot shows the configured subaccount, mapped system and resource.
 
