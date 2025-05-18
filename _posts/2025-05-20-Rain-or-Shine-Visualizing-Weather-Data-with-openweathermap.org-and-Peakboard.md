@@ -17,15 +17,15 @@ downloads:
   - name: WeatherForecast.pbmx
     url: /assets/2025-05-20/WeatherForecast.pbmx
 ---
-[OpenWeatherMap](https://openweathermap.org) offers a simple, easy-to-use API that provides weather data for anywhere on Earth. This API runs in the data backend of many website, apps, and other applications. And here's the best thing: Some API endpoints are free of charge, so long as you don't exceed a certain quota.
+[OpenWeatherMap](https://openweathermap.org) offers a simple, easy-to-use API that provides weather data for anywhere on Earth. This API runs in the backend of many websites and applications. And here's the best part: Some of the API endpoints are free to use, so long as you don't exceed a certain quota.
 
-In this article, we will explain how to use the OpenWeatherMap API for the current weather, and how to build a weather forecast for the next few days. We will also discuss how to handle time formatting, and how to set an image dynmically, with LUA. This is the final result of the application we will build:
+In this article, we'll explain how to use the OpenWeatherMap API for the current weather, and how to build a weather forecast for the next few days. We will also discuss how to handle time formatting, and how to dynamically set an image, with LUA. Here's a preview of the final result:
 
 ![image](/assets/2025-05-20/010.png)
 
 ## Account setup
 
-We first create an account at [openweathermap.org](https://openweathermap.org). Next, we click the **Subscribe** button of our desired APIs, "current weather data" and "daily forecast 16 days."
+We first create an account at [openweathermap.org](https://openweathermap.org). Next, we click the **Subscribe** buttons for our desired APIs: **Current Weather Data** and **Daily Forecast 16 days.**
 
 ![image](/assets/2025-05-20/015.png)
 
