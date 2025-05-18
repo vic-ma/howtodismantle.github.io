@@ -50,7 +50,7 @@ The [SAP Cloud Connector](https://tools.hana.ondemand.com/#cloud) must be instal
 
 ## Build the integration flow
 
-For the integration flow, we want to translate an incoming HTTP call into an RFC call. Here are the steps to do so:
+Our integration flow needs to translate an incoming HTTP call into an RFC call. Here's an overview of the steps it takes:
 
 1. Configure the incoming HTTP call.
 2. Prepare the XML for the RFC call.
@@ -58,11 +58,13 @@ For the integration flow, we want to translate an incoming HTTP call into an RFC
 4. Translate the RFC call's response from XML to JSON.
 5. Return the JSON string to the caller.
 
-The screenshot shows the whole integration flow
+This screenshot shows the whole integration flow:
 
 ![image](/assets/2025-06-05/070.png)
 
-1. Configure the HTTPS call that is coming from a sender
+Now, let's explain each step in more detail.
+
+### Configure the HTTPS call that is coming from a sender
 
 No much to do here other than just defining the route for the external call. In our case we just use the name of the function module.
 
@@ -72,7 +74,7 @@ It's also imprtant to allow the parameter i_vstel to be routed from the external
 
 ![image](/assets/2025-06-05/075.png)
 
-2. Prepare the XML for the RFC call
+### Prepare the XML for the RFC call
 
 The actual payload that represents the RFC call is coded in XML. How to form this XML with complex function modules can be checked in [this article](https://community.sap.com/t5/technology-blog-posts-by-sap/cloud-integration-creating-xml-structure-for-remote-function-call-rfc-that/ba-p/13559556). So for our relatively simple function module this is the XML. The actual value of shipping point for the parameter I_VSTEL is filled by the script expression "${header.i_vstel}", so it's taken dynamically from the header.
 
@@ -84,13 +86,13 @@ The actual payload that represents the RFC call is coded in XML. How to form thi
 
 ![image](/assets/2025-06-05/090.png)
 
-3. Do the actual RFC call
+### Do the actual RFC call
 
 The actual RFC call is done through a Request/Response element. The only thing we need to configure is the name of the destination (see above). That's all. The payload and the name of the function module to be called is defined in the XML. 
 
 ![image](/assets/2025-06-05/100.png)
 
-4. Translate the XML answer from the RFC into JSON (and return it to the caller)
+### Translate the XML answer from the RFC into JSON (and return it to the caller)
 
 The answer from the RFC call is coded in XML as part of the message body. As it's easier to handle JSON on the Peakboard side, we just translate the XML code into JSON by using the corresponding element.
 
