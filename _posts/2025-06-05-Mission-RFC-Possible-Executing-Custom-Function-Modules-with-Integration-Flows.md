@@ -36,16 +36,13 @@ The following screenshots show a call in the test cockpit of transaction SE37. W
 The [SAP Cloud Connector](https://tools.hana.ondemand.com/#cloud) must be installed in the on-prem side of the SAP system. To connect it to the BTP portal, follow these steps:
 
 1. Configure the installed instance of the Cloud Connector through https://localhost:8443/.
-2. In the Cloud Connector configuration, provide the subaccount of the BTP instance you want to connect to (You need the ID and region. You can look it up directly in the BTP).
-3. In the sub menu of the sub account we choose the item "Cloud to on-premises" and create a new "Mapping virtual to Internal System". In our case the system is an ABAP system. We must then provide all typical attribute like application host, instance number and also credentials for logging on to the system. 
-4. Below the system entry we must provide the Resources we want to connect to. That's the name of our function module. The screenshot shows the configured subaccount, mapped system and resource.
-
-![image](/assets/2025-06-05/030.png)
-
+2. In the Cloud Connector configuration, provide the sub-account of the BTP instance you want to connect to. You need the ID and region. You can look these up directly in BTP.
+3. In the sub-menu of the sub-account, select **Cloud to on-premises** and create a new **Mapping virtual to Internal System**. In our case, the system is an ABAP system.
+4. Enter all the typical attributes, like application host, instance number, and credentials for logging into the system. 
+5. Below the system entry, provide the resources you want to connect to. That's the name of our function module. The screenshot shows the configured sub-account, mapped system and resource.
+   ![image](/assets/2025-06-05/030.png)
 5. When we switch to the BTP portal and select the corresponding subaccount we can see the active connection under the Cloud Connector tab
-
-![image](/assets/2025-06-05/040.png)
-
+   ![image](/assets/2025-06-05/040.png)
 6. The last configuration we have to set up is the "Destination". In the destination entry we must provide the typical attributes like application server, instance number, etc... again. Later in the Integration flow we will refer to the Destination name. It will find it's connection through the corresponding attributes and will "find" the route through Cloud connector. The check connection command will test this route.
 
 ![image](/assets/2025-06-05/050.png)
