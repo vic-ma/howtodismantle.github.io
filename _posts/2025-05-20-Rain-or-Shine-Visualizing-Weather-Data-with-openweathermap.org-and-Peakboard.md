@@ -31,7 +31,7 @@ We first create an account at [openweathermap.org](https://openweathermap.org). 
 
 ![image](/assets/2025-05-20/015.png)
 
-Next, we go to the **API Keys** tab. We generate a new API key and copy it down. 
+Next, we go to the **API Keys** tab. We generate a new API key and copy it down.
 
 ![image](/assets/2025-05-20/020.png)
 
