@@ -108,15 +108,15 @@ http://api.openweathermap.org/data/2.5/forecast/daily?lat=25.0375198&lon=121.563
 
 ![image](/assets/2025-05-20/070.png)
 
-Later, we want to present the daily forecast data in a list. So, we turn the Unix timestamp into the day of the week, and then present it to the viewer. Just like with the current weather, we do that for the `dt` column in a data flow and use `return os.date('%a', item.dt )` to update the column. The character `%a` repeesents the day of the wee.
+We want to present the daily forecast data as a list. So, we convert the Unix timestamp into a day of the week, and display it to the viewer. Just like with the current weather, we do that for the `dt` column in a data flow and use `return os.date('%a', item.dt )` to update the column. The character `%a` represents the day of the week.
 
 ![image](/assets/2025-05-20/090.png)
 
-For the list, we choose a "styled list" that generates an item for each row. The principle is the same as with the first data source. We add several formatted values, as well as an image control.
+Next, we add a style list that generates an item for each row. The principle is the same as with the first data source. We add several formatted values, as well as an image control.
 
 ![image](/assets/2025-05-20/100.png)
 
-Currently it's not possible to bind the url of an image to an image control like we do with the other columns of the data source. In order to set the image content to the dynamically generated URL, we use the refreshed script of the data flow.
+It's not possible to bind the url of an image to an image control, like we do with the other columns of the data source. In order to set the image content to the dynamically generated URL, we use the refreshed script of the data flow.
 
 ![image](/assets/2025-05-20/110.png)
 
