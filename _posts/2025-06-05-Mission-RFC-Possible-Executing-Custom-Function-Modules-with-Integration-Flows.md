@@ -39,15 +39,13 @@ The [SAP Cloud Connector](https://tools.hana.ondemand.com/#cloud) must be instal
 2. In the Cloud Connector configuration, provide the sub-account of the BTP instance you want to connect to. You need the ID and region. You can look these up directly in BTP.
 3. In the sub-menu of the sub-account, select **Cloud to on-premises** and create a new **Mapping virtual to Internal System**. In our case, the system is an ABAP system.
 4. Enter all the typical attributes, like application host, instance number, and credentials for logging into the system. 
-5. Below the system entry, provide the resources you want to connect to. That's the name of our function module. The screenshot shows the configured sub-account, mapped system and resource.
+5. Below the system entry, provide the resources you want to connect to. That's the name of our function module. The following screenshot shows the configured sub-account, mapped system and resource.
    ![image](/assets/2025-06-05/030.png)
-5. When we switch to the BTP portal and select the corresponding subaccount we can see the active connection under the Cloud Connector tab
+5. Switch to the BTP portal and select the corresponding sub-account. Select the **Cloud Connectors** tab. You can see the active connection under **Exposed Back-End Systems**.
    ![image](/assets/2025-06-05/040.png)
-6. The last configuration we have to set up is the "Destination". In the destination entry we must provide the typical attributes like application server, instance number, etc... again. Later in the Integration flow we will refer to the Destination name. It will find it's connection through the corresponding attributes and will "find" the route through Cloud connector. The check connection command will test this route.
-
-![image](/assets/2025-06-05/050.png)
-
-![image](/assets/2025-06-05/060.png)
+6. Select **Destination**. Enter the typical attributes like the application server, instance number, etc. Later, in the integration flow, we refer to the destination name. The integration flow finds its connection through the corresponding attributes. It "finds" the route through Cloud Connector. The check connection command tests this route.
+   ![image](/assets/2025-06-05/050.png)
+   ![image](/assets/2025-06-05/060.png)
 
 ## Building the integration flow
 
