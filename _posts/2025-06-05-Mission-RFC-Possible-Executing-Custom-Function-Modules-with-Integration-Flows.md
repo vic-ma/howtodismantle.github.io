@@ -17,7 +17,7 @@ downloads:
   - name: SAPDeliveries.pbmx
     url: /assets/2025-06-05/SAPDeliveries.pbmx
 ---
-A couple of weeks ago, we already had our first contact with SAP BTP and the Integration Suite and talked [about how to connect an Integratin Flow with Peakboard Hub](/Breaking-the-Ice-How-SAP-Integration-Suite-and-Peakboard-Hub-Became-Best-Friends.html).
+A couple of weeks ago, we took introduced SAP BTP and the SAP Integration Suite. We discussed how to [connect an integration flow to Peakboard Hub](/Breaking-the-Ice-How-SAP-Integration-Suite-and-Peakboard-Hub-Became-Best-Friends.html).
 In this article we will discuss how to build an Integration Flow that exposes a JSON endpoint to be called by an Peakboard application. This new Integration Flow internally calls an RFC function module in SAP. The SAP system is connected to BTP via a cloud connector.
 This is a typical scenario for customer who still have on prem SAP systems, but want to use BTP and the Integration Suite for their communication to the non-SAP world like Peakboard.
 
