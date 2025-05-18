@@ -44,11 +44,11 @@ The [SAP Cloud Connector](https://tools.hana.ondemand.com/#cloud) must be instal
 4. Enter all the standard attributes, like application host, instance number, and credentials. 
 5. Below the system entry, provide the resources you want to connect to. That's the name of your function module. The following screenshot shows the configured sub-account, mapped system, and resource.
    ![image](/assets/2025-06-05/030.png)
-5. Switch to the BTP portal and select the corresponding sub-account. Select the **Cloud Connectors** tab. You can see the active connection under **Exposed Back-End Systems**.
+6. Go to the BTP portal and select the corresponding sub-account. Select the **Cloud Connectors** tab. You can see the active connection under **Exposed Back-End Systems**.
    ![image](/assets/2025-06-05/040.png)
-6. Select **Destination**. Enter the typical attributes like the application server, instance number, etc. Later, in the integration flow, we refer to the destination name. The integration flow finds its connection through the corresponding attributes. It "finds" the route through Cloud Connector.
+7. Select **Destination**. Enter the standard attributes like the application server, instance number, etc. Later, in the integration flow, we refer to the destination name. The integration flow finds its connection through the corresponding attributes. It "finds" the route through Cloud Connector.
    ![image](/assets/2025-06-05/050.png)
-7. Click the **Check Connection** button to verify the connection works.
+8. Click the **Check Connection** button to verify the connection works.
    ![image](/assets/2025-06-05/060.png)
 
 ## Build the integration flow
