@@ -72,15 +72,25 @@ It's a single line of LUA code. We convert the sunrise time to our desired timez
 
 ## Add controls
 
-To display the weather data to the user, we add text boxes and icons. We also set the appropriate suffixes, like the Celsius sign for temperatures.
+To display the weather data to the user, we add icons and text boxes. We also set the appropriate suffixes, like the Celsius sign for temperatures.
 
 ![image](/assets/2025-05-20/060.png)
 
-One last point is the weather icon. We just use a regular image control. The API delivers a field called "icon". It's some kind of code. The details of this code can be checked [in the documentation](https://openweathermap.org/weather-conditions). We can build a URL from this code that points to the icon. The URL is "https://openweathermap.org/img/wn/{code}@2x.png", so for example "https://openweathermap.org/img/wn/10d@2x.png" when the code is replaced. We will place a very simple building block to the "refreshed" event of the data source that builds the icon URL and applies ot the source property of the image control.
+Finally, we add the dynamic weather icons with an image control. The API returns a field called `icon`, which contains an [icon code](https://openweathermap.org/weather-conditions). We use that image code to get the appropriate icon. Here is the URL:
+```url
+https://openweathermap.org/img/wn/{code}@2x.png
+```
+
+So for example, this URL returns the "rain" icon (code `10d`):
+```url
+https://openweathermap.org/img/wn/10d@2x.png
+```
+
+We add building blocks for the refreshed event of the data source. This generates the icon URL and then sets the source of the image control to it:
 
 ![image](/assets/2025-05-20/080.png)
 
-For all the LUA lovers, here's the pure LUA code:
+Here's the LUA version:
 
 {% highlight lua %}
 screens['Screen1'].imgCurrentWeather.source = table.concat({'http://openweathermap.org/img/wn/', data.WeatherActual[0].icon, '@2x.png'})
