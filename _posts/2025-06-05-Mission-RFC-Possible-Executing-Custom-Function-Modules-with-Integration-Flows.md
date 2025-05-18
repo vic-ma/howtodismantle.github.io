@@ -26,7 +26,9 @@ This integration flow calls an RFC function module in SAP. The SAP system is con
 
 In our example, we use a simple custom function module called `Z_PB_DELIVERY_MONITOR`. It has one import parameter, `I_VSTEL`, which represents a shipping point. It returns a table of delivery rows that are in the shipping process on the shipping point.
 
-The following screenshots show a call in the test cockpit of transaction SE37. When we submit the shipping point `I_VTEL = 1000`, it returns 11 deliveries that are about to be shipped. The integration flow that we want to build receives the shipping point, `I_VSTEL`, as query parameter, and returns the deliveries as a JSON table.
+The following screenshots show a call in the test cockpit of transaction SE37. When we submit the shipping point `I_VTEL = 1000`, it returns 11 deliveries that are about to be shipped. We want to build an integration flow that does this:
+1. Receive the shipping point, `I_VSTEL`, as query parameter.
+2. Return the deliveries as a JSON table.
 
 ![image](/assets/2025-06-05/010.png)
 
@@ -36,11 +38,11 @@ The following screenshots show a call in the test cockpit of transaction SE37. W
 
 The [SAP Cloud Connector](https://tools.hana.ondemand.com/#cloud) must be installed in the on-prem side of the SAP system. To connect it to the BTP portal, follow these steps:
 
-1. Configure the installed instance of the Cloud Connector through https://localhost:8443/.
-2. In the Cloud Connector configuration, provide the sub-account of the BTP instance you want to connect to. You need the ID and region. You can look these up directly in BTP.
+1. Configure the installed instance of the Cloud Connector through `https://localhost:8443/`.
+2. In the Cloud Connector configuration, enter the sub-account of the BTP instance you want to connect to. You need the ID and region. You can look these up directly in BTP.
 3. In the sub-menu of the sub-account, select **Cloud to on-premises** and create a new **Mapping virtual to Internal System**. In our case, the system is an ABAP system.
-4. Enter all the typical attributes, like application host, instance number, and credentials for logging into the system. 
-5. Below the system entry, provide the resources you want to connect to. That's the name of our function module. The following screenshot shows the configured sub-account, mapped system and resource.
+4. Enter all the standard attributes, like application host, instance number, and credentials. 
+5. Below the system entry, provide the resources you want to connect to. That's the name of your function module. The following screenshot shows the configured sub-account, mapped system, and resource.
    ![image](/assets/2025-06-05/030.png)
 5. Switch to the BTP portal and select the corresponding sub-account. Select the **Cloud Connectors** tab. You can see the active connection under **Exposed Back-End Systems**.
    ![image](/assets/2025-06-05/040.png)
