@@ -58,15 +58,15 @@ http://api.openweathermap.org/data/2.5/weather?q=Taipei&units=metric&appid=59067
 
 ![image](/assets/2025-05-20/040.png)
 
-We will need the sunrise and sunset time in a correctly formatted, local time value. But the API provides only unix timestamps. So we need to add a data flow below the original source and add a step for adjusting the time. 
-
-![image](/assets/2025-05-20/050.png)
-
-It's only one line of code in LUA. We adjust the "sunrise" time for the timezone (that is thankfully provided as part of the API response) and format it to hours and minutes. The same is done for the time of sunset.
+We need to transform the sunrise and sunset time into a properly-formatted local time string. But the API provides only Unix timestamps. So, we create a data flow below the original source and add a step to properly format and convert the time:
 
 {% highlight lua %}
 return os.date('%H:%M', item.sunrise + item.timezone)
 {% endhighlight %}
+
+It's a single line of LUA code. We convert the sunrise time to our desired timezone, and we format it as `HH:MM`. Then, we do the same for the time of sunset.
+
+![image](/assets/2025-05-20/050.png)
 
 For the actual visual representation we just choose normal textfields and some beautiful image icons. Of course we must adjust the correct formatting of the numbers, like the unit for the temperature as shown in the screenshot.
 
