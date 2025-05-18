@@ -100,13 +100,15 @@ The response from the RFC call is in XML, as part of the message body. It's easi
 
 ## Authentication
 
-The caller of the service mut be authenticated. The easiest way to do this is to go to the Integration Runtime in BTP portal and generate a pair of Service Keys. The Client ID and CLient Secret can be used for the call with Basic Authentification as user name and password.
+The caller of the service must be authenticated. The easiest way to do this is to go to the integration runtime in the BTP portal and generate a pair of service keys. You can use the client ID and client secret to authenticate the call, with basic authentication.
 
 ![image](/assets/2025-06-05/120.png)
 
 ## The Peakboard application
 
-The implementation on the Peakboard side is pretty easy. The screenshot shows a regular REST call to the our URL with one query parameter named I_VSTEL. We can use the value help (three dots) to choose the right path to the table data within the JSON. When the function module gets more complicated, the path for the prcoessing of the body might be a bit more complicated. But in our case the main payload is just the table of deliveries.
+In Peakboard Designer, we create a new JSON data source. It makes a call to our integration flow, with one query parameter called `I_VSTEL`. To choose the right path to the table data within the JSON string, we click on the three dots. This helps us select the right path.
+
+When the function module gets more complicated, the path for processing the body might also get more complicated. But in our case, the main payload is simply the table of deliveries.
 
 ![image](/assets/2025-06-05/130.png)
 
