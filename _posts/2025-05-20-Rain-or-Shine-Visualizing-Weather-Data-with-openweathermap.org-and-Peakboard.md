@@ -17,75 +17,110 @@ downloads:
   - name: WeatherForecast.pbmx
     url: /assets/2025-05-20/WeatherForecast.pbmx
 ---
-Openweathermap.org is a very simple, easy-to-use weather API provider for any place in the world. It's the data backend for lots of website, apps and other applications. And the best thing: Some API endpoints are free of charge as long as we only use a limited number of calls. In this wrticle we will learn, how to use the openweathermap.org API for the current weather but also to build a weather forecast for the next days. Beside the API calls we will discuss some topics around time formatting and how to set an image dynmically by using a LUA script. The screenshot shows the final result of the application we will build.
+[OpenWeatherMap](https://openweathermap.org) offers a simple, easy-to-use API that provides weather data for anywhere on Earth. This API runs in the backend of many websites and applications. And here's the best part: Some of the API endpoints are free to use, so long as you don't exceed a certain quota.
+
+In this article, we'll explain how to use the OpenWeatherMap API for the current weather, and how to build a weather forecast for the next few days. We will also discuss how to handle time formatting, and how to dynamically set an image, with LUA. Here's a preview of the final result:
 
 ![image](/assets/2025-05-20/010.png)
 
-## Preparing the account
+## Account setup
 
-For getting access to the API we need an account at openweathermap.org. We need to subscribe to a free plan as shown in the screenshot by clicking on the subscribe button of the API we need to use - Current Weather and Daily Forecast. Under the tab "API Keys" we generate a new API key. We will need it later for the API calls. 
+We first create an account at [openweathermap.org](https://openweathermap.org). Next, we click the **Subscribe** buttons for our desired APIs:
+* **Current Weather Data**
+* **Daily Forecast 16 days**
 
 ![image](/assets/2025-05-20/015.png)
+
+Next, we go to the **API Keys** tab. We generate a new API key and copy it down.
 
 ![image](/assets/2025-05-20/020.png)
 
 ![image](/assets/2025-05-20/030.png)
 
-## Preparing the Current Weather data source
+## Prepare the current-weather data source
 
-In the Peakboard project we choose JSON data source for the first API call. The URL to call is "api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={APIKey}". "city" is just the name of the city and the appid is the key we noted earlier. As we want metric units we provide the "metric" value for the "units" attribute. The API also support geographical coordinates and other features. The details can be found in the [API doc](https://openweathermap.org/current).
+In Peakboard Designer, we create a new JSON data source. We will use this for our current weather API call.
 
+This is the base URL:
+```url
+https://api.openweathermap.org
+```
+
+This is the URL path:
+```url
+/data/2.5/weather?q={city}&units=metric&appid={APIKey}
+```
+Replace `{city}` with the name of the city you want. Replace `{APIKey}` with your API key from earlier.
+We also want metric units, so we set the `units` field to `metric`. The API also supports geographical coordinates and other features. To learn more, see the [API docs](https://openweathermap.org/current).
+
+Here is our API call. It generates a table with exactly one row. That row contains the weather data for the specified city.
+```url
 http://api.openweathermap.org/data/2.5/weather?q=Taipei&units=metric&appid=59067774c1363255
-
-The call generates a table with exactly one row that contains the weather data of the choosen place.
+```
 
 ![image](/assets/2025-05-20/040.png)
 
-We will need the sunrise and sunset time in a correctly formatted, local time value. But the API provides only unix timestamps. So we need to add a data flow below the original source and add a step for adjusting the time. 
+## Transform sunrise and sunset time
 
-![image](/assets/2025-05-20/050.png)
-
-It's only one line of code in LUA. We adjust the "sunrise" time for the timezone (that is thankfully provided as part of the API response) and format it to hours and minutes. The same is done for the time of sunset.
+We need to transform the sunrise and sunset time into a properly-formatted local time string. But the API provides only Unix timestamps. So, we create a data flow below the original source and add a step to properly format and convert the time:
 
 {% highlight lua %}
 return os.date('%H:%M', item.sunrise + item.timezone)
 {% endhighlight %}
 
-For the actual visual representation we just choose normal textfields and some beautiful image icons. Of course we must adjust the correct formatting of the numbers, like the unit for the temperature as shown in the screenshot.
+It's a single line of LUA code. We convert the sunrise time to our desired timezone, and we format it as `HH:MM`. Then, we do the same for the sunset time.
+
+![image](/assets/2025-05-20/050.png)
+
+## Add controls
+
+To display the weather data to the user, we add icons and text boxes. We also set the appropriate suffixes, like the Celsius sign for temperatures.
 
 ![image](/assets/2025-05-20/060.png)
 
-One last point is the weather icon. We just use a regular image control. The API delivers a field called "icon". It's some kind of code. The details of this code can be checked [in the documentation](https://openweathermap.org/weather-conditions). We can build a URL from this code that points to the icon. The URL is "https://openweathermap.org/img/wn/{code}@2x.png", so for example "https://openweathermap.org/img/wn/10d@2x.png" when the code is replaced. We will place a very simple building block to the "refreshed" event of the data source that builds the icon URL and applies ot the source property of the image control.
+Finally, we add the dynamic weather icons with an image control. The API returns a field called `icon`, which contains an [icon code](https://openweathermap.org/weather-conditions). We use that image code to get the appropriate icon, by plugging it into this URL:
+```url
+https://openweathermap.org/img/wn/{code}@2x.png
+```
+
+So for example, this URL returns the "rain" icon (code `10d`):
+```url
+https://openweathermap.org/img/wn/10d@2x.png
+```
+
+We add building blocks for the refreshed event of the data source. This generates the icon URL and then sets the source of the image control to it:
 
 ![image](/assets/2025-05-20/080.png)
 
-For all the LUA lovers, here's the pure LUA code:
+Here's the LUA version:
 
 {% highlight lua %}
 screens['Screen1'].imgCurrentWeather.source = table.concat({'http://openweathermap.org/img/wn/', data.WeatherActual[0].icon, '@2x.png'})
 {% endhighlight %}
 
-## Preparing the weather forecast
+## Prepare the weather forecast
 
-For the daily forecast we use a different call, it's "forecast" instead of "weather" in the URL. The rest of the logic stays the same. The example shows how to use the geographical coordinates instead of the city name.
+For the daily forecast, we change the call slightly: We use `forecast` instead of `weather`, in the endpoint. The rest of the logic stays the same. This example shows how to use the geographical coordinates, instead of the city name:
 
+```url
 http://api.openweathermap.org/data/2.5/forecast/daily?lat=25.0375198&lon=121.5636796&units=metric&appid=59067774c13632559
+```
 
 ![image](/assets/2025-05-20/070.png)
 
-We want to present the daily forecast data in a list later, so we need to turn the unix timestamp into the weekday to present it to the viewer. Similiar as with the current weather, we do that for the "dt" column in data flow and use "return os.date('%a', item.dt )" to update the column. The character "%a" repeesents the weekday value.
+We want to present the daily forecast data as a list. So, we convert the Unix timestamp into a day of the week, and display it to the viewer. Just like with the current weather, we do that for the `dt` column in a data flow and use `return os.date('%a', item.dt )` to update the column. The character `%a` represents the day of the week.
 
 ![image](/assets/2025-05-20/090.png)
 
-For the list, we choose a "styled list" that generates an item for each row. The principle is the same as with the first data source. We have several formatted values and also an image control
+Next, we add a style list that generates an item for each row. The principle is the same as with the first data source. We add several formatted values, as well as an image control.
 
 ![image](/assets/2025-05-20/100.png)
 
-Currently it's not possible to bind the url of an image to an image control like we do the data binding with the other columns of the data source. For setting the image content to the dynamically generated URL we use the refreshed script of the data flow.
+It's not possible to bind the url of an image to an image control, like we do with the other columns of the data source. In order to set the image content to the dynamically generated URL, we use the refreshed script of the data flow.
 
 ![image](/assets/2025-05-20/110.png)
 
-Here's the LUA code. We just loop over the table and set the URL for every instance of a forecasted day.
+Here's the LUA code. We loop over the table and set the URL for each instance of a forecasted day.
 
 {% highlight lua %}
 local i = 0
@@ -95,9 +130,9 @@ for index = 0, data.ForecastWithDate.count - 1 do
 end
 {% endhighlight %}
 
-## result and enhancements
+## Result and enhancements
 
-As we saw, it's very easy to use and adjust the openweather.org API for our needs. There are many more features that are not mentioned in this article, e.g. different styles of icons, wind, gusts, other weather phenomens, temperature curves and a lot more. There are many other API calls that are all listed in the API documentation.
+As you can see, it's easy to use the OpenWeatherMap API. There are many other features that we did not mention. For example, different styles of icons, wind, gusts, other weather phenomena, and temperature curves. There are also many other API endpoints listed in the API documentation.
 
 ![image](/assets/2025-05-20/010.png)
 
