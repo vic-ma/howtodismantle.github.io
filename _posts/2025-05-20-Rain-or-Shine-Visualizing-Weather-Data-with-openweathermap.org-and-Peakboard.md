@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rain or Shine - Visualizing Weather Data with openweathermap.org and Peakboard
-date: 2023-03-01 01:00:00 +0200
+date: 2025-05-20 01:00:00 +0200
 tags: api lua
 image: /assets/2025-05-20/title.png
 image_landscape: /assets/2025-05-20/title_landscape.png
