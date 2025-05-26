@@ -52,16 +52,16 @@ Finally, we filter out all the trains that don't have a scheduled departure time
 
 ## Build the display
 
-To create the actual display, we use styled list with some text boxes and images. For more details, download the [PBMX](/assets/2025-05-28/DBDepartures.pbmx).
+To create the actual display, we use a styled list with some text boxes and images. For more details, download the [PBMX](/assets/2025-05-28/DBDepartures.pbmx).
 
 ![image](/assets/2025-05-28/060.png)
 
-Most of the logic is done through conditional formatting. This screenshot shows how we use a different icon for long distance and local trains.
+Most of the logic is done through conditional formatting. This screenshot shows how we use a different icon for long distance and local trains:
 
 ![image](/assets/2025-05-28/070.png)
 
 ## Result
 
-This screenshot shows the final result, with all the different colors and other functions for visualizing the information. It's a great example of how you can format your data without writing a single line of code---all you need is conditional formatting!
+The following screenshot shows the final result, with all the different colors and other functions for visualizing the information. It's a great example of how you can format your data without writing a single line of code!
 
 ![image](/assets/2025-05-28/080.png)
