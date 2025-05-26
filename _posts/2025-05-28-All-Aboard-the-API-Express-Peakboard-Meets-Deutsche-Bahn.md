@@ -13,7 +13,9 @@ downloads:
   - name: DBDepartures.pbmx
     url: /assets/2025-05-28/DBDepartures.pbmx
 ---
-In this blog we already discussed many APIs and how to integrate them with Peakboard. Today we will discuss the API of a website called DBF. They are providing an unofficial endpoint that returns the current arrivals and departure of trains for Germany cities. The website can be found [here](https://dbf.finalrewind.org/). The backend of the service is Open Source. More details on [github](https://github.com/derf/db-fakedisplay). We will use this API to build a board that lists all train departures of a German city and shows it like a public billboard within a train station. The benefit of this article is also to learn more about how to process API payload and turn it into information that is perfectly formatted and presented to the user.
+On this blog, we've explored many different APIs and explained how to integrate them with Peakboard. In today's article, we'll explain how to use the [DBF API](https://dbf.finalrewind.org) in Peakboard. This is an unofficial API that returns the current arrivals and departures of trains in German cities. The backend of the service is open source, and you can learn more by checking out the [DBF GitHub](https://github.com/derf/db-fakedisplay).
+
+We will use this API to build a board that lists all train departures of a German city and shows it like a public billboard within a train station. The benefit of this article is also to learn more about how to process API payload and turn it into information that is perfectly formatted and presented to the user.
 
 ## API call
 
