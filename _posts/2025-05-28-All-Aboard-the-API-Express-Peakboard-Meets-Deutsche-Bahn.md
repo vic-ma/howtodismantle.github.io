@@ -27,12 +27,12 @@ We replace `<xxx>` with the station name. To get the correct station name, we us
 
 ![image](/assets/2025-05-28/010.png)
 
-If the station contains a blank, we replace it with `%20` in our endpoint. So the endpoint for the Stuttgart main station, "Stuttgart Hbf," looks like this:
+If the station name contains a space, we replace the space with `%20` in our endpoint. So the endpoint for the Stuttgart main station, "Stuttgart Hbf," looks like this:
 ```url
 https://dbf.finalrewind.org/Stuttgart%20Hbf.json
 ```
 
-The screenshots shows the correctly configured data source with some sample data for the main station of the beautiful city of Stuttgart. The station name is set dynamically through a variable.
+In Peakboard, we create a new JSON data source and point it to our endpoint. We set the station name dynamically, with a variable. Here's what the data source looks like when the station is set to the main station of the beautiful city of Stuttgart.
 
 ![image](/assets/2025-05-28/020.png)
 
