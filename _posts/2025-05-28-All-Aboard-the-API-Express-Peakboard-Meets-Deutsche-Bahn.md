@@ -13,9 +13,9 @@ downloads:
   - name: DBDepartures.pbmx
     url: /assets/2025-05-28/DBDepartures.pbmx
 ---
-On this blog, we've explored many different APIs and explained how to integrate them with Peakboard. In today's article, we'll explain how to use the [DBF API](https://dbf.finalrewind.org) in Peakboard. This is an unofficial API that returns the current arrivals and departures of trains in German cities. The backend of the service is open source, and you can learn more by checking out the [DBF GitHub](https://github.com/derf/db-fakedisplay).
+On this blog, we've introduced many different APIs and explained how to use them in Peakboard. Today, we'll be looking at the [DBF API](https://dbf.finalrewind.org). This is an unofficial API that returns the arrival and departure times of trains in Germany. The API's backend is open source, and you can learn more about it by checking out the [GitHub repo](https://github.com/derf/db-fakedisplay).
 
-We'll use this API to build an app that shows all the train departures of a German city, just like a departure board in a train station. The bigger goal with this article is to explain how to process an API payload and present a formatted version of the data to the user.
+We'll use this API to build an app that shows all the train departures of a German city, just like a departure board in a train station. The greater goal of this article is to explain how to process an API payload and display a formatted version of the data, using dataflows and conditional formatting.
 
 ## The API call
 
@@ -38,7 +38,7 @@ In Peakboard, we create a new JSON data source and point it to our endpoint. We 
 
 ## Process the data
 
-To process the data from the API, we use a data flow. First, we filter out all cancelled trains, by checking if the `isCancelled` column is equal to 0:
+To process the data from the API, we use a dataflow. First, we filter out all cancelled trains, by checking if the `isCancelled` column is equal to 0:
 
 ![image](/assets/2025-05-28/030.png)
 
