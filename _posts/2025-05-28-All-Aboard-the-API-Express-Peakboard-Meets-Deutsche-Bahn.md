@@ -62,6 +62,6 @@ Most of the logic is done through conditional formatting. This screenshot shows 
 
 ## Result
 
-This screenshot shows the final result, with all the different colors and other functions for visualizing the information. It's a nice example of how you can format your data without writing a single line of code. All you need is conditional formatting.
+This screenshot shows the final result, with all the different colors and other functions for visualizing the information. It's a great example of how you can format your data without writing a single line of code---all you need is conditional formatting!
 
 ![image](/assets/2025-05-28/080.png)
