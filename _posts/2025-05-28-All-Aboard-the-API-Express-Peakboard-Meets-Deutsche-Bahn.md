@@ -23,16 +23,16 @@ The API endpoint looks like this:
 ```url
 https://dbf.finalrewind.org/<xxx>.json
 ```
-We replace `<xxx>` with the station name. To get the correct station name, we use the search tool on the [DBF website](https://dbf.finalrewind.org/).
+We replace `<xxx>` with the station name. To get the right station name, we use the search tool on the [DBF website](https://dbf.finalrewind.org/):
 
 ![image](/assets/2025-05-28/010.png)
 
-If the station name contains a space, we replace the space with `%20` in our endpoint. So the endpoint for the Stuttgart main station, "Stuttgart Hbf," looks like this:
+If the station name contains a space, we replace the space with `%20`, in our endpoint. So the endpoint for the Stuttgart main station, "Stuttgart Hbf," looks like this:
 ```url
 https://dbf.finalrewind.org/Stuttgart%20Hbf.json
 ```
 
-In Peakboard, we create a new JSON data source and point it to our endpoint. We set the station name dynamically, with a variable. Here's what the data source looks like when the station is set to the main station of the beautiful city of Stuttgart.
+In Peakboard, we create a new JSON data source for our endpoint. We set the station name dynamically, with a variable:
 
 ![image](/assets/2025-05-28/020.png)
 
@@ -42,7 +42,7 @@ To process the data from the API, we use a dataflow. First, we filter out all ca
 
 ![image](/assets/2025-05-28/030.png)
 
-Next, we remove all the columns that we don't need. We also rename the last column from "Unknown" to "train," because it contains the names of the trains.
+Then, we remove all the columns that we don't need. We also rename the last column from "Unknown" to "train," because it contains the names of the trains.
 
 ![image](/assets/2025-05-28/040.png)
 
