@@ -50,13 +50,13 @@ Finally, we filter out all trains without a scheduled departure time, by checkin
 
 ![image](/assets/2025-05-28/050.png)
 
-## Building the screen
+## Build the display
 
-For the actual screen we go fo a styled list with some text boxes and images. The pbmx is downloadable [here](/assets/2025-05-28/DBDepartures.pbmx) for more details.
+To create the actual display, we use styled list with some text boxes and images. For more details, download the [PBMX](/assets/2025-05-28/DBDepartures.pbmx).
 
 ![image](/assets/2025-05-28/060.png)
 
-Most logic is done through conditional formatting. The screenshot shows how the train type generate different symbols depending if it's a long distance or local train.
+Most of the logic is done through conditional formatting. This screenshot shows how we use a different icon for long distance and local trains.
 
 ![image](/assets/2025-05-28/070.png)
 
