@@ -46,7 +46,7 @@ Then, we remove all the columns that we don't need. We also rename the last colu
 
 ![image](/assets/2025-05-28/040.png)
 
-Finally, we filter out all trains without a scheduled departure time, by checking if the `scheduleDeparture` column is not equal to the empty string.
+Finally, we filter out all the trains that don't have a scheduled departure time. We do this by checking if the `scheduleDeparture` column is not the empty string.
 
 ![image](/assets/2025-05-28/050.png)
 
