@@ -17,11 +17,20 @@ On this blog, we've explored many different APIs and explained how to integrate 
 
 We'll use this API to build an app that shows all the train departures of a German city, just like a departure board in a train station. The bigger goal with this article is to explain how to process an API payload and present a formatted version of the data to the user.
 
-## API call
+## The API call
 
-The API call is quite simple: "https://dbf.finalrewind.org/<xxx>.json" where xxx is the station name. To find out the currect station name we can use the form on the website. It comes up with valid suggestions. If the station contains a blank, we must replace it with "%20", so the endpoint the Stuttgart main station "Stuttgart Hbf" turns into "Stuttgart%20Hbf".
+The API endpoint looks like this:
+```url
+https://dbf.finalrewind.org/<xxx>.json
+```
+We replace `<xxx>` with the station name. To get the correct station name, we use the search tool on the [DBF website](https://dbf.finalrewind.org/).
 
 ![image](/assets/2025-05-28/010.png)
+
+If the station contains a blank, we replace it with `%20` in our endpoint. So the endpoint for the Stuttgart main station, "Stuttgart Hbf," looks like this:
+```url
+https://dbf.finalrewind.org/Stuttgart%20Hbf.json
+```
 
 The screenshots shows the correctly configured data source with some sample data for the main station of the beautiful city of Stuttgart. The station name is set dynamically through a variable.
 
