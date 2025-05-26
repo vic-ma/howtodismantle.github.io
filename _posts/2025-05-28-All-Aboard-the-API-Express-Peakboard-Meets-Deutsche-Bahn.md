@@ -36,14 +36,13 @@ In Peakboard, we create a new JSON data source and point it to our endpoint. We 
 
 ![image](/assets/2025-05-28/020.png)
 
-## Processing the data
+## Process the data
 
-The data from the API endpoint is almost ideal but needs some minor improvements done through a data flow.
-First we filter out all cancelled trains.
+To process the data from the API, we use a data flow. First, we filter out all cancelled trains:
 
 ![image](/assets/2025-05-28/030.png)
 
-In the next step we remove all columns that are not used for the visualisation to make the table clearer and easier to handle. The last column was initially named "Unknown" but it contains information about the train type, so we rename the column to "train".
+Next, we remove all the columns that we don't need. We also rename the last column from "Unknown" to "train," because it contains the names of the trains.
 
 ![image](/assets/2025-05-28/040.png)
 
