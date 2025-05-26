@@ -38,7 +38,7 @@ In Peakboard, we create a new JSON data source and point it to our endpoint. We 
 
 ## Process the data
 
-To process the data from the API, we use a data flow. First, we filter out all cancelled trains:
+To process the data from the API, we use a data flow. First, we filter out all cancelled trains, by checking if the `isCancelled` column is equal to 0:
 
 ![image](/assets/2025-05-28/030.png)
 
@@ -46,7 +46,7 @@ Next, we remove all the columns that we don't need. We also rename the last colu
 
 ![image](/assets/2025-05-28/040.png)
 
-In the last step we filter out all trains without a sheduled departure. It seems useless for a train departure billboard.
+Finally, we filter out all trains without a scheduled departure time, by checking if the `scheduleDeparture` column is not equal to the empty string.
 
 ![image](/assets/2025-05-28/050.png)
 
