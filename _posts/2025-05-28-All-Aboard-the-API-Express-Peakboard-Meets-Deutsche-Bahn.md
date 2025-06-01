@@ -1,7 +1,7 @@
 ---
 layout: post
 title: All Aboard the API Express - Peakboard Meets Deutsche Bahn
-date: 2023-03-01 03:00:00 +0200
+date: 2025-05-28 03:00:00 +0200
 tags: api
 image: /assets/2025-05-28/title.png
 image_landscape: /assets/2025-05-28/title_landscape.png
