@@ -58,13 +58,26 @@ An audit is defined by its metadata. This metadata is stored in two tables: `Aud
 
 In our example, we used Peakboard Hub to store our tables. But you can any storage solution that is supported by Peakboard.
 
+### The `AuditTemplateHeader` table
 The `AuditTemplateHeader` table is a list of all the audits. It contains one row for each audit. Each row has two columns:
 * `Name`, the name of the audit.
 * `Description`, a short description of the audit.
 
 ![image](/assets/2025-06-13/010.png)
 
-Each step of an audit has one corresponding row in the table AuditTemplateItem. It conatins the actual content that appears on the screens later. The "StepNo" columns represents the order of steps starting with 0.
+
+### The `AuditTemplateItem` table
+
+The `AuditTemplateItem` table defines the steps of all the audits. Each row represents a single step in an audit. The following is an overview of all the columns of this table.
+
+#### `AuditName`
+
+This is the name of the audit that the step belongs to. Remember that the `AuditTemplateItem` table contains the steps for *all* the audits, so this column is needed to tell Peakboard which steps belong to which audits.
+
+The `AuditName` must match the `Name` column of the corresponding audit, in the `AuditTemplateHeader` table. Notice that `CNCSA1` also appears in our example `AuditTemplateHeader`  table.
+
+#### 
+The "StepNo" columns represents the order of steps starting with 0.
 
 The most important column is "Layout". It will define how this step is represented  when the audit is displayed to used in the app. Our five sample steps shown in the screenshot have three different layouts:
 
