@@ -40,16 +40,16 @@ The following is an example of an audit. It tells the user how to perform a safe
 1. Welcome the user and explain the purpose of the audit.
 ![image](/assets/2025-06-13/AuditStep1.png)
 
-2. Ask the user to check both emergency stops.
+2. Tell the user to inspect both emergency stops.
 ![image](/assets/2025-06-13/AuditStep2.png)
 
-3. Ask the user to test the safetey door
+3. Tell the user to test the safety door to make sure it works properly.
 ![image](/assets/2025-06-13/AuditStep3.png)
 
-4. Ask the use to check and write down any problems with the miling head
+4. Tell the user to visually inspect the milling head, and record their observations in the app.
 ![image](/assets/2025-06-13/AuditStep4.png)
 
-5. Ask the user the check the level of the lubricant canister and write down the filling level
+5. Tell the user the inspect the lubricant canister, and record the amount of remaining lubricant in the app.
 ![image](/assets/2025-06-13/AuditStep5.png)
 
 ## How to store the meta data 
