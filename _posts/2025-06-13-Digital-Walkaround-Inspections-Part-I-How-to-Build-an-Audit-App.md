@@ -135,4 +135,4 @@ Here's an overview of the columns:
 
 ## Conclusion
 
-For building the audit application we need to understand the architecture of the data structure, for both the meta data and also the transaction data. That's what we discussed in this article. In [the second part](/Digital-Walkaround-Inspections-Part-II-How-to-Build-an-Audit-App.html) we will see, who we build the actual application and learn how the audit is conducted. 
+To build an audit application, you need to understand the architecture of the underlying data structures: both the audit definition and audit data tables. That's what we discussed in this article. In [the second part](/Digital-Walkaround-Inspections-Part-II-How-to-Build-an-Audit-App.html) we will explain how to build the actual application and run the audit.
