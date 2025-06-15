@@ -23,24 +23,24 @@ Note that the structure and process we show in these articles is very simple and
 
 This is what the audit process, or "digital walk-around," looks like:
 
-1. The auditor opens the auditing app on their tablet.
+1. The user opens the auditing app on their tablet.
 1. The app presents a list of possible audits.
-1. The auditor selects the audit they want to perform.
+1. The user selects the audit they want to perform.
 1. The app gives step-by-step instructions for how to perform the audit. For each step:
-    1. The auditor performs the instructions given by the app.
-    1. If the step requires information from the auditor, the auditor enters that information into the app.
-    1. The auditor marks the step as done.
+    1. The user performs the instructions given by the app.
+    1. If the step requires information from the user, the user enters that information into the app.
+    1. The user marks the step as done.
     1. The app shows the next step.
 5. The audit is finished. The app saves the results into a document and persists them.
 
-To make it a bit clearer, here are the steps of our sample audit we will use in this article. It's how to conduct a safety check for a CNC machine. Each step is also one screen the user can step through. Step 4 and 5 needs input from the user.
+## Example audit
 
-The following is an example of an audit. It tells the auditor how to perform a safety check for a CNC machine. Steps 4 and 5 require the auditor to enter information into the app.
+The following is an example of an audit. It tells the user how to perform a safety check for a CNC machine. Steps 4 and 5 require the user to enter information into the app.
 
-1. Welcome the user and explain the purpose of the audit
+1. Welcome the user and explain the purpose of the audit.
 ![image](/assets/2025-06-13/AuditStep1.png)
 
-2. Ask the user to check both energency stops
+2. Ask the user to check both emergency stops.
 ![image](/assets/2025-06-13/AuditStep2.png)
 
 3. Ask the user to test the safetey door
