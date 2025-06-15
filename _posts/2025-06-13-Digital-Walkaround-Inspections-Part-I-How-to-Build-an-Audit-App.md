@@ -23,8 +23,13 @@ Note that the structure and process we show in these articles is very simple and
 
 This is how we define the audit process, or "digital walk-around":
 
-1. The auditor opens the app on his tablet
-2. From a list of possible audits he selects one he wants to conduct
+1. The auditor opens the auditing app on their tablet.
+1. The app presents a list of possible audits.
+1. The auditor selects the audit they want to perform.
+1. The app gives step-by-step instructions for how to perform the audit. For each step:
+  1. The auditor performs the instructions given by the app.
+2. They look at the list of possible audits and select the audit they want to conduct.
+3. They follow each of the steps that the app 
 3. The app guides him through several steps he must mark as done each of them
 4. Some steps might involve typing in additional information
 5. After having completed all steps the audit is considered as finished, the results are stored to document and persist them
