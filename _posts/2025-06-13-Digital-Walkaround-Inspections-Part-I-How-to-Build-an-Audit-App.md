@@ -88,7 +88,7 @@ The `AuditName` column must match the `Name` column of the corresponding audit i
 * `CHOICE01`: Text and an image *plus* a three-option multiple choice form. This lets the user select one of three pre-determined options.
 
 #### Variables
-The columns `Var01` to `Var05` are variable columns that the data for each step. Here's an explanation of how they work.
+The columns `Var01` to `Var05` are variable columns that specify the data for each step. Here's an explanation of how they work.
 
 For every layout:
 * `Var01` is the title of the step.
@@ -116,7 +116,7 @@ The `AuditHeader` table stores general data about each audit run. It contains on
 Here's an overview of the columns:
 * `TS`: A time stamp of when the audit was started. This column is the table's primary key.
 * `Name`: The name of the audit. This matches the name used in the audit definition tables (e.g. CNCSA1 for our CNC safety audit).
-* `State`: The state of audit. This is either `A` for active, or `D` for done. This column is automatically set to `D` when all the audit's steps all have a `State` of `D` (in the `AuditItem` table).
+* `State`: The completion status of audit. This is either `A` for active, or `D` for done. This column is automatically set to `D` when all the audit's steps all have a `State` of `D` (in the `AuditItem` table).
 
 ### The `AuditItem` table
 
@@ -127,12 +127,12 @@ The `AuditItem` table stores data about each step of every audit run. It contain
 Here's an overview of the columns:
 * `TS`: The time stamp of the audit run that this step belongs to. This is a foreign key that connects to the `AuditHeader` table.
 * `StepNo`: The step number of this step. This matches the `StepNo` column of the step definition, in the `AuditTemplateItem` table.
-* `State`: The state of this step. This is either `A` for active, or `D` for done.
+* `State`: The completion status of this step. This is either `A` for active, or `D` for done.
 * `TSDone`: The time stamp of when this step was completed (`State` set to `D`).
-* `Input01` to `Input05`: five possible columns to store the data in that the user has created as input data during audit
-* `Var01` to `Var05`: five variables with the same data as the varibales data from meta data. The meaning depends on the layout
+* `Input01` to `Input05`: Columns that store user-submitted data.
+* `Var01` to `Var05`: Columns that match the `Var01` to `Var05` columns of the step definition, in the `AuditTemplateItem` table.
+* `Layout`: The layout of this step. This matches the `Layout` column of the step definition, in the `AuditTemplateItem` table.
 
-
-## conclusion
+## Conclusion
 
 For building the audit application we need to understand the architecture of the data structure, for both the meta data and also the transaction data. That's what we discussed in this article. In [the second part](/Digital-Walkaround-Inspections-Part-II-How-to-Build-an-Audit-App.html) we will see, who we build the actual application and learn how the audit is conducted. 
