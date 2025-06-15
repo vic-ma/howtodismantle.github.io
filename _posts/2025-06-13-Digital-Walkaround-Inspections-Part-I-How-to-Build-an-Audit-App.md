@@ -70,14 +70,19 @@ The `AuditTemplateHeader` table is a list of all the audits. It contains one row
 
 The `AuditTemplateItem` table defines the steps of all the audits. Each row represents a single step in an audit. The following is an overview of all the columns of this table.
 
+![image](/assets/2025-06-13/020.png)
+
 #### `AuditName`
 
-This is the name of the audit that the step belongs to. Remember that the `AuditTemplateItem` table contains the steps for *all* the audits, so this column is needed to tell Peakboard which steps belong to which audits.
+This is the name of the audit that the step belongs to. Remember that the `AuditTemplateItem` table contains the steps for *all* the audits. This column tells Peakboard which steps belong to which audits.
 
-The `AuditName` must match the `Name` column of the corresponding audit, in the `AuditTemplateHeader` table. Notice that `CNCSA1` also appears in our example `AuditTemplateHeader`  table.
+The `AuditName` column must match the `Name` column of the corresponding audit in the `AuditTemplateHeader` table. Notice that `CNCSA1` also appears in our example `AuditTemplateHeader`  table.
 
-#### 
-The "StepNo" columns represents the order of steps starting with 0.
+#### `StepNo`
+
+This is the number of the step. So the first step has `StepNo` 0, the second step has `StepNo` 1, etc. This column tells Peakboard how to order the steps of each audit.
+
+#### `Layout`
 
 The most important column is "Layout". It will define how this step is represented  when the audit is displayed to used in the app. Our five sample steps shown in the screenshot have three different layouts:
 
@@ -94,7 +99,6 @@ For all layouts Var01 is always the headline, Var02 is always multiline text to 
 
 It's very important to understand this logic and combination of variables and layout. Because it's the central idea of our data structure.
 
-![image](/assets/2025-06-13/020.png)
 
 The three layouts mentioned above only apply to our sample use case and how audits are conducted in our sample company. In the real world, there might by other or more layouts. It's even possible to extend the number of variables from 5 to 10 or 15, if it's necessary. It depends on the content.
 
