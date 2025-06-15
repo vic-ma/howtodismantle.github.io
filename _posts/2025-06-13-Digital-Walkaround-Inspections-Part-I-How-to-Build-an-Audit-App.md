@@ -107,9 +107,12 @@ The three layouts mentioned above are what our example uses. But in the real wor
 ## Audit data storage
 When an audit is performed, the data for that audit is stored in two tables: `AuditHeader` and `AuditItem`.
 
-- Columns TS, a time stamp that represents as the point in the time the audit was started. It also serves as primary key.
-- Name is the name of the audit, it refers to the same audit name as used int he meta data (e.g. CNCSA1 for our sample CNC machine)
-- State of audit (A for Active, D for Done). This state is set from A to D when all audit steps are set from A to D.
+### The `AuditHeader` table
+
+The `AuditHeader` table stores general data about the audit. Here are the columns it contains:
+* `TS`: A time stamp of when the audit was started. This column is the table's primary key.
+* `Name`: The name of the audit. This needs to match the name used in the audit definition tables (e.g. CNCSA1 for our CNC safety audit).
+* `State`: The state of audit. This can be either `A` for active, or `D` for done. This column is automatically set to `D` when all the audit's steps all have a `State` of `D` (in the `AuditItem` table).
 
 The screeshot shows "AuditHeader": 
 
