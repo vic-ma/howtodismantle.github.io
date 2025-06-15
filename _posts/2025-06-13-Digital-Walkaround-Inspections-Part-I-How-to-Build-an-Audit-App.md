@@ -28,11 +28,10 @@ This is how we define the audit process, or "digital walk-around":
 1. The auditor selects the audit they want to perform.
 1. The app gives step-by-step instructions for how to perform the audit. For each step:
   1. The auditor performs the instructions given by the app.
-2. They look at the list of possible audits and select the audit they want to conduct.
-3. They follow each of the steps that the app 
-3. The app guides him through several steps he must mark as done each of them
-4. Some steps might involve typing in additional information
-5. After having completed all steps the audit is considered as finished, the results are stored to document and persist them
+  1. If the step requires information from the auditor, the auditor enters that information into the app.
+  1. The auditor marks the step as done.
+  1. The app shows the next step.
+5. The audit is finished. The app saves the results into a document and persists them.
 
 To make it a bit clearer, here are the steps of our sample audit we will use in this article. It's how to conduct a safety check for a CNC machine. Each step is also one screen the user can step through. Step 4 and 5 needs input from the user.
 
