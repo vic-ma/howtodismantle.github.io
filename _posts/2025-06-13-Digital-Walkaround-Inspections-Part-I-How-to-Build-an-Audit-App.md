@@ -54,11 +54,11 @@ The following is an example of an audit. It tells the user how to perform a safe
 
 ## How to store metadata 
 
-An audit is defined by its metadata. This metadata is stored in two tables: `AuditTemplateHeader` and `AuditTemplateItems`. These tables specify the steps and structure of an audit.
+An audit is defined by its metadata. This metadata is stored in two tables: `AuditTemplateHeader` and `AuditTemplateItems`. These tables specify the structure steps of an audit.
 
 In our example, we use Peakboard Hub to store our tables. But you can any storage solution that is supported by Peakboard.
 
-The table AuditTemplateHeader has one row per audit definition. It contains a unique name and a simple description.
+The `AuditTemplateHeader` table is a list of all the audits. Each row per audit definition. It contains a unique name and a simple description.
 
 ![image](/assets/2025-06-13/010.png)
 
