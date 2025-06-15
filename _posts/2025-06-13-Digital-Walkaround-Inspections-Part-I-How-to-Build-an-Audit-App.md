@@ -74,21 +74,21 @@ The `AuditTemplateItem` table defines the steps of all the audits. Each row repr
 
 #### `AuditName`
 
-This is the name of the audit that the step belongs to. Remember that the `AuditTemplateItem` table contains the steps for *all* the audits. This column tells Peakboard which steps belong to which audits.
+`AuditName` specifies the audit that the step belongs to. Remember that the `AuditTemplateItem` table contains the steps for *all* the audits. This column tells Peakboard which steps belong to which audits.
 
 The `AuditName` column must match the `Name` column of the corresponding audit in the `AuditTemplateHeader` table. Notice that `CNCSA1` also appears in our example `AuditTemplateHeader`  table.
 
 #### `StepNo`
 
-This is the number of the step. So the first step has `StepNo` 0, the second step has `StepNo` 1, etc. This column tells Peakboard how to order the steps of each audit.
+`StepNo` specifies the number of the step. So the first step has `StepNo` 0, the second step has `StepNo` 1, etc. This column tells Peakboard how to order the steps of each audit.
 
 #### `Layout`
 
-The most important column is "Layout". It will define how this step is represented  when the audit is displayed to used in the app. Our five sample steps shown in the screenshot have three different layouts:
+`Layout` specifies the visual layout of the step. Our example CNC safety audit from before uses three different layouts:
 
-- FT01 -> Is just a normal text in combination with an image. The user can only mark this step as done, no other input options
-- ENTRY01 -> Is a text with an image PLUS a text field for the user to enter some freely choosen text 
-- CHOICE01 -> Is a text with an image PLUS a multiple choice out of three different options.
+* `FT01`: Text and an image. The user can only mark this step as done. No other input is possible.
+* `ENTRY01`: Text and an image *plus* a text field.  This lets the user enter whatever text input they want.
+* `CHOICE01`: Text and an image *plus* a three-option multiple choice form. This lets the user select one of three pre-determined options.
 
 The fields Var01 to Var05 are five multipurpose columns that can contain actual content that is used as content on the screen defined by the "Layout" column. Could be text, could be the URL of an image, could be possible choices or the multiple choice screen. It depends on the layout.
 
