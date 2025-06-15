@@ -1,19 +1,19 @@
 ---
 layout: post
-title: Digital Walk-Around Inspections Part I - How to Build an Audit App
+title: Digital Walk-Around Inspections Part I - How to Build an Auditing App
 date: 2023-03-01 03:00:00 +0200
 tags: bestpractice usecase
 image: /assets/2025-06-13/title.png
 image_landscape: /assets/2025-06-13/title_landscape.png
 bg_alternative: true
 read_more_links:
-  - name: Digital Walkaround Inspections Part II - How to Build an Audit App
+  - name: Digital Walkaround Inspections Part II - How to Build an Auditing App
     url: /Digital-Walkaround-Inspections-Part-II-How-to-Build-an-Audit-App.html
 downloads:
   - name: MyAudit.pbmx
     url: /assets/2025-06-13/MyAudit.pbmx
 ---
-This article is the first part of our two-part series on how to build an audit app with Peakboard. In this article, we discuss the theoretical background on how to structure an audit app, and how to define the necessary tables to store the metadata and actual data.
+This article is the first part of our two-part series on how to build an auditing app with Peakboard. In this article, we explain the architecture of an auditing app, and explain how the audit definition and audit data tables work.
 
 In [the second part](/Digital-Walkaround-Inspections-Part-II-How-to-Build-an-Audit-App.html) of this series, we discuss how to actually build and operate the app. 
 
