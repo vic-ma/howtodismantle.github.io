@@ -72,25 +72,23 @@ The `AuditTemplateItem` table defines the steps of all the audits. Each row repr
 
 ![image](/assets/2025-06-13/020.png)
 
-#### `AuditName`
-
+#### Audit name
 `AuditName` specifies the audit that the step belongs to. Remember that the `AuditTemplateItem` table contains the steps for *all* the audits. This column tells Peakboard which steps belong to which audits.
 
 The `AuditName` column must match the `Name` column of the corresponding audit in the `AuditTemplateHeader` table. Notice that `CNCSA1` also appears in our example `AuditTemplateHeader`  table.
 
-#### `StepNo`
-
+#### Step number
 `StepNo` specifies the number of the step. So the first step has `StepNo` 0, the second step has `StepNo` 1, etc. This column tells Peakboard how to order the steps of each audit.
 
-#### `Layout`
-
+#### Layout
 `Layout` specifies the visual layout of the step. Our example CNC safety audit from before uses three different layouts:
 
 * `FT01`: Text and an image. The user can only mark this step as done. No other input is possible.
 * `ENTRY01`: Text and an image *plus* a text field.  This lets the user enter whatever text input they want.
 * `CHOICE01`: Text and an image *plus* a three-option multiple choice form. This lets the user select one of three pre-determined options.
 
-The fields Var01 to Var05 are five multipurpose columns that can contain actual content that is used as content on the screen defined by the "Layout" column. Could be text, could be the URL of an image, could be possible choices or the multiple choice screen. It depends on the layout.
+#### Variables
+The columns `Var01` to `Var05` are variable columns that store data for the step's layout. You can think of them as parameters for the step's layout. Could be text, could be the URL of an image, could be possible choices or the multiple choice screen. It depends on the layout.
 
 For all layouts Var01 is always the headline, Var02 is always multiline text to explain the step. Beside this,
 
