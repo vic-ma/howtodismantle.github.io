@@ -88,7 +88,19 @@ The `AuditName` column must match the `Name` column of the corresponding audit i
 * `CHOICE01`: Text and an image *plus* a three-option multiple choice form. This lets the user select one of three pre-determined options.
 
 #### Variables
-The columns `Var01` to `Var05` are variable columns that store data for the step's layout. You can think of them as parameters for the step's layout. Could be text, could be the URL of an image, could be possible choices or the multiple choice screen. It depends on the layout.
+The columns `Var01` to `Var05` are variable columns that the data for each step. Here's an explanation of how they work.
+
+For every layout:
+* `Var01` is the title of the step.
+* `Var02` is the text instructions of the step.
+
+If the layout is `FT01` or `ENTRY01`:
+* `Var03` is the URL of an image that appears on the step.
+
+If the layout is `CHOICE01`:
+* `Var03`, `Var04`, and `Var05` are the three multiple choice options.
+
+If the layout is 
 
 For all layouts Var01 is always the headline, Var02 is always multiline text to explain the step. Beside this,
 
