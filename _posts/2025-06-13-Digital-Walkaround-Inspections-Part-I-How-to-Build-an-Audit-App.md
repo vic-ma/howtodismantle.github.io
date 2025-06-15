@@ -100,17 +100,9 @@ If the layout is `FT01` or `ENTRY01`:
 If the layout is `CHOICE01`:
 * `Var03`, `Var04`, and `Var05` are the three multiple choice options.
 
-If the layout is 
+It's important to understand how the layout and variables work, because it's the central idea of our data structure.
 
-For all layouts Var01 is always the headline, Var02 is always multiline text to explain the step. Beside this,
-
-- Var03 is the URL for the image to be shown, but only when layout is FT01 or ENTRY01
-- Var03, Var04, Var05 are the three multiple choice options, but only when layout is ENTRY01
-
-It's very important to understand this logic and combination of variables and layout. Because it's the central idea of our data structure.
-
-
-The three layouts mentioned above only apply to our sample use case and how audits are conducted in our sample company. In the real world, there might by other or more layouts. It's even possible to extend the number of variables from 5 to 10 or 15, if it's necessary. It depends on the content.
+The three layouts mentioned above are what our example uses. But in the real world, you might use other layouts, or more layouts. It's even possible to extend the number of variables to 10 or 15, if necessary. It all depends on your specific use case.
 
 ## Data storage for the actual audit transactions
 
