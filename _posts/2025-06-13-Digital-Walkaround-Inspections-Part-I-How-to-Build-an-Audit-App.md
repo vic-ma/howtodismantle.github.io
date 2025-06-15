@@ -115,8 +115,8 @@ The `AuditHeader` table stores general data about each audit run. It contains on
 
 Here's an overview of the columns:
 * `TS`: A time stamp of when the audit was started. This column is the table's primary key.
-* `Name`: The name of the audit. This needs to match the name used in the audit definition tables (e.g. CNCSA1 for our CNC safety audit).
-* `State`: The state of audit. This can be either `A` for active, or `D` for done. This column is automatically set to `D` when all the audit's steps all have a `State` of `D` (in the `AuditItem` table).
+* `Name`: The name of the audit. This matches the name used in the audit definition tables (e.g. CNCSA1 for our CNC safety audit).
+* `State`: The state of audit. This is either `A` for active, or `D` for done. This column is automatically set to `D` when all the audit's steps all have a `State` of `D` (in the `AuditItem` table).
 
 ### The `AuditItem` table
 
@@ -125,12 +125,12 @@ The `AuditItem` table stores data about each step of every audit run. It contain
 ![image](/assets/2025-06-13/040.png)
 
 Here's an overview of the columns:
-* `TS`: The time stamp of the audit run that this step belongs to. This is a foreign key to the `AuditHeader` table.
-* `STepNo` the steps of this audit starting with 0
-* `State` of audit step (A for Active, D for Done)
-* `TSDone` the time stamp when this step was set on Done.
-* `Input01` - `Input05`, five possible columns to store the data in that the user has created as input data during audit
-* `Var01` - `Var05`, five variables with the same data as the varibales data from meta data. The meaning depends on the layout
+* `TS`: The time stamp of the audit run that this step belongs to. This is a foreign key that connects to the `AuditHeader` table.
+* `StepNo`: The step number of this step. This matches the `StepNo` column of the step definition, in the `AuditTemplateItem` table.
+* `State`: The state of this step. This is either `A` for active, or `D` for done.
+* `TSDone`: The time stamp of when this step was completed (`State` set to `D`).
+* `Input01` to `Input05`: five possible columns to store the data in that the user has created as input data during audit
+* `Var01` to `Var05`: five variables with the same data as the varibales data from meta data. The meaning depends on the layout
 
 
 ## conclusion
