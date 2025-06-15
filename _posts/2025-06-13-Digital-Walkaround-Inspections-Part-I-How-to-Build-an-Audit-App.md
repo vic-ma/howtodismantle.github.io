@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Digital Walkaround Inspections Part I - How to Build an Audit App
+title: Digital Walk-Around Inspections Part I - How to Build an Audit App
 date: 2023-03-01 03:00:00 +0200
 tags: bestpractice usecase
 image: /assets/2025-06-13/title.png
@@ -13,15 +13,15 @@ downloads:
   - name: MyAudit.pbmx
     url: /assets/2025-06-13/MyAudit.pbmx
 ---
-This article is part one of our series on how to build an audit app with Peakboard. In this article, we discuss the theoretical background on how to structure an audit app, and how to define the necessary tables to store the metadata and actual data.
+This article is the first part of our two-part series on how to build an audit app with Peakboard. In this article, we discuss the theoretical background on how to structure an audit app, and how to define the necessary tables to store the metadata and actual data.
 
-In [the second part](/Digital-Walkaround-Inspections-Part-II-How-to-Build-an-Audit-App.html) of this series, we discuss how to build and operate the actual app. 
+In [the second part](/Digital-Walkaround-Inspections-Part-II-How-to-Build-an-Audit-App.html) of this series, we discuss how to actually build and operate the app. 
 
-Note that the structure and process shown in these articles is very simple and might not satisfy every requirement for an audit process and visual walkaround. The idea is, that the structure is simple and flexible, that it can be easy adjusted to literally every special need a company might have around that topic. So actually it's designed to be easily enhanced and adjusted.
+Note that the structure and process we show in these articles is very simple and might not satisfy all the requirements of an audit process and visual walk-around. But the structure is simple and flexible, so you can easily adjust it to suit your company's needs.
 
-## What is an audit and how does it look like?
+## What is an audit and what does it look like?
 
-In our definition the actual process of an audit or a "digital walkaround" works like this:
+This is how we define the audit process, or "digital walk-around":
 
 1. The auditor opens the app on his tablet
 2. From a list of possible audits he selects one he wants to conduct
