@@ -52,11 +52,11 @@ The following is an example of an audit. It tells the user how to perform a safe
 5. Tell the user the inspect the lubricant canister, and record the amount of remaining lubricant in the app.
 ![image](/assets/2025-06-13/AuditStep5.png)
 
-## How to store metadata 
+## How to define audits
 
-An audit is defined by its metadata. This metadata is stored in two tables: `AuditTemplateHeader` and `AuditTemplateItem`. These tables specify the structure and steps of the audits.
+Audits are defined by two tables: `AuditTemplateHeader` and `AuditTemplateItem`. These tables specify the structure and content of every audit.
 
-In our example, we used Peakboard Hub to store our tables. But you can any storage solution that is supported by Peakboard.
+In our example, we used Peakboard Hub to store these tables. But you can any storage solution that is supported by Peakboard.
 
 ### The `AuditTemplateHeader` table
 The `AuditTemplateHeader` table is a list of all the audits. It contains one row for each audit. Each row has two columns:
@@ -104,9 +104,8 @@ It's important to understand how the layout and variables work, because it's the
 
 The three layouts mentioned above are what our example uses. But in the real world, you might use other layouts, or more layouts. It's even possible to extend the number of variables to 10 or 15, if necessary. It all depends on your specific use case.
 
-## Data storage for the actual audit transactions
-
-In the last paragraph we desicussed how to store the meta data of an audit. For the actual audit, that is conduected, the data is stored in the table "AuditHeader" and "AuditItem".
+## Audit data storage
+When an audit is performed, the data for that audit is stored in two tables: `AuditHeader` and `AuditItem`.
 
 - Columns TS, a time stamp that represents as the point in the time the audit was started. It also serves as primary key.
 - Name is the name of the audit, it refers to the same audit name as used int he meta data (e.g. CNCSA1 for our sample CNC machine)
