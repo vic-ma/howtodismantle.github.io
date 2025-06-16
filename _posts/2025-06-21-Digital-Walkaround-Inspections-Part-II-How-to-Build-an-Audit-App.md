@@ -97,15 +97,25 @@ Here's a screen with the `FT01` layout. As you can see, it displays the text fro
 
 ![image](/assets/2025-06-21/080.png)
 
-## Putting a step to done
+## Mark as done button
 
-Let's discuss the procedure behind the "Mark as Done" button which can be found on any layout screen. The screenshots shows another layout. It's the "ENTRY01" layout where the user can or must make an input entry.
+Let's discuss the script behind the *Mark as Done* button. Each layout screen has this button. However, the script for the button differs a bit, based on the specific layout. This is because each layout takes different input from the user (no input, text, or multiple choice).
+
+Let's use the `ENTRY01` layout as an example. This layout lets the user enter text:
 
 ![image](/assets/2025-06-21/090.png)
 
-Here's the logic behind the "Mark as done" button. We just write back to the hub list into the table AuditItem and set the state to D for Done, and also we store the user's input  to one of the input variable columns. In that case "Input01". Then we do a reload to make sure the changed data is available on our datasource. Calling the function "ActivateStep" is re-adjusting the UI elements (e.g. set the "Mark as done" button to disabled)
+Here's the script for the *Mark as Done* button for the `ENTRY01` layout:
 
 ![image](/assets/2025-06-21/100.png)
+
+The script adds a row to our `ActiveAuditItems` table, in Peakboard Hub (you may be using a different storage solution). It sets the following rows:
+* Set `Input01` to the text that the user entered into the text field.
+* Set `State` to  `D`, to mark this step as done.
+* Set `TSDone` to the current time, to record the time that the step was completed.
+
+We just write back to the hub list into the table AuditItem and set the state to D for Done, and also we store the user's input  to one of the input variable columns. In that case "Input01". Then we do a reload to make sure the changed data is available on our datasource. Calling the function "ActivateStep" is re-adjusting the UI elements (e.g. set the "Mark as done" button to disabled)
+
 
 ## result
 
