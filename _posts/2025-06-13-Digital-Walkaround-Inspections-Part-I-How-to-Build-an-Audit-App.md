@@ -19,18 +19,18 @@ In [the second part](/Digital-Walkaround-Inspections-Part-II-How-to-Build-an-Aud
 
 Note that the examples we use in these articles are simple and may not satisfy all the requirements of a real-world audit and visual walk-around. But the basic process is the same, and you can easily customize the auditing app to suit your needs. 
 
-## What is an audit and what does it look like?
+## What does an audit look like?
 
-This is what the audit process, or "digital walk-around," looks like:
+This is what an audit, or "digital walk-around," looks like:
 
-1. The user opens the auditing app on their tablet.
-1. The app presents a list of possible audits.
-1. The user selects the audit they want to perform.
-1. The app gives step-by-step instructions for how to perform the audit. For each step:
-    1. The user performs the instructions given by the app.
+1. The user opens an auditing app on their tablet.
+1. The app presents the user with a list of possible audits.
+1. The user selects the audit they wish to perform.
+1. The app gives the user step-by-step instructions for how to perform the audit. For each step:
+    1. The user follows the instructions for that step.
     1. If the step requires information from the user, the user enters that information into the app.
     1. The user marks the step as done.
-    1. The app shows the next step.
+    1. The user moves on to the next step.
 5. The audit is finished. The app saves the results into a document and persists them.
 
 ## Example audit
