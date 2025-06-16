@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Digital Walk-Around Inspections Part I - How to Build an Auditing App
-date: 2023-03-01 03:00:00 +0200
+date: 2023-06-13 03:00:00 +0200
 tags: bestpractice usecase
 image: /assets/2025-06-13/title.png
 image_landscape: /assets/2025-06-13/title_landscape.png
