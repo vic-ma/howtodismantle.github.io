@@ -76,9 +76,14 @@ It reloads `ActiveAuditHeader` and `ActiveAuditItems`. It sets `ActiveStep` to 0
 
 ## Load a single audit step
 
-The actual magic is happening when a new single step is loaded or ativated. This is coded within the function "ActivateStep". First we check, if the step is valid. If not we pop out an error message. In case there are only D steps (D for DOne), we set the overall state of the audit also to D. This case covers the end of the audit when all steps are done.
+The `ActivateStep` function loads a single audit step. This is how the app switches between steps of an audit.
 
 ![image](/assets/2025-06-21/070.png)
+
+Here's how it works:
+
+1. We check if the step is valid. If not, we send an error message.
+2. We check if all the steps of the active audit are completed. (Does any step have a `State` of `A`?) If the steps are all completed, we set the `State` of the audit to `D` (done).
 
 The more important branch is a vlaid, active step. In that case we check for the layout. Depening on the layout in the metadata the corresponding screen is loaded and all variables are set to screen elements (monstly but not limited to textboxes). Through this process the layout value determines the screen to be shown for a certain step.
 
