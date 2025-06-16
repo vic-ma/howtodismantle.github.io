@@ -78,16 +78,18 @@ It reloads `ActiveAuditHeader` and `ActiveAuditItems`. It sets `ActiveStep` to 0
 
 The `ActivateStep` function loads a single audit step. This is how the app switches between steps of an audit.
 
+The script is based on an if-statement that checks if the step is valid or not. If the step is not valid (step number is higher than the number of steps in the active audit), then this is what happens:
+
 ![image](/assets/2025-06-21/070.png)
 
-Here's how it works:
+1. Send an error message.
+2. Check if all the steps of the active audit are completed. If all the steps are completed, set the `State` of the audit to `D` (done).
 
-1. We check if the step is valid. If not, we send an error message.
-2. We check if all the steps of the active audit are completed. (Does any step have a `State` of `A`?) If the steps are all completed, we set the `State` of the audit to `D` (done).
-
-The more important branch is a vlaid, active step. In that case we check for the layout. Depening on the layout in the metadata the corresponding screen is loaded and all variables are set to screen elements (monstly but not limited to textboxes). Through this process the layout value determines the screen to be shown for a certain step.
+If the step is valid, this is what happens:
 
 ![image](/assets/2025-06-21/071.png)
+
+The script gets the `Layout` of the step. Then, it sets all the appropriate variables and displays the screen for the step. The exact details of how this works depends on which layout the step uses.
 
 Let's check a sample screen with layout "FT01". There are two test fields to be filled with Var1 and Var2, and also an image to be filled with an URL which is stored in Var3.
 
