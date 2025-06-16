@@ -69,9 +69,7 @@ The load-existing-audit screen shows a list of existing audits. The user can sel
 
 ![image](/assets/2025-06-21/050.png)
 
-The buttons according to the filter TS. The active step is set to 0, so we always start with the first screen and activate it.
-
-Here is the Building Blocks script for this screen:
+Here is the Building Blocks script:
 
 ![image](/assets/2025-06-21/060.png)
 
