@@ -31,10 +31,9 @@ The main screen of our app is very simple. It has two buttons:
 
 Here are the data sources we need:
 
-- The `ActiveAuditHeader` data source points to the `AuditHeader` table. The `ActiveAuditItem` data source points to the `AuditItem` table.
-    - Both data sources have a filter on the `TS` (timestamp) column, filled with variable `ActiveTS`.
-- The `AllAuditHeader` data source contains all the possible audits. We need this for the overview screen, so the user can pick the audit they want to perform. The filter is "State" in case the user chooses to filter only active audits
-- AuditTemplateHeader nd AuditTemplateItem contains all metadata of audit and corresponds to the same table in the Hub.
+- The `ActiveAuditHeader` data source points to the `AuditHeader` table. The `ActiveAuditItem` data source points to the `AuditItem` table. Both data sources have a filter on the `TS` (timestamp) column, filled with variable `ActiveTS`.
+- The `AllAuditHeader` data source contains all the possible audits. We need this for the overview screen, so the user can pick the audit they want to perform. The filter is `State`, which lets the user filter for active audits only.
+- The `AuditTemplateHeader` and `AuditTemplateItem` data sources contain all the audit definitions, and they correspond to the same tables in our Peakboard Hub (or whatever storage solution you chose; see our [last article](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html) for more information).
 
 Here are the variables we need:
 
