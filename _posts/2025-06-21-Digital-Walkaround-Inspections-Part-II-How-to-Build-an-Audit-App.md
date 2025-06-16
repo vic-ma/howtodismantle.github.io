@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Digital Walkaround Inspections Part II - How to Build an Audit App
+title: Digital Walkaround Inspections Part II - How to Build an Auditing App
 date: 2023-03-01 03:00:00 +0200
 tags: bestpractice usecase
 image: /assets/2025-06-21/title.png
@@ -13,7 +13,7 @@ downloads:
   - name: MyAudit.pbmx
     url: /assets/2025-06-13/MyAudit.pbmx
 ---
-In [the last article](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html) we already discussed what an audit is and how the necessary data stucture looks like. We understand, that the meta data of an audit is stored in the table "AuditTemplateHeader" an "AuditTemplateItem". While the actual audit including the input of the user is stored in the table "AutiHeader" and "AuditItem". We also discussed the sample data that is necessary to conduct a CNC machine walkthrough.
+In [our last article](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html), we explained what an auditing app is and how the underlying tables work. The audit definitions are stored in the `AuditTemplateHeader` and `AuditTemplateItem` tables. And the audit run data is stored in the `AuditHeader` and `AuditItem` tables. We also discussed the sample data that is necessary to conduct a CNC machine walkthrough.
 
 In this second part of the mini series we will learn how to build the actual Peakboard application on top of this data structure.
 
