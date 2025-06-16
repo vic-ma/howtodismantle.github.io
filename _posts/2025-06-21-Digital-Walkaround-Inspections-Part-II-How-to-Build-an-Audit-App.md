@@ -15,11 +15,11 @@ downloads:
 ---
 In [our last article](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html), we explained what an auditing app is and how the underlying tables work. The audit definitions are stored in the `AuditTemplateHeader` and `AuditTemplateItem` tables. And the audit run data is stored in the `AuditHeader` and `AuditItem` tables. We also discussed the sample data that is necessary to conduct a CNC machine walkthrough.
 
-In this second part of our auditing app mini series, we will explain how to build an auditing app in Peakboard, using the tables that we discussed in our last article.
+In this second part of our auditing app mini-series, we explain how to build an auditing app in Peakboard, using the architecture that we discussed in our last article.
 
 ## Main screen
 
-The main screen of our app is very simple. It has two buttons:
+The main screen of our app is simple. It has two buttons:
 * One for creating a new audit from a template.
 * One for loading an existing audit.
 
@@ -31,9 +31,12 @@ The main screen of our app is very simple. It has two buttons:
 
 Here are the data sources we need:
 
-- The `ActiveAuditHeader` data source points to the `AuditHeader` table. The `ActiveAuditItem` data source points to the `AuditItem` table. For both of these data sources, we use the filter `TS == {ActiveTS}`. That way, the data sources only give information for the active audit.
-- The `AllAuditHeader` data source contains all the possible audits. We need this for the overview screen, so the user can pick the audit they want to perform. We use the filter `State == {AuditFilter}`. This lets the UI switch between open and completed audits.
-- The `AuditTemplateHeader` and `AuditTemplateItem` data sources contain all the audit definitions, and they correspond to the same tables in our Peakboard Hub (or whatever storage solution you're using; see our [last article](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html) for more information).
+- `ActiveAuditHeader` and `ActiveAuditItem`
+    * These data sources point to the `AuditHeader` and `AuditItem` tables, respectively. For both of these data sources, we use the filter `TS == {ActiveTS}`. That way, the data sources only give information for the active audit.
+- `AllAuditHeader`
+    * This data source contains all the possible audits. We need this for the overview screen, so that the user can pick the audit they want to perform. We use the filter `State == {AuditFilter}`. This lets the UI switch between open and completed audits.
+- `AuditTemplateHeader` and `AuditTemplateItem`
+    * These data sources contain all the audit definitions, and they correspond to the same tables in our Peakboard Hub (or whatever storage solution you're using; see our [last article](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html) for more information).
 
 Here are the variables we need:
 
