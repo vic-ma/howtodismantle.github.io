@@ -118,16 +118,10 @@ Then, the script reloads the `ActiveAuditItems` list so that our data source can
 
 Finally, the script calls the `ActivateStep` function, to adjust UI elements appropriately (e.g. disable the *Mark as Done* button).
 
+## Result
 
-
-## result
-
-The animation shows the audit with our example data. First a new audit is generated from a tamplate. Then the audit starts and every step is marked as done. Two of the steps require the user's input.
-It's very important to understand that our example only shows a small part od the options. It's easy to use the same architecture and principle to build even very complex audits with lot's of different layouts and much more user input. For the sake of clearity we only did a very simple example here.
+The following video shows what our audit app looks like. First, we select the CNC safety audit. Then we mark each step of the audit as done. Two of the steps require user input.
 
 ![image](/assets/2025-06-21/result.gif)
 
-
-
-
-
+It's important to note that we only gave a small demonstration of what's possible with this architecture. It's easy to use the same architecture to build highly complex audits with many different layouts and much more user input.
