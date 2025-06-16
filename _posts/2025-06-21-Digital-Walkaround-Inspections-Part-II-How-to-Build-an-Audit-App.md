@@ -59,7 +59,7 @@ Here is the Building Blocks script for the *Create new audit* buttons:
 
 ![image](/assets/2025-06-21/040.png)
 
-We use `TS` (timestamp) as a database key to build a relationship between header and items.
+We use `TS` (timestamp) as a database key to build a relationship between headers and items.
 
 We copy the template header into the new audit header. And we copy all the template items into the new audit items. This includes all 5 variables of the item template.
 
