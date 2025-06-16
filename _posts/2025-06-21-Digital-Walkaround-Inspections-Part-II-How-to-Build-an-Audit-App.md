@@ -7,7 +7,7 @@ image: /assets/2025-06-21/title.png
 image_landscape: /assets/2025-06-21/title_landscape.png
 bg_alternative: true
 read_more_links:
-  - name: Digital Walkaround Inspections Part I - How to Build an Audit App
+  - name: Digital Walkaround Inspections Part I - How to Build an Auditing App
     url: /Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html
 downloads:
   - name: MyAudit.pbmx
@@ -15,11 +15,13 @@ downloads:
 ---
 In [our last article](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html), we explained what an auditing app is and how the underlying tables work. The audit definitions are stored in the `AuditTemplateHeader` and `AuditTemplateItem` tables. And the audit run data is stored in the `AuditHeader` and `AuditItem` tables. We also discussed the sample data that is necessary to conduct a CNC machine walkthrough.
 
-In this second part of the mini series we will learn how to build the actual Peakboard application on top of this data structure.
+In this second part of our auditing app mini series, we will explain how to build an auditing app in Peakboard, using the tables that we discussed in our last article.
 
-## Main Screen
+## Main screen
 
-The main Screen is super simple, just these two buttons. One for creating a new audit from a template, one for launching an existing audit.
+The main screen of our app is very simple. It has two buttons:
+* One for creating a new audit from a template.
+* One for loading an existing audit.
 
 ![image](/assets/2025-06-21/010.png)
 
