@@ -72,7 +72,7 @@ The `AuditTemplateHeader` table is a list of all the audits. It contains one row
 
 ### The `AuditTemplateItem` table
 
-The `AuditTemplateItem` table defines the steps of all the audits. Each row represents a single step in an audit. The following is an overview of all the columns of this table.
+The `AuditTemplateItem` table defines the steps of all the audits. Each row represents a single step in an audit. The following is an overview of all the columns in this table.
 
 ![image](/assets/2025-06-13/020.png)
 
@@ -90,8 +90,8 @@ The `AuditName` column must match the `Name` column of the corresponding audit i
 | Layout | Description |
 | - | - |
 `FT01` | Text and an image. The user can only mark this step as done. No other input is possible.
-`ENTRY01` | Text and an image *plus* a text field.  This lets the user enter whatever text input they want.
-`CHOICE01` | Text and an image *plus* a three-option multiple choice form. This lets the user select one of three pre-determined options.
+`ENTRY01` | Text and an image *plus* a text field.  The text field lets the user enter whatever text input they want.
+`CHOICE01` | Text and an image *plus* a three-option multiple choice form. The form lets the user select one of three pre-determined options.
 
 #### Variables
 The columns `Var01` to `Var05` are variable columns that specify the data for each step. Here's an explanation of how they work.
