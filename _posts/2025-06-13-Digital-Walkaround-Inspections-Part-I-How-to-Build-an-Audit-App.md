@@ -125,11 +125,11 @@ Here's an overview of the columns:
 | - | - |
 | `TS` | A time stamp of when the audit was started. This column is the table's primary key.
 | `Name` | The name of the audit. This matches the name used in the audit definition tables (e.g. CNCSA1 for our CNC safety audit).
-| `State` | The completion status of the audit. This is either `A` for active, or `D` for done. This column is automatically set to `D` when all the audit's steps all have a `State` of `D` (in the `AuditItem` table).
+| `State` | The completion status of the audit. This is either `A` for active, or `D` for done. This column is automatically set to `D` when each of the audit's individual steps have a `State` of `D` (in the `AuditItem` table).
 
 ### The `AuditItem` table
 
-The `AuditItem` table stores data about each step of every audit run. It contains one row for each step, for each audit run.
+The `AuditItem` table is a list of every step in every audit run. It contains one row for each step, for each audit run.
 
 ![image](/assets/2025-06-13/040.png)
 
@@ -138,13 +138,13 @@ Here's an overview of the columns:
 | Column | Description |
 | - | - |
 | `TS` | The time stamp of the audit run that this step belongs to. This is a foreign key that connects to the `AuditHeader` table.
-| `StepNo` | The step number of this step. This matches the `StepNo` column of the step definition, in the `AuditTemplateItem` table.
+| `StepNo` | The step number of this step. This matches the `StepNo` column of the step's definition, in the `AuditTemplateItem` table.
 | `State` | The completion status of this step. This is either `A` for active, or `D` for done.
-| `TSDone` | The time stamp of when this step was completed (`State` set to `D`).
+| `TSDone` | The time stamp of when this step was completed (the time when `State` was set to `D`).
 | `Input01` to `Input05` | Columns that store user-submitted data.
-| `Var01` to `Var05` | Columns that match the `Var01` to `Var05` columns of the step definition, in the `AuditTemplateItem` table.
-| `Layout` | The layout of this step. This matches the `Layout` column of the step definition, in the `AuditTemplateItem` table.
+| `Var01` to `Var05` | Columns that match the `Var01` to `Var05` columns of the step's definition, in the `AuditTemplateItem` table.
+| `Layout` | The layout of this step. This matches the `Layout` column of the step's definition, in the `AuditTemplateItem` table.
 
 ## Conclusion
 
-To build an audit application, you need to understand the architecture of the underlying data structures: both the audit definition and audit data tables. That's what we discussed in this article. In [the second part](/Digital-Walkaround-Inspections-Part-II-How-to-Build-an-Audit-App.html) we will explain how to build the actual application and run the audit.
+To build an audit application, you need to understand the architecture of the underlying data structure: both the audit definition and audit data tables. That's what we discussed in this article. In [the second part](/Digital-Walkaround-Inspections-Part-II-How-to-Build-an-Audit-App.html) of this two-part series, we will explain how to build the actual application and run the audit.
