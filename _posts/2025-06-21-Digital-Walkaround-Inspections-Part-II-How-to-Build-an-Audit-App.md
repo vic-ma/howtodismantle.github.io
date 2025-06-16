@@ -31,8 +31,9 @@ The main screen of our app is very simple. It has two buttons:
 
 Here are the data sources we need:
 
-- ActiveAuditHeader and ActiveAuditItem point to the AuditHeader and AuditItem tables. There is a filter on the `TS` (timestamp) column, filled with variable `ActiveTS`.
-- AllAuditHeader contains all audits. We need this for the overview so the user can pick one. The filter is "State" in case the user chooses to filter only active audits
+- The `ActiveAuditHeader` data source points to the `AuditHeader` table. The `ActiveAuditItem` data source points to the `AuditItem` table.
+    - Both data sources have a filter on the `TS` (timestamp) column, filled with variable `ActiveTS`.
+- The `AllAuditHeader` data source contains all the possible audits. We need this for the overview screen, so the user can pick the audit they want to perform. The filter is "State" in case the user chooses to filter only active audits
 - AuditTemplateHeader nd AuditTemplateItem contains all metadata of audit and corresponds to the same table in the Hub.
 
 Here are the variables we need:
