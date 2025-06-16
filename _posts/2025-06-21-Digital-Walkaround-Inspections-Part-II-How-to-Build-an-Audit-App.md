@@ -93,6 +93,8 @@ The script gets the `Layout` of the step. Then, it sets all the appropriate vari
 
 Let's check a sample screen with layout "FT01". There are two test fields to be filled with Var1 and Var2, and also an image to be filled with an URL which is stored in Var3.
 
+Here's a screen with the `FT01` layout. As you can see, it displays the text from `Var1` and `Var2`. It also displays an image, using the URL from `Var3`.
+
 ![image](/assets/2025-06-21/080.png)
 
 ## Putting a step to done
