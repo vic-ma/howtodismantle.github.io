@@ -13,11 +13,11 @@ downloads:
   - name: MyAudit.pbmx
     url: /assets/2025-06-13/MyAudit.pbmx
 ---
-This article is the first part of our two-part series on how to build an auditing app with Peakboard. In this article, we explain the architecture of an auditing app, and explain how the audit definition and audit data tables work.
+This article is the first part of our two-part series on how to build an auditing app with Peakboard. In this article, we explain the architecture of an auditing app, including how the audit definition and audit data tables work.
 
-In [the second part](/Digital-Walkaround-Inspections-Part-II-How-to-Build-an-Audit-App.html) of this series, we discuss how to actually build and operate an auditing app. 
+In [the second part](/Digital-Walkaround-Inspections-Part-II-How-to-Build-an-Audit-App.html) of this series, we discuss how to build and operate an auditing app. 
 
-Note that the structure and process we show in these articles is very simple and might not satisfy all the requirements of an audit process and visual walk-around. But the structure is simple and flexible, so you can easily adjust it to suit your company's needs.
+Note that the examples we use in these articles are simple and may not satisfy all the requirements of a real-world audit and visual walk-around. But the basic process is the same, and you can easily customize the auditing app to suit your needs. 
 
 ## What is an audit and what does it look like?
 
