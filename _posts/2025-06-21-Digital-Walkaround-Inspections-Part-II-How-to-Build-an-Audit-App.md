@@ -42,21 +42,23 @@ Here are the variables we need:
 | ActiveStep      | The `StepNo` (step number) of the step that's currently being displayed to the user. |
 | ActiveStepState | The `State` of the current step (we need this for the UI). |
 | ActiveTS        | The `TS` (start timestamp) of the currently active audit. |
-| AuditFilter     | A filter that the user can set, to filter the list of past audits by their `State` (`A` or `D`). |
+| AuditFilter     | The filter that the user can set, to filter the list of past audits by their `State` (`A` or `D`). |
 
 For more details, you can [download the PBMX](/assets/2025-06-13/MyAudit.pbmx).
 
-## Create a new audit
+## New audit screen
 
-The screenshot show the overview of all possible audits (table AuditTemplateHeader). The user can pick one to create a new audit from the template.
+This screenshot shows all the possible audits (using the `AuditTemplateHeader` table). The user can select one, in order to start an audit.
 
 ![image](/assets/2025-06-21/030.png)
 
-The procedure behind the create button is shown in the screenshot. The basic idea is that the template header is copied into the new audit header, and the template items are all copied in the the new audit items. This includes all 5 variables of the item template.
-
-We use the time stamp TS as a database key to build a relationship between header and items.
+Here is the Building Blocks script for the *Create new audit* buttons:
 
 ![image](/assets/2025-06-21/040.png)
+
+We use `TS` (timestamp) as a database key to build a relationship between header and items.
+
+We copy the template header into the new audit header. And we copy all the template items into the new audit items. This includes all 5 variables of the item template.
 
 ## Load an audit
 
