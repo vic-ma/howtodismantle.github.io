@@ -114,7 +114,10 @@ The script adds a row to our `ActiveAuditItems` table, in Peakboard Hub (you may
 * Set `State` to  `D`, to mark this step as done.
 * Set `TSDone` to the current time, to record the time that the step was completed.
 
-We just write back to the hub list into the table AuditItem and set the state to D for Done, and also we store the user's input  to one of the input variable columns. In that case "Input01". Then we do a reload to make sure the changed data is available on our datasource. Calling the function "ActivateStep" is re-adjusting the UI elements (e.g. set the "Mark as done" button to disabled)
+Then, the script reloads the `ActiveAuditItems` list so that our data source can see the updated data.
+
+Finally, the script calls the `ActivateStep` function, to adjust UI elements appropriately (e.g. disable the *Mark as Done* button).
+
 
 
 ## result
