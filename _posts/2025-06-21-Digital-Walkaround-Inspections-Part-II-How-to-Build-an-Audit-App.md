@@ -32,20 +32,20 @@ The main screen of our app is simple. It has two buttons:
 Here are the data sources we need:
 
 - `ActiveAuditHeader` and `ActiveAuditItem`
-    * These data sources point to the `AuditHeader` and `AuditItem` tables, respectively. For both of these data sources, we use the filter `TS == {ActiveTS}`. That way, the data sources only give information for the active audit.
+    * These data sources point to the `AuditHeader` and `AuditItem` tables, respectively. For both of these data sources, we use the filter, `TS == {ActiveTS}`. That way, the data sources only give information for the active audit.
 - `AllAuditHeader`
-    * This data source contains all the possible audits. We need this for the overview screen, so that the user can pick the audit they want to perform. We use the filter `State == {AuditFilter}`. This lets the UI switch between open and completed audits.
+    * This data source contains all the possible audits. We need this for the overview screen, so that the user can select the audit they want to perform. We use the filter, `State == {AuditFilter}`. This lets the UI switch between open and completed audits.
 - `AuditTemplateHeader` and `AuditTemplateItem`
-    * These data sources contain all the audit definitions, and they correspond to the same tables in our Peakboard Hub (or whatever storage solution you're using; see our [last article](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html) for more information).
+    * These data sources contain all the audit definitions, and they correspond to the same tables in our Peakboard Hub (or whatever storage solution you're using).
 
 Here are the variables we need:
 
 | Variable        | Description |
 | --------------- | ----------- |
-| ActiveStep      | The `StepNo` (step number) of the step that's currently being displayed to the user. |
-| ActiveStepState | The `State` of the current step (we need this for the UI). |
-| ActiveTS        | The `TS` (start timestamp) of the currently active audit. |
-| AuditFilter     | The filter that the user can set, to filter the list of past audits by their `State` (`A` or `D`). |
+| `ActiveStep`      | The `StepNo` (step number) of the step that's currently being displayed to the user. |
+| `ActiveStepState` | The `State` of the current step (we need this for the UI). |
+| `ActiveTS`       | The `TS` (start timestamp) of the currently active audit. |
+| `AuditFilter`     | The filter that's used to filter the list of past audits. This is either `A` or `D`. |
 
 For more details, you can [download the PBMX](/assets/2025-06-13/MyAudit.pbmx).
 
