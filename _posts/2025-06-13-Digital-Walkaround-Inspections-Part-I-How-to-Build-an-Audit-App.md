@@ -15,9 +15,9 @@ downloads:
 ---
 This article is the first part of our two-part series on how to build an auditing app with Peakboard. In this article, we explain the architecture of an auditing app, including how the audit definition and audit data tables work.
 
-In [the second part](/Digital-Walkaround-Inspections-Part-II-How-to-Build-an-Audit-App.html) of this series, we discuss how to build and operate an auditing app. 
+In [the second part](/Digital-Walkaround-Inspections-Part-II-How-to-Build-an-Audit-App.html) of this series, we discuss how to build and operate an auditing app.
 
-Note that the examples we use in these articles are simple and may not satisfy all the requirements of a real-world audit and visual walk-around. But the basic process is the same, and you can easily customize the auditing app to suit your needs. 
+Note that the examples we use in these articles are simple and may not satisfy all the requirements of a real-world audit and visual walk-around. But the basic process is the same, and you can easily customize the auditing app to suit your needs.
 
 ## What does an audit look like?
 
