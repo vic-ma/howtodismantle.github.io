@@ -73,7 +73,9 @@ Here is the Building Blocks script:
 
 ![image](/assets/2025-06-21/060.png)
 
-It reloads `ActiveAuditHeader` and `ActiveAuditItems`. It sets `ActiveStep` to 0---that way, we always show the user the first step (even if it's already completed).
+It reloads `ActiveAuditHeader` and `ActiveAuditItems`.
+
+It also sets `ActiveStep` to 0. That way, we always show the user the first step (even if it's already completed).
 
 ## Load a single audit step
 
@@ -90,9 +92,7 @@ If the step is valid, this is what happens:
 
 ![image](/assets/2025-06-21/071.png)
 
-The script gets the `Layout` of the step. Then, it sets all the appropriate variables and displays the screen for the step. The exact details of how this works depends on which layout the step uses.
-
-Let's check a sample screen with layout "FT01". There are two test fields to be filled with Var1 and Var2, and also an image to be filled with an URL which is stored in Var3.
+The script gets the `Layout` of the step. Then, it sets all the appropriate variables, and displays the screen for the step. The exact details of how this works depends on which layout the step uses.
 
 Here's a screen with the `FT01` layout. As you can see, it displays the text from `Var1` and `Var2`. It also displays an image, using the URL from `Var3`.
 
@@ -110,10 +110,10 @@ Here's the script for the *Mark as Done* button for the `ENTRY01` layout:
 
 ![image](/assets/2025-06-21/100.png)
 
-The script adds a row to our `ActiveAuditItems` table, in Peakboard Hub (you may be using a different storage solution). It sets the following rows:
-* Set `Input01` to the text that the user entered into the text field.
+The script adds a row to our `ActiveAuditItems` table, in Peakboard Hub (you may be using a different storage solution). It sets the following columns of the row:
+* Set `Input01` to the text that the user entered into the text field for this step.
 * Set `State` to  `D`, to mark this step as done.
-* Set `TSDone` to the current time, to record the time that the step was completed.
+* Set `TSDone` to the current time, to record the time that this step was completed.
 
 Then, the script reloads the `ActiveAuditItems` list so that our data source can see the updated data.
 
@@ -123,6 +123,6 @@ Finally, the script calls the `ActivateStep` function, to adjust UI elements app
 
 The following video shows what our audit app looks like. First, we select the CNC safety audit. Then we mark each step of the audit as done. Two of the steps require user input.
 
-![image](/assets/2025-06-21/result.gif)
+It's important to note that we only gave a small demonstration of what's possible with this architecture. It's easy to use our architecture to build highly complex auditing apps with many different layouts and much more user input.
 
-It's important to note that we only gave a small demonstration of what's possible with this architecture. It's easy to use the same architecture to build highly complex audits with many different layouts and much more user input.
+![image](/assets/2025-06-21/result.gif)
