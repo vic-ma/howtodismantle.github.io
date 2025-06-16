@@ -60,8 +60,12 @@ In our example, we used Peakboard Hub to store these tables. But you can any sto
 
 ### The `AuditTemplateHeader` table
 The `AuditTemplateHeader` table is a list of all the audits. It contains one row for each audit. Each row has two columns:
-* `Name` - the name of the audit.
-* `Description` - a short description of the audit.
+
+
+| Column | Description |
+| - | - |
+| `Name` | The name of the audit.
+| `Description` | A short description of the audit.
 
 ![image](/assets/2025-06-13/010.png)
 
