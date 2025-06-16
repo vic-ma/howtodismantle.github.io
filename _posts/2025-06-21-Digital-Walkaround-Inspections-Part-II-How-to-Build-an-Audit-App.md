@@ -25,22 +25,24 @@ The main screen of our app is very simple. It has two buttons:
 
 ![image](/assets/2025-06-21/010.png)
 
-## Preparing the data sources and variables
-
-For our app we need to prepare some data source. For details the pbmx is downloadable [here](/assets/2025-06-13/MyAudit.pbmx)
+## Prepare the data sources and variables
 
 ![image](/assets/2025-06-21/020.png)
 
-- ActiveAuditHeader and ActiveAuditItem point to the AuditHeader and AuditItem table with a filter on the column TS filled with variable ActiveTS.
+Here are the data sources we need:
+
+- ActiveAuditHeader and ActiveAuditItem point to the AuditHeader and AuditItem tables. There is a filter on the `TS` (timestamp) column, filled with variable `ActiveTS`.
 - AllAuditHeader contains all audits. We need this for the overview so the user can pick one. The filter is "State" in case the user chooses to filter only active audits
 - AuditTemplateHeader nd AuditTemplateItem contains all metadata of audit and corresponds to the same table in the Hub.
 
-For the variables we need these:
+Here are the variables we need:
 
 - ActiveStep is the active step of the currently active audit
 - ActiveStepState is the state of the current step (we need this for the UI formatting)
 - ActiveTS is the time stamp of the currently active audit
 - AuditFilter is the state the user can set when selecting an audit
+
+For more details, you can [download the PBMX](/assets/2025-06-13/MyAudit.pbmx).
 
 ## Create a new audit
 
