@@ -37,10 +37,12 @@ Here are the data sources we need:
 
 Here are the variables we need:
 
-- ActiveStep is the active step of the currently active audit
-- ActiveStepState is the state of the current step (we need this for the UI formatting)
-- ActiveTS is the time stamp of the currently active audit
-- AuditFilter is the state the user can set when selecting an audit
+| Variable        | Description |
+| --------------- | ----------- |
+| ActiveStep      | The `StepNo` (step number) of the step that's currently being displayed to the user. |
+| ActiveStepState | The `State` of the current step (we need this for the UI). |
+| ActiveTS        | The `TS` (start timestamp) of the currently active audit. |
+| AuditFilter     | A filter that the user can set, to filter the list of past audits by their `State` (`A` or `D`). |
 
 For more details, you can [download the PBMX](/assets/2025-06-13/MyAudit.pbmx).
 
