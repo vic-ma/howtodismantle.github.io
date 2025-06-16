@@ -60,8 +60,8 @@ In our example, we used Peakboard Hub to store these tables. But you can any sto
 
 ### The `AuditTemplateHeader` table
 The `AuditTemplateHeader` table is a list of all the audits. It contains one row for each audit. Each row has two columns:
-* `Name`, the name of the audit.
-* `Description`, a short description of the audit.
+* `Name` - the name of the audit.
+* `Description` - a short description of the audit.
 
 ![image](/assets/2025-06-13/010.png)
 
@@ -83,9 +83,11 @@ The `AuditName` column must match the `Name` column of the corresponding audit i
 #### Layout
 `Layout` specifies the visual layout of the step. Our example CNC safety audit from before uses three different layouts:
 
-* `FT01`: Text and an image. The user can only mark this step as done. No other input is possible.
-* `ENTRY01`: Text and an image *plus* a text field.  This lets the user enter whatever text input they want.
-* `CHOICE01`: Text and an image *plus* a three-option multiple choice form. This lets the user select one of three pre-determined options.
+| Layout | Description |
+| - | - |
+`FT01` | Text and an image. The user can only mark this step as done. No other input is possible.
+`ENTRY01` | Text and an image *plus* a text field.  This lets the user enter whatever text input they want.
+`CHOICE01` | Text and an image *plus* a three-option multiple choice form. This lets the user select one of three pre-determined options.
 
 #### Variables
 The columns `Var01` to `Var05` are variable columns that specify the data for each step. Here's an explanation of how they work.
@@ -114,9 +116,12 @@ The `AuditHeader` table stores general data about each audit run. It contains on
 ![image](/assets/2025-06-13/030.png)
 
 Here's an overview of the columns:
-* `TS`: A time stamp of when the audit was started. This column is the table's primary key.
-* `Name`: The name of the audit. This matches the name used in the audit definition tables (e.g. CNCSA1 for our CNC safety audit).
-* `State`: The completion status of audit. This is either `A` for active, or `D` for done. This column is automatically set to `D` when all the audit's steps all have a `State` of `D` (in the `AuditItem` table).
+
+| Column | Description |
+| - | - |
+| `TS` | A time stamp of when the audit was started. This column is the table's primary key.
+| `Name` | The name of the audit. This matches the name used in the audit definition tables (e.g. CNCSA1 for our CNC safety audit).
+| `State` | The completion status of audit. This is either `A` for active, or `D` for done. This column is automatically set to `D` when all the audit's steps all have a `State` of `D` (in the `AuditItem` table).
 
 ### The `AuditItem` table
 
@@ -125,13 +130,16 @@ The `AuditItem` table stores data about each step of every audit run. It contain
 ![image](/assets/2025-06-13/040.png)
 
 Here's an overview of the columns:
-* `TS`: The time stamp of the audit run that this step belongs to. This is a foreign key that connects to the `AuditHeader` table.
-* `StepNo`: The step number of this step. This matches the `StepNo` column of the step definition, in the `AuditTemplateItem` table.
-* `State`: The completion status of this step. This is either `A` for active, or `D` for done.
-* `TSDone`: The time stamp of when this step was completed (`State` set to `D`).
-* `Input01` to `Input05`: Columns that store user-submitted data.
-* `Var01` to `Var05`: Columns that match the `Var01` to `Var05` columns of the step definition, in the `AuditTemplateItem` table.
-* `Layout`: The layout of this step. This matches the `Layout` column of the step definition, in the `AuditTemplateItem` table.
+
+| Column | Description |
+| - | - |
+| `TS` | The time stamp of the audit run that this step belongs to. This is a foreign key that connects to the `AuditHeader` table.
+| `StepNo` | The step number of this step. This matches the `StepNo` column of the step definition, in the `AuditTemplateItem` table.
+| `State` | The completion status of this step. This is either `A` for active, or `D` for done.
+| `TSDone` | The time stamp of when this step was completed (`State` set to `D`).
+| `Input01` to `Input05` | Columns that store user-submitted data.
+| `Var01` to `Var05` | Columns that match the `Var01` to `Var05` columns of the step definition, in the `AuditTemplateItem` table.
+| `Layout` | The layout of this step. This matches the `Layout` column of the step definition, in the `AuditTemplateItem` table.
 
 ## Conclusion
 
