@@ -51,7 +51,7 @@ For more details, you can [download the PBMX](/assets/2025-06-13/MyAudit.pbmx).
 
 ## New audit screen
 
-The new-audit screen shows all the possible audits (using the `AuditTemplateHeader` table). The user can select one, in order to start an audit.
+The new-audit screen shows all the possible audits (using the `AuditTemplateHeader` table). The user can select *Create new audit*, in order to start a new audit.
 
 ![image](/assets/2025-06-21/030.png)
 
