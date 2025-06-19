@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to Build a Company Newsstand with Just a SharePoint List (and Peakboard Magic)
-date: 2025-06-29 00:00:00 +0000
+date: 2023-03-01 00:00:00 +0000
 tags: office365
 image: /assets/2025-06-29/title.png
 image_header: /assets/2025-06-29/title_landscape.png
