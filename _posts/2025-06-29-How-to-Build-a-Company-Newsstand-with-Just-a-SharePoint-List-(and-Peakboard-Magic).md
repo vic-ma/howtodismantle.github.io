@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to Build a Company Newsstand with Just a SharePoint List (and Peakboard Magic)
-date: 2025-03-25 00:00:00 +0000
+date: 2025-06-29 00:00:00 +0000
 tags: office365
 image: /assets/2025-06-29/title.png
 image_header: /assets/2025-06-29/title_landscape.png
@@ -15,94 +15,85 @@ downloads:
   - name: CompanyNewsFromSharepoint.pbmx
     url: /assets/2025-06-29/CompanyNewsFromSharepoint.pbmx
 ---
-In the first major update of 2025, the Peakboard dev team added a new series of Office 365 data sources. Office 365 has become increasingly important as a backend for many companies, with many different use cases. In today's article, we'll discuss how to read and write SharePoint lists from Peakboard applications. You can also check out our other [Office 365 articles](/category/office365).
+Office 365 gets more important than ever when it comes to serve as a data back end for all kinds of applications throughout the company.
+We discussed the technical aspects of combining Peakboard and Office365 apps in various [Office 365 articles](/category/office365).
 
-SharePoint lists may be a wise choice for data storage, especially when the data is used or processed within the Office 365 ecosystem (e.g., in Power Automate).
+Today's article is about how to use Sharepoint lists for company news. The idea is, that the headline and article is maintained in a Sharepoint list from which various recipients can take it to spread into the world. This could be a newsletter, some kind of Sharepoint based intranet portal and a Peakboard application for the production workers. Either as part of other dashboards or as a standalone tool. 
 
-Every Office 365 data source handles authentication in the same way. To learn more about how to authenticate against the Office 365 backend, see our [getting started guide](/Getting-started-with-the-new-Office-365-Data-Sources.html).
+To jump in directly to technical aspects, we remember the [getting started guide](/Getting-started-with-the-new-Office-365-Data-Sources.html) for the Office 365 datasources. Authenfication against the O365 backend is important and needs to be considered carefully. That's why it's worth a separate article.
 
-For this article, we'll use an issue tracker list in SharePoint as an example. This issue tracker list lets anyone add and track problems in the factory. It has a title and description, along with some more interesting columns:
-* `Assigned To` - a link to a SharePoint user.
-* `Date Reported` - the date that the report was made.
-* `Status` - a status string that transforms into a symbol in SharePoint.
+Also there's another article about how to handle [Sharepoint lists](/SharePoint-Lists-in-Beast-Mode-Powered-by-Peakboard.html) in general. The difference to this article will be, that we will learn how to handle rich text (formatted text with Lists and other formatting options) and also how to combine the structured information of a list with other (unstructured) media like images, that are taken from a Sharepoint document library. 
 
-It this article, we'll explain how to read, process, and write to all of these special columns.
+The screenshot shows how the final result looks like. We have a list of news that automatically switched to the next headline every 10 seconds. It can by interactive too, depending if it runs on a touch screen. The actual news is a title, sub title, richly formatted text and finally an image shown next to the text on the right side.
 
-![image](/assets/2025-03-25/010.png)
+![image](/assets/2025-06-29/010.png)
+
+## Configure Sharepoint
+
+We start with the document library for the images. It's actually a regular default sharepoint library for files, but it needs one more column to identify the document. We call it "Media ID". It's a just a string that can be filled with any information to identify the file (e.g. some unique term to decribe the picture or just the file name). We will need this column to make it easier for the user to find it later when creating a news entry.
+
+![image](/assets/2025-06-29/020.png)
+
+For the actual news we need a regular Sharepoint list. The screenshot shows all columns that are necessary in the list settings.
+
+![image](/assets/2025-06-29/030.png)
+
+There are two important things:
+
+1. The article text should be marked as rich text
+
+![image](/assets/2025-06-29/040.png)
+
+2. The media column is a Lookup column that refers to the document library we created earlier. The MediaID column is used for easier handling and finding the right files.
+
+![image](/assets/2025-06-29/050.png)
+
+Here's the list with some sample data. The article text can contain rich formatting.
+
+![image](/assets/2025-06-29/060.png)
 
 ## Configure the data source
 
-After successfully authenticating with the Office 365 backend, we provide the name of our SharePoint site and SharePoint list, using the combo boxes. Below these combo boxes, there's a **Show user display name** option. We'll discuss this later.
+The first step in the Peakboard application is to create a Sharepoint list data source that gets a list of entries from a document library, the media. We need this list to translate the Look up ID to the filename later.
 
-The first column of each SharePoint list always `ID`. It contains a unique number representing the row. We need the `ID` in order to modify or delete data.
+![image](/assets/2025-06-29/070.png)
 
-![image](/assets/2025-03-25/020.png)
+The second data source we need to get the actual news. In the screenshot we can see the Media column. It only contains the ID of the row of the list it refers to. Thats why we need this first list to translate this ID to the actual file name of the image.
 
-## Date values
+![image](/assets/2025-06-29/080.png)
 
-The first special column is `DateReported`. The original date format depends on the language settings of the site and the users (e.g., `1/30/2025 8:00:00 AM`).
+The actual translation happens with a data flow. We just joining the list of news with the list of the images by using a Join step as shown in the screenshot.
 
-To properly format the date in a control, we use the default Peakboard formatter. Peakboard automatically detects the date format and can handle it without any issues. The following screenshot shows a German date format used in the table:
+![image](/assets/2025-06-29/090.png)
 
-![image](/assets/2025-03-25/030.png)
+A second data flow is used to filter the current list to only one news entry. That's the active one. So every time we need to refer to currently active news, we use this data flow.
 
-![image](/assets/2025-03-25/035.png)
+![image](/assets/2025-06-29/100.png)
 
-The same thing works when setting a date during record creation, using Building Blocks. In the following example, we use a more technical format (`YYYY-MM-DD`):
+## Building the User Interface
 
-![image](/assets/2025-03-25/036.png)
+On the left side we just use a Styled List to present the news list.
 
-## Links to users
+![image](/assets/2025-06-29/110.png)
 
-By default, columns that contain references to SharePoint users come with a large JSON string that describes the user. This string includes the user's name, email address and many other things.
+On the right side we use an image control that refers to the media document library. An empty default image can be used as some kind of default view.
 
-If we only need the name, we can enable the setting, **Show user display name**, in our data source. To get additional attributes of the user, we disable the setting. This is what a complete JSON string looks like:
+![image](/assets/2025-06-29/120.png)
 
-{% highlight json %}
-{
-  "@odata.etag": "\"e8212151-de65-49b5-a2b5-073d4963d2f0,6\"",
-  "Title": "Walter White",
-  "Name": "i:0#.f|membership|X@X.com",
-  "EMail": "o365_test@peakboard.com",
-  "SipAddress": "dismantlebot@XX.com",
-  "IsSiteAdmin": false,
-  "Deleted": false,
-  "UserInfoHidden": false,
-  "Picture": {
-    "Description": "https://XX-my.sharepoint.com:443/User%20Photos/Profilbilder/5afad2cc-c72b-491a-8515-a062b91d514e_MThumb.jpg?t=63838484300",
-    "Url": "https://XX-my.sharepoint.com:443/User%20Photos/Profilbilder/5afad2cc-c72b-491a-8515-a062b91d514e_MThumb.jpg?t=63838484300"
-  },
-  "JobTitle": "X",
-  "FirstName": "Walter",
-[...]
-  "ContentTypeDisp": "Walter White"
-}
-{% endhighlight %}
+So what happens when either the user touches on one of the news lines? Or the timer automaticaly rotates through the news lists?
+The variable VarS_Selected_ID is set and the data flow to filter the news lines to the selected one is triggered. 
 
-To get the information we want, we add a "Parse table data from JSON" transformation step within a data flow. The following screenshot shows how to extract the `FirstName` from the JSON string and put it in a separate column.
+![image](/assets/2025-06-29/130.png)
 
-![image](/assets/2025-03-25/040.png)
+This action in turn triggers the reload event of the data flow. It sets the actual news text and the file name of the image to be shown. The other news attributes (title and subtitle) don't need to be handled here. Because they are shown through data binding. We need this manual coding on for the formatted HTML text and the image source only.
 
-To set the value of a SharePoint list, we can use the person's email address, display name, or internal ID. In most cases, the email address is the easiest method:
+![image](/assets/2025-06-29/140.png)
 
-![image](/assets/2025-03-25/045.png)
+## result and conclusion
 
-## Columns with symbols and functions
+Using Sharepoint lists and documents is easy. But in this article we learned some sophistacted tricks:
 
-In our example list, there are columns that are translated into symbols, or have other functions. The Status value `Blocked` turns the row red in SharePoint.
+1. How to combine list entries with files and how to handle this relationship in Peakboard
+2. How to handle rich HTML text from Sharepoint
 
-![image](/assets/2025-03-25/050.png)
-
-Internally, these columns are simple strings, and they will be treated as such by the Peakboard data source. So they won't have any color or formatting in the Peakboard table output:
-
-![image](/assets/2025-03-25/051.png)
-
-The same principle is applied when setting the content. It's important to match the value exactly, in order to trigger the translation into symbols or use other effects on the SharePoint side.
-
-![image](/assets/2025-03-25/055.png)
-
-## Conclusion
-
-With the new data sources, SharePoint lists can now be easily read and modified. With certain columns types, we need to understand the internal principals and use them correctly.
-
-
+![image](/assets/2025-06-29/result.gif)
