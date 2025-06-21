@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Hub FLows I - Getting started and learn how to historize MQTT messages
+title: Hub Flows I - Getting started and learn how to historize MQTT messages
 date: 2023-03-01 00:00:00 +0000
 tags: hubflows
 image: /assets/2025-07-07/title.png
 image_header: /assets/2025-07-07/title_landscape.png
 bg_alternative: true
 read_more_links:
-  - name: All Hub FLows articles
+  - name: All articles around Hub FLows
     url: /category/opcuamqtt
 downloads:
   - name: TemperatureFlow.pbfx
@@ -16,7 +16,7 @@ downloads:
 Different from other systems like Tulip or Mendix, Peakboard always focused on UI oriented, local applications. All the magic and logic happens on a local device - box or BYOD instance, without the fundamental need for central servers or a cloud to host the application logic. That's a huge advantage before the other systems and one of the main reasons why Peakboard is choosen by so many developers and users. But there are some use cases where it makes sense to rely on a central system and host some logic independant from an indivual workplace. That's why the Peakboard dev team introduced the Peakboard Hub Flows in summer 2025. 
 This article is a starting point to a series of articles to introduce Hub Flows and explain the use cases which can be covered. We will start a very simple task to historize MQTT messages in a Hub list. Here's a list of all use cases covered in this series:
 
-1. Getting started and learn how to historize MQTT messages
+1. [Getting started and learn how to historize MQTT messages](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html)
 2. Cache Me If You Can - Data Distribution and caching for SAP Capacity Data
 3. One PLC to Feed Them All: Using Peakboard Flows to Share and Distribute Siemens S7 Values
 4. Peakboard Flows in Production: Asynchronous SAP Confirmation Processing
@@ -31,6 +31,8 @@ We use Data Sources and Data FLows to retrieve and process data from connected s
 The last aspect to explain is the role of Hub lists. We can use Hub lists just as a regular table to store and read data. However it's very easy to store data in Hub lists within a flow projects. There's some kind of build-in functionality to store data into Hub lists that are coming from data source or data flows. We will have a look at this in this article. 
 
 ## First steps with Hub FLows
+
+![image](/assets/2025-07-07/005.png)
 
 In our first example project we will build and deploy a Hub Flow. The starting for the process to be built is an MQTT data source. It receives a temperature value. This temperture value will be enriched along with a time stamp, just the current time. And this information is stored into a Hub table for long term historization. The temperture sensor that delivers the temperture was already discussed in the article [Peakboard Meets Shelly - Building a Smart Dashboard for Tracking Temperature and Humidity](/Peakboard-Meets-Shelly-Building-a-Smart-Dashboard-for-Tracking-Temperature-and-Humidity.html), so we won't go into all the details to set it up.
 
