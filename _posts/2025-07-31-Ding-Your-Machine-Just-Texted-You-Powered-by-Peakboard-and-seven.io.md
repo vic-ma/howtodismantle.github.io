@@ -9,18 +9,11 @@ bg_alternative: true
 read_more_links:
   - name: seven.io API documentation
     url: https://docs.seven.io/en
+  - name: seven.io API Return codes
+    url: https://docs.seven.io/en/rest-api/endpoints/sms#return-codes
 downloads:
   - name: SevenIO_SMS.pbmx
     url: /assets/2025-07-31/SevenIO_SMS.pbmx
 ---
 
-![image](/assets/2025-03-25/010.png)
-
-
-{% highlight json %}
-{
-  "@odata.etag": "\"e8212151-de65-49b5-a2b5-073d4963d2f0,6\"",
-}
-{% endhighlight %}
-
-https://docs.seven.io/en/rest-api/endpoints/sms#return-codes
+Sorry, this article is not published yet
