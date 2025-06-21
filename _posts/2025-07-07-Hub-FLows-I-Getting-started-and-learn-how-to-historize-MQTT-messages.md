@@ -18,7 +18,7 @@ This article is a starting point to a series of articles to introduce Hub Flows 
 
 1. [Getting started and learn how to historize MQTT messages](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html)
 2. [Cache Me If You Can - Data Distribution and caching for SAP Capacity Data](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html)
-3. [One PLC to Feed Them All: Using Peakboard Flows to Share and Distribute Siemens S7 Values](/Flows-III-One-PLC-to-Feed-Them-All-Using-Peakboard-Flows-to-Share-and-distribute-Siemens-S7-Values.html)
+3. [One PLC to Feed Them All: Using Peakboard Flows to Share and Distribute Siemens S7 Values](/Hub-Flows-III-One-PLC-to-Feed-Them-All-Using-Peakboard-Flows-to-Share-and-distribute-Siemens-S7-Values.html)
 4. [Peakboard Flows in Production: Asynchronous SAP Confirmation Processing](/Hub-Flows-IV-Peakboard-Flows-in-Production-Asynchronous-SAP-Confirmation-Processing.html)
 5. [Condense, Archive, Optimize: Use Hub Flows to Pre-Aggregate and Archive High-Volume Transaction Data](/Hub-Flows-V-Condense,-Archive-Optimize-Use-Hub-Flows-to-Pre-Aggregate-and-Archive-High-Volume-Transaction-Data.html)
 
