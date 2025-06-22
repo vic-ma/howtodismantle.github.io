@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to Build a Company Newsstand with Just a SharePoint List (and Peakboard Magic)
+title: How to Build a Company Newsstand with a SharePoint List (and Peakboard Magic)
 date: 2023-03-01 00:00:00 +0000
 tags: office365
 image: /assets/2025-06-29/title.png
@@ -15,8 +15,8 @@ downloads:
   - name: CompanyNewsFromSharepoint.pbmx
     url: /assets/2025-06-29/CompanyNewsFromSharepoint.pbmx
 ---
-Office 365 gets more important than ever when it comes to serve as a data back end for all kinds of applications throughout the company.
-We discussed the technical aspects of combining Peakboard and Office365 apps in various [Office 365 articles](/category/office365).
+Office 365 is often used as a data backend for all kinds of applications throughout a company.
+We've discussed the technical aspects of combining Peakboard and Office 365 apps in various [Office 365 articles](/category/office365).
 
 Today's article is about how to use Sharepoint lists for company news. The idea is, that the headline and article is maintained in a Sharepoint list from which various recipients can take it to spread into the world. This could be a newsletter, some kind of Sharepoint based intranet portal and a Peakboard application for the production workers. Either as part of other dashboards or as a standalone tool. 
 
