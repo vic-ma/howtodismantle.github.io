@@ -15,11 +15,17 @@ downloads:
   - name: CompanyNewsFromSharepoint.pbmx
     url: /assets/2025-06-29/CompanyNewsFromSharepoint.pbmx
 ---
-Office 365 is often used as a data backend for all kinds of applications throughout a company.
+Office 365 is often used as a data backend for various applications within a company.
 We've explained how to combine [Peakboard and Office 365 apps](/category/office365) in previous articles.
 In this article, we explain how to use SharePoint lists to share company news.
 
-The SharePoint list 
+## The big picture
+
+We will create a Peakboard app that shows the most recent company news. The following screenshot shows what the final result looks like. There's a list of news articles on the left, with a full article on the right. The article on the right changes automatically every 10 seconds. Viewers can also manually select an article to display, assuming the screen is a touch screen.
+
+![image](/assets/2025-06-29/010.png)
+
+Our goal is to create 
 
 The idea is that the headline and article is maintained in a SharePoint list from which various recipients can take it to spread into the world. This could be a newsletter, some kind of SharePoint based intranet portal and a Peakboard application for the production workers. Either as part of other dashboards or as a standalone tool. 
 
@@ -27,9 +33,6 @@ To jump in directly to technical aspects, we remember the [getting started guide
 
 Also there's another article about how to handle [SharePoint lists](/SharePoint-Lists-in-Beast-Mode-Powered-by-Peakboard.html) in general. The difference to this article will be, that we will learn how to handle rich text (formatted text with Lists and other formatting options) and also how to combine the structured information of a list with other (unstructured) media like images, that are taken from a SharePoint document library. 
 
-The screenshot shows how the final result looks like. We have a list of news that automatically switched to the next headline every 10 seconds. It can by interactive too, depending if it runs on a touch screen. The actual news is a title, sub title, richly formatted text and finally an image shown next to the text on the right side.
-
-![image](/assets/2025-06-29/010.png)
 
 ## Configure SharePoint
 
