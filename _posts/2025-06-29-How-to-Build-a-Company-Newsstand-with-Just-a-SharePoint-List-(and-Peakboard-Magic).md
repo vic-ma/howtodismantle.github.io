@@ -25,8 +25,6 @@ We will create a Peakboard app that shows the most recent company news. The foll
 
 ![image](/assets/2025-06-29/010.png)
 
-Our goal is to create 
-
 The idea is that the headline and article is maintained in a SharePoint list from which various recipients can take it to spread into the world. This could be a newsletter, some kind of SharePoint based intranet portal and a Peakboard application for the production workers. Either as part of other dashboards or as a standalone tool. 
 
 To jump in directly to technical aspects, we remember the [getting started guide](/Getting-started-with-the-new-Office-365-Data-Sources.html) for the Office 365 datasources. Authenfication against the O365 backend is important and needs to be considered carefully. That's why it's worth a separate article.
