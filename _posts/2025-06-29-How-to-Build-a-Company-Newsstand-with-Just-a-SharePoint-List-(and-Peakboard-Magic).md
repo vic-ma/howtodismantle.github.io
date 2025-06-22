@@ -16,25 +16,28 @@ downloads:
     url: /assets/2025-06-29/CompanyNewsFromSharepoint.pbmx
 ---
 Office 365 is often used as a data backend for all kinds of applications throughout a company.
-We've discussed the technical aspects of combining Peakboard and Office 365 apps in various [Office 365 articles](/category/office365).
+We've explained how to combine [Peakboard and Office 365 apps](/category/office365) in previous articles.
+In this article, we explain how to use SharePoint lists to share company news.
 
-Today's article is about how to use Sharepoint lists for company news. The idea is, that the headline and article is maintained in a Sharepoint list from which various recipients can take it to spread into the world. This could be a newsletter, some kind of Sharepoint based intranet portal and a Peakboard application for the production workers. Either as part of other dashboards or as a standalone tool. 
+The SharePoint list 
+
+The idea is that the headline and article is maintained in a SharePoint list from which various recipients can take it to spread into the world. This could be a newsletter, some kind of SharePoint based intranet portal and a Peakboard application for the production workers. Either as part of other dashboards or as a standalone tool. 
 
 To jump in directly to technical aspects, we remember the [getting started guide](/Getting-started-with-the-new-Office-365-Data-Sources.html) for the Office 365 datasources. Authenfication against the O365 backend is important and needs to be considered carefully. That's why it's worth a separate article.
 
-Also there's another article about how to handle [Sharepoint lists](/SharePoint-Lists-in-Beast-Mode-Powered-by-Peakboard.html) in general. The difference to this article will be, that we will learn how to handle rich text (formatted text with Lists and other formatting options) and also how to combine the structured information of a list with other (unstructured) media like images, that are taken from a Sharepoint document library. 
+Also there's another article about how to handle [SharePoint lists](/SharePoint-Lists-in-Beast-Mode-Powered-by-Peakboard.html) in general. The difference to this article will be, that we will learn how to handle rich text (formatted text with Lists and other formatting options) and also how to combine the structured information of a list with other (unstructured) media like images, that are taken from a SharePoint document library. 
 
 The screenshot shows how the final result looks like. We have a list of news that automatically switched to the next headline every 10 seconds. It can by interactive too, depending if it runs on a touch screen. The actual news is a title, sub title, richly formatted text and finally an image shown next to the text on the right side.
 
 ![image](/assets/2025-06-29/010.png)
 
-## Configure Sharepoint
+## Configure SharePoint
 
-We start with the document library for the images. It's actually a regular default sharepoint library for files, but it needs one more column to identify the document. We call it "Media ID". It's a just a string that can be filled with any information to identify the file (e.g. some unique term to decribe the picture or just the file name). We will need this column to make it easier for the user to find it later when creating a news entry.
+We start with the document library for the images. It's actually a regular default SharePoint library for files, but it needs one more column to identify the document. We call it "Media ID". It's a just a string that can be filled with any information to identify the file (e.g. some unique term to decribe the picture or just the file name). We will need this column to make it easier for the user to find it later when creating a news entry.
 
 ![image](/assets/2025-06-29/020.png)
 
-For the actual news we need a regular Sharepoint list. The screenshot shows all columns that are necessary in the list settings.
+For the actual news we need a regular SharePoint list. The screenshot shows all columns that are necessary in the list settings.
 
 ![image](/assets/2025-06-29/030.png)
 
@@ -54,7 +57,7 @@ Here's the list with some sample data. The article text can contain rich formatt
 
 ## Configure the data source
 
-The first step in the Peakboard application is to create a Sharepoint list data source that gets a list of entries from a document library, the media. We need this list to translate the Look up ID to the filename later.
+The first step in the Peakboard application is to create a SharePoint list data source that gets a list of entries from a document library, the media. We need this list to translate the Look up ID to the filename later.
 
 ![image](/assets/2025-06-29/070.png)
 
@@ -91,9 +94,9 @@ This action in turn triggers the reload event of the data flow. It sets the actu
 
 ## result and conclusion
 
-Using Sharepoint lists and documents is easy. But in this article we learned some sophistacted tricks:
+Using SharePoint lists and documents is easy. But in this article we learned some sophistacted tricks:
 
 1. How to combine list entries with files and how to handle this relationship in Peakboard
-2. How to handle rich HTML text from Sharepoint
+2. How to handle rich HTML text from SharePoint
 
 ![image](/assets/2025-06-29/result.gif)
