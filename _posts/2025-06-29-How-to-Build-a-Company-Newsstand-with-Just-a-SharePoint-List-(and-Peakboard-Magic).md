@@ -25,9 +25,9 @@ We will create a Peakboard app that shows the most recent company news. The foll
 
 ![image](/assets/2025-06-29/010.png)
 
-The idea is that the headline and article is maintained in a SharePoint list from which various recipients can take it to spread into the world. This could be a newsletter, some kind of SharePoint based intranet portal and a Peakboard application for the production workers. Either as part of other dashboards or as a standalone tool. 
+The app pulls the news articles from a SharePoint list. The idea is that this SharePoint list lets anyone take the news articles and publish them somewhere. For example, in a newsletter, an intranet portal, or indeed---a Peakboard app (either as part of other dashboards, or as a standalone tool).
 
-To jump in directly to technical aspects, we remember the [getting started guide](/Getting-started-with-the-new-Office-365-Data-Sources.html) for the Office 365 datasources. Authenfication against the O365 backend is important and needs to be considered carefully. That's why it's worth a separate article.
+Before reading this article, make sure you know all the information in our [Office 365 datasources guide](/Getting-started-with-the-new-Office-365-Data-Sources.html). Authentication against the O365 backend is important and needs to be considered carefully. That's why it's worth a separate article.
 
 Also there's another article about how to handle [SharePoint lists](/SharePoint-Lists-in-Beast-Mode-Powered-by-Peakboard.html) in general. The difference to this article will be, that we will learn how to handle rich text (formatted text with Lists and other formatting options) and also how to combine the structured information of a list with other (unstructured) media like images, that are taken from a SharePoint document library. 
 
