@@ -19,24 +19,37 @@ Office 365 is often used as a data backend for various applications within a com
 We've explained how to combine [Peakboard and Office 365 apps](/category/office365) in previous articles.
 In this article, we explain how to use SharePoint lists to share company news.
 
-## The big picture
-
-We will create a Peakboard app that shows the most recent company news. The following screenshot shows what the final result looks like. There's a list of news articles on the left, with a full article on the right. The article on the right changes automatically every 10 seconds. Viewers can also manually select an article to display, assuming the screen is a touch screen.
-
-![image](/assets/2025-06-29/010.png)
-
-The app pulls the news articles from a SharePoint list. The idea is that this SharePoint list lets anyone take the news articles and publish them somewhere. For example, in a newsletter, an intranet portal, or a Peakboard app (either as part of other dashboards, or as a standalone tool).
-
-Before reading this article, make sure that you have read our [Office 365 data sources guide](/Getting-started-with-the-new-Office-365-Data-Sources.html). The authentication process is tricky, so it's important you know how to do it.
+Before continuing, make sure that you have read our [Office 365 data sources guide](/Getting-started-with-the-new-Office-365-Data-Sources.html). The authentication process is tricky, so it's important that you understand how to do it.
 
 We also have a separate [SharePoint lists guide](/SharePoint-Lists-in-Beast-Mode-Powered-by-Peakboard.html). That article is more general, while this article covers the following specialized topics:
 * How to handle rich text (formatted text with lists and other formatting options) 
 * How to combine the structured information of a list with unstructured media like images, taken from a SharePoint document library. 
 
+## The big picture
+
+We will create a Peakboard app that shows the most recent company news. This screenshot shows what the final result looks like:
+
+![image](/assets/2025-06-29/010.png)
+
+* There's a list of news articles on the left.
+* There's a full article in the middle.
+* THere's an image for the news article on the right.
+
+The article and associated image changes automatically every 10 seconds, by cycling through the list of news articles. Viewers can also manually select an article to display, if the app is running on a touch screen.
+
+The app pulls the news articles from a SharePoint list. The idea is that this SharePoint list lets anyone take the news articles and publish them somewhere. For example, in a newsletter, an intranet portal, or a Peakboard app (either as part of other dashboards, or as a standalone tool). The app pulls the images from a SharePoint document library.
+
+
 
 ## Configure SharePoint
 
-We start with the document library for the images. It's actually a regular default SharePoint library for files, but it needs one more column to identify the document. We call it "Media ID". It's a just a string that can be filled with any information to identify the file (e.g. some unique term to decribe the picture or just the file name). We will need this column to make it easier for the user to find it later when creating a news entry.
+### Document library
+
+Our first step is to create a document library to store images for our app. A document library is a standard SharePoint file library, but with one additional column: `Media ID`. This column 
+
+We use `Media ID` to identify the document that the image belongs to.
+1. Create a standard SharePoint library for files
+2. Add a `Media ID` column, which is used to identify the document. It's a just a string that can be filled with any information to identify the file (e.g. some unique term to decribe the picture or just the file name). We will need this column to make it easier for the user to find it later when creating a news entry.
 
 ![image](/assets/2025-06-29/020.png)
 
