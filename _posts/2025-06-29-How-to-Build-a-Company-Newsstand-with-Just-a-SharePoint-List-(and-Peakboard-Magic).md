@@ -49,7 +49,7 @@ The first step is to create a document library to store the images for our news 
 
 ### Store news articles
 
-Next, we create a standard SharePoint list to store our news articles. We add the following columns:
+Next, we create a standard SharePoint list to store our news articles. We need the following columns:
 
 | Column name   | Column type            |
 | ------------- | ---------------------- |
@@ -63,11 +63,13 @@ Next, we create a standard SharePoint list to store our news articles. We add th
 
 ![image](/assets/2025-06-29/030.png)
 
-There are two important things:
+There are two important things to do when creating the columns.
 
-1. The article text should be marked as rich text
+For the `ArticleText` column, we enable [*Enhanced rich text* ](https://support.microsoft.com/en-us/office/edit-a-rich-text-list-column-6ba62e7e-ee63-4716-9f95-f626770c3fff).
 
 ![image](/assets/2025-06-29/040.png)
+
+For the `Media` [lookup column](https://support.microsoft.com/en-us/office/create-list-relationships-by-using-lookup-columns-80a3e0a6-8016-41fb-ad09-8bf16d490632), we set the source to `CompanyNewsMedia.MediaID` (the `MediaID` column of our image document library).
 
 2. The media column is a Lookup column that refers to the document library we created earlier. The MediaID column is used for easier handling and finding the right files.
 
