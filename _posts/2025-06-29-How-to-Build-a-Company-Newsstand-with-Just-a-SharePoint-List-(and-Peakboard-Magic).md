@@ -49,7 +49,17 @@ The first step is to create a document library to store the images for our news 
 
 ### Store news articles
 
-Next, we create a standard SharePoint list to store our news articles. This screenshot shows all columns that are necessary in the list settings:
+Next, we create a standard SharePoint list to store our news articles. We add the following columns:
+
+| Column name   | Column type            |
+| ------------- | ---------------------- |
+| `Title`       | Single line of text    |
+| `Subtitle`    | Single line of text    |
+| `ArticleText` | Multiple lines of text |
+| `PublishDate` | Date and Time          |
+| `Media`       | Lookup                 |
+
+<!-- | `NewsType` | Choice | -->
 
 ![image](/assets/2025-06-29/030.png)
 
