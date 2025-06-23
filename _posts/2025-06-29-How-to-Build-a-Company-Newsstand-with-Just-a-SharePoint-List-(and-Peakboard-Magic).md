@@ -21,9 +21,9 @@ In this article, we explain how to use SharePoint lists to share company news.
 
 Before continuing, make sure that you have read our [Office 365 data sources guide](/Getting-started-with-the-new-Office-365-Data-Sources.html). The authentication process is tricky, so it's important that you understand how to do it.
 
-We also have a separate [SharePoint lists guide](/SharePoint-Lists-in-Beast-Mode-Powered-by-Peakboard.html). That article is more general, while this article covers the following specialized topics:
-* How to handle rich text (formatted text with lists and other formatting options) 
-* How to combine the structured information of a list with unstructured media like images, taken from a SharePoint document library. 
+We also have another [SharePoint lists guide](/SharePoint-Lists-in-Beast-Mode-Powered-by-Peakboard.html). That article is more general, while this article covers the following specialized topics:
+* How to handle rich text (formatted text with lists and other formatting options).
+* How to combine structured data from a SharePoint list with unstructured data (like images) from a SharePoint document library. 
 
 ## The big picture
 
@@ -39,17 +39,11 @@ The article and associated image changes automatically every 10 seconds, by cycl
 
 The app pulls the news articles from a SharePoint list. The idea is that this SharePoint list lets anyone take the news articles and publish them somewhere. For example, in a newsletter, an intranet portal, or a Peakboard app (either as part of other dashboards, or as a standalone tool). The app pulls the images from a SharePoint document library.
 
-
-
 ## Configure SharePoint
 
 ### Document library
 
-Our first step is to create a document library to store images for our app. A document library is a standard SharePoint file library, but with one additional column: `Media ID`. This column 
-
-We use `Media ID` to identify the document that the image belongs to.
-1. Create a standard SharePoint library for files
-2. Add a `Media ID` column, which is used to identify the document. It's a just a string that can be filled with any information to identify the file (e.g. some unique term to decribe the picture or just the file name). We will need this column to make it easier for the user to find it later when creating a news entry.
+The first step is to create a document library to store the images for our news articles. A document library is a standard SharePoint file library, but with one additional column: `Media ID`. This column is a string that identifies the file (for example, a file name). We need this column to make it easy for users to choose an image to use with their news article.
 
 ![image](/assets/2025-06-29/020.png)
 
