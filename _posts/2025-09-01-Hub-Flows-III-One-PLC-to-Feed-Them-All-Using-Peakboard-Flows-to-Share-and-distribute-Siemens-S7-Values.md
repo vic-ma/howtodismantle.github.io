@@ -10,8 +10,8 @@ read_more_links:
   - name: All articles around Hub FLows
     url: /category/opcuamqtt
 downloads:
-  - name: TemperatureFlow.pbfx
-    url: /assets/2025-08-08/TemperatureFlow.pbfx
+  - name: SiemnsS7Distribution.pbfx
+    url: /assets/2025-09-01/SiemnsS7Distribution.pbfx
 ---
 
 Sorry, this article is not published yet

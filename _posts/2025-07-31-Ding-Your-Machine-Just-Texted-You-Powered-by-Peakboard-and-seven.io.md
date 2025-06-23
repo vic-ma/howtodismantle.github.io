@@ -15,5 +15,6 @@ downloads:
   - name: SevenIO_SMS.pbmx
     url: /assets/2025-07-31/SevenIO_SMS.pbmx
 ---
+Communicating with the outside world is one the most important tasks of any Peakboard application. In today's article we take a look at the seven.io API, a service 
 
 Sorry, this article is not published yet
