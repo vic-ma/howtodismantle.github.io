@@ -41,13 +41,15 @@ The app pulls the news articles from a SharePoint list. The idea is that this Sh
 
 ## Configure SharePoint
 
-### Document library
+### Store images
 
 The first step is to create a document library to store the images for our news articles. A document library is a standard SharePoint file library, but with one additional column: `Media ID`. This column is a string that identifies the file (for example, a file name). We need this column to make it easy for users to choose an image to use with their news article.
 
 ![image](/assets/2025-06-29/020.png)
 
-For the actual news we need a regular SharePoint list. The screenshot shows all columns that are necessary in the list settings.
+### Store news articles
+
+Next, we create a standard SharePoint list to store our news articles. This screenshot shows all columns that are necessary in the list settings:
 
 ![image](/assets/2025-06-29/030.png)
 
