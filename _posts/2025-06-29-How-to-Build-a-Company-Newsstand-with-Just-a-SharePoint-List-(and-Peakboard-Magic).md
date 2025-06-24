@@ -41,6 +41,8 @@ The app pulls the news articles from a SharePoint list. The idea is that this Sh
 
 ## Configure SharePoint
 
+Here's what we need to do on the SharePoint side of things.
+
 ### Store images
 
 The first step is to create a document library to store the images for our news articles. A document library is a standard SharePoint file library, but with one additional column: `Media ID`. This column is a string that identifies the file (for example, a file name). We need this column to make it easy for users to choose an image to use with their news article.
@@ -77,11 +79,17 @@ Here's our list with some example data. You can see how we're able to use bold t
 
 ![image](/assets/2025-06-29/060.png)
 
-## Configure the data source
+## Build the Peakboard app
 
-The first step in the Peakboard application is to create a SharePoint list data source that gets a list of entries from a document library, the media. We need this list to translate the Look up ID to the filename later.
+Now, let's take a look at the Peakboard side.
+
+### Add the document library data source
+
+First, we create a SharePoint list data source that pulls images from our document library. We need this data source in order to translate a lookup ID into a filename.
 
 ![image](/assets/2025-06-29/070.png)
+
+### Add the news articles data source
 
 The second data source we need to get the actual news. In the screenshot we can see the Media column. It only contains the ID of the row of the list it refers to. Thats why we need this first list to translate this ID to the actual file name of the image.
 
@@ -95,7 +103,7 @@ A second data flow is used to filter the current list to only one news entry. Th
 
 ![image](/assets/2025-06-29/100.png)
 
-## Building the User Interface
+### Building the User Interface
 
 On the left side we just use a Styled List to present the news list.
 
