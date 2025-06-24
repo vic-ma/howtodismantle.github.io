@@ -65,17 +65,15 @@ Next, we create a standard SharePoint list to store our news articles. We need t
 
 There are two important things to do when creating the columns.
 
-For the `ArticleText` column, we enable [*Enhanced rich text* ](https://support.microsoft.com/en-us/office/edit-a-rich-text-list-column-6ba62e7e-ee63-4716-9f95-f626770c3fff).
+For the `ArticleText` column, we enable [*Enhanced rich text* ](https://support.microsoft.com/en-us/office/edit-a-rich-text-list-column-6ba62e7e-ee63-4716-9f95-f626770c3fff). That way, we support advanced formatting features for our articles.
 
 ![image](/assets/2025-06-29/040.png)
 
 For the `Media` [lookup column](https://support.microsoft.com/en-us/office/create-list-relationships-by-using-lookup-columns-80a3e0a6-8016-41fb-ad09-8bf16d490632), we set the source to `CompanyNewsMedia.MediaID` (the `MediaID` column of our image document library).
 
-2. The media column is a Lookup column that refers to the document library we created earlier. The MediaID column is used for easier handling and finding the right files.
-
 ![image](/assets/2025-06-29/050.png)
 
-Here's the list with some sample data. The article text can contain rich formatting.
+Here's our list with some example data. You can see how we're able to use bold text, because we enabled *enhanced rich text*.
 
 ![image](/assets/2025-06-29/060.png)
 
