@@ -29,49 +29,49 @@ The first step is to prepare three Hub variables in the Hub portal. We need thes
 
 To create a variable we need to define a name and a data type.
 
-![image](/assets/2025-08-08/010.png)
+![image](/assets/2025-09-01/010.png)
 
 The next screenshot shows our three variables after the creation.
 
-![image](/assets/2025-08-08/020.png)
+![image](/assets/2025-09-01/020.png)
 
 In the Peakboard designer we create a new Flow project and also create the three variables with the same name and data type. In the second tab of the variable definition dialog we can connect the variable with the one we already prepared in the Hub. This connection will forward all local changes of a variable to the Hub instance simultaniuosly.
 
-![image](/assets/2025-08-08/030.png)
+![image](/assets/2025-09-01/030.png)
 
 ## Preparing the datasource and writing the variables
 
 For the data source we use a classical Siemens S7 data source and configure it to access the three values on the PLC.
 
-![image](/assets/2025-08-08/040.png)
+![image](/assets/2025-09-01/040.png)
 
 In a simple function named "WriteVariables" we take the values from the S7 data source and write it into the local variables (that are in turn bound to to the Hub variables)
 
-![image](/assets/2025-08-08/050.png)
+![image](/assets/2025-09-01/050.png)
 
 ## Building and deploying the Hub FLow
 
 The Flow is triggered periodically every 10 seconds. It reloads the Siemens S7 data source. After that it executes the function for turning the data source output into variable. Thats all out Hub Flow needs to do.
 
-![image](/assets/2025-08-08/060.png)
+![image](/assets/2025-09-01/060.png)
 
 After the Deployment the Flow starts it executes right away.
 
-![image](/assets/2025-08-08/070.png)
+![image](/assets/2025-09-01/070.png)
 
 And the Hub Variable values are filled with the content from Siemens S7.
 
-![image](/assets/2025-08-08/080.png)
+![image](/assets/2025-09-01/080.png)
 
 ## Consuming the data
 
 Let's jump to the consumer project. The only thing we need to do is create a new empty project and set up the same variables variable as we already know with the same binding to the Hub variables. That's all. The content of the variables is subscribed from the Hub value and changes it behaviour in real-time. The screenshot shows a couple of controls to visualize the data: An icon for the running state with condtional formatting, a gauge for the running speed and just the text in case of an error message.
 
-![image](/assets/2025-08-08/090.png)
+![image](/assets/2025-09-01/090.png)
 
 The animation shows the reaction of the client application when the machine switches to error state and back.
 
-![image](/assets/2025-08-08/result.gif)
+![image](/assets/2025-09-01/result.gif)
 
 ## result and conclusion
 
