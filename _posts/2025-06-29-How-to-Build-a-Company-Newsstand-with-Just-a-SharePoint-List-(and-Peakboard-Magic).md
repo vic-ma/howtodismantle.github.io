@@ -97,13 +97,13 @@ Next, we create a SharePoint list data source that pulls news articles from our 
 
 ![image](/assets/2025-06-29/080.png)
 
-In the above screenshot, you can see that the `Media` column contains the `ID`  of an image in our document library. That's why we need to translate this ID into the actual filename of the image.
+In the above screenshot, you can see that the `Media` column contains the `ID` of an image that's in our document library (`CompanyNewsMedia.ID`). This alone is not usable, because it's just an integer. That's why we need to translate the `ID` into a filename.
 
 To do this, we create a data flow with a single *join* step. This step joins the list of news articles with the list of images:
 
 ![image](/assets/2025-06-29/090.png)
 
-We use a second data flow to filter the current list, to only show the active news entry. So each time we need to get the active news article, we use this data flow.
+Next, we create another data flow, built on top of the first one (so the output of the first data flow is the input of this data flow). We use this data flow to filter the list to only show the active news article. So each time we need to get the active news article, we use this data flow.
 
 ![image](/assets/2025-06-29/100.png)
 
