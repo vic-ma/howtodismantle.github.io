@@ -47,7 +47,7 @@ Here's what we need to do on the SharePoint side of things.
 
 ### Store images
 
-The first step is to create a document library to store the images for our news articles. A document library is a standard SharePoint file library, but with one additional column: `Media ID`. This column is a string that identifies the file (for example, a file name). We need this column to make it easy for users to choose an image to use with their news article.
+The first step is to create a document library to store the images for our news articles. A document library is like a standard SharePoint file library---but with one additional column: `Media ID`. This column contains a string that identifies the file (for example, a file name). We need this column to make it easy for users to select an image to use with their news article.
 
 ![image](/assets/2025-06-29/020.png)
 
@@ -121,9 +121,9 @@ We add an *image control* to show the image for the active article, on the right
 
 There are two ways that the active article can switch:
 * The 10 second timer expires.
-* A viewer taps one of the news articles.
+* A user taps one of the news articles.
 
-We set the variable `VarS_Selected_ID` to the `ID` of the new active article (the next one in the list, or the one a viewer tapped). the data flow to filter the news lines to the selected one is triggered. 
+We set the variable `VarS_Selected_ID` to the `ID` of the new active article (the next one in the list, or the one a user tapped). the data flow to filter the news lines to the selected one is triggered. 
 
 ![image](/assets/2025-06-29/130.png)
 
