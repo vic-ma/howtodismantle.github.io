@@ -91,11 +91,13 @@ First, we create a SharePoint list data source that pulls images from our docume
 
 ### Add the news articles data source
 
-The second data source we need to get the actual news. In the screenshot we can see the Media column. It only contains the ID of the row of the list it refers to. Thats why we need this first list to translate this ID to the actual file name of the image.
+Next, we create a SharePoint list data source that pulls news articles from our SharePoint list. 
 
 ![image](/assets/2025-06-29/080.png)
 
-The actual translation happens with a data flow. We just joining the list of news with the list of the images by using a Join step as shown in the screenshot.
+In the above screenshot, you can see that the `Media` column contains the `ID`  of an image in our document library. That's why we need to translate this ID into the actual filename of the image.
+
+To do this, we use a data flow. We join the list of news articles with the list of images, by using a *join* step:
 
 ![image](/assets/2025-06-29/090.png)
 
