@@ -15,29 +15,31 @@ downloads:
   - name: CompanyNewsFromSharepoint.pbmx
     url: /assets/2025-06-29/CompanyNewsFromSharepoint.pbmx
 ---
-Office 365 is often used as a data backend for various applications within a company.
-We've explained how to combine [Peakboard and Office 365 apps](/category/office365) in previous articles.
-In this article, we explain how to use SharePoint lists to share company news.
+Office 365 is often used as a data backend for different applications within a company.
+In previous articles, we explained how to combine [Peakboard and Office 365 apps](/category/office365). In this article, we explain how to use SharePoint lists to build a newsstand app that shows the latest company news.
 
-Before continuing, make sure that you have read our [Office 365 data sources guide](/Getting-started-with-the-new-Office-365-Data-Sources.html). The authentication process is tricky, so it's important that you understand how to do it.
+Before continuing, make sure that you have read our [Office 365 data sources guide](/Getting-started-with-the-new-Office-365-Data-Sources.html). The authentication process is tricky, so it's important that you understand it.
 
-We also have another [SharePoint lists guide](/SharePoint-Lists-in-Beast-Mode-Powered-by-Peakboard.html). That article is more general, while this article covers the following specialized topics:
-* How to handle rich text (formatted text with lists and other formatting options).
+We also have another [SharePoint lists guide](/SharePoint-Lists-in-Beast-Mode-Powered-by-Peakboard.html) that explains how to use SharePoint lists in Peakboard. That article is more general, while this article covers the following specialized topics:
+* How to handle text with rich formatting.
 * How to combine structured data from a SharePoint list with unstructured data (like images) from a SharePoint document library. 
 
 ## The big picture
 
-We will create a Peakboard app that shows the most recent company news. This screenshot shows what the final result looks like:
+We will create a Peakboard app that showcases the most recent company news. Here's what the final result looks like:
 
 ![image](/assets/2025-06-29/010.png)
 
-* There's a list of news articles on the left.
+Notice:
+* There's a list of the most recent news articles on the left.
 * There's a full article in the middle.
-* THere's an image for the news article on the right.
+* There's an image for the full article on the right.
 
-The article and associated image changes automatically every 10 seconds, by cycling through the list of news articles. Viewers can also manually select an article to display, if the app is running on a touch screen.
+The full article and associated image changes automatically every 10 seconds, cycling through the list of news articles. Users can also manually select an article to display, if the app is running on a touch screen.
 
-The app pulls the news articles from a SharePoint list. The idea is that this SharePoint list lets anyone take the news articles and publish them somewhere. For example, in a newsletter, an intranet portal, or a Peakboard app (either as part of other dashboards, or as a standalone tool). The app pulls the images from a SharePoint document library.
+The app pulls the news articles from a SharePoint list. The idea is that this SharePoint list lets anyone take the news articles and publish them somewhere. For example, in a newsletter, an intranet portal, or a Peakboard app (either as part of other dashboards, or as a standalone tool).
+
+The app pulls the images from a SharePoint document library.
 
 ## Configure SharePoint
 
@@ -111,12 +113,17 @@ We add a *styled list* to show the list of news articles, on the left side of th
 
 ![image](/assets/2025-06-29/110.png)
 
-On the right side we use an image control that refers to the media document library. An empty default image can be used as some kind of default view.
+We add an *image control* to show the image for the active article, on the right side of the screen. This image controls gets its image from our document library data source. We also set a default image.
 
 ![image](/assets/2025-06-29/120.png)
 
-So what happens when either the user touches on one of the news lines? Or the timer automaticaly rotates through the news lists?
-The variable VarS_Selected_ID is set and the data flow to filter the news lines to the selected one is triggered. 
+### Implement article switching
+
+There are two ways that the active article can switch:
+* The 10 second timer expires.
+* A viewer taps one of the news articles.
+
+We set the variable `VarS_Selected_ID` to the `ID` of the new active article (the next one in the list, or the one a viewer tapped). the data flow to filter the news lines to the selected one is triggered. 
 
 ![image](/assets/2025-06-29/130.png)
 
@@ -124,11 +131,10 @@ This action in turn triggers the reload event of the data flow. It sets the actu
 
 ![image](/assets/2025-06-29/140.png)
 
-## result and conclusion
+## Result and conclusion
 
-Using SharePoint lists and documents is easy. But in this article we learned some sophistacted tricks:
-
-1. How to combine list entries with files and how to handle this relationship in Peakboard
-2. How to handle rich HTML text from SharePoint
+It's easy to use basic SharePoint lists and documents. But in this article, we learned some more sophisticated tricks:
+* How to combine list entries with files, and how to handle this relationship in Peakboard.
+* How to handle rich HTML text from SharePoint.
 
 ![image](/assets/2025-06-29/result.gif)
