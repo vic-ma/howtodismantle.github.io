@@ -73,7 +73,7 @@ First, for the `ArticleText` column, we enable [*Enhanced rich text* ](https://s
 
 ![image](/assets/2025-06-29/040.png)
 
-For the `Media` [lookup column](https://support.microsoft.com/en-us/office/create-list-relationships-by-using-lookup-columns-80a3e0a6-8016-41fb-ad09-8bf16d490632), we set the source to `CompanyNewsMedia.MediaID` (the `MediaID` column of our image document library).
+For the `Media` [lookup column](https://support.microsoft.com/en-us/office/create-list-relationships-by-using-lookup-columns-80a3e0a6-8016-41fb-ad09-8bf16d490632), we set the source to the `MediaID` column of our image document library (`CompanyNewsMedia.MediaID`).
 
 ![image](/assets/2025-06-29/050.png)
 
