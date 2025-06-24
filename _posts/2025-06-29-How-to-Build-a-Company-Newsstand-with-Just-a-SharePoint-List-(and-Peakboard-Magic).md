@@ -69,7 +69,7 @@ Next, we create a standard SharePoint list to store our news articles. We need t
 
 There are two important things to do when creating the columns.
 
-For the `ArticleText` column, we enable [*Enhanced rich text* ](https://support.microsoft.com/en-us/office/edit-a-rich-text-list-column-6ba62e7e-ee63-4716-9f95-f626770c3fff). That way, we support advanced formatting features for our articles.
+First, for the `ArticleText` column, we enable [*Enhanced rich text* ](https://support.microsoft.com/en-us/office/edit-a-rich-text-list-column-6ba62e7e-ee63-4716-9f95-f626770c3fff). That way, we support articles with formatted text, like italics or pictures or hyperlinks.
 
 ![image](/assets/2025-06-29/040.png)
 
