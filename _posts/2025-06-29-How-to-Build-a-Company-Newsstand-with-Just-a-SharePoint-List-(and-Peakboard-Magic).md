@@ -97,17 +97,17 @@ Next, we create a SharePoint list data source that pulls news articles from our 
 
 In the above screenshot, you can see that the `Media` column contains the `ID`  of an image in our document library. That's why we need to translate this ID into the actual filename of the image.
 
-To do this, we use a data flow. We join the list of news articles with the list of images, by using a *join* step:
+To do this, we create a data flow with a single *join* step. This step joins the list of news articles with the list of images:
 
 ![image](/assets/2025-06-29/090.png)
 
-A second data flow is used to filter the current list to only one news entry. That's the active one. So every time we need to refer to currently active news, we use this data flow.
+We use a second data flow to filter the current list, to only show the active news entry. So each time we need to get the active news article, we use this data flow.
 
 ![image](/assets/2025-06-29/100.png)
 
-### Building the User Interface
+### Build the user interface
 
-On the left side we just use a Styled List to present the news list.
+We add a *styled list* to show the list of news articles, on the left side of the screen:
 
 ![image](/assets/2025-06-29/110.png)
 
