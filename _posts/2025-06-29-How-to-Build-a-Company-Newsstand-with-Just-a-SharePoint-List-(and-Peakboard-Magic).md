@@ -85,15 +85,15 @@ Here's our list with some example data. You can see how we're able to use bold t
 
 Now, let's take a look at the Peakboard side.
 
-### Add the document library data source
+### Create the document library data source
 
-First, we create a SharePoint list data source that pulls images from our document library. We need this data source in order to translate a lookup ID into a filename.
+First, we create a SharePoint list data source that pulls images from our `CompanyNewsMedia` document library. We need this data source in order to translate a lookup ID into a filename.
 
 ![image](/assets/2025-06-29/070.png)
 
-### Add the news articles data source
+### Create the news articles data source
 
-Next, we create a SharePoint list data source that pulls news articles from our SharePoint list. 
+Next, we create a SharePoint list data source that pulls news articles from our `CompanyNews` SharePoint list. 
 
 ![image](/assets/2025-06-29/080.png)
 
