@@ -32,14 +32,14 @@ We will create a Peakboard app that showcases the most recent company news. Here
 
 Notice:
 * There's a list of the most recent news articles on the left.
-* There's a full article in the middle.
-* There's an image for the full article on the right.
+* There's a full article in the middle---the "active" article.
+* There's an image for the active article on the right.
 
-The full article and associated image changes automatically every 10 seconds, cycling through the list of news articles. Users can also manually select an article to display, if the app is running on a touch screen.
+The active article and associated image change automatically every 10 seconds, cycling through the list of news articles. Users can also manually select an article to display, if the app is running on a touch screen.
 
 The app pulls the news articles from a SharePoint list. The idea is that this SharePoint list lets anyone take the news articles and publish them somewhere. For example, in a newsletter, an intranet portal, or a Peakboard app (either as part of other dashboards, or as a standalone tool).
 
-The app pulls the images from a SharePoint document library.
+For the images, the app pulls them from a SharePoint document library.
 
 ## Configure SharePoint
 
@@ -47,7 +47,7 @@ Here's what we need to do on the SharePoint side of things.
 
 ### Store images
 
-The first step is to create a document library to store the images for our news articles. A document library is like a standard SharePoint file library---but with one additional column: `Media ID`. This column contains a string that identifies the file (for example, a file name). We need this column to make it easy for users to select an image to use with their news article.
+The first step is to create a document library to store the images for our news articles. A document library is like a standard SharePoint file library---but with one additional column: `Media ID`. This column contains a string that identifies the file (for example, a filename). We need this column to make it easy for users to select an image to use with their news article.
 
 ![image](/assets/2025-06-29/020.png)
 
@@ -129,7 +129,7 @@ If either of these occur, we set the variable `VarS_Selected_ID` to the `ID` of 
 
 This then triggers the reload event of the data flow. So, in order to update the news article and image on screen, we create a reload event for the data flow.
 
-Our reload event sets the news article's text, and the image's file name. We don't need to handle the other on-screen elements---the title and subtitle---in this reload event. That's because they use data binding to update themselves automatically. We only need this manual script for the formatted HTML text and the image source.
+Our reload event sets the news article's text, and the image's filename. We don't need to handle the other on-screen elements---the title and subtitle---in this reload event. That's because they use data binding to update themselves automatically. We only need this manual script for the formatted HTML text and the image source.
 
 ![image](/assets/2025-06-29/140.png)
 
