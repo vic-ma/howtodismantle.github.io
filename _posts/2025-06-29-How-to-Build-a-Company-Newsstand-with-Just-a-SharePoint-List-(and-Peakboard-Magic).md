@@ -119,21 +119,23 @@ We add an *image control* to show the image for the active article, on the right
 
 ### Implement article switching
 
-There are two ways that the active article can switch:
-* The 10 second timer expires.
-* A user taps one of the news articles.
+There are two conditions that can cause the active article to switch:
+1. The 10 second timer expires.
+1. The user taps one of the news articles.
 
-We set the variable `VarS_Selected_ID` to the `ID` of the new active article (the next one in the list, or the one a user tapped). the data flow to filter the news lines to the selected one is triggered. 
+If either of these occur, we set the variable `VarS_Selected_ID` to the `ID` of the new active article (the next one in the list, or the one that the user tapped). We also reload the news articles data source, to trigger the data flow that filters for the active news article.
 
 ![image](/assets/2025-06-29/130.png)
 
-This action in turn triggers the reload event of the data flow. It sets the actual news text and the file name of the image to be shown. The other news attributes (title and subtitle) don't need to be handled here. Because they are shown through data binding. We need this manual coding on for the formatted HTML text and the image source only.
+This then triggers the reload event of the data flow. So, in order to update the news article and image on screen, we create a reload event for the data flow.
+
+Our reload event sets the news article's text, and the image's file name. We don't need to handle the other on-screen elements---the title and subtitle---in this reload event. That's because they use data binding to update themselves automatically. We only need this manual script for the formatted HTML text and the image source.
 
 ![image](/assets/2025-06-29/140.png)
 
 ## Result and conclusion
 
-It's easy to use basic SharePoint lists and documents. But in this article, we learned some more sophisticated tricks:
+It's easy to use basic SharePoint lists and documents. But in this article, we showed off some more sophisticated tricks:
 * How to combine list entries with files, and how to handle this relationship in Peakboard.
 * How to handle rich HTML text from SharePoint.
 
