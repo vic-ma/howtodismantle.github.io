@@ -47,7 +47,7 @@ Here's what we need to do on the SharePoint side of things.
 
 ### Store images
 
-The first step is to create a document library to store the images for our news articles. A document library is like a standard SharePoint file library---but with one additional column: `Media ID`. This column contains a string that identifies the file (for example, a filename). We need this column to make it easy for users to select an image to use with their news article.
+The first step is to create a document library to store the images for our news articles. A document library is like a standard SharePoint file library---but with one additional column: `Media ID`. This column contains a string that identifies the file (for example, a filename). We need this column to make it easy for admins to select an image to use with their news article.
 
 ![image](/assets/2025-06-29/020.png)
 
@@ -97,13 +97,13 @@ Next, we create a SharePoint list data source that pulls news articles from our 
 
 ![image](/assets/2025-06-29/080.png)
 
-In the above screenshot, you can see that the `Media` column contains the `ID` of an image that's in our document library (`CompanyNewsMedia.ID`). This alone is not usable, because it's just an integer. That's why we need to translate the `ID` into a filename.
+In the above screenshot, you can see that the `Media` column contains the `ID` of an image that's in our document library. This alone is not usable, because it's just an integer. That's why we need to translate the `ID` into a filename.
 
 To do this, we create a data flow with a single *join* step. This step joins the list of news articles with the list of images:
 
 ![image](/assets/2025-06-29/090.png)
 
-Next, we create another data flow, built on top of the first one (so the output of the first data flow is the input of this data flow). We use this data flow to filter the list to only show the active news article. So each time we need to get the active news article, we use this data flow.
+Next, we create another data flow, built on top of the first one (so the output of the first data flow is the input of this data flow). We use this data flow to filter the list to only show the active news article. So each time we need to get the active news article, we run this data flow.
 
 ![image](/assets/2025-06-29/100.png)
 
@@ -129,7 +129,7 @@ If either of these occur, we set the variable `VarS_Selected_ID` to the `ID` of 
 
 This then triggers the reload event of the data flow. So, in order to update the news article and image on screen, we create a reload event for the data flow.
 
-Our reload event sets the news article's text, and the image's filename. We don't need to handle the other on-screen elements---the title and subtitle---in this reload event. That's because they use data binding to update themselves automatically. We only need this manual script for the formatted HTML text and the image source.
+Our reload event sets the news article's text, and the image's filename. We don't need to handle the other on-screen elements---the title and subtitle---in this reload event. That's because the title and subtitle use data binding to update themselves automatically. We only need this manual script for the formatted HTML text and the image source.
 
 ![image](/assets/2025-06-29/140.png)
 
