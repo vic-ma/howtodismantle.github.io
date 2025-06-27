@@ -73,7 +73,7 @@ For loading the data to be archived, we use a similiar SQL technique as with the
 
 {% highlight sql %}
 select * from TemperatureActual
-where TS < FORMAT(GETDATE() - 160, 'yyyy-MM-dd')
+where TS < FORMAT(GETDATE() - 7, 'yyyy-MM-dd')
     and TS not in (select TS from TemperatureArchive)
 {% endhighlight %}
 
