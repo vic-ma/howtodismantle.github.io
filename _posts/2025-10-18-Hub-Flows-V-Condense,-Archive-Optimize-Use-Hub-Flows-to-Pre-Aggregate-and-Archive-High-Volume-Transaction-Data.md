@@ -63,5 +63,31 @@ In case the destination table is completely empty, which it is the case when we 
 
 ![image](/assets/2025-10-18/029.png)
 
+## Archive
 
+In our second use case, we really want to move data. The source table is the same "TemperatureActual" and the destination table is "TemperatureArchive". It has exactly the same columns "TS" and "Temperature". As already mentioned the main objective is to keep "TemperatureActual" nice and small to avoid any negative impact on production applications that rely on extremely fast table access. We will move all data older than 7 days from actual to archive.
+
+Let's have a look at the data source. We need a data source that just points to our "TemperatureArchive" table, otherwise we're unable to store data into it later. 
+
+For loading the data to be archived, we use a similiar SQL technique as with the first example. We just select all data that is older than 7 days and that is not yet in the archive table. As you see in the SQL statement we treat the TS column as some kind of primary key to check if the data is already transferred.
+
+{% highlight sql %}
+select * from TemperatureActual
+where TS < FORMAT(GETDATE() - 160, 'yyyy-MM-dd')
+    and TS not in (select TS from TemperatureArchive)
+{% endhighlight %}
+
+![image](/assets/2025-10-18/030.png)
+
+Let's check the function that is doing the actual work. We just loop over each row to be archived and store in the archive. In the next step the original data row is deleted from the actual table
+
+![image](/assets/2025-10-18/032.png)
+
+The Hub Flow looks very similiar to the first one. We just execute the query to get the data to be archived and then call the function to store away the data and delete from the source table.
+
+![image](/assets/2025-10-18/034.png)
+
+## result and conclusion
+
+In today's article we discussed two options to optimize tables: Pre-aggregation and archiving. These are most common use cases of that pattern and it's no problem to even use combination of both: Storing away the agregated data and then deleting the original data. In that case some information is lost, but if it's no need to keep it, it might by an option to do so.
 
