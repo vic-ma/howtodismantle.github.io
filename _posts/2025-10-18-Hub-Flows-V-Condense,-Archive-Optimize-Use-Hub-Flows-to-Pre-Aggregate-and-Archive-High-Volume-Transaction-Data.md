@@ -10,8 +10,58 @@ read_more_links:
   - name: All articles around Hub FLows
     url: /category/opcuamqtt
 downloads:
-  - name: TemperatureFlow.pbfx
-    url: /assets/2025-08-08/TemperatureFlow.pbfx
+  - name: ArchiveAndAggregate.pbfx
+    url: /assets/2025-10-18/ArchiveAndAggregate.pbfx
 ---
+In the fith part of our Hub Flows series we will talk about how to handle high volume transaction data. As a minimum requirement we must make sure to understand the basics of the Hub FLows. The recent articles of this series can be found [here](/category/hubflows).
 
-Sorry, this article is not published yet
+We often see, that machines or sensors produce a lot of data continously. In many cases the data of the last minutes, hours or days are the most important ones that are used in the process often und must be queried and deliverd fast. The older data should be available for a long term analysis or in a aggregated form. In our example we will handle data form a temperature sensor we already used in our [very first article](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
+
+Our sample Hub list where the actual values are stored is called "TemperatureActual". Every couple of minutes the sensor generates and stores the current value in the column "Temperature" along with a time stamp in the column "TS".
+
+![image](/assets/2025-10-18/010.png)
+
+In this article we want to solve two tasks to handle this large aomunt of data:
+
+1. We want to build a functionality that aggregates the data on a daily basis. After the day is over, the minimum, maximum and average temperature is stored in a seperate table for each day. So if someone needs this statistical data, it's not necessary anymore to aggregate the data from the original raw data. The temperature values are already pre-aggregated per day and so the access to this information doesn't need any computing power.
+
+2. Let's assume a lot of other application are accessing the latest temperature data from the last couple of hours with a very high frequency. When we store the last months or even years in the same table. This process gets slower and slower over time. That's why build an archiving functionality. As soon as the data is older than 7 days, it's is copied from the actual trasaction table to an archive table. Using this arhcitecure no data is lost, but accessing the most needed data is still very fast because the table stays small.
+
+## Build the Data Aggregation Hub Flow
+
+The first thing we need is a table to store the aggregated data in and name it "TemperatureDaily". We will need a column of the date and also for the minimum, maximum and average temperature on that day.
+
+![image](/assets/2025-10-18/020.png)
+
+In the Hub FLow project we set up a data source to access this table.
+
+![image](/assets/2025-10-18/022.png)
+
+For selecting the data to be aggregated we use the options to access the Hub Flows list through SQL. Below you see the SQL statement. So we do the actual aggregation already in the SQL statement. And we only select data before the current day to make sure, we don't write any aggregation before the day is over. And of cours we only aggregate the days which are not yet written to the "TemperatureDaily" table. The term "left(TS, 10)" is used to turn the time stamp into a day value without the time information.
+
+{% highlight sql %}
+select left(TS, 10) as Date, 
+    min(Temperature) as MinTemp,
+    max(Temperature) as MaxTemp, avg(Temperature) as AvTemp
+from TemperatureActual where TS < FORMAT(GETDATE(), 'yyyy-MM-dd')
+    and left(TS, 10) not in (Select date from TemperatureDaily)
+group by left(TS, 10)
+order by 1
+{% endhighlight %}
+
+![image](/assets/2025-10-18/024.png)
+
+The next thing we need is a function that does the actual data transfer. We just loop over the data that is coming from the source and store each line in the new "TemperatureDaily" table. Usually it's just one line per day. But if the function is accidently not executed one day for whatever reasons, the next day the missing rows are also handled correctly.
+
+![image](/assets/2025-10-18/026.png)
+
+In the last step we put everything together and build the Hub FLow. First reload the aggrgation data source and then execute the function to store the output into the new table. As a trigger we use a sheduler and let the Flow automatically execute every night at 11PM.
+
+![image](/assets/2025-10-18/028.png)
+
+In case the destination table is completely empty, which it is the case when we set up this procedure. All the missing rows from the past days are created automatically. When it runs on daily basis only one row per day is written. The screenshot shows the data. We can see that January 10 was the first day the sensors has produced data so this will result in the first row of the aggregation table.
+
+![image](/assets/2025-10-18/029.png)
+
+
+
