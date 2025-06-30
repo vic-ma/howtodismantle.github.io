@@ -27,19 +27,19 @@ This article is the first in a series of articles that explain how to use Hub Fl
 
 ## Understand the idea of Hub Flows
 
-To build a Hub Flow, you use the Peakboard Designer. And to host and run a Hub Flow, you use Peakboard Hub. Before you build a Flow, you must first connect Peakboard Designer to a Peakboard Hub instance.
+To build a Hub Flow, you use the Peakboard Designer. And to host and run a Hub Flow, you use Peakboard Hub. Before you build a Hub Flow, you must first connect Peakboard Designer to a Peakboard Hub instance.
 
 Starting with Peakboard Designer version 4, there's a new project type called a *Flow project*:
 
 ![image](/assets/2025-07-07/005.png)
 
-A Flow project doesn't have screens, because Flows don't have UIs. But, Flow projects do share many similarities with regular Designer projects:
-* Flow projects use data sources and data flows to retrieve and process data from connected systems.
+A Flow project doesn't have screens, because Hub Flows don't have UIs. But, Flow projects do share many similarities with regular Designer projects:
+* Flow projects use data sources and dataflows to retrieve and process data from connected systems.
 * Flow projects use functions (either with LUA code or with Building Blocks) for complex application logic
-* Flow projects use Flows to coordinate actions and to control the application. So in a Flow project, you always need a Flow needed to execute a data source, a data flow, or a function.
-  Unlike standard Designer projects, data sources and data flows are not executed automatically. And there are no automatic reload scripts. You always need a Flow to trigger them. This makes Flows the sole tool for defining and coordinating what a Flow project does and under what conditions.
+* Flow projects use Hub Flows to coordinate actions and to control the application. So in a Flow project, you always need a Hub Flow needed to execute a data source, a dataflow, or a function.
+  Unlike standard Designer projects, data sources and dataflows are not executed automatically. And there are no automatic reload scripts. So you always need a Hub Flow to trigger them. This makes Hub Flows the sole tool for defining and coordinating what a Flow project does and under what conditions.
 
-The final thing you need to know about is the role of Hub lists. You can use Hub lists just like a regular table, to store and read data. However, it's very easy to store data in Hub lists, within a flow project. There's built-in functionality to store data into Hub lists that come from data sources or data flows. We'll take a look at, later in this article. 
+The final thing you need to know about is the role of Hub lists. You can use Hub lists just like a regular table, to store and read data. However, it's very easy to store data in Hub lists, within a flow project. There's built-in functionality to store data into Hub lists that come from data sources or dataflows. We'll take a look at, later in this article. 
 
 ## First steps with Hub Flows
 
@@ -53,16 +53,22 @@ This screenshot shows that our MQTT data source is subscribed to a single MQTT n
 
 ![image](/assets/2025-07-07/010.png)
 
-### Timestamp data flow
+### Timestamp dataflow
 
-We want to add a timestamp to our temperature value. So, we add a data flow to our data source. It works like this:
+We want to add a timestamp to our temperature value. So, we add a dataflow to our data source. It works like this:
 1. Add a column with the current time stamp.
 2. Change the order of the columns to have the timestamp appear before the temperature. This looks a little bit nicer.
 
 ![image](/assets/2025-07-07/020.png)
 
-The last step is to build the Flow. After creating a new Flow we first add a trigger. The Flow should be triggered every time a new MQTT message is sent. So the trigger is the list refresh of our data source.
-The first step in the flow is the reload of the data Flow that adds the time stamp. Other then regular Peakboard Designer projects data Flows ARE NOT TREIGGERED AUTMATICALLY only because they are bound to a data source. So we need to explicitly trigger the data flow to work. The second step is to store the output of the dataflow into a hub list. There's nothing more to do here, because the list is named and generated automatically from the metadata.
+### Build the Hub Flow
+
+Finally, we build our Hub Flow:
+1. Create a new Hub Flow.
+2. Add a trigger. We want the Hub Flow to be triggered every time a new MQTT message is sent by our thermostat and received by our data source. So the trigger is the list refresh of our data source.
+3. Add the steps for the Hub Flow:
+    1. Load the timestamp dataflow that we created. Remember that in Flow projects, dataflows are not triggered automatically. That's why we have to manually run the dataflow here, inside the Hub Flow.
+    2. Store the output of the dataflow in a Hub list. There's no more work to do in this step, because the Hub Flow automatically creates and names the Hub list, by using metadata.
 
 ![image](/assets/2025-07-07/030.png)
 
