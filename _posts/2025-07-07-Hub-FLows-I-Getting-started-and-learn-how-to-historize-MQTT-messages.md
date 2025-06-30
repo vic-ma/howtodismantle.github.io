@@ -36,8 +36,7 @@ Starting with Peakboard Designer version 4, there's a new project type called a 
 A Flow project doesn't have screens, because Hub Flows don't have UIs. But, Flow projects do share many similarities with regular Designer projects:
 * Flow projects use data sources and dataflows to retrieve and process data from connected systems.
 * Flow projects use functions (either with LUA code or with Building Blocks) for complex application logic
-* Flow projects use Hub Flows to coordinate actions and to control the application. So in a Flow project, you always need a Hub Flow needed to execute a data source, a dataflow, or a function.
-  Unlike standard Designer projects, data sources and dataflows are not executed automatically. And there are no automatic reload scripts. So you always need a Hub Flow to trigger them. This makes Hub Flows the sole tool for defining and coordinating what a Flow project does and under what conditions.
+* Flow projects use Hub Flows to coordinate actions and to control the application. Unlike standard Designer projects, data sources, dataflows, and functions are never executed automatically. And there are no automatic reload scripts. So you always need a Hub Flow to trigger them. This makes Hub Flows the sole tool for defining and coordinating what a Flow project does and under what conditions.
 
 The final thing you need to know about is the role of Hub lists. You can use Hub lists just like a regular table, to store and read data. However, it's very easy to store data in Hub lists, within a flow project. There's built-in functionality to store data into Hub lists that come from data sources or dataflows. We'll take a look at, later in this article. 
 
@@ -82,7 +81,7 @@ To monitor the Hub Flow, we open the Peakboard Hub portal. Then, we click on the
 
 ![image](/assets/2025-07-07/050.png)
 
-When we switch to the "Lists" tab, we can find the autmatically generated Hub list where the data is stored. We see, that it was not necessary to create the list manually. It was generated autmatically. The screenshot shows, that the first two temperture values were already stored correctly.
+To view our temperature data, we click on the *Lists* tab. There, we can see the automatically generated list, along with all the data that has been uploaded to it so far. This shows how, with Hub Flows, we don't need to manually create lists to store our data in---the Hub Flow does that for us automatically.
 
 ![image](/assets/2025-07-07/060.png)
 
