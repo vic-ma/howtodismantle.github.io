@@ -25,15 +25,17 @@ This article is the first in a series of articles that explain how to use Hub Fl
 4. [Peakboard Flows in Production: Asynchronous SAP Confirmation Processing](/Hub-Flows-IV-Peakboard-Flows-in-Production-Asynchronous-SAP-Confirmation-Processing.html)
 5. [Condense, Archive, Optimize: Use Hub Flows to Pre-Aggregate and Archive High-Volume Transaction Data](/Hub-Flows-V-Condense,-Archive-Optimize-Use-Hub-Flows-to-Pre-Aggregate-and-Archive-High-Volume-Transaction-Data.html)
 
-## Understanding the idea of Hub FLows
+## Understand the idea of Hub Flows
 
-Hub Flows are designed and built in the Peakboard designer, and then run and hosted in the Peakboard Hub. So the upload of the project to the Hub can be compared with uploading a regular application to a Peakboard box. It's a requirement to connect the designer to a Hub instance first. Starting from Designer version 4 there's a new project type called "Flow project". A FLow project doesn't have screens, because it doesn't have any UI when running. But there are many other artifacts we aleady know from regular designer projects.
+To build a Hub Flow, you use the Peakboard Designer. And to host and run a Hub Flow, you use Peakboard Hub. Before you build a Flow, you must first connect Peakboard Designer to a Peakboard Hub instance.
 
-We use Data Sources and Data FLows to retrieve and process data from connected systems. We can use functions (either with LUA code or with Building Blocks) for complex application logic, and - most importantly - we use Flows to coordinate all actions and to control the actual application process. So within the Flow project, there's always a FLow needed to execute a Data Source, a Data FLow or a function. Different from regular UI projects Data Sources and Data FLows are not excuted automatically. And there are no automatic Reload Scripts. We always need a flow to trigger them. That makes the Flows the ulimate linchpin to define and coordinate what the Flow project is actually doing and under what conditions.
+Starting with Peakboard Designer version 4, there's a new project type called a *Flow project*. A Flow project doesn't have screens, because it doesn't have any UI when running. But there are many other artifacts we aleady know from regular designer projects.
+
+We use Data Sources and Data Flows to retrieve and process data from connected systems. We can use functions (either with LUA code or with Building Blocks) for complex application logic, and - most importantly - we use Flows to coordinate all actions and to control the actual application process. So within the Flow project, there's always a Flow needed to execute a Data Source, a Data Flow or a function. Different from regular UI projects Data Sources and Data Flows are not excuted automatically. And there are no automatic Reload Scripts. We always need a flow to trigger them. That makes the Flows the ulimate linchpin to define and coordinate what the Flow project is actually doing and under what conditions.
 
 The last aspect to explain is the role of Hub lists. We can use Hub lists just as a regular table to store and read data. However it's very easy to store data in Hub lists within a flow projects. There's some kind of build-in functionality to store data into Hub lists that are coming from data source or data flows. We will have a look at this in this article. 
 
-## First steps with Hub FLows
+## First steps with Hub Flows
 
 ![image](/assets/2025-07-07/005.png)
 
@@ -48,7 +50,7 @@ We add a data flow along with the data source. The main step is to add one more 
 ![image](/assets/2025-07-07/020.png)
 
 The last step is to build the Flow. After creating a new Flow we first add a trigger. The Flow should be triggered every time a new MQTT message is sent. So the trigger is the list refresh of our data source.
-The first step in the flow is the reload of the Data Flow that adds the time stamp. Other then regular Peakboard Designer projects Data FLows ARE NOT TREIGGERED AUTMATICALLY only because they are bound to a data source. So we need to explicitly trigger the data flow to work. The second step is to store the output of the dataflow into a hub list. There's nothing more to do here, because the list is named and generated automatically from the metadata.
+The first step in the flow is the reload of the Data Flow that adds the time stamp. Other then regular Peakboard Designer projects Data Flows ARE NOT TREIGGERED AUTMATICALLY only because they are bound to a data source. So we need to explicitly trigger the data flow to work. The second step is to store the output of the dataflow into a hub list. There's nothing more to do here, because the list is named and generated automatically from the metadata.
 
 ![image](/assets/2025-07-07/030.png)
 
