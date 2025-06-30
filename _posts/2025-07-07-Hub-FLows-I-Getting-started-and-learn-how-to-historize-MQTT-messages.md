@@ -17,9 +17,7 @@ Peakboard has always focused on UI-oriented, local applications---unlike other s
 
 But there *are* some use instances where it makes sense to have a central system host an application. That's why the Peakboard development team released *Peakboard Hub Flows*, in the summer of 2025. 
 
-This article is the first in a series of articles on Hub 
-
- starting point to a series of articles to introduce Hub Flows and explain the use cases which can be covered. We will start a very simple task to historize MQTT messages in a Hub list. Here's a list of all use cases covered in this series:
+This article is the first in a series of articles that explain Hub Flows. This article serves as a starting point and explains all the use cases we will cover. We will start a very simple task to historize MQTT messages in a Hub list. Here's a list of all use cases covered in this series:
 
 1. [Getting started and learn how to historize MQTT messages](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html)
 2. [Cache Me If You Can - Data Distribution and caching for SAP Capacity Data](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html)
