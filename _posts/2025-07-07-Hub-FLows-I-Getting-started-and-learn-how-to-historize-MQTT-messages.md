@@ -41,9 +41,9 @@ The final thing you need to know about is the role of Hub lists. You can use Hub
 
 ![image](/assets/2025-07-07/005.png)
 
-In our first example project we will build and deploy a Hub Flow. The starting for the process to be built is an MQTT data source. It receives a temperature value. This temperture value will be enriched along with a time stamp, just the current time. And this information is stored into a Hub table for long term historization. The temperture sensor that delivers the temperture was already discussed in the article [Peakboard Meets Shelly - Building a Smart Dashboard for Tracking Temperature and Humidity](/Peakboard-Meets-Shelly-Building-a-Smart-Dashboard-for-Tracking-Temperature-and-Humidity.html), so we won't go into all the details to set it up.
+For our first example project, we will build and deploy a Hub Flow. First, we create a MQTT data source. It receives a temperature value. This temperature value will be combined with a time stamp of the current time. And we store information in a Hub table, for long-term historicization. We've discussed how the [temperature sensor](/Peakboard-Meets-Shelly-Building-a-Smart-Dashboard-for-Tracking-Temperature-and-Humidity.html) works in another article, so we won't explain how to set it up here.
 
-The screenshot shows the MQTT data source that is subscribed only to one MQTT node, the temperature.
+This screenshot shows that our MQTT data source is subscribed to a single MQTT node, which is the temperature:
 
 ![image](/assets/2025-07-07/010.png)
 
