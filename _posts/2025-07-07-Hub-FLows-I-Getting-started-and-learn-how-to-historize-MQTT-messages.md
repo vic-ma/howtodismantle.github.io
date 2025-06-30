@@ -74,11 +74,11 @@ Finally, we build our Hub Flow:
 
 ## Deploy and monitor the Hub Flow
 
-To deploy and activate our Hub Flow, we click the **Upload** button.
+To deploy and activate our Hub Flow, we click the **Upload** button:
 
 ![image](/assets/2025-07-07/040.png)
 
-When we switch over to the Hub portal we can find the Flow tab for monitoring any Flow that is deployed to the Hub. For every flow we can see the last execution visually and also browse through the log entries. In our sample the last incoming MQTT message was successfully processed.
+To monitor the Hub Flow, we open the Peakboard Hub portal. Then, we click on the *Hub Flows* tab and select our Hub Flow. We see the results the last execution, and we can also look through the log entries. The green status icons means that our last incoming MQTT message was successfully processed:
 
 ![image](/assets/2025-07-07/050.png)
 
