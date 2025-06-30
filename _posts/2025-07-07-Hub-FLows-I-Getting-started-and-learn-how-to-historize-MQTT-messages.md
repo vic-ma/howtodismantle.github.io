@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hub Flows I - Getting started and learning how to historize MQTT messages
+title: Hub Flows I - Getting started and learning how to historicize MQTT messages
 date: 2023-03-01 00:00:00 +0000
 tags: hubflows
 image: /assets/2025-07-07/title.png
@@ -15,11 +15,11 @@ downloads:
 ---
 Peakboard has always focused on UI-oriented, local applications---unlike other systems like Tulip or Mendix. With Peakboard, all the processing happens on a local device (a Box or a BYOD instance), so you don't need to have central servers or a cloud to host your applications. This is a big advantage over the alternative solutions, and it's one of the main reasons why so many companies and developers choose Peakboard.
 
-But there *are* some use instances where it makes sense to have a central system host an application. That's why the Peakboard development team released *Peakboard Hub Flows*, in the summer of 2025. 
+But there *are* some use instances where it makes sense to have a central server host an application. That's why the Peakboard development team recently launched *Peakboard Hub Flows*. 
 
-This article is the first in a series of articles that explain Hub Flows. This article serves as a starting point and explains all the use cases we will cover. We will start a very simple task to historize MQTT messages in a Hub list. Here's a list of all use cases covered in this series:
+This article is the first in a series of articles that explain how to use Hub Flows. This article serves as a starting point and explains all the use cases that we will cover in this series. We'll start with the simple task historicizing MQTT messages in a Hub list. Here's a list of all use cases covered in this series:
 
-1. [Getting started and learn how to historize MQTT messages](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html)
+1. [Getting started and learn how to historicize MQTT messages](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html)
 2. [Cache Me If You Can - Data Distribution and caching for SAP Capacity Data](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html)
 3. [One PLC to Feed Them All: Using Peakboard Flows to Share and Distribute Siemens S7 Values](/Hub-Flows-III-One-PLC-to-Feed-Them-All-Using-Peakboard-Flows-to-Share-and-distribute-Siemens-S7-Values.html)
 4. [Peakboard Flows in Production: Asynchronous SAP Confirmation Processing](/Hub-Flows-IV-Peakboard-Flows-in-Production-Asynchronous-SAP-Confirmation-Processing.html)
