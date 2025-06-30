@@ -48,15 +48,15 @@ For our first example project, we will build and deploy a Hub Flow that historic
 
 ### Temperature data source
 
-First, we create an MQTT data source. It receives a temperature value. And we store information in a Hub table, for long-term historicization. We've discussed how the [temperature sensor](/Peakboard-Meets-Shelly-Building-a-Smart-Dashboard-for-Tracking-Temperature-and-Humidity.html) works in another article, so we won't explain how to set it up here.
+First, we create an MQTT data source to accept a temperature value. The temperature values come from a [Shelly sensor](/Peakboard-Meets-Shelly-Building-a-Smart-Dashboard-for-Tracking-Temperature-and-Humidity.html). We discussed how this works in previous article, so we won't go into the details here.
 
-This screenshot shows that our MQTT data source is subscribed to a single MQTT node, which is the temperature:
+As you can see, our MQTT data source is subscribed to a single MQTT node, which is what provides the temperature:
 
 ![image](/assets/2025-07-07/010.png)
 
 ### Timestamp dataflow
 
-We want to add a timestamp to our temperature value. So, we add a dataflow to our data source. It works like this:
+We want to add a timestamp to our temperature value. To do this, we add a dataflow to our data source. The dataflow contains two steps:
 1. Add a column with the current time stamp.
 2. Change the order of the columns to have the timestamp appear before the temperature. This looks a little bit nicer.
 
@@ -66,10 +66,10 @@ We want to add a timestamp to our temperature value. So, we add a dataflow to ou
 
 Finally, we build our Hub Flow:
 1. Create a new Hub Flow.
-2. Add a trigger. We want the Hub Flow to be triggered every time a new MQTT message is sent by our thermostat and received by our data source. So the trigger is the list refresh of our data source.
+2. Add a trigger. We want our Hub Flow to run every time a new MQTT message is sent by our Shelly sensor and received by our data source. So, the trigger is the list refresh of our data source.
 3. Add the steps for the Hub Flow:
-    1. Load the timestamp dataflow that we created. Remember that in Flow projects, dataflows are not triggered automatically. That's why we have to manually run the dataflow here, inside the Hub Flow.
-    2. Store the output of the dataflow in a Hub list. There's no more work to do in this step, because the Hub Flow automatically creates and names the Hub list, by using metadata.
+    1. Load our timestamp dataflow. Remember that in Flow projects, dataflows are not triggered automatically. That's why we have to manually run the dataflow here, inside the Hub Flow. This step gives us the temperature and timestamp data.
+    2. Store the output of the dataflow in a Hub list. There's no more work to do in this step, because the Hub Flow automatically creates and names the Hub list, using metadata.
 
 ![image](/assets/2025-07-07/030.png)
 
