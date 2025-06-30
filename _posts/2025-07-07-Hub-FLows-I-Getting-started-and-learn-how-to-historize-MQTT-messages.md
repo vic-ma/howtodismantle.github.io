@@ -29,7 +29,11 @@ This article is the first in a series of articles that explain how to use Hub Fl
 
 To build a Hub Flow, you use the Peakboard Designer. And to host and run a Hub Flow, you use Peakboard Hub. Before you build a Flow, you must first connect Peakboard Designer to a Peakboard Hub instance.
 
-Starting with Peakboard Designer version 4, there's a new project type called a *Flow project*. A Flow project doesn't have screens, because Flows don't have UIs. But, Flow projects do share many similarities with regular Designer projects:
+Starting with Peakboard Designer version 4, there's a new project type called a *Flow project*:
+
+![image](/assets/2025-07-07/005.png)
+
+A Flow project doesn't have screens, because Flows don't have UIs. But, Flow projects do share many similarities with regular Designer projects:
 * Flow projects use data sources and data flows to retrieve and process data from connected systems.
 * Flow projects use functions (either with LUA code or with Building Blocks) for complex application logic
 * Flow projects use Flows to coordinate actions and to control the application. So in a Flow project, you always need a Flow needed to execute a data source, a data flow, or a function.
@@ -39,13 +43,17 @@ The final thing you need to know about is the role of Hub lists. You can use Hub
 
 ## First steps with Hub Flows
 
-![image](/assets/2025-07-07/005.png)
+For our first example project, we will build and deploy a Hub Flow that provides temperature data. We open Peakboard Designer and select *New Flow project* to get started.
 
-For our first example project, we will build and deploy a Hub Flow. First, we create a MQTT data source. It receives a temperature value. And we store information in a Hub table, for long-term historicization. We've discussed how the [temperature sensor](/Peakboard-Meets-Shelly-Building-a-Smart-Dashboard-for-Tracking-Temperature-and-Humidity.html) works in another article, so we won't explain how to set it up here.
+### Temperature data source
+
+First, we create a MQTT data source. It receives a temperature value. And we store information in a Hub table, for long-term historicization. We've discussed how the [temperature sensor](/Peakboard-Meets-Shelly-Building-a-Smart-Dashboard-for-Tracking-Temperature-and-Humidity.html) works in another article, so we won't explain how to set it up here.
 
 This screenshot shows that our MQTT data source is subscribed to a single MQTT node, which is the temperature:
 
 ![image](/assets/2025-07-07/010.png)
+
+### Timestamp data flow
 
 We want to add a timestamp to our temperature value. So, we add a data flow to our data source. It works like this:
 1. Add a column with the current time stamp.
