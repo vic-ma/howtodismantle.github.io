@@ -41,13 +41,15 @@ The final thing you need to know about is the role of Hub lists. You can use Hub
 
 ![image](/assets/2025-07-07/005.png)
 
-For our first example project, we will build and deploy a Hub Flow. First, we create a MQTT data source. It receives a temperature value. This temperature value will be combined with a time stamp of the current time. And we store information in a Hub table, for long-term historicization. We've discussed how the [temperature sensor](/Peakboard-Meets-Shelly-Building-a-Smart-Dashboard-for-Tracking-Temperature-and-Humidity.html) works in another article, so we won't explain how to set it up here.
+For our first example project, we will build and deploy a Hub Flow. First, we create a MQTT data source. It receives a temperature value. And we store information in a Hub table, for long-term historicization. We've discussed how the [temperature sensor](/Peakboard-Meets-Shelly-Building-a-Smart-Dashboard-for-Tracking-Temperature-and-Humidity.html) works in another article, so we won't explain how to set it up here.
 
 This screenshot shows that our MQTT data source is subscribed to a single MQTT node, which is the temperature:
 
 ![image](/assets/2025-07-07/010.png)
 
-We add a data flow along with the data source. The main step is to add one more column. This column is supposed to contain the current time stamp. The second step is only there to change the order of the columns because it looks a little bit nicer when the first column is the time stamp instead of the actual value.
+We want to add a timestamp to our temperature value. So, we add a data flow to our data source. It works like this:
+1. Add a column with the current time stamp.
+2. Change the order of the columns to have the timestamp appear before the temperature. This looks a little bit nicer.
 
 ![image](/assets/2025-07-07/020.png)
 
