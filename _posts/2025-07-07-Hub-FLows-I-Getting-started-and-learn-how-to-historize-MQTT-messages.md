@@ -13,8 +13,13 @@ downloads:
   - name: TemperatureFlow.pbfx
     url: /assets/2025-07-07/TemperatureFlow.pbfx
 ---
-Peakboard has always focused on UI-oriented, local applications---unlike other systems like Tulip or Mendix. All the processing happens on a local device (a Box or a BYOD instance), so you don't need to have central servers or a cloud to host your applications. That's a huge advantage before the other systems and one of the main reasons why Peakboard is choosen by so many developers and users. But there are some use cases where it makes sense to rely on a central system and host some logic independant from an indivual workplace. That's why the Peakboard dev team introduced the Peakboard Hub Flows in summer 2025. 
-This article is a starting point to a series of articles to introduce Hub Flows and explain the use cases which can be covered. We will start a very simple task to historize MQTT messages in a Hub list. Here's a list of all use cases covered in this series:
+Peakboard has always focused on UI-oriented, local applications---unlike other systems like Tulip or Mendix. With Peakboard, all the processing happens on a local device (a Box or a BYOD instance), so you don't need to have central servers or a cloud to host your applications. This is a big advantage over the alternative solutions, and it's one of the main reasons why so many companies and developers choose Peakboard.
+
+But there *are* some use instances where it makes sense to have a central system host an application. That's why the Peakboard development team released *Peakboard Hub Flows*, in the summer of 2025. 
+
+This article is the first in a series of articles on Hub 
+
+ starting point to a series of articles to introduce Hub Flows and explain the use cases which can be covered. We will start a very simple task to historize MQTT messages in a Hub list. Here's a list of all use cases covered in this series:
 
 1. [Getting started and learn how to historize MQTT messages](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html)
 2. [Cache Me If You Can - Data Distribution and caching for SAP Capacity Data](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html)
