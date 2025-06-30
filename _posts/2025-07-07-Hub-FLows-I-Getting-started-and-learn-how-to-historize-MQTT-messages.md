@@ -13,11 +13,13 @@ downloads:
   - name: TemperatureFlow.pbfx
     url: /assets/2025-07-07/TemperatureFlow.pbfx
 ---
-Peakboard has always focused on UI-oriented, local applications---unlike other systems like Tulip or Mendix. With Peakboard, all the processing happens on a local device (a Box or a BYOD instance), so you don't need to have central servers or a cloud to host your applications. This is a big advantage over the alternative solutions, and it's one of the main reasons why so many companies and developers choose Peakboard.
+Peakboard has always focused on UI-centric, local applications---unlike other systems like Tulip or Mendix. With Peakboard, all the processing happens on a local device (a Box or a BYOD instance), so you don't need to have a central server or a cloud to host your applications. This is a big advantage over the alternative solutions, and it's one of the main reasons why so many companies and developers choose Peakboard.
 
 But there *are* some use instances where it makes sense to have a central server host an application. That's why the Peakboard development team recently launched *Peakboard Hub Flows*. 
 
-This article is the first in a series of articles that explain how to use Hub Flows. This article serves as a starting point and explains all the use cases that we will cover in this series. We'll start with the simple task historicizing MQTT messages in a Hub list. Here's a list of all use cases covered in this series:
+This article is the first in a series of articles that explain how to use Hub Flows. This article serves as a starting point and explains all the basic information about Hub Flows that you need to know. We will use a Hub Flow to historicize MQTT messages in a Hub list.
+
+Here's a complete overview of the topics covered in our Hub Flow series:
 
 1. [Getting started and learn how to historicize MQTT messages](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html)
 2. [Cache Me If You Can - Data Distribution and caching for SAP Capacity Data](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html)
