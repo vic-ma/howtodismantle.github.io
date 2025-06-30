@@ -35,7 +35,7 @@ Starting with Peakboard Designer version 4, there's a new project type called a 
 * Flow projects use Flows to coordinate actions and to control the application. So in a Flow project, you always need a Flow needed to execute a data source, a data flow, or a function.
   Unlike standard Designer projects, data sources and data flows are not executed automatically. And there are no automatic reload scripts. You always need a Flow to trigger them. This makes Flows the sole tool for defining and coordinating what a Flow project does and under what conditions.
 
-The last aspect to explain is the role of Hub lists. We can use Hub lists just as a regular table to store and read data. However it's very easy to store data in Hub lists within a flow projects. There's some kind of build-in functionality to store data into Hub lists that are coming from data source or data flows. We will have a look at this in this article. 
+The final thing you need to know about is the role of Hub lists. You can use Hub lists just like a regular table, to store and read data. However, it's very easy to store data in Hub lists, within a flow project. There's built-in functionality to store data into Hub lists that come from data sources or data flows. We'll take a look at, later in this article. 
 
 ## First steps with Hub Flows
 
