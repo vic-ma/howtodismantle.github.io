@@ -37,18 +37,18 @@ Starting with Peakboard Designer version 4, there's a new project type called a 
 
 A Flow project doesn't have screens, because Hub Flows don't have UIs. But, Flow projects do share many similarities with regular Designer projects:
 * Flow projects use data sources and dataflows to retrieve and process data from connected systems.
-* Flow projects use functions (either with LUA code or with Building Blocks) for complex application logic
-* Flow projects use Hub Flows to coordinate actions and to control the application. Unlike standard Designer projects, data sources, dataflows, and functions are never executed automatically. And there are no automatic reload scripts. So you always need a Hub Flow to trigger them. This makes Hub Flows the sole tool for defining and coordinating what a Flow project does and under what conditions.
+* Flow projects use functions (either LUA code or with Building Blocks) for complex application logic
+* Flow projects use Hub Flows to coordinate actions and to control the application. Unlike standard Designer projects, data sources, dataflows, and functions are never executed automatically. And there are no automatic reload scripts. So you always need a Hub Flow to trigger actions. This makes Hub Flows the sole tool for defining and coordinating what a Flow project does and under what conditions.
 
-The final thing you need to know about is the role of Hub lists. You can use Hub lists just like a regular table, to store and read data. However, it's very easy to store data in Hub lists, within a flow project. There's built-in functionality to store data into Hub lists that come from data sources or dataflows. We'll take a look at, later in this article. 
+The final thing you need to know about is the role of Hub lists. You can use Hub lists just like a regular table, to store and read data. And it's particularly easy to store data in Hub lists, within a Flow project. There's built-in functionality to store data into Hub lists that come from data sources or dataflows. We'll take a look at, later in this article. 
 
-## First steps with Hub Flows
+## Historicize temperature data Hub Flows
 
-For our first example project, we will build and deploy a Hub Flow that provides temperature data. We open Peakboard Designer and select *New Flow project* to get started.
+For our first example project, we will build and deploy a Hub Flow that historicizes temperature data. To get started, we open Peakboard Designer and select *New Flow project*.
 
 ### Temperature data source
 
-First, we create a MQTT data source. It receives a temperature value. And we store information in a Hub table, for long-term historicization. We've discussed how the [temperature sensor](/Peakboard-Meets-Shelly-Building-a-Smart-Dashboard-for-Tracking-Temperature-and-Humidity.html) works in another article, so we won't explain how to set it up here.
+First, we create an MQTT data source. It receives a temperature value. And we store information in a Hub table, for long-term historicization. We've discussed how the [temperature sensor](/Peakboard-Meets-Shelly-Building-a-Smart-Dashboard-for-Tracking-Temperature-and-Humidity.html) works in another article, so we won't explain how to set it up here.
 
 This screenshot shows that our MQTT data source is subscribed to a single MQTT node, which is the temperature:
 
