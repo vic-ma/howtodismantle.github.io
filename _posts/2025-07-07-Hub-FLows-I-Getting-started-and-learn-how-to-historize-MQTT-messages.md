@@ -72,9 +72,9 @@ Finally, we build our Hub Flow:
 
 ![image](/assets/2025-07-07/030.png)
 
-## Deploy and monitor the first Hub Flow
+## Deploy and monitor the Hub Flow
 
-It's a requirement that the designer is already connected to a valid Hub. Then we can just hit the upload button to deploy and activate the Flow.
+To deploy and activate our Hub Flow, we click the **Upload** button.
 
 ![image](/assets/2025-07-07/040.png)
 
