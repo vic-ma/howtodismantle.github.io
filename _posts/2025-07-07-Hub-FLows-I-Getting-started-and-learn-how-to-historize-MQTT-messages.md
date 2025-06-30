@@ -85,7 +85,7 @@ To view our temperature data, we click on the *Lists* tab. There, we can see the
 
 ![image](/assets/2025-07-07/060.png)
 
-## result and conclusion
+## Result and conclusion
 
-We finished out first walkthough and can understand all basic concepts of the hub. We can use tradional elements like data sources and data flows and then use Hub Flows to put everything together and design the actual process. Storing data in a hub list is one of the key elements and is done through a built in function.
+You've just finished out first Hub Flow walkthrough, and you now understand all the basic Hub Flow concepts. We can use traditional elements like data sources and dataflows, and then use Hub Flows to put everything together and handle the application logic. To store the data, we use a built-in function that uploads the data to a Hub list.
 
