@@ -7,7 +7,7 @@ image: /assets/2025-09-01/title.png
 image_header: /assets/2025-09-01/title_landscape.png
 bg_alternative: true
 read_more_links:
-  - name: All articles around Hub FLows
+  - name: All articles about Hub Flows
     url: /category/opcuamqtt
 downloads:
   - name: SiemensS7Distribution.pbfx

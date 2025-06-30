@@ -7,7 +7,7 @@ image: /assets/2025-07-07/title.png
 image_header: /assets/2025-07-07/title_landscape.png
 bg_alternative: true
 read_more_links:
-  - name: All articles around Hub Flows
+  - name: All articles about Hub Flows
     url: /category/opcuamqtt
 downloads:
   - name: TemperatureFlow.pbfx
@@ -19,9 +19,9 @@ But there *are* some use instances where it makes sense to have a central server
 
 This article is the first in a series of articles that explain how to use Hub Flows. This article serves as a starting point and explains all the basic information about Hub Flows that you need to know. We will use a Hub Flow to historicize MQTT messages in a Hub list.
 
-Here's a complete overview of the topics covered in our Hub Flow series:
+Here's an overview of the topics we'll cover in this series:
 
-1. [Getting started and learn how to historicize MQTT messages](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html)
+1. [Getting started and learning how to historicize MQTT messages](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html)
 2. [Cache Me If You Can - Data Distribution and caching for SAP Capacity Data](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html)
 3. [One PLC to Feed Them All: Using Peakboard Flows to Share and Distribute Siemens S7 Values](/Hub-Flows-III-One-PLC-to-Feed-Them-All-Using-Peakboard-Flows-to-Share-and-distribute-Siemens-S7-Values.html)
 4. [Peakboard Flows in Production: Asynchronous SAP Confirmation Processing](/Hub-Flows-IV-Peakboard-Flows-in-Production-Asynchronous-SAP-Confirmation-Processing.html)
