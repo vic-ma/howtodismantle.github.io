@@ -1,19 +1,19 @@
 ---
 layout: post
-title: Hub Flows I - Getting started and learn how to historize MQTT messages
+title: Hub Flows I - Getting started and learning how to historize MQTT messages
 date: 2023-03-01 00:00:00 +0000
 tags: hubflows
 image: /assets/2025-07-07/title.png
 image_header: /assets/2025-07-07/title_landscape.png
 bg_alternative: true
 read_more_links:
-  - name: All articles around Hub FLows
+  - name: All articles around Hub Flows
     url: /category/opcuamqtt
 downloads:
   - name: TemperatureFlow.pbfx
     url: /assets/2025-07-07/TemperatureFlow.pbfx
 ---
-Different from other systems like Tulip or Mendix, Peakboard always focused on UI oriented, local applications. All the magic and logic happens on a local device - box or BYOD instance, without the fundamental need for central servers or a cloud to host the application logic. That's a huge advantage before the other systems and one of the main reasons why Peakboard is choosen by so many developers and users. But there are some use cases where it makes sense to rely on a central system and host some logic independant from an indivual workplace. That's why the Peakboard dev team introduced the Peakboard Hub Flows in summer 2025. 
+Peakboard has always focused on UI-oriented, local applications---unlike other systems like Tulip or Mendix. All the processing happens on a local device (a Box or a BYOD instance), so you don't need to have central servers or a cloud to host your applications. That's a huge advantage before the other systems and one of the main reasons why Peakboard is choosen by so many developers and users. But there are some use cases where it makes sense to rely on a central system and host some logic independant from an indivual workplace. That's why the Peakboard dev team introduced the Peakboard Hub Flows in summer 2025. 
 This article is a starting point to a series of articles to introduce Hub Flows and explain the use cases which can be covered. We will start a very simple task to historize MQTT messages in a Hub list. Here's a list of all use cases covered in this series:
 
 1. [Getting started and learn how to historize MQTT messages](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html)
