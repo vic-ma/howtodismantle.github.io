@@ -64,7 +64,14 @@ Finally, we add two more steps to the data flow:
 
 ## Build the Hub Flow
 
-The actual Hub flow is built to put all the data articfacts together in the right order. The flow is triggered every 90 seconds, Then the capacity value data source is executed, the data source for the plain description texts is executed, the data flow for joining the data is executed and finally the output of the join step is written to a built-in Hub list. We already learned in the first article that it's not necessary to create these lists manually. They are created automatically according of the metadata.
+Now, we build the Hub Flow. The goal is to put all the data artifacts together in the right order. The flow is triggered every 90 seconds. Here's what happens when it's triggered:
+
+1. Execute the data source for the capacity value.
+1. Execute the data source for the user-friendly descriptions.
+1. Execute the data flow for joining the data.
+1. Add the output of the previous step to an automatically created Hub list. (We explained how this works in our [previous article](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html))
+
+1. Execute and finally the output of the join step is written to a built-in Hub list. We already learned in the first article that it's not necessary to create these lists manually. They are created automatically according of the metadata.
 
 ![image](/assets/2025-08-08/070.png)
 
