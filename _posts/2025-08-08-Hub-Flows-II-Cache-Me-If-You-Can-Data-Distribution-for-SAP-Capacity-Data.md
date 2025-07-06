@@ -19,7 +19,9 @@ Assume you have a large number of Peakboard instances running inside your factor
 
 The key point, though, is that each of your Peakboard instances have to individually query your ERP system for the data that they need---even though all the instances need the same data.
 
-You don't want a large number of Peakboard instances, potentially hundreds, to query your ERP system for the same data, every 30 or 60 seconds. This generates heavy, yet avoidable, workload on your ERP systems. Instead we want to query the data once and then distribute it to all connected clients - a hub and spoke architecure. The workload for the ERP system is reduced to minimum.
+You don't want a large number of Peakboard instances, potentially hundreds, to query your ERP system for the same data, every 30 or 60 seconds. This puts a heavy workload on your ERP system.
+
+Instead, you want to query the data once, and then distribute it to all your Peakboard instances---in a hub and spoke model. That way, you reduce the workload on your ERP system down to the bare minimum.
 
 So in our example we assume to have many different workplaces, with a Peakboard application running at each workplace. In one central Hub Flow the workplace capacity data is queried from the SAP system and stored in a caching table to which every client can get access to the data asnychronously without bothering SAP. This central cache is supposed to be refreshed every 90 seconds and it contains all operations that are supposed to be processed by any of the connected workplaces.
 
