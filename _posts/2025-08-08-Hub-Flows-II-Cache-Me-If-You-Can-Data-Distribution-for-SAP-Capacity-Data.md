@@ -27,9 +27,9 @@ So, you create a Hub Flow that queries your ERP system for the necessary data, a
 
 Now that we've explained the motivation for this example, let's dive into how you actually build it.
 
-## Collect the data
+## Collect the data in SAP
 
-First, we need to collect the data we need, in our ERP system. For this example, lets say that we need workplace capacity data.
+First, we need to collect the data we need, in our ERP system (SAP). For this example, lets say that we need workplace capacity data.
 
 The main method for retrieving workplace capacity data is the well-known transaction COOIS. We have an [article on COOIS](/Dismantle-SAP-Production-How-to-get-the-next-work-orders-of-a-workplace-by-using-COOIS-transaction-in-Peakboard.html), if you need a refresher. The following screenshots show the selection screen and the output in the SAP GUI. We store our selection (layout and plant) in a variant that we can use later.
 
@@ -37,7 +37,12 @@ The main method for retrieving workplace capacity data is the well-known transac
 
 ![image](/assets/2025-08-08/020.png)
 
-Let's jump in our Hub Flow project and create a new SAP data source. We use a simple XQL statement "EXECUTE REPORT 'PPIO_ENTRY' USING 'CAPPERWP'" to execute the report "PPIO_ENTRY" with the previously saved variant.
+## Create the data source
+
+Next, we jump into Peakboard Designer and create a new Hub Flow project. We create a new SAP data source, which we will use to get the workplace capacity data from SAP. We use an XQL statement to execute the report `PPIO_ENTRY`, with the previously saved variant:
+```xql
+EXECUTE REPORT 'PPIO_ENTRY' USING 'CAPPERWP'
+```
 
 ![image](/assets/2025-08-08/030.png)
 
