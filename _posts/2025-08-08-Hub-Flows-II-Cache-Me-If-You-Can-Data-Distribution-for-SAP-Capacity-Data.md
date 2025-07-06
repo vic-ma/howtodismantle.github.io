@@ -23,11 +23,11 @@ The key point, though, is that each of your Peakboard instances have to individu
 
 You don't want a large number of Peakboard instances, potentially hundreds, to query your ERP system for the same data, every 30 or 60 seconds. This puts a heavy workload on your ERP system.
 
-Instead, you want to query the data once, and then distribute it to all your Peakboard instances---a hub and spoke model. That way, you reduce the workload on your ERP system down to the bare minimum.
+Instead, you want to query your ERP system once, and then distribute the data to all your Peakboard instances---in a hub and spoke model. That way, you reduce the workload on your ERP system down to the bare minimum.
 
 So, you create a Hub Flow that queries your ERP system for the necessary data, and stores it in a Hub list. It repeats this process every 90 seconds, so the Hub list always stays up to date. Then, each of your Peakboard instances can get the data they need asynchronously, by pulling it from the Hub list---all without ever having to bother your ERP system.
 
-Now that we've explained the motivation for this example, let's dive into how you actually build it.
+Now that we've explained the motivation behind this example, let's dive into how you actually build it.
 
 ## Collect the data in SAP
 
