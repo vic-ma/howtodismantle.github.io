@@ -13,11 +13,13 @@ downloads:
   - name: SAPWorkplaceCapacityUpload.pbfx
     url: /assets/2025-08-08/SAPWorkplaceCapacityUpload.pbfx
 ---
-We recently gave an [introduction on Peakboard Hub Flows](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html). In that article, we explained the basics of how to build, deploy, and monitor Peakboard Hub Flows. In this article, we'll take Hub Flows one step further and explain a real-world use case where Hub Flows are very helpful.
+We recently gave an [introduction of Peakboard Hub Flows](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html). In that article, we explained the basics of how to build, deploy, and monitor Peakboard Hub Flows. In this article, we take Hub Flows one step further and showcase a real-world scenario where Hub Flows are very helpful.
 
-First, assume that you have a large number of Peakboard instances running inside your factory or warehouse. Each of these instances pull the same (or similar) data from your ERP system. This could be the data for loading gates (open deliveries) or other data for monitoring processes.
+## The scenario
 
-The key point, though, is that each of your Peakboard instances have to individually query your ERP system for the data that they need---even though all the instances need the same data.
+Assume that you have a large number of Peakboard instances running inside your factory or warehouse. Each of these instances pull the same (or similar) data from your ERP system. This could be the data for loading gates (open deliveries) or other data for monitoring processes.
+
+The key point, though, is that each of your Peakboard instances have to individually query your ERP system for the data that they need---even though all the instances need the same (or similar) data.
 
 You don't want a large number of Peakboard instances, potentially hundreds, to query your ERP system for the same data, every 30 or 60 seconds. This puts a heavy workload on your ERP system.
 
