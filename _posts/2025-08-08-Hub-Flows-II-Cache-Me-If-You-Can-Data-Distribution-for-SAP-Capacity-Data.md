@@ -31,7 +31,7 @@ Now that we've explained the motivation for this example, let's dive into how yo
 
 First, we need to collect the data we need, in our ERP system (SAP). For this example, lets say that we need workplace capacity data.
 
-The main method for retrieving workplace capacity data is the well-known transaction COOIS. We have an [article on COOIS](/Dismantle-SAP-Production-How-to-get-the-next-work-orders-of-a-workplace-by-using-COOIS-transaction-in-Peakboard.html), if you need a refresher. The following screenshots show the selection screen and the output in the SAP GUI. We store our selection (layout and plant) in a variant that we can use later.
+The main method for retrieving workplace capacity data is the well-known transaction `COOIS`. We have an [article on `COOIS`](/Dismantle-SAP-Production-How-to-get-the-next-work-orders-of-a-workplace-by-using-COOIS-transaction-in-Peakboard.html), if you need a refresher. The following screenshots show the selection screen and the output in the SAP GUI. We store our selection (layout and plant) in a variant that we can use later.
 
 ![image](/assets/2025-08-08/010.png)
 
@@ -52,11 +52,13 @@ This report gives us every operation at every workplace within a given plant. Ho
 
 ![image](/assets/2025-08-08/040.png)
 
-The next step will be to join the output of the COOIS transaction with the description texts. So we use a data flow to do so. The fields who serve as join key is the name of the workplace.
+The next step is to join the output of the `COOIS` transaction with the description texts. We use a data flow to do this. The field that serves as the join key is the name of the workplace.
 
 ![image](/assets/2025-08-08/050.png)
 
-In the next step of the data flow we just remove unaused columns and give the useful columns useful names. That's all.
+Finally, we add two more steps to the data flow:
+1. Remove the unused columns.
+2. Rename the remaining columns to be more readable.
 
 ![image](/assets/2025-08-08/060.png)
 
