@@ -95,6 +95,6 @@ And a Peakboard instance running a plant monitoring dashboard can also query the
 
 As long as the raw data is refreshed on a regular basis, all kinds of clients can consume and process it. That's the main idea behind what we built.
 
-## result and conclusion
+## Result and conclusion
 
-In this article we learned, how to build a hub and spoke architecture to distribute data from an ERP system to a large number of clients. Such consideration should alway be taken into account when the source system (like SAP) is especially sensitive for repeating workload.
+In this article, we explained how to build a hub and spoke architecture to distribute data from an ERP system to a large number of Peakboard instances. You should always take this approach into account, when you have a source system that is especially sensitive to repetitive workloads (like SAP).
