@@ -85,15 +85,15 @@ As you can see, the Hub lists are refreshed accordingly:
 
 ## Consume the data
 
-It's easy to imagine how the connected clients would query the cached data. A regular client at a workplace would just query the data and filter it according to their workplace name.
+Now, a Peakboard instance in a workplace can query the data from the Hub list, and then filter it based on their workplace name:
 
 ![image](/assets/2025-08-08/100.png)
 
-We can also imagine how a plant monitoring dashboard would query the data. In that case we don't want to see each single operation, but aggregate all the capacity values and group it by workplace. The next screenshot show the aggregation on top of the raw data that is coming from Hub List.
+And a Peakboard instance running a plant monitoring dashboard can also query the data from the Hub list. In this case, it doesn't want every single operation. So, it aggregates all the capacity values and groups them by workplace.
 
 ![image](/assets/2025-08-08/110.png)
 
-As long as the raw data is re-freshed on a regular basis, different kinds of clients can consume and process it. That's the main idea behind of what we built.
+As long as the raw data is refreshed on a regular basis, all kinds of clients can consume and process it. That's the main idea behind what we built.
 
 ## result and conclusion
 
