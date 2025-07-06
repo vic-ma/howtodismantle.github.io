@@ -15,7 +15,11 @@ downloads:
 ---
 We recently gave an [introduction on Peakboard Hub Flows](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html). In that article, we explained how to build, deploy, and monitor Peakboard Hub Flows. In this article, we'll take Hub Flows one step further and explain a typical use case where Hub Flows are very helpful.
 
-Assume you have a large number of Peakboard instances running inside your factory or warehouse. Each of these instances pull similar data from your ERP system. This could be the data for loading gates (open deliveries) or other data for monitoring processes. We don't want a large number of these clients, potentially hundreds, to query the same or at least similiar data very 30 or 60 seconds. This would be generate heavy, yet avoidable workload on the ERP systems. Instead we want to query the data once and then distribute it to all connected clients - a hub and spoke architecure. The workload for the ERP system is reduced to minimum.
+Assume you have a large number of Peakboard instances running inside your factory or warehouse. Each of these instances pull the same (or similar) data from your ERP system. This could be the data for loading gates (open deliveries) or other data for monitoring processes.
+
+The key point, though, is that each of your Peakboard instances have to individually query your ERP system for the data that they need---even though all the instances need the same data.
+
+You don't want a large number of Peakboard instances, potentially hundreds, to query your ERP system for the same data, every 30 or 60 seconds. This generates heavy, yet avoidable, workload on your ERP systems. Instead we want to query the data once and then distribute it to all connected clients - a hub and spoke architecure. The workload for the ERP system is reduced to minimum.
 
 So in our example we assume to have many different workplaces, with a Peakboard application running at each workplace. In one central Hub Flow the workplace capacity data is queried from the SAP system and stored in a caching table to which every client can get access to the data asnychronously without bothering SAP. This central cache is supposed to be refreshed every 90 seconds and it contains all operations that are supposed to be processed by any of the connected workplaces.
 
