@@ -71,17 +71,15 @@ Now, we build the Hub Flow. The goal is to put all the data artifacts together i
 1. Execute the data flow for joining the data.
 1. Add the output of the previous step to an automatically created Hub list. (We explained how this works in our [previous article](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html))
 
-1. Execute and finally the output of the join step is written to a built-in Hub list. We already learned in the first article that it's not necessary to create these lists manually. They are created automatically according of the metadata.
-
 ![image](/assets/2025-08-08/070.png)
 
 ## Deploy and monitor
 
-After the deployment of the Hub Flow it is executed on regular basis.
+Next, we deploy our Hub Flow. Now, it automatically executes every 90 seconds.
 
 ![image](/assets/2025-08-08/080.png)
 
-And the hub lists is refreshed accordingly.
+As you can see, the Hub lists are refreshed accordingly:
 
 ![image](/assets/2025-08-08/090.png)
 
