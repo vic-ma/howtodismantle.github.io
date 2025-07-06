@@ -23,13 +23,15 @@ You don't want a large number of Peakboard instances, potentially hundreds, to q
 
 Instead, you want to query the data once, and then distribute it to all your Peakboard instances---a hub and spoke model. That way, you reduce the workload on your ERP system down to the bare minimum.
 
-So, you create a Hub Flow that queries your SAP system for the necessary data, and stores it in a Hub list. It repeats this process every 90 seconds, so the Hub list always stays up to date. Then, each of your Peakboard instances can get the data they need asynchronously, by pulling it from the Hub list---all without ever having to bother your SAP system.
+So, you create a Hub Flow that queries your ERP system for the necessary data, and stores it in a Hub list. It repeats this process every 90 seconds, so the Hub list always stays up to date. Then, each of your Peakboard instances can get the data they need asynchronously, by pulling it from the Hub list---all without ever having to bother your ERP system.
 
-list refreshes every 90 seconds and contains all the operations that are supposed to be processed by any of the connected workplaces.
+Now that we've explained the motivation for this example, let's dive into how you actually build it.
 
-## Collecting the data
+## Collect the data
 
-The main basis for the workplace capacity is the well-known transaction COOIS. We already discussed it early 2024 in [this article](/Dismantle-SAP-Production-How-to-get-the-next-work-orders-of-a-workplace-by-using-COOIS-transaction-in-Peakboard.html). The screenshots show the selection screen and the output in the SAP Gui. We store our selection (layout and plant) in a variant that we can use later.
+First, we need to collect the data we need, in our ERP system. For this example, lets say that we need workplace capacity data.
+
+The main method for retrieving workplace capacity data is the well-known transaction COOIS. We have an [article on COOIS](/Dismantle-SAP-Production-How-to-get-the-next-work-orders-of-a-workplace-by-using-COOIS-transaction-in-Peakboard.html), if you need a refresher. The following screenshots show the selection screen and the output in the SAP GUI. We store our selection (layout and plant) in a variant that we can use later.
 
 ![image](/assets/2025-08-08/010.png)
 
