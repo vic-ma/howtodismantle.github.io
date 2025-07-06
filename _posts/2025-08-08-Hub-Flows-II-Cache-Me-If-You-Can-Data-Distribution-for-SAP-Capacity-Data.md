@@ -39,14 +39,16 @@ The main method for retrieving workplace capacity data is the well-known transac
 
 ## Create the data source
 
-Next, we jump into Peakboard Designer and create a new Hub Flow project. We create a new SAP data source, which we will use to get the workplace capacity data from SAP. We use an XQL statement to execute the report `PPIO_ENTRY`, with the previously saved variant:
-```xql
+Next, we jump into Peakboard Designer and create a new Hub Flow project. We create a new SAP data source, which we will use to get the workplace capacity data from SAP. 
+
+We use an XQL statement to execute the report `PPIO_ENTRY`, with the previously saved variant:
+```sql
 EXECUTE REPORT 'PPIO_ENTRY' USING 'CAPPERWP'
 ```
 
 ![image](/assets/2025-08-08/030.png)
 
-The execution of the report gives us every operation at every workplace within a given plant. However we only get the workplace name, but not the user friendly, plain description text. To get these description texts we query the view CRHD_V1. It gives us the description texts for a given language for each workplace name.
+This report gives us every operation at every workplace within a given plant. However, it only gives us the workplace name. What we want is the user-friendly description. To get the description, we query the view `CRHD_V1`. This gives us the description texts for a given language, for each workplace name.
 
 ![image](/assets/2025-08-08/040.png)
 
