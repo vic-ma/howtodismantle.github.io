@@ -41,7 +41,7 @@ The main method for retrieving workplace capacity data is the well-known transac
 
 ## Create the data source
 
-Next, we jump into Peakboard Designer and create a new Hub Flow project. We add a new SAP data source, which we use to get the workplace capacity data from SAP. 
+Next, we jump into Peakboard Designer and create a new Hub Flow project. We add an SAP data source, which we use to get the workplace capacity data from SAP.
 
 We use an XQL statement to execute the report `PPIO_ENTRY`, with the previously saved variant:
 ```sql
@@ -60,7 +60,7 @@ The next step is to join the output of the `COOIS` transaction with the descript
 
 Finally, we add two more steps to the data flow:
 1. Remove the unused columns.
-2. Rename the remaining columns to be more readable.
+2. Rename the remaining columns to make them more readable.
 
 ![image](/assets/2025-08-08/060.png)
 
