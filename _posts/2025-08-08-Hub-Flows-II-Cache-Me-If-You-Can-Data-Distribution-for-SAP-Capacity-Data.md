@@ -31,7 +31,7 @@ Now that we've explained the motivation behind this example, let's dive into how
 
 ## Collect the data in SAP
 
-First, we need to collect the data we need, in our ERP system (SAP). For this example, lets say that we need workplace capacity data.
+First, we need to collect the necessary data in our ERP system (SAP). For this example, lets say that we need workplace capacity data.
 
 The main method for retrieving workplace capacity data is the well-known transaction `COOIS`. We have an [article on `COOIS`](/Dismantle-SAP-Production-How-to-get-the-next-work-orders-of-a-workplace-by-using-COOIS-transaction-in-Peakboard.html), if you need a refresher. The following screenshots show the selection screen and the output in the SAP GUI. We store our selection (layout and plant) in a variant that we can use later.
 
@@ -41,7 +41,7 @@ The main method for retrieving workplace capacity data is the well-known transac
 
 ## Create the data source
 
-Next, we jump into Peakboard Designer and create a new Hub Flow project. We create a new SAP data source, which we will use to get the workplace capacity data from SAP. 
+Next, we jump into Peakboard Designer and create a new Hub Flow project. We add a new SAP data source, which we use to get the workplace capacity data from SAP. 
 
 We use an XQL statement to execute the report `PPIO_ENTRY`, with the previously saved variant:
 ```sql
