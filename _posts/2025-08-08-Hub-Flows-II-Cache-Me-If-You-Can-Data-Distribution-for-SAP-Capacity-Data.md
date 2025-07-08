@@ -81,7 +81,7 @@ Next, we deploy our Hub Flow. It executes automatically, every 90 seconds.
 
 ![image](/assets/2025-08-08/080.png)
 
-As you can see, the Hub lists are refreshed accordingly:
+As you can see, the Hub lists stay up to date:
 
 ![image](/assets/2025-08-08/090.png)
 
@@ -95,8 +95,8 @@ And a Peakboard instance running a plant monitoring dashboard can also query the
 
 ![image](/assets/2025-08-08/110.png)
 
-As long as the raw data is refreshed on a regular basis, all kinds of clients can consume and process it. That's the main idea behind what we built.
+As long as the raw data is refreshed on a regular basis, all kinds of clients can consume and process it. That's the core idea behind what we've built.
 
 ## Result and conclusion
 
-In this article, we explained how to build a hub and spoke architecture to distribute data from an ERP system to a large number of Peakboard instances. You should always take this approach into account, when you have a source system that is especially sensitive to repetitive workloads (like SAP).
+In this article, we explained how to use a hub and spoke architecture to distribute data from an ERP system to a large number of Peakboard instances. You should always consider this approach, when you have a source system that is especially sensitive to repetitive workloads (like SAP).
