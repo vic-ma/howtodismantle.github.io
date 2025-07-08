@@ -66,18 +66,18 @@ Finally, we add two more steps to the data flow:
 
 ## Build the Hub Flow
 
-Now, we build the Hub Flow. The goal is to put all the data artifacts together in the right order. The flow is triggered every 90 seconds. Here's what happens when it's triggered:
+Now, we build the Hub Flow. The goal is to put all the data artifacts together, in the right order. The flow is triggered every 90 seconds. Here's what happens when it's triggered:
 
 1. Execute the data source for the capacity value.
 1. Execute the data source for the user-friendly descriptions.
-1. Execute the data flow for joining the data.
-1. Add the output of the previous step to an automatically created Hub list. (We explained how this works in our [previous article](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html))
+1. Execute the data flow that joins the data.
+1. Add the output of the previous step to an automatically created Hub list. (We explained how this works in our [previous article](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).)
 
 ![image](/assets/2025-08-08/070.png)
 
 ## Deploy and monitor
 
-Next, we deploy our Hub Flow. Now, it automatically executes every 90 seconds.
+Next, we deploy our Hub Flow. It executes automatically, every 90 seconds.
 
 ![image](/assets/2025-08-08/080.png)
 
