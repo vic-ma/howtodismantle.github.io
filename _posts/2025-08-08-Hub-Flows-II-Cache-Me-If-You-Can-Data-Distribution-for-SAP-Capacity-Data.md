@@ -8,7 +8,7 @@ image_header: /assets/2025-08-08/title_landscape.png
 bg_alternative: true
 read_more_links:
   - name: All articles about Hub Flows
-    url: /category/opcuamqtt
+    url: /category/hubflows
 downloads:
   - name: SAPWorkplaceCapacityUpload.pbfx
     url: /assets/2025-08-08/SAPWorkplaceCapacityUpload.pbfx
