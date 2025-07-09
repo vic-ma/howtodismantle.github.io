@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hub Flows I - Getting started and learning how to historicize MQTT messages
-date: 2023-03-01 00:00:00 +0000
+date: 2023-07-07 00:00:00 +0000
 tags: hubflows
 image: /assets/2025-07-07/title.png
 image_header: /assets/2025-07-07/title_landscape.png
@@ -9,6 +9,8 @@ bg_alternative: true
 read_more_links:
   - name: All articles about Hub Flows
     url: /category/hubflows
+  - name: Hub Flows on Youtube
+    url: https://youtu.be/sFPEHCre3QE
 downloads:
   - name: TemperatureFlow.pbfx
     url: /assets/2025-07-07/TemperatureFlow.pbfx
