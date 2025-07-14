@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hub Flows I - Getting started and learning how to historicize MQTT messages
+title: Hub Flows I - Getting started and learning how to historize MQTT messages
 date: 2025-07-07 00:00:00 +0000
 tags: hubflows
 image: /assets/2025-07-07/title.png
@@ -19,11 +19,11 @@ Peakboard has always focused on UI-centric, local applications---unlike other sy
 
 But there *are* some use instances where it makes sense to have a central server host an application. That's why the Peakboard development team recently launched *Peakboard Hub Flows*. 
 
-This article is the first in a series of articles that explain how to use Hub Flows. This article serves as a starting point and explains all the basic information about Hub Flows that you need to know. We will use a Hub Flow to historicize MQTT messages in a Hub list.
+This article is the first in a series of articles that explain how to use Hub Flows. This article serves as a starting point and explains all the basic information about Hub Flows that you need to know. We will use a Hub Flow to historize MQTT messages in a Hub list.
 
 Here's an overview of the topics we'll cover in this series:
 
-1. [Getting started and learning how to historicize MQTT messages](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html)
+1. [Getting started and learning how to historize MQTT messages](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html)
 2. [Cache Me If You Can - Data Distribution and caching for SAP Capacity Data](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html)
 3. [One PLC to Feed Them All: Using Peakboard Flows to Share and Distribute Siemens S7 Values](/Hub-Flows-III-One-PLC-to-Feed-Them-All-Using-Peakboard-Flows-to-Share-and-distribute-Siemens-S7-Values.html)
 4. [Peakboard Flows in Production: Asynchronous SAP Confirmation Processing](/Hub-Flows-IV-Peakboard-Flows-in-Production-Asynchronous-SAP-Confirmation-Processing.html)
@@ -44,9 +44,9 @@ A Flow project doesn't have screens, because Hub Flows don't have UIs. But, Flow
 
 The final thing you need to know about is the role of Hub lists. You can use Hub lists just like a regular table, to store and read data. And it's particularly easy to store data in Hub lists, within a Flow project. There's built-in functionality to store data into Hub lists that come from data sources or dataflows. We'll take a look at, later in this article. 
 
-## Historicize temperature data Hub Flows
+## Historize temperature data Hub Flows
 
-For our first example project, we will build and deploy a Hub Flow that historicizes temperature data. To get started, we open Peakboard Designer and select *New Flow project*.
+For our first example project, we will build and deploy a Hub Flow that historizes temperature data. To get started, we open Peakboard Designer and select *New Flow project*.
 
 ### Temperature data source
 
