@@ -55,9 +55,7 @@ We create our first data flow, which cleans up the raw output a little bit:
 
 ![image](/assets/2025-07-15/020.png)
 
-We want to be able to view only the top-level messages. To do this, we create a second data flow. This data flow filters out replies, by removing any message that contains a parent.
-
-Next, we create our second data flow. select the channel messages we add another data flow and filter away all messages that have a parent. If the message dowsn't have a parent, it's a channel message.
+We want to be able to view only the top-level messages. To do this, we create a second data flow. This data flow filters out all the replies, by removing any message that contains a parent. We're left with just the top-level messages.
 
 ![image](/assets/2025-07-15/030.png)
 
