@@ -63,17 +63,27 @@ We also want to be able to view only the replies to a message. To do this, we cr
 
 ![image](/assets/2025-07-15/040.png)
 
-## Building the UI
+## Build the UI
 
-The central element is a styled list to display the channel messages. It's bound to the data flow for the channel messages.
+Now, let's build the UI.
+
+### View top-level messages
+To show the top-level messages, we use a styled list. We bind it to the data flow for the top-level messages.
 
 ![image](/assets/2025-07-15/050.png)
 
-The Building Blocks behind the button for opening the replies is just setting the variable for the message ID and then reloading the data flows for the replies. That's a second styled list to show the replies. It is automatically set to visible through a condtional formatting as soon as the channel message ID is set. We don't have a screenshot for every step, but we can easily look follow this principle by checking the downloadable pbmx file.
+### View replies button
+Next, we create a Building Blocks script for the *view replies* button. Here's how it works:
+1. Set the `ActiveChannelMessageID` variable to the ID of the message that the user wants to see replies for.
+1. Reload the data flow for the replies. That way, the data flow generates the appropriate output for the new `ActiveChannelMessageID`.
+
+### Display replies
+To display the replies, we use second styled list. It automatically makes itself visible when the `ActiveChannelMessageID` variable is set. It does this by using conditional formatting. For more details, you download the [PBMX file](/assets/2025-07-15/TeamsDemo.pbmx) for this example.
 
 ![image](/assets/2025-07-15/055.png)
 
-Let's have a look on how to submit a new channel message. As soon as the user click on the "New post" button, a group of controls are set to visible to form a pop up for submitting the new message.
+### Send message
+As soon as the user clicks the *New post* button, a group of controls make themselves visible. They function like a pop-up window. The user uses these controls to send their message.
 
 ![image](/assets/2025-07-15/060.png)
 
