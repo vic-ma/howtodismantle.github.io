@@ -36,21 +36,28 @@ To set up the data source, we first need to authenticate ourselves. If you're no
 Next we select the team and the channel that we want to connect to. In our example, we select the *Dismantle Team* team and the *Frontline Operations* channel.
 
 Then, we set the *Retrieve messages from* setting. There are three modes that we can choose from:
-1. Get all messages, the channel message, and the replies
-2. Get only the channel messages.
-3. Get only the replies for one specific channel message.
+1. Get all messages, including top-level messages and replies.
+2. Get only the top-level messages.
+3. Get only the replies for a specific top-level message.
 
-In our use case we go for the first option. So we will retrieve all message of channel including their replies. We will then seperate channel messages and replies later through data sources.
+For our example, we choose the first option. That way, the factory workers can see all the messages in the channel, including the replies.
 
 ![image](/assets/2025-07-15/010.png)
 
-## Building the data flows
+## Build the data flows
 
-In our first data flow we beautify the raw output a little bit. Set a good date format, filter away all message rows with empty messages and also create a new column which we can use later for displaying the messages in a styled list.
+Next, we build two data flows to process the data source's output.
+
+We create our first data flow, which cleans up the raw output a little bit:
+* Format the date.
+* Filter away all message rows with empty messages.
+* Create a new column that we can use later to display the messages in a styled list.
 
 ![image](/assets/2025-07-15/020.png)
 
-For the selection of the channel messages we add another data flow and filter away all messages that have a parent. If the message dowsn't have a parent, it's a channel message.
+We want to be able to view only the top-level messages. To do this, we create a second data flow. This data flow filters out replies, by removing any message that contains a parent.
+
+Next, we create our second data flow. select the channel messages we add another data flow and filter away all messages that have a parent. If the message dowsn't have a parent, it's a channel message.
 
 ![image](/assets/2025-07-15/030.png)
 
