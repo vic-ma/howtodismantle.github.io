@@ -15,7 +15,9 @@ downloads:
   - name: TeamsDemo.pbmx
     url: /assets/2025-07-15/TeamsDemo.pbmx
 ---
-We already [talked about using Peakboard together with Office 365](/category/office365) a lot of times in different contexts. In today's article we want to step deeper into the connectivity with MS Teams. The connection to Teams is often seen to be used as link between the workers in front line operations of the factory and office workers. So it makes sense to integrate it in existing Peakboard application. The seond typical use for Teams integration is make the machine talk to the office workers. A machine - connected via OPC UA or other protocols - runs into an error and use a Teams channel to inform about these state changes and let other see and comment these issues. There are many more options. In today's article we discuss just a simple chat client for factory workers who can submit new messages or respond on messages.
+We've published many articles on how to integrate [Office 365 with Peakboard](/category/office365). In today's article, we'll look at Office 365 again---but this time, we'll take a closer look at Microsoft Teams.
+
+Companies often use Microsoft Teams to connect factory workers to office workers, in order for them to communicate effectively. So it makes sense to integrate it in existing Peakboard application. The seond typical use for Teams integration is make the machine talk to the office workers. A machine - connected via OPC UA or other protocols - runs into an error and use a Teams channel to inform about these state changes and let other see and comment these issues. There are many more options. In today's article we discuss just a simple chat client for factory workers who can submit new messages or respond on messages.
 
 Before we start just a reminder: Every Office 365 data source handles authentication in the same way. To learn more about how to authenticate against the Office 365 backend, see our [getting started guide](/Getting-started-with-the-new-Office-365-Data-Sources.html).
 
