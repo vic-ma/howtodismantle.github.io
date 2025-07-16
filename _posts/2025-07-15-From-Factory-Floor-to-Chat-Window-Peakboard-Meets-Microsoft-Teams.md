@@ -17,11 +17,15 @@ downloads:
 ---
 We've published many articles on how to integrate [Office 365 with Peakboard](/category/office365). In today's article, we'll look at Office 365 again---but this time, we'll take a closer look at Microsoft Teams.
 
+## Example use cases
+
 Companies often use Microsoft Teams to connect factory workers to office workers. So it makes sense to integrate Teams into a Peakboard application, in order to further improve communication between the office and factory. 
 
 Another use case for Teams integration is to let factory machines communicate with office workers. Suppose a machine---connected via OPC UA or other protocols---runs into an error. Then, it can use a Teams channel to notify the office workers automatically. Then, the workers can analyze and discuss the problem, all within the same Teams channel.
 
-And these are just two examples. In today's article we discuss just a simple chat client for factory workers who can submit new messages or respond on messages.
+And these are just two examples. The combination of Peakboard and Teams makes for an effective communications solution, useful in a wide range of scenarios.
+
+In today's article we'll explain how to build a simple chat client that integrates into Teams. This chat client lets factory workers send messages, view responses, and respond to messages.
 
 Before we start just a reminder: Every Office 365 data source handles authentication in the same way. To learn more about how to authenticate against the Office 365 backend, see our [getting started guide](/Getting-started-with-the-new-Office-365-Data-Sources.html).
 
