@@ -87,13 +87,13 @@ As soon as the user clicks the *New post* button, a group of controls make thems
 
 ![image](/assets/2025-07-15/060.png)
 
-The actual creation of the new channel message happens through a Building Block that is provided in the context of the data source. We can either post a channel message (see screenshot) or a reply. If we want to send a reply we need to provide the channel message ID.
+To actually send the new message, we use a Building Block that's provided in the context of the data source. The user can send a top-level message (as in the following screenshot), or they can send a reply. If they want to send a reply, they need to provide the channel message ID.
 
 ![image](/assets/2025-07-15/065.png)
 
-## result
+## Result
 
-In last image we can see the application in action. The data is qeuried from Teams. Then the user clicks on the replies button and the thread opens on the right side. We can then just compose a new reply and submit it to the backend.
+The following video shows the final product in action. The data source gets the messages from Teams. The data flows process the data source's output. The UI shows the chat messages. Then, the user clicks on the replies button and the thread opens up on the right side of the screen. Afterwards, the user can send a new reply, which the app forwards to Teams.
 
 ![image](/assets/2025-07-15/result.gif)
 
