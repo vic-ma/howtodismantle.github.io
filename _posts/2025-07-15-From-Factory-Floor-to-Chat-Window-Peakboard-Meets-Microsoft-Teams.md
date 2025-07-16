@@ -79,11 +79,11 @@ To show the top-level messages, we use a styled list. We bind it to the data flo
 
 ### View replies button
 Next, we create a Building Blocks script for the *view replies* button. Here's how it works:
-1. Set the `ActiveChannelMessageID` variable to the ID of the message that the user wants to see replies for.
-1. Reload the data flow for the replies. That way, the data flow generates the appropriate output for the new `ActiveChannelMessageID`.
+1. Set the `ActiveChannelMessageID` variable to the ID of the message that the user wants to see the replies to.
+1. Reload the data flow for the replies. That way, the data flow updates its output for the new `ActiveChannelMessageID`.
 
 ### Display replies
-To display the replies, we use second styled list. It automatically makes itself visible when the `ActiveChannelMessageID` variable is set. It does this by using conditional formatting. For more details, you download the [PBMX file](/assets/2025-07-15/TeamsDemo.pbmx) for this example.
+To display the replies, we use a second styled list. It automatically makes itself visible when the `ActiveChannelMessageID` variable is set. It does this by using conditional formatting. For more details, check out the [PBMX](/assets/2025-07-15/TeamsDemo.pbmx) for this example.
 
 ![image](/assets/2025-07-15/055.png)
 
@@ -92,7 +92,7 @@ As soon as the user clicks the *New post* button, a group of controls make thems
 
 ![image](/assets/2025-07-15/060.png)
 
-To actually send the new message, we use a Building Block that's provided in the context of the data source. The user can send a top-level message (as in the following screenshot), or they can send a reply. If they want to send a reply, they need to provide the channel message ID.
+To forward the new message to Teams, we use a Building Block that's provided in the context of the data source. The user can send a top-level message (as in the following screenshot), or they can send a reply. If they want to send a reply, they need to provide the channel message ID.
 
 ![image](/assets/2025-07-15/065.png)
 
