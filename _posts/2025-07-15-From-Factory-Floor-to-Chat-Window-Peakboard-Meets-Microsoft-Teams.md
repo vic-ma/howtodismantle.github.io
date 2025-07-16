@@ -27,15 +27,18 @@ And these are just two examples. The combination of Peakboard and Teams makes fo
 
 In today's article we'll explain how to build a simple chat client that integrates into Teams. This chat client lets factory workers send messages, view responses, and respond to messages.
 
-Before you continue, make sure you understand how to handle authenticate in the Office 365 data source. If you're not sure, check out our [Office 365 getting started guide](/Getting-started-with-the-new-Office-365-Data-Sources.html).
+Before you continue, make sure you understand how to handle authenticate in the Office 365 data source. 
 
 ## Set up the data source
 
-For setting up the data source we need to authenticate first. Then we choose the Team and the Channel to get access to. There are three different modes available:
+To set up the data source, we first need to authenticate ourselves. If you're not sure how to do this, check out our [Office 365 getting started guide](/Getting-started-with-the-new-Office-365-Data-Sources.html).
 
-1. Get all messages, the channel message and the replies
-2. Get only the channel messages
-3. Get only the replies for one dedicated channel message.
+Next we select the team and the channel that we want to connect to. In our example, we select the *Dismantle Team* team and the *Frontline Operations* channel.
+
+Then, we set the *Retrieve messages from* setting. There are three modes that we can choose from:
+1. Get all messages, the channel message, and the replies
+2. Get only the channel messages.
+3. Get only the replies for one specific channel message.
 
 In our use case we go for the first option. So we will retrieve all message of channel including their replies. We will then seperate channel messages and replies later through data sources.
 
