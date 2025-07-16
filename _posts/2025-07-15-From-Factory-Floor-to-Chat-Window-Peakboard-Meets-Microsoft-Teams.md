@@ -92,13 +92,13 @@ As soon as the user clicks the *New post* button, a group of controls make thems
 
 ![image](/assets/2025-07-15/060.png)
 
-To forward the new message to Teams, we use a Building Block that's provided in the context of the data source. The user can send a top-level message (as in the following screenshot), or they can send a reply. If they want to send a reply, they need to provide the channel message ID.
+To forward the new message to Teams, we use a Building Block that's provided by the data source (listed under *Controls > Teams*). The user can send a top-level message (as in the following screenshot), or they can send a reply. If they want to send a reply, they need to provide the channel message ID.
 
 ![image](/assets/2025-07-15/065.png)
 
 ## Result
 
-The following video shows the final product in action. The data source gets the messages from Teams. The data flows process the data source's output. The UI shows the chat messages. Then, the user clicks on the replies button and the thread opens up on the right side of the screen. Afterwards, the user can send a new reply, which the app forwards to Teams.
+The following video shows the final product in action. The user clicks on the replies button and the thread opens up on the right side of the screen. Afterwards, the user sends a reply, which the app forwards to Teams.
 
 ![image](/assets/2025-07-15/result.gif)
 
