@@ -36,8 +36,8 @@ Next we select the team and the channel that we want the factory workers to use.
 
 Then, we set the *Retrieve messages from* setting. There are three modes that we can choose from:
 1. Get all messages: top-level messages and replies.
-2. Get only the top-level messages.
-3. Get only the replies for a specific top-level message.
+2. Get top-level messages.
+3. Get the replies for a specific top-level message.
 
 For our example, we choose the first option. That way, the factory workers can see all the messages in the channel, including the replies.
 
@@ -47,18 +47,24 @@ For our example, we choose the first option. That way, the factory workers can s
 
 Next, we build some data flows to process the data source's output.
 
-First, we build a data flow that cleans up the raw output a little bit:
-* Format the date.
-* Filter away all message rows with empty messages.
-* Create a new column that we can use later to display the messages in a styled list.
+### Clean up data source output
+
+First, we build a data flow that cleans up the raw output from the data source:
+1. Format the date.
+1. Filter out all message rows with empty messages.
+1. Create a new column that we can use later to display the messages in a styled list.
 
 ![image](/assets/2025-07-15/020.png)
+
+### Get top-level messages
 
 We want to be able to view only the top-level messages. To do this, we create another data flow. This data flow filters out all the replies, by removing any message that contains a parent.
 
 ![image](/assets/2025-07-15/030.png)
 
-We also want to be able to view only the replies to a message. To do this, we create a variable called `ActiveChannelMessageID`. Whenever the user clicks on a button to view the replies of a top-level message, this variable is filled with the message's ID. Our data flow uses a filter to find the messages that have this message ID as their `Parent` value.
+### Get replies to a message
+
+We also want to be able to view the replies to a message. To do this, we create a variable called `ActiveChannelMessageID`. Whenever the user clicks the button to view the replies of a top-level message, this variable is filled with the message's ID. Our data flow uses a filter to find the messages that have this message ID as their `Parent` value.
 
 ![image](/assets/2025-07-15/040.png)
 
