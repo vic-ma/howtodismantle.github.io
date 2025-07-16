@@ -27,9 +27,9 @@ And these are just two examples. The combination of Peakboard and Teams makes fo
 
 In today's article we'll explain how to build a simple chat client that integrates into Teams. This chat client lets factory workers send messages, view responses, and respond to messages.
 
-Before we start just a reminder: Every Office 365 data source handles authentication in the same way. To learn more about how to authenticate against the Office 365 backend, see our [getting started guide](/Getting-started-with-the-new-Office-365-Data-Sources.html).
+Before you continue, make sure you understand how to handle authenticate in the Office 365 data source. If you're not sure, check out our [Office 365 getting started guide](/Getting-started-with-the-new-Office-365-Data-Sources.html).
 
-## Setting up the data source
+## Set up the data source
 
 For setting up the data source we need to authenticate first. Then we choose the Team and the Channel to get access to. There are three different modes available:
 
