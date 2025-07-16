@@ -30,12 +30,12 @@ In this article, we'll explain how to build a simple chat client that integrates
 
 ## Set up the data source
 
-To set up the data source, we first need to authenticate ourselves. If you're not sure how to do this, check out our [Office 365 getting started guide](/Getting-started-with-the-new-Office-365-Data-Sources.html).
+First, we create a new Teams data source. Then, we set up authentication for the data source. If you're not sure how to do this, check out our [Office 365 getting started guide](/Getting-started-with-the-new-Office-365-Data-Sources.html). The authentication process is the same for every Office 365 data source.
 
-Next we select the team and the channel that we want to connect to. In our example, we select the *Dismantle Team* team and the *Frontline Operations* channel.
+Next we select the team and the channel that we want the factory workers to use. We select the *Dismantle Team* team and the *Frontline Operations* channel.
 
 Then, we set the *Retrieve messages from* setting. There are three modes that we can choose from:
-1. Get all messages, including top-level messages and replies.
+1. Get all messages: top-level messages and replies.
 2. Get only the top-level messages.
 3. Get only the replies for a specific top-level message.
 
