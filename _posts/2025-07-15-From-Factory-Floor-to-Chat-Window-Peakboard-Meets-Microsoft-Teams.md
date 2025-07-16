@@ -15,19 +15,18 @@ downloads:
   - name: TeamsDemo.pbmx
     url: /assets/2025-07-15/TeamsDemo.pbmx
 ---
-We've published many articles on how to integrate [Office 365 with Peakboard](/category/office365). In today's article, we'll look at Office 365 again---but this time, we'll take a closer look at Microsoft Teams.
+We've published many articles on how to integrate [Office 365 with Peakboard](/category/office365). In this article, we'll take a look at Office 365 again---but this time, we'll explain how to integrate Microsoft Teams into Peakboard.
 
 ## Example use cases
 
-Companies often use Microsoft Teams to connect factory workers to office workers. So it makes sense to integrate Teams into a Peakboard application, in order to further improve communication between the office and factory. 
+Companies often use Microsoft Teams to create a link between factory workers and office workers. So it makes sense to integrate Teams into a Peakboard application, in order to further improve communication between the office and factory. 
 
-Another use case for Teams integration is to let factory machines communicate with office workers. Suppose a machine---connected via OPC UA or other protocols---runs into an error. Then, it can use a Teams channel to notify the office workers automatically. Then, the workers can analyze and discuss the problem, all within the same Teams channel.
+You can also use Peakboard + Teams to let factory machines communicate with office workers. For example, suppose a machine---connected via OPC UA or another protocol---runs into an error. Then, it can use a Teams channel to notify the office workers automatically. The workers can analyze and discuss the problem, all within the same Teams channel.
 
 And these are just two examples. The combination of Peakboard and Teams makes for an effective communications solution, useful in a wide range of scenarios.
 
-In today's article we'll explain how to build a simple chat client that integrates into Teams. This chat client lets factory workers send messages, view responses, and respond to messages.
+In this article, we'll explain how to build a simple chat client that integrates into Teams. This chat client lets factory workers communicate with office workers. The factory workers can send messages, view responses, and respond to messages.
 
-Before you continue, make sure you understand how to handle authenticate in the Office 365 data source. 
 
 ## Set up the data source
 
