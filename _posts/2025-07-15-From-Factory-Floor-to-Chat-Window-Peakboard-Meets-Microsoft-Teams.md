@@ -15,57 +15,90 @@ downloads:
   - name: TeamsDemo.pbmx
     url: /assets/2025-07-15/TeamsDemo.pbmx
 ---
-We already [talked about using Peakboard together with Office 365](/category/office365) a lot of times in different contexts. In today's article we want to step deeper into the connectivity with MS Teams. The connection to Teams is often seen to be used as link between the workers in front line operations of the factory and office workers. So it makes sense to integrate it in existing Peakboard application. The seond typical use for Teams integration is make the machine talk to the office workers. A machine - connected via OPC UA or other protocols - runs into an error and use a Teams channel to inform about these state changes and let other see and comment these issues. There are many more options. In today's article we discuss just a simple chat client for factory workers who can submit new messages or respond on messages.
+We've published many articles on how to integrate [Office 365 with Peakboard](/category/office365). In this article, we'll take a look at Office 365 again---but this time, we'll explain how to integrate Microsoft Teams into Peakboard.
 
-Before we start just a reminder: Every Office 365 data source handles authentication in the same way. To learn more about how to authenticate against the Office 365 backend, see our [getting started guide](/Getting-started-with-the-new-Office-365-Data-Sources.html).
+## Example use cases
 
-## Setting up the data source
+Companies often use Microsoft Teams to create a link between factory workers and office workers. So it makes sense to integrate Teams into a Peakboard application, in order to further improve communication between the office and factory. 
 
-For setting up the data source we need to authenticate first. Then we choose the Team and the Channel to get access to. There are three different modes available:
+You can also use Peakboard + Teams to let factory machines communicate with office workers. For example, suppose a machine---connected via OPC UA or another protocol---runs into an error. Then, it can use a Teams channel to notify the office workers automatically. The workers can analyze and discuss the problem, all within the same Teams channel.
 
-1. Get all messages, the channel message and the replies
-2. Get only the channel messages
-3. Get only the replies for one dedicated channel message.
+And these are just two examples. The combination of Peakboard and Teams makes for an effective communications solution, useful in a wide range of scenarios.
 
-In our use case we go for the first option. So we will retrieve all message of channel including their replies. We will then seperate channel messages and replies later through data sources.
+In this article, we'll explain how to build a simple chat client that integrates into Teams. This chat client lets factory workers communicate with office workers. The factory workers can send messages, view responses, and respond to messages.
+
+
+## Set up the data source
+
+First, we create a new Teams data source. Then, we set up authentication for the data source. If you're not sure how to do this, check out our [Office 365 getting started guide](/Getting-started-with-the-new-Office-365-Data-Sources.html). The authentication process is the same for every Office 365 data source.
+
+Next we select the team and the channel that we want the factory workers to use. We select the *Dismantle Team* team and the *Frontline Operations* channel.
+
+Then, we set the *Retrieve messages from* setting. There are three modes that we can choose from:
+1. Get all messages: top-level messages and replies.
+2. Get top-level messages.
+3. Get the replies for a specific top-level message.
+
+For our example, we choose the first option. That way, the factory workers can see all the messages in the channel, including the replies.
 
 ![image](/assets/2025-07-15/010.png)
 
-## Building the data flows
+## Build the data flows
 
-In our first data flow we beautify the raw output a little bit. Set a good date format, filter away all message rows with empty messages and also create a new column which we can use later for displaying the messages in a styled list.
+Next, we build some data flows to process the data source's output.
+
+### Clean up data source output
+
+First, we build a data flow that cleans up the raw output from the data source:
+1. Format the date.
+1. Filter out all message rows with empty messages.
+1. Create a new column that we can use later to display the messages in a styled list.
 
 ![image](/assets/2025-07-15/020.png)
 
-For the selection of the channel messages we add another data flow and filter away all messages that have a parent. If the message dowsn't have a parent, it's a channel message.
+### Get top-level messages
+
+We want to be able to view only the top-level messages. To do this, we create another data flow. This data flow filters out all the replies, by removing any message that contains a parent.
 
 ![image](/assets/2025-07-15/030.png)
 
-The same principle works for the replies. We have a variable called "ActiveChannelMessageID". It is filled when the user clicks on a button to view the replies of this dedicated channel message. We filter out only the the messages that have this message ID as their parent value.
+### Get replies to a message
+
+We also want to be able to view the replies to a message. To do this, we create a variable called `ActiveChannelMessageID`. Whenever the user clicks the button to view the replies of a top-level message, this variable is filled with the message's ID. Our data flow uses a filter to find the messages that have this message ID as their `Parent` value.
 
 ![image](/assets/2025-07-15/040.png)
 
-## Building the UI
+## Build the UI
 
-The central element is a styled list to display the channel messages. It's bound to the data flow for the channel messages.
+Now, let's build the UI.
+
+### View top-level messages
+To show the top-level messages, we use a styled list. We bind it to the data flow for the top-level messages.
 
 ![image](/assets/2025-07-15/050.png)
 
-The Building Blocks behind the button for opening the replies is just setting the variable for the message ID and then reloading the data flows for the replies. That's a second styled list to show the replies. It is automatically set to visible through a condtional formatting as soon as the channel message ID is set. We don't have a screenshot for every step, but we can easily look follow this principle by checking the downloadable pbmx file.
+### View replies button
+Next, we create a Building Blocks script for the *view replies* button. Here's how it works:
+1. Set the `ActiveChannelMessageID` variable to the ID of the message that the user wants to see the replies to.
+1. Reload the data flow for the replies. That way, the data flow updates its output for the new `ActiveChannelMessageID`.
+
+### Display replies
+To display the replies, we use a second styled list. It automatically makes itself visible when the `ActiveChannelMessageID` variable is set. It does this by using conditional formatting. For more details, check out the [PBMX](/assets/2025-07-15/TeamsDemo.pbmx) for this example.
 
 ![image](/assets/2025-07-15/055.png)
 
-Let's have a look on how to submit a new channel message. As soon as the user click on the "New post" button, a group of controls are set to visible to form a pop up for submitting the new message.
+### Send message
+As soon as the user clicks the *New post* button, a group of controls make themselves visible. They function like a pop-up window. The user uses these controls to send their message.
 
 ![image](/assets/2025-07-15/060.png)
 
-The actual creation of the new channel message happens through a Building Block that is provided in the context of the data source. We can either post a channel message (see screenshot) or a reply. If we want to send a reply we need to provide the channel message ID.
+To forward the new message to Teams, we use a Building Block that's provided by the data source (listed under *Controls > Teams*). The user can send a top-level message (as in the following screenshot), or they can send a reply. If they want to send a reply, they need to provide the channel message ID.
 
 ![image](/assets/2025-07-15/065.png)
 
-## result
+## Result
 
-In last image we can see the application in action. The data is qeuried from Teams. Then the user clicks on the replies button and the thread opens on the right side. We can then just compose a new reply and submit it to the backend.
+The following video shows the final product in action. The user clicks on the replies button and the thread opens up on the right side of the screen. Afterwards, the user sends a reply, which the app forwards to Teams.
 
 ![image](/assets/2025-07-15/result.gif)
 
