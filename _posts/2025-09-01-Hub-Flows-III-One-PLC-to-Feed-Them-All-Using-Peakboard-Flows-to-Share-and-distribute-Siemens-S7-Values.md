@@ -12,8 +12,8 @@ read_more_links:
 downloads:
   - name: SiemensS7Distribution.pbfx
     url: /assets/2025-09-01/SiemensS7Distribution.pbfx
-  - name: SiemensS7DistributionConsumer.pbmx
-    url: /assets/2025-09-01/SiemensS7DistributionConsumer.pbmx
+  - name: SiemensS7Consumer.pbmx
+    url: /assets/2025-09-01/SiemensS7Consumer.pbmx
 ---
 Hub FLows are super important when it comes to doing things in the background without user interaction. we already learned the basics about Hub flows in [Getting started and learn how to historize MQTT messages](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html) and also in the second part of the series [Hub Flows II - Cache Me If You Can - Data Distribution for SAP Capacity Data](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html).
 

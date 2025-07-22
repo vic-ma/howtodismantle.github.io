@@ -1,7 +1,7 @@
 ---
 layout: post
 title: From Factory Floor to Chat Window - Peakboard Meets Microsoft Teams
-date: 2023-03-01 00:00:00 +0000
+date: 2025-07-15 00:00:00 +0000
 tags: office365
 image: /assets/2025-07-15/title.png
 image_header: /assets/2025-07-15/title_landscape.png
