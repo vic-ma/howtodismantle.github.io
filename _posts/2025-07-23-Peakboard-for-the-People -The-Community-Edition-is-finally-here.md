@@ -16,28 +16,35 @@ read_more_links:
 ---
 Peakboard has become the ultimate data visualization solution for industrial workplaces. Peakboard connects to a wide variety of data sources and offers fast and simple application development. But until now, not many individual users have used the Peakboard platform---because its price point was higher than free alternatives like Node-RED or Grafana.
 
-This changed forever in the summer of 2025, when the company launched the **Peakboard Community Edition**, which gives private and non-commercial users a free license for the [Peakboard BYOD runtime](https://www.peakboard.com/en/product/peakboard-byod). In this article, we’ll cover everything you need to know about the Community Edition and provide a complete guide for downloading and installing everything you need to get started.
+This changed forever in the summer of 2025, when the company launched the [**Peakboard Community Edition**](https://www.peakboard.com/en/community-edition), which gives private and non-commercial users a free license for the [Peakboard BYOD runtime](https://www.peakboard.com/en/product/peakboard-byod). In this article, we’ll cover everything you need to know about the Community Edition and provide a complete guide for downloading and installing everything you need to get started.
+
 
 ## Community License Coverage
 
 As of summer 2025, here’s what the Community License includes:
 
-- Unlimited use of the Peakboard Designer (we already had this before the CE)
-- Unlimited use of BYOD/runtime installations — as long as it's for **non-commercial** use
-- Non-commercial means: private use at home, in educational settings like schools or universities, and for charitable or NGO organizations
-- All data sources are available, including support for extensions
-- All known features are included
+- Unlimited use of Peakboard Designer (this was always the case, even before the Community Edition).
+- Unlimited use of BYOD/runtime installations, as long as it's for **non-commercial** use.
+- All data sources, including extensions.
+- All available features.
 
-However, there are some important limitations:
+Note that **any** use within a company counts as commercial use and is not covered under the community license (including usage in test systems or backup setups).
 
-- **Any** use within a company counts as commercial use and is not covered (including test systems or backup setups)
-- Use of the **on-premises Peakboard Hub** is not included
-- The **support and ticket system** is not available for non-paying users
-- In the future, there may be features that are not part of the CE. Until then, the Community Edition includes the full feature set of the commercial Enterprise License
+Here are some examples of non-commercial use:
+* Private usage at home.
+* Usage in educational settings like schools and universities.
+* Usage in charitable organizations and non-profit NGOs.
+
+Finally, there are some important limitations to the Community Edition:
+- Use of the **on-premises Peakboard Hub** is not available.
+- The **support and ticket system** is not available.
+- In the future, there may be features that are not part of the Community Edition. But currently, the Community Edition includes all the features that are available in the Enterprise Edition.
+
 
 ## Support
 
-As company support services are not included in the license, community users can rely on [the Peakboard Reddit forum](https://www.reddit.com/r/Peakboard/). Questions and issues are often resolved quickly by the community — and we regularly see Peakboard engineers joining the discussion and helping out as well.
+Because official support is not included in the Community Edition, community users can use the [Peakboard subreddit](https://www.reddit.com/r/Peakboard/). Questions and issues are often resolved quickly by members of the community---and we regularly see Peakboard engineers joining the discussions and helping out too.
+
 
 ## Getting Started
 
