@@ -26,11 +26,11 @@ In this article, we’ll cover everything you need to know about the Community E
 As of summer 2025, here’s what the Community License includes:
 
 - Unlimited use of Peakboard Designer (this was always available, even before the Community Edition).
-- Unlimited use of BYOD/runtime installations, as long as it's for **non-commercial** use.
+- Unlimited use of BYOD/runtime installations, for **non-commercial** use.
 - All data sources, including extensions.
 - All available features.
 
-Note that **any** use within a company counts as commercial use and is not covered under the community license (including usage in test systems or backup setups).
+Note that **any** use within a company counts as commercial use and is not covered under the community license. This includes any usage in **test systems or backup setups**.
 
 Here are some examples of non-commercial use:
 * Private usage at home.
@@ -40,7 +40,7 @@ Here are some examples of non-commercial use:
 Finally, there are some important limitations to the Community Edition:
 - Use of the **on-premises Peakboard Hub** is not available.
 - The **support and ticket system** is not available.
-- In the future, there may be features that are not part of the Community Edition. But currently, the Community Edition includes all the features that are available in the Enterprise Edition.
+- In the future, new features may not be included in the Community Edition. But for now, the Community Edition includes all the features that are available in the Enterprise Edition.
 
 
 ## Support
