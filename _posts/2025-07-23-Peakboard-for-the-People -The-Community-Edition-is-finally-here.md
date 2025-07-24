@@ -14,16 +14,18 @@ read_more_links:
   - name: How to install Peakboard BYOD
     url: /Peakboard-BYOD-The-beginners-guide-to-BYOD-setup.html
 ---
-Peakboard has become the ultimate data visualization solution for industrial workplaces. Peakboard connects to a wide variety of data sources and offers fast and simple application development. But until now, not many individual users have used the Peakboard platform---because its price point was higher than free alternatives like Node-RED or Grafana.
+Peakboard has become the ultimate data visualization platform for industrial workplaces. Peakboard connects to a wide variety of data sources and offers fast and simple application development. But until now, not many individual users have tried the Peakboard platform---because its price point was higher than free alternatives like Node-RED and Grafana.
 
-This changed forever in the summer of 2025, when the company launched the [**Peakboard Community Edition**](https://www.peakboard.com/en/community-edition), which gives private and non-commercial users a free license for the [Peakboard BYOD runtime](https://www.peakboard.com/en/product/peakboard-byod). In this article, we’ll cover everything you need to know about the Community Edition and provide a complete guide for downloading and installing everything you need to get started.
+This all changed in the summer of 2025, when the company launched [**Peakboard Community Edition**](https://www.peakboard.com/en/community-edition), which gives private and non-commercial users a free license for the [Peakboard BYOD runtime](https://www.peakboard.com/en/product/peakboard-byod).
+
+In this article, we’ll cover everything you need to know about the Community Edition, including instructions on how to get started with it.
 
 
 ## Community License Coverage
 
 As of summer 2025, here’s what the Community License includes:
 
-- Unlimited use of Peakboard Designer (this was always the case, even before the Community Edition).
+- Unlimited use of Peakboard Designer (this was always available, even before the Community Edition).
 - Unlimited use of BYOD/runtime installations, as long as it's for **non-commercial** use.
 - All data sources, including extensions.
 - All available features.
@@ -52,4 +54,4 @@ Here are the steps you need to take to get started with the Community Edition:
 1. [Request a Peakboard Designer download link](https://www.peakboard.com/en/product/peakboard-designer#download).
 1. [Download the BYOD/runtime binaries](https://peakboard.com/download/Peakboard/master/PeakboardRuntimeSetupUI.exe) (direct download link).
 1. [Follow the setup guide for BYOD/runtime binaries](https://how-to-dismantle-a-peakboard-box.com/Peakboard-BYOD-The-beginners-guide-to-BYOD-setup.html).
-1. [Request a Community License key](https://www.peakboard.com/en/community-edition#communityedition) (use your hardware key from the previous step).
+1. [Request a Community License key](https://www.peakboard.com/en/community-edition#communityedition).
