@@ -16,7 +16,7 @@ read_more_links:
 ---
 Peakboard has become the ultimate data visualization solution for industrial workplaces. Peakboard connects to a wide variety of data sources and offers fast and simple application development. But until now, not many individual users have used the Peakboard platform---because its price point was higher than free alternatives like Node-RED or Grafana.
 
-This changed forever in the summer of 2025, when the company introduced its new **Community License**. In this article, we’ll cover all the key points about the Community License and provide a complete guide for downloading and installing everything you need to get started.
+This changed forever in the summer of 2025, when the company launched the **Peakboard Community Edition**, which gives private and non-commercial users a free license for the [Peakboard BYOD runtime](https://www.peakboard.com/en/product/peakboard-byod). In this article, we’ll cover everything you need to know about the Community Edition and provide a complete guide for downloading and installing everything you need to get started.
 
 ## Community License Coverage
 
