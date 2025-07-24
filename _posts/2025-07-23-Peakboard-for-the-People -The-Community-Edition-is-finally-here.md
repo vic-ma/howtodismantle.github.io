@@ -48,9 +48,8 @@ Because official support is not included in the Community Edition, community use
 
 ## Getting Started
 
-Here’s a collection of useful links to download the binaries and set up your personal environment:
-
-- Download the Peakboard Designer: [Request it here](https://www.peakboard.com/en/product/peakboard-designer)
-- Download the BYOD/runtime binaries: [Use this direct link](https://peakboard.com/download/Peakboard/master/PeakboardRuntimeSetupUI.exe)
-- For a setup guide on BYOD/runtime binaries: [Read this article](https://how-to-dismantle-a-peakboard-box.com/Peakboard-BYOD-The-beginners-guide-to-BYOD-setup.html)
+Here are the links you need to get started with the Community Edition:
+- [Download Peakboard Designer](https://www.peakboard.com/en/product/peakboard-designer#download) (request download link)
+- [Download the BYOD/runtime binaries](https://peakboard.com/download/Peakboard/master/PeakboardRuntimeSetupUI.exe) (direct download link)
+- [etup guide for BYOD/runtime binaries](https://how-to-dismantle-a-peakboard-box.com/Peakboard-BYOD-The-beginners-guide-to-BYOD-setup.html)
 - To request a Community License key: Submit your hardware key [via this form](https://www.peakboard.com/testing---page2)
