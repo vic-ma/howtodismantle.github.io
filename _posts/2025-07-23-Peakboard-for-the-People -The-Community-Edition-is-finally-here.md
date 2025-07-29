@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Peakboard for the People — The Community Edition is Finally Here
-date: 2023-03-01 00:00:00 +0000
+date: 2025-07-23 00:00:00 +0000
 tags: administration
 image: /assets/2025-07-23/title.png
 image_header: /assets/2025-07-23/title_landscape.png
