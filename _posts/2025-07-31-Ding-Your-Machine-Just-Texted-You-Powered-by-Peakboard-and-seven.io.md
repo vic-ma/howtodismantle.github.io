@@ -29,15 +29,15 @@ For our example, we create an API key that covers the `SMS` scope:
 
 ## The UI
 
-For our sample we chosse a simple UI with two text fields and a button.
+For our Peakboard app, we first create a simple UI with two text fields and a button:
 
 ![image](/assets/2025-07-31/020.png)
 
 ## The API
 
-The API documentation for seven.io services can be found [here](https://docs.seven.io/en). The call we use in our example is epxlained [here](https://docs.seven.io/en/rest-api/endpoints/sms#send-sms).
+For our example, we use the [legacy method of seven's SMS endpoint](https://docs.seven.io/en/rest-api/endpoints/sms#legacy).
 
-So the actual payload is submitted through query parameters of a HTPP GET call that follows this pattern:
+We send a `GET` request to the `api/sms/` endpoint, and we use query parameters to specify the SMS message we want to send:
 
 {% highlight url %}
 https://gateway.seven.io/api/sms?to=#[to]#&from=#[from]#&text=#[text]#
@@ -52,6 +52,8 @@ Beside this we need to submit the API key in a header named "X-Api-Key". In the 
 ![image](/assets/2025-07-31/030.png)
 
 Currently we're not evaluating the response form the API but just writing it into the log. The API returns a code to that lets us precisely determine success or error reasons. The codes can be check [here](https://docs.seven.io/en/rest-api/endpoints/sms#return-codes).
+
+To learn about the seven API, you can check out the [seven API documentation](https://docs.seven.io/en).
 
 ## result
 
