@@ -59,15 +59,16 @@ In the Peakboard Building Blocks, we use use a text placeholder block to build t
 
 For our application, we don't evaluate the response from the API. All we do is write it into the log. The API returns a code that lets us know if the call was a success or failure. For more information, check out the [SMS endpoint return codes](https://docs.seven.io/en/rest-api/endpoints/sms#return-codes).
 
-To learn about the seven API, you can check out the [seven API documentation](https://docs.seven.io/en).
+To learn more about the seven API in general, check out the [seven API documentation](https://docs.seven.io/en).
 
-## result
+## Result
 
-The screenshot shows the incoming SMS. 
-As some kind of expansion to our very quick and easy example here are some thoughts for other cool stuff you can do with the seven.io portal.
-
-- Of course seven.io API works too in all Hub Flows. It might even more appropriate to process the seven.io through a central Hub Flow rather than a single Peakboard application
-- We can use seven.io to receive SMS and process them in a Peakboard application or a Hub Flow.
-- seven.io also supports sending out [voice calls](https://docs.seven.io/en/rest-api/endpoints/voice#send-voice-call). Imagine a machine calling the supervisor and tell him  details about his current error state. How cool is that? The voice message is as easy to build as sending an SMS.
+The following screenshot shows the incoming SMS sent by our application, via seven:
 
 ![image](/assets/2025-07-31/040.jpeg)
+
+This was a very basic example. There is much more cool stuff you can do with seven. Here are some ideas:
+
+- The seven API works in all Hub Flows. So, it might make sense to handle seven API calls in a central Hub Flow, rather than an individual Peakboard application.
+- You can use the seven API to receive SMS messages and process them in a Peakboard application or a Hub Flow.
+- The seven API can also send [voice calls](https://docs.seven.io/en/rest-api/endpoints/voice#send-voice-call). Imagine a machine calling the supervisor to explain the details of an issue. How cool is that! The voice message API call is as easy to build as the SMS message call we looked at today.
