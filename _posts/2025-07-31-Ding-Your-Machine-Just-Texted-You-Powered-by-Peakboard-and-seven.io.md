@@ -7,15 +7,17 @@ image: /assets/2025-07-31/title.png
 image_header: /assets/2025-07-31/title_landscape.png
 bg_alternative: true
 read_more_links:
-  - name: seven.io API documentation
+  - name: seven API documentation
     url: https://docs.seven.io/en
-  - name: seven.io API Return codes
+  - name: seven SMS endpoint return codes
     url: https://docs.seven.io/en/rest-api/endpoints/sms#return-codes
 downloads:
   - name: SevenIO_SMS.pbmx
     url: /assets/2025-07-31/SevenIO_SMS.pbmx
 ---
-Communicating with the outside world is one the most important tasks of almost any Peakboard application. In today's article we take a look at the seven.io API, a business messaging gateway service that let's B2B customers easily send and receive SMS. We will have a look at the API and build a small Peakboard application to send out the SMS to a given phone number. Beside the API seven.io also offers an Email-to-SMS service for those who dont want to use the API.
+One the most important jobs of a Peakboard application is to communicate with the outside world. In today's article, we'll take a look at the [seven API](https://www.seven.io/en/products/sms-gateway-api/), a business messaging gateway service that makes it easy for businesses to send and receive SMS.
+
+We will have a look at the API and build a small Peakboard application to send out the SMS to a given phone number. Beside the API seven.io also offers an Email-to-SMS service for those who dont want to use the API.
 
 ## The seven.io portal
 
