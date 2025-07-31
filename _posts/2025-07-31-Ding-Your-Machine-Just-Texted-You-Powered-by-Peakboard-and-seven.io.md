@@ -17,7 +17,7 @@ downloads:
 ---
 One the most important jobs of a Peakboard application is to communicate with the outside world. In today's article, we'll take a look at the [seven API](https://www.seven.io/en/products/sms-gateway-api/), a business messaging gateway service that makes it easy for businesses to send and receive SMS.
 
-We will have a look at the API and build a small Peakboard application to send out the SMS to a given phone number. Beside the API seven.io also offers an Email-to-SMS service for those who dont want to use the API.
+First, we'll explain how the seven API works. Then, we'll build a small Peakboard application that sends out an SMS message to a phone number. Seven also offers an [email-to-SMS](https://www.seven.io/en/products/email-to-sms/) service for those that don't want to use the API.
 
 ## The seven.io portal
 
