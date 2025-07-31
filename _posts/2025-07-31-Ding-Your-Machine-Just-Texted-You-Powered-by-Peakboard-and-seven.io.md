@@ -9,6 +9,8 @@ bg_alternative: true
 read_more_links:
   - name: seven API documentation
     url: https://docs.seven.io/en
+  - name: seven SMS endpoint legacy methods
+    url: https://docs.seven.io/en/rest-api/endpoints/sms#legacy
   - name: seven SMS endpoint return codes
     url: https://docs.seven.io/en/rest-api/endpoints/sms#return-codes
 downloads:
@@ -49,11 +51,13 @@ https://gateway.seven.io/api/sms?to=#[to]#&from=#[from]#&text=#[text]#
 | `from`          | The sender's phone number, or the sender's name.
 | `text`          | The contents of the SMS message.
 
-Beside this we need to submit the API key in a header named "X-Api-Key". In the Peakboard Building block we just use a text placeholder block to build the correct URL including the query parameters. That's all.
+We also submit the API key in a header called `X-Api-Key`, in order to authenticate ourselves.
+
+In the Peakboard Building Blocks, we use use a text placeholder block to build the correct URL, including all the query parameters:
 
 ![image](/assets/2025-07-31/030.png)
 
-Currently we're not evaluating the response form the API but just writing it into the log. The API returns a code to that lets us precisely determine success or error reasons. The codes can be check [here](https://docs.seven.io/en/rest-api/endpoints/sms#return-codes).
+For our application, we don't evaluate the response from the API. All we do is write it into the log. The API returns a code that lets us know if the call was a success or failure. For more information, check out the [SMS endpoint return codes](https://docs.seven.io/en/rest-api/endpoints/sms#return-codes).
 
 To learn about the seven API, you can check out the [seven API documentation](https://docs.seven.io/en).
 
