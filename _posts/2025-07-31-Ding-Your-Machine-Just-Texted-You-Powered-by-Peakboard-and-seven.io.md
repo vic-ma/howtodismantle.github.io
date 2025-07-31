@@ -43,9 +43,11 @@ We send a `GET` request to the `api/sms/` endpoint, and we use query parameters 
 https://gateway.seven.io/api/sms?to=#[to]#&from=#[from]#&text=#[text]#
 {% endhighlight %}
 
-- "to" is the number destintion number
-- "from" is the sender number or just the sender's name
-- "text" is the actual text message
+| Query parameter | Description |
+| --------------- | ----------- |
+| `to`            | The phone number that receives the SMS message.
+| `from`          | The sender's phone number, or the sender's name.
+| `text`          | The contents of the SMS message.
 
 Beside this we need to submit the API key in a header named "X-Api-Key". In the Peakboard Building block we just use a text placeholder block to build the correct URL including the query parameters. That's all.
 
