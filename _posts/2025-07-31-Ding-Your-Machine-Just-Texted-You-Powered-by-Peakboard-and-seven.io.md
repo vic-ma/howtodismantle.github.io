@@ -21,9 +21,9 @@ First, we'll explain how the seven API works. Then, we'll build a small Peakboar
 
 ## The seven portal
 
-You can create a free account in the seven portal. This lets you test out the API  without paying any money. Inside the portal, you can also select a payment plan and change the configuration for those who need to build processing of incoming sms.
+You can create a free account in the seven portal. This lets you test out the API  without paying any money. Inside the portal, you can also select a payment plan. You can also change the configuration, in order to set up how incoming SMS messages are processed.
 
-For our example we need to create an API key that covers at least the scope "SMS".
+For our example, we create an API key that covers the `SMS` scope:
 
 ![image](/assets/2025-07-31/010.png)
 
