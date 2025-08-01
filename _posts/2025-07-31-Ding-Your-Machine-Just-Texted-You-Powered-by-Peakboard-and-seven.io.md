@@ -7,11 +7,11 @@ image: /assets/2025-07-31/title.png
 image_header: /assets/2025-07-31/title_landscape.png
 bg_alternative: true
 read_more_links:
-  - name: seven API documentation
+  - name: Seven API documentation
     url: https://docs.seven.io/en
-  - name: seven SMS endpoint legacy methods
+  - name: Seven SMS endpoint legacy methods
     url: https://docs.seven.io/en/rest-api/endpoints/sms#legacy
-  - name: seven SMS endpoint return codes
+  - name: Seven SMS endpoint return codes
     url: https://docs.seven.io/en/rest-api/endpoints/sms#return-codes
 downloads:
   - name: SevenIO_SMS.pbmx
@@ -19,13 +19,17 @@ downloads:
 ---
 One the most important jobs of a Peakboard application is to communicate with the outside world. In today's article, we'll take a look at the [seven API](https://www.seven.io/en/products/sms-gateway-api/), a business messaging gateway service that makes it easy for businesses to send and receive SMS.
 
-First, we'll explain how the seven API works. Then, we'll build a small Peakboard application that sends out an SMS message to a phone number. Seven also offers an [email-to-SMS service](https://www.seven.io/en/products/email-to-sms/) for those that don't want to use the API.
+First, we'll explain how the seven API works. Then, we'll build a small Peakboard application that sends an SMS message to a phone number. Seven also offers an [email-to-SMS service](https://www.seven.io/en/products/email-to-sms/) if you don't want to use the API.
 
 ## The seven portal
 
-You can create a free account in the seven portal. This lets you test out the API  without paying any money. Inside the portal, you can also select a payment plan. You can also change the configuration, in order to set up how incoming SMS messages are processed.
+You can create a free account in the seven portal. This lets you test out the API  without paying any money. Inside the portal, you can also enter a payment method, in order to use the API in production. You can also customize how incoming SMS messages are processed.
 
-For our example, we create an API key that covers the `SMS` scope:
+Now, lets build our application.
+
+## API key
+
+First, we create an seven API key that covers the `SMS` scope:
 
 ![image](/assets/2025-07-31/010.png)
 
@@ -37,7 +41,7 @@ For our Peakboard app, we first create a simple UI with two text fields and a bu
 
 ## The API
 
-For our example, we use the [legacy method of seven's SMS endpoint](https://docs.seven.io/en/rest-api/endpoints/sms#legacy).
+We use the [legacy method of seven's SMS endpoint](https://docs.seven.io/en/rest-api/endpoints/sms#legacy).
 
 We send a `GET` request to the `api/sms/` endpoint, and we use query parameters to specify the SMS message we want to send:
 
