@@ -29,13 +29,13 @@ Now, lets build our application.
 
 ## API key
 
-First, we create an seven API key that covers the `SMS` scope:
+First, we create a seven API key that covers the `SMS` scope:
 
 ![image](/assets/2025-07-31/010.png)
 
 ## The UI
 
-For our Peakboard app, we first create a simple UI with two text fields and a button:
+For our Peakboard app, we create a simple UI with two text fields and a button:
 
 ![image](/assets/2025-07-31/020.png)
 
@@ -43,7 +43,7 @@ For our Peakboard app, we first create a simple UI with two text fields and a bu
 
 We use the [legacy method of seven's SMS endpoint](https://docs.seven.io/en/rest-api/endpoints/sms#legacy).
 
-We send a `GET` request to the `api/sms/` endpoint, and we use query parameters to specify the SMS message we want to send:
+We send a `GET` request to the `/api/sms/` endpoint, and we use query parameters to specify the SMS message we want to send:
 
 {% highlight url %}
 https://gateway.seven.io/api/sms?to=#[to]#&from=#[from]#&text=#[text]#
@@ -57,22 +57,21 @@ https://gateway.seven.io/api/sms?to=#[to]#&from=#[from]#&text=#[text]#
 
 We also submit the API key in a header called `X-Api-Key`, in order to authenticate ourselves.
 
-In the Peakboard Building Blocks, we use use a text placeholder block to build the correct URL, including all the query parameters:
+In Building Blocks, we use use a text placeholder block to build the correct URL, with all the query parameters:
 
 ![image](/assets/2025-07-31/030.png)
 
-For our application, we don't evaluate the response from the API. All we do is write it into the log. The API returns a code that lets us know if the call was a success or failure. For more information, check out the [SMS endpoint return codes](https://docs.seven.io/en/rest-api/endpoints/sms#return-codes).
+For this example application, we don't evaluate the response from the API. All we do is write the response into the application log. The API returns a code that lets us know if the call was a success or failure. For more information, see the [SMS endpoint return codes](https://docs.seven.io/en/rest-api/endpoints/sms#return-codes).
 
-To learn more about the seven API in general, check out the [seven API documentation](https://docs.seven.io/en).
+To learn more about the seven API in general, see the [seven API documentation](https://docs.seven.io/en).
 
 ## Result
 
-The following screenshot shows the incoming SMS sent by our application, via seven:
-
-![image](/assets/2025-07-31/040.jpeg)
-
 This was a very basic example. There is much more cool stuff you can do with seven. Here are some ideas:
-
 - The seven API works in all Hub Flows. So, it might make sense to handle seven API calls in a central Hub Flow, rather than an individual Peakboard application.
 - You can use the seven API to receive SMS messages and process them in a Peakboard application or a Hub Flow.
-- The seven API can also send [voice calls](https://docs.seven.io/en/rest-api/endpoints/voice#send-voice-call). Imagine a machine calling the supervisor to explain the details of an issue. How cool is that! The voice message API call is as easy to build as the SMS message call we looked at today.
+- The seven API can also send [voice calls](https://docs.seven.io/en/rest-api/endpoints/voice#send-voice-call). Imagine a machine calling the supervisor to explain the details of an issue. How cool is that! The voice message API is as easy to use as the SMS API we looked at today.
+
+This screenshot shows the incoming SMS sent by our application, via seven:
+
+![image](/assets/2025-07-31/040.jpeg)
