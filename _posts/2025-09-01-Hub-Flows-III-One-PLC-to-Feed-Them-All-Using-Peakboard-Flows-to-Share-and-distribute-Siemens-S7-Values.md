@@ -23,11 +23,16 @@ Now, imagine that you have a large number of Peakboard applications that need th
 
 It's not a good idea to have all these Peakboard apps connect to the S7 on their own. Siemens PLCs do not support a large number of incoming connections.
 
-Instead, you should use a Hub Flow. Here's what the process looks like:
+Instead, you should use a Hub Flow. Here's how the Hub Flow works:
 1. The Hub Flow connects to the S7 and retrieves the necessary data. None of the Peakboard apps connect to the S7, so there's only one connection that the S7 has to handle.
 2. The Hub Flow processes the raw data in order to get a number of useable values.
-3. The Hub Flow creates a Hub variable for each of these values, and stores the values inside the variables. Hub variables store individual bits of information. For example, you might have a boolean Hub variable that reports whether the S7 detects a problem or not.
-4. The Peakboard applications subscribe to these variables. So in the moment the Flow writes a new value into the variable all subscribed clients are informed about the change in real-time with being connected directly to the PLC. It's a hub and spoke arhitecture similiar to that we discussed in the [article about caching SAP data](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html), however this time the clients don't query the cache on a regular basis, but they are subscribed to change by using a Hub variable.
+    * For example, whether the S7 detects a problem or not.
+3. The Hub Flow creates a Hub variable for each of these values, and stores the values inside the variables. Hub variables store individual bits of information.
+    * For example, you might have a boolean Hub variable that reports whether the S7 detects a problem or not.
+4. Whenever the Flow gets new data from the S7, it repeats steps 2 and 3. But instead of creating new Hub variables, it updates the existing ones.
+    * For example, the S7 detects a problem with the machine it's connected to. The Flow sees this in the raw data. So, the Flow changes the `problem_detected` Hub variable from `false` to `true`.
+4. The Peakboard applications subscribe to these variables.
+5. When the Flow writes a new value into the variable all subscribed clients are informed about the change in real-time with being connected directly to the PLC. It's a hub and spoke arhitecture similiar to that we discussed in the [article about caching SAP data](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html), however this time the clients don't query the cache on a regular basis, but they are subscribed to change by using a Hub variable.
 
 ## Preparing the Hub Variable
 
