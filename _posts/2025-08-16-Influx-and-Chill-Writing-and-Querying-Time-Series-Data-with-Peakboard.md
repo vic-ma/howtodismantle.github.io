@@ -17,12 +17,13 @@ downloads:
   - name: MyInflux.pbmx
     url: /assets/2025-08-16/MyInflux.pbmx
 ---
-Unlike typical multi-purpose databases like SQL Server or mySQL, Influx is built and designed for a special purpose: Storing data points or measurements that happen at dedicated point in time. Influx can handle them in large scale. It was initially built by InflusData, a tech comapny located in the Bay Area.
-In today's article we will have a look on how to read and query data from a influx databases.
+Unlike general-purpose databases such as SQL Server or MySQL, InfluxDB is built specifically for time-series data—measurements tied to particular moments. It scales to handle large volumes and was created by InfluxData, a company located in the Bay Area.
+
+In this article, we'll explore how to write and query data in an InfluxDB database using Peakboard.
 
 ## Setting up Influx
 
-The easiest way to get a Influx DB is to install quick [docker image](https://hub.docker.com/_/influxdb). Here's a typical prompt to get it working within 1 minute.
+The easiest way to get started is by launching the official [InfluxDB Docker image](https://hub.docker.com/_/influxdb). The following command spins up a container in under a minute and persists its data in a Docker volume.
 
 {% highlight text %}
 docker run -d 
@@ -35,52 +36,52 @@ docker run -d
   influxdb:2
 {% endhighlight %}
 
-After setup, the Influx DB is listening under the port 8086, so it can be access at `http://localhost:8086/`. We need to create an organisation first and within the organisation we need to create out first bucket to store the data.
+Once the container is running, InfluxDB listens on port 8086 at `http://localhost:8086/`. In the web UI, first create an organization and then your initial bucket to store data.
 
 ![image](/assets/2025-08-16/010.png)
 
-After that we create an API token for reading and writing the data from the outside. We find this option in the "API Token" section.
+Next, generate an API token for external reads and writes via the "API Tokens" section.
 
 ![image](/assets/2025-08-16/020.png)
 
-That's all we need to prepare as minimum requirement.
+With these steps complete, you're ready to send data.
 
 ## Writing data
 
-Inluf DB offers a very easy-to-use and powerful API for reading and writing data. The details can be checked [here](https://docs.influxdata.com/influxdb/v2/api/v2/). The call we're using for sending data will be `/api/v2/write?org=LosPollosHermanos&bucket=DismantleBucket&precision=s`. We need to provide the organsation along with the bucket the URL. The precision `s` means that the data point will be stored with a precison of one second.
+InfluxDB exposes a straightforward HTTP API for reads and writes. To insert data, we POST to `/api/v2/write?org=LosPollosHermanos&bucket=DismantleBucket&precision=s`. The `org` and `bucket` parameters identify where the point will be stored, and `precision=s` indicates that timestamps use second resolution.
 
-We will send a HTTP POST to submit the data. The body is a very specific format as shown in the example. The actual name of the measure will be `Temperature`. As there might be several places to detected this measure we name the place `lab`, Furthermore we submit the actual value. The exact format and syntax can be checked in the linked documentation.
+The request body uses InfluxDB's line protocol. In the example below the measurement is `temperature`, we tag the sensor as `lab`, and store the field value `26.3`.
 
 {% highlight text %}
 temperature,sensor=lab value=26.3
 {% endhighlight %}
 
-In our sample Peakboard app we just let the user write a value.
+In our sample Peakboard app the user can enter a value.
 
 ![image](/assets/2025-08-16/030.png)
 
-The next screenshot shows the Building Block behind the submit button. We use a placeholder text to inject the user's value into the body of the HTTP call. Beside the body we need to addtwo headers: 
+The next screenshot shows the Building Block behind the submit button. We use a placeholder text to inject the user's value into the body of the HTTP call. Besides the body, we need to add two headers:
 
-- `Content-Type` must be set to `application/json`
-- `Authorization` must be set to `Token MyAPITokenFromTheInflusAdminPortal`
+- `Content-Type` must be set to `text/plain`
+- `Authorization` must be set to `Token <YourInfluxAPIToken>`
 
 ![image](/assets/2025-08-16/040.png)
 
-After testing this code we should be able to find the submitted value in the Influx Data Explorer.
+After sending the request you should see the submitted value in the Influx Data Explorer.
 
 ![image](/assets/2025-08-16/050.png)
 
 ## Query data
 
-Querying data is actually also relatively straight foward and can be done with one single API call. However the returned data is not in a JSON format that is convenient to use right away. It comes in weird CSV format that needs some more processing intelligence as there are multiple header lines and other stuff to get rid of before processing the raw data. That's why it is recommended to use the [InfluxDB Extension](https://templates.peakboard.com/extensions/InfluxDB/index). With the help of this extension all data formatting issues are solved very elegantly.
+Querying data is just as straightforward. A single API call returns the results, but the response comes in a CSV format with multiple header lines that requires extra parsing. To avoid that hassle, use the [InfluxDB Extension](https://templates.peakboard.com/extensions/InfluxDB/index), which handles the formatting for you.
 
-The screenshot below shows the extension in action. Here's are the paramters to be filled:
+The screenshot below shows the extension in action. Provide the following parameters:
 
-- `URL` need to be filled with the URL of the query API call including the orgnisation name, e.g. `http://localhost:8086/api/v2/query?org=LosPollosHermanos`
-- `Token` is API Token
-- `FluxQuery` is the query string to decibe the reuqested data
+- `URL` needs to be filled with the URL of the query API call including the organization name, e.g. `http://localhost:8086/api/v2/query?org=LosPollosHermanos`
+- `Token` is the API token
+- `FluxQuery` is the query string to describe the requested data
 
-The query we use in our sample is simple: First we provide the name of the bucket, the `range` descibes the time range (last 2 hours) of a certain sensor (`temperature`) with a certain attribute (`value`). And we want to aggregate the data and detec the maximum value within the given time range.
+Our sample query is straightforward: read from `DismantleBucket`, limit the range to the last two hours, filter for the `temperature` measurement and its `value` field, and then return the maximum value in that window.
 
 {% highlight text %}
 from(bucket: "DismantleBucket")
@@ -90,10 +91,10 @@ from(bucket: "DismantleBucket")
   |> max()
 {% endhighlight %}
 
-The screenshot shows the result set. Beside the two time stamps (start and end of the query period), the actual value is provided in the `_value` column. In out sample the output is only one row, but this depends on the query. Let's assume our sensor would have two different attibutes to provide (tempearture and accuracy of the temperature), we would see twi rows here.
+The screenshot shows the result set. Besides the two timestamps (start and end of the query period), the actual value appears in the `_value` column. Our sample outputs a single row, but additional fields or sensors would produce multiple rows.
 
 ![image](/assets/2025-08-16/060.png)
 
 ## Result
 
-We learned how easy it easy it is to write and read to and from Influx databases. Influx is a very easy to use database and it can scale up to huge sizes. However it should be chosen very carefully. Data that doesn't fit into the typical structure of time based measurement data values are better to be stored in other databases.
+We've seen how easy it is to write to and read from InfluxDB. It scales to huge sizes and is simple to use, but it's best reserved for time-based measurements. Data without a timestamp is better stored in a different database.
