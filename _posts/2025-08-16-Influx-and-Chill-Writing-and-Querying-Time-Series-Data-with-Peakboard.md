@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Influx and Chill - Writing and Querying Time Series Data with Peakboard
-date: 2023-03-01 00:00:00 +0300
+date: 2023-03-01 05:00:00 +0300
 tags: api
 image: /assets/2025-08-16/title.png
 image_header: /assets/2025-08-16/title_landscape.png
