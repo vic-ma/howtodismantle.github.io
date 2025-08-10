@@ -89,7 +89,7 @@ We configure it to give it access to the three variables on the S7:
 
 ### Write the variables
 
-Next, we create a simple function that takes the values from the S7 data source and writes the data into local variables (these are bound to to the Hub variables, ).
+Next, we create a simple function that takes the values from the S7 data source and writes the data into local variables (remember, these automatically update Hub variables).
 
 ![image](/assets/2025-09-01/050.png)
 
