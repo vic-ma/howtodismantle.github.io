@@ -81,6 +81,7 @@ The screenshot below shows the extension in action. Provide the following parame
 - `Token` is the API token
 - `FluxQuery` is the query string to describe the requested data
 
+
 Our sample query is straightforward: read from `DismantleBucket`, limit the range to the last two hours, filter for the `temperature` measurement and its `value` field, and then return the maximum value in that window.
 
 {% highlight text %}
@@ -90,6 +91,7 @@ from(bucket: "DismantleBucket")
   |> filter(fn: (r) => r._field == "value")
   |> max()
 {% endhighlight %}
+
 
 The screenshot shows the result set. Besides the two timestamps (start and end of the query period), the actual value appears in the `_value` column. Our sample outputs a single row, but additional fields or sensors would produce multiple rows.
 
