@@ -75,17 +75,21 @@ We also connect each variable to their respective Hub variables:
 1. Go to the *Peakboard Hub* tab
 1. Under *Peakboard Hub Variables*, select the corresponding Hub variable.
 
+This makes it so that the Hub variables automatically updates to the values in our local variables.
+
 ![image](/assets/2025-09-01/030.png)
 
-## Prepare the data source and write the variables
+### Prepare the data source
 
-Next, we create a data source for the S7 data. We use the standard Siemens S7 data source---even though the data is coming from a Flow, and not directly from an S7.
+Next, we create a data source for the S7 data. We use the standard Siemens S7 data source.
 
 We configure it to give it access to the three variables on the S7:
 
 ![image](/assets/2025-09-01/040.png)
 
-In a simple function named "WriteVariables" we take the values from the S7 data source and write it into the local variables (that are in turn bound to to the Hub variables)
+### Write the variables
+
+Next, we create a simple function that takes the values from the S7 data source and writes the data into local variables (these are bound to to the Hub variables, ).
 
 ![image](/assets/2025-09-01/050.png)
 
