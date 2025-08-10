@@ -31,9 +31,9 @@ Instead, you should use a Hub Flow. Here's how the Hub Flow works:
 1. The Hub Flow connects to the S7 and retrieves the necessary data. None of the Peakboard apps connect to the S7, so there's only one connection that the S7 has to handle.
 1. The Hub Flow processes the raw data in order to get a number of useable values.
     * For example, whether the S7 detects a problem or not.
-1. The Hub Flow creates a Hub variable for each of these values, and stores the values inside the variables. Hub variables store individual bits of information.
+1. The Hub Flow stores each value inside its own Hub variable. It overwrites the previous value in the variable. 
     * For example, you might have a boolean Hub variable that reports whether the S7 detects a problem or not.
-1. Whenever the Flow gets new data from the S7, it repeats steps 2 and 3. But instead of creating new Hub variables, it updates the existing ones.
+1. Whenever the Flow gets new data from the S7, it repeats steps 2 and 3.
     * For example, the S7 detects a problem with the machine it's connected to. The Flow sees this in the raw data. So, the Flow changes the `problem_detected` Hub variable from `FALSE` to `TRUE`.
 
 You also need to connect your Peakboard applications to the Flow. Here's what that looks like:
@@ -46,7 +46,9 @@ You also need to connect your Peakboard applications to the Flow. Here's what th
 
 This architecture is commonly known as a [publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern).
 
-## Prepare the Hub Variable
+Now, let's build an example based on what we've just discussed.
+
+## Prepare the Hub variables
 
 The first step is to prepare three Hub variables in the Hub portal. We need these three
 
