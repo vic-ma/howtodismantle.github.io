@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hub Flows III - One PLC to Feed Them All - Using Peakboard Flows to Share and distribute Siemens S7 Values
+title: Hub Flows III - One PLC to Feed Them All - Using Peakboard Flows to share and distribute Siemens S7 values
 date: 2023-03-01 00:00:00 +0000
 tags: hubflows
 image: /assets/2025-09-01/title.png
@@ -15,9 +15,9 @@ downloads:
   - name: SiemensS7Consumer.pbmx
     url: /assets/2025-09-01/SiemensS7Consumer.pbmx
 ---
-Hub FLows are super important when it comes to doing things in the background without user interaction. we already learned the basics about Hub flows in [Getting started and learn how to historize MQTT messages](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html) and also in the second part of the series [Hub Flows II - Cache Me If You Can - Data Distribution for SAP Capacity Data](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html).
+Hub Flows let you run automated tasks the background without needing any user interaction. We covered the basics of Hub Flows in [part I](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html) and [part II](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html) of our Hub Flows series.
 
-This is the third article in our series to explain and build another typical use case with Hub Flows. Let's imagine we have a Siemens S7 PLC in our factory. The PLC "knows" what a machine is currently doing, if it's running smoothly and if not, what the root cause of the problem is. Let's also imagine we have a large number of other Peakboard clients to consume this information. Because they want to show the current state of the machine on different dashboards in different locations. It's technically not a good idea that all these Peakboard applications connect on their own to the S7. A Siemens PLC does not support a larger number of incoming connections. So what we do now, is that we build a Hub Flow that is the has the only connection to the S7 and gets the necessary data. After having received the data from S7 it writes the values into so called Hub Variables. These Hub Variables are there to store single values of data. The trick is, that the clients (the other Peakboard applications) can subscribe on these variables. So in the moment the Flow writes a new value into the variable all subscribed clients are informed about the change in real-time with being connected directly to the PLC. It's a hub and spoke arhitecture similiar to that we discussed in the [article about caching SAP data](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html), however this time the clients don't query the cache on a regular basis, but they are subscribed to change by using a Hub variable.
+This article is part III of the series. Today, we will look at another typical use case with Hub Flows. Imagine we have a Siemens S7 PLC in our factory. The PLC "knows" what a machine is currently doing, if it's running smoothly and if not, what the root cause of the problem is. Let's also imagine we have a large number of other Peakboard clients to consume this information. Because they want to show the current state of the machine on different dashboards in different locations. It's technically not a good idea that all these Peakboard applications connect on their own to the S7. A Siemens PLC does not support a larger number of incoming connections. So what we do now, is that we build a Hub Flow that is the has the only connection to the S7 and gets the necessary data. After having received the data from S7 it writes the values into so called Hub Variables. These Hub Variables are there to store single values of data. The trick is, that the clients (the other Peakboard applications) can subscribe on these variables. So in the moment the Flow writes a new value into the variable all subscribed clients are informed about the change in real-time with being connected directly to the PLC. It's a hub and spoke arhitecture similiar to that we discussed in the [article about caching SAP data](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html), however this time the clients don't query the cache on a regular basis, but they are subscribed to change by using a Hub variable.
 
 ## Preparing the Hub Variable
 
@@ -75,5 +75,5 @@ The animation shows the reaction of the client application when the machine swit
 
 ## result and conclusion
 
-We learned how to decouple the S7 connectivity from the actual consumer by using Hub FLows and Hub Variables. This allows a massively scalable architecture even when the direct connectivity to the PLC is very limited like with the S7.
+We learned how to decouple the S7 connectivity from the actual consumer by using Hub Flows and Hub Variables. This allows a massively scalable architecture even when the direct connectivity to the PLC is very limited like with the S7.
 Other than our privous example with the SAP caching the actual value trasportation happens in real-time. So the consumer doesn't have to query the data on a regular basis.
