@@ -32,10 +32,11 @@ Instead, you should use a Hub Flow. Here's how the Hub Flow works:
 1. Whenever the Flow gets new data from the S7, it repeats steps 2 and 3. But instead of creating new Hub variables, it updates the existing ones.
     * For example, the S7 detects a problem with the machine it's connected to. The Flow sees this in the raw data. So, the Flow changes the `problem_detected` Hub variable from `FALSE` to `TRUE`.
 
-Of course, a Hub Flow on its own doesn't do anything. You also need to connect your Peakboard applications to the Flow. Here's what that looks like:
+You also need to connect your Peakboard applications to the Flow. Here's what that looks like:
 1. If a Peakboard application needs the S7's data, then it subscribes to the Hub variables that the Flow publishes. An application only needs to subscribe to the variables that it needs.
     * For example, if an app needs to know if the S7 detects a problem or not, then it subscribes to the `problem_detected` Hub variable. It does not need to subscribe to other variables, like an energy consumption variable---because it has no need for this data.
-1. When the Flow writes a new value into a variable, all the subscribed Peakboard apps are notified immediately. It's a hub and spoke arhitecture similiar to that we discussed in the [article about caching SAP data](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html), however this time the clients don't query the cache on a regular basis, but they are subscribed to change by using a Hub variable.
+1. The Flow writes a new value into a Hub variable.
+1. Peakboard Hub notifies all the Peakboard apps that are subscribed to the Hub variable.
 
 ## Preparing the Hub Variable
 
