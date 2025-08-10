@@ -38,6 +38,8 @@ You also need to connect your Peakboard applications to the Flow. Here's what th
 1. The Flow writes a new value into a Hub variable.
 1. Peakboard Hub notifies all the Peakboard apps that are subscribed to the Hub variable.
 
+This architecture is commonly known as a [publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern).
+
 ## Preparing the Hub Variable
 
 The first step is to prepare three Hub variables in the Hub portal. We need these three
