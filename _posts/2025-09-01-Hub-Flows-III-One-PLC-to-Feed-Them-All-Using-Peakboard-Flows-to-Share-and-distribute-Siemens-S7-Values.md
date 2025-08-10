@@ -77,9 +77,11 @@ We also connect each variable to their respective Hub variables:
 
 ![image](/assets/2025-09-01/030.png)
 
-## Preparing the datasource and writing the variables
+## Prepare the data source and write the variables
 
-For the data source we use a classical Siemens S7 data source and configure it to access the three values on the PLC.
+Next, we create a data source for the S7 data. We use the standard Siemens S7 data source---even though the data is coming from a Flow, and not directly from an S7.
+
+We configure it to give it access to the three variables on the S7:
 
 ![image](/assets/2025-09-01/040.png)
 
