@@ -50,22 +50,30 @@ Now, let's build an example based on what we've just discussed.
 
 ## Prepare the Hub variables
 
-First, let's create three example Hub variables by using the Hub Portal:
+First, let's create three example Hub variables by using the Hub Portal.
+
 | Variable | Data type | Description |
 | -------- | --------- | ----------- |
 | `IsRunning` | Boolean | Whether the machine is running
-| `ErrorMessage` | String | The error message, if the machine encounters a problem. Otherwise, it's the empty string `""`.
+| `ErrorMessage` | String | The error message, if the machine encounters a problem. Otherwise, it's the empty string.
 | `RunningSpeed` | Number | The speed that the machine is running at, if it's running. Otherwise it's 0.
-
-To create a variable we need to define a name and a data type.
 
 ![image](/assets/2025-09-01/010.png)
 
-The next screenshot shows our three variables after the creation.
+Here's what our three variables look like after creation:
 
 ![image](/assets/2025-09-01/020.png)
 
-In the Peakboard designer we create a new Flow project and also create the three variables with the same name and data type. In the second tab of the variable definition dialog we can connect the variable with the one we already prepared in the Hub. This connection will forward all local changes of a variable to the Hub instance simultaniuosly.
+## Create the Flow
+
+In Peakboard Designer, we create a new Flow project.
+
+We create three variables to match the Hub variables. We use the same names and data types.
+
+We also connect each variable to their respective Hub variables:
+1. Edit the variable.
+1. Go to the *Peakboard Hub* tab
+1. Under *Peakboard Hub Variables*, select the corresponding Hub variable.
 
 ![image](/assets/2025-09-01/030.png)
 
