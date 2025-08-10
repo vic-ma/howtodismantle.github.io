@@ -50,11 +50,12 @@ Now, let's build an example based on what we've just discussed.
 
 ## Prepare the Hub variables
 
-The first step is to prepare three Hub variables in the Hub portal. We need these three
-
-1. "IsRunning" is a boolean variable representing a value to define if the machine is running
-2. "ErrorMessage" contains the error message as a string in case the machine is currenlty in faulty mode
-3. "RunningSpeed" is a number representing the speed of the machine if it's running at the moment, otherwise it's 0.
+First, let's create three example Hub variables by using the Hub Portal:
+| Variable | Data type | Description |
+| -------- | --------- | ----------- |
+| `IsRunning` | Boolean | Whether the machine is running
+| `ErrorMessage` | String | The error message, if the machine encounters a problem. Otherwise, it's the empty string `""`.
+| `RunningSpeed` | Number | The speed that the machine is running at, if it's running. Otherwise it's 0.
 
 To create a variable we need to define a name and a data type.
 
