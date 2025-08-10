@@ -17,11 +17,15 @@ downloads:
 ---
 Hub Flows let you run automated tasks the background without any user interaction. We covered the basics of Hub Flows in [part I](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html) and [part II](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html) of our Hub Flows series. In this article, we'll take a look at another typical use case with Hub Flows.
 
+## The scenario
+
 Imagine you have a Siemens S7 PLC in your factory. The S7 "knows" what a machine is currently doing. It knows if a machine is running smoothly, and if there's a problem, it knows what root cause is.
 
 Now, imagine that you have a large number of Peakboard applications that need the information from the S7. For example, you have Peakboard Boxes at different places in your factory, with different dashboards, and they all use the same information from the S7.
 
 It's not a good idea to have all these Peakboard apps connect to the S7 on their own. Siemens PLCs do not support a large number of incoming connections.
+
+## The proper solution
 
 Instead, you should use a Hub Flow. Here's how the Hub Flow works:
 1. The Hub Flow connects to the S7 and retrieves the necessary data. None of the Peakboard apps connect to the S7, so there's only one connection that the S7 has to handle.
@@ -37,10 +41,12 @@ You also need to connect your Peakboard applications to the Flow. Here's what th
     * For example, if an app needs to know if the S7 detects a problem or not, then it subscribes to the `problem_detected` Hub variable. It does not need to subscribe to other variables, like an energy consumption variable---because it has no need for this data.
 1. The Flow writes a new value into a Hub variable.
 1. Peakboard Hub notifies all the Peakboard apps that are subscribed to the Hub variable.
+1. If an application is notified, it processes the new data, and updates its dashboard accordingly.
+    * For example, if it sees that `problem_detected` is now `TRUE`, then it might change a status indicator from green to red. Or it may send an automated email to a manager.
 
 This architecture is commonly known as a [publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern).
 
-## Preparing the Hub Variable
+## Prepare the Hub Variable
 
 The first step is to prepare three Hub variables in the Hub portal. We need these three
 
