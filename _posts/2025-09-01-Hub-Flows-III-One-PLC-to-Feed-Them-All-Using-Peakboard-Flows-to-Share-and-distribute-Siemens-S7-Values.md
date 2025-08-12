@@ -29,12 +29,14 @@ It's not a good idea to have all these Peakboard apps connect to the S7 on their
 
 Instead, you should create a Hub Flow. It works like this:
 1. The Hub Flow connects to the S7 and retrieves the necessary data. None of the Peakboard apps connect to the S7, so there's only one connection that the S7 has to handle.
-1. The Hub Flow processes the raw data in order to get a number of useable values.
-    * For example, whether the S7 detects a problem or not.
-1. The Hub Flow stores each value inside its own Hub Variable. It overwrites the previous value in the Variable. 
+1. The Hub Flow processes the raw data in order to get the values it needs.
+    * For example, the Hub Flow might look through the data to find the running speed value.
+1. The Hub Flow stores each value inside its own Hub Variable. It overwrites any previous value in the Hub Variable. 
     * For example, you might have a boolean Hub Variable that reports whether the S7 detects a problem or not.
-1. The Hub Flow automatically runs every 10 seconds, repeating steps 1 to 3.
-    * For example, 10 seconds passes and our Hub Flow requests new data from the S7. The Hub Flow processes the raw data and and updates the Hub Variables accordingly. For example, if the new S7 data says that the machine has a problem, then the Flow would change the `problem_detected` Hub Variable from `FALSE` to `TRUE`.
+
+The Hub Flow automatically runs every 10 seconds. Whenever it runs, it repeats steps 1 to 3.
+
+### The Peakboard app
 
 You also need to connect your Peakboard applications to the Flow. Here's what that looks like:
 1. If a Peakboard application needs the S7's data, then it subscribes to the Hub Variables that the Flow publishes. An application only needs to subscribe to the Variables that it needs.
