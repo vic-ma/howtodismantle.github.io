@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hub Flows III - One PLC to Feed Them All - Using Peakboard Flows to Share and distribute Siemens S7 Values
+title: Hub Flows III - One PLC to Feed Them All - Using Peakboard Flows to share and distribute Siemens S7 values
 date: 2023-03-01 00:00:00 +0000
 tags: hubflows
 image: /assets/2025-09-01/title.png
@@ -15,65 +15,120 @@ downloads:
   - name: SiemensS7Consumer.pbmx
     url: /assets/2025-09-01/SiemensS7Consumer.pbmx
 ---
-Hub FLows are super important when it comes to doing things in the background without user interaction. we already learned the basics about Hub flows in [Getting started and learn how to historize MQTT messages](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html) and also in the second part of the series [Hub Flows II - Cache Me If You Can - Data Distribution for SAP Capacity Data](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html).
+Hub Flows let you run automated tasks the background, without any user interaction. We covered the basics of Hub Flows in [Part I](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html) and [Part II](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html) of our Hub Flows series. In this article, we'll take a look at another typical use case with Hub Flows.
 
-This is the third article in our series to explain and build another typical use case with Hub Flows. Let's imagine we have a Siemens S7 PLC in our factory. The PLC "knows" what a machine is currently doing, if it's running smoothly and if not, what the root cause of the problem is. Let's also imagine we have a large number of other Peakboard clients to consume this information. Because they want to show the current state of the machine on different dashboards in different locations. It's technically not a good idea that all these Peakboard applications connect on their own to the S7. A Siemens PLC does not support a larger number of incoming connections. So what we do now, is that we build a Hub Flow that is the has the only connection to the S7 and gets the necessary data. After having received the data from S7 it writes the values into so called Hub Variables. These Hub Variables are there to store single values of data. The trick is, that the clients (the other Peakboard applications) can subscribe on these variables. So in the moment the Flow writes a new value into the variable all subscribed clients are informed about the change in real-time with being connected directly to the PLC. It's a hub and spoke arhitecture similiar to that we discussed in the [article about caching SAP data](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html), however this time the clients don't query the cache on a regular basis, but they are subscribed to change by using a Hub variable.
+## The scenario
 
-## Preparing the Hub Variable
+Imagine you have a Siemens S7 PLC in your factory. The S7 "knows" what a machine is currently doing. It knows if a machine is running smoothly, and if there's a problem, it knows what root cause is.
 
-The first step is to prepare three Hub variables in the Hub portal. We need these three
+Now, imagine that you have a large number of Peakboard applications that need the information from the S7. For example, you have Peakboard Boxes at different places in your factory, with different dashboards, and they all use the same information from the S7.
 
-1. "IsRunning" is a boolean variable representing a value to define if the machine is running
-2. "ErrorMessage" contains the error message as a string in case the machine is currenlty in faulty mode
-3. "RunningSpeed" is a number representing the speed of the machine if it's running at the moment, otherwise it's 0.
+It's not a good idea to have all these Peakboard apps connect to the S7 on their own, because it might overload the S7. Siemens PLCs do not support a large number of incoming connections.
 
-To create a variable we need to define a name and a data type.
+## The proper solution
+
+Instead, you should create a Hub Flow. It works like this:
+1. The Hub Flow connects to the S7 and retrieves the necessary data. None of the Peakboard apps connect to the S7, so there's only one connection that the S7 has to handle.
+1. The Hub Flow processes the raw data in order to get the values it needs.
+1. The Hub Flow stores each value inside its own Hub Variable. It overwrites any previous value in the Hub Variable. 
+    * For example, you might have a boolean Hub Variable that reports whether the S7 detects a problem or not.
+
+The Hub Flow automatically runs every 10 seconds. Whenever it runs, it repeats steps 1 to 3.
+
+### The Peakboard app
+
+You also need to connect your Peakboard applications to the Hub variables. Here's what that looks like:
+1. If a Peakboard application needs the S7's data, then it subscribes to the Hub Variables that the Flow publishes. An application only subscribes to the Variables that it needs.
+    * For example, if an app needs to know if the S7 detects a problem or not, then it subscribes to the `problem_detected` Hub Variable. It does not need to subscribe to other Variables, like an `energy_consumption` Variable---because it has no need for that data.
+1. The Flow writes a new value into a Hub Variable.
+1. Peakboard Hub notifies all the Peakboard apps that are subscribed to the Hub Variable.
+1. If an application is notified, it processes the new data, and updates its dashboard accordingly.
+    * For example, if an app sees that `problem_detected` is now `TRUE`, then it might change a status indicator from green to red. Or it may send an automated email to a manager.
+
+This architecture is based on a [publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern).
+
+Now, let's build an example based on what we've just discussed.
+
+## Prepare the Hub Variables
+
+First, we create three Hub Variables in the Hub Portal.
+
+| Hub Variable | Data type | Description |
+| -------- | --------- | ----------- |
+| `IsRunning` | Boolean | Whether the connected machine is running.
+| `RunningSpeed` | Number | The speed that the machine is running at, if it's running. Otherwise it's 0.
+| `ErrorMessage` | String | The error message, if the machine encounters a problem. Otherwise, it's an empty string.
 
 ![image](/assets/2025-09-01/010.png)
 
-The next screenshot shows our three variables after the creation.
+Here's what our three Variables look like after creation:
 
 ![image](/assets/2025-09-01/020.png)
 
-In the Peakboard designer we create a new Flow project and also create the three variables with the same name and data type. In the second tab of the variable definition dialog we can connect the variable with the one we already prepared in the Hub. This connection will forward all local changes of a variable to the Hub instance simultaniuosly.
+## Create the Flow
+
+In Peakboard Designer, we create a new Flow project.
+
+We create three local variables that match the Hub Variables. We use the same names and data types.
+
+We also connect each variable to their respective Hub Variables:
+1. Edit the variable.
+1. Go to the *Peakboard Hub* tab
+1. Under *Peakboard Hub Variables*, select the corresponding Hub Variable.
+
+Whenever our local variables updates, the Flow automatically updates the Hub Variables.
 
 ![image](/assets/2025-09-01/030.png)
 
-## Preparing the datasource and writing the variables
+### Prepare the data source
 
-For the data source we use a classical Siemens S7 data source and configure it to access the three values on the PLC.
+Next, we create a data source for the S7 data. We use the standard Siemens S7 data source.
+
+We configure it to give it access to the three variables on the S7:
 
 ![image](/assets/2025-09-01/040.png)
 
-In a simple function named "WriteVariables" we take the values from the S7 data source and write it into the local variables (that are in turn bound to to the Hub variables)
+### Write the variables
+
+Next, we create a simple function that takes the values from the S7 data source and writes the data into local variables (remember, any changes to the local variables are automatically sent to the Hub Variables).
 
 ![image](/assets/2025-09-01/050.png)
 
-## Building and deploying the Hub FLow
+## Build and deploy the Hub Flow
 
-The Flow is triggered periodically every 10 seconds. It reloads the Siemens S7 data source. After that it executes the function for turning the data source output into variable. Thats all out Hub Flow needs to do.
+The Flow automatically runs every 10 seconds. Every 10 seconds, it does the following:
+1. Reload the Siemens S7 data source, in order to get new data from the S7.
+1. Execute the function that processes the raw S7 data and updates the local variables. (This automatically updates the Hub Variables.)
 
 ![image](/assets/2025-09-01/060.png)
 
-After the Deployment the Flow starts it executes right away.
+We deploy the Hub Flow and it starts working right away:
 
 ![image](/assets/2025-09-01/070.png)
 
-And the Hub Variable values are filled with the content from Siemens S7.
+You can see that the Flow updates the Hub Variables with the data from the S7:
 
 ![image](/assets/2025-09-01/080.png)
 
-## Consuming the data
+## Consume the data
 
-Let's jump to the consumer project. The only thing we need to do is create a new empty project and set up the same variables variable as we already know with the same binding to the Hub variables. That's all. The content of the variables is subscribed from the Hub value and changes it behaviour in real-time. The screenshot shows a couple of controls to visualize the data: An icon for the running state with condtional formatting, a gauge for the running speed and just the text in case of an error message.
+Now, let's create a Peakboard app that uses the data from this Hub Flow.
+
+We create three variables and bind them to the three Hub Variables. These variables work like normal variables, except that they update automatically whenever the corresponding Hub Variables change.
+
+Next, we add a couple of controls to visualize the three variables:
+* An icon control for `IsRunning`, built with conditional formatting.
+* A gauge control for `RunningSpeed`.
+* A text control for `ErrorMessage`. It defaults to *Running*, if there's no error.
 
 ![image](/assets/2025-09-01/090.png)
 
-The animation shows the reaction of the client application when the machine switches to error state and back.
+This video shows what our app looks like when the S7 detects an error:
 
 ![image](/assets/2025-09-01/result.gif)
 
-## result and conclusion
+## Conclusion
 
-We learned how to decouple the S7 connectivity from the actual consumer by using Hub FLows and Hub Variables. This allows a massively scalable architecture even when the direct connectivity to the PLC is very limited like with the S7.
-Other than our privous example with the SAP caching the actual value trasportation happens in real-time. So the consumer doesn't have to query the data on a regular basis.
+We showed how you can decouple a PLC from the Peakboard apps that need its data. By using Hub Flows and Hub Variables, you can build a highly scalable architecture---even when direct connectivity to the PLC is very limited, like with the S7.
+
+Unlike our previous example with the [SAP caching](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html), in this example, the data transfer (of the variables) happens in real-time. This means that the Peakboard apps don't have to query the data on a regular basis.
