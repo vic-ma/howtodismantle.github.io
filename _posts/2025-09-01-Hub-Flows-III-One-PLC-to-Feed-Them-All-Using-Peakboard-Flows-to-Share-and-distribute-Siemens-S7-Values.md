@@ -15,7 +15,7 @@ downloads:
   - name: SiemensS7Consumer.pbmx
     url: /assets/2025-09-01/SiemensS7Consumer.pbmx
 ---
-Hub Flows let you run automated tasks the background without any user interaction. We covered the basics of Hub Flows in [part I](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html) and [part II](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html) of our Hub Flows series. In this article, we'll take a look at another typical use case with Hub Flows.
+Hub Flows let you run automated tasks the background, without any user interaction. We covered the basics of Hub Flows in [Part I](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html) and [Part II](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html) of our Hub Flows series. In this article, we'll take a look at another typical use case with Hub Flows.
 
 ## The scenario
 
@@ -23,11 +23,11 @@ Imagine you have a Siemens S7 PLC in your factory. The S7 "knows" what a machine
 
 Now, imagine that you have a large number of Peakboard applications that need the information from the S7. For example, you have Peakboard Boxes at different places in your factory, with different dashboards, and they all use the same information from the S7.
 
-It's not a good idea to have all these Peakboard apps connect to the S7 on their own. Siemens PLCs do not support a large number of incoming connections.
+It's not a good idea to have all these Peakboard apps connect to the S7 on their own, because it might overload the S7. Siemens PLCs do not support a large number of incoming connections.
 
 ## The proper solution
 
-Instead, you should use a Hub Flow. Here's how the Hub Flow works:
+Instead, you should create a Hub Flow. It works like this:
 1. The Hub Flow connects to the S7 and retrieves the necessary data. None of the Peakboard apps connect to the S7, so there's only one connection that the S7 has to handle.
 1. The Hub Flow processes the raw data in order to get a number of useable values.
     * For example, whether the S7 detects a problem or not.
