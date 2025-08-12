@@ -55,8 +55,8 @@ First, let's create three example Hub variables by using the Hub Portal.
 | Variable | Data type | Description |
 | -------- | --------- | ----------- |
 | `IsRunning` | Boolean | Whether the machine is running
-| `ErrorMessage` | String | The error message, if the machine encounters a problem. Otherwise, it's the empty string.
 | `RunningSpeed` | Number | The speed that the machine is running at, if it's running. Otherwise it's 0.
+| `ErrorMessage` | String | The error message, if the machine encounters a problem. Otherwise, it's the empty string.
 
 ![image](/assets/2025-09-01/010.png)
 
@@ -109,9 +109,16 @@ You can see that the Flow updates the Hub variables with the data from the S7:
 
 ![image](/assets/2025-09-01/080.png)
 
-## Consuming the data
+## Consume the data
 
-Let's jump to the consumer project. The only thing we need to do is create a new empty project and set up the same variables variable as we already know with the same binding to the Hub variables. That's all. The content of the variables is subscribed from the Hub value and changes it behaviour in real-time. The screenshot shows a couple of controls to visualize the data: An icon for the running state with condtional formatting, a gauge for the running speed and just the text in case of an error message.
+Now, let's create a Peakboard app that pulls data from this Hub Flow.
+
+We create three variables and bind them to the three Hub variables. These variables work like normal variables, except that they update automatically whenever the corresponding Hub variables change.
+
+Next, we add a couple of controls to visualize the three variables:
+* An icon control for `IsRunning`, built with conditional formatting.
+* A gauge control for `RunningSpeed`.
+* A text control for `ErrorMessage`, in case one shows up.
 
 ![image](/assets/2025-09-01/090.png)
 
