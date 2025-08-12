@@ -30,7 +30,6 @@ It's not a good idea to have all these Peakboard apps connect to the S7 on their
 Instead, you should create a Hub Flow. It works like this:
 1. The Hub Flow connects to the S7 and retrieves the necessary data. None of the Peakboard apps connect to the S7, so there's only one connection that the S7 has to handle.
 1. The Hub Flow processes the raw data in order to get the values it needs.
-    * For example, the Hub Flow might look through the data to find the running speed value.
 1. The Hub Flow stores each value inside its own Hub Variable. It overwrites any previous value in the Hub Variable. 
     * For example, you might have a boolean Hub Variable that reports whether the S7 detects a problem or not.
 
@@ -91,7 +90,7 @@ We configure it to give it access to the three variables on the S7:
 
 ### Write the variables
 
-Next, we create a simple function that takes the values from the S7 data source and writes the data into local variables (remember, these automatically update Hub Variables).
+Next, we create a simple function that takes the values from the S7 data source and writes the data into local variables (remember, any changes to the local variables are automatically sent to the Hub Variables).
 
 ![image](/assets/2025-09-01/050.png)
 
@@ -113,14 +112,14 @@ You can see that the Flow updates the Hub Variables with the data from the S7:
 
 ## Consume the data
 
-Now, let's create a Peakboard app that pulls data from this Hub Flow.
+Now, let's create a Peakboard app that uses the data from this Hub Flow.
 
 We create three variables and bind them to the three Hub Variables. These variables work like normal variables, except that they update automatically whenever the corresponding Hub Variables change.
 
 Next, we add a couple of controls to visualize the three variables:
 * An icon control for `IsRunning`, built with conditional formatting.
 * A gauge control for `RunningSpeed`.
-* A text control for `ErrorMessage`, in case one shows up.
+* A text control for `ErrorMessage`. It defaults to *Running*, if there's no actual error.
 
 ![image](/assets/2025-09-01/090.png)
 
