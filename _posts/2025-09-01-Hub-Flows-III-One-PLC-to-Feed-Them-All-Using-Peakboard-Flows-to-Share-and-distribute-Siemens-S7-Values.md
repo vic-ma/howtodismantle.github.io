@@ -38,15 +38,15 @@ The Hub Flow automatically runs every 10 seconds. Whenever it runs, it repeats s
 
 ### The Peakboard app
 
-You also need to connect your Peakboard applications to the Flow. Here's what that looks like:
-1. If a Peakboard application needs the S7's data, then it subscribes to the Hub Variables that the Flow publishes. An application only needs to subscribe to the Variables that it needs.
-    * For example, if an app needs to know if the S7 detects a problem or not, then it subscribes to the `problem_detected` Hub Variable. It does not need to subscribe to other Variables, like an energy consumption Variable---because it has no need for this data.
+You also need to connect your Peakboard applications to the Hub variables. Here's what that looks like:
+1. If a Peakboard application needs the S7's data, then it subscribes to the Hub Variables that the Flow publishes. An application only subscribes to the Variables that it needs.
+    * For example, if an app needs to know if the S7 detects a problem or not, then it subscribes to the `problem_detected` Hub Variable. It does not need to subscribe to other Variables, like an `energy_consumption` Variable---because it has no need for that data.
 1. The Flow writes a new value into a Hub Variable.
 1. Peakboard Hub notifies all the Peakboard apps that are subscribed to the Hub Variable.
 1. If an application is notified, it processes the new data, and updates its dashboard accordingly.
-    * For example, if it sees that `problem_detected` is now `TRUE`, then it might change a status indicator from green to red. Or it may send an automated email to a manager.
+    * For example, if an app sees that `problem_detected` is now `TRUE`, then it might change a status indicator from green to red. Or it may send an automated email to a manager.
 
-This architecture is commonly known as a [publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern).
+This architecture is based on a [publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern).
 
 Now, let's build an example based on what we've just discussed.
 
