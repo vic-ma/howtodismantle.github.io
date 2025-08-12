@@ -33,8 +33,8 @@ Instead, you should use a Hub Flow. Here's how the Hub Flow works:
     * For example, whether the S7 detects a problem or not.
 1. The Hub Flow stores each value inside its own Hub variable. It overwrites the previous value in the variable. 
     * For example, you might have a boolean Hub variable that reports whether the S7 detects a problem or not.
-1. Whenever the Flow gets new data from the S7, it repeats steps 2 and 3.
-    * For example, the S7 detects a problem with the machine it's connected to. The Flow sees this in the raw data. So, the Flow changes the `problem_detected` Hub variable from `FALSE` to `TRUE`.
+1. The Hub Flow automatically runs every 10 seconds, repeating steps 1 to 3.
+    * For example, 10 seconds passes and our Hub Flow requests new data from the S7. The Hub Flow processes the raw data and sees that the S7 detected a problem with the machine. So, the Hub Flow changes the `problem_detected` Hub variable from `FALSE` to `TRUE`.
 
 You also need to connect your Peakboard applications to the Flow. Here's what that looks like:
 1. If a Peakboard application needs the S7's data, then it subscribes to the Hub variables that the Flow publishes. An application only needs to subscribe to the variables that it needs.
@@ -93,9 +93,9 @@ Next, we create a simple function that takes the values from the S7 data source 
 
 ![image](/assets/2025-09-01/050.png)
 
-## Building and deploying the Hub FLow
+## Build and deploy the Hub Flow
 
-The Flow is triggered periodically every 10 seconds. It reloads the Siemens S7 data source. After that it executes the function for turning the data source output into variable. Thats all out Hub Flow needs to do.
+The Flow automatically runs every 10 seconds. It reloads the Siemens S7 data source. After that it executes the function for turning the data source output into variable. Thats all out Hub Flow needs to do.
 
 ![image](/assets/2025-09-01/060.png)
 
