@@ -128,5 +128,6 @@ This video shows what our app looks like when the S7 detects an error:
 
 ## Conclusion
 
-We showed how to decouple an S7 and Peakboard apps, by using Hub Flows and Hub Variables. This allows a massively scalable architecture even when the direct connectivity to the PLC is very limited like with the S7.
-Other than our privous example with the SAP caching the actual value trasportation happens in real-time. So the consumer doesn't have to query the data on a regular basis.
+We showed how you can decouple a PLC from the Peakboard apps that need its data. By using Hub Flows and Hub Variables, you can build a highly scalable architecture---even when direct connectivity to the PLC is very limited, like with the S7.
+
+Unlike our previous example with the [SAP caching](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html), the data transfer (of the variables) happens in real-time with this example. This means that the Peakboard apps don't have to query the data on a regular basis.
