@@ -119,7 +119,7 @@ We create three variables and bind them to the three Hub Variables. These variab
 Next, we add a couple of controls to visualize the three variables:
 * An icon control for `IsRunning`, built with conditional formatting.
 * A gauge control for `RunningSpeed`.
-* A text control for `ErrorMessage`. It defaults to *Running*, if there's no actual error.
+* A text control for `ErrorMessage`. It defaults to *Running*, if there's no error.
 
 ![image](/assets/2025-09-01/090.png)
 
@@ -131,4 +131,4 @@ This video shows what our app looks like when the S7 detects an error:
 
 We showed how you can decouple a PLC from the Peakboard apps that need its data. By using Hub Flows and Hub Variables, you can build a highly scalable architecture---even when direct connectivity to the PLC is very limited, like with the S7.
 
-Unlike our previous example with the [SAP caching](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html), the data transfer (of the variables) happens in real-time with this example. This means that the Peakboard apps don't have to query the data on a regular basis.
+Unlike our previous example with the [SAP caching](/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html), in this example, the data transfer (of the variables) happens in real-time. This means that the Peakboard apps don't have to query the data on a regular basis.
