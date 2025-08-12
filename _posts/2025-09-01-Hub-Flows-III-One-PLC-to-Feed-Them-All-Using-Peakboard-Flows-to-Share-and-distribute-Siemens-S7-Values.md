@@ -101,11 +101,11 @@ The Flow automatically runs every 10 seconds. Every 10 seconds, it does the foll
 
 ![image](/assets/2025-09-01/060.png)
 
-After the Deployment the Flow starts it executes right away.
+We deploy the Hub Flow and it starts working right away:
 
 ![image](/assets/2025-09-01/070.png)
 
-And the Hub Variable values are filled with the content from Siemens S7.
+You can see that the Flow updates the Hub variables with the data from the S7:
 
 ![image](/assets/2025-09-01/080.png)
 
