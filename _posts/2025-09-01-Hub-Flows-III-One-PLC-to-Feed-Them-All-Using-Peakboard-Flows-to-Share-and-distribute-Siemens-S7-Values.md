@@ -77,7 +77,7 @@ We also connect each variable to their respective Hub Variables:
 1. Go to the *Peakboard Hub* tab
 1. Under *Peakboard Hub Variables*, select the corresponding Hub Variable.
 
-This syncs our local variables with the Hub Variables. Whenever a Hub Variable updates, the corresponding local variable automatically updates.
+Whenever our local variables updates, the Flow automatically updates the Hub Variables.
 
 ![image](/assets/2025-09-01/030.png)
 
