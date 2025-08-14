@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hub Flows II - Cache Me If You Can - Data Distribution for SAP Capacity Data
-date: 2023-03-01 00:00:00 +0000
+date: 2025-08-08 00:00:00 +0000
 tags: hubflows sap
 image: /assets/2025-08-08/title.png
 image_header: /assets/2025-08-08/title_landscape.png
