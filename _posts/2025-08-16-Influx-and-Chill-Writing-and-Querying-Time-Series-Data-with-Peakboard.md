@@ -48,11 +48,11 @@ Then, create a bucket to store data in:
 
 ![image](/assets/2025-08-16/010.png)
 
-Next, generate an API token for external reads and writes via the "API Tokens" section.
+Next, click the *API TOKENS* tab and [generate a new API token](https://docs.influxdata.com/influxdb/v2/admin/tokens/create-token/) for external reads and writes.
 
 ![image](/assets/2025-08-16/020.png)
 
-With these steps complete, you're ready to send data.
+Now, you're ready to send some data.
 
 ## Writing data
 
