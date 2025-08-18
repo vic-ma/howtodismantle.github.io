@@ -21,9 +21,9 @@ InfluxDB is a time-series database. Unlike general-purpose databases like SQL Se
 
 In this article, we'll explain how to build a Peakboard app that reads and writes data from an InfluxDB database.
 
-## Setting up Influx
+## Setting up InfluxDB
 
-The easiest way to get started is by launching the official [InfluxDB Docker image](https://hub.docker.com/_/influxdb). The following command spins up a container in under a minute and persists its data in a Docker volume.
+The easiest way to get started with InfluxDB is by using the official [InfluxDB Docker image](https://hub.docker.com/_/influxdb). The following command spins up a container in under a minute and persists its data in a Docker volume.
 
 {% highlight text %}
 docker run -d 
@@ -36,7 +36,7 @@ docker run -d
   influxdb:2
 {% endhighlight %}
 
-Once the container is running, InfluxDB listens on port 8086 at `http://localhost:8086/`. In the web UI, first create an organization and then your initial bucket to store data.
+Once the container is running, InfluxDB listens on port `8086`, at `http://localhost:8086/`. In the web UI, first create an organization and then your initial bucket to store data.
 
 ![image](/assets/2025-08-16/010.png)
 
