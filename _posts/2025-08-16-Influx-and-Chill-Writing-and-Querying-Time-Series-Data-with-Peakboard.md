@@ -17,6 +17,8 @@ downloads:
   - name: MyInflux.pbmx
     url: /assets/2025-08-16/MyInflux.pbmx
 ---
+InfluxDB is a time-series database. Unlike general-purpose databases like SQL Server or MySQL, InfluxDB is designed specifically to deal with timestamped data.
+
 Unlike general-purpose databases such as SQL Server or MySQL, InfluxDB is built specifically for time-series data—measurements tied to particular moments. It scales to handle large volumes and was created by InfluxData, a company located in the Bay Area.
 
 In this article, we'll explore how to write and query data in an InfluxDB database using Peakboard.
