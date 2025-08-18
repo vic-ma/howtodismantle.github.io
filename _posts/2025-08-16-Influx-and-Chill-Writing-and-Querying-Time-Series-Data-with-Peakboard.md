@@ -38,11 +38,13 @@ docker run -d
   influxdb:2
 {% endhighlight %}
 
-Once the container is running, InfluxDB listens on `http://localhost:8086/`. Enter that URL into your web browser, to access the web UI.
+Once the container is running, you can access the web UI by going to `http://localhost:8086/`, in your web browser.
 
 ### Set up your database with the web UI
 
-In the web UI, first create an organization. Then, create a bucket to store data in.
+In the web UI, [create an organization](https://docs.influxdata.com/influxdb/v2/admin/organizations/create-org/).
+
+Then, create a bucket to store data in:
 
 ![image](/assets/2025-08-16/010.png)
 
