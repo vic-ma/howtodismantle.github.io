@@ -128,4 +128,4 @@ The following screenshot shows the response to our query. There are two timestam
 
 ## Result
 
-You just saw how easy it is to write to and read from InfluxDB. It scales to huge sizes and is simple to use, but it's best reserved for time-based measurements. Data without a timestamp is better stored in a different database.
+You just saw how easy it is to write to and read from InfluxDB with Peakboard. InfluxDB scales to massive sizes and is simple to use, but it's best reserved for time-based measurements. Data without timestamps is better suited for other types of databases.
