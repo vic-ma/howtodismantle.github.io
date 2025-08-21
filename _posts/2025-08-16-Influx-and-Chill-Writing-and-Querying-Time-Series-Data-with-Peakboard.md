@@ -89,15 +89,17 @@ We use a placeholder in the request body, and replace it with the user's actual 
 - `Content-Type`, which is set to `text/plain`.
 - `Authorization`, which is set to `Token <YourInfluxAPIToken>`.
 
-After sending the request you should see the submitted value in the Influx Data Explorer.
+After sending the request, we can see the submitted value in the Influx Data Explorer:
 
 ![image](/assets/2025-08-16/050.png)
 
 ## Query data
 
-Querying data is just as straightforward. A single API call returns the results, but the response comes in a CSV format with multiple header lines that requires extra parsing. To avoid that hassle, use the [InfluxDB Extension](https://templates.peakboard.com/extensions/InfluxDB/index), which handles the formatting for you.
+To query data, we use a single API call that returns all the data. However, this data comes in a CSV format with multiple header lines, so it requires extensive parsing. To avoid all that hassle, we use the [InfluxDB Extension](https://templates.peakboard.com/extensions/InfluxDB/index), which handles the parsing for us.
 
-The screenshot below shows the extension in action. Provide the following parameters:
+The following screenshot shows the extension in action.
+
+Provide the following parameters:
 
 - `URL` needs to be filled with the URL of the query API call including the organization name, e.g. `http://localhost:8086/api/v2/query?org=LosPollosHermanos`
 - `Token` is the API token
