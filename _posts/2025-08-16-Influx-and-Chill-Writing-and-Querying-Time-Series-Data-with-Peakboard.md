@@ -61,7 +61,14 @@ InfluxDB exposes an HTTP API for reads and writes. To insert data, we use:
 ```
 POST /api/v2/write?org=LosPollosHermanos&bucket=DismantleBucket&precision=s
 ```
-The `org` and `bucket` parameters identify where the point will be stored, and `precision=s` indicates that timestamps use second resolution.
+
+The query parameters tell InfluxDB where to store our data:
+
+| Parameter | Description |
+| --------- | ----------- |
+| `org`     | The organization to store the data in.
+| `bucket`  | The bucket to store the data in.
+| `precision` | The precision of the timestamp (`s` means seconds).
 
 The request body uses InfluxDB's line protocol. In the example below the measurement is `temperature`, we tag the sensor as `lab`, and store the field value `26.3`.
 
