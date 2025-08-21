@@ -72,15 +72,13 @@ The query parameters tell InfluxDB where to store our data:
 
 The request body contains the data we want to store. It uses [InfluxDB's line protocol](https://docs.influxdata.com/influxdb/v1/write_protocols/line_protocol_tutorial/).
 
-The following is an example request body that follows this protocol. The measurement is `temperature`, we tag the sensor as `lab`, and we store the field value `26.3`.
+The following is an example request body that follows this protocol. The measurement is `temperature`, the sensor is called `lab`, and the temperature value is `26.3`.
 
 {% highlight text %}
 temperature,sensor=lab value=26.3
 {% endhighlight %}
 
-
-
-In our Peakboard app, the user can enter the value they want, and we modify the request body accordingly.
+In our Peakboard app, the user can enter the temperature value they want. The app adjusts the request body accordingly.
 
 ![image](/assets/2025-08-16/030.png)
 
