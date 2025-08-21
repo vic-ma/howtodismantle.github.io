@@ -57,7 +57,7 @@ Now, you can write data to your InfluxDB database.
 
 ## Write data
 
-InfluxDB exposes an HTTP API for reads and writes. To insert data, we use:
+InfluxDB exposes an HTTP API for reads and writes. To insert data, we use the [`api/v2/write` endpoint](https://docs.influxdata.com/influxdb/v2/write-data/developer-tools/api/):
 ```
 POST /api/v2/write?org=LosPollosHermanos&bucket=DismantleBucket&precision=s
 ```
