@@ -38,14 +38,14 @@ docker run -d
   influxdb:2
 {% endhighlight %}
 
-Once the container is running, InfluxDB listens on `http://localhost:8086/`.
+Once the container is running, InfluxDB listens on port 8086.
 
-### Set up your database with the web UI
+### Set up the database
 
-To set up your database, go to `http://localhost:8086/`, in your web browser.
-In the web UI, [create an organization](https://docs.influxdata.com/influxdb/v2/admin/organizations/create-org/).
+To set up the database, we go to `http://localhost:8086/`, in a web browser.
+Then, we [create an organization](https://docs.influxdata.com/influxdb/v2/admin/organizations/create-org/).
 
-Then, create a bucket to store data in:
+Then, we create a bucket to store data in:
 
 ![image](/assets/2025-08-16/010.png)
 
