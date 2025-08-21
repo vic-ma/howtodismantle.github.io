@@ -78,16 +78,16 @@ The following is an example request body that follows this protocol. The measure
 temperature,sensor=lab value=26.3
 {% endhighlight %}
 
-In our Peakboard app, the user can enter the temperature value they want. The app adjusts the request body accordingly.
+In our Peakboard app, the user enters the temperature value they want to store:
 
 ![image](/assets/2025-08-16/030.png)
 
-The next screenshot shows the Building Block behind the submit button. We use a placeholder text to inject the user's value into the body of the HTTP call. Besides the body, we need to add two headers:
-
-- `Content-Type` must be set to `text/plain`
-- `Authorization` must be set to `Token <YourInfluxAPIToken>`
-
+Here are the Building Blocks behind the submit button:
 ![image](/assets/2025-08-16/040.png)
+
+We use a placeholder in the request body, and replace it with the user's actual value. We also add two headers:
+- `Content-Type`, which is set to `text/plain`.
+- `Authorization`, which is set to `Token <YourInfluxAPIToken>`.
 
 After sending the request you should see the submitted value in the Influx Data Explorer.
 
