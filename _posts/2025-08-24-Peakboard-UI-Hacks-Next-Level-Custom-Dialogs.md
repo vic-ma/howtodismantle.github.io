@@ -7,8 +7,8 @@ image: /assets/2025-08-24/title.png
 image_header: /assets/2025-08-24/title_landscape.png
 bg_alternative: true
 read_more_links:
-  - name: Influx Docker Image
-    url: https://hub.docker.com/_/influxdb
+  - name: UI - User Interface
+    url: /category/ui
 downloads:
   - name: CustomDialogs.pbmx
     url: /assets/2025-08-24/CustomDialogs.pbmx
