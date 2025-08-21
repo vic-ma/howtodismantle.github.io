@@ -42,10 +42,10 @@ Once the container is running, InfluxDB listens on port 8086.
 
 ### Set up the database
 
-To set up the database, we go to `http://localhost:8086/`, in a web browser.
-Then, we [create an organization](https://docs.influxdata.com/influxdb/v2/admin/organizations/create-org/).
+To set up the database, go to `http://localhost:8086/`, in a web browser.
+Then, [create an organization](https://docs.influxdata.com/influxdb/v2/admin/organizations/create-org/).
 
-Then, we create a bucket to store data in:
+Then, create a bucket to store data in:
 
 ![image](/assets/2025-08-16/010.png)
 
@@ -72,11 +72,15 @@ The query parameters tell InfluxDB where to store our data:
 
 The request body contains the data we want to store. It uses [InfluxDB's line protocol](https://docs.influxdata.com/influxdb/v2/reference/syntax/line-protocol/).
 
-The following is an example request body that follows this protocol. The measurement is `temperature`, the sensor is called `lab`, and the temperature value is `26.3`.
+The following is an example request body that follows the line protocol:
 
 {% highlight text %}
 temperature,sensor=lab value=26.3
 {% endhighlight %}
+
+* The measurement is `temperature`.
+* The sensor is called `lab`.
+* The temperature value is `26.3`.
 
 In our Peakboard app, the user enters the temperature value they want to store:
 
@@ -86,8 +90,8 @@ Here are the Building Blocks behind the submit button:
 ![image](/assets/2025-08-16/040.png)
 
 We use a placeholder in the request body and replace it with the user's actual value. We also add two headers:
-- `Content-Type`, which is set to `text/plain`.
-- `Authorization`, which is set to `Token <YourInfluxAPIToken>`.
+- `Content-Type`, which is set to `text/plain`
+- `Authorization`, which is set to `Token <YourInfluxAPIToken>`
 
 After sending the request, we can see the submitted value in the Influx Data Explorer:
 
