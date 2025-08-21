@@ -70,11 +70,13 @@ The query parameters tell InfluxDB where to store our data:
 | `bucket`  | The bucket to store the data in.
 | `precision` | The precision of the timestamp (`s` means seconds).
 
-The request body uses InfluxDB's line protocol. In the example below the measurement is `temperature`, we tag the sensor as `lab`, and store the field value `26.3`.
+The request body gives InfluxDB the data we want to store. It uses [InfluxDB's line protocol](https://docs.influxdata.com/influxdb/v1/write_protocols/line_protocol_tutorial/). The following is an example request body that follows this protocol:
 
 {% highlight text %}
 temperature,sensor=lab value=26.3
 {% endhighlight %}
+
+The measurement is `temperature`, we tag the sensor as `lab`, and we store the field value `26.3`.
 
 In our sample Peakboard app the user can enter a value.
 
