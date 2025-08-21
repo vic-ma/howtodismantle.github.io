@@ -17,7 +17,7 @@ downloads:
   - name: MyInflux.pbmx
     url: /assets/2025-08-16/MyInflux.pbmx
 ---
-InfluxDB is a time-series database. Unlike general-purpose databases like SQL Server or MySQL, InfluxDB is designed specifically to deal with time-based data. InfluxDB can scale to handle large volumes of data. It was created by InfluxData, a company based in the Bay Area.
+InfluxDB is a time-series database. Unlike general-purpose databases like MySQL, InfluxDB is designed specifically to deal with timestamped data---and it can scale to handle large volumes of data. It was created by InfluxData, a company based in the Bay Area.
 
 In this article, we'll explain how to build a Peakboard app that reads from and writes to an InfluxDB database.
 
@@ -70,7 +70,7 @@ The query parameters tell InfluxDB where to store our data:
 | `bucket`  | The bucket to store the data in.
 | `precision` | The precision of the timestamp (`s` means seconds).
 
-The request body contains the data we want to store. It uses [InfluxDB's line protocol](https://docs.influxdata.com/influxdb/v1/write_protocols/line_protocol_tutorial/).
+The request body contains the data we want to store. It uses [InfluxDB's line protocol](https://docs.influxdata.com/influxdb/v2/reference/syntax/line-protocol/).
 
 The following is an example request body that follows this protocol. The measurement is `temperature`, the sensor is called `lab`, and the temperature value is `26.3`.
 
