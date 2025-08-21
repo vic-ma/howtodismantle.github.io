@@ -85,7 +85,7 @@ In our Peakboard app, the user enters the temperature value they want to store:
 Here are the Building Blocks behind the submit button:
 ![image](/assets/2025-08-16/040.png)
 
-We use a placeholder in the request body, and replace it with the user's actual value. We also add two headers:
+We use a placeholder in the request body and replace it with the user's actual value. We also add two headers:
 - `Content-Type`, which is set to `text/plain`.
 - `Authorization`, which is set to `Token <YourInfluxAPIToken>`.
 
@@ -95,18 +95,17 @@ After sending the request, we can see the submitted value in the Influx Data Exp
 
 ## Query data
 
-To query data, we use a single API call that returns all the data. However, this data comes in a CSV format with multiple header lines, so it requires extensive parsing. To avoid all that hassle, we use the [InfluxDB Extension](https://templates.peakboard.com/extensions/InfluxDB/index), which handles the parsing for us.
+To query data, we use the [`api/v2/query` endpoint](https://docs.influxdata.com/influxdb/v2/query-data/execute-queries/influx-api/#send-a-flux-query-request). However, this data comes in a CSV format with multiple header lines, so it requires extensive parsing. To avoid all that hassle, we use the [InfluxDB extension](https://templates.peakboard.com/extensions/InfluxDB/index), which handles the parsing for us.
 
-The following screenshot shows the extension in action.
+We install the InfluxDB extension. Then, we create a new `InfluxDbQueryCustomList` data source. We provide the following parameters:
 
-Provide the following parameters:
+| Parameter   | Description |
+| ----------- | ----------- |
+| `URL`       | The URL of the query API call, including the organization name. For example: `http://localhost:8086/api/v2/query?org=LosPollosHermanos`
+| `Token`     | The API token that authenticates us.
+| `FluxQuery` | The query string that specifies the data we want.
 
-- `URL` needs to be filled with the URL of the query API call including the organization name, e.g. `http://localhost:8086/api/v2/query?org=LosPollosHermanos`
-- `Token` is the API token
-- `FluxQuery` is the query string to describe the requested data
-
-
-Our sample query is straightforward: read from `DismantleBucket`, limit the range to the last two hours, filter for the `temperature` measurement and its `value` field, and then return the maximum value in that window.
+The following is our example query: 
 
 {% highlight text %}
 from(bucket: "DismantleBucket")
@@ -115,7 +114,7 @@ from(bucket: "DismantleBucket")
   |> filter(fn: (r) => r._field == "value")
   |> max()
 {% endhighlight %}
-
+It read from `DismantleBucket`, limits the range to the last two hours, filters for the `temperature` measurement and its `value` field, and then return the maximum value in that window.
 
 The screenshot shows the result set. Besides the two timestamps (start and end of the query period), the actual value appears in the `_value` column. Our sample outputs a single row, but additional fields or sensors would produce multiple rows.
 
