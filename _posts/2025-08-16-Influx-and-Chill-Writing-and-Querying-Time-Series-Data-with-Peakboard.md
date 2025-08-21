@@ -19,7 +19,7 @@ downloads:
 ---
 InfluxDB is a time-series database. Unlike general-purpose databases like SQL Server or MySQL, InfluxDB is designed specifically to deal with time-based data. InfluxDB can scale to handle large volumes of data. It was created by InfluxData, a company based in the Bay Area.
 
-In this article, we'll explain how to build a Peakboard app that reads and writes data from an InfluxDB database.
+In this article, we'll explain how to build a Peakboard app that reads from and writes to an InfluxDB database.
 
 ## Set up InfluxDB
 
@@ -114,12 +114,18 @@ from(bucket: "DismantleBucket")
   |> filter(fn: (r) => r._field == "value")
   |> max()
 {% endhighlight %}
-It read from `DismantleBucket`, limits the range to the last two hours, filters for the `temperature` measurement and its `value` field, and then return the maximum value in that window.
 
-The screenshot shows the result set. Besides the two timestamps (start and end of the query period), the actual value appears in the `_value` column. Our sample outputs a single row, but additional fields or sensors would produce multiple rows.
+It does the following:
+1. Read from `DismantleBucket`
+1. Limit the range to the last two hours
+1. Filter for the `temperature` measurement
+1. Filter for the `value` field
+1. Return the maximum value in that window.
+
+The following screenshot shows the response to our query. There are two timestamps for the start and end of the query period. And the actual value appears in the `_value` column. Our example outputs a single row---but additional fields or sensors would produce multiple rows.
 
 ![image](/assets/2025-08-16/060.png)
 
 ## Result
 
-We've seen how easy it is to write to and read from InfluxDB. It scales to huge sizes and is simple to use, but it's best reserved for time-based measurements. Data without a timestamp is better stored in a different database.
+You just saw how easy it is to write to and read from InfluxDB. It scales to huge sizes and is simple to use, but it's best reserved for time-based measurements. Data without a timestamp is better stored in a different database.
