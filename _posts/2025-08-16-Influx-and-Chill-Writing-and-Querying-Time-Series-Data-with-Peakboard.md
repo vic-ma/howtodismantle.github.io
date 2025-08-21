@@ -38,10 +38,11 @@ docker run -d
   influxdb:2
 {% endhighlight %}
 
-Once the container is running, you can access the web UI by going to `http://localhost:8086/`, in your web browser.
+Once the container is running, InfluxDB listens on `http://localhost:8086/`.
 
 ### Set up your database with the web UI
 
+To set up your database, go to `http://localhost:8086/`, in your web browser.
 In the web UI, [create an organization](https://docs.influxdata.com/influxdb/v2/admin/organizations/create-org/).
 
 Then, create a bucket to store data in:
@@ -52,11 +53,15 @@ Next, click the *API TOKENS* tab and [generate a new API token](https://docs.inf
 
 ![image](/assets/2025-08-16/020.png)
 
-Now, you're ready to send some data.
+Now, you can write data to your InfluxDB database.
 
-## Writing data
+## Write data
 
-InfluxDB exposes a straightforward HTTP API for reads and writes. To insert data, we POST to `/api/v2/write?org=LosPollosHermanos&bucket=DismantleBucket&precision=s`. The `org` and `bucket` parameters identify where the point will be stored, and `precision=s` indicates that timestamps use second resolution.
+InfluxDB exposes an HTTP API for reads and writes. To insert data, we use:
+```
+POST /api/v2/write?org=LosPollosHermanos&bucket=DismantleBucket&precision=s
+```
+The `org` and `bucket` parameters identify where the point will be stored, and `precision=s` indicates that timestamps use second resolution.
 
 The request body uses InfluxDB's line protocol. In the example below the measurement is `temperature`, we tag the sensor as `lab`, and store the field value `26.3`.
 
