@@ -17,13 +17,15 @@ downloads:
   - name: MyInflux.pbmx
     url: /assets/2025-08-16/MyInflux.pbmx
 ---
-Unlike general-purpose databases such as SQL Server or MySQL, InfluxDB is built specifically for time-series data—measurements tied to particular moments. It scales to handle large volumes and was created by InfluxData, a company located in the Bay Area.
+InfluxDB is a time-series database. Unlike general-purpose databases like MySQL, InfluxDB is designed specifically to deal with timestamped data---and it can scale to handle large volumes of data. It was created by InfluxData, a company based in the Bay Area.
 
-In this article, we'll explore how to write and query data in an InfluxDB database using Peakboard.
+In this article, we'll explain how to build a Peakboard app that reads from and writes to an InfluxDB database.
 
-## Setting up Influx
+## Set up InfluxDB
 
-The easiest way to get started is by launching the official [InfluxDB Docker image](https://hub.docker.com/_/influxdb). The following command spins up a container in under a minute and persists its data in a Docker volume.
+### Create an InfluxDB container
+
+The easiest way to get started with InfluxDB is by using the official [InfluxDB Docker image](https://hub.docker.com/_/influxdb). The following command spins up a container in under a minute and persists its data in a Docker volume.
 
 {% highlight text %}
 docker run -d 
@@ -36,53 +38,78 @@ docker run -d
   influxdb:2
 {% endhighlight %}
 
-Once the container is running, InfluxDB listens on port 8086 at `http://localhost:8086/`. In the web UI, first create an organization and then your initial bucket to store data.
+Once the container is running, InfluxDB listens on port 8086.
+
+### Set up the database
+
+To set up the database, go to `http://localhost:8086/`, in a web browser.
+Then, [create an organization](https://docs.influxdata.com/influxdb/v2/admin/organizations/create-org/).
+
+Then, create a bucket to store data in:
 
 ![image](/assets/2025-08-16/010.png)
 
-Next, generate an API token for external reads and writes via the "API Tokens" section.
+Next, click the *API TOKENS* tab and [generate a new API token](https://docs.influxdata.com/influxdb/v2/admin/tokens/create-token/) for external reads and writes.
 
 ![image](/assets/2025-08-16/020.png)
 
-With these steps complete, you're ready to send data.
+Now, you can write data to your InfluxDB database.
 
-## Writing data
+## Write data
 
-InfluxDB exposes a straightforward HTTP API for reads and writes. To insert data, we POST to `/api/v2/write?org=LosPollosHermanos&bucket=DismantleBucket&precision=s`. The `org` and `bucket` parameters identify where the point will be stored, and `precision=s` indicates that timestamps use second resolution.
+InfluxDB exposes an HTTP API for reads and writes. To insert data, we use the [`api/v2/write` endpoint](https://docs.influxdata.com/influxdb/v2/write-data/developer-tools/api/):
+```
+POST /api/v2/write?org=LosPollosHermanos&bucket=DismantleBucket&precision=s
+```
 
-The request body uses InfluxDB's line protocol. In the example below the measurement is `temperature`, we tag the sensor as `lab`, and store the field value `26.3`.
+The query parameters tell InfluxDB where to store our data:
+
+| Parameter | Description |
+| --------- | ----------- |
+| `org`     | The organization to store the data in.
+| `bucket`  | The bucket to store the data in.
+| `precision` | The precision of the timestamp (`s` means seconds).
+
+The request body contains the data we want to store. It uses [InfluxDB's line protocol](https://docs.influxdata.com/influxdb/v2/reference/syntax/line-protocol/).
+
+The following is an example request body that follows the line protocol:
 
 {% highlight text %}
 temperature,sensor=lab value=26.3
 {% endhighlight %}
 
-In our sample Peakboard app the user can enter a value.
+* The measurement is `temperature`.
+* The sensor is called `lab`.
+* The temperature value is `26.3`.
+
+In our Peakboard app, the user enters the temperature value they want to store:
 
 ![image](/assets/2025-08-16/030.png)
 
-The next screenshot shows the Building Block behind the submit button. We use a placeholder text to inject the user's value into the body of the HTTP call. Besides the body, we need to add two headers:
-
-- `Content-Type` must be set to `text/plain`
-- `Authorization` must be set to `Token <YourInfluxAPIToken>`
-
+Here are the Building Blocks behind the submit button:
 ![image](/assets/2025-08-16/040.png)
 
-After sending the request you should see the submitted value in the Influx Data Explorer.
+We use a placeholder in the request body and replace it with the user's actual value. We also add two headers:
+- `Content-Type`, which is set to `text/plain`
+- `Authorization`, which is set to `Token <YourInfluxAPIToken>`
+
+After sending the request, we can see the submitted value in the Influx Data Explorer:
 
 ![image](/assets/2025-08-16/050.png)
 
 ## Query data
 
-Querying data is just as straightforward. A single API call returns the results, but the response comes in a CSV format with multiple header lines that requires extra parsing. To avoid that hassle, use the [InfluxDB Extension](https://templates.peakboard.com/extensions/InfluxDB/index), which handles the formatting for you.
+To query data, we use the [`api/v2/query` endpoint](https://docs.influxdata.com/influxdb/v2/query-data/execute-queries/influx-api/#send-a-flux-query-request). However, this data comes in a CSV format with multiple header lines, so it requires extensive parsing. To avoid all that hassle, we use the [InfluxDB extension](https://templates.peakboard.com/extensions/InfluxDB/index), which handles the parsing for us.
 
-The screenshot below shows the extension in action. Provide the following parameters:
+We install the InfluxDB extension. Then, we create a new `InfluxDbQueryCustomList` data source. We provide the following parameters:
 
-- `URL` needs to be filled with the URL of the query API call including the organization name, e.g. `http://localhost:8086/api/v2/query?org=LosPollosHermanos`
-- `Token` is the API token
-- `FluxQuery` is the query string to describe the requested data
+| Parameter   | Description |
+| ----------- | ----------- |
+| `URL`       | The URL of the query API call, including the organization name. For example: `http://localhost:8086/api/v2/query?org=LosPollosHermanos`
+| `Token`     | The API token that authenticates us.
+| `FluxQuery` | The query string that specifies the data we want.
 
-
-Our sample query is straightforward: read from `DismantleBucket`, limit the range to the last two hours, filter for the `temperature` measurement and its `value` field, and then return the maximum value in that window.
+The following is our example query: 
 
 {% highlight text %}
 from(bucket: "DismantleBucket")
@@ -92,11 +119,17 @@ from(bucket: "DismantleBucket")
   |> max()
 {% endhighlight %}
 
+It does the following:
+1. Read from `DismantleBucket`.
+1. Limit the range to the last two hours.
+1. Filter for the `temperature` measurement.
+1. Filter for the `value` field.
+1. Return the maximum value in that window.
 
-The screenshot shows the result set. Besides the two timestamps (start and end of the query period), the actual value appears in the `_value` column. Our sample outputs a single row, but additional fields or sensors would produce multiple rows.
+The following screenshot shows the response to our query. There are two timestamps for the start and end of the query period. And the actual value appears in the `_value` column. Our example outputs a single row---but additional fields or sensors would produce multiple rows.
 
 ![image](/assets/2025-08-16/060.png)
 
 ## Result
 
-We've seen how easy it is to write to and read from InfluxDB. It scales to huge sizes and is simple to use, but it's best reserved for time-based measurements. Data without a timestamp is better stored in a different database.
+You just saw how easy it is to write to and read from InfluxDB with Peakboard. InfluxDB scales to massive sizes and is simple to use, but it's best reserved for time-based measurements. Data without timestamps is better suited for other types of databases.
