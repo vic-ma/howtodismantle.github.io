@@ -21,11 +21,18 @@ In Peakboard Designer, you can create a modal window by using a *custom dialog*.
 
 ## The core idea
 
-The core idea is to always keep the dialog on the screen---but make it invisible. Then, when the dialog is supposed to pop up, make the dialog visible. Let's go through this step by step with an example. We'll make a simple app that 
+The core idea is to always keep the dialog on the screen---but make it invisible. Then, when the dialog is supposed to pop up, make the dialog visible. Let's go through this step by step with an example.
 
-
+We'll make a simple app that prompts the user to enter their name. Here's what the finished app looks like:
 
 ![image](/assets/2025-08-24/result.gif)
+
+Here's how it works:
+1. The user clicks on the *Call me by my name* button.
+1. A modal window pops up and asks the user to enter their name.
+1. The user enters their name into the modal window and clicks *OK*.
+1. The modal window goes away.
+1. The user's name is displayed.
 
 ## Prepare the screen
 
