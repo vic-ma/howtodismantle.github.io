@@ -19,9 +19,15 @@ For example, we could use a modal window to make the user read a warning and ack
 
 In Peakboard Designer, you can create a modal window by using a *custom dialog*. In this article, we'll explain the best practices for custom dialogs.
 
-The core idea is to place all the necessary controls for the dialog on the screen---but make them hidden. Then, when the dialog appears, you make the controls to visible. Let's go through this step by step.
+## The core idea
 
-## Preparing the screen
+The core idea is to always keep the dialog on the screen---but make it invisible. Then, when the dialog is supposed to pop up, make the dialog visible. Let's go through this step by step with an example. We'll make a simple app that 
+
+
+
+![image](/assets/2025-08-24/result.gif)
+
+## Prepare the screen
 
 We need one button to initiate the dialog. Furtermore we need a shape as some background and place a text box, text input and another button on top of the shape.
 
