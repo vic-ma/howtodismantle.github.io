@@ -17,7 +17,9 @@ Every Peakboard application is built around one or more screens. These screens a
 
 For example, we could use a modal window to make the user read a warning and acknowledge that they have read it---before proceeding.
 
-In Peakboard Designer, you can create a modal window by using a *custom dialog*. In this article, we will discuss the best practices for building custom dialogs. The trick is to place all necessary controls for the dialog on the screen, then hide then and let them pop up when needed. We will go through this step by step.
+In Peakboard Designer, you can create a modal window by using a *custom dialog*. In this article, we'll explain the best practices for custom dialogs.
+
+The core idea is to place all the necessary controls for the dialog on the screen---but make them hidden. Then, when the dialog appears, you make the controls to visible. Let's go through this step by step.
 
 ## Preparing the screen
 
