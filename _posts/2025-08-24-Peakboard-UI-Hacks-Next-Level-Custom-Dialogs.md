@@ -13,7 +13,7 @@ downloads:
   - name: CustomDialogs.pbmx
     url: /assets/2025-08-24/CustomDialogs.pbmx
 ---
-All Peakboard applications are based on one or more screens. These can be compared to windows in traditional Windows based applications. However sometimes it might be necessary to have some kind of modal dialogs to ask the user for additional confirmation or to "force" him to provide a certain value to move on in the process.
+Every Peakboard application is built around one or more screens. These screens are like the windows in a traditional desktop application. However sometimes it might be necessary to have some kind of modal dialogs to ask the user for additional confirmation or to "force" him to provide a certain value to move on in the process.
 In this week's article we will discuss the best practice about how to build custom dialogs. The trick is to place all necessary controls for the dialog on the screen, then hide then and let them pop up when needed. We will go through this step by step.
 
 ## Preparing the screen
