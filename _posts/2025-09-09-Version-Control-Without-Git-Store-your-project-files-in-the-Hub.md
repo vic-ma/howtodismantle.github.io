@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Version Control Without Git - Store your project files in the Hub
+title: Version Control Without Git - Store our project files in the Hub
 date: 2023-03-01 05:00:00 +0300
 tags: administration
 image: /assets/2025-09-09/title.png
@@ -10,28 +10,28 @@ read_more_links:
   - name: Organisation & Administration
     url: /category/administration
 ---
-Every Peakboard application and flow is some kind of development artifact that should be treated like this. In a professional context it means that these artifacts should be treated in way that is aligned with common inustry standards of security and documentation.
-When it comes to documentation a Peakboard project (both regular design project or Flow) brings some kind of built-in documentation like description texts and comments that can be bound to controls and other parts of the project.
-Beside documentation versioning is a huge topice and crucial requirement in industrial software development. The most commong way to do this, is [Git](https://git-scm.com/), a free and open source tool to exactly track all changes of development artificats from the beginning of the project to the latest version. In this article we will discuss a light weight alternaive to git. The Peakboard Hub (both online and on prem) offers a built-in document management system to store and version pbmx files (design projects) and pfx files (Flo projects) in similiar way as Git would do it.
+Every Peakboard application and flow is a development artifact that deserves proper handling. In a professional context, this means that these artifacts should be managed in a way aligned with common industry standards of security and documentation.
+When it comes to documentation, a Peakboard project (whether a regular design project or Flow) includes built-in documentation such as description texts and comments that we can bind to controls and other parts of the project.
+Besides documentation, versioning is a huge topic and a crucial requirement in industrial software development. The most common way to do this is [Git](https://git-scm.com/), a free and open source tool to track all changes of development artifacts from the beginning of the project to the latest version. In this article, we discuss a lightweight alternative to Git. The Peakboard Hub, available both online and on-prem, offers a built-in document management system to store and version PBMX files (design projects) and PFX files (Flow projects) in a similar way to Git.
 
 ## File Management in Peakboard Hub
 
-The file management of Peakboard Hub can be accesses through the regular Hub portal. In this article we will Hub Online, but it works the same way in the on prem version.
-A typical way of organizing would be to think of a directory structure to store the pbmx/pfx files along with other artifacts. The screenshot shows a dedicated directory for all pbmx files.
+We can access Peakboard Hub's file management through the regular Hub portal. In this article, we will use Hub Online, but it works the same way in the on-prem version.
+A common way to organize is to create a directory structure to store PBMX/PFX files along with other artifacts. The screenshot shows a dedicated directory for all PBMX files.
 
 ![image](/assets/2025-09-09/010.png)
 
 ## Handling the files in Peakboard Designer
 
-In Peakboard Designer we can choose to store a project file on the local file system (which what you would do for using the versioning with Git) or in the Hub. In the subsequent dialog the right driectory must be chosen.
+In Peakboard Designer, we can choose to store a project file on the local file system—which is what we would do when using versioning with Git—or in the Hub. In the subsequent dialog we select the appropriate directory.
 
 ![image](/assets/2025-09-09/020.png)
 
-To load a project from the Hub we also can choose for the files system and Hub storage.
+To load a project from the Hub we can also choose between the file system and Hub storage.
 
 ## Versioning
 
-All documents that are stored in the Hub are automatically versioned. To access other than the current version of file we can right click on a file and then choose `Manage Versions`. All stored versions from the past can be restored.
+All documents stored in the Hub are automatically versioned. To access a version other than the current file, we can right-click on a file and then choose `Manage Versions`. Any stored version from the past can be restored.
 
 ![image](/assets/2025-09-09/030.png)
 
@@ -39,19 +39,19 @@ All documents that are stored in the Hub are automatically versioned. To access 
 
 ## Permissions
 
-It's a common practice to restrict access, especially write access, to as few users as possible. The way of assigning rights to certain groups of users works the same as everywhere in the Hub. Just assign the activity to certain user groups. The screenshot shows how to configure the directory for the project files. EVeryone can read / download the files, but only the users who are part of Developer group can write into the directory and change files.
+It's a common practice to restrict access, especially write access, to as few users as possible. Assigning rights to certain groups of users works the same as anywhere else in the Hub. We assign the activity to specific user groups. The screenshot shows how to configure the directory for the project files. Everyone can read or download the files, but only the users who are part of the Developer group can write into the directory and change files.
 
 ![image](/assets/2025-09-09/050.png)
 
 ## Deployment
 
-Of course we can use the tradional way of deploying projects from the designer to the box or BYOD instance. But if we decide to store and version the projects in Hub, we can deploy it directly from the file management by using right click on the pbmx file.
+Of course, we can use the traditional way of deploying projects from the Designer to the box or BYOD instance. However, if we decide to store and version the projects in the Hub, we can deploy them directly from the file management by right-clicking the PBMX file.
 
 ![image](/assets/2025-09-09/060.png)
 
-## conclusion
+## Conclusion
 
-Today we learned the basic ideas behind using the Peakboard Hub file mangagement to store, organize, and versioning Peakboard project files. When we compare this method of the traditional usage of Git, we can see, that it it's a very good trade off for users and teams who don't have a Git architecture in place yet. However Git also offers features that can't by replaced by the Hub, e.g. "Pull Requests" or other dev related workflows that go beyond just storing and versioning. This amkes it more suitable for small teams with limited need for sophiscated Git features.
+Today we explored the basic ideas behind using Peakboard Hub's file management to store, organize, and version Peakboard project files. When we compare this method with the traditional use of Git, we can see that it is a very good trade-off for teams that do not have a Git architecture in place yet. However, Git also offers features that cannot be replaced by the Hub, such as "Pull Requests" or other development workflows that go beyond just storing and versioning. This makes it more suitable for small teams with limited need for sophisticated Git features.
 
 
 
