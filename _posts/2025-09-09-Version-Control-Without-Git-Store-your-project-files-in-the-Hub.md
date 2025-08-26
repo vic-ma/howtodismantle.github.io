@@ -23,11 +23,11 @@ A common way to organize is to create a directory structure to store PBMX/PFX fi
 
 ## Handling the files in Peakboard Designer
 
-In Peakboard Designer, we can choose to store a project file on the local file system—which is what we would do when using versioning with Git—or in the Hub. In the subsequent dialog we select the appropriate directory.
+In Peakboard Designer, we can choose to store a project file on the local file system — which is what we would do when using versioning with Git — or in the Hub. In the subsequent dialog we select the appropriate directory.
 
 ![image](/assets/2025-09-09/020.png)
 
-To load a project from the Hub we can also choose between the file system and Hub storage.
+To load a project we can also choose between the file system and Hub storage.
 
 ## Versioning
 
