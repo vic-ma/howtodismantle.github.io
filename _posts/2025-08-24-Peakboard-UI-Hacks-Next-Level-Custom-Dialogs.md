@@ -34,7 +34,9 @@ Here's how it works:
 1. The modal window goes away.
 1. The user's name is displayed.
 
-## Prepare the screen
+Now, let's build the app.
+
+## Create the button
 
 We need one button to initiate the dialog. Furtermore we need a shape as some background and place a text box, text input and another button on top of the shape.
 
