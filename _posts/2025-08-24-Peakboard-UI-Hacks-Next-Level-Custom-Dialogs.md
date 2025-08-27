@@ -52,9 +52,11 @@ Next, we group together the modal window controls. We do this by dragging and dr
 
 ![image](/assets/2025-08-24/020.png)
 
-Then right click on the group and hide it to make sure, our dialog is not shown to the user.
+Next, we right click the control group and select *Hide*. 
 
 ![image](/assets/2025-08-24/030.png)
+
+This makes the control group invisible by default. We will use Building Blocks to make it visible.
 
 ## Building the logic
 
