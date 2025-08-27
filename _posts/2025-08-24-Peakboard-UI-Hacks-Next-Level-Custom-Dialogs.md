@@ -36,7 +36,7 @@ Here's how it works:
 
 Now, let's build the app.
 
-## Build the app
+## Add the controls
 
 First, we add the following controls to the app:
 * The button that initiates the modal dialog. We label it, *Call me by my name*. This is the button that initiates the dialog.
@@ -58,18 +58,24 @@ Next, we right click the control group and select *Hide*.
 
 This makes the control group invisible by default. We will use Building Blocks to make it visible.
 
-## Building the logic
+## Add the Building Blocks
 
-The actual process logic to show the dialog is happening behind the first button. It's nothing else than switching the group back to `Show`.
+We add two Building Blocks scripts---one for each button.
+
+### The *Call me by my name* button
+
+The *Call me by my name* button initiates the modal dialog. So, we use a Building Block that shows `MyDialogGroup`, when the button is clicked:
 
 ![image](/assets/2025-08-24/040.png)
 
-The logic behind the `OK` button is to prcoess the entry values from the user and then just hide group to let the dialog dissapear.
+### The *OK* button
+
+The *OK* button displays the user's name, and it re-hides the modal dialog. So, this is what the Building Blocks look like:
 
 ![image](/assets/2025-08-24/050.png)
 
 ## Result
 
-The result shows how the dialog works in practise. WIth this kind of technique we can build any type of complex user inut or alert dialogs.
+Let's take a look again at the end result. With the techniques we showed off in this article, you can build all kinds of user input and alert dialogs!
 
 ![image](/assets/2025-08-24/result.gif)
