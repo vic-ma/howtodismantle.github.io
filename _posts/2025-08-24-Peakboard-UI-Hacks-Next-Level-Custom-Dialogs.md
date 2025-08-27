@@ -44,13 +44,11 @@ First, we add the following controls to the app:
   * A rectangle shape for the background of the modal window.
   * A text box that prompts the user, *Please type in your name*.
   * A text input for the user to enter their name in.
-  * An *Ok* button for the user to submit their name.
-
- Furtermore we need a shape as some background and place a text box, text input and another button on top of the shape.
+  * A button for the user to submit their name, labelled *OK*.
 
 ![image](/assets/2025-08-24/010.png)
 
-Then we group the dialog related controls together. We can do that just by dragging and dropping one control on top of another in the control tree on the left side. In that case a new group is automatically created. We can give the group a proper name.
+Next, we group together the modal window controls. We do this by dragging and dropping one control on top of another in the control tree on the left side. This automatically creates a new control group. Then, we rename the group to `MyDialogGroup`.
 
 ![image](/assets/2025-08-24/020.png)
 
