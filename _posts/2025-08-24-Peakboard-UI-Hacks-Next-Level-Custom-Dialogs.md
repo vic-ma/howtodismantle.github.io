@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Peakboard UI Hacks - Next-Level Custom Dialogs
-date: 2023-03-01 05:00:00 +0300
+date: 2023-08-27 05:00:00 +0300
 tags: ui bestpractice
 image: /assets/2025-08-24/title.png
 image_header: /assets/2025-08-24/title_landscape.png
