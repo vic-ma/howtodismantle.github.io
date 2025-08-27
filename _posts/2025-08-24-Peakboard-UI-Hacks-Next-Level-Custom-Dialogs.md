@@ -36,9 +36,17 @@ Here's how it works:
 
 Now, let's build the app.
 
-## Create the button
+## Build the app
 
-We need one button to initiate the dialog. Furtermore we need a shape as some background and place a text box, text input and another button on top of the shape.
+First, we add the following controls to the app:
+* The button that initiates the modal dialog. We label it, *Call me by my name*. This is the button that initiates the dialog.
+* Controls for the modal window:
+  * A rectangle shape for the background of the modal window.
+  * A text box that prompts the user, *Please type in your name*.
+  * A text input for the user to enter their name in.
+  * An *Ok* button for the user to submit their name.
+
+ Furtermore we need a shape as some background and place a text box, text input and another button on top of the shape.
 
 ![image](/assets/2025-08-24/010.png)
 
