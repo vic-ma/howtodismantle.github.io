@@ -38,16 +38,21 @@ Now, let's build the app.
 ## Add the controls
 
 First, we add the following controls to the app:
-* The button that initiates the modal dialog. We label it, *Call me by my name*. This is the button that initiates the dialog.
-* Controls for the dialog:
+1. A button that initiates the modal dialog. We label it, *Call me by my name*.
+1. Controls for the dialog:
   * A rectangle shape for the background of the dialog.
   * A text box that prompts the user, *Please type in your name*.
-  * A text input for the user to enter their name in.
+  * A text input where the user enters their name.
   * A button for the user to submit their name, labelled *OK*.
 
 ![image](/assets/2025-08-24/010.png)
 
-Next, we group together the dialog controls. We do this by dragging and dropping one control on top of another in the control tree on the left side. This automatically creates a new control group. Then, we rename the group to `MyDialogGroup`.
+Next, we group the dialog controls together, by doing the following:
+1. We drag and drop one control on top of another, in the control tree on the left side. This automatically creates a new control group.
+1. We drag the rest of the controls into the group.
+1. We rename the group to `MyDialogGroup`.
+
+Now, we can easily make the entire dialog visible and invisible.
 
 ![image](/assets/2025-08-24/020.png)
 
