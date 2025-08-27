@@ -28,9 +28,9 @@ We'll make a simple app that prompts the user to enter their name. Here's what t
 
 Here's how it works:
 1. The user clicks on the *Call me by my name* button.
-1. A modal window pops up and asks the user to enter their name.
-1. The user enters their name into the modal window and clicks *OK*.
-1. The modal window goes away.
+1. A dialog pops up and asks the user to enter their name.
+1. The user enters their name into the dialog and clicks *OK*.
+1. The dialog goes away.
 1. The user's name is displayed.
 
 Now, let's build the app.
@@ -39,15 +39,15 @@ Now, let's build the app.
 
 First, we add the following controls to the app:
 * The button that initiates the modal dialog. We label it, *Call me by my name*. This is the button that initiates the dialog.
-* Controls for the modal window:
-  * A rectangle shape for the background of the modal window.
+* Controls for the dialog:
+  * A rectangle shape for the background of the dialog.
   * A text box that prompts the user, *Please type in your name*.
   * A text input for the user to enter their name in.
   * A button for the user to submit their name, labelled *OK*.
 
 ![image](/assets/2025-08-24/010.png)
 
-Next, we group together the modal window controls. We do this by dragging and dropping one control on top of another in the control tree on the left side. This automatically creates a new control group. Then, we rename the group to `MyDialogGroup`.
+Next, we group together the dialog controls. We do this by dragging and dropping one control on top of another in the control tree on the left side. This automatically creates a new control group. Then, we rename the group to `MyDialogGroup`.
 
 ![image](/assets/2025-08-24/020.png)
 
