@@ -21,7 +21,7 @@ In Peakboard Designer, we can create a modal window by building a *custom dialog
 
 ## Overview
 
-The core idea is to build a custom dialog with multiple controls. Then, set the controls to hidden. This way, they are always on screen, but just invisible. Then, when we want the dialog to show up, we make the controls visible. Let's go through this step by step with an example.
+The core idea is to build a custom dialog with multiple controls. Then, set the controls to hidden. Then, when we want the dialog to show up, we make the controls visible. Let's go through this step by step with an example.
 
 We'll make a simple app that prompts the user to enter their name. Here's what the finished app looks like:
 
