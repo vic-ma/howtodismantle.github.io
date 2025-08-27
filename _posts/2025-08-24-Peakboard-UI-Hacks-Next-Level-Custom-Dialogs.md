@@ -60,7 +60,7 @@ Next, we right click the control group and select *Hide*.
 
 ![image](/assets/2025-08-24/030.png)
 
-This makes the control group invisible by default. We will use Building Blocks to make it visible.
+This makes the dialog invisible by default. We will use Building Blocks to make it visible.
 
 ## Add the Building Blocks
 
@@ -68,18 +68,21 @@ We add two Building Blocks scripts---one for each button.
 
 ### The *Call me by my name* button
 
-The *Call me by my name* button initiates the modal dialog. So, we use a Building Block that shows `MyDialogGroup`, when the button is clicked:
+The *Call me by my name* button initiates the modal dialog. So, we use a Building Block that makes `MyDialogGroup` visible, when the button is clicked:
 
 ![image](/assets/2025-08-24/040.png)
 
 ### The *OK* button
 
-The *OK* button displays the user's name, and it re-hides the modal dialog. So, this is what the Building Blocks look like:
+The *OK* button does two things:
+1. Display the user's name as a notification.
+1. Make the modal dialog hidden.
 
+So, this is what the Building Blocks look like:
 ![image](/assets/2025-08-24/050.png)
 
 ## Result
 
-Let's take a look again at the end result. With the techniques we showed off in this article, you can build all kinds of user input and alert dialogs!
+Let's take another look at the end result. With the techniques we showed off in this article, it's easy to build all sorts of user input and alert dialogs in Peakboard!
 
 ![image](/assets/2025-08-24/result.gif)
