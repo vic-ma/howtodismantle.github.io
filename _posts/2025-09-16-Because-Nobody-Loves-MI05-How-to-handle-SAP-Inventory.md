@@ -10,8 +10,8 @@ read_more_links:
   - name: SAP related article
     url: /category/sap
 downloads:
-  - name: xxx.pbmx
-    url: /assets/2025-09-16/xxx.pbmx
+  - name: SAPInventory.pbmx
+    url: /assets/2025-09-16/SAPInventory.pbmx
 ---
 We already talked about many [SAP related use cases](/category/sap) on this blog. Today we want talk about what SAP calls a physcial inventory. This is a process when a person walks around in the warehouse and counts goods. After doing so the quantity of goods that is supposed to be in the warehouse is corrected for the real quantity. In the good old days this was done with the help of paper lists. Today we will leanr how to build a paperless version that runs on a tablet.
 
