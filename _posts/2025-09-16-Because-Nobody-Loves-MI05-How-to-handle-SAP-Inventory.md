@@ -113,4 +113,4 @@ We learned how to query an inventory document from SAP and submit the counted qu
 - Better check if the user has filled the text input correctly
 - correct handling of error messages, not only displaying them
 
-![image](/assets/2025-09-16/result.gif
+![image](/assets/2025-09-16/result.gif)
