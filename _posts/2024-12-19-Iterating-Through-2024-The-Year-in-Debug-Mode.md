@@ -68,9 +68,9 @@ SAP is the number one data source for most Peakboard projects. Especially in the
 
 [Modbus Madness - How to address a Modbus RTU sensor from scratch](/Modbus-Madness-How-to-address-a-modbus-RTU-sensor-from-scratch.html)
 
-[/I-O-Lets-go-The-hitchikers-guide-to-I-O-devices.html](I/O, Let's go - The hitchhiker's guide to I/O devices)
+[I/O, Let's go - The hitchhiker's guide to I/O devices](/I-O-Lets-go-The-hitchikers-guide-to-I-O-devices.html)
 
-[/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html](I/O, Let's Go - Unleashing the ICP DAS U-7500 series for cool I/O action with OPC UA)
+[I/O, Let's Go - Unleashing the ICP DAS U-7500 series for cool I/O action with OPC UA](/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html)
 
 [Beckhoff on my mind - Part 1 - Connecting TwinCAT PLCs](/Beckhoff-on-my-mind-Part-1-Connecting-Twincat-PLCs.html)
 
@@ -84,7 +84,7 @@ SAP is the number one data source for most Peakboard projects. Especially in the
 
 [Cam like a Bosch - Part I - Integrate Bosch security cam AI features with Peakboard](/Cam-like-a-Bosch-Part-I-Integrate-Bosch-security-cam-AI-features-with-Peakboard.html)
 
-[/I-O-Lets-go-Understanding-the-Advantech-WISE-4012-module-and-use-Peakboard-to-do-some-magic-with-it.html](I/O, Let's go - Understanding the Advantech WISE-4012 module and use Peakboard to do some magic with it)
+[I/O, Let's go - Understanding the Advantech WISE-4012 module and use Peakboard to do some magic with it](/I-O-Lets-go-Understanding-the-Advantech-WISE-4012-module-and-use-Peakboard-to-do-some-magic-with-it.html)
 
 [I/O, Let's Go - Going crazy for Pepperl+Fuchs IO-Link-Master ICE2-8IOL-G65L-V1D](/I-O-Lets-Go-Going-crazy-for-Pepperl-Fuchs-IO-Link-Master-ICE2-8IOL-G65L-V1D.html)
 
@@ -100,7 +100,7 @@ SAP is the number one data source for most Peakboard projects. Especially in the
 
 ## Office 365
 
-[/Reading-and-writing-Sharepoint-lists-with-Graph-extension.html](Reading and writing Sharepoint lists with Graph extension)
+[Reading and writing Sharepoint lists with Graph extension](/Reading-and-writing-Sharepoint-lists-with-Graph-extension.html)
 
 [Mastering dynamic file loading - How to load CSV files without knowing their names](/Mastering-dynamic-file-loading-How-to-load-CSV-files-without-knowing-their-name.html)
 
