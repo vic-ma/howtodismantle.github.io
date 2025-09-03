@@ -129,11 +129,11 @@ In addition, we use three scalar variables that feed the XQL statements (a patte
 
 To query the inventory document, we use a standard SAP data source, configured with the `BAPI_MATPHYSINV_COUNT` XQL query from before.
 
-We use placeholders, to keep the query dynamic, so it can reference whatever inventory number and fiscal year the user typed in. The text boxes on the canvas are bound to variables, and those variables are plugged into the XQL when the data source is refreshed.
+We use placeholders to keep the query dynamic, so it can reference whatever inventory number and fiscal year the user typed in. The text boxes are bound to variables, and those variables are plugged into the XQL when the data source is refreshed.
 
 ![image](/assets/2025-09-16/040.png)
 
-In the refresh script, we loop through the raw data returned by SAP, copy the fields we need into the variable list, and use that list as the backend for the UI. This keeps the interface responsive and allows the user to edit the counts directly in the list.
+In the refresh script, we loop through the raw data returned by SAP, copy the fields we need into the variable list, and use that list as the backend for the UI. This keeps the interface responsive and lets the user edit the counts directly in the list.
 
 ![image](/assets/2025-09-16/050.png)
 
