@@ -34,7 +34,14 @@ Let's look at the XQL statements that we use to call these BAPIs.
 
 ### `BAPI_MATPHYSINV_GETDETAIL`
 
-For `BAPI_MATPHYSINV_GETDETAIL`, we enter the inventory number and fiscal year to specify the inventory document we want. We also specify that we only want the `ITEMS` table.
+For `BAPI_MATPHYSINV_GETDETAIL`, we provide the inventory number and fiscal year to specify the inventory document we want:
+
+| Parameter       | Description                                |
+|-----------------|--------------------------------------------|
+| `PHYSINVENTORY` | The inventory number.
+| `FISCALYEAR` | The fiscal year.
+
+We also specify that we only want to get the `ITEMS` table.
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_GETDETAIL'
@@ -47,7 +54,7 @@ EXECUTE FUNCTION 'BAPI_MATPHYSINV_GETDETAIL'
 
 ### `BAPI_MATPHYSINV_COUNT`
 
-For `BAPI_MATPHYSINV_COUNT`, we send the following information, so that SAP can identify the proper document:
+For `BAPI_MATPHYSINV_COUNT`, we provide these parameters, so that SAP can identify the proper inventory document:
 
 | Parameter       | Description                                |
 |-----------------|--------------------------------------------|
@@ -65,7 +72,7 @@ We also pass in an `ITEMS` table, which contains the updated stock counts. Each 
 | `ENTRY_UOM`  | The unit.            |
 
 
-Here's the XQL query. This example only includes one item in the `ITEMS` table---but later, we'll build a script that generates the table rows dynamically, to handle any number of items:
+Here's an example XQL query. This example only includes one item in the `ITEMS` table---but later, we'll build a script that generates the table rows dynamically, to handle any number of items:
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_COUNT'
