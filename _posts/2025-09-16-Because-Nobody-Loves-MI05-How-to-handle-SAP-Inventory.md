@@ -29,7 +29,7 @@ In SAP, we use the `MI01` transaction to create a new inventory list. Normally, 
 
 SAP provides a set of BAPIs to process inventory documents.  We call `BAPI_MATPHYSINV_GETDETAIL` after the user enters the inventory number and fiscal year, which returns all the items belonging to that document. Once the counts are typed in, `BAPI_MATPHYSINV_COUNT` sends the results back to SAP and updates the inventory list accordingly.
 
-The following XQL statement shows how these BAPIs are called. For BAPI_MATPHYSINV_GETDETAIL we read only the ITEMS table, supplying the inventory number and fiscal year to make the call specific:
+The following XQL statement shows how these BAPIs are called. For `BAPI_MATPHYSINV_GETDETAIL`, we read only the `ITEMS` table. We enter the inventory number and fiscal year to only get the data we want:
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_GETDETAIL'
