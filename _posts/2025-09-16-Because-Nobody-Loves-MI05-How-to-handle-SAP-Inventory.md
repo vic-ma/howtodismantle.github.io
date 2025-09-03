@@ -24,7 +24,9 @@ In the past, workers had to carry around paper lists to do inventory counts. And
 This is what an inventory document looks like in SAP:
 ![image](/assets/2025-09-16/010.png)
 
-In SAP, we use the `MI01` transaction to create a new inventory document. Normally, the next step is for warehouse staff to do an inventory count, and then use the `MI05` transaction to enter the numbers into the inventory document. But we'll build an applciation to replace the `MI05` step and submit the inventory numbers directly to SAP.
+Normally, after the warehouse staff to do an inventory count, they use the `MI05` transaction to manually enter the new numbers into the appropriate inventory document. Our Peakboard application will replace the `MI05` step and submit the inventory numbers directly to SAP.
+
+### Inventory BAPIs
 
 SAP provides a set of BAPIs to process inventory documents:
 * `BAPI_MATPHYSINV_GETDETAIL` returns all the items in an inventory document.
@@ -33,9 +35,7 @@ SAP provides a set of BAPIs to process inventory documents:
 
 Let's look at the XQL statements that we use to call these BAPIs.
 
-### `BAPI_MATPHYSINV_GETDETAIL`
-
-For `BAPI_MATPHYSINV_GETDETAIL`, we provide the inventory number and fiscal year to specify the inventory document we want:
+For `BAPI_MATPHYSINV_GETDETAIL`, we provide the inventory number and fiscal year in order to specify the inventory document we want:
 
 | Parameter       | Description                                |
 |-----------------|--------------------------------------------|
@@ -52,8 +52,6 @@ EXECUTE FUNCTION 'BAPI_MATPHYSINV_GETDETAIL'
    TABLES
       ITEMS INTO @RETVAL
 {% endhighlight %}
-
-### `BAPI_MATPHYSINV_COUNT` and `BAPI_TRANSACTION_COMMIT` 
 
 For `BAPI_MATPHYSINV_COUNT`, we provide these parameters, so that SAP can identify the proper inventory document:
 
@@ -103,11 +101,11 @@ First, here's an overview of how the application works.
 
 1. The user enters the inventory number and year for the inventory document they want to update.
 1. The user taps the *Load Document* button.
-1. The application uses  `BAPI_MATPHYSINV_GETDETAIL`to get the data for the inventory document that the user specified.
-1. The application displays the inventory document on screen, so the user can update the stock numbers.
+1. The application uses  `BAPI_MATPHYSINV_GETDETAIL` to get the data for the inventory document that the user specified.
+1. The application displays each item from the inventory document, so that the user can update the stock numbers.
 1. The user updates the stock numbers. 
 1. The user taps the *Submit Count* button. 
-1. The application uses `BAPI_MATPHYSINV_COUNT` to submit the new stock numbers to SAP.
+1. The application uses `BAPI_MATPHYSINV_COUNT` and `BAPI_TRANSACTION_COMMIT` to submit the new stock numbers to SAP.
 
 
 ### The UI
