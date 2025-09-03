@@ -72,7 +72,7 @@ We also pass in an `ITEMS` table, which contains the updated stock counts. Each 
 | `ENTRY_UOM`  | The unit.            |
 
 
-Here's an example XQL query. This example only includes one item in the `ITEMS` table---but later, we'll build a script that generates the table rows dynamically, to handle any number of items:
+Here's an example XQL query. This example only includes one item in the `ITEMS` table---but later, we'll build a script that generates the table rows dynamically, to handle any number of items.
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_COUNT'
@@ -88,9 +88,27 @@ EXECUTE FUNCTION 'BAPI_MATPHYSINV_COUNT'
 EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
 {% endhighlight %}
 
-## The Peakboard application
 
-Now, let's build the Peakboard application. To create the UI, we add a couple of simple controls onto the canvas:
+## Build the Peakboard application
+
+Now, let's build the Peakboard application.
+
+### Overview
+
+First, here's an overview of how the application works:
+1. The user enters the inventory number and year for the inventory document they want to update.
+1. The user taps the *Load Document* button.
+1. The application uses  `BAPI_MATPHYSINV_GETDETAIL`to get the data for the inventory document that the user specified.
+1. The application displays the inventory document on screen, so the user can update the stock numbers.
+1. The user updates the stock numbers. 
+1. The user taps the *Submit Count* button. 
+1. The application uses `BAPI_MATPHYSINV_COUNT` to submit the new stock numbers to SAP.
+
+
+![image](/assets/2025-09-16/result.gif)
+
+### The UI
+To create the UI, we add a couple of simple controls onto the canvas:
 * A text box for the inventory number.
 * A text box for the fiscal year.
 * A button to load the document, based on the inventory number and fiscal year that the user entered.
@@ -105,7 +123,7 @@ The styled list is bound to a variable list. This variable list contains the ite
 
 ![image](/assets/2025-09-16/030.png)
 
-## Get the inventory document from SAP
+### Get the inventory document from SAP
 
 To query the inventory document, we use a standard SAP data source, configured with the XQL shown above. We use placeholders, to keep the query dynamic, so it can reference whatever inventory number and fiscal year the user typed in. The text boxes on the canvas are bound to variables, and those variables are plugged into the XQL when the data source is refreshed.
 
@@ -119,7 +137,7 @@ The *Load Document* button triggers a refresh of the dynamic data source. When p
 
 ![image](/assets/2025-09-16/060.png)
 
-## Submit the inventory count to SAP
+### Submit the inventory count to SAP
 
 As noted earlier, we call `BAPI_MATPHYSINV_COUNT` to submit the inventory count, and then `BAPI_TRANSACTION_COMMIT` to finalize the update. All XQL resides in a standard SAP data source with placeholders for the inventory number, fiscal year, and a `CountTablePayload` that holds a dynamic number of table rows based on the document's items. This setup keeps the script flexible, no matter how many items the inventory document contains.
 
