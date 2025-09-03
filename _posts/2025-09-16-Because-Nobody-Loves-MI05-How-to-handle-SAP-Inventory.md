@@ -13,13 +13,13 @@ downloads:
   - name: SAPInventory.pbmx
     url: /assets/2025-09-16/SAPInventory.pbmx
 ---
-For more  [SAP-related use cases](/category/sap) on this blog. 
 
 
-In this article, we'll look at SAP's [physical inventory component](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/1e61bd534f22b44ce10000000a174cb4.html), which lets warehouse staff do a physical inventory count, and then record the numbers in SAP.
+We've covered many different ways of [integrating SAP with Peakboard](/category/sap) on this blog. In this article, we'll look at SAP's [physical inventory component](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/1e61bd534f22b44ce10000000a174cb4.html), which lets warehouse staff do a physical inventory count, and then record those numbers into SAP.
 
-In the past, workers had to carry around paper lists to record the inventory counts. Once they finished their counts, they also had to type the numbers into SAP manually. But today, we'll use Peakboard to build a modern, tablet-based app. This makes the whole workflow paperless and as easy as possible.
+In the past, workers had to carry around paper lists to record the inventory counts. And once they finished their counts, they had to type the numbers into SAP manually. But today, we'll use Peakboard to build a modern, tablet-based app. This makes the whole workflow paperless and as easy as possible.
 
+. 
 
 ## The SAP side
 
@@ -89,7 +89,7 @@ The *Load Document* button triggers a refresh of the dynamic data source. When p
 
 ## Submit the inventory count to SAP
 
-As noted earlier, we call `BAPI_MATPHYSINV_COUNT` to submit the inventory count, and then `BAPI_TRANSACTION_COMMIT` to finalize the update. All XQL resides in a standard SAP data source with placeholders for the inventory number, fiscal year, and a `CountTablePayload` that holds a dynamic number of table rows based on the document's items. This setup keeps the script flexible no matter how many items the inventory document contains.
+As noted earlier, we call `BAPI_MATPHYSINV_COUNT` to submit the inventory count, and then `BAPI_TRANSACTION_COMMIT` to finalize the update. All XQL resides in a standard SAP data source with placeholders for the inventory number, fiscal year, and a `CountTablePayload` that holds a dynamic number of table rows based on the document's items. This setup keeps the script flexible, no matter how many items the inventory document contains.
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_COUNT'
@@ -107,16 +107,16 @@ EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
 
 ![image](/assets/2025-09-16/070.png)
 
-The `Submit` button iterates over the items table and builds a string representing the table content in the format required by the XQL. This string is stored in the `CountTablePayload` variable, and when the data source is triggered the placeholder is replaced with the generated string so the proper SAP call is sent.
+The *Submit* button iterates over the items table and builds a string representing the table content in the format required by the XQL. This string is stored in the `CountTablePayload` variable, and when the data source is triggered the placeholder is replaced with the generated string so the proper SAP call is sent.
 
 ![image](/assets/2025-09-16/080.png)
 
-In the refresh event we process the `RETURN` table, extract the SAP message, and display it to the user. That way the operator immediately sees whether the submission was successful or if something went wrong.
+In the refresh event, we process the `RETURN` table, extract the SAP message, and display it to the user. That way the operator immediately sees whether the submission was successful or if something went wrong.
 
 ![image](/assets/2025-09-16/090.png)
 
-## Result and conclusion
 
+## Result and conclusion
 
 We learned how to query an inventory document from SAP and submit the counted quantities back to the system. The video below shows the entire process from loading the document to sending the counts. Please remember this example is meant for demonstration only; a production-ready solution would need additional features such as material texts, value help for selecting a list, better validation for user input, and proper error handling rather than simply displaying messages:
 
