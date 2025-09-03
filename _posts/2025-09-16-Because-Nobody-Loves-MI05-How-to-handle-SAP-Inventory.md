@@ -18,15 +18,16 @@ For more  [SAP-related use cases](/category/sap) on this blog.
 
 In this article, we'll look at SAP's [physical inventory component](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/1e61bd534f22b44ce10000000a174cb4.html), which lets warehouse staff do a physical inventory count, and then record the numbers in SAP.
 
-In the past, workers had to carry around paper lists to record the inventory counts. Once they finished their counts, they also had to type the numbers into SAP manually. But today, we'll build a modern, tablet-based app with Peakboard, which makes the whole workflow paperless.
+In the past, workers had to carry around paper lists to record the inventory counts. Once they finished their counts, they also had to type the numbers into SAP manually. But today, we'll use Peakboard to build a modern, tablet-based app. This makes the whole workflow paperless and as easy as possible.
 
-## The SAP side
 
-In SAP, the main transaction for creating a new inventory list is MI01. After the list exists, warehouse clerks would normally use transaction MI05 to enter the counted quantities. Our application takes over the MI05 part and lets the counts be submitted directly from Peakboard. The screenshots below show how the document appears in SAP.
+## Set up SAP
+
+In SAP, we use the `MI01` transaction to create a new inventory list. Normally, the next step is for warehouse staff to do an inventory count, and then use the `MI05` transaction to enter the numbers into the inventory list. Our application replaces the `MI05` step and submits the inventory counts directly into SAP. This screenshot shows how the inventory document appears in SAP:
 
 ![image](/assets/2025-09-16/010.png)
 
-SAP provides a set of BAPIs to process inventory documents. We call BAPI_MATPHYSINV_GETDETAIL after the user has entered the inventory number and fiscal year, which returns all items belonging to that document. Once the counts are typed in, BAPI_MATPHYSINV_COUNT sends the results back to SAP and updates the inventory list accordingly.
+SAP provides a set of BAPIs to process inventory documents.  We call `BAPI_MATPHYSINV_GETDETAIL` after the user enters the inventory number and fiscal year, which returns all the items belonging to that document. Once the counts are typed in, `BAPI_MATPHYSINV_COUNT` sends the results back to SAP and updates the inventory list accordingly.
 
 The following XQL statement shows how these BAPIs are called. For BAPI_MATPHYSINV_GETDETAIL we read only the ITEMS table, supplying the inventory number and fiscal year to make the call specific:
 
