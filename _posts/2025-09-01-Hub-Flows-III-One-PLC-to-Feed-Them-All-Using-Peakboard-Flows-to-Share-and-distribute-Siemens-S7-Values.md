@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hub Flows III - One PLC to Feed Them All - Using Peakboard Flows to share and distribute Siemens S7 values
-date: 2023-03-01 00:00:00 +0000
+date: 2025-09-01 00:00:00 +0000
 tags: hubflows
 image: /assets/2025-09-01/title.png
 image_header: /assets/2025-09-01/title_landscape.png
