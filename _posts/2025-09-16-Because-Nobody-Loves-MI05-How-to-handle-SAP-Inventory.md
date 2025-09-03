@@ -15,11 +15,11 @@ downloads:
 ---
 
 
-We've covered many different ways of [integrating SAP with Peakboard](/category/sap) on this blog. In this article, we'll look at SAP's [physical inventory component](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/1e61bd534f22b44ce10000000a174cb4.html)---which lets warehouse staff do a physical inventory count, and then record those numbers into SAP.
+We've covered many different ways of [integrating SAP with Peakboard](/category/sap) on this blog. In this article, we'll look at SAP's [physical inventory component](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/1e61bd534f22b44ce10000000a174cb4.html)---which lets warehouse staff do a physical inventory count, and then record the numbers in SAP.
 
-In the past, workers had to carry around paper lists to do inventory counts. And once they finished their counts, they had to type the numbers into SAP manually. But today, we'll use Peakboard to build a modern, tablet-based app for recording inventory counts into SAP. This makes the whole workflow paperless and much more streamlined.
+In the past, workers had to carry around paper lists to do inventory counts. And once they finished their counts, they had to type the numbers into SAP manually. But with Peakboard, we can build a modern, tablet-based application for recording inventory counts into SAP. That way, the whole workflow is paperless and much more streamlined.
 
-## The SAP side
+## The SAP side of things
 
 This is what an inventory document looks like in SAP:
 ![image](/assets/2025-09-16/010.png)
