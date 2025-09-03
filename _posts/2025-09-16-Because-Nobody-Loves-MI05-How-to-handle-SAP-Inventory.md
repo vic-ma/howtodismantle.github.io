@@ -165,11 +165,11 @@ EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
 
 ![image](/assets/2025-09-16/070.png)
 
-The *Submit* button iterates over the items table and builds a string representing the table content in the format required by the XQL. This string is stored in the `CountTablePayload` variable, and when the data source is triggered the placeholder is replaced with the generated string so the proper SAP call is sent.
+The *Submit* button iterates over the `ITEMS` table and builds a string representing the table content in the format required by the XQL. This string is stored in the `CountTablePayload` variable, and when the data source is triggered the placeholder is replaced with the generated string so the proper SAP call is sent.
 
 ![image](/assets/2025-09-16/080.png)
 
-In the refresh event, we process the `RETURN` table, extract the SAP message, and display it to the user. That way the operator immediately sees whether the submission was successful or if something went wrong.
+In the refresh event, we process the `RETURN` table, extract the SAP message, and display it to the user. That way the user immediately sees whether the submission was successful or if something went wrong.
 
 ![image](/assets/2025-09-16/090.png)
 
