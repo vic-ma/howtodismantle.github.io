@@ -48,15 +48,25 @@ EXECUTE FUNCTION 'BAPI_MATPHYSINV_GETDETAIL'
 ### `BAPI_MATPHYSINV_COUNT`
 
 For `BAPI_MATPHYSINV_COUNT`, we send the following information, so that SAP can identify the proper document:
-* The inventory number
-* The fiscal year
-* The date that the inventory count was performed
+| Parameter       | Description                                |
+|-----------------|--------------------------------------------|
+| `PHYSINVENTORY` | The inventory number.
+| `FISCALYEAR` | The fiscal year.
+| `COUNT_DATE` | The date that the inventory count was performed.
 
 We also pass in an `ITEMS` table, which contains the updated stock counts. Each row contains the following columns:
 * The item number
 * The material number
 * The counted quantity
 * The unit
+
+| Column     | Description          |
+|------------|----------------------|
+| `ITEM`       | The item number.     |
+| `MATERIAL`   | The material number. |
+| `ENTRY_QNT`  | The counted quantity.|
+| `ENTRY_UOM`  | The unit.            |
+
 
 The following example shows a call with one item---but later, we'll build a script that generates the table rows dynamically, to handle any number of items:
 
