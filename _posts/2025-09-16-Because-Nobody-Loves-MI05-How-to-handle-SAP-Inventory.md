@@ -16,7 +16,9 @@ downloads:
 For more  [SAP-related use cases](/category/sap) on this blog. 
 
 
-In this article, we'll look at SAP's [physical inventory component](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/1e61bd534f22b44ce10000000a174cb4.html). This component lets warehouse staff walk through the aisles and count goods item by item. When the counting is finished the recorded quantities in the system are corrected so they match the real stock levels. In the past this relied on paper lists that had to be carried around and typed back into SAP later. Now we'll build a modern, tablet-based version that makes the workflow completely paperless.
+In this article, we'll look at SAP's [physical inventory component](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/1e61bd534f22b44ce10000000a174cb4.html), which lets warehouse staff do a physical inventory count, and then record the numbers in SAP.
+
+In the past, workers had to carry around paper lists to record the inventory counts. Once they finished their counts, they also had to type the numbers into SAP manually. But today, we'll build a modern, tablet-based app with Peakboard, which makes the whole workflow paperless.
 
 ## The SAP side
 
