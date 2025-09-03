@@ -7,13 +7,16 @@ image: /assets/2025-09-16/title.png
 image_header: /assets/2025-09-16/title_landscape.png
 bg_alternative: true
 read_more_links:
-  - name: SAP related article
+  - name: SAP-related articles
     url: /category/sap
 downloads:
   - name: SAPInventory.pbmx
     url: /assets/2025-09-16/SAPInventory.pbmx
 ---
-We have already covered many [SAP-related use cases](/category/sap) on this blog. Today we will dig deeper into what SAP calls a physical inventory. In that process warehouse staff walk through the aisles and count the goods item by item. When the counting is finished the recorded quantities in the system are corrected so they match the real stock levels. In the past this relied on paper lists that had to be carried around and typed back into SAP later. Now we'll build a modern, tablet-based version that makes the workflow completely paperless.
+For more  [SAP-related use cases](/category/sap) on this blog. 
+
+
+In this article, we'll look at SAP's [physical inventory component](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/1e61bd534f22b44ce10000000a174cb4.html). This component lets warehouse staff walk through the aisles and count goods item by item. When the counting is finished the recorded quantities in the system are corrected so they match the real stock levels. In the past this relied on paper lists that had to be carried around and typed back into SAP later. Now we'll build a modern, tablet-based version that makes the workflow completely paperless.
 
 ## The SAP side
 
