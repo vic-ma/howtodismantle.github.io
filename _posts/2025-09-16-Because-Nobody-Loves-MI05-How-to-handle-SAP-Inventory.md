@@ -21,13 +21,13 @@ In the past, workers had to carry around paper lists to do inventory counts. And
 
 ## The SAP side
 
-In SAP, we use the `MI01` transaction to create a new inventory list. Normally, the next step is for warehouse staff to do an inventory count, and then use the `MI05` transaction to enter the numbers into the inventory list. But we'll build an applciation to replace the `MI05` step and submit the inventory counts directly into SAP.
-
-This screenshot shows how the inventory document appears in SAP:
-
+This is what an inventory document looks like in SAP:
 ![image](/assets/2025-09-16/010.png)
 
-SAP provides a set of BAPIs to process inventory documents.  We call `BAPI_MATPHYSINV_GETDETAIL` after the user enters the inventory number and fiscal year, which returns all the items belonging to that document. Once the counts are typed in, `BAPI_MATPHYSINV_COUNT` sends the results back to SAP and updates the inventory list accordingly.
+In SAP, we use the `MI01` transaction to create a new inventory document. Normally, the next step is for warehouse staff to do an inventory count, and then use the `MI05` transaction to enter the numbers into the inventory document. But we'll build an applciation to replace the `MI05` step and submit the inventory counts directly into SAP.
+
+
+SAP provides a set of BAPIs to process inventory documents.  We call `BAPI_MATPHYSINV_GETDETAIL` after the user enters the inventory number and fiscal year, which returns all the items belonging to that document. Once the counts are typed in, `BAPI_MATPHYSINV_COUNT` sends the results back to SAP and updates the inventory document accordingly.
 
 The following XQL statement shows how these BAPIs are called. For `BAPI_MATPHYSINV_GETDETAIL`, we read only the `ITEMS` table. We enter the inventory number and fiscal year to only get the data we want:
 
@@ -121,7 +121,7 @@ In the refresh event, we process the `RETURN` table, extract the SAP message, an
 We learned how to query an inventory document from SAP and submit the counted quantities back to the system. The video below shows the entire process from loading the document to sending the counts. Please remember this example is meant for demonstration only; a production-ready solution would need additional features such as material texts, value help for selecting a list, better validation for user input, and proper error handling rather than simply displaying messages:
 
 - Material text in addition to the material number
-- Value help for selecting an inventory list
+- Value help for selecting an inventory document
 - Better checks to ensure the user has filled the text inputs correctly
 - Proper handling of error messages, not just displaying them
 
