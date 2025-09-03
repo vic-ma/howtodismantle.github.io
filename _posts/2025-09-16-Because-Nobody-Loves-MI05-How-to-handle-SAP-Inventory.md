@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Because Nobody Loves MI05 - How to handle SAP Inventory
+title: Because Nobody Likes MI05 - How to handle SAP Inventory
 date: 2023-03-01 03:00:00 +0000
 tags: sap usecase
 image: /assets/2025-09-16/title.png
@@ -75,21 +75,21 @@ The styled list is bound to a variable list. This variable list contains the ite
 
 ## Get the inventory document from SAP
 
-To query the inventory document we use a standard SAP data source configured with the XQL shown above. We insert placeholders to keep the query dynamic so it can reference whatever inventory number and fiscal year the user has typed in. The text boxes on the canvas are bound to variables, and those variables are plugged into the XQL when the data source is refreshed.
+To query the inventory document, we use a standard SAP data source, configured with the XQL shown above. We use placeholders, to keep the query dynamic, so it can reference whatever inventory number and fiscal year the user typed in. The text boxes on the canvas are bound to variables, and those variables are plugged into the XQL when the data source is refreshed.
 
 ![image](/assets/2025-09-16/040.png)
 
-In the refresh script we loop through the raw data returned by SAP, copy the fields we need into the variable list, and use that list as the backend for the UI. This keeps the interface responsive and allows the user to edit the counts directly in the list.
+In the refresh script, we loop through the raw data returned by SAP, copy the fields we need into the variable list, and use that list as the backend for the UI. This keeps the interface responsive and allows the user to edit the counts directly in the list.
 
 ![image](/assets/2025-09-16/050.png)
 
-The `Load Document` button simply triggers a refresh of the dynamic data source. When pressed, the placeholders are replaced with the current variable values and the application pulls the latest data from SAP.
+The *Load Document* button triggers a refresh of the dynamic data source. When pressed, the placeholders are replaced with the current variable values and the application pulls the latest data from SAP.
 
 ![image](/assets/2025-09-16/060.png)
 
-## Submitting the count to SAP
+## Submit the inventory count to SAP
 
-As noted earlier, we call BAPI_MATPHYSINV_COUNT to submit the counts and then BAPI_TRANSACTION_COMMIT to finalize the update. All XQL resides in a standard SAP data source with placeholders for the inventory number, fiscal year, and a `CountTablePayload` that holds a dynamic number of table rows based on the document's items. This setup keeps the script flexible no matter how many items the inventory document contains.
+As noted earlier, we call `BAPI_MATPHYSINV_COUNT` to submit the inventory count, and then `BAPI_TRANSACTION_COMMIT` to finalize the update. All XQL resides in a standard SAP data source with placeholders for the inventory number, fiscal year, and a `CountTablePayload` that holds a dynamic number of table rows based on the document's items. This setup keeps the script flexible no matter how many items the inventory document contains.
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_COUNT'
