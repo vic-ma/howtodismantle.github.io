@@ -65,9 +65,7 @@ Now, let's build the Peakboard application. To create the UI, we add a couple of
 
 Once the document is loaded, the user enters the updated inventory counts. Then, they press a submit button to send the new data back to SAP.
 
-* At the top, the user enters the inventory number and the fiscal year. After loading the document the user types the counts into the list and then presses a button to submit everything back to SAP.
-
-In the center there's a styled list showing all the line items from the inventory document. It makes the data easy to scan and provides a familiar layout for warehouse staff.
+We add a styled list to the center of the screen. This shows all the line items from the inventory document. It makes the data easy to scan and provides a familiar layout for warehouse staff.
 
 ![image](/assets/2025-09-16/020.png)
 
