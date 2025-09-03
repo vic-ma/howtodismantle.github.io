@@ -146,7 +146,7 @@ The *Load Document* button triggers a refresh of the dynamic data source. When t
 
 As previously mentioned, we use `BAPI_MATPHYSINV_COUNT` to submit the inventory count, and then `BAPI_TRANSACTION_COMMIT` to finalize the update. The XQL sits inside a standard SAP data source.
 
-The XQL query has placeholders for the inventory number and fiscal year. It also has a `CountTablePayload` placeholder that contains the updated rows of the `ITEMS` table, which it sources from the variable list (more on that in a bit). This setup keeps the script flexible, no matter how many items the inventory document contains.
+The XQL query has placeholders for the inventory number and fiscal year. It also has a `CountTablePayload` placeholder that contains the updated rows of the `ITEMS` table (more on that in a bit). This setup keeps the script flexible, no matter how many items the inventory document contains.
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_COUNT'
@@ -168,7 +168,7 @@ The *Submit* button iterates over the variable list and turns it into an XQL-fri
 
 ![image](/assets/2025-09-16/080.png)
 
-In the refresh event, we process the `RETURN` table, extract the status message, and display it to the user. That way the user immediately sees if the submission was successful or not.
+In the refresh event, we process the `RETURN` table, extract the status message, and display it to the user. That way, the user immediately sees if the submission was successful or not.
 
 ![image](/assets/2025-09-16/090.png)
 
@@ -176,7 +176,7 @@ In the refresh event, we process the `RETURN` table, extract the status message,
 ## Result and conclusion
 
 We explained how to query an inventory document from SAP and submit new numbers back to the system. Let's take a look at the demo video again. But remember, this is just a simple example. A production-ready solution would need additional features to make the application more robust. For example:
-- Material text in addition to the material number.
+- Material text, in addition to the material number.
 - Value help, for selecting an inventory document.
 - Better checks to ensure that the user has filled all text inputs correctly.
 - Proper handling of error messages, instead of just displaying them.
