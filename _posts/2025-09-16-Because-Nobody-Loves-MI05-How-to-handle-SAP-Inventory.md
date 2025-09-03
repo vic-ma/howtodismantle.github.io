@@ -45,6 +45,8 @@ EXECUTE FUNCTION 'BAPI_MATPHYSINV_GETDETAIL'
       ITEMS INTO @RETVAL
 {% endhighlight %}
 
+### `BAPI_MATPHYSINV_COUNT`
+
 For `BAPI_MATPHYSINV_COUNT`, we send the following information, so that SAP can identify the proper document:
 * The inventory number
 * The fiscal year
@@ -56,7 +58,7 @@ We also pass in an `ITEMS` table, which contains the updated stock counts. Each 
 * The counted quantity
 * The unit
 
-The following example shows a call with one item---but later, the script generates the table rows dynamically, to handle any number of items:
+The following example shows a call with one item---but later, we'll build a script that generates the table rows dynamically, to handle any number of items:
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_COUNT'
