@@ -137,15 +137,15 @@ In the refresh script, we loop through the raw data returned by SAP, copy the fi
 
 ![image](/assets/2025-09-16/050.png)
 
-The *Load Document* button triggers a refresh of the dynamic data source. When tapped, the placeholders are replaced with the current variable values and the application pulls the latest data from SAP.
+The *Load Document* button triggers a refresh of the dynamic data source. When tapped, the placeholders are replaced with the current variable values, and the application pulls the latest data from SAP.
 
 ![image](/assets/2025-09-16/060.png)
 
 ### Submit the inventory count to SAP
 
-As noted earlier, we call `BAPI_MATPHYSINV_COUNT` to submit the inventory count, and then `BAPI_TRANSACTION_COMMIT` to finalize the update. The XQL sits inside a standard SAP data source.
+As previously mentioned, we use `BAPI_MATPHYSINV_COUNT` to submit the inventory count, and then `BAPI_TRANSACTION_COMMIT` to finalize the update. The XQL sits inside a standard SAP data source.
 
-The XQL has placeholders for the inventory number and fiscal year. It also has a `CountTablePayload` placeholder that contains the updated rows of the `ITEMS` table. This setup keeps the script flexible, no matter how many items the inventory document contains.
+The XQL query has placeholders for the inventory number and fiscal year. It also has a `CountTablePayload` placeholder that contains the updated rows of the `ITEMS` table, which it sources from the variable list (more on that in a bit). This setup keeps the script flexible, no matter how many items the inventory document contains.
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_COUNT'
@@ -163,7 +163,7 @@ EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
 
 ![image](/assets/2025-09-16/070.png)
 
-The *Submit* button iterates over the `ITEMS` table and builds a string representing the table content in the format required by the XQL. This string is stored in the `CountTablePayload` variable, and when the data source is triggered the placeholder is replaced with the generated string so the proper SAP call is sent.
+The *Submit* button iterates over the variable list and turns it into an XQL-friendly string. This string is stored in the `CountTablePayload` variable, and when the data source is triggered, the placeholder is replaced with the generated string, so that the proper SAP call is sent.
 
 ![image](/assets/2025-09-16/080.png)
 
