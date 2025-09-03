@@ -15,15 +15,15 @@ downloads:
 ---
 
 
-We've covered many different ways of [integrating SAP with Peakboard](/category/sap) on this blog. In this article, we'll look at SAP's [physical inventory component](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/1e61bd534f22b44ce10000000a174cb4.html), which lets warehouse staff do a physical inventory count, and then record those numbers into SAP.
+We've covered many different ways of [integrating SAP with Peakboard](/category/sap) on this blog. In this article, we'll look at SAP's [physical inventory component](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/1e61bd534f22b44ce10000000a174cb4.html)---which lets warehouse staff do a physical inventory count, and then record those numbers into SAP.
 
-In the past, workers had to carry around paper lists to record the inventory counts. And once they finished their counts, they had to type the numbers into SAP manually. But today, we'll use Peakboard to build a modern, tablet-based app. This makes the whole workflow paperless and as easy as possible.
-
-. 
+In the past, workers had to carry around paper lists to do inventory counts. And once they finished their counts, they had to type the numbers into SAP manually. But today, we'll use Peakboard to build a modern, tablet-based app for recording inventory counts into SAP. This makes the whole workflow paperless and much more streamlined.
 
 ## The SAP side
 
-In SAP, we use the `MI01` transaction to create a new inventory list. Normally, the next step is for warehouse staff to do an inventory count, and then use the `MI05` transaction to enter the numbers into the inventory list. Our application replaces the `MI05` step and submits the inventory counts directly into SAP. This screenshot shows how the inventory document appears in SAP:
+In SAP, we use the `MI01` transaction to create a new inventory list. Normally, the next step is for warehouse staff to do an inventory count, and then use the `MI05` transaction to enter the numbers into the inventory list. But we'll build an applciation to replace the `MI05` step and submit the inventory counts directly into SAP.
+
+This screenshot shows how the inventory document appears in SAP:
 
 ![image](/assets/2025-09-16/010.png)
 
