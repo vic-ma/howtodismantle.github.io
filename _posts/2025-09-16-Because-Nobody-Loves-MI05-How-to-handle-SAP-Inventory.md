@@ -58,7 +58,14 @@ EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
 
 ## The Peakboard application
 
-For the UI part we place a couple of simple controls on the Peakboard canvas. At the top the user enters the inventory number and the fiscal year. After loading the document the user types the counts into the list and then presses a button to submit everything back to SAP.
+Now, let's build the Peakboard application. To create the UI, we add a couple of simple controls onto the canvas:
+* A text box for the inventory number.
+* A text box for the fiscal year.
+* A button to load the document, based on the inventory number and fiscal year that the user entered.
+
+Once the document is loaded, the user enters the updated inventory counts. Then, they press a submit button to send the new data back to SAP.
+
+* At the top, the user enters the inventory number and the fiscal year. After loading the document the user types the counts into the list and then presses a button to submit everything back to SAP.
 
 In the center there's a styled list showing all the line items from the inventory document. It makes the data easy to scan and provides a familiar layout for warehouse staff.
 
