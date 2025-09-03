@@ -145,7 +145,9 @@ The *Load Document* button triggers a refresh of the dynamic data source. When t
 
 ### Submit the inventory count to SAP
 
-As noted earlier, we call `BAPI_MATPHYSINV_COUNT` to submit the inventory count, and then `BAPI_TRANSACTION_COMMIT` to finalize the update. All XQL resides in a standard SAP data source with placeholders for the inventory number, fiscal year, and a `CountTablePayload` that holds a dynamic number of table rows based on the document's items. This setup keeps the script flexible, no matter how many items the inventory document contains.
+As noted earlier, we call `BAPI_MATPHYSINV_COUNT` to submit the inventory count, and then `BAPI_TRANSACTION_COMMIT` to finalize the update. The XQL sits inside a standard SAP data source.
+
+The XQL has placeholders for the inventory number and fiscal year. It also has a `CountTablePayload` placeholder that contains the updated rows of the `ITEMS` table. This setup keeps the script flexible, no matter how many items the inventory document contains.
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_COUNT'
