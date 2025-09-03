@@ -106,6 +106,7 @@ First, here's an overview of how the application works.
 1. The user updates the stock numbers. 
 1. The user taps the *Submit Count* button. 
 1. The application uses `BAPI_MATPHYSINV_COUNT` and `BAPI_TRANSACTION_COMMIT` to submit the new stock numbers to SAP.
+1. The application displays the response message from SAP.
 
 
 ### The UI
@@ -167,18 +168,17 @@ The *Submit* button iterates over the variable list and turns it into an XQL-fri
 
 ![image](/assets/2025-09-16/080.png)
 
-In the refresh event, we process the `RETURN` table, extract the SAP message, and display it to the user. That way the user immediately sees whether the submission was successful or if something went wrong.
+In the refresh event, we process the `RETURN` table, extract the status message, and display it to the user. That way the user immediately sees if the submission was successful or not.
 
 ![image](/assets/2025-09-16/090.png)
 
 
 ## Result and conclusion
 
-We learned how to query an inventory document from SAP and submit the counted quantities back to the system. The video below shows the entire process from loading the document to sending the counts. Please remember this example is meant for demonstration only; a production-ready solution would need additional features such as material texts, value help for selecting a list, better validation for user input, and proper error handling rather than simply displaying messages:
-
-- Material text in addition to the material number
-- Value help for selecting an inventory document
-- Better checks to ensure the user has filled the text inputs correctly
-- Proper handling of error messages, not just displaying them
+We explained how to query an inventory document from SAP and submit new numbers back to the system. Let's take a look at the demo video again. But remember, this is just a simple example. A production-ready solution would need additional features to make the application more robust. For example:
+- Material text in addition to the material number.
+- Value help, for selecting an inventory document.
+- Better checks to ensure that the user has filled all text inputs correctly.
+- Proper handling of error messages, instead of just displaying them.
 
 ![image](/assets/2025-09-16/result.gif)
