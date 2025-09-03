@@ -48,6 +48,7 @@ EXECUTE FUNCTION 'BAPI_MATPHYSINV_GETDETAIL'
 ### `BAPI_MATPHYSINV_COUNT`
 
 For `BAPI_MATPHYSINV_COUNT`, we send the following information, so that SAP can identify the proper document:
+
 | Parameter       | Description                                |
 |-----------------|--------------------------------------------|
 | `PHYSINVENTORY` | The inventory number.
@@ -55,10 +56,6 @@ For `BAPI_MATPHYSINV_COUNT`, we send the following information, so that SAP can 
 | `COUNT_DATE` | The date that the inventory count was performed.
 
 We also pass in an `ITEMS` table, which contains the updated stock counts. Each row contains the following columns:
-* The item number
-* The material number
-* The counted quantity
-* The unit
 
 | Column     | Description          |
 |------------|----------------------|
@@ -68,7 +65,7 @@ We also pass in an `ITEMS` table, which contains the updated stock counts. Each 
 | `ENTRY_UOM`  | The unit.            |
 
 
-The following example shows a call with one item---but later, we'll build a script that generates the table rows dynamically, to handle any number of items:
+Here's the XQL query. This example only includes one item in the `ITEMS` table---but later, we'll build a script that generates the table rows dynamically, to handle any number of items:
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_COUNT'
