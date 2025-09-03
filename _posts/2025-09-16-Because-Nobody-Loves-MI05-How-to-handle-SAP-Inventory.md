@@ -13,17 +13,17 @@ downloads:
   - name: SAPInventory.pbmx
     url: /assets/2025-09-16/SAPInventory.pbmx
 ---
-We already talked about many [SAP related use cases](/category/sap) on this blog. Today we want to talk about what SAP calls a physical inventory. This is a process when a person walks around in the warehouse and counts goods. After doing so the quantity of goods that is supposed to be in the warehouse is corrected for the real quantity. In the good old days this was done with the help of paper lists. Today we will learn how to build a paperless version that runs on a tablet.
+We have already covered many [SAP-related use cases](/category/sap) on this blog. Today we will dig deeper into what SAP calls a physical inventory. In that process warehouse staff walk through the aisles and count the goods item by item. When the counting is finished the recorded quantities in the system are corrected so they match the real stock levels. In the past this relied on paper lists that had to be carried around and typed back into SAP later. Now we'll build a modern, tablet-based version that makes the workflow completely paperless.
 
 ## The SAP side
 
-In SAP the main transaction will be MI01 for creating a new inventory list. Our application will replace the transaction MI05 which is used to submit the quantity of the counted goods. The screenshots show this document and how it looks like in SAP.
+In SAP, the main transaction for creating a new inventory list is MI01. After the list exists, warehouse clerks would normally use transaction MI05 to enter the counted quantities. Our application takes over the MI05 part and lets the counts be submitted directly from Peakboard. The screenshots below show how the document appears in SAP.
 
 ![image](/assets/2025-09-16/010.png)
 
-SAP offers a set of BAPIs to process inventory documents. We will use BAPI_MATPHYSINV_GETDETAIL to get all items of inventory document after the user has entered the inventory number (and the fiscal year to make it unique). After the user provided the counts we use BAPI_MATPHYSINV_COUNT to submit the result back to SAP.
+SAP provides a set of BAPIs to process inventory documents. We call BAPI_MATPHYSINV_GETDETAIL after the user has entered the inventory number and fiscal year, which returns all items belonging to that document. Once the counts are typed in, BAPI_MATPHYSINV_COUNT sends the results back to SAP and updates the inventory list accordingly.
 
-Let's have a look at the XQL statement we will use to call these BAPIs. For BAPI_MATPHYSINV_GETDETAIL we use only the table ITEMS after submitting the inventory number and fiscal year. Here's an example of that call:
+The following XQL statement shows how these BAPIs are called. For BAPI_MATPHYSINV_GETDETAIL we read only the ITEMS table, supplying the inventory number and fiscal year to make the call specific:
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_GETDETAIL'
@@ -34,7 +34,7 @@ EXECUTE FUNCTION 'BAPI_MATPHYSINV_GETDETAIL'
       ITEMS INTO @RETVAL
 {% endhighlight %}
 
-For the BAPI_MATPHYSINV_COUNT we need to submit inventory number, fiscal year and the actual count date to identify the document. The actual count items are submitted in the table ITEMS. The minimum requirement is the item number, Material number, and the counted quantity along with the unit. Here's an example of a simple call with one item in the table. We will later generate parts of this XQL dynamically through code.
+For BAPI_MATPHYSINV_COUNT we must send the inventory number, the fiscal year, and the actual count date so SAP can identify the document precisely. The counted items are passed in the ITEMS table, and each row needs the item number, material number, counted quantity, and unit. The example below shows a call with one item, but later the script generates the table rows dynamically to handle any number of items.
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_COUNT'
@@ -52,33 +52,33 @@ EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
 
 ## The Peakboard application
 
-For the UI part we place some simple controls on our Peakboard canvas. The user is supposed to provide inventory number and year at the top, load the document, type in his counts and then submit it back to SAP.
+For the UI part we place a couple of simple controls on the Peakboard canvas. At the top the user enters the inventory number and the fiscal year. After loading the document the user types the counts into the list and then presses a button to submit everything back to SAP.
 
-In the center there's a styled list to show the items.
+In the center there's a styled list showing all the line items from the inventory document. It makes the data easy to scan and provides a familiar layout for warehouse staff.
 
 ![image](/assets/2025-09-16/020.png)
 
-This styled list for the items is bound to a variable list to store all the items that are currently processed by the application. The three scalar variables are used later to make the XQL calls dynamic. It's the same pattern as with other SAP applications that use XQL.
+The list is bound to a variable list that holds the items the application is currently processing. In addition we use three scalar variables that feed the XQL statements, a pattern you may recognize from other SAP applications on this blog. These variables let us update the inventory number, fiscal year, and dynamic table content without rewriting the XQL.
 
 ![image](/assets/2025-09-16/030.png)
 
 ## Getting the inventory document from SAP
 
-For querying the inventory document from SAP we use a regular SAP data source with the above-mentioned XQL. However, we use placeholders to make the XQL dynamic. The text boxes are bound to variables, and the variables are used in the XQL.
+To query the inventory document we use a standard SAP data source configured with the XQL shown above. We insert placeholders to keep the query dynamic so it can reference whatever inventory number and fiscal year the user has typed in. The text boxes on the canvas are bound to variables, and those variables are plugged into the XQL when the data source is refreshed.
 
 ![image](/assets/2025-09-16/040.png)
 
-In the refreshed script we loop through the raw data that is coming from SAP and replicate the fields we need later into the variable list and that in turn is used as the backend for the UI presentation.
+In the refresh script we loop through the raw data returned by SAP, copy the fields we need into the variable list, and use that list as the backend for the UI. This keeps the interface responsive and allows the user to edit the counts directly in the list.
 
 ![image](/assets/2025-09-16/050.png)
 
-The code behind the `Load Document` button is nothing more than to trigger a refresh of the dynamic data source. That's all.
+The `Load Document` button simply triggers a refresh of the dynamic data source. When pressed, the placeholders are replaced with the current variable values and the application pulls the latest data from SAP.
 
 ![image](/assets/2025-09-16/060.png)
 
 ## Submitting the count to SAP
 
-As mentioned above we will use BAPI_MATPHYSINV_COUNT to submit the counted numbers followed by BAPI_TRANSACTION_COMMIT to confirm the call. We put all our XQL into a regular SAP data source. However, we leave some placeholders in the command. Besides the inventory number and fiscal year, we also use a placeholder called `CountTablePayload`. It contains a dynamic number of table rows, depending on how many items the inventory document brings along.
+As noted earlier, we call BAPI_MATPHYSINV_COUNT to submit the counts and then BAPI_TRANSACTION_COMMIT to finalize the update. All XQL resides in a standard SAP data source with placeholders for the inventory number, fiscal year, and a `CountTablePayload` that holds a dynamic number of table rows based on the document's items. This setup keeps the script flexible no matter how many items the inventory document contains.
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_COUNT'
@@ -96,21 +96,22 @@ EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
 
 ![image](/assets/2025-09-16/070.png)
 
-Let's discuss the code behind the `Submit` button. First we loop through the items table and build a string for the table content according to the XQL that is necessary to put the counted quantity into the correct form. This string is stored in the `CountTablePayload` variable and then, when the data source is triggered, finds its way into the dynamic XQL that triggers the SAP call.
+The `Submit` button iterates over the items table and builds a string representing the table content in the format required by the XQL. This string is stored in the `CountTablePayload` variable, and when the data source is triggered the placeholder is replaced with the generated string so the proper SAP call is sent.
 
 ![image](/assets/2025-09-16/080.png)
 
-In the refreshed event we process the `RETURN` table. It contains the message from SAP and we forward it to the end user.
+In the refresh event we process the `RETURN` table, extract the SAP message, and display it to the user. That way the operator immediately sees whether the submission was successful or if something went wrong.
 
 ![image](/assets/2025-09-16/090.png)
 
 ## Result and conclusion
 
-We learned how to query an inventory document from SAP and submit the counted quantity back. The whole process can be seen in the video below. Please be aware of the fact that this is a sample to be used for demonstration. We still need to add some more functionality to turn our application into something that can be used in a production environment:
+
+We learned how to query an inventory document from SAP and submit the counted quantities back to the system. The video below shows the entire process from loading the document to sending the counts. Please remember this example is meant for demonstration only; a production-ready solution would need additional features such as material texts, value help for selecting a list, better validation for user input, and proper error handling rather than simply displaying messages:
 
 - Material text in addition to the material number
 - Value help for selecting an inventory list
 - Better checks to ensure the user has filled the text inputs correctly
-- correct handling of error messages, not only displaying them
+- Proper handling of error messages, not just displaying them
 
 ![image](/assets/2025-09-16/result.gif)
