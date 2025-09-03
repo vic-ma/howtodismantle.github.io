@@ -10,8 +10,8 @@ read_more_links:
   - name: SAP related article
     url: /category/sap
 downloads:
-  - name: xxx.pbmx
-    url: /assets/2025-09-16/xxx.pbmx
+  - name: SAPInventory.pbmx
+    url: /assets/2025-09-16/SAPInventory.pbmx
 ---
 We have already covered many [SAP-related use cases](/category/sap) on this blog. Today we will dig deeper into what SAP calls a physical inventory. In that process warehouse staff walk through the aisles and count the goods item by item. When the counting is finished the recorded quantities in the system are corrected so they match the real stock levels. In the past this relied on paper lists that had to be carried around and typed back into SAP later. Now we'll build a modern, tablet-based version that makes the workflow completely paperless.
 
@@ -105,6 +105,7 @@ In the refresh event we process the `RETURN` table, extract the SAP message, and
 ![image](/assets/2025-09-16/090.png)
 
 ## Result and conclusion
+
 
 We learned how to query an inventory document from SAP and submit the counted quantities back to the system. The video below shows the entire process from loading the document to sending the counts. Please remember this example is meant for demonstration only; a production-ready solution would need additional features such as material texts, value help for selecting a list, better validation for user input, and proper error handling rather than simply displaying messages:
 
