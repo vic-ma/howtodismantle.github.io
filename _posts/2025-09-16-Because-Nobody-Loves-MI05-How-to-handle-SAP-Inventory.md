@@ -24,12 +24,17 @@ In the past, workers had to carry around paper lists to do inventory counts. And
 This is what an inventory document looks like in SAP:
 ![image](/assets/2025-09-16/010.png)
 
-In SAP, we use the `MI01` transaction to create a new inventory document. Normally, the next step is for warehouse staff to do an inventory count, and then use the `MI05` transaction to enter the numbers into the inventory document. But we'll build an applciation to replace the `MI05` step and submit the inventory counts directly into SAP.
+In SAP, we use the `MI01` transaction to create a new inventory document. Normally, the next step is for warehouse staff to do an inventory count, and then use the `MI05` transaction to enter the numbers into the inventory document. But we'll build an applciation to replace the `MI05` step and submit the inventory numbers directly to SAP.
 
+SAP provides a set of BAPIs to process inventory documents:
+* `BAPI_MATPHYSINV_GETDETAIL` returns all the items in an inventory document.
+* `BAPI_MATPHYSINV_COUNT` makes changes to an inventory document. 
 
-SAP provides a set of BAPIs to process inventory documents.  We call `BAPI_MATPHYSINV_GETDETAIL` after the user enters the inventory number and fiscal year, which returns all the items belonging to that document. Once the counts are typed in, `BAPI_MATPHYSINV_COUNT` sends the results back to SAP and updates the inventory document accordingly.
+Let's look at the XQL statements that we use to call these BAPIs.
 
-The following XQL statement shows how these BAPIs are called. For `BAPI_MATPHYSINV_GETDETAIL`, we read only the `ITEMS` table. We enter the inventory number and fiscal year to only get the data we want:
+### `BAPI_MATPHYSINV_GETDETAIL`
+
+For `BAPI_MATPHYSINV_GETDETAIL`, we enter the inventory number and fiscal year to specify the inventory document we want. We also specify that we only want the `ITEMS` table.
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_GETDETAIL'
@@ -40,7 +45,18 @@ EXECUTE FUNCTION 'BAPI_MATPHYSINV_GETDETAIL'
       ITEMS INTO @RETVAL
 {% endhighlight %}
 
-For `BAPI_MATPHYSINV_COUNT`, we must send the inventory number, the fiscal year, and the actual count date, so that SAP can identify the document precisely. The counted items are passed in the `ITEMS` table. Each row needs the item number, material number, counted quantity, and unit. The following example shows a call with one item---but later, the script generates the table rows dynamically, to handle any number of items:
+For `BAPI_MATPHYSINV_COUNT`, we send the following information, so that SAP can identify the proper document:
+* The inventory number
+* The fiscal year
+* The date that the inventory count was performed
+
+We also pass in an `ITEMS` table, which contains the updated stock counts. Each row contains the following columns:
+* The item number
+* The material number
+* The counted quantity
+* The unit
+
+The following example shows a call with one item---but later, the script generates the table rows dynamically, to handle any number of items:
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_COUNT'
