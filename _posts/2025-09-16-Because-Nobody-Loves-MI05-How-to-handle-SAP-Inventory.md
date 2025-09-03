@@ -21,7 +21,7 @@ In this article, we'll look at SAP's [physical inventory component](https://help
 In the past, workers had to carry around paper lists to record the inventory counts. Once they finished their counts, they also had to type the numbers into SAP manually. But today, we'll use Peakboard to build a modern, tablet-based app. This makes the whole workflow paperless and as easy as possible.
 
 
-## Set up SAP
+## The SAP side
 
 In SAP, we use the `MI01` transaction to create a new inventory list. Normally, the next step is for warehouse staff to do an inventory count, and then use the `MI05` transaction to enter the numbers into the inventory list. Our application replaces the `MI05` step and submits the inventory counts directly into SAP. This screenshot shows how the inventory document appears in SAP:
 
@@ -40,7 +40,7 @@ EXECUTE FUNCTION 'BAPI_MATPHYSINV_GETDETAIL'
       ITEMS INTO @RETVAL
 {% endhighlight %}
 
-For BAPI_MATPHYSINV_COUNT we must send the inventory number, the fiscal year, and the actual count date so SAP can identify the document precisely. The counted items are passed in the ITEMS table, and each row needs the item number, material number, counted quantity, and unit. The example below shows a call with one item, but later the script generates the table rows dynamically to handle any number of items.
+For `BAPI_MATPHYSINV_COUNT`, we must send the inventory number, the fiscal year, and the actual count date, so that SAP can identify the document precisely. The counted items are passed in the `ITEMS` table. Each row needs the item number, material number, counted quantity, and unit. The following example shows a call with one item---but later, the script generates the table rows dynamically, to handle any number of items:
 
 {% highlight test %}
 EXECUTE FUNCTION 'BAPI_MATPHYSINV_COUNT'
