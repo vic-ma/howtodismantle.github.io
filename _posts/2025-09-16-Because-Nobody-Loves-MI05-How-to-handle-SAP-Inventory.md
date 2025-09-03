@@ -69,11 +69,11 @@ We add a styled list to the center of the screen. This shows all the line items 
 
 ![image](/assets/2025-09-16/020.png)
 
-The list is bound to a variable list that holds the items the application is currently processing. In addition we use three scalar variables that feed the XQL statements, a pattern you may recognize from other SAP applications on this blog. These variables let us update the inventory number, fiscal year, and dynamic table content without rewriting the XQL.
+The styled list is bound to a variable list. This variable list contains the items that the application is currently processing. In addition, we use three scalar variables that feed the XQL statements (a pattern you may recognize from other SAP-based apps that we've built on this blog). These variables let us update the inventory number, fiscal year, and dynamic table content---without rewriting the XQL.
 
 ![image](/assets/2025-09-16/030.png)
 
-## Getting the inventory document from SAP
+## Get the inventory document from SAP
 
 To query the inventory document we use a standard SAP data source configured with the XQL shown above. We insert placeholders to keep the query dynamic so it can reference whatever inventory number and fiscal year the user has typed in. The text boxes on the canvas are bound to variables, and those variables are plugged into the XQL when the data source is refreshed.
 
