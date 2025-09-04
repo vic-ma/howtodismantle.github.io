@@ -64,7 +64,7 @@ from requests.auth import HTTPBasicAuth
 
 def main():
     url = "http://comicbookguy:40404/api/functions/SubmitNotification"
-    payload = {"Message": "The roof is fire!"}
+    payload = {"Message": "The roof is on fire!"}
     username = "ExternalCaller"
     password = "xxx"
 
