@@ -59,16 +59,23 @@ using (var client = new HttpClient())
 In case we want to do the same using Python here's a typical sample for Pything Users.
 
 {% highlight python %}
-url = "http://comicbookguy:40404/api/functions/SubmitNotification"
-payload = {"Message": "The roof is on fire!"}
-username = "ExternalCaller"
-password = "XXX"
+import requests
+from requests.auth import HTTPBasicAuth
 
-response = requests.post(
-    url,
-    json=payload,
-    auth=HTTPBasicAuth(username, password)
-)
+def main():
+    url = "http://comicbookguy:40404/api/functions/SubmitNotification"
+    payload = {"Message": "The roof is on fire!"}
+    username = "ExternalCaller"
+    password = "p@ssw0rd"
+
+    response = requests.post(
+        url,
+        json=payload,
+        auth=HTTPBasicAuth(username, password)
+    )
 
 print(f"Response: {response.status_code} - {response.text}")
+
+if __name__ == "__main__":
+    main()
 {% endhighlight %}
