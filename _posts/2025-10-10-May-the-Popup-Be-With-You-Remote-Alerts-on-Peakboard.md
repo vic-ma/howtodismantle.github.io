@@ -23,7 +23,7 @@ for our exmaple we need a simple Peakboard application. It only contains a big t
 
 Beside the two controls we will need a function called `SubmitNotification` which receives a parameter `Message` that contains the actual payload to be presented to the user. The function must be marked as `shared` to allow it to be called from the outside.
 
-![image](/assets/2025-10-10/010.png)
+![image](/assets/2025-10-10/020.png)
 
 That's all we need. Now the application can be deplyoed on a box or on a BYOD instance waiting for incoming messages. The next screenshot shows an incoming message in the running application and how to confirm it.
 
@@ -64,9 +64,9 @@ from requests.auth import HTTPBasicAuth
 
 def main():
     url = "http://comicbookguy:40404/api/functions/SubmitNotification"
-    payload = {"Message": "The roof is on fire!"}
+    payload = {"Message": "The roof is fire!"}
     username = "ExternalCaller"
-    password = "p@ssw0rd"
+    password = "xxx"
 
     response = requests.post(
         url,
@@ -74,8 +74,15 @@ def main():
         auth=HTTPBasicAuth(username, password)
     )
 
-print(f"Response: {response.status_code} - {response.text}")
+    print(f"Response: {response.status_code} - {response.text}")
 
 if __name__ == "__main__":
     main()
 {% endhighlight %}
+
+## Set up a box user
+
+It's very important to keep safety in mind and not use an Administrator account to call the function. Ideally we create a `Caller` role on the user and create a new user bound to this role as shown in the screenshot. They we can make sure that the caller only can call and nothing else. Calling a function is considered as "Write Data".
+
+![image](/assets/2025-10-10/030.png)
+
