@@ -20,7 +20,9 @@ A [version control](https://about.gitlab.com/topics/version-control/) system let
 
 ## File Management in Peakboard Hub
 
-You can access Peakboard Hub's file management through the regular Hub portal. In this article, we will use Hub Online, but it works the same way in the on-prem version.
+Peakboard Hub 
+
+You can access Peakboard Hub's file management system through the normal Hub portal. In this article, we will use Hub Online, but it works the same way in the on-prem version.
 A common way to organize is to create a directory structure to store PBMX/PFX files along with other artifacts. The screenshot shows a dedicated directory for all PBMX files.
 
 ![image](/assets/2025-09-09/010.png)
