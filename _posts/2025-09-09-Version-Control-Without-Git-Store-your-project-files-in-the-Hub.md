@@ -10,48 +10,72 @@ read_more_links:
   - name: Organisation & Administration
     url: /category/administration
 ---
-Every Peakboard application and flow is a development artifact that deserves proper handling. In a professional context, this means that these artifacts should be managed in a way aligned with common industry standards of security and documentation.
-When it comes to documentation, a Peakboard project (whether a regular design project or Flow) includes built-in documentation such as description texts and comments that we can bind to controls and other parts of the project.
-Besides documentation, versioning is a huge topic and a crucial requirement in industrial software development. The most common way to do this is [Git](https://git-scm.com/), a free and open source tool to track all changes of development artifacts from the beginning of the project to the latest version. In this article, we discuss a lightweight alternative to Git. The Peakboard Hub, available both online and on-prem, offers a built-in document management system to store and version PBMX files (design projects) and PFX files (Flow projects) in a similar way to Git.
+Every Peakboard application and Peakboard Flow is a development artifact that should be managed properly. This means providing documentation for them and using a version control system to keep track of changes.
 
-## File Management in Peakboard Hub
+When it comes to documentation, a Peakboard project (an application or a Flow) includes built-in documentation, like description texts and comments, which you can bind to controls and other parts of the project.
 
-We can access Peakboard Hub's file management through the regular Hub portal. In this article, we will use Hub Online, but it works the same way in the on-prem version.
-A common way to organize is to create a directory structure to store PBMX/PFX files along with other artifacts. The screenshot shows a dedicated directory for all PBMX files.
+Version control, on the other hand, is a little more complicated...
 
-![image](/assets/2025-09-09/010.png)
+## What is version control?
 
-## Handling the files in Peakboard Designer
+A [version control](https://about.gitlab.com/topics/version-control/) system lets you track all the changes of your development artifacts---from the beginning of the project to the latest version. The most popular version control system is [Git](https://git-scm.com/). However, Git is complex and can be difficult to use. Fortunately, Peakboard Hub provides a simple alternative to Git.
 
-In Peakboard Designer, we can choose to store a project file on the local file system — which is what we would do when using versioning with Git — or in the Hub. In the subsequent dialog we select the appropriate directory.
+[Peakboard Hub](https://www.peakboard.com/en/product/peakboard-hub) provides a lightweight and easy way to version control your Peakboard projects (both applications and Flows). It's available online and on-prem. In this article, we'll explain how you can use Peakboard Hub to version control your Peakboard projects. 
+
+## Save projects to Peakboard Hub
+
+Normally, in Peakboard Designer, we save our project locally, to our computer. In order to version control our projects with Peakboard Hub, all we need to do is save the projects to Peakboard Hub instead:
 
 ![image](/assets/2025-09-09/020.png)
 
-To load a project we can also choose between the file system and Hub storage.
+We select a folder within Peakboard Hub to store the project file and then click *OK*:
+
+![image](/assets/2025-09-09/025.png)
+
+This uploads the project file (PBMX for applications and PFX for Flows) to the specified folder in Peakboard Hub, where it is automatically version controlled. 
+
+## Load projects from Peakboard Hub
+
+In order to load a project from Peakboard Hub, we click on *Open from Peakboard Hub*:
+
+![image](/assets/2025-09-09/027.png)
+
+## Manage project files in Peakboard Hub
+
+To see all the project files we uploaded to Peakboard Hub, we open Peakboard Hub and go to the *Files* tab. We're using Peakboard Hub Online here, but it works the same way with the on-prem version.
+
+![image](/assets/2025-09-09/010.png)
+
+You can organize your files however you like, by creating folders. For example, you might have a folder for Peakboard applications that run in the factory floor, and a folder for Peakboard applications that run in the office. Within those folders, you might have additional subfolders. For example, you might have `/office/sap/` for Peakboard apps that integrate with SAP.
+
 
 ## Versioning
 
-All documents stored in the Hub are automatically versioned. To access a version other than the current file, we can right-click on a file and then choose `Manage Versions`. Any stored version from the past can be restored.
+All files stored in Peakboard Hub are automatically versioned. To revert to a previous version of a file, right-click on the file and select *Manage Versions*:
 
 ![image](/assets/2025-09-09/030.png)
 
+You can restore any previous version of the file:
 ![image](/assets/2025-09-09/040.png)
 
 ## Permissions
 
-It's a common practice to restrict access, especially write access, to as few users as possible. Assigning rights to certain groups of users works the same as anywhere else in the Hub. We assign the activity to specific user groups. The screenshot shows how to configure the directory for the project files. Everyone can read or download the files, but only the users who are part of the Developer group can write into the directory and change files.
+It's a good security practice to restrict access---especially write access---to as few users as possible. You can configure the permissions for specific folders and user groups.
+
+In the following screenshot, we configure the permissions for the `Misc Projects` folder. We allow everyone to read and download the files. But we only let developers write to the directory and change files.
 
 ![image](/assets/2025-09-09/050.png)
 
 ## Deployment
 
-Of course, we can use the traditional way of deploying projects from the Designer to the box or BYOD instance. However, if we decide to store and version the projects in the Hub, we can deploy them directly from the file management by right-clicking the PBMX file.
+You can deploy an application directly from Peakboard Hub to a Peakboard Box. Right click on the PBMX file and select *Upload to box*. Note that the target Box must be [connected to Peakboard Hub](/Peakboard-Hub-Online-Bring-your-boxes-into-the-cloud.html).
 
 ![image](/assets/2025-09-09/060.png)
 
+However, you can always use the traditional way of deploying projects from Peakboard Designer to the Box or BYOD instance.
+
 ## Conclusion
 
-Today we explored the basic ideas behind using Peakboard Hub's file management to store, organize, and version Peakboard project files. When we compare this method with the traditional use of Git, we can see that it is a very good trade-off for teams that do not have a Git architecture in place yet. However, Git also offers features that cannot be replaced by the Hub, such as "Pull Requests" or other development workflows that go beyond just storing and versioning. This makes it more suitable for small teams with limited need for sophisticated Git features.
+We looked at how to use Peakboard Hub's file management system to store, organize, and version control Peakboard project files. It's a great, lightweight option for teams that don't have a Git workflow in place yet.
 
-
-
+However, Git also offers features that cannot be replicated by the Hub, such as pull requests and other development tools that go beyond simple storage and versioning. This makes Peakboard Hub's file management system more suitable for small teams that don't need Git's more complex features---and just want a simple way to store and version control their Peakboard files.
