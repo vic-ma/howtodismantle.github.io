@@ -12,8 +12,9 @@ read_more_links:
 ---
 Each Peakboard application and Peakboard Flow is a development artifact that should be handled with care. This means that the artifacts should be managed in accordance to industry standards for security and documentation.
 
-When it comes to documentation, a Peakboard project (whether a regular design project or Flow) includes built-in documentation such as description texts and comments that we can bind to controls and other parts of the project.
-Besides documentation, versioning is a huge topic and a crucial requirement in industrial software development. The most common way to do this is [Git](https://git-scm.com/), a free and open source tool to track all changes of development artifacts from the beginning of the project to the latest version. In this article, we discuss a lightweight alternative to Git. The Peakboard Hub, available both online and on-prem, offers a built-in document management system to store and version PBMX files (design projects) and PFX files (Flow projects) in a similar way to Git.
+When it comes to documentation, a Peakboard project (whether an application or a Flow) includes built-in documentation, such as description texts and comments, which you can bind to controls and other parts of the project.
+
+[Version control](https://about.gitlab.com/topics/version-control/) is another essential part of professional software development. The most popular version control system is [Git](https://git-scm.com/), a free and open source tool to track all changes of development artifacts from the beginning of the project to the latest version. In this article, we discuss a lightweight alternative to Git. The Peakboard Hub, available both online and on-prem, offers a built-in document management system to store and version PBMX files (design projects) and PFX files (Flow projects) in a similar way to Git.
 
 ## File Management in Peakboard Hub
 
