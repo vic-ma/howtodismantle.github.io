@@ -10,7 +10,8 @@ read_more_links:
   - name: Organisation & Administration
     url: /category/administration
 ---
-Every Peakboard application and flow is a development artifact that deserves proper handling. In a professional context, this means that these artifacts should be managed in a way aligned with common industry standards of security and documentation.
+Each Peakboard application and Peakboard Flow is a development artifact that should be handled with care. This means that the artifacts should be managed in accordance to industry standards for security and documentation.
+
 When it comes to documentation, a Peakboard project (whether a regular design project or Flow) includes built-in documentation such as description texts and comments that we can bind to controls and other parts of the project.
 Besides documentation, versioning is a huge topic and a crucial requirement in industrial software development. The most common way to do this is [Git](https://git-scm.com/), a free and open source tool to track all changes of development artifacts from the beginning of the project to the latest version. In this article, we discuss a lightweight alternative to Git. The Peakboard Hub, available both online and on-prem, offers a built-in document management system to store and version PBMX files (design projects) and PFX files (Flow projects) in a similar way to Git.
 
@@ -52,6 +53,3 @@ Of course, we can use the traditional way of deploying projects from the Designe
 ## Conclusion
 
 Today we explored the basic ideas behind using Peakboard Hub's file management to store, organize, and version Peakboard project files. When we compare this method with the traditional use of Git, we can see that it is a very good trade-off for teams that do not have a Git architecture in place yet. However, Git also offers features that cannot be replaced by the Hub, such as "Pull Requests" or other development workflows that go beyond just storing and versioning. This makes it more suitable for small teams with limited need for sophisticated Git features.
-
-
-
