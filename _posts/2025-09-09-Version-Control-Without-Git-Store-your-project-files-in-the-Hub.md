@@ -72,4 +72,6 @@ However, you can still use the traditional way of deploying projects from Peakbo
 
 ## Conclusion
 
-Today we explored the basic ideas behind using Peakboard Hub's file management to store, organize, and version Peakboard project files. When we compare this method with the traditional use of Git, we can see that it is a very good trade-off for teams that do not have a Git architecture in place yet. However, Git also offers features that cannot be replaced by the Hub, such as "Pull Requests" or other development workflows that go beyond just storing and versioning. This makes it more suitable for small teams with limited need for sophisticated Git features.
+We looked at how to use Peakboard Hub's file management system to store, organize, and version control Peakboard project files. It's a great, lightweight option for teams that don't have a Git workflow in place yet.
+
+However, Git also offers features that cannot be replaced by the Hub, such as pull requests or other development tools that go beyond simple storage and versioning. This makes Peakboard Hub's file management more suitable for small teams with limited need for sophisticated Git features.
