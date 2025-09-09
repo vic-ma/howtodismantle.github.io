@@ -36,13 +36,14 @@ In order to load a project from Peakboard Hub, we click on *Open from Peakboard 
 
 ![image](/assets/2025-09-09/027.png)
 
-## File Management in Peakboard Hub
+## Manage project files in Peakboard Hub
 
-You can access Peakboard Hub's file management system through the Hub portal. In this article, we'll use Peakboard Hub Online, but it works the same way in the on-prem version.
-
-A common way to organize files is to create a directory structure to store PBMX/PFX files, along with other artifacts. In this screenshot, we have a directory that stores the PBMX files for miscellaneous projects:
+To see all the project files we uploaded to Peakboard Hub, we open Peakboard Hub and go to the *Files* tab. We're using Peakboard Hub Online here, but it works the same way in the on-prem version.
 
 ![image](/assets/2025-09-09/010.png)
+
+You can organize your files however you like, by creating folders. For example, you might have a folder for small miscellaneous projects. But you might also have a dedicated folder for one big project.
+
 
 ## Versioning
 
