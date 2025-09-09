@@ -47,10 +47,11 @@ You can organize your files however you like, by creating folders. For example, 
 
 ## Versioning
 
-All documents stored in the Hub are automatically versioned. To access a version other than the current file, we can right-click on a file and then choose `Manage Versions`. Any stored version from the past can be restored.
+All files stored in Peakboard Hub are automatically versioned. To revert to a previous version of a file, right-click on the file and select *Manage Versions*. 
 
 ![image](/assets/2025-09-09/030.png)
 
+You can restore any previous version of the file:
 ![image](/assets/2025-09-09/040.png)
 
 ## Permissions
