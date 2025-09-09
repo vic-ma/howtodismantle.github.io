@@ -56,7 +56,9 @@ You can restore any previous version of the file:
 
 ## Permissions
 
-It's a common practice to restrict access, especially write access, to as few users as possible. Assigning rights to certain groups of users works the same as anywhere else in the Hub. We assign the activity to specific user groups. The screenshot shows how to configure the directory for the project files. Everyone can read or download the files, but only the users who are part of the Developer group can write into the directory and change files.
+It's a good security practice to restrict access, especially write access, to as few users as possible. You can configure the permissions for specific folders and user groups.
+
+In the following screenshot, we configure the permissions for the `Misc Projects` folder. We let everyone read or download the files. But we only let developers write into the directory and change files.
 
 ![image](/assets/2025-09-09/050.png)
 
