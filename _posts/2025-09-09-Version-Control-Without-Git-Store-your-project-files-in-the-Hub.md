@@ -10,20 +10,19 @@ read_more_links:
   - name: Organisation & Administration
     url: /category/administration
 ---
-Every Peakboard application and Peakboard Flow is a development artifact that needs to be managed appropriately. This means providing documentation for them, and using a version control system to track changes.
+Every Peakboard application and Peakboard Flow is a development artifact that needs to be managed properly. This means providing documentation for them, and using a version control system to track changes.
 
 When it comes to documentation, a Peakboard project (whether an application or a Flow) includes built-in documentation, like description texts and comments, which you can bind to controls and other parts of the project.
 
 A [version control](https://about.gitlab.com/topics/version-control/) system lets you track all the changes of your development artifacts---from the beginning of the project to the latest version. The most popular version control system is [Git](https://git-scm.com/). However, Git is a complex program that can be difficult to use. Luckily, you can use Peakboard Hub to version control your Peakboard projects!
 
-[Peakboard Hub](https://www.peakboard.com/en/product/peakboard-hub) provides a lightweight and easy way to version control your Peakboard projects (both applications and Flows). It's available both online and on-prem. In this article, we'll explain how you can use Peakboard Hub to version control your Peakboard projects. 
+[Peakboard Hub](https://www.peakboard.com/en/product/peakboard-hub) provides a lightweight and easy way to version control your Peakboard projects (both applications and Flows). It's available online and on-prem. In this article, we'll explain how you can use Peakboard Hub to version control your Peakboard projects. 
 
 ## File Management in Peakboard Hub
 
-Peakboard Hub 
+You can access Peakboard Hub's file management system through the Hub portal. In this article, we'll use Peakboard Hub Online, but it works the same way in the on-prem version.
 
-You can access Peakboard Hub's file management system through the normal Hub portal. In this article, we will use Hub Online, but it works the same way in the on-prem version.
-A common way to organize is to create a directory structure to store PBMX/PFX files along with other artifacts. The screenshot shows a dedicated directory for all PBMX files.
+A common way to organize files is to create a directory structure to store PBMX/PFX files, along with other artifacts. In this screenshot, we have a directory that stores the PBMX files for miscellaneous projects:
 
 ![image](/assets/2025-09-09/010.png)
 
