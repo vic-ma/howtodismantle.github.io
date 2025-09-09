@@ -46,12 +46,12 @@ To see all the project files we uploaded to Peakboard Hub, we open Peakboard Hub
 
 ![image](/assets/2025-09-09/010.png)
 
-You can organize your files however you like, by creating folders. For example, you might have a folder for Peakboard applications that run in the factory floor, and a folder for Peakboard applications that run in the office. Within those folders, you might have additional subfolders. For example, you might have `/office/sap/` for apps that integrate with SAP.
+You can organize your files however you like, by creating folders. For example, you might have a folder for Peakboard applications that run in the factory floor, and a folder for Peakboard applications that run in the office. Within those folders, you might have additional subfolders. For example, you might have `/office/sap/` for Peakboard apps that integrate with SAP.
 
 
 ## Versioning
 
-All files stored in Peakboard Hub are automatically versioned. To revert to a previous version of a file, right-click on the file and select *Manage Versions*. 
+All files stored in Peakboard Hub are automatically versioned. To revert to a previous version of a file, right-click on the file and select *Manage Versions*:
 
 ![image](/assets/2025-09-09/030.png)
 
