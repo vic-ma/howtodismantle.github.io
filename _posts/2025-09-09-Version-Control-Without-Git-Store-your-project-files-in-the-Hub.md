@@ -42,7 +42,7 @@ In order to load a project from Peakboard Hub, we click on *Open from Peakboard 
 
 ## Manage project files in Peakboard Hub
 
-To see all the project files we uploaded to Peakboard Hub, we open Peakboard Hub and go to the *Files* tab. We're using Peakboard Hub Online here, but it works the same way in the on-prem version.
+To see all the project files we uploaded to Peakboard Hub, we open Peakboard Hub and go to the *Files* tab. We're using Peakboard Hub Online here, but it works the same way with the on-prem version.
 
 ![image](/assets/2025-09-09/010.png)
 
