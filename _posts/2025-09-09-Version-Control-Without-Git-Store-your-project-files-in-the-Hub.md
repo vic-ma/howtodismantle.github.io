@@ -68,14 +68,14 @@ In the following screenshot, we configure the permissions for the `Misc Projects
 
 ## Deployment
 
-You can deploy an application directly from Peakboard Hub to a Peakboard Box. Right click on the PBMX file, and select *Upload to box*. Note that the target Box must be [connected to Peakboard Hub](/Peakboard-Hub-Online-Bring-your-boxes-into-the-cloud.html).
+You can deploy an application directly from Peakboard Hub to a Peakboard Box. Right click on the PBMX file and select *Upload to box*. Note that the target Box must be [connected to Peakboard Hub](/Peakboard-Hub-Online-Bring-your-boxes-into-the-cloud.html).
 
 ![image](/assets/2025-09-09/060.png)
 
-However, you can still use the traditional way of deploying projects from Peakboard Designer to the Box or BYOD instance.
+However, you can always use the traditional way of deploying projects from Peakboard Designer to the Box or BYOD instance.
 
 ## Conclusion
 
 We looked at how to use Peakboard Hub's file management system to store, organize, and version control Peakboard project files. It's a great, lightweight option for teams that don't have a Git workflow in place yet.
 
-However, Git also offers features that cannot be replaced by the Hub, such as pull requests or other development tools that go beyond simple storage and versioning. This makes Peakboard Hub's file management more suitable for small teams with limited need for sophisticated Git features.
+However, Git also offers features that cannot be replaced by the Hub, such as pull requests or other development tools that go beyond simple storage and versioning. This makes Peakboard Hub's file management system more suitable for small teams who don't need Git's more powerful features.
