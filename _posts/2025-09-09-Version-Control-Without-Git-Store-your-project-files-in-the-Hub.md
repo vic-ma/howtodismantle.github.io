@@ -18,6 +18,24 @@ A [version control](https://about.gitlab.com/topics/version-control/) system let
 
 [Peakboard Hub](https://www.peakboard.com/en/product/peakboard-hub) provides a lightweight and easy way to version control your Peakboard projects (both applications and Flows). It's available online and on-prem. In this article, we'll explain how you can use Peakboard Hub to version control your Peakboard projects. 
 
+## Save projects to Peakboard Hub
+
+Normally, in Peakboard Designer, we save our project locally, to our computer. But in order to version control our projects with Peakboard Hub, we need to save the projects to Peakboard Hub:
+
+![image](/assets/2025-09-09/020.png)
+
+We select a folder within Peakboard Hub to store the project file and then click *OK*:
+
+![image](/assets/2025-09-09/025.png)
+
+This uploads the project file (PBMX for applications and PFX for Flows) to Peakboard Hub, where it is automatically version controlled. 
+
+## Load projects from Peakboard Hub
+
+In order to load a project from Peakboard Hub, we click on *Open from Peakboard Hub*:
+
+![image](/assets/2025-09-09/027.png)
+
 ## File Management in Peakboard Hub
 
 You can access Peakboard Hub's file management system through the Hub portal. In this article, we'll use Peakboard Hub Online, but it works the same way in the on-prem version.
@@ -25,14 +43,6 @@ You can access Peakboard Hub's file management system through the Hub portal. In
 A common way to organize files is to create a directory structure to store PBMX/PFX files, along with other artifacts. In this screenshot, we have a directory that stores the PBMX files for miscellaneous projects:
 
 ![image](/assets/2025-09-09/010.png)
-
-## Handling the files in Peakboard Designer
-
-In Peakboard Designer, we can choose to store a project file on the local file system — which is what we would do when using versioning with Git — or in the Hub. In the subsequent dialog we select the appropriate directory.
-
-![image](/assets/2025-09-09/020.png)
-
-To load a project we can also choose between the file system and Hub storage.
 
 ## Versioning
 
