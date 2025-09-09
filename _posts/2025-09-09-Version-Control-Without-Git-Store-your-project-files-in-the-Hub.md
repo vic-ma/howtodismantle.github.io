@@ -24,7 +24,7 @@ A [version control](https://about.gitlab.com/topics/version-control/) system let
 
 ## Save projects to Peakboard Hub
 
-Normally, in Peakboard Designer, we save our project locally, to our computer. But in order to version control our projects with Peakboard Hub, we need to save the projects to Peakboard Hub:
+Normally, in Peakboard Designer, we save our project locally, to our computer. In order to version control our projects with Peakboard Hub, all we need to do is save the projects to Peakboard Hub instead:
 
 ![image](/assets/2025-09-09/020.png)
 
@@ -32,7 +32,7 @@ We select a folder within Peakboard Hub to store the project file and then click
 
 ![image](/assets/2025-09-09/025.png)
 
-This uploads the project file (PBMX for applications and PFX for Flows) to Peakboard Hub, where it is automatically version controlled. 
+This uploads the project file (PBMX for applications and PFX for Flows) to the specified folder in Peakboard Hub, where it is automatically version controlled. 
 
 ## Load projects from Peakboard Hub
 
