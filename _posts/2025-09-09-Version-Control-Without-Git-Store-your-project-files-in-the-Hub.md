@@ -64,7 +64,9 @@ In the following screenshot, we configure the permissions for the `Misc Projects
 
 ## Deployment
 
-Of course, we can use the traditional way of deploying projects from the Designer to the box or BYOD instance. However, if we decide to store and version the projects in the Hub, we can deploy them directly from the file management by right-clicking the PBMX file.
+You can deploy an application directly from Peakboard Hub to a Peakboard Box. Right click on the PBMX file, and select *Upload to box*. Note that the target Box must be [connected to Peakboard Hub](/Peakboard-Hub-Online-Bring-your-boxes-into-the-cloud.html).
+
+However, you can still use the traditional way of deploying projects from the Designer to the Box or BYOD instance. 
 
 ![image](/assets/2025-09-09/060.png)
 
