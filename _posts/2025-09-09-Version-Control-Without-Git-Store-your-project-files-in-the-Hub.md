@@ -10,9 +10,13 @@ read_more_links:
   - name: Organisation & Administration
     url: /category/administration
 ---
-Every Peakboard application and Peakboard Flow is a development artifact that needs to be managed properly. This means providing documentation for them, and using a version control system to track changes.
+Every Peakboard application and Peakboard Flow is a development artifact that should be managed properly. This means providing documentation for them and using a version control system to keep track of changes.
 
 When it comes to documentation, a Peakboard project (whether an application or a Flow) includes built-in documentation, like description texts and comments, which you can bind to controls and other parts of the project.
+
+Version control, on the other hand, is a little more complicated...
+
+## What is version control?
 
 A [version control](https://about.gitlab.com/topics/version-control/) system lets you track all the changes of your development artifacts---from the beginning of the project to the latest version. The most popular version control system is [Git](https://git-scm.com/). However, Git is a complex program that can be difficult to use. Luckily, you can use Peakboard Hub to version control your Peakboard projects!
 
