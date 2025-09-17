@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Because Nobody Likes MI05 - How to handle SAP Inventory
-date: 2023-03-01 03:00:00 +0000
+date: 2025-09-16 03:00:00 +0000
 tags: sap usecase
 image: /assets/2025-09-16/title.png
 image_header: /assets/2025-09-16/title_landscape.png
