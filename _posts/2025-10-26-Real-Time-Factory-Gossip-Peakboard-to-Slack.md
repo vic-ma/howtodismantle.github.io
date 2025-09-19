@@ -9,6 +9,8 @@ bg_alternative: true
 read_more_links:
   - name: Slack Apps
     url: https://api.slack.com/apps
+  - name: How to use incoming webhooks
+    url: https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks
 downloads:
   - name: SendSlackMessage.pbmx
     url: /assets/2025-10-26/SendSlackMessage.pbmx
@@ -52,3 +54,5 @@ The next two screenshots show the result in action. First, we type in the messag
 The incoming webhook is triggered and that generates the message in the Slack channel that we have defined when creating the app earlier in the Slack settings. 
 
 ![image](/assets/2025-10-26/070.png)
+
+Under this [link](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks) we can find the documentation of the procedure we just used. It's  possible to use lot of other formatting options to enrich the messages we send to Slack. 
