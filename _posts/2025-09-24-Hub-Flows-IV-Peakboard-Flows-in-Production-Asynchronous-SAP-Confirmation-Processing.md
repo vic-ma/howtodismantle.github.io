@@ -15,11 +15,25 @@ downloads:
 ---
 In the part of our [Hub Flows series](/category/hubflows), we'll discuss another common design pattern: A message queue that sends messages asynchronously. Before continuing, make sure you understand the [basics of Hub Flows](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html) first.
 
-## Why we need queueing?
+## What is a message queue?
 
-The idea of queueing is to build an architecture in which message are generated from Peakboard applications, but they are not sent out directly to the desination system, but first stored somewhere and then processed asynchronoulsy. Some typical examples for this could be send out order confirmations for an ERP system or sending out alerts or emails to inform a user about a problem.
+A [message queue](https://www.ibm.com/think/topics/message-queues) accepts messages from producers. It temporarily stores the messages, before sending them to the target of the message.
 
-It would be possible to do this activity directly as soon as the need comes up in the Peakboard application. So why do we want to store it first and the prcoess it asynchronslouly? The most common reason for this is to not bother the user with this process. Storing all values first is done very fast and the user can keep on working. The actual processing takes longer but no user needs to wait. It happens in the background. The second common reason is when the destination system is not reachable or the processing of the message can't be done for other reasons (e.g. while the order to be confirmed is blocked). Then we want to re-try the processing after a while.
+Here's an example of how you could use a message queue with Peakboard:
+1. A user uses a Peakboard app to confirm an order.
+1. The Peakboard app sends an order confirmation to a message queue. The target is the company's ERP system.
+1. The message queue processes and temporarily stores the order confirmation.
+1. The message queue sends the order confirmation to the ERP system.
+
+Of course, you could do the exact same thing without a message queue, and in less steps:
+1. A user uses a Peakboard app to confirm an order.
+1. The Peakboard app sends an order confirmation to the company's ERP system.
+
+So why would you want want to store it first and then send it asynchronously? The biggest reason for is so that the Peakboard app isn't blocked.
+
+If the Peakboard app sends the order confirmation directly (synchronously) to the ERP system, then the app has to wait for the ERP system to process the order and respond to the app. While the Peaboard app is waiting for the ERP system, it cannot do anything else. It is *blocked*.
+
+Storing all values first is done very fast and the user can keep on working. The actual processing takes longer but no user needs to wait. It happens in the background. The second common reason is when the destination system is not reachable or the processing of the message can't be done for other reasons (e.g. while the order to be confirmed is blocked). Then we want to re-try the processing after a while.
 
 In today's article we will build an architecture to enable queueing. We assume that production order confirmation message are stored in a hub list. Then we build a Hub FLow that loops over all unprocessed message and sends them to SAP. The confirmation message is marked as done as soon as it's confirmed by the SAP system. If anything goes wrong the message is marked as errornous and with the next round of confirmation we will try to process it again until it's done successfully.
 
