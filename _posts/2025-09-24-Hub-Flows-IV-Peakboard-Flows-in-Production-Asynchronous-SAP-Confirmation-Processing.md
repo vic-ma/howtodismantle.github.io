@@ -33,7 +33,12 @@ So why would you want want to store it first and then send it asynchronously? Th
 
 If the Peakboard app sends the order confirmation directly (synchronously) to the ERP system, then the app has to wait for the ERP system to process the order and respond to the app. While the Peaboard app is waiting for the ERP system, it cannot do anything else. It is *blocked*.
 
-Storing all values first is done very fast and the user can keep on working. The actual processing takes longer but no user needs to wait. It happens in the background. The second common reason is when the destination system is not reachable or the processing of the message can't be done for other reasons (e.g. while the order to be confirmed is blocked). Then we want to re-try the processing after a while.
+On the other hand, if the Peakboard app sends the order confirmation to a message queue, then it only has to wait for the message queue to store the order confirmation. This is much faster than waiting for the ERP system to process the message. As soon as the message queue is finished storing the message, the Peakboard app can get back to work.
+
+Then, some time later, the message queue sends the order confirmation to the ERP system. But from the Peakboard app's point of view, this all happens *asynchronously*. It's not involved in the process at all.
+
+
+The second common reason is when the destination system is not reachable or the processing of the message can't be done for other reasons (e.g. while the order to be confirmed is blocked). Then we want to re-try the processing after a while.
 
 In today's article we will build an architecture to enable queueing. We assume that production order confirmation message are stored in a hub list. Then we build a Hub FLow that loops over all unprocessed message and sends them to SAP. The confirmation message is marked as done as soon as it's confirmed by the SAP system. If anything goes wrong the message is marked as errornous and with the next round of confirmation we will try to process it again until it's done successfully.
 
