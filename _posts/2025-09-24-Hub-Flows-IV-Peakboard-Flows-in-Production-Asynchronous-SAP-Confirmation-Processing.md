@@ -11,7 +11,7 @@ read_more_links:
     url: /category/hubflows
 downloads:
   - name: TemperatureFlow.pbfx
-    url: /assets/2025-08-08/TemperatureFlow.pbfx
+    url: /assets/2025-09-24/SAPProdOrderConfQueueing.pbfx
 ---
 In the fourth part of our Hub Flows series we will discuss another often-seen use case: Queueing of message to be sent out asnychonoulsy. We must make sure to understand the basic of Hub Flows first. The recent articles of this series can be found [here](/category/hubflows).
 
