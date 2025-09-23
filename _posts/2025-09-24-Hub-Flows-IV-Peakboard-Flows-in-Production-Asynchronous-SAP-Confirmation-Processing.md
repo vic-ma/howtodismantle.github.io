@@ -10,10 +10,10 @@ read_more_links:
   - name: All articles about Hub Flows
     url: /category/hubflows
 downloads:
-  - name: TemperatureFlow.pbfx
+  - name: SAPProdOrderConfQueueing.pbfx
     url: /assets/2025-09-24/SAPProdOrderConfQueueing.pbfx
 ---
-In the fourth part of our Hub Flows series we will discuss another often-seen use case: Queueing of message to be sent out asnychonoulsy. We must make sure to understand the basic of Hub Flows first. The recent articles of this series can be found [here](/category/hubflows).
+In the part of our [Hub Flows series](/category/hubflows), we'll discuss another common design pattern: A message queue that sends messages asynchronously. Before continuing, make sure you understand the [basics of Hub Flows](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html) first.
 
 ## Why we need queueing?
 
