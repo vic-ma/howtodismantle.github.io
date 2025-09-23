@@ -31,13 +31,21 @@ Of course, you could do the exact same thing without a message queue, and in les
 
 So why would you want want to store it first and then send it asynchronously? The biggest reason for is so that the Peakboard app isn't blocked.
 
+### Avoid blocking
+
 If the Peakboard app sends the order confirmation directly (synchronously) to the ERP system, then the app has to wait for the ERP system to process the order and respond to the app. While the Peaboard app is waiting for the ERP system, it cannot do anything else. It is *blocked*.
 
 On the other hand, if the Peakboard app sends the order confirmation to a message queue, then it only has to wait for the message queue to store the order confirmation. This is much faster than waiting for the ERP system to process the message. As soon as the message queue is finished storing the message, the Peakboard app can get back to work.
 
 Then, some time later, the message queue sends the order confirmation to the ERP system. But from the Peakboard app's point of view, this all happens *asynchronously*. It's not involved in the process at all.
 
-Another reason to use a message queue is so that the queue can handle any problems with the message not being accepted. For example, if the target (like an ERP system) is not reachable, or if the message can't be processed for other reasons (e.g. the order is blocked)---then we want to re-send the message after a while. It would be annoying to have our Peakboard app do this itself. With a message queue, the Peakboard app doesn't have to worry about it at all. As soon as it sends the message, it no longer needs to worry about it. It's the message queue's job to send and re-send it, if needed.
+### Handle failures automatically
+Another reason to use a message queue is so that the queue can handle any problems with the message not being accepted. For example, if the target (like an ERP system) is not reachable, or if the message can't be processed for other reasons (e.g. the order is blocked)---then we want to re-send the message after a while.
+
+Normally, our Peakboard app would have to handle these unexpected events itself. But with a message queue, the Peakboard app doesn't need to worry about it at all. As soon as it sends the message to the queue, it's no longer the app's problem. It's the message queue's job to handle any failures and re-send the message, if needed.
+
+
+## Today's article
 
 In today's article we will build an architecture to enable queueing. We assume that production order confirmation message are stored in a hub list. Then we build a Hub FLow that loops over all unprocessed message and sends them to SAP. The confirmation message is marked as done as soon as it's confirmed by the SAP system. If anything goes wrong the message is marked as errornous and with the next round of confirmation we will try to process it again until it's done successfully.
 
