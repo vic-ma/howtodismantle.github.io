@@ -64,13 +64,13 @@ We create a new [Hub list](https://help.peakboard.com/hub/Lists/en-hub_new-list.
 | `ScrapQuantity` | Quantity of unusable scrap pieces in the confirmation.
 | `MachineTime`   | The amount of machine time used used to produce the goods.
 | `State`         | State of the confirmation: `N` (new), `D` (done), or `E` (error).
-| `Message`       | Response message from SAP
+| `Message`       | Response message from SAP, if the confirmation was sent.
 
-Note that the last two columns (`State` and `Message`) have nothing to do with the order confirmation itself. Instead, they are used by our Hub Flow to keep track of which messages have been processed, and which messages still need to be processed.
+Note that the last two columns (`State` and `Message`) have nothing to do with the order confirmation itself. Instead, they are used by our Hub Flow to keep track of which messages have been processed, and to give status info to a user.
 
 The following screenshot shows an example of what this list might look like. There are two confirmations in the list: one was processed by the Flow successfully (`State = D`), and the other ran into an error (`State = E`).
 
-![image](/assets/2025-09-24/010.png)
+![image](/assets/2025-09-24/080.png)
 
 ## Build the Hub Flow
 
