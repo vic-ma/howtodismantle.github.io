@@ -72,11 +72,17 @@ The following screenshot shows an example of what this list might look like. The
 
 ## Build the Hub Flow
 
-Now, let's build the Hub Flow. We create a new Hub Flow project and set up a data source for our Hub List. We add a filter for `State ~= D`. This means that the data source includes all rows in the Hub List that don't have a `State` of `D`. In other words, the data source includes all rows with a `State` of `N` (new confirmations that the Flow has not touched) or `E` (confirmations that the Flow has tried to process but it ran into an error)---which is exactly what we want.
+Now, let's build the Hub Flow. We create a new Hub Flow project and set up a data source for our Hub List. We add a filter for `State ~= D`. This means that the data source includes all rows in the Hub List that don't have a `State` of `D`.
+
+In other words, the data source includes all rows with a `State` of `N` (new confirmations that the Flow has not touched) or `E` (confirmations that the Flow has tried to process but it ran into an error)---which is exactly what we want.
 
 ![image](/assets/2025-09-24/020.png)
 
-We will need four variables for transfer the correct values in out SAP XQL statement later.
+We create four variables to transfer the correct values in our SAP XQL statement later:
+* `ConfirmationNo`
+* `MachineTime`
+* `ScrapQuantity`
+* `ScrapQuality`
 
 ![image](/assets/2025-09-24/030.png)
 
