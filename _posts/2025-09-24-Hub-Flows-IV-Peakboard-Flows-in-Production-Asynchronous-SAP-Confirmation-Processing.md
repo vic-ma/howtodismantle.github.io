@@ -78,15 +78,15 @@ In other words, the data source includes all rows with a `State` of `N` (new con
 
 ![image](/assets/2025-09-24/020.png)
 
-We create four variables to transfer the correct values in our SAP XQL statement later:
+We create four variables, which we will use in our SAP XQL statement:
 * `ConfirmationNo`
 * `MachineTime`
 * `ScrapQuantity`
-* `ScrapQuality`
+* `YieldQuantity`
 
 ![image](/assets/2025-09-24/030.png)
 
-For the SAP data source we use the following XQL statement. It contains placeholders that refer to the four variables we already created. The output is the DETAIL_RETURN table that contains the message from SAP.
+For the SAP data source we use the following XQL statement. It contains placeholders for our four variables. The output is the `DETAIL_RETURN` table that contains the message from SAP.
 
 {% highlight sql %}
 EXECUTE FUNCTION 'BAPI_PRODORDCONF_CREATE_TT'
