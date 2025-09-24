@@ -66,7 +66,7 @@ We use a [Hub list](https://help.peakboard.com/hub/Lists/en-hub_new-list.html) a
 | `State`         | State of the confirmation: **N** (new), **D** (done), or **E** (error).
 | `Message`       | Response message from SAP (e.g., the error message when there was an error processing the confirmation). 
 
-This screenshot shows two untouched confirmations to be processed by our Hub Flows. How these entries are stored there should be not the question here. It can be any Peakboard based source.
+The following screenshot shows an example of what this list might look like. There are two confirmations in the list: one was processed by the Flow successfully (`State = D`), and the other ran into an error (`State = E`).
 
 ![image](/assets/2025-09-24/010.png)
 
