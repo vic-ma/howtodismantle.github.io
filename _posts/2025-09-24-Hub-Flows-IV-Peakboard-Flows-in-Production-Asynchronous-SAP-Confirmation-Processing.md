@@ -47,9 +47,11 @@ Normally, our Peakboard app would have to handle these unexpected events and err
 
 ## Let's build an example
 
-Now, let's build a message queue by using a Hub Flow. Assume that we have a Peakboard app that sends production order confirmation messages by writing them into a Hub list.
+Now, let's build an example. Assume that there is a Peakboard app that sends order confirmation messages to an SAP system directly.
 
-Our job is to create a Hub Flow that loops over all unprocessed messages in the Hub list, and sends them to SAP. If SAP tells us that it processed a message successfully, then we mark that message as done, in the Hub list. If SAP tells us that there is an issue, then we do not mark the message as done. That way, the next time the Hub Flow is run, it automatically retries the erroneous message.
+Our job is to do the following:
+1. Create a Hub list (message queue), where the app can send the confirmations instead.
+1. Create a Hub Flow that loops over all unprocessed messages in the Hub list, and send them to SAP.
 
 For more details about how to send a production order confirmation to SAP, take a look at this article: [Dismantle SAP Production - Build a Production Order Confirmation Terminal with no code](/SAP-Production-Build-a-Production-Order-Confirmation-Terminal-with-no-code.html). We'll use the same techniques that are discussed in that article.
 
