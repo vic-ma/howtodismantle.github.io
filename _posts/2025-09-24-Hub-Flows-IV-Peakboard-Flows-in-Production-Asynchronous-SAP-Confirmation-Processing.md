@@ -40,16 +40,19 @@ On the other hand, if the Peakboard app sends the order confirmation to a messag
 Then, some time later, the message queue sends the order confirmation to the ERP system. But from the Peakboard app's point of view, this all happens *asynchronously*. It's not involved in the process at all.
 
 ### Handle failures automatically
+
 Another reason to use a message queue is so that the queue can handle any problems with the message not being accepted. For example, if the target (like an ERP system) is not reachable, or if the message can't be processed for other reasons (e.g. the order is blocked)---then we want to re-send the message after a while.
 
 Normally, our Peakboard app would have to handle these unexpected events itself. But with a message queue, the Peakboard app doesn't need to worry about it at all. As soon as it sends the message to the queue, it's no longer the app's problem. It's the message queue's job to handle any failures and re-send the message, if needed.
 
 
-## Today's article
+## Let's build an example
 
-In today's article we will build an architecture to enable queueing. We assume that production order confirmation message are stored in a hub list. Then we build a Hub FLow that loops over all unprocessed message and sends them to SAP. The confirmation message is marked as done as soon as it's confirmed by the SAP system. If anything goes wrong the message is marked as errornous and with the next round of confirmation we will try to process it again until it's done successfully.
+Now, let's build a message queue by using a Hub Flow. Assume that we have a Peakboard app that sends production order confirmation messages by writing them into a Hub list.
 
-For more details about how to send a production order confirmation to SAP we can check back to an article from the past: [Dismantle SAP Production - Build a Production Order Confirmation Terminal with no code](/SAP-Production-Build-a-Production-Order-Confirmation-Terminal-with-no-code.html). We are using the same technique and SAP RFC function module in our example here.
+Our job is to create a Hub Flow that loops over all unprocessed messages in the Hub list, and sends them to SAP. If SAP tells us that it processed a message successfully, then we mark that message as done, in the Hub list. If SAP tells us that there is an issue, then we do not mark the message as done. That way, the next time the Hub Flow is run, it automatically retries the erroneous message.
+
+For more details about how to send a production order confirmation to SAP, take a look at this article: [Dismantle SAP Production - Build a Production Order Confirmation Terminal with no code](/SAP-Production-Build-a-Production-Order-Confirmation-Terminal-with-no-code.html). We'll use the same techniques that are discussed in that article.
 
 ## Preparing the queue table
 
