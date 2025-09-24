@@ -55,14 +55,14 @@ For more details about how to send a production order confirmation to SAP, take 
 
 ## Prepare the message queue
 
-We use a [Hub list](https://help.peakboard.com/hub/Lists/en-hub_new-list.html) for our message queue. For our example for the SAP production order confirmation we will need these columns:
+We use a [Hub list](https://help.peakboard.com/hub/Lists/en-hub_new-list.html) as our message queue. For our example, the messages are SAP production order confirmations. So, we add the following columns to the list:
 
-- "ConfirmationNo" is the confirmation number in SAP that is used to identify an operation of a production order
-- "YieldQuantity" is the quantity of usable pieces produced within this confirmation 
-- "ScrapQuantity" is the quantity of unusable, scrap pieces within this confirmation
-- "MachineTime" is the time the machine used to produce the goods
-- "State" will identify the state of the confirmation: N - New - untouched conirmation, D - Done - succesfuly sent to SAP, E - Error - confirmation failed 
-- "Message" contains the return message from SAP, e.g. the error message when the confiration is in errornious state.
+`ConfirmationNo` is the confirmation number in SAP that is used to identify an operation of a production order
+`YieldQuantity` is the quantity of usable pieces produced within this confirmation 
+`ScrapQuantity` is the quantity of unusable, scrap pieces within this confirmation
+`MachineTime` is the time the machine used to produce the goods
+`State` will identify the state of the confirmation: N - New - untouched conirmation, D - Done - succesfuly sent to SAP, E - Error - confirmation failed 
+`Message` contains the return message from SAP, e.g. the error message when the confiration is in errornious state.
 
 The screenshot shows two untouched confirmations to be processed by our Hub FLows. How these entries are stored there should be not the question here. It can be any Peakboard based source.
 
