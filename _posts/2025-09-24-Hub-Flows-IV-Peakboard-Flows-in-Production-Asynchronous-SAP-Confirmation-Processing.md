@@ -53,11 +53,11 @@ Our job is to do the following:
 1. Create a Hub list (message queue), where the app can send the confirmations instead.
 1. Create a Hub Flow that loops over all unprocessed messages in the Hub list, and send them to SAP.
 
-For more details about how to send a production order confirmation to SAP, take a look at this article: [Dismantle SAP Production - Build a Production Order Confirmation Terminal with no code](/SAP-Production-Build-a-Production-Order-Confirmation-Terminal-with-no-code.html). We'll use the same techniques that are discussed in that article.
+For more details about how to send an order confirmation to SAP, take a look at our [SAP order confirmation article](/SAP-Production-Build-a-Production-Order-Confirmation-Terminal-with-no-code.html). We'll use the same techniques that are discussed in that article. But the focus of this article is on the Hub Flow.
 
-## Prepare the message queue
+## Create the message queue
 
-We use a [Hub list](https://help.peakboard.com/hub/Lists/en-hub_new-list.html) as our message queue. For our example, the messages are SAP production order confirmations. So, we add the following columns to the list:
+We create a new [Hub list](https://help.peakboard.com/hub/Lists/en-hub_new-list.html) to act as our message queue. Our messages are SAP order confirmations. So, we add the following columns to the Hub list:
 
 | Column | Description |
 | ------ | ----------- |
@@ -66,7 +66,9 @@ We use a [Hub list](https://help.peakboard.com/hub/Lists/en-hub_new-list.html) a
 | `ScrapQuantity` | Quantity of unusable scrap pieces in the confirmation.
 | `MachineTime`   | The amount of machine time used used to produce the goods.
 | `State`         | State of the confirmation: `N` (new), `D` (done), or `E` (error).
-| `Message`       | Response message from SAP (e.g., the error message when there was an error processing the confirmation). 
+| `Message`       | Response message from SAP
+
+Note that the last two columns (`State` and `Message`) have nothing to do with the order confirmation itself. Instead, they are used by our Hub Flow to keep track of which messages have been processed, and which messages still need to be processed.
 
 The following screenshot shows an example of what this list might look like. There are two confirmations in the list: one was processed by the Flow successfully (`State = D`), and the other ran into an error (`State = E`).
 
