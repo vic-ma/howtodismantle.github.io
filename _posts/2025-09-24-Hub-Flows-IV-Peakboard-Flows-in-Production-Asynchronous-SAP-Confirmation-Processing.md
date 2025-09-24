@@ -54,9 +54,9 @@ Our job is to create a Hub Flow that loops over all unprocessed messages in the 
 
 For more details about how to send a production order confirmation to SAP, take a look at this article: [Dismantle SAP Production - Build a Production Order Confirmation Terminal with no code](/SAP-Production-Build-a-Production-Order-Confirmation-Terminal-with-no-code.html). We'll use the same techniques that are discussed in that article.
 
-## Preparing the queue table
+## Prepare the message queue
 
-The actual queue data is stored in a Hub table. For our example for the SAP production order confirmation we will need these columns:
+We use a [Hub list](https://help.peakboard.com/hub/Lists/en-hub_new-list.html) for our message queue. For our example for the SAP production order confirmation we will need these columns:
 
 - "ConfirmationNo" is the confirmation number in SAP that is used to identify an operation of a production order
 - "YieldQuantity" is the quantity of usable pieces produced within this confirmation 
@@ -69,7 +69,7 @@ The screenshot shows two untouched confirmations to be processed by our Hub FLow
 
 ![image](/assets/2025-09-24/010.png)
 
-## Building the Hub Flow project
+## Build the Hub Flow
 
 In our Hub FLow project we first set up a data source to previously introduced hub list. The filter should return all rows that are not "Done" which includes untouched rows as well as rows that have failed to be submitted in the past.
 
@@ -108,9 +108,9 @@ The flow runs on regular basis right after being deployed to a Hub instance.
 
 ![image](/assets/2025-09-24/070.png)
 
-## result and conclusion
+## Result and conclusion
 
-The screenshot shows our confirmation list after the first execution of the Flow. We can see that one of the confirmations has been submitted to SAP successfully while the other one went into an error state. The Flow will automatically retry it in the next round.
+The following screenshot shows our confirmation list after the first execution of the Flow. We can see that one of the confirmations has been submitted to SAP successfully while the other one went into an error state. The Flow will automatically retry it in the next round.
 
 ![image](/assets/2025-09-24/080.png)
 
