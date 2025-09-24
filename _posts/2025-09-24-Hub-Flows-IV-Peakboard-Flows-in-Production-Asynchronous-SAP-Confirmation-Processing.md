@@ -151,4 +151,4 @@ The following screenshot shows our Hub list after the first execution of the Flo
 
 ![image](/assets/2025-09-24/080.png)
 
-To keep our example simple, we didn't implement any complex error handling---we just keep re-sending order confirmations forever. So an improvement could be to set up a counter for how many times we failed to send an order confirmation to SAP. And if it fails 10 times, then we give up and send an email notification to someone. Another improvement could be to send an email to someone if any error occurs at all. 
+To keep our example simple, we didn't implement any complex error handling---we just keep re-sending order confirmations forever. So an improvement could be to set up a counter for how many times we failed to send an order confirmation to SAP. And if it fails 10 times, then we give up and send an email notification to someone. Another improvement could be to send an email to someone if any error occurs at all. Once you understand the basic design pattern, you can extend it however you like.
