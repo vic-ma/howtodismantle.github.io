@@ -59,7 +59,7 @@ We create a new [Hub list](https://help.peakboard.com/hub/Lists/en-hub_new-list.
 
 | Column | Description |
 | ------ | ----------- |
-| `ConfirmationNo`| Confirmation number in SAP that identifies the operation of a production order.
+| `ConfirmationNo`| Confirmation number that identifies the production order.
 | `YieldQuantity` | Quantity of usable pieces in the confirmation.
 | `ScrapQuantity` | Quantity of unusable scrap pieces in the confirmation.
 | `MachineTime`   | The amount of machine time used used to produce the goods.
