@@ -32,11 +32,9 @@ So why would you want to use a message queue at all?
 
 ### Avoid blocking
 
-The biggest reason to use a message queue is to avoid blocking the Peakboard app. If the app sends the order confirmation directly (synchronously) to the ERP system, then the app has to wait for the ERP system to process the order and respond to the app. While the Peaboard app is waiting for the ERP system, it cannot do anything else. It is *blocked*.
+The biggest reason to use a message queue is to avoid blocking the Peakboard app. If the app sends an order confirmation directly (synchronously) to the ERP system, then the app has to wait for the ERP system to process the order and respond to the app. While the Peaboard app is waiting for the ERP system, it cannot do anything else. It is *blocked*.
 
 On the other hand, if the Peakboard app sends the order confirmation to a message queue, then it only needs to wait for the message queue to store the confirmation (and for a Hub list, this is very quick). As soon as the message queue finishes storing the message, the Peakboard app can get back to work.
-
-Then, some time later, a Hub Flow sends all the unprocessed order confirmations to the ERP system. But this is all the Flow's job. The Peakboard app is not involved in this process at all and does not have to worry about it.
 
 ### Handle failures automatically
 
@@ -45,7 +43,7 @@ Another reason to use a message queue is so that the Hub Flow can handle any pro
 Normally, our Peakboard app would have to handle these unexpected events and error cases itself. But with a message queue, the Peakboard app doesn't need to worry about it at all. As soon as the app sends the message to the queue, it's no longer the app's responsibility. It's the Hub Flow's job to send the message to the ERP system, handle any failures, and re-send the message, if needed.
 
 
-## Let's build an example
+## An example
 
 Now, let's build an example. Assume that there is a Peakboard app that sends order confirmation messages to an SAP system directly.
 
