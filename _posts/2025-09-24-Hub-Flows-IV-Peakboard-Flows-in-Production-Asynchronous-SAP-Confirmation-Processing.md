@@ -127,10 +127,8 @@ Here's how the script works:
     1. Set our four variables to the values in the row.
     1. Reload our SAP data source, in order to execute the XQL command and send the order confirmation to SAP.
     1. Check the response status from SAP:
-        * If the status is `I`, then the order confirmation succeeded. Set the state of the Hub list row to `D`, for *done*.
-        * Otherwise, the order confirmation failed. Set the state of the Hub list row to `E`, for *error*.
-
-As shown in the screenshot we loop over all open confirmation rows. For each row, we write the four necessary value into the variables and then reload the SAP data source to execute the statement. After this is done, we check the return message. If it's successful (Return type = `I`), then we set the confirmation data row to `Done`. If not, then it's an error.
+        * If the status is `I`, then the order confirmation succeeded. Set the state of the Hub list row to `D`, for *done*. Then, set the message of the Hub list row to SAP's response message.
+        * Otherwise, the order confirmation failed. Set the state of the Hub list row to `E`, for *error*. Then, set the message of the Hub list row to SAP's response message.
 
 ## Deploy the Flow
 
@@ -145,6 +143,7 @@ Next, we add two steps to run, whenever the Flow executes:
 Next, we deploy our Flow to a Hub instance.  And as you can see, our Flow now runs on regular basis:
 
 ![image](/assets/2025-09-24/070.png)
+
 
 ## Result and conclusion
 
