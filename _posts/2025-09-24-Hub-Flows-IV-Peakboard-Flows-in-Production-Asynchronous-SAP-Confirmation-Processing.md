@@ -63,10 +63,10 @@ We use a [Hub list](https://help.peakboard.com/hub/Lists/en-hub_new-list.html) a
 | `YieldQuantity` | Quantity of usable pieces in the confirmation.
 | `ScrapQuantity` | Quantity of unusable scrap pieces in the confirmation.
 | `MachineTime`   | The amount of machine time used used to produce the goods.
-| `State`         | State of the confirmation: **N** - New (untouched), **D** - Done (successfully sent to SAP), **E** - Error (confirmation failed) |
+| `State`         | State of the confirmation: **N** (new), **D** (done), or **E** (error).
 | `Message`       | Response message from SAP (e.g., the error message when there was an error processing the confirmation). 
 
-The screenshot shows two untouched confirmations to be processed by our Hub FLows. How these entries are stored there should be not the question here. It can be any Peakboard based source.
+This screenshot shows two untouched confirmations to be processed by our Hub Flows. How these entries are stored there should be not the question here. It can be any Peakboard based source.
 
 ![image](/assets/2025-09-24/010.png)
 
