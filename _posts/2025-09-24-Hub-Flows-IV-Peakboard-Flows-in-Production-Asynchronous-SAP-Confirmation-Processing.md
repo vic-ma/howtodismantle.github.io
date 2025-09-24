@@ -147,8 +147,8 @@ Next, we deploy our Flow to a Hub instance.  And as you can see, our Flow now ru
 
 ## Result and conclusion
 
-The following screenshot shows our confirmation list after the first execution of the Flow. We can see that one of the confirmations has been submitted to SAP successfully, while the other one went into an error state. The Flow will automatically retry it in the next round.
+The following screenshot shows our Hub list after the first execution of the Flow. As you can see, one of the confirmations was submitted to SAP successfully, and the other one had an error (the Flow will automatically retry it, the next time it runs).
 
 ![image](/assets/2025-09-24/080.png)
 
-Our example shows a very simple way of queueing such kind of processes. To keep it simple we haven't implemented a complex error handling - we just retry it forever. Some more improvement could be to set up a counter and give up trying after 10 tries. The next improvement to be made could be to send an email to a responsible person in case an error comes up. 
+To keep our example simple, we didn't implement any complex error handling---we just keep re-sending order confirmations forever. So an improvement could be to set up a counter for how many times we failed to send an order confirmation to SAP. And if it fails 10 times, then we give up and send an email notification to someone. Another improvement could be to send an email to someone if any error occurs at all. 
