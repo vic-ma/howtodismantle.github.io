@@ -13,7 +13,7 @@ downloads:
   - name: SAPProdOrderConfQueueing.pbfx
     url: /assets/2025-09-24/SAPProdOrderConfQueueing.pbfx
 ---
-In the part of our [Hub Flows series](/category/hubflows), we'll discuss another common design pattern: A message queue that sends messages asynchronously. Before continuing, make sure you understand the [basics of Hub Flows](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html) first.
+In this part of our [Hub Flows series](/category/hubflows), we'll look at another common design pattern: A message queue that sends messages asynchronously. Before continuing, make sure you understand the [basics of Hub Flows](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
 
 ## What is a message queue?
 
@@ -72,17 +72,21 @@ The following screenshot shows an example of what this list might look like. The
 
 ## Build the Hub Flow
 
-Now, let's build the Hub Flow. We create a new Hub Flow project and set up a data source for our Hub List. We add a filter for `State ~= D`. This means that the data source includes all rows in the Hub List that don't have a `State` of `D`.
+Now, let's build the Hub Flow.
+
+### Create the data source
+First, we create a new Hub Flow project and set up a data source for our Hub List. We add a filter for `State ~= D`. This means that the data source includes all rows in the Hub List that don't have a `State` of `D`.
 
 In other words, the data source includes all rows with a `State` of `N` (new confirmations that the Flow has not touched) or `E` (confirmations that the Flow has tried to process but it ran into an error)---which is exactly what we want.
 
 ![image](/assets/2025-09-24/020.png)
 
+### Create the variables
 We create four variables, which we will use in our SAP XQL statement:
 * `ConfirmationNo`
-* `MachineTime`
-* `ScrapQuantity`
 * `YieldQuantity`
+* `ScrapQuantity`
+* `MachineTime`
 
 ![image](/assets/2025-09-24/030.png)
 
@@ -99,13 +103,15 @@ EXECUTE FUNCTION 'BAPI_PRODORDCONF_CREATE_TT'
 EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
 {% endhighlight %}
 
+### Write the confirmation processing script
+
 ![image](/assets/2025-09-24/040.png)
 
-The last component we need is the actual logic to call the SAP system. As shown in the screenshot we loop over all open confirmation rows. For each row we write the four necessary value into the variables and then reload the SAP data source to execute the statement. After this is done we can check the return message. If it's succesful (Return type = "I") we set the confirmation data row on "Done", if not, it's an error.
+Finally, we need to write the logic to process the confirmations in the Hub list. As shown in the screenshot we loop over all open confirmation rows. For each row, we write the four necessary value into the variables and then reload the SAP data source to execute the statement. After this is done, we check the return message. If it's successful (Return type = `I`), then we set the confirmation data row to `Done`. If not, then it's an error.
 
 ![image](/assets/2025-09-24/050.png)
 
-## Building an deploying the flow
+## Build and deploy the Flow
 
 The next screenshot show the actual Hub Flow to put all our artifacts together. We execute the flow every 60 seonds. After having reloaded the open confirmations we just call the function that loops over every confirmation row (see last paragraph). That's all we need to do.
 
@@ -122,7 +128,3 @@ The following screenshot shows our confirmation list after the first execution o
 ![image](/assets/2025-09-24/080.png)
 
 Our example shows a very simple way of queueing such kind of processes. To keep it simple we haven't implemented a complex error handling - we just retry it forever. Some more improvement could be to set up a counter and give up trying after 10 tries. The next improvement to be made could be to send an email to a responsible person in case an error comes up. 
-
-
-
-
