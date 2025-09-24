@@ -111,13 +111,17 @@ Finally, we need to write the logic to process the confirmations in the Hub list
 
 ![image](/assets/2025-09-24/050.png)
 
-## Build and deploy the Flow
+## Deploy the Flow
 
-The next screenshot show the actual Hub Flow to put all our artifacts together. We execute the flow every 60 seonds. After having reloaded the open confirmations we just call the function that loops over every confirmation row (see last paragraph). That's all we need to do.
+Now, let's deploy our Flow. We add a periodic trigger and set it to 60 seconds. This means that the Flow will execute automatically every 60 seconds.
+
+Next, we add two steps to run, whenever the Flow executes:
+1. Reload the `OpenConfirmations` data source. This updates our Hub list data source, to ensure we have the latest data.
+1. Run our list processing function.
 
 ![image](/assets/2025-09-24/060.png)
 
-The flow runs on regular basis right after being deployed to a Hub instance.
+Next, we deploy our Flow to a Hub instance.  And as you can see, our Flow now runs on regular basis:
 
 ![image](/assets/2025-09-24/070.png)
 
