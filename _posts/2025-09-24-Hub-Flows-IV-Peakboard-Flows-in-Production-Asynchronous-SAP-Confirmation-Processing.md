@@ -77,7 +77,7 @@ The following screenshot shows an example of what this list might look like. The
 Now, let's build the Hub Flow. We create a new Hub Flow project.
 
 ### Add the Hub list data source
-Next, we add a data source for our Hub List. We use this filter: `State ~= D`. This means that the data source includes all rows in the Hub List that don't have a `State` of `D`.
+Next, we add a data source for our Hub List. We use the filter `State ~= D`. This means that the data source includes all rows in the Hub List that don't have a `State` of `D`.
 
 In other words, the data source includes all rows with a `State` of `N` (new confirmations that the Flow has not touched) or `E` (confirmations that the Flow tried to process but resulted in an error). This way, the data source only includes order confirmations that we still need to process.
 
@@ -85,7 +85,7 @@ In other words, the data source includes all rows with a `State` of `N` (new con
 
 
 ### Create variables
-We create four variables, which we will use in our SAP XQL statement:
+We create four new variables, which we will use in our SAP XQL statement:
 * `ConfirmationNo`
 * `YieldQuantity`
 * `ScrapQuantity`
@@ -149,6 +149,6 @@ The following screenshot shows our Hub list after the first execution of the Flo
 
 ![image](/assets/2025-09-24/080.png)
 
-To keep our example simple, we didn't implement any complex error handling---we just keep re-sending order confirmations forever. So an improvement could be to set up a counter for how many times we failed to send an order confirmation to SAP. And if it fails 10 times, then we give up and send an email notification to someone. Another improvement could be to send an email to someone if any error occurs at all.
+To keep our example simple, we didn't implement any complex error handling---we just re-send failed order confirmations forever. So an improvement could be to set up a counter for how many times we failed to send an order confirmation to SAP. And if the order fails 10 times, then we give up on it and send an email notification to someone. Another improvement could be to send an email if any error occurs at all.
 
-Once you understand the basic design pattern, you can extend it however you like.
+Once you understand the basic design pattern, you can extend it however you like!
