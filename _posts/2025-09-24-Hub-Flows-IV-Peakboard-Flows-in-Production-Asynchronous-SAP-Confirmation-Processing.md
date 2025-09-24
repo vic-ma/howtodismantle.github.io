@@ -96,11 +96,10 @@ We create four variables, which we will use in our SAP XQL statement:
 ![image](/assets/2025-09-24/030.png)
 
 ### Create the SAP data source
-Next, we create an SAP data source. We'll use this data source to send the order confirmations to SAP.
+Now, we create our SAP data source. We use this data source to send the order confirmations to SAP.
 
-We add the following XQL statement to the data source. It contains placeholder that correspond to the variables we created.
-
-It stores the output into the `DETAIL_RETURN` table. This table contains the response message from SAP, which we will need later.
+We add the following XQL statement to the data source. It has placeholders for the variables that we created.
+And it stores the output into the `DETAIL_RETURN` table. This table contains the response message from SAP, which we will need later.
 
 {% highlight sql %}
 EXECUTE FUNCTION 'BAPI_PRODORDCONF_CREATE_TT'
@@ -119,10 +118,17 @@ EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
 
 ### Write the confirmation processing script
 
-
-Finally, we need to write the logic to process the confirmations in the Hub list. As shown in the screenshot we loop over all open confirmation rows. For each row, we write the four necessary value into the variables and then reload the SAP data source to execute the statement. After this is done, we check the return message. If it's successful (Return type = `I`), then we set the confirmation data row to `Done`. If not, then it's an error.
+Finally, we write the Building Blocks script that processes the confirmations in the Hub list:
 
 ![image](/assets/2025-09-24/050.png)
+
+Here's how the script works:
+1. Loop over each row in our Hub list data source. (Remember, the data source already filters for the confirmations that we still need to process.) For each row:
+  1. Set our four variables to the values in the row.
+  1. Reload our SAP data source, in order to execute the XQL command and send the order confirmation to SAP.
+
+
+As shown in the screenshot we loop over all open confirmation rows. For each row, we write the four necessary value into the variables and then reload the SAP data source to execute the statement. After this is done, we check the return message. If it's successful (Return type = `I`), then we set the confirmation data row to `Done`. If not, then it's an error.
 
 ## Deploy the Flow
 
