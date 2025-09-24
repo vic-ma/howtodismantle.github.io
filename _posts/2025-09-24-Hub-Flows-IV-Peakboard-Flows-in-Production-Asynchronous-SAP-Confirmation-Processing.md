@@ -40,9 +40,9 @@ Then, some time later, a Hub Flow sends all the unprocessed order confirmations 
 
 ### Handle failures automatically
 
-Another reason to use a message queue is so that the Hub Flow can handle any problems with the message not being accepted. For example, if the target (like an ERP system) is unreachable, or if the message can't be processed for other reasons (e.g. the order is blocked)---then we want to re-send the message after a while.
+Another reason to use a message queue is so that the Hub Flow can handle any problems with the message not being accepted. For example, if the target (like an ERP system) is unreachable, or if the message can't be processed for other reasons (e.g. the order is blocked)---then we want to send the message again, after a while.
 
-Normally, our Peakboard app would have to handle these unexpected events and error cases itself. But with a message queue, the Peakboard app doesn't need to worry about it at all. As soon as the app sends the message to the queue, it's no longer the app's problem. It's the Hub Flow's job to send the message to the ERP system, and to handle any failures and re-send the message, if needed.
+Normally, our Peakboard app would have to handle these unexpected events and error cases itself. But with a message queue, the Peakboard app doesn't need to worry about it at all. As soon as the app sends the message to the queue, it's no longer the app's responsibility. It's the Hub Flow's job to send the message to the ERP system, handle any failures, and re-send the message, if needed.
 
 
 ## Let's build an example
