@@ -99,7 +99,7 @@ We create four variables, which we will use in our SAP XQL statement:
 Now, we create our SAP data source. We use this data source to send the order confirmations to SAP.
 
 We add the following XQL statement to the data source. It has placeholders for the variables that we created.
-And it stores the output into the `DETAIL_RETURN` table. This table contains the response message from SAP, which we will need later.
+We also store the `DETAIL_RETURN` table. This table contains the response status and message from SAP, which we will need later.
 
 {% highlight sql %}
 EXECUTE FUNCTION 'BAPI_PRODORDCONF_CREATE_TT'
@@ -126,7 +126,7 @@ Here's how the script works:
 1. Loop over each row in our Hub list data source. (Remember, the data source already filters for the confirmations that we still need to process.) For each row:
   1. Set our four variables to the values in the row.
   1. Reload our SAP data source, in order to execute the XQL command and send the order confirmation to SAP.
-
+  1. Check the 
 
 As shown in the screenshot we loop over all open confirmation rows. For each row, we write the four necessary value into the variables and then reload the SAP data source to execute the statement. After this is done, we check the return message. If it's successful (Return type = `I`), then we set the confirmation data row to `Done`. If not, then it's an error.
 
