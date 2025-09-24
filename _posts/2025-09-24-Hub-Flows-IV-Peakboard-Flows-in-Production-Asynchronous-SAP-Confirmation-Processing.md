@@ -78,17 +78,27 @@ The following screenshot shows an example of what this list might look like. The
 
 Now, let's build the Hub Flow. We create a new Hub Flow project.
 
-### Add the data source
+### Add the Hub list data source
 Next, we add a data source for our Hub List. We use this filter: `State ~= D`. This means that the data source includes all rows in the Hub List that don't have a `State` of `D`.
 
 In other words, the data source includes all rows with a `State` of `N` (new confirmations that the Flow has not touched) or `E` (confirmations that the Flow tried to process but resulted in an error). This way, the data source only includes order confirmations that we still need to process.
 
 ![image](/assets/2025-09-24/020.png)
 
+
+### Create variables
+We create four variables, which we will use in our SAP XQL statement:
+* `ConfirmationNo`
+* `YieldQuantity`
+* `ScrapQuantity`
+* `MachineTime`
+
+![image](/assets/2025-09-24/030.png)
+
 ### Create the SAP data source
 Next, we create an SAP data source. We'll use this data source to send the order confirmations to SAP.
 
-We add the following XQL statement to the data source. It contains placeholder variables, which we will soon create.
+We add the following XQL statement to the data source. It contains placeholder that correspond to the variables we created.
 
 It stores the output into the `DETAIL_RETURN` table. This table contains the response message from SAP, which we will need later.
 
@@ -105,13 +115,6 @@ EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
 
 ![image](/assets/2025-09-24/040.png)
 
-We create four variables, which we will use in our SAP XQL statement:
-* `ConfirmationNo`
-* `YieldQuantity`
-* `ScrapQuantity`
-* `MachineTime`
-
-![image](/assets/2025-09-24/030.png)
 
 
 ### Write the confirmation processing script
