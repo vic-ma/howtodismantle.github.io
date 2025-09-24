@@ -21,11 +21,10 @@ A [message queue](https://www.ibm.com/think/topics/message-queues) accepts messa
 
 Here's an example of how you could use a message queue with Peakboard:
 1. A user uses a Peakboard app to confirm an order.
-1. The Peakboard app sends an order confirmation to a message queue. The target is the company's ERP system.
-1. The message queue processes and temporarily stores the order confirmation.
-1. The message queue sends the order confirmation to the ERP system.
+1. The Peakboard app sends an order confirmation to a Hub list, which is the message queue.
+1. A Hub Flow loops over the order confirmations in the Hub list, and processes each one, sending them to the company's ERP system.
 
-Of course, you could do the exact same thing without a message queue, and in less steps:
+Of course, you could do the exact same thing without a message queue, and in fewer steps:
 1. A user uses a Peakboard app to confirm an order.
 1. The Peakboard app sends an order confirmation to the company's ERP system.
 
@@ -35,15 +34,15 @@ So why would you want want to store it first and then send it asynchronously? Th
 
 If the Peakboard app sends the order confirmation directly (synchronously) to the ERP system, then the app has to wait for the ERP system to process the order and respond to the app. While the Peaboard app is waiting for the ERP system, it cannot do anything else. It is *blocked*.
 
-On the other hand, if the Peakboard app sends the order confirmation to a message queue, then it only has to wait for the message queue to store the order confirmation. This is much faster than waiting for the ERP system to process the message. As soon as the message queue is finished storing the message, the Peakboard app can get back to work.
+On the other hand, if the Peakboard app sends the order confirmation to a message queue, then it only has to wait for the message queue to store the order confirmation. For a Hub list, this is very quick. As soon as the message queue is finished storing the message, the Peakboard app can get back to work.
 
-Then, some time later, the message queue sends the order confirmation to the ERP system. But from the Peakboard app's point of view, this all happens *asynchronously*. It's not involved in the process at all.
+Then, some time later, a Hub Flow sends all the unprocessed order confirmations to the ERP system. But from the Peakboard app's point of view, this all happens *asynchronously*. The app is not involved in the process at all and does not have to worry about it.
 
 ### Handle failures automatically
 
-Another reason to use a message queue is so that the queue can handle any problems with the message not being accepted. For example, if the target (like an ERP system) is not reachable, or if the message can't be processed for other reasons (e.g. the order is blocked)---then we want to re-send the message after a while.
+Another reason to use a message queue is so that the Hub Flow can handle any problems with the message not being accepted. For example, if the target (like an ERP system) is unreachable, or if the message can't be processed for other reasons (e.g. the order is blocked)---then we want to re-send the message after a while.
 
-Normally, our Peakboard app would have to handle these unexpected events itself. But with a message queue, the Peakboard app doesn't need to worry about it at all. As soon as it sends the message to the queue, it's no longer the app's problem. It's the message queue's job to handle any failures and re-send the message, if needed.
+Normally, our Peakboard app would have to handle these unexpected events and error cases itself. But with a message queue, the Peakboard app doesn't need to worry about it at all. As soon as the app sends the message to the queue, it's no longer the app's problem. It's the Hub Flow's job to send the message to the ERP system, and to handle any failures and re-send the message, if needed.
 
 
 ## Let's build an example
