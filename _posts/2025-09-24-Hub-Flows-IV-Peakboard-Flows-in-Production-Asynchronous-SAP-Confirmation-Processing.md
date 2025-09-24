@@ -85,16 +85,12 @@ In other words, the data source includes all rows with a `State` of `N` (new con
 
 ![image](/assets/2025-09-24/020.png)
 
-### Create the variables
-We create four variables, which we will use in our SAP XQL statement:
-* `ConfirmationNo`
-* `YieldQuantity`
-* `ScrapQuantity`
-* `MachineTime`
+### Create the SAP data source
+Next, we create an SAP data source. We'll use this data source to send the order confirmations to SAP.
 
-![image](/assets/2025-09-24/030.png)
+We add the following XQL statement to the data source. It contains placeholder variables, which we will soon create.
 
-For the SAP data source we use the following XQL statement. It contains placeholders for our four variables. The output is the `DETAIL_RETURN` table that contains the message from SAP.
+It stores the output into the `DETAIL_RETURN` table. This table contains the response message from SAP, which we will need later.
 
 {% highlight sql %}
 EXECUTE FUNCTION 'BAPI_PRODORDCONF_CREATE_TT'
@@ -107,9 +103,19 @@ EXECUTE FUNCTION 'BAPI_PRODORDCONF_CREATE_TT'
 EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
 {% endhighlight %}
 
+![image](/assets/2025-09-24/040.png)
+
+We create four variables, which we will use in our SAP XQL statement:
+* `ConfirmationNo`
+* `YieldQuantity`
+* `ScrapQuantity`
+* `MachineTime`
+
+![image](/assets/2025-09-24/030.png)
+
+
 ### Write the confirmation processing script
 
-![image](/assets/2025-09-24/040.png)
 
 Finally, we need to write the logic to process the confirmations in the Hub list. As shown in the screenshot we loop over all open confirmation rows. For each row, we write the four necessary value into the variables and then reload the SAP data source to execute the statement. After this is done, we check the return message. If it's successful (Return type = `I`), then we set the confirmation data row to `Done`. If not, then it's an error.
 
