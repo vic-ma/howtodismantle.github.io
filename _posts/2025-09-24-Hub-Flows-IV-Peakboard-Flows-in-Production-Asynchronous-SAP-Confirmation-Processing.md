@@ -63,7 +63,7 @@ We use a [Hub list](https://help.peakboard.com/hub/Lists/en-hub_new-list.html) a
 | `YieldQuantity` | Quantity of usable pieces in the confirmation.
 | `ScrapQuantity` | Quantity of unusable scrap pieces in the confirmation.
 | `MachineTime`   | The amount of machine time used used to produce the goods.
-| `State`         | State of the confirmation: **N** (new), **D** (done), or **E** (error).
+| `State`         | State of the confirmation: `N` (new), `D` (done), or `E` (error).
 | `Message`       | Response message from SAP (e.g., the error message when there was an error processing the confirmation). 
 
 The following screenshot shows an example of what this list might look like. There are two confirmations in the list: one was processed by the Flow successfully (`State = D`), and the other ran into an error (`State = E`).
@@ -72,7 +72,7 @@ The following screenshot shows an example of what this list might look like. The
 
 ## Build the Hub Flow
 
-In our Hub FLow project we first set up a data source to previously introduced hub list. The filter should return all rows that are not "Done" which includes untouched rows as well as rows that have failed to be submitted in the past.
+Now, let's build the Hub Flow. We create a new Hub Flow project and set up a data source for our Hub List. We add a filter for `State ~= D`. This means that the data source includes all rows in the Hub List that don't have a `State` of `D`. In other words, the data source includes all rows with a `State` of `N` (new confirmations that the Flow has not touched) or `E` (confirmations that the Flow has tried to process but it ran into an error)---which is exactly what we want.
 
 ![image](/assets/2025-09-24/020.png)
 
