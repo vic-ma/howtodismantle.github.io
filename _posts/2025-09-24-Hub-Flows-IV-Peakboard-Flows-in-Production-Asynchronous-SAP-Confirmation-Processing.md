@@ -10,47 +10,94 @@ read_more_links:
   - name: All articles about Hub Flows
     url: /category/hubflows
 downloads:
-  - name: TemperatureFlow.pbfx
-    url: /assets/2025-08-08/TemperatureFlow.pbfx
+  - name: SAPProdOrderConfQueueing.pbfx
+    url: /assets/2025-09-24/SAPProdOrderConfQueueing.pbfx
 ---
-In the fourth part of our Hub Flows series we will discuss another often-seen use case: Queueing of message to be sent out asnychonoulsy. We must make sure to understand the basic of Hub Flows first. The recent articles of this series can be found [here](/category/hubflows).
+In this part of our [Hub Flows series](/category/hubflows), we'll look at another common design pattern: A message queue that sends messages asynchronously. Before continuing, make sure you understand the [basics of Hub Flows](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
 
-## Why we need queueing?
+## What is a message queue?
 
-The idea of queueing is to build an architecture in which message are generated from Peakboard applications, but they are not sent out directly to the desination system, but first stored somewhere and then processed asynchronoulsy. Some typical examples for this could be send out order confirmations for an ERP system or sending out alerts or emails to inform a user about a problem.
+A [message queue](https://www.ibm.com/think/topics/message-queues) accepts messages from producers. It temporarily stores the messages, before sending them to the target of the message.
 
-It would be possible to do this activity directly as soon as the need comes up in the Peakboard application. So why do we want to store it first and the prcoess it asynchronslouly? The most common reason for this is to not bother the user with this process. Storing all values first is done very fast and the user can keep on working. The actual processing takes longer but no user needs to wait. It happens in the background. The second common reason is when the destination system is not reachable or the processing of the message can't be done for other reasons (e.g. while the order to be confirmed is blocked). Then we want to re-try the processing after a while.
+Here's an example of how you could use a message queue with Peakboard:
+1. A user uses a Peakboard app to confirm an order.
+1. The Peakboard app sends an order confirmation to a Hub list, which acts as the message queue.
+1. A Hub Flow loops over the order confirmations in the Hub list, and processes each one, sending them to the company's ERP system.
 
-In today's article we will build an architecture to enable queueing. We assume that production order confirmation message are stored in a hub list. Then we build a Hub FLow that loops over all unprocessed message and sends them to SAP. The confirmation message is marked as done as soon as it's confirmed by the SAP system. If anything goes wrong the message is marked as errornous and with the next round of confirmation we will try to process it again until it's done successfully.
+Of course, you could do the exact same thing without a message queue, and in fewer steps:
+1. A user uses a Peakboard app to confirm an order.
+1. The Peakboard app sends an order confirmation to the company's ERP system.
 
-For more details about how to send a production order confirmation to SAP we can check back to an article from the past: [Dismantle SAP Production - Build a Production Order Confirmation Terminal with no code](/SAP-Production-Build-a-Production-Order-Confirmation-Terminal-with-no-code.html). We are using the same technique and SAP RFC function module in our example here.
+So why would you want to use a message queue at all?
 
-## Preparing the queue table
+### Avoid blocking
 
-The actual queue data is stored in a Hub table. For our example for the SAP production order confirmation we will need these columns:
+The biggest reason to use a message queue is to avoid blocking the Peakboard app. If the app sends an order confirmation directly (synchronously) to the ERP system, then the app has to wait for the ERP system to process the order and respond to the app. While the Peaboard app is waiting for the ERP system, it cannot do anything else. It is *blocked*.
 
-- "ConfirmationNo" is the confirmation number in SAP that is used to identify an operation of a production order
-- "YieldQuantity" is the quantity of usable pieces produced within this confirmation 
-- "ScrapQuantity" is the quantity of unusable, scrap pieces within this confirmation
-- "MachineTime" is the time the machine used to produce the goods
-- "State" will identify the state of the confirmation: N - New - untouched conirmation, D - Done - succesfuly sent to SAP, E - Error - confirmation failed 
-- "Message" contains the return message from SAP, e.g. the error message when the confiration is in errornious state.
+On the other hand, if the Peakboard app sends the order confirmation to a message queue, then it only needs to wait for the message queue to store the confirmation (and for a Hub list, this is very quick). As soon as the message queue finishes storing the message, the Peakboard app can get back to work.
 
-The screenshot shows two untouched confirmations to be processed by our Hub FLows. How these entries are stored there should be not the question here. It can be any Peakboard based source.
+### Handle failures automatically
 
-![image](/assets/2025-09-24/010.png)
+Another reason to use a message queue is so that the Hub Flow can handle any problems with the message not being accepted. For example, if the target (like an ERP system) is unreachable, or if the message can't be processed for other reasons (e.g. the order is blocked)---then we want to send the message again, after a while.
 
-## Building the Hub Flow project
+Normally, our Peakboard app would have to handle these unexpected events and error cases itself. But with a message queue, the Peakboard app doesn't need to worry about it at all. As soon as the app sends the message to the queue, it's no longer the app's responsibility. It's the Hub Flow's job to send the message to the ERP system, handle any failures, and re-send the message, if needed.
 
-In our Hub FLow project we first set up a data source to previously introduced hub list. The filter should return all rows that are not "Done" which includes untouched rows as well as rows that have failed to be submitted in the past.
+
+## An example
+
+Now, let's build an example. Assume that there is a Peakboard app that sends order confirmation messages to an SAP system directly.
+
+Our job is to do the following:
+1. Create a Hub list (message queue), where the app can send the confirmations instead.
+1. Create a Hub Flow that loops over all unprocessed messages in the Hub list, and send them to SAP.
+
+For more details about how to send an order confirmation to SAP, take a look at our [SAP order confirmation article](/SAP-Production-Build-a-Production-Order-Confirmation-Terminal-with-no-code.html). We'll use the same techniques that are discussed in that article. But the focus of this article is on the Hub Flow.
+
+## Create the message queue
+
+We create a new [Hub list](https://help.peakboard.com/hub/Lists/en-hub_new-list.html) to act as our message queue. Our messages are SAP order confirmations. So, we add the following columns to the Hub list:
+
+| Column | Description |
+| ------ | ----------- |
+| `ConfirmationNo`| Confirmation number that identifies the production order.
+| `YieldQuantity` | Quantity of usable pieces in the confirmation.
+| `ScrapQuantity` | Quantity of unusable scrap pieces in the confirmation.
+| `MachineTime`   | The amount of machine time used used to produce the goods.
+| `State`         | State of the confirmation: `N` (new), `D` (done), or `E` (error).
+| `Message`       | Response message from SAP, if the confirmation was sent.
+
+Note that the last two columns (`State` and `Message`) have nothing to do with the order confirmation itself. Instead, they are used by our Hub Flow to keep track of which messages have been processed, and to give status info to a user.
+
+The following screenshot shows an example of what this list might look like. There are two confirmations in the list: One was processed by the Flow successfully (`State = D`), and the other ran into an error (`State = E`).
+
+![image](/assets/2025-09-24/080.png)
+
+## Build the Hub Flow
+
+Now, let's build the Hub Flow. We create a new Hub Flow project.
+
+### Add the Hub list data source
+Next, we add a data source for our Hub List. We use the filter `State ~= D`. This means that the data source includes all rows in the Hub List that don't have a `State` of `D`.
+
+In other words, the data source includes all rows with a `State` of `N` (new confirmations that the Flow has not touched) or `E` (confirmations that the Flow tried to process but resulted in an error). This way, the data source only includes order confirmations that we still need to process.
 
 ![image](/assets/2025-09-24/020.png)
 
-We will need four variables for transfer the correct values in out SAP XQL statement later.
+
+### Create variables
+We create four new variables, which we will use in our SAP XQL statement:
+* `ConfirmationNo`
+* `YieldQuantity`
+* `ScrapQuantity`
+* `MachineTime`
 
 ![image](/assets/2025-09-24/030.png)
 
-For the SAP data source we use the following XQL statement. It contains placeholders that refer to the four variables we already created. The output is the DETAIL_RETURN table that contains the message from SAP.
+### Create the SAP data source
+Now, we create our SAP data source. We use this data source to send the order confirmations to SAP.
+
+We add the following XQL statement to the data source. It has placeholders for the variables that we created.
+We also store the `DETAIL_RETURN` table. This table contains the response status and message from SAP, which we will need later.
 
 {% highlight sql %}
 EXECUTE FUNCTION 'BAPI_PRODORDCONF_CREATE_TT'
@@ -65,28 +112,43 @@ EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
 
 ![image](/assets/2025-09-24/040.png)
 
-The last component we need is the actual logic to call the SAP system. As shown in the screenshot we loop over all open confirmation rows. For each row we write the four necessary value into the variables and then reload the SAP data source to execute the statement. After this is done we can check the return message. If it's succesful (Return type = "I") we set the confirmation data row on "Done", if not, it's an error.
+
+
+### Write the confirmation processing script
+
+Finally, we write the Building Blocks script that processes the confirmations in the Hub list:
 
 ![image](/assets/2025-09-24/050.png)
 
-## Building an deploying the flow
+Here's how the script works:
+1. Loop over each row in our Hub list data source. (Remember, the data source already filters for the confirmations that we still need to process.) For each row:
+    1. Set our four variables to the values in the row.
+    1. Reload our SAP data source, in order to execute the XQL command and send the order confirmation to SAP.
+    1. Check the response status from SAP:
+        * If the status is `I`, then the order confirmation succeeded. Set the state of the Hub list row to `D`, for *done*. Then, set the message of the Hub list row to SAP's response message.
+        * Otherwise, the order confirmation failed. Set the state of the Hub list row to `E`, for *error*. Then, set the message of the Hub list row to SAP's response message.
 
-The next screenshot show the actual Hub Flow to put all our artifacts together. We execute the flow every 60 seonds. After having reloaded the open confirmations we just call the function that loops over every confirmation row (see last paragraph). That's all we need to do.
+## Deploy the Flow
+
+Now, let's deploy our Flow. We add a periodic trigger and set it to 60 seconds. This means that the Flow will execute automatically every 60 seconds.
+
+Next, we add two steps to run, whenever the Flow executes:
+1. Reload the `OpenConfirmations` data source. This updates our Hub list data source, to ensure we have the latest data.
+1. Run our list processing function.
 
 ![image](/assets/2025-09-24/060.png)
 
-The flow runs on regular basis right after being deployed to a Hub instance.
+Next, we deploy our Flow to a Hub instance.  And as you can see, our Flow now runs on regular basis:
 
 ![image](/assets/2025-09-24/070.png)
 
-## result and conclusion
 
-The screenshot shows our confirmation list after the first execution of the Flow. We can see that one of the confirmations has been submitted to SAP successfully while the other one went into an error state. The Flow will automatically retry it in the next round.
+## Result and conclusion
+
+The following screenshot shows our Hub list after the first execution of the Flow. As you can see, one of the confirmations was submitted to SAP successfully, and the other one had an error (the Flow will automatically retry it, the next time it runs).
 
 ![image](/assets/2025-09-24/080.png)
 
-Our example shows a very simple way of queueing such kind of processes. To keep it simple we haven't implemented a complex error handling - we just retry it forever. Some more improvement could be to set up a counter and give up trying after 10 tries. The next improvement to be made could be to send an email to a responsible person in case an error comes up. 
+To keep our example simple, we didn't implement any complex error handling---we just re-send failed order confirmations forever. So an improvement could be to set up a counter for how many times we failed to send an order confirmation to SAP. And if the order fails 10 times, then we give up on it and send an email notification to someone. Another improvement could be to send an email if any error occurs at all.
 
-
-
-
+Once you understand the basic design pattern, you can extend it however you like!
