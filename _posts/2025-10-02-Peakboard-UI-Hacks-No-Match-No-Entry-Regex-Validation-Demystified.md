@@ -38,7 +38,7 @@ You can use brackets `[]` to allow different characters:
 | --- | --- |
 | `[0-9]` | Matches a single digit from 0 to 9. |
 | `[a-z]` | Matches a single lowercase letter. |
-| `[A-Za-z0-9]` | Matches a single letter or a digit. |
+| `[A-Za-z0-9]` | Matches a single letter or digit. |
 | `\d` | Matches any single digit. |
 | `[^...]` | Matches any single character NOT in the specified set. (Replace `...` with the characters you want to exclude.) |
 
@@ -52,7 +52,11 @@ You can use curly braces `{}` to require the previous character or group to be r
 
 ### An example
 
-Let's try to create a regex for the standard serial numbers of Peakboard Boxes. They usually look something like, `PB1020`. So they start with `PB` and are followed by a 4–5 digit number. The correct regex for this format is this:
+Let's try to create a regex for the standard serial numbers of Peakboard Boxes. They usually look something like this:
+```
+PB1020
+```
+They start with `PB` and are followed by a 4–5 digit number. The correct regex for the serial numbers is this:
 ```
 ^PB\d{4,5}$
 ```
@@ -76,9 +80,9 @@ Regexes can get really complicated when the requirements go up. For example, her
 
 Here are some tools that can make the process of creating regexes easier:
 * [regex101](https://regex101.com/) lets you enter a regex and a string and see if the string matches the regex.
-* [Regex Generator](https://regex-generator.olafneumann.org/?sampleText=PB1234&flags=i) lets you enter a sample string that you want to match (like `PB1234` for a Peakboard Box serial number). Then, you select the appropriate colored blocks to build the regex, bit by bit.
+* [Regex Generator](https://regex-generator.olafneumann.org/?sampleText=PB1234&flags=i) lets you enter a sample string that you want to match (like `PB1234` for a Peakboard Box serial number). Then, you select the appropriate colored blocks to build the regex.
 
-You can also ask an AI chatbot, like ChatGPT, to generate a regex for you. Just give it a sample text that you want to match, and a plain-English description of what the pattern is. But make sure to verify the regex it gives you. 
+You can also ask an AI chatbot, like ChatGPT, to generate a regex for you. Just give it a sample text that you want to match, and a plain-English description of what the pattern is. Be sure to verify the regex that it gives you, though. 
 
 ![image](/assets/2025-10-02/chatgpt.png)
 
@@ -86,11 +90,11 @@ You can also ask an AI chatbot, like ChatGPT, to generate a regex for you. Just 
 
 Now, let's look at how we can use regex in Peakboard.
 
-The [text box control](https://help.peakboard.com/controls/Input/en-textbox.html) has a data validation option. If you switch this on, you can enter a regex pattern. If the user enters some text that doesn't match the regex, then the border of the text box will change color.
+The [text box control](https://help.peakboard.com/controls/Input/en-textbox.html) has a data validation option. If you turn it on, you can enter a regex pattern. If the user enters some text that doesn't match the regex, then the border of the text box will change color.
 
 ![image](/assets/2025-10-02/010.png)
 
-But what if we want to reject any input that does not match our regex? We can do this with Building Blocks. We get the `IsValid` property of the text box. This returns whether or not the input matches the regex. If the input is invalid, then we can do something like shake the text box, to alert the user. If the input is valid, then we process it as usual.
+But what if you want to reject any input that does not match the regex? We can do this with Building Blocks. We get the `IsValid` property of the text box. This returns whether or not the input matches the regex. If the input is invalid, then we can do something like shake the text box, to alert the user. If the input is valid, then we process it as usual.
 
 ![image](/assets/2025-10-02/020.png)
 
