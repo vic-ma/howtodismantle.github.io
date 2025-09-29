@@ -49,10 +49,11 @@ Let's try to create a regex for the standard serial numbers of Peakboard Boxes. 
 ^PB\d{4,5}$
 ```
 
-* `^` → start of the string
-* `PB` → the literal characters PB (fixed)
-* `\d{4,5}` → 4 or 5 digits (0–9)
-* `$` → end of the string
+Here's an explanation of how it works:
+* `^` → Start of the string.
+* `PB` → The literal characters PB (fixed).
+* `\d{4,5}` → 4 or 5 digits.
+* `$` → End of the string.
 
 Things can get really complicated when the requirements go up, e.g. `^(?=.*[A-Za-z])(?=.*\d).{8,}$` is a password with at least one letter, one number, and a minimum of eight characters.
 
