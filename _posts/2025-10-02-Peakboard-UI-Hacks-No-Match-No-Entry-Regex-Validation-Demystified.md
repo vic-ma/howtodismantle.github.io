@@ -30,30 +30,38 @@ Every regex starts with the character `^` and ends with character `$`. So for ex
 
 You can use brackets `[]` to allow different characters:
 
-* `[0-9]` → A digit between 0 and 9.
-* `[a-z]` → Lowercase letters.
-* `[A-Za-z0-9]` → Letters and digits.
-* `\d` → Any single digit.
-* `[^...]` → NOT any of these characters (replace `...` with the characters you want to exclude).
+| Component | Description |
+| --- | --- |
+| `[0-9]` | Matches a single digit from 0 to 9. |
+| `[a-z]` | Matches a single lowercase letter. |
+| `[A-Za-z0-9]` | Matches a single letter or a digit. |
+| `\d` | Matches any single digit. |
+| `[^...]` | Matches any single character NOT in the specified set. (Replace `...` with the characters you want to exclude.) |
 
 You can use curly braces `{}` to require the previous token to be repeated a specific number of times:
 
-* `{n}` → Exactly `n` times.
-* `{n,}` → At least `n` times.
-* `{n,m}` → Between `n` and `m` times (inclusive).
+
+| Component | Description |
+| --- | --- |
+| `{n}` | Matches the preceding character or group exactly `n` times. |
+| `{n,}` | Matches the preceding character or group at least `n` times. |
+| `{n,m}` | Matches the preceding character or group between `n` and `m` times (inclusive). |
 
 ### An example
 
-Let's try to create a regex for the standard serial numbers of Peakboard Boxes. They usually look something like, `PB1020`. So they start with `PB` and are followed by a 4–5 digit number. The correct regex for this format is:
-```regex
+Let's try to create a regex for the standard serial numbers of Peakboard Boxes. They usually look something like, `PB1020`. So they start with `PB` and are followed by a 4–5 digit number. The correct regex for this format is this:
+```
 ^PB\d{4,5}$
 ```
 
-Here's an explanation of how it works:
-* `^` → Start of the string.
-* `PB` → The literal characters PB (fixed).
-* `\d{4,5}` → 4 or 5 digits.
-* `$` → End of the string.
+Here's an explanation for how it works:
+
+| Component | Explanation |
+| --- | --- |
+| `^` | Asserts the start of the string. |
+| `PB` | Matches the literal characters "PB". |
+| `\d{4,5}` | Matches a sequence of 4 or 5 digits. |
+| `$` | Asserts the end of the string. |
 
 Things can get really complicated when the requirements go up, e.g. `^(?=.*[A-Za-z])(?=.*\d).{8,}$` is a password with at least one letter, one number, and a minimum of eight characters.
 
