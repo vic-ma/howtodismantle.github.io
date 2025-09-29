@@ -62,7 +62,18 @@ Here's an explanation for how it works:
 | `\d{4,5}` | Matches a sequence of 4 or 5 digits. |
 | `$` | Asserts the end of the string. |
 
-Things can get really complicated when the requirements go up, e.g. `^(?=.*[A-Za-z])(?=.*\d).{8,}$` is a password with at least one letter, one number, and a minimum of eight characters.
+
+## Easier ways to create regexes
+
+Regexes can get really complicated when the requirements go up. For example, here's a regex for a password that contains at least one letter, one number, and a minimum of eight characters:
+```
+^(?=.*[A-Za-z])(?=.*\d).{8,}$
+```
+
+Here are some tools that can make the process of creating regexes easier:
+* [regex101](https://regex101.com/) lets you enter a regex and a string and see if the string matches the regex.
+* [Regex Generator](https://regex-generator.olafneumann.org/?sampleText=PB1234&flags=i) lets you enter an example string that you want to match (like `PB1234` for a Peakboard Box serial number). Then, you select the appropriate colored blocks to build the regex, bit by bit.
+* You can also ask an AI chatbot, like ChatGPT, to generate a regex for you. Just give it a sample text that you want to match, and a plain-English description of what the pattern is. But make sure to verify the regex it gives you. 
 
 ## Regex in Peakboard applications
 
