@@ -20,13 +20,17 @@ So, it's important to validate the user input. An easy way to do this is by usin
 ## What is Regex?
 
 A regular expression (regex) is a string that describes a text pattern. For example, 
-consider this regex: `^.{0,6}$`. It describes a string that has between 0 and 6 characters. So the string `Hello` is matches the regex, but the string `Hello world` does not.
+consider this regex:
+```
+^.{0,6}$
+```
+It describes a string that is 0-6 characters long. So, the string `Hello` matches this regex, but the string `Hello world` does not.
 
 Now, let's go over how the syntax for regexes work.
 
 ## How to create a regex
 
-Every regex starts with the character `^` and ends with character `$`. So for example, the regex `^abc$` only matches the string *abc*.
+Every regex starts with the character `^` and ends with character `$`. The `^` character specifies the start of the string, and the `$` character specifies the end of the string. So for example, the regex `^abc$` only matches the string *abc*.
 
 You can use brackets `[]` to allow different characters:
 
