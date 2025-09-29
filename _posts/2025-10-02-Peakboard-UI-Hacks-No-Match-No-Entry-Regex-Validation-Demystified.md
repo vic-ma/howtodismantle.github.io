@@ -80,18 +80,18 @@ You can also ask an AI chatbot, like ChatGPT, to generate a regex for you. Just 
 
 ## Regex in Peakboard applications
 
-Now, let's look at how we can use regex in Peakboard applications to validate user input.
+Now, let's look at how we can use regex in Peakboard.
 
 The [text box control](https://help.peakboard.com/controls/Input/en-textbox.html) has a data validation option. If you switch this on, you can enter a regex pattern. If the user enters some text that doesn't match the regex, then the border of the text box will change color.
 
 ![image](/assets/2025-10-02/010.png)
 
-Besides the changing border color we can use building blocks in our processing procedure to check for validity and react accordingly if the user entry doesn't match the requirement. We can just use the "IsValid" property and in case it's not valid inform the user (e.g. by shaking the text box) or start the processing in case the entry is ok.
+But what if we want to reject any input that does not match our regex? We can do this with Building Blocks. We get the `IsValid` property of the text box. This returns whether or not the input matches the regex. If the input is invalid, then we can do something like shake the text box, to alert the user. If the input is valid, then we process it as usual.
 
 ![image](/assets/2025-10-02/020.png)
 
 ## Result
 
-The animation shows the check in action for the regex of the Peakboard serial numbers `PBXXXX` with `XXXX` being 4–5 digits. So the regex is `^PB\d{4,5}$`. First we try to submit a wrong entry; there are two digits missing. After the number of digits is correct, the entry is accepted.
+This video shows what a Peakboard app that uses regex to validate user input might look like. The text box accepts a Peakboard Box serial number. So the regex is `^PB\d{4,5}$`. We submit an invalid entry with two missing digits, and the text box shakes. Then, we submit a correct entry, and the entry is accepted.
 
 ![image](/assets/2025-10-02/result.gif)
