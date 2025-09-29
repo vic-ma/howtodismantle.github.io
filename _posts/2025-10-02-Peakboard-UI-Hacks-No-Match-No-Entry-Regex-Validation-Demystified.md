@@ -19,7 +19,10 @@ So, it's important to validate the format of the user's input. Luckily, you can 
 
 ## What is Regex?
 
-Simply spoken, a regex is a single string that contains the rule another string (the payload) is checked against. For example, let's take the regex `^.{0,6}$`. It defines the rule that the payload's length must not exceed a maximum length of six characters. So the payload "Hello" is aligned with the rule `^.{0,6}$`, but the payload "Hello world" is not. How these regex strings or rules are defined we will learn in the next paragraph.
+A regular expression (regex) is a string that describes a text pattern. For example, 
+consider this regex: `^.{0,6}$`. It describes a string that has between 0 and 6 characters. So the string `Hello` is matches the regex, but the string `Hello world` does not.
+
+
 
 ## Crash course regex
 
