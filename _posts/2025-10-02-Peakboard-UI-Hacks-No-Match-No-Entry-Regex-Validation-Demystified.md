@@ -22,25 +22,25 @@ So, it's important to validate the format of the user's input. Luckily, you can 
 A regular expression (regex) is a string that describes a text pattern. For example, 
 consider this regex: `^.{0,6}$`. It describes a string that has between 0 and 6 characters. So the string `Hello` is matches the regex, but the string `Hello world` does not.
 
+Now, let's go over how the syntax for regexes work.
 
+## How to create a regex
 
-## Crash course regex
+Every regex starts with the character `^` and ends with character `$`. So for example, the regex `^abc$` only matches the string *abc*.
 
-Every regex starts with the character `^` and ends with character `$`. So for example `^abc$` only matches if the text is exactly "abc".
+You can use brackets `[]` to allow different characters:
 
-The brackets `[]` are used to define what is allowed:
+* `[0-9]` → A digit between 0 and 9.
+* `[a-z]` → Lowercase letters.
+* `[A-Za-z0-9]` → Letters and digits.
+* `\d` → Any single digit.
+* `[^...]` → NOT any of these characters (replace `...` with the characters you want to exclude).
 
-* `[0-9]` → a digit between 0 and 9
-* `[a-z]` → lowercase letters
-* `[A-Za-z0-9]` → letters and digits
-* `\d` → any single digit
-* `[^...]` → NOT these characters
+You can use curly braces `{}` to require the previous token to be repeated a specific number of times:
 
-The brackets `{}` are used to define the allowed length:
-
-* `{n}` → exactly n times
-* `{n,}` → at least n times
-* `{n,m}` → between n and m times (inclusive)
+* `{n}` → Exactly `n` times.
+* `{n,}` → At least `n` times.
+* `{n,m}` → Between `n` and `m` times (inclusive).
 
 So let's take the typical serial numbers of Peakboard boxes. They usually look like "PB1020", so they start with "PB" and then are followed by a 4–5 digit string. The correct regex would be `^PB\d{4,5}$`:
 
