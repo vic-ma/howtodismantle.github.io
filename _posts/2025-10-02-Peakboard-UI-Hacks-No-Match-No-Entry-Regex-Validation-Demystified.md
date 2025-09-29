@@ -13,7 +13,10 @@ downloads:
   - name: TextInputCheck.pbmx
     url: /assets/2025-10-02/TextInputCheck.pbmx
 ---
-Allowing users to enter any kind of text is a crucial and often used function in almost any interactive Peakboard application. However, it is also crucial to expect users to make false entries and entries that don't match the expectations of the procedures that process the entered values.
+Many Peakboard applications let the user give text input. However, accepting text input isn't as simple as adding a label control and calling it a day. You should expect users to occasionally give bad inputs---inputs that don't match the format that your app expects.
+
+So, it's important to validate the format of the user's input. Luckily, you can easily do this by using [*regular expressions*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions), also known as *regex*. Regex provides a simple, efficient, and standardized way for checking if a string matches the format that you expect.
+
 In this article, we will discuss a highly efficient and standardized way of checking user entries against certain rules by using regular expressions, or simply called Regex.
 
 ## What is Regex?
