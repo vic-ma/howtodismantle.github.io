@@ -80,7 +80,9 @@ You can also ask an AI chatbot, like ChatGPT, to generate a regex for you. Just 
 
 ## Regex in Peakboard applications
 
-The text boxes in Peakboard offer a validation attribute that can be switched on. It comes along with the actual Regex expression to be checked against and also a dedicated border color. As long as the user entry doesn't match the regex, the border is automatically set to the color.
+Now, let's look at how we can use regex in Peakboard applications to validate user input.
+
+The [text box control](https://help.peakboard.com/controls/Input/en-textbox.html) has a data validation option. If you switch this on, you can enter a regex pattern. If the user enters some text that doesn't match the regex, then the border of the text box will change color.
 
 ![image](/assets/2025-10-02/010.png)
 
