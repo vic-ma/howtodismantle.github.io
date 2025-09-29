@@ -38,14 +38,13 @@ You can use brackets `[]` to allow different characters:
 | `\d` | Matches any single digit. |
 | `[^...]` | Matches any single character NOT in the specified set. (Replace `...` with the characters you want to exclude.) |
 
-You can use curly braces `{}` to require the previous token to be repeated a specific number of times:
-
+You can use curly braces `{}` to require the previous character or group to be repeated a specific number of times (e.g. `a{1-2}` or `[a-z]{1-2}`):
 
 | Component | Description |
-| --- | --- |
-| `{n}` | Matches the preceding character or group exactly `n` times. |
-| `{n,}` | Matches the preceding character or group at least `n` times. |
-| `{n,m}` | Matches the preceding character or group between `n` and `m` times (inclusive). |
+|---|---|
+| `{n}` | Exactly `n` times. |
+| `{n,}` | At least `n` times. |
+| `{n,m}` | Between `n` and `m` times (inclusive). |
 
 ### An example
 
