@@ -13,52 +13,93 @@ downloads:
   - name: TextInputCheck.pbmx
     url: /assets/2025-10-02/TextInputCheck.pbmx
 ---
-Allowing users to enter any kind of text is a crucial and often used function in almost any interactive Peakboard application. However, it is also crucial to expect users to make false entries and entries that don't match the expectations of the procedures that process the entered values.
-In this article, we will discuss a highly efficient and standardized way of checking user entries against certain rules by using regular expressions, or simply called Regex.
+Many Peakboard apps have text boxes that let the user submit some text. However, accepting text input isn't as simple as adding a text box control and calling it a day. You should expect users to occasionally give bad inputs---text that doesn't match the format that your app expects.
+
+So, it's important to validate the user input. An easy way to do this is by using [*regular expressions*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions), also known as *regex*. Regex provides a simple, efficient, and standardized way for checking if some text matches a specified pattern. In this article, we'll explain how regex works, and how to use it in Peakboard, to validate user input.
 
 ## What is Regex?
 
-Simply spoken, a regex is a single string that contains the rule another string (the payload) is checked against. For example, let's take the regex `^.{0,6}$`. It defines the rule that the payload's length must not exceed a maximum length of six characters. So the payload "Hello" is aligned with the rule `^.{0,6}$`, but the payload "Hello world" is not. How these regex strings or rules are defined we will learn in the next paragraph.
+A regular expression (regex) is a string that describes a text pattern. For example, 
+consider this regex:
+```
+^.{0,6}$
+```
+It describes a string that is 0-6 characters long. So, the string `Hello` matches this regex, but the string `Hello world` does not.
 
-## Crash course regex
+Now, let's go over how the syntax for regexes work.
 
-Every regex starts with the character `^` and ends with character `$`. So for example `^abc$` only matches if the text is exactly "abc".
+## How to create a regex
 
-The brackets `[]` are used to define what is allowed:
+Every regex starts with the character `^` and ends with character `$`. The `^` character specifies the start of the string, and the `$` character specifies the end of the string. So for example, the regex `^abc$` only matches the string *abc*.
 
-* `[0-9]` → a digit between 0 and 9
-* `[a-z]` → lowercase letters
-* `[A-Za-z0-9]` → letters and digits
-* `\d` → any single digit
-* `[^...]` → NOT these characters
+You can use brackets `[]` to allow different characters:
 
-The brackets `{}` are used to define the allowed length:
+| Component | Description |
+| --- | --- |
+| `[0-9]` | Matches a single digit from 0 to 9. |
+| `[a-z]` | Matches a single lowercase letter. |
+| `[A-Za-z0-9]` | Matches a single letter or digit. |
+| `\d` | Matches any single digit. |
+| `[^...]` | Matches any single character NOT in the specified set. (Replace `...` with the characters you want to exclude.) |
 
-* `{n}` → exactly n times
-* `{n,}` → at least n times
-* `{n,m}` → between n and m times (inclusive)
+You can use curly braces `{}` to require the previous character or group to be repeated a specific number of times (e.g. `a{1-2}` or `[a-z]{1-2}`):
 
-So let's take the typical serial numbers of Peakboard boxes. They usually look like "PB1020", so they start with "PB" and then are followed by a 4–5 digit string. The correct regex would be `^PB\d{4,5}$`:
+| Component | Description |
+|---|---|
+| `{n}` | Exactly `n` times. |
+| `{n,}` | At least `n` times. |
+| `{n,m}` | Between `n` and `m` times (inclusive). |
 
-* `^` → start of the string
-* `PB` → the literal characters PB (fixed)
-* `\d{4,5}` → 4 or 5 digits (0–9)
-* `$` → end of the string
+### An example
 
-Things can get really complicated when the requirements go up, e.g. `^(?=.*[A-Za-z])(?=.*\d).{8,}$` is a password with at least one letter, one number, and a minimum of eight characters.
+Let's try to create a regex for the standard serial numbers of Peakboard Boxes. They usually look something like this:
+```
+PB1020
+```
+They start with `PB` and are followed by a 4–5 digit number. The correct regex for the serial numbers is this:
+```
+^PB\d{4,5}$
+```
+
+Here's an explanation for how it works:
+
+| Component | Explanation |
+| --- | --- |
+| `^` | Asserts the start of the string. |
+| `PB` | Matches the literal characters "PB". |
+| `\d{4,5}` | Matches a sequence of 4 or 5 digits. |
+| `$` | Asserts the end of the string. |
+
+
+## Easier ways to create regexes
+
+Regexes can get really complicated when the requirements go up. For example, here's a regex for a password that contains at least one letter, one number, and a minimum of eight characters:
+```
+^(?=.*[A-Za-z])(?=.*\d).{8,}$
+```
+
+Here are some tools that can make the process of creating regexes easier:
+* [regex101](https://regex101.com/) lets you enter a regex and a string and see if the string matches the regex.
+* [Regex Generator](https://regex-generator.olafneumann.org/?sampleText=PB1234&flags=i) lets you enter a sample string that you want to match (like `PB1234` for a Peakboard Box serial number). Then, you select the appropriate colored blocks to build the regex.
+
+You can also ask an AI chatbot, like ChatGPT, to generate a regex for you. Just give it a sample text that you want to match, and a plain-English description of what the pattern is. Be sure to verify the regex that it gives you, though. 
+
+![image](/assets/2025-10-02/chatgpt.png)
 
 ## Regex in Peakboard applications
 
-The text boxes in Peakboard offer a validation attribute that can be switched on. It comes along with the actual Regex expression to be checked against and also a dedicated border color. As long as the user entry doesn't match the regex, the border is automatically set to the color.
+Now, let's look at how we can use regex in Peakboard.
+
+The [text box control](https://help.peakboard.com/controls/Input/en-textbox.html) has a data validation option. If you turn it on, you can enter a regex pattern. If the user enters some text that doesn't match the regex, then the border of the text box will change color.
 
 ![image](/assets/2025-10-02/010.png)
 
-Besides the changing border color we can use building blocks in our processing procedure to check for validity and react accordingly if the user entry doesn't match the requirement. We can just use the "IsValid" property and in case it's not valid inform the user (e.g. by shaking the text box) or start the processing in case the entry is ok.
+But what if you want to reject any input that does not match the regex? We can do this with Building Blocks. We get the `IsValid` property of the text box. This returns whether or not the input matches the regex. If the input is invalid, then we can do something like shake the text box, to alert the user. If the input is valid, then we process it as usual.
 
 ![image](/assets/2025-10-02/020.png)
 
 ## Result
 
-The animation shows the check in action for the regex of the Peakboard serial numbers `PBXXXX` with `XXXX` being 4–5 digits. So the regex is `^PB\d{4,5}$`. First we try to submit a wrong entry; there are two digits missing. After the number of digits is correct, the entry is accepted.
+This video shows what a Peakboard app that uses regex to validate user input might look like. The text box accepts a Peakboard Box serial number. So the regex is `^PB\d{4,5}$`. We submit an invalid entry with two missing digits, and the text box shakes. Then, we submit a correct entry, and the entry is accepted.
 
 ![image](/assets/2025-10-02/result.gif)
