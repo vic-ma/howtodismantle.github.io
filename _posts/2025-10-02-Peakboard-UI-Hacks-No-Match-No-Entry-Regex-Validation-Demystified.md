@@ -42,7 +42,12 @@ You can use curly braces `{}` to require the previous token to be repeated a spe
 * `{n,}` → At least `n` times.
 * `{n,m}` → Between `n` and `m` times (inclusive).
 
-So let's take the typical serial numbers of Peakboard boxes. They usually look like "PB1020", so they start with "PB" and then are followed by a 4–5 digit string. The correct regex would be `^PB\d{4,5}$`:
+### An example
+
+Let's try to create a regex for the standard serial numbers of Peakboard Boxes. They usually look something like, `PB1020`. So they start with `PB` and are followed by a 4–5 digit number. The correct regex for this format is:
+```regex
+^PB\d{4,5}$
+```
 
 * `^` → start of the string
 * `PB` → the literal characters PB (fixed)
