@@ -19,7 +19,9 @@ But what if we are operating in a single facility, and we can access the Box dir
 
 ## The Peakboard application
 
-First, we build a simple Peakboard application to use for our example. The app has a large text box which displays any notifications. It also has a button, which the user can tap, to confirm the notification. Both elements are hidden by default, so confirming a message is nothing else than setting the text box and the button back to hidden.
+First, we build a simple Peakboard application to use for our example. The app has a large text box which displays any notifications. It also has a button, which the user can tap, to confirm the notification.
+
+Both of these controls are hidden by default. The text box and button only appear when the app receives a notification. And when the user taps the button, the app re-hides the text box and button.
 
 ![image](/assets/2025-10-10/010.png)
 
