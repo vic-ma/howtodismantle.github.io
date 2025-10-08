@@ -13,25 +13,70 @@ downloads:
   - name: PopupMessage.pbmx
     url: /assets/2025-10-10/PopupMessage.pbmx
 ---
-Earlier this year we discussed how to use the [Peakboard Hub API to send a notification from any kind of client to a Peakboard box through the Hub](/Cracking-the-code-Part-II-Calling-functions-remotely.html). That's especially cool when the Peakboard box (or BYOD instance) is not directly reachable from the caller or the IP address is unknown. It works even with remote boxes as long as they are connected to Peakboard Hub Online. But let's assume now, we are only operating within one local facility and the box can be accessed directly without any restriction. In that case, no hub in between is necessary—we can just send our notification directly from the caller to the box without any relay. How to do that we will discuss in today's article.
+In a previous article, we discussed how to use the Peakboard Hub API to [send a notification to a Peakboard Box](/Cracking-the-code-Part-II-Calling-functions-remotely.html). This method is very useful when the Peakboard Box (or BYOD instance) is not directly reachable from the caller, or when the IP address is unknown. It works even with remote Boxes, so long as they are connected to Peakboard Hub Online.
 
-## The Peakboard application
+But what if everything is in a single facility, and we can access the Box directly? In that case, we don't need to use the Hub API at all. We can just send our notification directly to the Box. And in today's article, we'll explain how to do this.
 
-For our example we need a simple Peakboard application. It contains a big text box for the message and a button to let the user confirm the notification. Both elements are hidden by default, so confirming a message is nothing else than setting the text box and the button back to hidden.
+## Build the Peakboard app
 
-![image](/assets/2025-10-10/010.png)
+First, we build a simple Peakboard application that can show a notification to the user. The user can also tap a button to dismiss the notification.
 
-Besides the two controls we will need a function called `SubmitNotification` which receives a parameter `Message` that contains the actual payload to be presented to the user. The function must be marked as `shared` to allow it to be called from the outside.
-
-![image](/assets/2025-10-10/020.png)
-
-That's all we need. Now the application can be deployed on a box or on a BYOD instance waiting for incoming messages. The next screenshot shows an incoming message in the running application and how to confirm it.
+The following video shows what the finished app looks like, when an external application sends a notification, and the user taps on the button to dismiss the notification:
 
 ![image](/assets/2025-10-10/result.gif)
 
-## Calling from C#
+### Add controls
+We add a large text control, which we use to display the notification messages. Then, we add a button that the user can tap, which the user can tap to dismiss the notification.
 
-As we created a shared function, it automatically exposes an endpoint into the network. The following code shows how to call that function. It's a regular HTTP POST call. The pattern for the URL is `http://<BoxNameOrIP>:40404/api/functions/<FunctionName>`. In the body we need to provide the `Message` value as payload. The endpoint is protected by box credentials. Ideally we create an account on the box that can only call functions and nothing else. In case the credentials get lost they can't be used to access the box as administrators.
+We make both controls hidden by default. The text box and button only appear when the app receives a notification (see the `SubmitNotification` function below).
+
+To make the button control work, we configure its *Tapped* script to do the following:
+1. Make the text control hidden.
+1. Make the button control hidden.
+
+![image](/assets/2025-10-10/010.png)
+
+### Add notification function
+
+Now, let's create a function that external apps can use to send a notification. We create a function called `SubmitNotification`. This function accepts a `Message` parameter, which contains the notification message. When the function is called, it does the following:
+1. Make the button control visible.
+1. Make the text control visible.
+1. Set the text control to the `Message` parameter.
+
+We also mark the function as a *Shared function*, so that external apps can call it.
+
+![image](/assets/2025-10-10/020.png)
+
+### Deploy it
+
+That's all we need for the app. Now, we deploy the app to a Box (or BYOD instance), and it waits for an external application to call the `SubmitNotification` function.
+
+## Create a new Box user
+
+In order for our external application to call the `SubmitNotification`, it needs to authenticate itself to the Peakboard Box. You should not use your Box's administrator account for this purpose, because it is much more powerful than what you need.
+
+Instead, we go to our Peakboard Box settings and we [create a new user with a new role](https://help.peakboard.com/administration/en-user-administration.html) that only lets them call functions. Calling a function a part of the *Read Data* and *Write Data* permissions.
+
+![image](/assets/2025-10-10/030.png)
+
+## Create an external application
+
+Let's create an external application to send a notification to our Peakboard app.
+
+### Build a C# program
+
+We want to call the `SubmitNotification` function. Because we marked it as a shared function, the Peakboard app automatically exposes an HTTP endpoint on our local network.
+
+The URL for a function's endpoint looks like this:
+```url
+http://<BoxNameOrIP>:40404/api/functions/<FunctionName>
+```
+
+You can also find the exact endpoint URL in the function script settings, beside the *Shared function* checkbox that you ticked earlier.
+
+The endpoint is protected, so we need to authenticate ourselves with [Basic access authentication](https://en.wikipedia.org/wiki/basic_access_authentication). We use the credentials for the `ExternalCaller` user that we created earlier. This is much more safe than using the administrator account's credentials.
+
+In the request body, we provide the value for the `Message` parameter. In this case, we use the message, `The roof is on fire!`.
 
 {% highlight csharp %}
 var url = "http://comicbookguy:40404/api/functions/SubmitNotification";
@@ -39,23 +84,26 @@ var payload = "{\"Message\": \"The roof is on fire!\"}";
 
 using (var client = new HttpClient())
 {
-    // Add Basic Authentication header
+    // Add the Basic Authentication header.
     var username = "ExternalCaller";
     var password = "XXX";
     var byteArray = Encoding.ASCII.GetBytes($"{username}:{password}");
     client.DefaultRequestHeaders.Authorization =
         new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 
+    // Set the request body.
     var content = new StringContent(payload, Encoding.UTF8, "application/json");
+
+    // Wait for the response and print it once it arrives.
     var response = await client.PostAsync(url, content);
     var responseString = await response.Content.ReadAsStringAsync();
     Console.WriteLine($"Response: {response.StatusCode} - {responseString}");
 }
 {% endhighlight %}
 
-## Calling from Python
+### Alternative in Python
 
-In case we want to do the same using Python here's a typical sample for Python users.
+Of course, the app doesn't have to be in C#. Here's an example of same app, but written in Python:
 
 {% highlight python %}
 import requests
@@ -79,9 +127,9 @@ if __name__ == "__main__":
     main()
 {% endhighlight %}
 
-## Set up a box user
 
-It's very important to keep safety in mind and not use an Administrator account to call the function. Ideally we create a `Caller` role on the user and create a new user bound to this role as shown in the screenshot. Then we can make sure that the caller can only call and nothing else. Calling a function is considered as "Write Data".
+## Conclusion
 
-![image](/assets/2025-10-10/030.png)
+Now, when we run our C# application, which calls the `SubmitNotification` function, we can see that the notification appears on screen:
 
+![image](/assets/2025-10-10/result.gif)
