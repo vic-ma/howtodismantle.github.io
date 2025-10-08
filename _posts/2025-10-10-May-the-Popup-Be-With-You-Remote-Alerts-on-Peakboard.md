@@ -51,10 +51,22 @@ We also mark the function as a *Shared function*, so that external apps can call
 
 That's all we need for the app. Now, we deploy the app to a Box (or BYOD instance), and it waits for an external application to call the `SubmitNotification` function.
 
+## Create an external application
 
-## Calling from C#
+Let's create an external application to send a notification to the app.
 
-As we created a shared function, it automatically exposes an endpoint into the network. The following code shows how to call that function. It's a regular HTTP POST call. The pattern for the URL is `http://<BoxNameOrIP>:40404/api/functions/<FunctionName>`. In the body we need to provide the `Message` value as payload. The endpoint is protected by box credentials. Ideally we create an account on the box that can only call functions and nothing else. In case the credentials get lost they can't be used to access the box as administrators.
+### Build a C# program
+
+We want to call the `SubmitNotification` function. Because we marked it as a shared function, the Peakboard app automatically exposes an HTTP endpoint on our local network.
+
+The following code shows how to call that function. It's a regular HTTP POST call. The pattern for the URL is this:
+```url
+http://<BoxNameOrIP>:40404/api/functions/<FunctionName>
+```
+
+The endpoint is protected by Box credentials. Ideally, we create an account on the Box that can only call functions and nothing else. That way, in case the credentials are stolen, they can't be used to gain administrator access to the Box.
+
+In the request body, we provide the `Message` value.
 
 {% highlight csharp %}
 var url = "http://comicbookguy:40404/api/functions/SubmitNotification";
@@ -76,7 +88,7 @@ using (var client = new HttpClient())
 }
 {% endhighlight %}
 
-## Calling from Python
+### Calling from Python
 
 In case we want to do the same using Python here's a typical sample for Python users.
 
