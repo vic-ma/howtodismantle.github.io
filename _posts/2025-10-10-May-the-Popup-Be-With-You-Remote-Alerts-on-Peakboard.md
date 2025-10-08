@@ -132,4 +132,4 @@ if __name__ == "__main__":
 
 Now, when we run our C# application, which calls the `SubmitNotification` function, we can see that the notification appears on screen:
 
-![image](/assets/2025-10-10/010.png)
+![image](/assets/2025-10-10/result.gif)
