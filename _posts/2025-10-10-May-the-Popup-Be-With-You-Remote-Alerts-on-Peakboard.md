@@ -21,6 +21,10 @@ But what if we are operating in a single facility, and we can access the Box dir
 
 First, we build a simple Peakboard application to use for our example. It can show a notification to the user, and the user can tap a button to hide the notification.
 
+The following video shows what the finished app looks like when an external application sends a notification, and the user taps the confirmation button:
+
+![image](/assets/2025-10-10/result.gif)
+
 ### Add controls
 We add a large text control, which we will use to display notification messages. Then, we add a button that the user can tap, to confirm the notification.
 
@@ -43,9 +47,10 @@ We also mark the function as a *Shared function*, so that external apps can call
 
 ![image](/assets/2025-10-10/020.png)
 
-That's all we need. Now the application can be deployed on a box or on a BYOD instance waiting for incoming messages. The next screenshot shows an incoming message in the running application and how to confirm it.
+### Deploy it
 
-![image](/assets/2025-10-10/result.gif)
+That's all we need for the app. Now, we deploy the app to a Box (or BYOD instance), and it waits for an external application to call the `SubmitNotification` function.
+
 
 ## Calling from C#
 
