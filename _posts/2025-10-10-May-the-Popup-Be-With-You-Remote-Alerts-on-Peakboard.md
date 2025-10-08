@@ -26,11 +26,11 @@ The following video shows what the finished app looks like, when an external app
 ![image](/assets/2025-10-10/result.gif)
 
 ### Add controls
-We add a large text control, which we will use to display notification messages. Then, we add a button that the user can tap, to confirm the notification.
+We add a large text control, which we use to display the notification messages. Then, we add a button that the user can tap, which the user can tap to dismiss the notification.
 
 We make both controls hidden by default. The text box and button only appear when the app receives a notification (see the `SubmitNotification` function below).
 
-To make the confirmation button work, we configure its *Tapped* script to do the following:
+To make the button control work, we configure its *Tapped* script to do the following:
 1. Make the text control hidden.
 1. Make the button control hidden.
 
@@ -38,7 +38,7 @@ To make the confirmation button work, we configure its *Tapped* script to do the
 
 ### Add notification function
 
-The app has a function called `SubmitNotification`. This function accepts a `Message` parameter, which contains the notification message. When the function is called, it does the following:
+Now, let's create a function that external apps can use to send a notification. We create a function called `SubmitNotification`. This function accepts a `Message` parameter, which contains the notification message. When the function is called, it does the following:
 1. Make the button control visible.
 1. Make the text control visible.
 1. Set the text control to the `Message` parameter.
