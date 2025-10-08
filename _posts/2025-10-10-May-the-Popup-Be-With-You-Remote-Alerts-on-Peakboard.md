@@ -51,6 +51,14 @@ We also mark the function as a *Shared function*, so that external apps can call
 
 That's all we need for the app. Now, we deploy the app to a Box (or BYOD instance), and it waits for an external application to call the `SubmitNotification` function.
 
+## Create a new Box user
+
+In order for our external application to call the `SubmitNotification`, it needs to authenticate itself with the Peakboard Box. You should not use your Box's administrator account for this purpose, because it is much more powerful than what you need.
+
+Instead, we go to our Peakboard Box settings and we [create a new user with a new role](https://help.peakboard.com/administration/en-user-administration.html) that only lets them call functions. Calling a function a part of the *Read Data* and *Write Data* permissions.
+
+![image](/assets/2025-10-10/030.png)
+
 ## Create an external application
 
 Let's create an external application to send a notification to our Peakboard app.
@@ -66,7 +74,7 @@ http://<BoxNameOrIP>:40404/api/functions/<FunctionName>
 
 You can also find the exact endpoint URL in the function script settings, beside the *Shared function* checkbox that you ticked earlier.
 
-The endpoint is protected, so we need to authenticate ourselves with [basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). Ideally, you should use an account on the Box that only has permissions to call functions. That way, if the credentials are ever stolen, the thief can't do much damage.
+The endpoint is protected, so we need to authenticate ourselves with [Basic access authentication](https://en.wikipedia.org/wiki/basic_access_authentication). Ideally, you should use an account on the Box that only has permissions to call functions. That way, if the credentials are ever stolen, the thief can't do much damage.
 
 In the request body, we provide the value for the `Message` parameter. In this case, we use the message, `The roof is on fire!`.
 
@@ -93,7 +101,7 @@ using (var client = new HttpClient())
 }
 {% endhighlight %}
 
-### Calling from Python
+### Alternative in Python
 
 Of course, the app doesn't have to be in C#. Here's an example of same app, but written in Python:
 
@@ -119,11 +127,6 @@ if __name__ == "__main__":
     main()
 {% endhighlight %}
 
-## Set up a Box user
-
-It's very important to keep safety in mind and not use an Administrator account to call the function. Ideally we create a `Caller` role on the user and create a new user bound to this role as shown in the screenshot. Then we can make sure that the caller can only call and nothing else. Calling a function is considered as "Write Data".
-
-![image](/assets/2025-10-10/030.png)
 
 ## Conclusion
 
