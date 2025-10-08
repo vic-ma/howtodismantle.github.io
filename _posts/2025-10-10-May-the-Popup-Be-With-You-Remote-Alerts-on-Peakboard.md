@@ -19,9 +19,9 @@ But what if everything is in a single facility, and we can access the Box direct
 
 ## Build the Peakboard app
 
-First, we build a simple Peakboard application to use for our example. It can show a notification to the user, and the user can tap a button to hide the notification.
+First, we build a simple Peakboard application that can show a notification to the user. The user can also tap a button to dismiss the notification.
 
-The following video shows what the finished app looks like when an external application sends a notification, and the user taps the confirmation button:
+The following video shows what the finished app looks like, when an external application sends a notification, and the user taps on the button to dismiss the notification:
 
 ![image](/assets/2025-10-10/result.gif)
 
