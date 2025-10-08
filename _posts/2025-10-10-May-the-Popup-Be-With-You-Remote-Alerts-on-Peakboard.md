@@ -90,7 +90,7 @@ using (var client = new HttpClient())
 
 ### Calling from Python
 
-In case we want to do the same using Python here's a typical sample for Python users.
+Of course, the app doesn't have to be in C#. Here's an example of same app, but written in Python:
 
 {% highlight python %}
 import requests
@@ -114,9 +114,11 @@ if __name__ == "__main__":
     main()
 {% endhighlight %}
 
-## Set up a box user
+## Set up a Box user
 
 It's very important to keep safety in mind and not use an Administrator account to call the function. Ideally we create a `Caller` role on the user and create a new user bound to this role as shown in the screenshot. Then we can make sure that the caller can only call and nothing else. Calling a function is considered as "Write Data".
 
 ![image](/assets/2025-10-10/030.png)
+
+## Conclusion
 
