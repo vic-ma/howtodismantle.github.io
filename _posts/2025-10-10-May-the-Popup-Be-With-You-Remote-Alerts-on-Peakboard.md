@@ -17,15 +17,29 @@ In a previous article, we discussed how to use the Peakboard Hub API to [send a 
 
 But what if we are operating in a single facility, and we can access the Box directly? In that case, we don't need to use the Hub API at all---we can just send our notification directly to the Box. And in today's article, we'll explain how to do this.
 
-## The Peakboard application
+## Build the Peakboard app
 
-First, we build a simple Peakboard application to use for our example. The app has a large text box which displays any notifications. It also has a button, which the user can tap, to confirm the notification.
+First, we build a simple Peakboard application to use for our example. It can show a notification to the user, and the user can tap a button to hide the notification.
 
-Both of these controls are hidden by default. The text box and button only appear when the app receives a notification. And when the user taps the button, the app re-hides the text box and button.
+### Add controls
+We add a large text control, which we will use to display notification messages. Then, we add a button that the user can tap, to confirm the notification.
+
+We make both controls hidden by default. The text box and button only appear when the app receives a notification (see the `SubmitNotification` function below).
+
+To make the confirmation button work, we configure its *Tapped* script to do the following:
+1. Make the text control hidden.
+1. Make the button control hidden.
 
 ![image](/assets/2025-10-10/010.png)
 
-We also add a function called `SubmitNotification`. This function accepts a `Message` argument, which contains the notification message. We mark the function as `shared`, so that external apps can call it.
+### Add notification function
+
+The app has a function called `SubmitNotification`. This function accepts a `Message` parameter, which contains the notification message. When the function is called, it does the following:
+1. Make the button control visible.
+1. Make the text control visible.
+1. Set the text control to the `Message` parameter.
+
+We also mark the function as a *Shared function*, so that external apps can call it.
 
 ![image](/assets/2025-10-10/020.png)
 
