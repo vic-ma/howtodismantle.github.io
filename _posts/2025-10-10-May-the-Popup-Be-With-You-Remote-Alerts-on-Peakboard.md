@@ -13,7 +13,9 @@ downloads:
   - name: PopupMessage.pbmx
     url: /assets/2025-10-10/PopupMessage.pbmx
 ---
-Earlier this year we discussed how to use the [Peakboard Hub API to send a notification from any kind of client to a Peakboard box through the Hub](/Cracking-the-code-Part-II-Calling-functions-remotely.html). That's especially cool when the Peakboard box (or BYOD instance) is not directly reachable from the caller or the IP address is unknown. It works even with remote boxes as long as they are connected to Peakboard Hub Online. But let's assume now, we are only operating within one local facility and the box can be accessed directly without any restriction. In that case, no hub in between is necessary—we can just send our notification directly from the caller to the box without any relay. How to do that we will discuss in today's article.
+In a previous article, we discussed how to use the Peakboard Hub API to [send a notification to a Peakboard Box](/Cracking-the-code-Part-II-Calling-functions-remotely.html). And it's especially cool when the Peakboard Box (or BYOD instance) is not directly reachable from the caller, or when the IP address is unknown. It works even with remote Boxes, so long as they are connected to Peakboard Hub Online.
+
+But what if we are operating in a single facility, and the Box can be accessed directly. In that case, no hub in between is necessary—we can just send our notification directly from the caller to the box without any relay. How to do that we will discuss in today's article.
 
 ## The Peakboard application
 
