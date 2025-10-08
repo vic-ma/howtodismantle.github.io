@@ -53,7 +53,7 @@ That's all we need for the app. Now, we deploy the app to a Box (or BYOD instanc
 
 ## Create a new Box user
 
-In order for our external application to call the `SubmitNotification`, it needs to authenticate itself with the Peakboard Box. You should not use your Box's administrator account for this purpose, because it is much more powerful than what you need.
+In order for our external application to call the `SubmitNotification`, it needs to authenticate itself to the Peakboard Box. You should not use your Box's administrator account for this purpose, because it is much more powerful than what you need.
 
 Instead, we go to our Peakboard Box settings and we [create a new user with a new role](https://help.peakboard.com/administration/en-user-administration.html) that only lets them call functions. Calling a function a part of the *Read Data* and *Write Data* permissions.
 
@@ -74,7 +74,7 @@ http://<BoxNameOrIP>:40404/api/functions/<FunctionName>
 
 You can also find the exact endpoint URL in the function script settings, beside the *Shared function* checkbox that you ticked earlier.
 
-The endpoint is protected, so we need to authenticate ourselves with [Basic access authentication](https://en.wikipedia.org/wiki/basic_access_authentication). Ideally, you should use an account on the Box that only has permissions to call functions. That way, if the credentials are ever stolen, the thief can't do much damage.
+The endpoint is protected, so we need to authenticate ourselves with [Basic access authentication](https://en.wikipedia.org/wiki/basic_access_authentication). We use the credentials for the `ExternalCaller` user that we created earlier. This is much more safe than using the administrator account's credentials.
 
 In the request body, we provide the value for the `Message` parameter. In this case, we use the message, `The roof is on fire!`.
 
@@ -130,3 +130,6 @@ if __name__ == "__main__":
 
 ## Conclusion
 
+Now, when we run our C# application, which calls the `SubmitNotification` function, we can see that the notification appears on screen:
+
+![image](/assets/2025-10-10/010.png)
