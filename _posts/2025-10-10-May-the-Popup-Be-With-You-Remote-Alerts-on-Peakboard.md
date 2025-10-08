@@ -66,7 +66,7 @@ http://<BoxNameOrIP>:40404/api/functions/<FunctionName>
 
 You can also find the exact endpoint URL in the function script settings, beside the *Shared function* checkbox that you ticked earlier.
 
-The endpoint is protected by Box credentials. Ideally, we create an account on the Box that can only call functions and nothing else. That way, in case the credentials are stolen, they can't be used to gain administrator access to the Box.
+The endpoint is protected, so we need to authenticate ourselves with [basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). Ideally, you should use an account on the Box that only has permissions to call functions. That way, if the credentials are ever stolen, the thief can't do much damage.
 
 In the request body, we provide the `Message` value.
 
@@ -76,14 +76,17 @@ var payload = "{\"Message\": \"The roof is on fire!\"}";
 
 using (var client = new HttpClient())
 {
-    // Add Basic Authentication header
+    // Add the Basic Authentication header.
     var username = "ExternalCaller";
     var password = "XXX";
     var byteArray = Encoding.ASCII.GetBytes($"{username}:{password}");
     client.DefaultRequestHeaders.Authorization =
         new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 
+    // Set the request body.
     var content = new StringContent(payload, Encoding.UTF8, "application/json");
+
+    // Wait for the response and print it once it arrives.
     var response = await client.PostAsync(url, content);
     var responseString = await response.Content.ReadAsStringAsync();
     Console.WriteLine($"Response: {response.StatusCode} - {responseString}");
