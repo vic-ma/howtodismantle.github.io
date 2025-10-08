@@ -53,16 +53,18 @@ That's all we need for the app. Now, we deploy the app to a Box (or BYOD instanc
 
 ## Create an external application
 
-Let's create an external application to send a notification to the app.
+Let's create an external application to send a notification to our Peakboard app.
 
 ### Build a C# program
 
 We want to call the `SubmitNotification` function. Because we marked it as a shared function, the Peakboard app automatically exposes an HTTP endpoint on our local network.
 
-The following code shows how to call that function. It's a regular HTTP POST call. The pattern for the URL is this:
+The URL for a function's endpoint looks like this:
 ```url
 http://<BoxNameOrIP>:40404/api/functions/<FunctionName>
 ```
+
+You can also find the exact endpoint URL in the function script settings, beside the *Shared function* checkbox that you ticked earlier.
 
 The endpoint is protected by Box credentials. Ideally, we create an account on the Box that can only call functions and nothing else. That way, in case the credentials are stolen, they can't be used to gain administrator access to the Box.
 
