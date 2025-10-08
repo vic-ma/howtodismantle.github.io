@@ -68,7 +68,7 @@ You can also find the exact endpoint URL in the function script settings, beside
 
 The endpoint is protected, so we need to authenticate ourselves with [basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). Ideally, you should use an account on the Box that only has permissions to call functions. That way, if the credentials are ever stolen, the thief can't do much damage.
 
-In the request body, we provide the `Message` value.
+In the request body, we provide the value for the `Message` parameter. In this case, we use the message, `The roof is on fire!`.
 
 {% highlight csharp %}
 var url = "http://comicbookguy:40404/api/functions/SubmitNotification";
