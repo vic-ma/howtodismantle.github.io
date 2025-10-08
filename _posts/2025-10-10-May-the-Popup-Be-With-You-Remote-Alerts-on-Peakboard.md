@@ -25,7 +25,7 @@ Both of these controls are hidden by default. The text box and button only appea
 
 ![image](/assets/2025-10-10/010.png)
 
-Besides the two controls we will need a function called `SubmitNotification` which receives a parameter `Message` that contains the actual payload to be presented to the user. The function must be marked as `shared` to allow it to be called from the outside.
+We also add a function called `SubmitNotification`. This function accepts a `Message` argument, which contains the notification message. We mark the function as `shared`, so that external apps can call it.
 
 ![image](/assets/2025-10-10/020.png)
 
