@@ -43,13 +43,23 @@ The raw temperature data is stored in a Hub list called `TemperatureActual`. Eve
 
 ![image](/assets/2025-10-18/010.png)
 
-## Build the Data Aggregation Hub Flow
+## Build the data aggregation Hub Flow
 
-The first thing we need is a table to store the aggregated data in and name it "TemperatureDaily". We will need a column of the date and also for the minimum, maximum and average temperature on that day.
+Now, let's build the Hub Flow.
+
+### Create the aggregate data table
+
+First, we need to create the table that will store the aggregated data. To do this, we create a new [Hub list](/Peakboard-Hub-Online-Using-lists-to-store-sensor-data.html) called `TemperatureDaily`. We add the following columns:
+* The date
+* The minimum temperature
+* The maximum temperature
+* The average temperature
 
 ![image](/assets/2025-10-18/020.png)
 
-In the Hub FLow project we set up a data source to access this table.
+### Create the aggregate data table data source
+
+Next, in our Hub Flow, we add a data source to access this table:
 
 ![image](/assets/2025-10-18/022.png)
 
