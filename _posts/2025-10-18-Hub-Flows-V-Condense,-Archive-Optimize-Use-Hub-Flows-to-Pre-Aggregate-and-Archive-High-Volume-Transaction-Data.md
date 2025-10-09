@@ -17,25 +17,29 @@ This article part 5 of our [Hub Flows series](/category/hubflows). Today, we'll 
 
 ## Introduction
 
-Many of the machines and sensors in a warehouse or factory floor produce large amounts of data, continuously. And Peakboard apps often use this data to do different things, such as visualizing the data, providing data insights, or sending a notification when some .
+Many of the machines and sensors in a warehouse or factory floor produce large amounts of data, continuously. And Peakboard apps often use this data to do different things, such as visualizing the data, providing data insights, or sending a notification when anomalous data is detected.
 
 ### Data pre-aggregation
 
 However, applications often do not need or want the raw data from the machines. For example, let's say you have a temperature sensor in your warehouse. And let's say you have a Peakboard application that outputs the maximum, minimum, and average temperatures of the last 7 days.
 
-But the temperature sensor generates new data every 6 minutes. In that case, it would be annoying if the Peakboard app had to get the raw data and aggregate it itself. It would be better if the app could have access to *pre-aggregated data*.
+But the temperature sensor generates new data every 6 minutes. In that case, it would be annoying if the Peakboard app had to get the raw data and aggregate it itself. And in the real world, you may have *multiple* Peakboard apps use the same data---and each one would need to independently aggregate the data. It would be better if we could provide *pre-aggregated data* for our Peakboard apps. 
 
-Maybe a machine generates new data every 6 minutes
+So, our first goal is to build a Hub Flow that aggregates raw data, to make it easier for the apps that use the data.
 
-Older data, however, is still needed for long-term analysis, and must also be made available. But this long-term data is queried less frequently, and so it does not have the same speed requirements as recent data.
+### Data archival
 
-In this article, we want to build a solution that provides fast access to the recent data, while also providing slower access to all historic data. To do this, we build a Hub Flow that does the following:
-1. Aggregate the data on a daily basis. At the end of each day, store the minimum, maximum, and average temperatures, in a daily temperatures table. That way, if someone wants the daily temperature data, they don't need to manually aggregate the data from the raw data. Instead, they can use the pre-aggregated daily temperatures table. (Of course, you can also make a table that stores the data for the last couple of hours or minutes.)
-2. Assume that a lot of applications access the latest temperature data from the last couple of hours with a very high frequency. When we store the last months or even years in the same table. This process gets slower and slower over time. That's why build an archiving functionality. As soon as the data is older than 7 days, it's is copied from the actual trasaction table to an archive table. Using this arhcitecure no data is lost, but accessing the most needed data is still very fast because the table stays small.
+But there's another problem: Our aggregated temperature table will eventually grow quite large, slowing down access speeds. And in the real world, you may have multiple apps querying the same data multiple times, making the effect even worse.
 
- In our example we will handle data form a temperature sensor we already used in our [very first article](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
+But we can't just delete the older data. We may need it for long-term analysis, so we need to keep the data.
 
-Our sample Hub list where the actual values are stored is called "TemperatureActual". Every couple of minutes the sensor generates and stores the current value in the column "Temperature" along with a time stamp in the column "TS".
+So, our second goal is to have the Hub Flow delete and archive any data older than 7 days, from our aggregated temperature table. This keeps the aggregated table small, so that queries to it remain fast. But, we keep all that deleted data in a separate archival table, so it is still accessible.
+
+### Temperature sensor
+
+For our example, we will use [data from a temperature sensor](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
+
+The raw temperature data is stored in a Hub list called `TemperatureActual`. Every 6 minutes, the sensor adds a new row to the table, with the current temperature in the `Temperature` column, and the timestamp in the `TS` column.
 
 ![image](/assets/2025-10-18/010.png)
 
