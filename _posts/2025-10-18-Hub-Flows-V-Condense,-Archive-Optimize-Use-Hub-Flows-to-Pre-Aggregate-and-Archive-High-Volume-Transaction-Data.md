@@ -15,17 +15,22 @@ downloads:
 ---
 This article part 5 of our [Hub Flows series](/category/hubflows). Today, we'll explain how to handle high-volume transaction data. Before continuing, make sure you understand the [basics of the Hub Flows](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
 
-We often see, that machines or sensors produce a lot of data continously. In many cases the data of the last minutes, hours or days are the most important ones that are used in the process often und must be queried and deliverd fast. The older data should be available for a long term analysis or in a aggregated form. In our example we will handle data form a temperature sensor we already used in our [very first article](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
+## Introduction
 
-Our sample Hub list where the actual values are stored is called "TemperatureActual". Every couple of minutes the sensor generates and stores the current value in the column "Temperature" along with a time stamp in the column "TS".
+Many of the machines and sensors in a warehouse or factory floor produce large amounts of data, continuously. Usually, the most important data is the data from the last couple of minutes, hours, or days. This recent data is queried frequently, and must be delivered quickly.
 
-![image](/assets/2025-10-18/010.png)
-
+Older data, however, should still be made available for a long-term analysis or in an aggregated form.
 In this article we want to solve two tasks to handle this large aomunt of data:
 
 1. We want to build a functionality that aggregates the data on a daily basis. After the day is over, the minimum, maximum and average temperature is stored in a seperate table for each day. So if someone needs this statistical data, it's not necessary anymore to aggregate the data from the original raw data. The temperature values are already pre-aggregated per day and so the access to this information doesn't need any computing power.
 
 2. Let's assume a lot of other application are accessing the latest temperature data from the last couple of hours with a very high frequency. When we store the last months or even years in the same table. This process gets slower and slower over time. That's why build an archiving functionality. As soon as the data is older than 7 days, it's is copied from the actual trasaction table to an archive table. Using this arhcitecure no data is lost, but accessing the most needed data is still very fast because the table stays small.
+
+ In our example we will handle data form a temperature sensor we already used in our [very first article](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
+
+Our sample Hub list where the actual values are stored is called "TemperatureActual". Every couple of minutes the sensor generates and stores the current value in the column "Temperature" along with a time stamp in the column "TS".
+
+![image](/assets/2025-10-18/010.png)
 
 ## Build the Data Aggregation Hub Flow
 
