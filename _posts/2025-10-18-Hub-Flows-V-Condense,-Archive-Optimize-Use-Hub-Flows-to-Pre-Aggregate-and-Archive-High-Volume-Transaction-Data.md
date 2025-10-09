@@ -45,11 +45,20 @@ The raw temperature data is stored in a Hub list called `TemperatureActual`. Eve
 
 ## Build the data aggregation Hub Flow
 
-Now, let's build the Hub Flow.
+Now, let's build the Hub Flow. Here's an overview of how the finished Hub Flow works:
+1. The physical temperature sensor writes new data to the `TemperatureActual` Hub list, every 6 minutes.
+1. The Hub Flow's `TemperatureForAggregation` data source reads `TemperatureActual` and aggregates the data.
+1. The Hub Flow's `Te
+```
+Temperature sensor (physical sensor)
+  -> `TemperatureActual` (Hub list)
+  -> `TemperatureForAggregation` (Flow data source)
+  -> 
+```
 
-### Create the aggregate data table
+### Create the aggregate data Hub list
 
-First, we need to create the table that will store the aggregated data. To do this, we create a new [Hub list](/Peakboard-Hub-Online-Using-lists-to-store-sensor-data.html) called `TemperatureDaily`. We add the following columns:
+First, we create the [Peakboard Hub list](/Peakboard-Hub-Online-Using-lists-to-store-sensor-data.html) that will store the aggregated data. We name it `TemperatureDaily`. We add the following columns:
 * The date
 * The minimum temperature
 * The maximum temperature
@@ -57,11 +66,16 @@ First, we need to create the table that will store the aggregated data. To do th
 
 ![image](/assets/2025-10-18/020.png)
 
-### Create the aggregate data table data source
+### Create the data source for the aggregate data Hub list
 
 Next, in our Hub Flow, we add a data source to access this table:
 
 ![image](/assets/2025-10-18/022.png)
+
+### Create the data source for aggregate data
+
+Next, we create the data source for the aggregate data, by using a SQL statement. 
+Now, we need to create a data source that fetches the raw data
 
 For selecting the data to be aggregated we use the options to access the Hub Flows list through SQL. Below you see the SQL statement. So we do the actual aggregation already in the SQL statement. And we only select data before the current day to make sure, we don't write any aggregation before the day is over. And of cours we only aggregate the days which are not yet written to the "TemperatureDaily" table. The term "left(TS, 10)" is used to turn the time stamp into a day value without the time information.
 
@@ -89,7 +103,7 @@ In case the destination table is completely empty, which it is the case when we 
 
 ![image](/assets/2025-10-18/029.png)
 
-## Archive
+## Build the data archival Hub Flow
 
 In our second use case, we really want to move data. The source table is the same "TemperatureActual" and the destination table is "TemperatureArchive". It has exactly the same columns "TS" and "Temperature". As already mentioned the main objective is to keep "TemperatureActual" nice and small to avoid any negative impact on production applications that rely on extremely fast table access. We will move all data older than 7 days from actual to archive.
 
