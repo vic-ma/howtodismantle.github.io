@@ -13,7 +13,7 @@ downloads:
   - name: ArchiveAndAggregate.pbfx
     url: /assets/2025-10-18/ArchiveAndAggregate.pbfx
 ---
-In the fith part of our Hub Flows series we will talk about how to handle high volume transaction data. As a minimum requirement we must make sure to understand the basics of the Hub FLows. The recent articles of this series can be found [here](/category/hubflows).
+This article part 5 of our [Hub Flows series](/category/hubflows). Today, we'll explain how to handle high-volume transaction data. Before continuing, make sure you understand the [basics of the Hub Flows](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
 
 We often see, that machines or sensors produce a lot of data continously. In many cases the data of the last minutes, hours or days are the most important ones that are used in the process often und must be queried and deliverd fast. The older data should be available for a long term analysis or in a aggregated form. In our example we will handle data form a temperature sensor we already used in our [very first article](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
 
