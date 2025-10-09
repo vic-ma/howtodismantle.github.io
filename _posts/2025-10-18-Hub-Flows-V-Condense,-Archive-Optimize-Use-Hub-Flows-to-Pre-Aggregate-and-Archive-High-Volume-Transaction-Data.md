@@ -17,7 +17,15 @@ This article part 5 of our [Hub Flows series](/category/hubflows). Today, we'll 
 
 ## Introduction
 
-Many of the machines and sensors in a warehouse or factory floor produce large amounts of data, continuously. Usually, the most important data is the data from the last couple of minutes, hours, or days (depending on the machine and application). This recent data is queried frequently, and must be delivered quickly.
+Many of the machines and sensors in a warehouse or factory floor produce large amounts of data, continuously. And Peakboard apps often use this data to do different things, such as visualizing the data, providing data insights, or sending a notification when some .
+
+### Data pre-aggregation
+
+However, applications often do not need or want the raw data from the machines. For example, let's say you have a temperature sensor in your warehouse. And let's say you have a Peakboard application that outputs the maximum, minimum, and average temperatures of the last 7 days.
+
+But the temperature sensor generates new data every 6 minutes. In that case, it would be annoying if the Peakboard app had to get the raw data and aggregate it itself. It would be better if the app could have access to *pre-aggregated data*.
+
+Maybe a machine generates new data every 6 minutes
 
 Older data, however, is still needed for long-term analysis, and must also be made available. But this long-term data is queried less frequently, and so it does not have the same speed requirements as recent data.
 
