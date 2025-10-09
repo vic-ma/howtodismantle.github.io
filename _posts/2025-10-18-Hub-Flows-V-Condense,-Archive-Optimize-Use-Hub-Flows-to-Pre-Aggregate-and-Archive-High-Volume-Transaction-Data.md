@@ -17,13 +17,13 @@ This article part 5 of our [Hub Flows series](/category/hubflows). Today, we'll 
 
 ## Introduction
 
-Many of the machines and sensors in a warehouse or factory floor produce large amounts of data, continuously. Usually, the most important data is the data from the last couple of minutes, hours, or days. This recent data is queried frequently, and must be delivered quickly. Older data, however, is still needed for long-term analysis. But this long-term data is queried less frequently, and does not have the same speed requirements as recent data.
+Many of the machines and sensors in a warehouse or factory floor produce large amounts of data, continuously. Usually, the most important data is the data from the last couple of minutes, hours, or days (depending on the machine and application). This recent data is queried frequently, and must be delivered quickly.
 
-In this article, we want to come up with a solution that provides fast access to the recent data, while also providing slower access to all historic data.
+Older data, however, is still needed for long-term analysis, and must also be made available. But this long-term data is queried less frequently, and so it does not have the same speed requirements as recent data.
 
-1. Aggregate the data on a daily basis. At the end of each day, store the minimum, maximum, and average temperatures in a daily temperatures table. That way, if someone wants the daily temperature data, they don't need to manually aggregate the data from the raw data. Instead, they can use the pre-aggregated daily temperatures table.
-
-2. Let's assume that a lot of other applications are accessing the latest temperature data from the last couple of hours with a very high frequency. When we store the last months or even years in the same table. This process gets slower and slower over time. That's why build an archiving functionality. As soon as the data is older than 7 days, it's is copied from the actual trasaction table to an archive table. Using this arhcitecure no data is lost, but accessing the most needed data is still very fast because the table stays small.
+In this article, we want to build a solution that provides fast access to the recent data, while also providing slower access to all historic data. To do this, we build a Hub Flow that does the following:
+1. Aggregate the data on a daily basis. At the end of each day, store the minimum, maximum, and average temperatures, in a daily temperatures table. That way, if someone wants the daily temperature data, they don't need to manually aggregate the data from the raw data. Instead, they can use the pre-aggregated daily temperatures table. (Of course, you can also make a table that stores the data for the last couple of hours or minutes.)
+2. Assume that a lot of applications access the latest temperature data from the last couple of hours with a very high frequency. When we store the last months or even years in the same table. This process gets slower and slower over time. That's why build an archiving functionality. As soon as the data is older than 7 days, it's is copied from the actual trasaction table to an archive table. Using this arhcitecure no data is lost, but accessing the most needed data is still very fast because the table stays small.
 
  In our example we will handle data form a temperature sensor we already used in our [very first article](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
 
