@@ -21,7 +21,7 @@ Many of the machines and sensors in a warehouse or factory floor produce large a
 
 Older data, however, should still be made available for long-term analysis, and in an aggregated form. And in this article, we want to solve two tasks related to handling large amounts of data:
 
-1. We want to build a functionality that aggregates the data on a daily basis. After the day is over, the minimum, maximum and average temperature is stored in a seperate table for each day. So if someone needs this statistical data, it's not necessary anymore to aggregate the data from the original raw data. The temperature values are already pre-aggregated per day and so the access to this information doesn't need any computing power.
+1. Aggregate the data on a daily basis. At the end of each day, store the minimum, maximum, and average temperatures in a daily temperatures table. That way, if someone wants the daily temperature data, they don't need to manually aggregate the data from the raw data. Instead, they can use the pre-aggregated daily temperatures table.
 
 2. Let's assume a lot of other application are accessing the latest temperature data from the last couple of hours with a very high frequency. When we store the last months or even years in the same table. This process gets slower and slower over time. That's why build an archiving functionality. As soon as the data is older than 7 days, it's is copied from the actual trasaction table to an archive table. Using this arhcitecure no data is lost, but accessing the most needed data is still very fast because the table stays small.
 
