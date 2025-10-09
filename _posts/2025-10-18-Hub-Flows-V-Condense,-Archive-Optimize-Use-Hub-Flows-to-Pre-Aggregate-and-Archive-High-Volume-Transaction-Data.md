@@ -19,8 +19,7 @@ This article part 5 of our [Hub Flows series](/category/hubflows). Today, we'll 
 
 Many of the machines and sensors in a warehouse or factory floor produce large amounts of data, continuously. Usually, the most important data is the data from the last couple of minutes, hours, or days. This recent data is queried frequently, and must be delivered quickly.
 
-Older data, however, should still be made available for a long-term analysis or in an aggregated form.
-In this article we want to solve two tasks to handle this large aomunt of data:
+Older data, however, should still be made available for long-term analysis, and in an aggregated form. And in this article, we want to solve two tasks related to handling large amounts of data:
 
 1. We want to build a functionality that aggregates the data on a daily basis. After the day is over, the minimum, maximum and average temperature is stored in a seperate table for each day. So if someone needs this statistical data, it's not necessary anymore to aggregate the data from the original raw data. The temperature values are already pre-aggregated per day and so the access to this information doesn't need any computing power.
 
