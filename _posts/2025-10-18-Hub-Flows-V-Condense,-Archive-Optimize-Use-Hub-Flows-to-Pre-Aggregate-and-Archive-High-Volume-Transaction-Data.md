@@ -139,5 +139,5 @@ Finally, we add the Flow itself. It works similarly to our other Flow. It runs d
 
 ## Result and conclusion
 
-We just looked at two ways that you can optimize tables: Pre-aggregation and archiving. You can even use one of them, or both, or even some combination of the two. For example, you can aggregate the data and then delete the corresponding raw data. In this case, you lose that raw data forever---but if the data isn't important, then it may make sense to do. Once you understand the basic patterns, you can create your own Hub Flows to handle large volumes of data in a way that fits your needs.
+We just looked at two ways that you can optimize tables: Pre-aggregation and archiving. You can even use one of them, or both, or even some combination of the two. For example, you can aggregate the data and then delete the corresponding raw data. In this case, you lose that raw data forever---but if the data isn't important, then it may make sense to do. Once you understand the basic patterns, you can create custom Hub Flows to handle large volumes of data in a way that fits your needs.
 
