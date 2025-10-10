@@ -83,7 +83,7 @@ order by 1
 
 It uses SQL's `min`, `max`, and `avg` functions to aggregate the data. It uses the `where` clause to do two things:
 * Only get data from before the current date (because the current date's temperatures are still being recorded).
-* Only get data for dates that aren't already in `TemperatureDaily`.
+* Only get data for dates that aren't already in `TemperatureDaily`. (We use `left(TS,10)` to get the first 10 characters from the timestamp. This is the date, without the time.)
 
 ![image](/assets/2025-10-18/024.png)
 
