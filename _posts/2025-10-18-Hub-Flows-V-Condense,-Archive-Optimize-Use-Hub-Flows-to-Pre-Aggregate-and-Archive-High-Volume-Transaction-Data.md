@@ -13,25 +13,27 @@ downloads:
   - name: ArchiveAndAggregate.pbfx
     url: /assets/2025-10-18/ArchiveAndAggregate.pbfx
 ---
-This article part 5 of our [Hub Flows series](/category/hubflows). Today, we'll explain how to handle high-volume transaction data. Before continuing, make sure you understand the [basics of the Hub Flows](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
+This article part 5 of our [Hub Flows series](/category/hubflows). Today, we'll discuss how to handle high-volume transaction data. Before continuing, make sure you understand the [basics of the Hub Flows](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
 
 ## Introduction
 
-Many of the machines and sensors in a warehouse or factory floor produce large amounts of data, continuously. And Peakboard apps often use this data to do different things, such as visualizing the data, providing data insights, or sending a notification when anomalous data is detected.
+Many of the machines and sensors in a warehouse or factory produce large amounts of data, continuously. And Peakboard apps often use this data to do different things, such as visualizing the data, providing data insights, or sending a notification when anomalous data is detected.
 
 ### Data pre-aggregation
 
 However, applications often do not need or want the raw data from the machines. For example, let's say you have a temperature sensor in your warehouse. And let's say you have a Peakboard application that outputs the maximum, minimum, and average temperatures of the last 7 days.
 
-But the temperature sensor generates new data every 6 minutes. In that case, it would be annoying if the Peakboard app had to get the raw data and aggregate it itself. And in the real world, you may have *multiple* Peakboard apps use the same data---and each one would need to independently aggregate the data. It would be better if we could provide *pre-aggregated data* for our Peakboard apps. 
+But the temperature sensor generates new data every 6 minutes. So the Peakboard app has to get the raw data and aggregate it itself. And in the real world, you may have *multiple* Peakboard apps use the same data---and each one would need to independently aggregate the data. It would be better if we could provide *pre-aggregated data* for our Peakboard apps. 
 
-So, our first goal is to build a Hub Flow that aggregates raw data, to make it easier for the apps that use the data.
+So, our first goal is to build a Hub Flow that aggregates raw data, to make it easier for apps to consume.
 
 ### Data archival
 
-There's another problem that we want to deal with. The raw temperature data table will eventually grow quite large, slowing down access speeds. And in the real world, there may be multiple apps that query it, multiple times a day.
+There's another problem that we want to deal with. Because machines produce so much data, the tables containing the raw data will eventually grow very large, slowing down access speeds. And in the real world, there may be multiple apps that query the raw data, multiple times a day.
 
-But we can't just delete the older data. We may need it for long-term analysis, so we want to store it. So, our second goal is to build a Hub Flow that deletes and archives any data older than 7 days, from the raw temperature data table. This keeps the table small, so that queries to it stay fast. But, we keep all that deleted data in a separate archival table, so that it's still accessible.
+One way to deal with this is to delete old data. But what if we want to keep it for archival purposes? In that case, we should delete old data from the raw data table, and write it to an archive table. 
+
+So, our second goal is to build a Hub Flow that deletes and archives any data older than 7 days, from the raw temperature data table. This keeps the table small, so that queries to it remain fast. But, we keep all that deleted data in a separate table, so that it's still accessible.
 
 ### Temperature sensor
 
