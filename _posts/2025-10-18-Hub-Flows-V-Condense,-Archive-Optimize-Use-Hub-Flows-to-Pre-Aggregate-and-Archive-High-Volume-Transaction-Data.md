@@ -103,9 +103,11 @@ The trigger is a schedule that runs the Flow everyday at 11 PM.
 
 Here are the steps in the Flow:
 1. Reload the `TemperatureForAggregation` data source to update it with the latest temperature data.
-1. Run the `AggregateAndStoreTemperature` function
+1. Run the `AggregateAndStoreTemperature` function.
 
-In case the destination table is completely empty, which it is the case when we set up this procedure. All the missing rows from the past days are created automatically. When it runs on daily basis only one row per day is written. The screenshot shows the data. We can see that January 10 was the first day the sensors has produced data so this will result in the first row of the aggregation table.
+If the `TemperatureDaily` Hub list is completely empty---which it is the case when we first set up the Flow---then all the missing rows from the past 7 days are created automatically. After that, only one row is written per day.
+
+This screenshot shows what the Hub list looks like. You can see that January 10 was the first day the sensors produced data, so it's the first row of the aggregation table. Our next step is to remove and archive all data older than 7 days.
 
 ![image](/assets/2025-10-18/029.png)
 
