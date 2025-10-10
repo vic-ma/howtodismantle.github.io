@@ -115,7 +115,7 @@ This screenshot shows what the Hub list looks like. You can see that January 10 
 
 Now, let's build the Hub Flow that deletes and archives all raw data older than 7 days. 
 
-First, we create a new Hub list called `TemperatureArchive`, which will store all our archived data. Then, we add a data source for that Hub list, so that we can write to it.
+First, we create a new Hub list called `TemperatureArchive`, which will store all our archived data. Then, we add a data source for that Hub list to our Flow project, so that we can write to the Hub list.
 
 Next, we create the `TemperatureForArchive` data source, with the following SQL statement:
 
@@ -143,5 +143,9 @@ Finally, we add the Flow itself. It works similarly to our other Flow. It runs d
 
 ## Result and conclusion
 
-We just looked at two ways that you can optimize tables: Pre-aggregation and archiving. You can even use one of them, or both, or even some combination of the two. For example, you can aggregate the data and then delete the corresponding raw data. In this case, you lose that raw data forever---but if the data isn't important, then it may make sense to do. Once you understand the basic patterns, you can create custom Hub Flows to handle large volumes of data in a way that fits your needs.
+We just looked at two ways that we can optimize tables: Pre-aggregation and archiving. You can even use one of them, or both, or even some combination of the two.
+
+For example, you can aggregate the data and then delete the corresponding raw data. In this case, you lose that raw data forever---but if the data isn't important, then it may make sense to do.
+
+But the point is that once you understand the basic patterns, you can create your own custom Hub Flows to handle large volumes of data in whatever way fits your needs.
 
