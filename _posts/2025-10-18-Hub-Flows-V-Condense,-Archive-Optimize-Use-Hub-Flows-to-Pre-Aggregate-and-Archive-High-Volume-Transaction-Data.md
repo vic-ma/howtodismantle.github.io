@@ -113,11 +113,9 @@ This screenshot shows what the Hub list looks like. You can see that January 10 
 
 Now, let's build the Hub Flow that deletes and archives all data older than 7 days. 
 
-First, we create a new Hub list called `TemperatureArchive`, which will store all our archived data. Then, we add a data source for that Hub list to our Flow project, so that we can write to it.
+First, we create a new Hub list called `TemperatureArchive`, which will store all our archived data. Then, we add a data source for that Hub list, so that we can write to it.
 
-Let's have a look at the data source. We need a data source that just points to our "TemperatureArchive" table, otherwise we're unable to store data into it later. 
-
-For loading the data to be archived, we use a similiar SQL technique as with the first example. We just select all data that is older than 7 days and that is not yet in the archive table. As you see in the SQL statement we treat the TS column as some kind of primary key to check if the data is already transferred.
+Next, we create the `TemperatureForArchive` data source, with the following SQL statement:
 
 {% highlight sql %}
 select * from TemperatureActual
@@ -125,11 +123,19 @@ where TS < FORMAT(GETDATE() - 7, 'yyyy-MM-dd')
     and TS not in (select TS from TemperatureArchive)
 {% endhighlight %}
 
+It selects all the data from `TemperatureActual` that's older than 7 days and not yet in our `TemperatureArchive` Hub list.
+
 ![image](/assets/2025-10-18/030.png)
+
+Next, we create the function that modifies the Hub lists:
+![image](/assets/2025-10-18/032.png)
+
+It loops over each row in the `TemperatureForArchive` data source. For each one, it does the following:
+* Write the row to the `TemperatureArchive` Hub list.
+* Remove the corresponding row from `TemperatureActual`. 
 
 Let's check the function that is doing the actual work. We just loop over each row to be archived and store in the archive. In the next step the original data row is deleted from the actual table
 
-![image](/assets/2025-10-18/032.png)
 
 The Hub Flow looks very similiar to the first one. We just execute the query to get the data to be archived and then call the function to store away the data and delete from the source table.
 
