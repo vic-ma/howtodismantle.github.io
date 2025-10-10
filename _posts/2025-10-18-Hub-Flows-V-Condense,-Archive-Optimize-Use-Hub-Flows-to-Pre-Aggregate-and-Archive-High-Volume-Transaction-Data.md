@@ -48,7 +48,7 @@ The raw temperature data is stored in a Hub list called `TemperatureActual`. Eve
 Now, let's build the Hub Flow. Here's an overview of how the finished Hub Flow works:
 1. The physical temperature sensor writes new data to the `TemperatureActual` Hub list, every 6 minutes.
 1. The Hub Flow's `TemperatureForAggregation` data source reads `TemperatureActual` and aggregates the data.
-1. The Hub Flow's writes the data from `TemperatureForAggregation` to `TemperatureDaily` Hub list.
+1. The Hub Flow's writes the data from `TemperatureForAggregation` to the `TemperatureDaily` Hub list.
 
 ### Create the aggregate data Hub list
 
@@ -70,7 +70,6 @@ Next, in our Hub Flow, we add a data source to access this table:
 
 Next, we create the data source that generates the aggregate data, by using a SQL statement. Here's the SQL statement:
 
-
 {% highlight sql %}
 select left(TS, 10) as Date, 
     min(Temperature) as MinTemp,
@@ -87,13 +86,14 @@ It uses SQL's `min`, `max`, and `avg` functions to aggregate the data. It uses t
 
 ![image](/assets/2025-10-18/024.png)
 
-For selecting the data to be aggregated we use the options to access the Hub Flows list through SQL. Below you see the SQL statement. So we do the actual aggregation already in the SQL statement. And we only select data before the current day to make sure, we don't write any aggregation before the day is over. And of cours we only aggregate the days which are not yet written to the "TemperatureDaily" table. The term "left(TS, 10)" is used to turn the time stamp into a day value without the time information.
-
 ### Create the function that writes the aggregate data
+
+Next, we create the function called `AggregateTemperature`. It takes the aggregate data from our `TemperatureForAggregation` data source and writes it to the `TemperatureDaily` Hub list. Here's what the script looks like:
+
+![image](/assets/2025-10-18/026.png)
 
 The next thing we need is a function that does the actual data transfer. We just loop over the data that is coming from the source and store each line in the new "TemperatureDaily" table. Usually it's just one line per day. But if the function is accidently not executed one day for whatever reasons, the next day the missing rows are also handled correctly.
 
-![image](/assets/2025-10-18/026.png)
 
 In the last step we put everything together and build the Hub FLow. First reload the aggrgation data source and then execute the function to store the output into the new table. As a trigger we use a sheduler and let the Flow automatically execute every night at 11PM.
 
