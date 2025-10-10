@@ -88,16 +88,22 @@ It uses SQL's `min`, `max`, and `avg` functions to aggregate the data. It uses t
 
 ### Create the function that writes the aggregate data
 
-Next, we create the function called `AggregateTemperature`. It takes the aggregate data from our `TemperatureForAggregation` data source and writes it to the `TemperatureDaily` Hub list. Here's what the script looks like:
+Next, we create the function called `AggregateAndStoreTemperature`. It takes the aggregate data from our `TemperatureForAggregation` data source and writes it to the `TemperatureDaily` Hub list. Here's what the script looks like:
 
 ![image](/assets/2025-10-18/026.png)
 
-The next thing we need is a function that does the actual data transfer. We just loop over the data that is coming from the source and store each line in the new "TemperatureDaily" table. Usually it's just one line per day. But if the function is accidently not executed one day for whatever reasons, the next day the missing rows are also handled correctly.
+It loops over the `TemperatureForAggregation` data source and writes each line to the `TemperatureDaily` Hub list. Usually, this only writes one line per day, but if the function misses a day for whatever reason, then the missing row will be added the next day.
 
+### Create the Flow
 
-In the last step we put everything together and build the Hub FLow. First reload the aggrgation data source and then execute the function to store the output into the new table. As a trigger we use a sheduler and let the Flow automatically execute every night at 11PM.
-
+Finally, we create the Flow itself. Here's what it looks like:
 ![image](/assets/2025-10-18/028.png)
+
+The trigger is a schedule that runs the Flow everyday at 11 PM.
+
+Here are the steps in the Flow:
+1. Reload the `TemperatureForAggregation` data source to update it with the latest temperature data.
+1. Run the `AggregateAndStoreTemperature` function
 
 In case the destination table is completely empty, which it is the case when we set up this procedure. All the missing rows from the past days are created automatically. When it runs on daily basis only one row per day is written. The screenshot shows the data. We can see that January 10 was the first day the sensors has produced data so this will result in the first row of the aggregation table.
 
