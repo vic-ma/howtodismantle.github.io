@@ -48,7 +48,7 @@ The raw temperature data is stored in a Hub list called `TemperatureActual`. Eve
 Now, let's build the Hub Flow. Here's an overview of how the finished Hub Flow works:
 1. The physical temperature sensor writes new data to the `TemperatureActual` Hub list, every 6 minutes.
 1. The Hub Flow's `TemperatureForAggregation` data source reads `TemperatureActual` and aggregates the data.
-1. The Hub Flow's writes the data from `TemperatureForAggregation` to the `TemperatureDaily` Hub list.
+1. The Hub Flow's writes the aggregated data from `TemperatureForAggregation` to the `TemperatureDaily` Hub list.
 
 ### Create the aggregate data Hub list
 
@@ -60,9 +60,7 @@ First, we create the [Peakboard Hub list](/Peakboard-Hub-Online-Using-lists-to-s
 
 ![image](/assets/2025-10-18/020.png)
 
-### Create the data source for the aggregate data Hub list
-
-Next, in our Hub Flow, we add a data source to access this table:
+Next, in our Hub Flow project, we add a data source for this Hub list, so that we can write to it later on:
 
 ![image](/assets/2025-10-18/022.png)
 
@@ -107,13 +105,15 @@ Here are the steps in the Flow:
 
 If the `TemperatureDaily` Hub list is completely empty---which it is the case when we first set up the Flow---then all the missing rows from the past 7 days are created automatically. After that, only one row is written per day.
 
-This screenshot shows what the Hub list looks like. You can see that January 10 was the first day the sensors produced data, so it's the first row of the aggregation table. Our next step is to remove and archive all data older than 7 days.
+This screenshot shows what the Hub list looks like. You can see that January 10 was the first day the sensors produced data, so it's the first row of the aggregation table.
 
 ![image](/assets/2025-10-18/029.png)
 
 ## Build the data archival Hub Flow
 
-In our second use case, we really want to move data. The source table is the same "TemperatureActual" and the destination table is "TemperatureArchive". It has exactly the same columns "TS" and "Temperature". As already mentioned the main objective is to keep "TemperatureActual" nice and small to avoid any negative impact on production applications that rely on extremely fast table access. We will move all data older than 7 days from actual to archive.
+Now, let's build the Hub Flow that deletes and archives all data older than 7 days. 
+
+First, we create a new Hub list called `TemperatureArchive`, which will store all our archived data. Then, we add a data source for that Hub list to our Flow project, so that we can write to it.
 
 Let's have a look at the data source. We need a data source that just points to our "TemperatureArchive" table, otherwise we're unable to store data into it later. 
 
