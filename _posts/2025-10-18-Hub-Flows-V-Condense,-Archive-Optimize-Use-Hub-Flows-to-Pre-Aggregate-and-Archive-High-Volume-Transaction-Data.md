@@ -84,11 +84,11 @@ This SQL statement gets the raw data from the `TemperatureActual` table. It uses
 * Only get data from before the current date (because the current date's temperatures are still being recorded).
 * Only get data for dates that aren't already in `TemperatureDaily`. (We use `left(TS,10)` to get the first 10 characters from the timestamp. This is the date, without the time.)
 
-Then, we use SQL's `min`, `max`, and `avg` functions to aggregate the data. 
+To actually aggregate the data, it uses SQL's built-in `min`, `max`, and `avg` functions. 
 
 ### Create the function that writes the aggregate data
 
-Next, we create the function called `AggregateAndStoreTemperature`. It takes the aggregate data from our `TemperatureForAggregation` data source and writes it to the `TemperatureDaily` Hub list. Here's what the script looks like:
+Next, we create a function called `AggregateAndStoreTemperature`. This function takes the aggregate data from our `TemperatureForAggregation` data source and writes it to the `TemperatureDaily` Hub list. Here's what it looks like:
 
 ![image](/assets/2025-10-18/026.png)
 
@@ -99,7 +99,7 @@ It loops over the `TemperatureForAggregation` data source and writes each line t
 Finally, we create the Flow itself. Here's what it looks like:
 ![image](/assets/2025-10-18/028.png)
 
-The trigger is a schedule that runs the Flow everyday at 11 PM.
+The trigger is a schedule that runs the Flow every day at 11 PM.
 
 Here are the steps in the Flow:
 1. Reload the `TemperatureForAggregation` data source to update it with the latest temperature data.
