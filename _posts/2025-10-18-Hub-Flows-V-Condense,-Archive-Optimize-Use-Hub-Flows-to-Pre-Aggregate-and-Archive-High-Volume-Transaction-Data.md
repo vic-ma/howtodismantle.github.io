@@ -81,6 +81,10 @@ group by left(TS, 10)
 order by 1
 {% endhighlight %}
 
+It uses SQL's `min`, `max`, and `avg` functions to aggregate the data. It uses the `where` clause to do two things:
+* Only get data from before the current date (because the current date's temperatures are still being recorded).
+* Only get data for dates that aren't already in `TemperatureDaily`.
+
 ![image](/assets/2025-10-18/024.png)
 
 For selecting the data to be aggregated we use the options to access the Hub Flows list through SQL. Below you see the SQL statement. So we do the actual aggregation already in the SQL statement. And we only select data before the current day to make sure, we don't write any aggregation before the day is over. And of cours we only aggregate the days which are not yet written to the "TemperatureDaily" table. The term "left(TS, 10)" is used to turn the time stamp into a day value without the time information.
