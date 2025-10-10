@@ -105,9 +105,9 @@ Here are the steps in the Flow:
 1. Reload the `TemperatureForAggregation` data source to update it with the latest temperature data.
 1. Run the `AggregateAndStoreTemperature` function.
 
-If the `TemperatureDaily` Hub list is completely empty---which it is the case when we first set up the Flow---then all the missing rows from the past 7 days are created automatically. After that, only one row is written per day.
+If the `TemperatureDaily` Hub list is completely empty---which it is the case when we first set up the Flow---then the Flow writes all the missing rows from the past 7 days. After that, the Flow only writes one row per day.
 
-This screenshot shows what the Hub list looks like. You can see that January 10 was the first day the sensors produced data, so it's the first row of the aggregation table.
+This screenshot shows what the Hub list looks like. You can see that January 10 is the first day that the sensor produced data, so it's the first row of our list.
 
 ![image](/assets/2025-10-18/029.png)
 
