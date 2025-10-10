@@ -64,9 +64,9 @@ Next, in our Hub Flow project, we add a data source for this Hub list, so that w
 
 ![image](/assets/2025-10-18/022.png)
 
-### Create the data source for aggregate data
+### Create the data source for the aggregate data
 
-Next, we create the data source that generates the aggregate data, by using a SQL statement. Here's the SQL statement:
+Next, we create the data source that generates the aggregate data. We set it to the following SQL statement:
 
 {% highlight sql %}
 select left(TS, 10) as Date, 
@@ -78,11 +78,13 @@ group by left(TS, 10)
 order by 1
 {% endhighlight %}
 
-It uses SQL's `min`, `max`, and `avg` functions to aggregate the data. It uses the `where` clause to do two things:
+![image](/assets/2025-10-18/024.png)
+
+This SQL statement gets the raw data from the `TemperatureActual` table. It uses the `where` clause to do two things:
 * Only get data from before the current date (because the current date's temperatures are still being recorded).
 * Only get data for dates that aren't already in `TemperatureDaily`. (We use `left(TS,10)` to get the first 10 characters from the timestamp. This is the date, without the time.)
 
-![image](/assets/2025-10-18/024.png)
+Then, we use SQL's `min`, `max`, and `avg` functions to aggregate the data. 
 
 ### Create the function that writes the aggregate data
 
