@@ -13,31 +13,60 @@ downloads:
   - name: ArchiveAndAggregate.pbfx
     url: /assets/2025-10-18/ArchiveAndAggregate.pbfx
 ---
-In the fith part of our Hub Flows series we will talk about how to handle high volume transaction data. As a minimum requirement we must make sure to understand the basics of the Hub FLows. The recent articles of this series can be found [here](/category/hubflows).
+This article is part 5 of our [Hub Flows series](/category/hubflows). Today, we'll discuss how to handle high-volume transaction data. Before continuing, make sure you understand the [basics of the Hub Flows](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
 
-We often see, that machines or sensors produce a lot of data continously. In many cases the data of the last minutes, hours or days are the most important ones that are used in the process often und must be queried and deliverd fast. The older data should be available for a long term analysis or in a aggregated form. In our example we will handle data form a temperature sensor we already used in our [very first article](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
+## Introduction
 
-Our sample Hub list where the actual values are stored is called "TemperatureActual". Every couple of minutes the sensor generates and stores the current value in the column "Temperature" along with a time stamp in the column "TS".
+Many of the machines and sensors in a warehouse or factory produce large amounts of data, continuously. And Peakboard apps often use this data to do different things, such as visualizing the data, providing data insights, or sending a notification when anomalous data is detected.
+
+### Data pre-aggregation
+
+However, applications often do not need or want the raw data from the machines. For example, let's say you have a temperature sensor in your warehouse. And let's say you have a Peakboard application that outputs the maximum, minimum, and average temperatures of the last 7 days.
+
+But the temperature sensor generates new data every 6 minutes. So the Peakboard app has to get the raw data and aggregate it itself. And in the real world, you may have *multiple* Peakboard apps use the same data---and each one would need to independently aggregate the data. It would be better if we could provide *pre-aggregated data* for our Peakboard apps. 
+
+So, our first goal is to build a Hub Flow that aggregates raw data, to make it easier for apps to consume.
+
+### Data archival
+
+There's another problem that we want to deal with. Because machines produce so much data, the tables containing the raw data will eventually grow very large, slowing down access speeds. And in the real world, there may be multiple apps that query the raw data, multiple times a day.
+
+One way to deal with this is to delete old data. But what if we want to keep it for archival purposes? In that case, we should delete old data from the raw data table, and write it to an archive table. 
+
+So, our second goal is to build a Hub Flow that deletes and archives any data older than 7 days, from the raw temperature data table. This keeps the table small, so that queries to it remain fast. But, we keep all that deleted data in a separate table, so that it's still accessible.
+
+### Temperature sensor
+
+For our example Hub Flows, we will use [data from a temperature sensor](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
+
+The raw temperature data is stored in a Hub list called `TemperatureActual`. Every 6 minutes, the sensor adds a new row to the table, with the timestamp in the `TS` column, and the current temperature in the `Temperature` column.
 
 ![image](/assets/2025-10-18/010.png)
 
-In this article we want to solve two tasks to handle this large aomunt of data:
+## Build the data aggregation Hub Flow
 
-1. We want to build a functionality that aggregates the data on a daily basis. After the day is over, the minimum, maximum and average temperature is stored in a seperate table for each day. So if someone needs this statistical data, it's not necessary anymore to aggregate the data from the original raw data. The temperature values are already pre-aggregated per day and so the access to this information doesn't need any computing power.
+Now, let's build the Hub Flow that aggregates the data. Here's an overview of how the finished Hub Flow works:
+1. The physical temperature sensor writes new data to the `TemperatureActual` Hub list, every 6 minutes.
+1. The Hub Flow's `TemperatureForAggregation` data source reads `TemperatureActual` and aggregates the data.
+1. The Hub Flow writes the aggregated data from `TemperatureForAggregation` to the `TemperatureDaily` Hub list.
 
-2. Let's assume a lot of other application are accessing the latest temperature data from the last couple of hours with a very high frequency. When we store the last months or even years in the same table. This process gets slower and slower over time. That's why build an archiving functionality. As soon as the data is older than 7 days, it's is copied from the actual trasaction table to an archive table. Using this arhcitecure no data is lost, but accessing the most needed data is still very fast because the table stays small.
+### Create the aggregate data Hub list
 
-## Build the Data Aggregation Hub Flow
-
-The first thing we need is a table to store the aggregated data in and name it "TemperatureDaily". We will need a column of the date and also for the minimum, maximum and average temperature on that day.
+First, we create the [Peakboard Hub list](/Peakboard-Hub-Online-Using-lists-to-store-sensor-data.html) that will store the aggregated data. We name it `TemperatureDaily`. We add the following columns:
+* The date
+* The minimum temperature
+* The maximum temperature
+* The average temperature
 
 ![image](/assets/2025-10-18/020.png)
 
-In the Hub FLow project we set up a data source to access this table.
+Next, in our Hub Flow project, we add a data source for this Hub list, so that we can write to it later on:
 
 ![image](/assets/2025-10-18/022.png)
 
-For selecting the data to be aggregated we use the options to access the Hub Flows list through SQL. Below you see the SQL statement. So we do the actual aggregation already in the SQL statement. And we only select data before the current day to make sure, we don't write any aggregation before the day is over. And of cours we only aggregate the days which are not yet written to the "TemperatureDaily" table. The term "left(TS, 10)" is used to turn the time stamp into a day value without the time information.
+### Create the data source for the aggregate data
+
+Next, we create the data source that generates the aggregate data. We set it to the following SQL statement:
 
 {% highlight sql %}
 select left(TS, 10) as Date, 
@@ -51,25 +80,44 @@ order by 1
 
 ![image](/assets/2025-10-18/024.png)
 
-The next thing we need is a function that does the actual data transfer. We just loop over the data that is coming from the source and store each line in the new "TemperatureDaily" table. Usually it's just one line per day. But if the function is accidently not executed one day for whatever reasons, the next day the missing rows are also handled correctly.
+This SQL statement gets the raw data from the `TemperatureActual` table. It uses the `where` clause to do two things:
+* Only get data from before the current date (because the current date's temperatures are still being recorded).
+* Only get data for dates that aren't already in `TemperatureDaily`. (We use `left(TS,10)` to get the first 10 characters from the timestamp. This is the date, without the time.)
+
+To actually aggregate the data, it uses SQL's built-in `min`, `max`, and `avg` functions. 
+
+### Create the function that writes the aggregate data
+
+Next, we create a function called `AggregateAndStoreTemperature`. This function takes the aggregate data from our `TemperatureForAggregation` data source and writes it to the `TemperatureDaily` Hub list. Here's what it looks like:
 
 ![image](/assets/2025-10-18/026.png)
 
-In the last step we put everything together and build the Hub FLow. First reload the aggrgation data source and then execute the function to store the output into the new table. As a trigger we use a sheduler and let the Flow automatically execute every night at 11PM.
+It loops over the `TemperatureForAggregation` data source and writes each line to the `TemperatureDaily` Hub list. Usually, this only writes one line per day, but if the function misses a day for whatever reason, then the missing row will be added the next day.
 
+### Create the Flow
+
+Finally, we create the Flow itself. Here's what it looks like:
 ![image](/assets/2025-10-18/028.png)
 
-In case the destination table is completely empty, which it is the case when we set up this procedure. All the missing rows from the past days are created automatically. When it runs on daily basis only one row per day is written. The screenshot shows the data. We can see that January 10 was the first day the sensors has produced data so this will result in the first row of the aggregation table.
+The trigger is a schedule that runs the Flow every day at 11 PM.
+
+Here are the steps in the Flow:
+1. Reload the `TemperatureForAggregation` data source to update it with the latest temperature data.
+1. Run the `AggregateAndStoreTemperature` function.
+
+If the `TemperatureDaily` Hub list is completely empty---which it is the case when we first set up the Flow---then the Flow writes all the missing rows from the past 7 days. After that, the Flow only writes one row per day.
+
+This screenshot shows what the Hub list looks like. You can see that January 10 is the first day that the sensor produced data, so it's the first row of our list.
 
 ![image](/assets/2025-10-18/029.png)
 
-## Archive
+## Build the data archival Hub Flow
 
-In our second use case, we really want to move data. The source table is the same "TemperatureActual" and the destination table is "TemperatureArchive". It has exactly the same columns "TS" and "Temperature". As already mentioned the main objective is to keep "TemperatureActual" nice and small to avoid any negative impact on production applications that rely on extremely fast table access. We will move all data older than 7 days from actual to archive.
+Now, let's build the Hub Flow that deletes and archives all raw data older than 7 days. 
 
-Let's have a look at the data source. We need a data source that just points to our "TemperatureArchive" table, otherwise we're unable to store data into it later. 
+First, we create a new Hub list called `TemperatureArchive`, which will store all our archived data. Then, we add a data source for that Hub list to our Flow project, so that we can write to the Hub list.
 
-For loading the data to be archived, we use a similiar SQL technique as with the first example. We just select all data that is older than 7 days and that is not yet in the archive table. As you see in the SQL statement we treat the TS column as some kind of primary key to check if the data is already transferred.
+Next, we create the `TemperatureForArchive` data source, with the following SQL statement:
 
 {% highlight sql %}
 select * from TemperatureActual
@@ -77,17 +125,27 @@ where TS < FORMAT(GETDATE() - 7, 'yyyy-MM-dd')
     and TS not in (select TS from TemperatureArchive)
 {% endhighlight %}
 
+It selects all the data from `TemperatureActual` that's older than 7 days and not yet in our `TemperatureArchive` Hub list.
+
 ![image](/assets/2025-10-18/030.png)
 
-Let's check the function that is doing the actual work. We just loop over each row to be archived and store in the archive. In the next step the original data row is deleted from the actual table
+Next, we create the function that modifies the Hub lists:
 
 ![image](/assets/2025-10-18/032.png)
 
-The Hub Flow looks very similiar to the first one. We just execute the query to get the data to be archived and then call the function to store away the data and delete from the source table.
+It loops over each row in the `TemperatureForArchive` data source. For each one, it does the following:
+* Write the row to the `TemperatureArchive` Hub list.
+* Remove the corresponding row from `TemperatureActual`. 
+
+Finally, we add the Flow itself. It works similarly to our other Flow. It runs daily. It reloads the data source and then runs the `ArchiveTemperature` function:
 
 ![image](/assets/2025-10-18/034.png)
 
-## result and conclusion
+## Result and conclusion
 
-In today's article we discussed two options to optimize tables: Pre-aggregation and archiving. These are most common use cases of that pattern and it's no problem to even use combination of both: Storing away the agregated data and then deleting the original data. In that case some information is lost, but if it's no need to keep it, it might by an option to do so.
+We just looked at two ways that we can optimize tables: Pre-aggregation and archiving. You can even use one of them, or both, or even some combination of the two.
+
+For example, you can aggregate the data and then delete the corresponding raw data. In this case, you lose that raw data forever---but if the data isn't important, then it may make sense to do.
+
+But the point is that once you understand the basic patterns, you can create your own custom Hub Flows to handle large volumes of data in whatever way fits your needs.
 
