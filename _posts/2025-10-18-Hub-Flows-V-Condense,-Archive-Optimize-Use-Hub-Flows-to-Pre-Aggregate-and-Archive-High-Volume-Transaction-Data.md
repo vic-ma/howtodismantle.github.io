@@ -29,11 +29,9 @@ So, our first goal is to build a Hub Flow that aggregates raw data, to make it e
 
 ### Data archival
 
-But there's another problem: Our aggregated temperature table will eventually grow quite large, slowing down access speeds. And in the real world, you may have multiple apps querying the same data multiple times, making the effect even worse.
+There's another problem that we want to deal with. The raw temperature data table will eventually grow quite large, slowing down access speeds. And in the real world, there may be multiple apps that query it, multiple times a day.
 
-But we can't just delete the older data. We may need it for long-term analysis, so we need to keep the data.
-
-So, our second goal is to build a Hub Flow that deletes and archives any data older than 7 days, from our aggregated temperature table. This keeps the aggregated table small, so that queries to it remain fast. But, we keep all that deleted data in a separate archival table, so it is still accessible.
+But we can't just delete the older data. We may need it for long-term analysis, so we want to store it. So, our second goal is to build a Hub Flow that deletes and archives any data older than 7 days, from the raw temperature data table. This keeps the table small, so that queries to it stay fast. But, we keep all that deleted data in a separate archival table, so that it's still accessible.
 
 ### Temperature sensor
 
