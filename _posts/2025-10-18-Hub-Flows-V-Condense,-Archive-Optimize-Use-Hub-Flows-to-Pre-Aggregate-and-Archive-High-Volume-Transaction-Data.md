@@ -33,7 +33,7 @@ But there's another problem: Our aggregated temperature table will eventually gr
 
 But we can't just delete the older data. We may need it for long-term analysis, so we need to keep the data.
 
-So, our second goal is to have the Hub Flow delete and archive any data older than 7 days, from our aggregated temperature table. This keeps the aggregated table small, so that queries to it remain fast. But, we keep all that deleted data in a separate archival table, so it is still accessible.
+So, our second goal is to build a Hub Flow that deletes and archives any data older than 7 days, from our aggregated temperature table. This keeps the aggregated table small, so that queries to it remain fast. But, we keep all that deleted data in a separate archival table, so it is still accessible.
 
 ### Temperature sensor
 
@@ -48,13 +48,7 @@ The raw temperature data is stored in a Hub list called `TemperatureActual`. Eve
 Now, let's build the Hub Flow. Here's an overview of how the finished Hub Flow works:
 1. The physical temperature sensor writes new data to the `TemperatureActual` Hub list, every 6 minutes.
 1. The Hub Flow's `TemperatureForAggregation` data source reads `TemperatureActual` and aggregates the data.
-1. The Hub Flow's `Te
-```
-Temperature sensor (physical sensor)
-  -> `TemperatureActual` (Hub list)
-  -> `TemperatureForAggregation` (Flow data source)
-  -> 
-```
+1. The Hub Flow's writes the data from `TemperatureForAggregation` to `TemperatureDaily` Hub list.
 
 ### Create the aggregate data Hub list
 
@@ -74,10 +68,8 @@ Next, in our Hub Flow, we add a data source to access this table:
 
 ### Create the data source for aggregate data
 
-Next, we create the data source for the aggregate data, by using a SQL statement. 
-Now, we need to create a data source that fetches the raw data
+Next, we create the data source that generates the aggregate data, by using a SQL statement. Here's the SQL statement:
 
-For selecting the data to be aggregated we use the options to access the Hub Flows list through SQL. Below you see the SQL statement. So we do the actual aggregation already in the SQL statement. And we only select data before the current day to make sure, we don't write any aggregation before the day is over. And of cours we only aggregate the days which are not yet written to the "TemperatureDaily" table. The term "left(TS, 10)" is used to turn the time stamp into a day value without the time information.
 
 {% highlight sql %}
 select left(TS, 10) as Date, 
@@ -90,6 +82,10 @@ order by 1
 {% endhighlight %}
 
 ![image](/assets/2025-10-18/024.png)
+
+For selecting the data to be aggregated we use the options to access the Hub Flows list through SQL. Below you see the SQL statement. So we do the actual aggregation already in the SQL statement. And we only select data before the current day to make sure, we don't write any aggregation before the day is over. And of cours we only aggregate the days which are not yet written to the "TemperatureDaily" table. The term "left(TS, 10)" is used to turn the time stamp into a day value without the time information.
+
+### Create the function that writes the aggregate data
 
 The next thing we need is a function that does the actual data transfer. We just loop over the data that is coming from the source and store each line in the new "TemperatureDaily" table. Usually it's just one line per day. But if the function is accidently not executed one day for whatever reasons, the next day the missing rows are also handled correctly.
 
