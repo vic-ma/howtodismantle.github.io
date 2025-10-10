@@ -109,7 +109,7 @@ This screenshot shows what the Hub list looks like. You can see that January 10 
 
 ## Build the data archival Hub Flow
 
-Now, let's build the Hub Flow that deletes and archives all data older than 7 days. 
+Now, let's build the Hub Flow that deletes and archives all raw data older than 7 days. 
 
 First, we create a new Hub list called `TemperatureArchive`, which will store all our archived data. Then, we add a data source for that Hub list, so that we can write to it.
 
@@ -126,20 +126,18 @@ It selects all the data from `TemperatureActual` that's older than 7 days and no
 ![image](/assets/2025-10-18/030.png)
 
 Next, we create the function that modifies the Hub lists:
+
 ![image](/assets/2025-10-18/032.png)
 
 It loops over each row in the `TemperatureForArchive` data source. For each one, it does the following:
 * Write the row to the `TemperatureArchive` Hub list.
 * Remove the corresponding row from `TemperatureActual`. 
 
-Let's check the function that is doing the actual work. We just loop over each row to be archived and store in the archive. In the next step the original data row is deleted from the actual table
-
-
-The Hub Flow looks very similiar to the first one. We just execute the query to get the data to be archived and then call the function to store away the data and delete from the source table.
+Finally, we add the Flow itself. It works similarly to our other Flow. It runs daily. It reloads the data source and then runs the `ArchiveTemperature` function:
 
 ![image](/assets/2025-10-18/034.png)
 
-## result and conclusion
+## Result and conclusion
 
-In today's article we discussed two options to optimize tables: Pre-aggregation and archiving. These are most common use cases of that pattern and it's no problem to even use combination of both: Storing away the agregated data and then deleting the original data. In that case some information is lost, but if it's no need to keep it, it might by an option to do so.
+We just looked at two ways that you can optimize tables: Pre-aggregation and archiving. You can even use one of them, or both, or even some combination of the two. For example, you can aggregate the data and then delete the corresponding raw data. In this case, you lose that raw data forever---but if the data isn't important, then it may make sense to do.
 
