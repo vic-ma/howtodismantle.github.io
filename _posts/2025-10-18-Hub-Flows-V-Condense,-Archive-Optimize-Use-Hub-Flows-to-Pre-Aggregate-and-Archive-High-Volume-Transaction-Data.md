@@ -37,18 +37,18 @@ So, our second goal is to build a Hub Flow that deletes and archives any data ol
 
 ### Temperature sensor
 
-For our example, we will use [data from a temperature sensor](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
+For our example Hub Flows, we will use [data from a temperature sensor](/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
 
-The raw temperature data is stored in a Hub list called `TemperatureActual`. Every 6 minutes, the sensor adds a new row to the table, with the current temperature in the `Temperature` column, and the timestamp in the `TS` column.
+The raw temperature data is stored in a Hub list called `TemperatureActual`. Every 6 minutes, the sensor adds a new row to the table, with the timestamp in the `TS` column, and the current temperature in the `Temperature` column.
 
 ![image](/assets/2025-10-18/010.png)
 
 ## Build the data aggregation Hub Flow
 
-Now, let's build the Hub Flow. Here's an overview of how the finished Hub Flow works:
+Now, let's build the Hub Flow that aggregates the data. Here's an overview of how the finished Hub Flow works:
 1. The physical temperature sensor writes new data to the `TemperatureActual` Hub list, every 6 minutes.
 1. The Hub Flow's `TemperatureForAggregation` data source reads `TemperatureActual` and aggregates the data.
-1. The Hub Flow's writes the aggregated data from `TemperatureForAggregation` to the `TemperatureDaily` Hub list.
+1. The Hub Flow writes the aggregated data from `TemperatureForAggregation` to the `TemperatureDaily` Hub list.
 
 ### Create the aggregate data Hub list
 
