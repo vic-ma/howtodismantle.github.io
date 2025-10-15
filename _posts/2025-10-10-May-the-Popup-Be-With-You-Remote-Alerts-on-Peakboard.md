@@ -1,7 +1,7 @@
 ---
 layout: post
 title: May the Popup Be With You – Remote Alerts on Peakboard 
-date: 2023-03-01 05:00:00 +0300
+date: 2025-10-10 05:00:00 +0300
 tags: api
 image: /assets/2025-10-10/title.png
 image_header: /assets/2025-10-10/title_landscape.png

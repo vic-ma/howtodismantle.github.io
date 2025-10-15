@@ -43,13 +43,15 @@ Building the connection string was the hardest part. After we solved that we can
 Uploading huge amounts of data very efficiently is one of the USPs of any Snowflake database. This is usually done through CSV files. These are uploaded to a storage (e.g. an Azure storage blob) and then taken from there to upload it to the database. This process is usually triggered through JSON REST calls (see documentation above for details). In our sample we will go a different way. It's less efficient but easy to use and very reliable if the amount of data to insert is not endlessly huge. We just use an SQL INSERT statement and rely on Snowflake's automatic transaction handling to keep the data consistent, which keeps the example approachable for smaller teams.
 
 {% highlight sql %}
-INSERT INTO DISMANTLEDB.PUBLIC.ACLOG (TS, Temperature, Cooling)VALUES    ('2025-07-03 15:15:01', 27.5, False);
+INSERT INTO DISMANTLEDB.PUBLIC.ACLOG (TS, Temperature, Cooling)
+VALUES    ('2025-07-03 15:15:01', 27.5, False);
 {% endhighlight %}
 
 To make it easier to read within Peakboard we use placeholders to build the SQL string:
 
 {% highlight sql %}
-INSERT INTO DISMANTLEDB.PUBLIC.ACLOG (TS, Temperature, Cooling)VALUES    ('#[TS]#', #[Temperature]#, #[Cooling]#);
+INSERT INTO DISMANTLEDB.PUBLIC.ACLOG (TS, Temperature, Cooling)
+VALUES    ('#[TS]#', #[Temperature]#, #[Cooling]#);
 {% endhighlight %}
 
 The screenshot shows how to apply the statement and use a placeholder Building Block to fill the dynamic parts of the statements with real values. You can further enhance the workflow by adding pre-validation logic to check for duplicate timestamps or by wrapping the execution in a simple retry block to cope with transient connectivity issues, especially when the Peakboard box is deployed in networks with fluctuating bandwidth.
@@ -58,5 +60,5 @@ The screenshot shows how to apply the statement and use a placeholder Building B
 
 ## Result and conclusion
 
-This short article shows how easy it is to use ODBC to access Snowflake for both reading and writing. As long as the throughput is acceptable it's much easier to use SQL instead of the traditional way of uploading through a file based interface. Remember to secure the credentials in the connection string, monitor warehouse usage to avoid unexpected costs, and leverage Snowflake roles to restrict access to just the tables required by the Peakboard dashboard while documenting every change for compliance.
+This short article shows how easy it is to use ODBC to access Snowflake for both reading and writing. As long as the throughput is acceptable it's much easier to use SQL instead of the traditional way of uploading through a file based interface. Remember to secure the credentials in the connection string, monitor warehouse usage to avoid unexpected costs, and leverage Snowflake roles to restrict access to just the tables required by the Peakboard dashboard.
  
