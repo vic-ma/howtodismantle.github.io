@@ -7,11 +7,11 @@ image: /assets/2025-12-13/title.png
 image_header: /assets/2025-12-13/title.png
 bg_alternative: true
 read_more_links:
-  - name: More use cases
-    url: /category/usecase
+  - name: Yet Another BACnet Explorer
+    url: https://sourceforge.net/projects/yetanotherbacnetexplorer/
 downloads:
-  - name: XXX.pbmx
-    url: /assets/2025-11-27/XXX.pbmx
+  - name: BACnetTestApp.pbmx
+    url: /assets/2025-12-13/BACnetTestApp.pbmx
 ---
 Sorry guys!
 This article is not yet published!
