@@ -15,15 +15,15 @@ downloads:
   - name: SendSlackMessage.pbmx
     url: /assets/2025-10-26/SendSlackMessage.pbmx
 ---
-Many Peakboard applications are designed to communicate with the outside world. In today's article, we'll explain how to send Slack messages from a Peakboard app.
+Many Peakboard applications are designed to communicate with the outside world. In today's article, we'll explain how to use a Peakboard app to send Slack messages.
 
-We will build an app that forwards messages from a welding machine to a Slack channel. Here's how it works:
-1. The welding machine sends a message to the Peakboard Box, via OPC UA.
-1. The app processes the message.
-1. The app sends the message to our `#machinealerts` Slack channel.
+A common use case for this is an app that forwards messages from a machine to a Slack channel. For example:
+1. A machine sends a message to the Peakboard app, via OPC UA.
+1. The Peakboard app processes the message.
+1. The Peakboard app sends the message to a Slack channel dedicated for machine alerts.
 1. A human sees the message on Slack and acts accordingly.
 
-But before we work on the Peakboard app, we first need to create a Slack app.
+In this article, we'll build a simpler app that let's the user write a message and then send it to a Slack channel. That way, we don't have to worry about connecting the app to an actual machine, since our goal is just to show how the Slack integration works.  But we have plenty of other articles on [hardware integration](/category/hardware), if you're interested.
 
 ## Create a Slack App
 
@@ -37,14 +37,15 @@ We give it a name and connect it to our Slack workspace. (It's also a good idea 
 
 ![image](/assets/2025-10-26/020.png)
 
-Next, in the sidebar, under *Features*, we click on *Incoming Webhooks*. We turn the *Activate Incoming Webhooks* toggle switch on.
+Next, in the sidebar, under *Features*, we click on *Incoming Webhooks*. We turn on the *Activate Incoming Webhooks* toggle switch.
 
-
-On the left side, we click on incoming webhooks and enable these incoming webhooks. Then we have the option to create a new webhook and copy the generated URL to the clipboard. 
+Then, we create a new webhook and copy the URL. We will need it when building our Peakboard app.
 
 ![image](/assets/2025-10-26/030.png)
 
-## Building the Peakboard app
+## Build the Peakboard app
+
+Now, let's build the Peakboard app. First, let's create the UI. We add a text box 
 
 In our application, we place a text box and a button on the screen, and it's important to give the text box a name so we can use it later in our script. 
 
