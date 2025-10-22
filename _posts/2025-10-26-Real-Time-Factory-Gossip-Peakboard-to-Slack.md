@@ -25,7 +25,7 @@ We will build an app that forwards messages from a welding machine to a Slack ch
 
 But before we work on the Peakboard app, we first need to create a Slack app.
 
-## Create the Slack App
+## Create a Slack App
 
 In order for our Peakboard app to send messages to a Slack channel, we first need to [create a Slack app](https://api.slack.com/apps). 
 
@@ -33,7 +33,7 @@ We select the *From scratch* option.
 
 ![image](/assets/2025-10-26/010.png)
 
-We give it a name and connect it to our Slack workspace. It's also a good idea to upload an icon to make it more pretty. 
+We give it a name and connect it to our Slack workspace. It's also a good idea to upload an icon to make it more pretty. Then, we click *Create App*. 
 
 ![image](/assets/2025-10-26/020.png)
 
