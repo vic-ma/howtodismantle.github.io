@@ -33,9 +33,12 @@ We select the *From scratch* option.
 
 ![image](/assets/2025-10-26/010.png)
 
-We give it a name and connect it to our Slack workspace. It's also a good idea to upload an icon to make it more pretty. Then, we click *Create App*. 
+We give it a name and connect it to our Slack workspace. (It's also a good idea to upload an icon to make it more pretty.) Then, we click *Create App*. 
 
 ![image](/assets/2025-10-26/020.png)
+
+Next, in the sidebar, under *Features*, we click on *Incoming Webhooks*. We turn the *Activate Incoming Webhooks* toggle switch on.
+
 
 On the left side, we click on incoming webhooks and enable these incoming webhooks. Then we have the option to create a new webhook and copy the generated URL to the clipboard. 
 
