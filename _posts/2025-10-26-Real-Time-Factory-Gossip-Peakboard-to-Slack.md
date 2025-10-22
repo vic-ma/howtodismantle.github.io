@@ -17,11 +17,11 @@ downloads:
 ---
 Many Peakboard applications are designed to communicate with the outside world. In today's article, we'll explain how to send Slack messages from a Peakboard app.
 
-We will build an app that receives messages from a machine, through OPC UA. When the app gets a new message, it processes it and sends an alert to Slack. That way, a human can see it and act accordingly.
+We will build an app that receives messages from a welding machine, through OPC UA. When the app gets a new message, it processes it and sends an alert to Slack. That way, a human can see it and act accordingly.
 
-So what we're going to do today is first we set up an app in the Slack settings and then in the second step we will use a Peakboard application to trigger an incoming webhook to send a message to a channel. Let's assume the Peakboard application is talking to a welding machine and sends certain alerts to Slack.
+But before we work on the app, we first need to create a Slack app.
 
-## Setting up the Slack App
+## Create the Slack App
 
 Before we can post messages to a Slack channel, we need to set up a Slack app first. Setting up a Slack app can be done under this [link](https://api.slack.com/apps). 
 
