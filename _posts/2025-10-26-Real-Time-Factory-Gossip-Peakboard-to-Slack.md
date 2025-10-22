@@ -15,7 +15,7 @@ downloads:
   - name: SendSlackMessage.pbmx
     url: /assets/2025-10-26/SendSlackMessage.pbmx
 ---
-Many Peakboard applications are designed to communicate with the outside world. In today's article, we will discuss to send Slack messages from your Peakboard application. A typical example would be to be connected to a machine, for example, by OPC UA, and then process this information, and then  generate alerts and send it to Slack. 
+Many Peakboard applications are designed to communicate with the outside world. In today's article, we'll explain how to send Slack messages from a Peakboard app. A typical example would be to be connected to a machine, for example, by OPC UA, and then process this information, and then  generate alerts and send it to Slack. 
 
 So what we're going to do today is first we set up an app in the Slack settings and then in the second step we will use a Peakboard application to trigger an incoming webhook to send a message to a channel. Let's assume the Peakboard application is talking to a welding machine and sends certain alerts to Slack.
 
