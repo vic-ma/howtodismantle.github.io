@@ -7,12 +7,13 @@ image: /assets/2025-11-27/title.png
 image_header: /assets/2025-11-27/title.png
 bg_alternative: true
 read_more_links:
-  - name: More use cases
-    url: /category/usecase
-downloads:
-  - name: XXX.pbfx
-    url: /assets/2025-11-27/XXX.pbfx
+  - name: Template
+    url: https://templates.peakboard.com/Company_Information_PDF/en
 ---
+
+
+
+
 Sorry guys!
 This article is not yet published!
 Be patient!

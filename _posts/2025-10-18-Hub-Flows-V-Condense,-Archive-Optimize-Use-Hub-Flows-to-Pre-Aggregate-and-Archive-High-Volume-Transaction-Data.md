@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hub Flows V - Condense, Archive, Optimize - Use Hub Flows to Pre-Aggregate and Archive High-Volume Transaction Data
-date: 2023-03-01 00:00:00 +0000
+date: 2025-10-18 00:00:00 +0000
 tags: hubflows
 image: /assets/2025-10-18/title.png
 image_header: /assets/2025-10-18/title_landscape.png
