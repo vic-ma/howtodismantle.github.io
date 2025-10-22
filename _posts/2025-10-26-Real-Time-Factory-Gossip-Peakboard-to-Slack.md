@@ -27,13 +27,13 @@ But before we work on the Peakboard app, we first need to create a Slack app.
 
 ## Create the Slack App
 
-Before we can post messages to a Slack channel, we need to set up a Slack app first. Setting up a Slack app can be done under this [link](https://api.slack.com/apps). 
+In order for our Peakboard app to send messages to a Slack channel, we first need to [create a Slack app](https://api.slack.com/apps). 
 
-First, we create a new app from scratch. 
+We select the *From scratch* option.
 
 ![image](/assets/2025-10-26/010.png)
 
-Then we give it a name and connect it to our Slack workspace. Besides the name, it's always a good idea to also upload an icon to make it more beatiful. 
+We give it a name and connect it to our Slack workspace. It's also a good idea to upload an icon to make it more pretty. 
 
 ![image](/assets/2025-10-26/020.png)
 
