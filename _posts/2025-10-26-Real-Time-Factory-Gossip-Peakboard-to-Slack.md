@@ -25,34 +25,34 @@ Before we can post messages to a Slack channel, we need to set up a Slack app fi
 
 First, we create a new app from scratch. 
 
-![image](/assets/2025-10-26/010.png)
+![image](/assets/2025-10-26/slack-create-app-from-scratch.png)
 
 Then we give it a name and connect it to our Slack workspace. Besides the name, it's always a good idea to also upload an icon to make it more beatiful. 
 
-![image](/assets/2025-10-26/020.png)
+![image](/assets/2025-10-26/slack-app-name-and-workspace.png)
 
 On the left side, we click on incoming webhooks and enable these incoming webhooks. Then we have the option to create a new webhook and copy the generated URL to the clipboard. 
 
-![image](/assets/2025-10-26/030.png)
+![image](/assets/2025-10-26/slack-enable-incoming-webhooks.png)
 
 ## Building the Peakboard app
 
 In our application, we place a text box and a button on the screen, and it's important to give the text box a name so we can use it later in our script. 
 
-![image](/assets/2025-10-26/040.png)
+![image](/assets/2025-10-26/peakboard-app-text-box-setup.png)
 
 The following screenshot shows how to call the webhook with the Building Blocks. We just use an HTTP Call Building Block. We use HTTP POST call method. The actual body is relatively simple because we only transport our message: `{ "text": "My Message" }`. The message is replaced with the actual content of the user message by using a placeholder building block. 
 
-![image](/assets/2025-10-26/050.png)
+![image](/assets/2025-10-26/peakboard-http-call-webhook-setup.png)
 
 ## result
 
 The next two screenshots show the result in action. First, we type in the message we want to send and then send the message. 
 
-![image](/assets/2025-10-26/060.png)
+![image](/assets/2025-10-26/peakboard-send-message-interface.png)
 
 The incoming webhook is triggered and that generates the message in the Slack channel that we have defined when creating the app earlier in the Slack settings. 
 
-![image](/assets/2025-10-26/070.png)
+![image](/assets/2025-10-26/slack-channel-message-result.png)
 
 Under this [link](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks) we can find the documentation of the procedure we just used. It's  possible to use lot of other formatting options to enrich the messages we send to Slack. 
