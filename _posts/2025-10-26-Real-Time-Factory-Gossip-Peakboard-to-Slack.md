@@ -29,17 +29,17 @@ In order for our Peakboard app to send messages to Slack, we first need to [crea
 
 We select the *From scratch* option:
 
-![image](/assets/2025-10-26/010.png)
+![image](/assets/2025-10-26/slack-create-app-from-scratch.png)
 
 We give it a name and connect it to our Slack workspace. (It's also a good idea to upload an icon to make it pretty.) Then, we click *Create App*. 
 
-![image](/assets/2025-10-26/020.png)
+![image](/assets/2025-10-26/slack-app-name-and-workspace.png)
 
 Next, on the sidebar, under *Features*, we click on *Incoming Webhooks*. We turn on the *Activate Incoming Webhooks* toggle switch.
 
 Then, we create a new webhook and copy the URL. We'll need it when building our Peakboard app.
 
-![image](/assets/2025-10-26/030.png)
+![image](/assets/2025-10-26/slack-enable-incoming-webhooks.png)
 
 ## Build the Peakboard app
 
@@ -47,11 +47,11 @@ Now, let's build our Peakboard app. First, we create the UI:
 1. We add a text box where the user can enter a message. We set the control name to `txtMessageText`. That way, we can refer to it later on, in our script.
 1. We add a button that the user can press to send the message to Slack.
 
-![image](/assets/2025-10-26/040.png)
+![image](/assets/2025-10-26/peakboard-app-text-box-setup.png)
 
 Next, we create the tapped script for our button:
 
-![image](/assets/2025-10-26/050.png)
+![image](/assets/2025-10-26/peakboard-http-call-webhook-setup.png)
 
 It sends a POST request to the Slack webhook URL that we copied earlier. We set the body of the request to `{ "text": "#[Message]#" }`. We use the `#[Message]#` placeholder, and replace it with the message that the user entered in the text box. Finally, we also write the response that we get (after sending the request) to the log.
 
@@ -59,10 +59,10 @@ It sends a POST request to the Slack webhook URL that we copied earlier. We set 
 
 Now, let's take a look at our app in action. First, we type in the message that we want to send. Then, we press the send button.
 
-![image](/assets/2025-10-26/060.png)
+![image](/assets/2025-10-26/peakboard-send-message-interface.png)
 
 This sends an HTTP request with our message to the webhook URL. And as you can see, the message pops up in our `#machinealerts` channel (you can change the channel in the webhook settings):
 
-![image](/assets/2025-10-26/070.png)
+![image](/assets/2025-10-26/slack-channel-message-result.png)
 
 For more information about everything we covered today, take a look at Slack's [incoming webhook documentation](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks). The docs also explain how to use [advanced formatting options](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/#advanced_message_formatting)!
