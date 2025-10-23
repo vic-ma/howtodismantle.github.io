@@ -15,15 +15,13 @@ downloads:
   - name: SendSlackMessage.pbmx
     url: /assets/2025-10-26/SendSlackMessage.pbmx
 ---
-Many Peakboard applications are used to communicate and send messages. In today's article, we'll look at how to build a Peakboard app that can send Slack messages.
-
-A common use case for this is an app that forwards messages from a machine to a Slack channel. For example:
+Many Peakboard applications are used to communicate and send messages. A common use case is to forward messages from a machine to a Slack channel. For example:
 1. A machine sends a message to the Peakboard app, via OPC UA.
 1. The Peakboard app processes the message.
 1. The Peakboard app sends the message to a Slack channel dedicated for machine alerts.
 1. A human sees the message on Slack and acts accordingly.
 
-In this article, we'll build a simpler app that let's the user write a message and then send it to a Slack channel. That way, we don't have to worry about connecting the app to an actual machine, since our goal is just to show how the Slack integration works.  But we have plenty of other articles on [hardware integration](/category/hardware), if you're interested.
+So, in today's article, we'll build a Peakboard app that lets the user write a message and send it to a Slack channel. We won't bother with connecting the app to an actual machine, since our only goal is to show how the Slack integration works. But we have plenty of other articles on [hardware integration](/category/hardware), if you are interested.
 
 ## Create a Slack App
 
