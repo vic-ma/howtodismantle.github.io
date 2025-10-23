@@ -57,14 +57,14 @@ Next, we create the tapped script for our button:
 
 It sends a POST request to the Slack webhook URL that we copied earlier. We set the body of the request to `{ "text": "#[Message]#" }`. We use the `#[Message]#` placeholder, and replace it with the message that the user entered in the text box. Finally, we also write the response that we get (after sending the request) to the log.
 
-## result
+## Result
 
-The next two screenshots show the result in action. First, we type in the message we want to send and then send the message. 
+Now, let's take a look at our app in action. First, we type in the message we want to send and then press the send button.
 
 ![image](/assets/2025-10-26/060.png)
 
-The incoming webhook is triggered and that generates the message in the Slack channel that we have defined when creating the app earlier in the Slack settings. 
+This sends a HTTP request with our message to the webhook. And as you can see, the message pops up in our `#machinealerts` channel (you can change the channel in the webhook settings):
 
 ![image](/assets/2025-10-26/070.png)
 
-Under this [link](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks) we can find the documentation of the procedure we just used. It's  possible to use lot of other formatting options to enrich the messages we send to Slack. 
+For more information about this process, take a look at Slack's [incoming webhook documentation](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks). The docs also explain how to use [advanced formatting options](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/#advanced_message_formatting)!
