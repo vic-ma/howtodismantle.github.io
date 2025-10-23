@@ -37,7 +37,7 @@ We give it a name and connect it to our Slack workspace. (It's also a good idea 
 
 ![image](/assets/2025-10-26/020.png)
 
-Next, in the sidebar, under *Features*, we click on *Incoming Webhooks*. We turn on the *Activate Incoming Webhooks* toggle switch.
+Next, on the sidebar, under *Features*, we click on *Incoming Webhooks*. We turn on the *Activate Incoming Webhooks* toggle switch.
 
 Then, we create a new webhook and copy the URL. We will need it when building our Peakboard app.
 
@@ -45,7 +45,9 @@ Then, we create a new webhook and copy the URL. We will need it when building ou
 
 ## Build the Peakboard app
 
-Now, let's build the Peakboard app. First, let's create the UI. We add a text box 
+Now, let's build our Peakboard app. First, we create the UI:
+1. We add a text box where the user can enter a message. We give it the control name `txtMessageText`. That way, we can refer to it later on, in our script.
+1. We add a button that the user can press to send the message to Slack.
 
 In our application, we place a text box and a button on the screen, and it's important to give the text box a name so we can use it later in our script. 
 
