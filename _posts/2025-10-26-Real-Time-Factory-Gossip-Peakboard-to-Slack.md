@@ -49,13 +49,13 @@ Now, let's build our Peakboard app. First, we create the UI:
 1. We add a text box where the user can enter a message. We give it the control name `txtMessageText`. That way, we can refer to it later on, in our script.
 1. We add a button that the user can press to send the message to Slack.
 
-In our application, we place a text box and a button on the screen, and it's important to give the text box a name so we can use it later in our script. 
-
 ![image](/assets/2025-10-26/040.png)
 
-The following screenshot shows how to call the webhook with the Building Blocks. We just use an HTTP Call Building Block. We use HTTP POST call method. The actual body is relatively simple because we only transport our message: `{ "text": "My Message" }`. The message is replaced with the actual content of the user message by using a placeholder building block. 
+Next, we create the tapped script for our button:
 
 ![image](/assets/2025-10-26/050.png)
+
+It sends a POST request to the Slack webhook URL that we copied earlier. We set the body of the request to `{ "text": "#[Message]#" }`. We use the `#[Message]#` placeholder, and replace it with the message that the user entered in the text box. Finally, we also write the response that we get (after sending the request) to the log.
 
 ## result
 
