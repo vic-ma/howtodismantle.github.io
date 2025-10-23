@@ -21,7 +21,7 @@ Many Peakboard applications are used to communicate and send messages. A common 
 1. The Peakboard app sends the message to a Slack channel dedicated for machine alerts.
 1. A human sees the message on Slack and acts accordingly.
 
-So, in today's article, we'll build a Peakboard app that lets the user write a message and send it to a Slack channel. We won't bother with connecting the app to an actual machine, since our only goal is to show how the Slack integration works. But we have plenty of other articles on [hardware integration](/category/hardware), if you are interested.
+So, in today's article, we'll build a Peakboard app that lets the user write a message and send it to a Slack channel. We won't bother with connecting the app to an actual machine, since our only goal is to show how the Slack integration works. But we have plenty of other articles on [hardware integration](/category/hardware), if you're interested.
 
 ## Create a Slack App
 
