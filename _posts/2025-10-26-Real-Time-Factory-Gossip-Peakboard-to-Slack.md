@@ -15,7 +15,7 @@ downloads:
   - name: SendSlackMessage.pbmx
     url: /assets/2025-10-26/SendSlackMessage.pbmx
 ---
-Many Peakboard applications are designed to communicate with the outside world. In today's article, we'll explain how to use a Peakboard app to send Slack messages.
+Many Peakboard applications are used to communicate and send messages. In today's article, we'll look at how to build a Peakboard app that can send Slack messages.
 
 A common use case for this is an app that forwards messages from a machine to a Slack channel. For example:
 1. A machine sends a message to the Peakboard app, via OPC UA.
