@@ -44,7 +44,7 @@ Then, we create a new webhook and copy the URL. We'll need it when building our 
 ## Build the Peakboard app
 
 Now, let's build our Peakboard app. First, we create the UI:
-1. We add a text box where the user can enter a message. We give it the control name `txtMessageText`. That way, we can refer to it later on, in our script.
+1. We add a text box where the user can enter a message. We set the control name to `txtMessageText`. That way, we can refer to it later on, in our script.
 1. We add a button that the user can press to send the message to Slack.
 
 ![image](/assets/2025-10-26/040.png)
@@ -57,12 +57,12 @@ It sends a POST request to the Slack webhook URL that we copied earlier. We set 
 
 ## Result
 
-Now, let's take a look at our app in action. First, we type in the message we want to send and then press the send button.
+Now, let's take a look at our app in action. First, we type in the message that we want to send. Then, we press the send button.
 
 ![image](/assets/2025-10-26/060.png)
 
-This sends a HTTP request with our message to the webhook. And as you can see, the message pops up in our `#machinealerts` channel (you can change the channel in the webhook settings):
+This sends an HTTP request with our message to the webhook URL. And as you can see, the message pops up in our `#machinealerts` channel (you can change the channel in the webhook settings):
 
 ![image](/assets/2025-10-26/070.png)
 
-For more information about this process, take a look at Slack's [incoming webhook documentation](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks). The docs also explain how to use [advanced formatting options](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/#advanced_message_formatting)!
+For more information about everything we covered today, take a look at Slack's [incoming webhook documentation](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks). The docs also explain how to use [advanced formatting options](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/#advanced_message_formatting)!
