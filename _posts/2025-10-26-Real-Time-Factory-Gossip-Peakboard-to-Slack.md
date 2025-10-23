@@ -25,19 +25,19 @@ So, in today's article, we'll build a Peakboard app that lets the user write a m
 
 ## Create a Slack App
 
-In order for our Peakboard app to send messages to a Slack channel, we first need to [create a Slack app](https://api.slack.com/apps). 
+In order for our Peakboard app to send messages to Slack, we first need to [create a Slack app](https://api.slack.com/apps). 
 
-We select the *From scratch* option.
+We select the *From scratch* option:
 
 ![image](/assets/2025-10-26/010.png)
 
-We give it a name and connect it to our Slack workspace. (It's also a good idea to upload an icon to make it more pretty.) Then, we click *Create App*. 
+We give it a name and connect it to our Slack workspace. (It's also a good idea to upload an icon to make it pretty.) Then, we click *Create App*. 
 
 ![image](/assets/2025-10-26/020.png)
 
 Next, on the sidebar, under *Features*, we click on *Incoming Webhooks*. We turn on the *Activate Incoming Webhooks* toggle switch.
 
-Then, we create a new webhook and copy the URL. We will need it when building our Peakboard app.
+Then, we create a new webhook and copy the URL. We'll need it when building our Peakboard app.
 
 ![image](/assets/2025-10-26/030.png)
 
