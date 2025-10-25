@@ -13,7 +13,7 @@ namespace MeowExtension
                 ID = "MeowExtension",
                 Name = "Meow Extension",
                 Description = "A Peakboard extension for cats",
-                Version = "1.2.0",
+                Version = "1.3",
                 Author = "Meow Development Team",
                 Company = "Meow Inc.",
                 Copyright = "Copyright © Meow Inc.",

@@ -17,8 +17,9 @@ namespace MeowExtension
                 PropertyInputPossible = true,
                 PropertyInputDefaults =
                 {
+                    new CustomListPropertyDefinition { Name = "CatsName", Value = ""},
                     new CustomListPropertyDefinition { Name = "Breed", Value = "Bengal", TypeDefinition = TypeDefinition.String.With(selectableValues: [ "Abyssinian", "Bengal", "British Shorthair" ] )},
-                    new CustomListPropertyDefinition { Name = "IsItACat", Value = "True", TypeDefinition = TypeDefinition.Boolean },
+                    new CustomListPropertyDefinition { Name = "IsItARealCat", Value = "True", TypeDefinition = TypeDefinition.Boolean },
                     new CustomListPropertyDefinition { Name = "Age", Value = "4", TypeDefinition = TypeDefinition.Number },
                     new CustomListPropertyDefinition { Name = "MaximumOfSomething", Value = "5", TypeDefinition = TypeDefinition.Number.With(selectableValues: [ 2, 3, 5, 10, 20, 50, 100]) },
                     new CustomListPropertyDefinition { Name = "MySecretCode", Value = "18899", TypeDefinition = TypeDefinition.String.With(masked: true) },
@@ -29,50 +30,13 @@ namespace MeowExtension
 
         protected override void CheckDataOverride(CustomListData data)
         {
+            if (string.IsNullOrWhiteSpace(data.Properties["CatsName"]))
+            {
+                throw new InvalidDataException("Please provide a good name");
+            }
             base.CheckDataOverride(data);
         }
 
-        protected override bool IsPropertyInputValidOverride(CustomListData data, out string errorMessage)
-        {
-            errorMessage = string.Empty;
-            if (data.Properties["Breed"] is not string breed || string.IsNullOrWhiteSpace(breed))
-            {
-                errorMessage = "Breed must be a non-empty string.";
-                return false;
-            }
-
-            if (data.Properties["IsItACat"] is not bool)
-            {
-                errorMessage = "IsItACat must be a boolean value.";
-                return false;
-            }
-
-            if (data.Properties["Age"] is not int age || age < 0)
-            {
-                errorMessage = "Age must be a non-negative integer.";
-                return false;
-            }
-
-            if (data.Properties["MaximumOfSomething"] is not int max || max <= 0)
-            {
-                errorMessage = "MaximumOfSomething must be a positive integer.";
-                return false;
-            }
-
-            if (data.Properties["MySecretCode"] is not string code || string.IsNullOrWhiteSpace(code))
-            {
-                errorMessage = "MySecretCode must be a non-empty string.";
-                return false;
-            }
-
-            if (data.Properties["MultilineDescription"] is not string description || string.IsNullOrWhiteSpace(description))
-            {
-                errorMessage = "MultilineDescription must be a non-empty string.";
-                return false;
-            }
-
-            return true;
-        }
 
         protected override CustomListColumnCollection GetColumnsOverride(CustomListData data)
         {
@@ -87,6 +51,8 @@ namespace MeowExtension
 
         protected override CustomListObjectElementCollection GetItemsOverride(CustomListData data)
         {
+            this.Log.Info("Generating cat list items for " + data.Properties["CatsName"]);
+
             var items = new CustomListObjectElementCollection();
             
             // Add cat data directly to items
@@ -137,6 +103,8 @@ namespace MeowExtension
             item6.Add("Age", 1);
             item6.Add("ImageUrl", "https://example.com/cat6.jpg");
             items.Add(item6);
+
+            this.Log.Error("Generating cat list items problems...");
             
             return items;
         }

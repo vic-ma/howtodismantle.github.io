@@ -13,15 +13,92 @@ downloads:
   - name: Source code for this article
     url: https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension
 ---
-Sorry guys!
+In the first part of series we learned how to build the frame of a Peakboard extension. We used two classes to provide both meta data and the actual payload that is exchanged between the extension and the Peakboard application. Here's an overview of this article series:
 
-This article is not yet published!
+* [Part I - The Basics](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html)
+* [Part II - Parameters and User Input](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html)
+* [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html)
+* [Part IV - Event-triggered data sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
 
-Be patient!
+In today's article we will talk about how to build a user interface to let the user configure the extension. Typical parameters would be a URL or credentials to the source system. The understanding of the frame we discussed in the first part of the series is a crucial requirement. The sample code used in this article can found at [github](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension).
 
+## Add a simple parameter
 
-Love,Michelle
+To add a parameter we will need to adjust the `GetDefinitionOverride` override nd just add it to the `PropertyInputDefaults`collection and also set the `PropertyInputPossible` to true. In this example we will ad a very simple text parameter named `CatsName` to our list.
 
+{% highlight csharp %}
+protected override CustomListDefinition GetDefinitionOverride()
+{
+    return new CustomListDefinition
+    {
+        ID = "CatCustomList",
+        Name = "Cat List",
+        Description = "A custom list for cats with breed and age information",
+        PropertyInputPossible = true,
+        PropertyInputDefaults =
+        {
+            new CustomListPropertyDefinition { Name = "CatsName", Value = ""}
+        }
+    };
+}
+{% endhighlight %}
 
+The screenshot show how the parameter looks like in Peakboard Designer UI.
+
+![image](/assets/2025-12-05/010.png)
+
+To access the value of the user input we use the `data` object that is provided in the `GetItemsOverride` function. we can easily access all paremeter through the `Properties` collection. The source code also shows how to generate a log entry. It use the `Log` object to generate messages. All types of message, e.g. Info, Verbose, Error, Critical, etc.... are supported in the same way.
+
+{% highlight csharp %}
+protected override CustomListObjectElementCollection GetItemsOverride(CustomListData data)
+{
+    this.Log.Info("Generating cat list items for " + data.Properties["CatsName"]);
+
+    // ....
+}
+{% endhighlight %}
+
+The extension kit offers a standardized way to check the user input and prevent the data source dialog from being closed when the validation of the values fails. This happens in the overrideable function `CheckDataOverride`. In cass there's anything wrong with the value we can throw and exception that is routed to the user and prevents the dialog from being closed.
+
+{% highlight csharp %}
+protected override void CheckDataOverride(CustomListData data)
+{
+    if (string.IsNullOrWhiteSpace(data.Properties["CatsName"]))
+    {
+        throw new InvalidDataException("Please provide a good name");
+    }
+    base.CheckDataOverride(data);
+}
+{% endhighlight %}
+
+## Complex parameters
+
+Beside the simple text parameter we have the options to force the value of a parameter into the other Peakboard data types number or bool. All the addtional parameters object are added to the `PropertyInputDefaults` collection.
+
+{% highlight csharp %}
+new CustomListPropertyDefinition { Name = "IsItARealCat", Value = "True", TypeDefinition = TypeDefinition.Boolean },
+new CustomListPropertyDefinition { Name = "Age", Value = "4", TypeDefinition = TypeDefinition.Number },
+{% endhighlight %}
+
+The dialogs to manipulate the data is adjusted autmatically according to this meta data.
+
+![image](/assets/2025-12-05/020.png)
+
+Let's assume we want to give the user only a combo box of distinct values to be chosen rather than a free text, we just use the `selectableValues` attribute to restrict the entr to some values.
+
+{% highlight csharp %}
+new CustomListPropertyDefinition { Name = "MaximumOfSomething", Value = "5", 
+      TypeDefinition = TypeDefinition.Number.With(selectableValues: [ 2, 3, 5, 10, 20, 50, 100]) },
+{% endhighlight %}
+
+Here's the corresponding view for the used of the extension to provide the disctinct values:
+
+![image](/assets/2025-12-05/030.png)
+
+For passwords, connection string or other potentially sensitive data, we can use the `TypeDefinition` sttribute `masked: true`
+
+{% highlight csharp %}
+new CustomListPropertyDefinition { Name = "MySecretCode", Value = "18899", TypeDefinition = TypeDefinition.String.With(masked: true) },
+{% endhighlight %}
 
 
