@@ -95,10 +95,29 @@ Here's the corresponding view for the used of the extension to provide the disct
 
 ![image](/assets/2025-12-05/030.png)
 
-For passwords, connection string or other potentially sensitive data, we can use the `TypeDefinition` sttribute `masked: true`
+For passwords, connection string or other potentially sensitive data, we can use the `TypeDefinition` attribute `masked: true`
 
 {% highlight csharp %}
 new CustomListPropertyDefinition { Name = "MySecretCode", Value = "18899", TypeDefinition = TypeDefinition.String.With(masked: true) },
 {% endhighlight %}
 
+Here's a sample screenshot of masked paremeter:
 
+![image](/assets/2025-12-05/040.png)
+
+The last we want to discuss are multliline texts. These are typically used for long SQL statement or JSON / XML fragments.
+
+{% highlight csharp %}
+new CustomListPropertyDefinition { Name = "MultilineDescription", 
+      Value = "Please provide\nsome\nbeautiful SQL", TypeDefinition = TypeDefinition.String.With(multiLine: true) }
+{% endhighlight %}
+
+And here's how it looks like as part of the data source dialog UI.
+
+![image](/assets/2025-12-05/050.png)
+
+## result
+
+Defining the parameters of an extension with a good UI is a key point to make it as easy as possible for the user to privde his data. We need to choose them wisely :-)
+
+In the next part of our series we learn how to build functions that can be used in both LUA scripts and building blocks: [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html)
