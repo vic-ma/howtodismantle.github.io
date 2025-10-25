@@ -41,7 +41,7 @@ For our example Hub Flows, we will use [data from a temperature sensor](/Hub-FLo
 
 The raw temperature data is stored in a Hub list called `TemperatureActual`. Every 6 minutes, the sensor adds a new row to the table, with the timestamp in the `TS` column, and the current temperature in the `Temperature` column.
 
-![image](/assets/2025-10-18/010.png)
+![Peakboard Hub list showing raw TemperatureActual data](/assets/2025-10-18/peakboard-hub-temperature-actual-raw-data.png)
 
 ## Build the data aggregation Hub Flow
 
@@ -58,11 +58,11 @@ First, we create the [Peakboard Hub list](/Peakboard-Hub-Online-Using-lists-to-s
 * The maximum temperature
 * The average temperature
 
-![image](/assets/2025-10-18/020.png)
+![Peakboard Hub list definition for TemperatureDaily columns](/assets/2025-10-18/peakboard-hub-temperature-daily-columns.png)
 
 Next, in our Hub Flow project, we add a data source for this Hub list, so that we can write to it later on:
 
-![image](/assets/2025-10-18/022.png)
+![Hub Flow data source configured for the TemperatureDaily list](/assets/2025-10-18/hub-flow-temperature-daily-data-source.png)
 
 ### Create the data source for the aggregate data
 
@@ -78,7 +78,7 @@ group by left(TS, 10)
 order by 1
 {% endhighlight %}
 
-![image](/assets/2025-10-18/024.png)
+![SQL query configuring the TemperatureForAggregation data source](/assets/2025-10-18/hub-flow-temperature-aggregation-query.png)
 
 This SQL statement gets the raw data from the `TemperatureActual` table. It uses the `where` clause to do two things:
 * Only get data from before the current date (because the current date's temperatures are still being recorded).
@@ -90,14 +90,14 @@ To actually aggregate the data, it uses SQL's built-in `min`, `max`, and `avg` f
 
 Next, we create a function called `AggregateAndStoreTemperature`. This function takes the aggregate data from our `TemperatureForAggregation` data source and writes it to the `TemperatureDaily` Hub list. Here's what it looks like:
 
-![image](/assets/2025-10-18/026.png)
+![Hub Flow function AggregateAndStoreTemperature](/assets/2025-10-18/hub-flow-aggregate-and-store-function.png)
 
 It loops over the `TemperatureForAggregation` data source and writes each line to the `TemperatureDaily` Hub list. Usually, this only writes one line per day, but if the function misses a day for whatever reason, then the missing row will be added the next day.
 
 ### Create the Flow
 
 Finally, we create the Flow itself. Here's what it looks like:
-![image](/assets/2025-10-18/028.png)
+![Daily aggregation Hub Flow overview](/assets/2025-10-18/hub-flow-daily-aggregation-overview.png)
 
 The trigger is a schedule that runs the Flow every day at 11 PM.
 
@@ -109,7 +109,7 @@ If the `TemperatureDaily` Hub list is completely empty---which it is the case wh
 
 This screenshot shows what the Hub list looks like. You can see that January 10 is the first day that the sensor produced data, so it's the first row of our list.
 
-![image](/assets/2025-10-18/029.png)
+![TemperatureDaily Hub list populated with aggregated values](/assets/2025-10-18/peakboard-hub-temperature-daily-list.png)
 
 ## Build the data archival Hub Flow
 
@@ -127,11 +127,11 @@ where TS < FORMAT(GETDATE() - 7, 'yyyy-MM-dd')
 
 It selects all the data from `TemperatureActual` that's older than 7 days and not yet in our `TemperatureArchive` Hub list.
 
-![image](/assets/2025-10-18/030.png)
+![SQL query configuring the TemperatureForArchive data source](/assets/2025-10-18/hub-flow-archive-query.png)
 
 Next, we create the function that modifies the Hub lists:
 
-![image](/assets/2025-10-18/032.png)
+![Hub Flow function ArchiveTemperature](/assets/2025-10-18/hub-flow-archive-function.png)
 
 It loops over each row in the `TemperatureForArchive` data source. For each one, it does the following:
 * Write the row to the `TemperatureArchive` Hub list.
@@ -139,7 +139,7 @@ It loops over each row in the `TemperatureForArchive` data source. For each one,
 
 Finally, we add the Flow itself. It works similarly to our other Flow. It runs daily. It reloads the data source and then runs the `ArchiveTemperature` function:
 
-![image](/assets/2025-10-18/034.png)
+![Daily archival Hub Flow overview](/assets/2025-10-18/hub-flow-archive-overview.png)
 
 ## Result and conclusion
 
