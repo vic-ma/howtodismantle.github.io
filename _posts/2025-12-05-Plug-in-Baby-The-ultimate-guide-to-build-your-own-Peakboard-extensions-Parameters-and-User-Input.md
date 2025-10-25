@@ -103,7 +103,7 @@ new CustomListPropertyDefinition { Name = "MySecretCode", Value = "18899", TypeD
 
 Here's a sample screenshot of masked paremeter:
 
-![image](/assets/2025-12-05/040.png)
+![image](/assets/2025-12-05/peakboard-masked-parameter-input.png)
 
 The last we want to discuss are multliline texts. These are typically used for long SQL statement or JSON / XML fragments.
 
@@ -114,7 +114,7 @@ new CustomListPropertyDefinition { Name = "MultilineDescription",
 
 And here's how it looks like as part of the data source dialog UI.
 
-![image](/assets/2025-12-05/050.png)
+![image](/assets/2025-12-05/peakboard-multiline-parameter.png)
 
 ## result
 
