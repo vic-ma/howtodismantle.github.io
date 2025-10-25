@@ -24,7 +24,7 @@ The ODBC driver for Windows (64 Bit) can be downloaded [here](https://docs.snowf
 
 In our sample we will use a very simple table that we manually created in the Snowflake backend. The table is used to store temperature values from an air conditioning system along with a timestamp and a boolean value to indicate if the A/C is running at the moment. It's inspired by the OPC UA article we published 2 years ago about [how to connect to an A/C via OPC UA](https://how-to-dismantle-a-peakboard-box.com/OPC-UA-Basics-Calling-functions-in-OPC-UA-and-switch-the-AC-off.html). For production workloads you would typically create the table through an automated deployment script, apply proper clustering keys, and enable time travel retention for safer rollbacks and audits.
 
-![image](/assets/2025-11-19/010.png)
+![image](/assets/2025-11-19/snowflake-temperature-table-sample.png)
 
 ## Using ODBC to connect to Snowflake
 
@@ -36,7 +36,7 @@ Driver=SnowflakeDSIIDriver; Server=VAAHZZD-XF03787.snowflakecomputing.com; UID=z
 
 Building the connection string was the hardest part. After we solved that we can use it right away through the ODBC data source in Peakboard designer. The SQL statement we use is a common statement without any voodoo. A typical source of error is using the correct namespace to indicate the tables to access. We already provided a default schema in the connection, so actually we could skip the fully qualified name within the SQL statement as long as we don't want to read "outside" the default namespace. So our SQL statement is just `select * from DISMANTLEDB.PUBLIC.ACLOG` or `select * from ACLOG`. If you need to join other schemas, simply prefix them with the database name or adjust the default schema in the connection string, and double-check that the assigned Snowflake role has the necessary privileges.
 
-![image](/assets/2025-11-19/020.png)
+![image](/assets/2025-11-19/snowflake-odbc-connection-setup.png)
 
 ## Writing back to Snowflake
 
@@ -56,7 +56,7 @@ VALUES    ('#[TS]#', #[Temperature]#, #[Cooling]#);
 
 The screenshot shows how to apply the statement and use a placeholder Building Block to fill the dynamic parts of the statements with real values. You can further enhance the workflow by adding pre-validation logic to check for duplicate timestamps or by wrapping the execution in a simple retry block to cope with transient connectivity issues, especially when the Peakboard box is deployed in networks with fluctuating bandwidth.
 
-![image](/assets/2025-11-19/030.png)
+![image](/assets/2025-11-19/snowflake-sql-insert-building-block.png)
 
 ## Result and conclusion
 
