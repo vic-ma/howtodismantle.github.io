@@ -23,7 +23,7 @@ namespace MeowExtension
                     new CustomListPropertyDefinition { Name = "Age", Value = "4", TypeDefinition = TypeDefinition.Number },
                     new CustomListPropertyDefinition { Name = "MaximumOfSomething", Value = "5", TypeDefinition = TypeDefinition.Number.With(selectableValues: [ 2, 3, 5, 10, 20, 50, 100]) },
                     new CustomListPropertyDefinition { Name = "MySecretCode", Value = "18899", TypeDefinition = TypeDefinition.String.With(masked: true) },
-                    new CustomListPropertyDefinition { Name = "MultilineDescription", Value = "bla\nbla\nbla", TypeDefinition = TypeDefinition.String.With(multiLine: true) }
+                    new CustomListPropertyDefinition { Name = "MultilineDescription", Value = "Please provide\nsome\nbeautiful SQL", TypeDefinition = TypeDefinition.String.With(multiLine: true) }
                 }
             };
         }
