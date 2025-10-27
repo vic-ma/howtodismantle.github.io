@@ -69,7 +69,7 @@ namespace MeowExtension
                             {
                                 Name = "Result",
                                 Type = CustomListFunctionParameterTypes.Object,
-                                Description = "The result of the addition"
+                                Description = "A cat object is returned"
                             }
                         }
                     }
@@ -77,7 +77,7 @@ namespace MeowExtension
             };
         }
         
-         protected override CustomListExecuteReturnContext ExecuteFunctionOverride(CustomListData data, CustomListExecuteParameterContext context)
+        protected override CustomListExecuteReturnContext ExecuteFunctionOverride(CustomListData data, CustomListExecuteParameterContext context)
         {
             if (context.FunctionName.Equals("AddMyNumbers", StringComparison.InvariantCultureIgnoreCase))
             {
