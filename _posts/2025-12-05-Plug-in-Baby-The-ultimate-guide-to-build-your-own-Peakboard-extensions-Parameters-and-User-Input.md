@@ -101,11 +101,11 @@ For passwords, connection strings or other potentially sensitive data, we can us
 new CustomListPropertyDefinition { Name = "MySecretCode", Value = "18899", TypeDefinition = TypeDefinition.String.With(masked: true) },
 {% endhighlight %}
 
-Here's a sample screenshot of masked paremeter:
+Here's a sample screenshot of a masked parameter:
 
 ![image](/assets/2025-12-05/peakboard-masked-parameter-input.png)
 
-The last we want to discuss are multliline texts. These are typically used for long SQL statement or JSON / XML fragments.
+The last thing we want to discuss are multliline texts. These are typically used for long SQL statement or JSON / XML fragments.
 
 {% highlight csharp %}
 new CustomListPropertyDefinition { Name = "MultilineDescription", 

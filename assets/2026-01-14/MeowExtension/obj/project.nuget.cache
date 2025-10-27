@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "SBzf72dUeyE=",
+  "success": true,
+  "projectFilePath": "C:\\Dropbox\\Peakboard\\Dismantle\\DismantleSource\\assets\\2026-01-14\\MeowExtension\\Meow.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\PatrickTheobald\\.nuget\\packages\\peakboard.extensionkit\\4.0.0\\peakboard.extensionkit.4.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

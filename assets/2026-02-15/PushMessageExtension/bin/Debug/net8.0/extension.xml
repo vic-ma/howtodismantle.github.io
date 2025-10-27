@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ExtensionCatalog xmlns="http://schemas.peakboard.com/pbmx/2020/extensions">
+  <Extensions>
+    <Extension ID="PushMessageExtension"
+               Path="PushMessageExtension.dll"
+               Version="1.0"
+               Class="PushMessageExtension.PushMessageExtension" />
+  </Extensions>
+</ExtensionCatalog>
