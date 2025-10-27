@@ -34,7 +34,7 @@ To make the button control work, we configure its *Tapped* script to do the foll
 1. Make the text control hidden.
 1. Make the button control hidden.
 
-![image](/assets/2025-10-10/010.png)
+![Peakboard app layout showing hidden notification controls](/assets/2025-10-10/peakboard-notification-controls.png)
 
 ### Add notification function
 
@@ -45,7 +45,7 @@ Now, let's create a function that external apps can use to send a notification. 
 
 We also mark the function as a *Shared function*, so that external apps can call it.
 
-![image](/assets/2025-10-10/020.png)
+![Shared function settings for SubmitNotification in Peakboard](/assets/2025-10-10/peakboard-shared-function-settings.png)
 
 ### Deploy it
 
@@ -57,7 +57,7 @@ In order for our external application to call the `SubmitNotification`, it needs
 
 Instead, we go to our Peakboard Box settings and we [create a new user with a new role](https://help.peakboard.com/administration/en-user-administration.html) that only lets them call functions. Calling a function a part of the *Read Data* and *Write Data* permissions.
 
-![image](/assets/2025-10-10/030.png)
+![Peakboard Box user permissions configured for API access](/assets/2025-10-10/peakboard-box-user-permissions.png)
 
 ## Create an external application
 
