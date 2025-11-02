@@ -19,9 +19,12 @@ downloads:
 ---
 Peakboard provides built-in data sources for almost all modern hardware and software that you'd find in an office, warehouse, or factory environment. And even when you do have an "unsupported" device or program, you can often  connect to it by using a generic data source---like ODBC for databases or JSON for REST services. We've discussed this method multiple times in this blog, so feel free to browse [the archives](/archive/) to learn more.
 
-But what if you have an unsupported device or program, but you can't or don't want to use a generic data source? In that case, you can create your own custom extension, by using Peakboard's easy-to-use plug-in system.
+But what if you have an unsupported device or program, but you can't (or don't want to) use a generic data source? In that case, you can create your own custom extension, with Peakboard's easy-to-use plug-in system. Here's how it works:
+1. You build a DLL for your extension, by writing some lines of .NET code. 
+1. You add your extension to Peakboard Designer.
+1. You use the custom data source you built, just like other data source!
 
-Besides these generic options Peakboard also offers a very easy-to-use plug-in concept. We can build a DLL in our preferred .NET IDE with only very few lines of code and just plug it into our Peakboard application to use it almost like a regular data source. This concept is called Peakboard extensions, and it opens the door to tailor-made integrations. In our current series we will have a look at how to build these extensions, from a minimal version to more sophisticated options with complex parameters and event-triggered sources. Here are the parts:
+Peakboard extensions open the door to tailor-made integrations. An in this four-part blog series, we'll explain how to build these extensions from a minimal example all the way to a sophisticated example with complex parameters and event-triggered sources. Here's a table of contents:
 
 * [Part I - The Basics](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html)
 * [Part II - Parameters and User Input](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html)
