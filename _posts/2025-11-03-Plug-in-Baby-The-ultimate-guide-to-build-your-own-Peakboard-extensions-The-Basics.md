@@ -34,9 +34,7 @@ Peakboard extensions open the door to tailor-made integrations. And in this four
 
 ## Introduction
 
-In this article, we're going to build a very basic Peakboard extension called `MeowExtension` that returns a static list of cats.
-
-You can download the [source code](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension) for `MeowExtension`, if you want to follow along.
+In this article, we're going to build a very basic Peakboard extension called `MeowExtension` that returns a static list of cats.  You can download the [source code](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension) for `MeowExtension`, if you want to follow along.
 
 In order to build a Peakboard extension, we first need a NuGet package called [`Peakboard.ExtensionKit`](https://www.nuget.org/packages/Peakboard.ExtensionKit/).
 
