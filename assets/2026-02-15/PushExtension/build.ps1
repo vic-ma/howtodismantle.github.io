@@ -1,16 +1,16 @@
-# Build script for PushMessageExtension
-# This script builds the project and creates PushMessageExtension.zip
+# Build script for PushExtension
+# This script builds the project and creates PushExtension.zip
 
-Write-Host "Building PushMessageExtension..." -ForegroundColor Green
+Write-Host "Building PushExtension..." -ForegroundColor Green
 
 # Clean and build the project
-dotnet clean PushMessageExtension.csproj
+dotnet clean PushExtension.csproj
 if ($LASTEXITCODE -ne 0) {
     Write-Host "Clean failed!" -ForegroundColor Red
     exit 1
 }
 
-dotnet build PushMessageExtension.csproj
+dotnet build PushExtension.csproj
 if ($LASTEXITCODE -ne 0) {
     Write-Host "Build failed!" -ForegroundColor Red
     exit 1
@@ -19,7 +19,7 @@ if ($LASTEXITCODE -ne 0) {
 # Define paths
 $outputDir = "bin\Debug\net8.0"
 $binaryDir = "binary"
-$zipFile = "PushMessageExtension.zip"
+$zipFile = "PushExtension.zip"
 $zipPath = Join-Path $binaryDir $zipFile
 
 # Check if output directory exists

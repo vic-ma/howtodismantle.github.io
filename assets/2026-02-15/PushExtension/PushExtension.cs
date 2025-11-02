@@ -1,17 +1,17 @@
 using Peakboard.ExtensionKit;
 
-namespace PushMessageExtension
+namespace PushExtension
 {
-    public class PushMessageExtension : ExtensionBase
+    public class PushExtension : ExtensionBase
     {
-        public PushMessageExtension(IExtensionHost host) : base(host) { }
+        public PushExtension(IExtensionHost host) : base(host) { }
         
         protected override ExtensionDefinition GetDefinitionOverride()
         {
             return new ExtensionDefinition
             {
-                ID = "PushMessageExtension",
-                Name = "Push Message Extension",
+                ID = "PushExtension",
+                Name = "Push Extension",
                 Description = "A Peakboard extension for push messages",
                 Version = "1.0",
                 Author = "Michelle Wu",

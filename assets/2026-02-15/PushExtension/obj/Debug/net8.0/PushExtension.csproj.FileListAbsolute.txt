@@ -1,0 +1,12 @@
+C:\Dropbox\Peakboard\Dismantle\DismantleSource\assets\2026-02-15\PushExtension\bin\Debug\net8.0\extension.xml
+C:\Dropbox\Peakboard\Dismantle\DismantleSource\assets\2026-02-15\PushExtension\bin\Debug\net8.0\PushExtension.deps.json
+C:\Dropbox\Peakboard\Dismantle\DismantleSource\assets\2026-02-15\PushExtension\bin\Debug\net8.0\PushExtension.dll
+C:\Dropbox\Peakboard\Dismantle\DismantleSource\assets\2026-02-15\PushExtension\bin\Debug\net8.0\PushExtension.pdb
+C:\Dropbox\Peakboard\Dismantle\DismantleSource\assets\2026-02-15\PushExtension\obj\Debug\net8.0\PushExtension.csproj.AssemblyReference.cache
+C:\Dropbox\Peakboard\Dismantle\DismantleSource\assets\2026-02-15\PushExtension\obj\Debug\net8.0\PushExtension.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dropbox\Peakboard\Dismantle\DismantleSource\assets\2026-02-15\PushExtension\obj\Debug\net8.0\PushExtension.csproj.CoreCompileInputs.cache
+C:\Dropbox\Peakboard\Dismantle\DismantleSource\assets\2026-02-15\PushExtension\obj\Debug\net8.0\PushExtension.sourcelink.json
+C:\Dropbox\Peakboard\Dismantle\DismantleSource\assets\2026-02-15\PushExtension\obj\Debug\net8.0\PushExtension.dll
+C:\Dropbox\Peakboard\Dismantle\DismantleSource\assets\2026-02-15\PushExtension\obj\Debug\net8.0\refint\PushExtension.dll
+C:\Dropbox\Peakboard\Dismantle\DismantleSource\assets\2026-02-15\PushExtension\obj\Debug\net8.0\PushExtension.pdb
+C:\Dropbox\Peakboard\Dismantle\DismantleSource\assets\2026-02-15\PushExtension\obj\Debug\net8.0\ref\PushExtension.dll

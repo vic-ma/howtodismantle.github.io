@@ -40,11 +40,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Dropbox\\Peakboard\\Dismantle\\DismantleSource\\assets\\2026-02-15\\PushMessageExtension\\PushMessageExtension.csproj",
-      "projectName": "PushMessageExtension",
-      "projectPath": "C:\\Dropbox\\Peakboard\\Dismantle\\DismantleSource\\assets\\2026-02-15\\PushMessageExtension\\PushMessageExtension.csproj",
+      "projectUniqueName": "C:\\Dropbox\\Peakboard\\Dismantle\\DismantleSource\\assets\\2026-02-15\\PushExtension\\PushExtension.csproj",
+      "projectName": "PushExtension",
+      "projectPath": "C:\\Dropbox\\Peakboard\\Dismantle\\DismantleSource\\assets\\2026-02-15\\PushExtension\\PushExtension.csproj",
       "packagesPath": "C:\\Users\\PatrickTheobald\\.nuget\\packages\\",
-      "outputPath": "C:\\Dropbox\\Peakboard\\Dismantle\\DismantleSource\\assets\\2026-02-15\\PushMessageExtension\\obj\\",
+      "outputPath": "C:\\Dropbox\\Peakboard\\Dismantle\\DismantleSource\\assets\\2026-02-15\\PushExtension\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fyulKkkPxPw=",
+  "dgSpecHash": "67ifB7AWTHc=",
   "success": true,
-  "projectFilePath": "c:\\Dropbox\\Peakboard\\Dismantle\\DismantleSource\\assets\\2026-02-15\\PushMessageExtension\\PushMessageExtension.csproj",
+  "projectFilePath": "C:\\Dropbox\\Peakboard\\Dismantle\\DismantleSource\\assets\\2026-02-15\\PushExtension\\PushExtension.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PatrickTheobald\\.nuget\\packages\\peakboard.extensionkit\\4.0.0\\peakboard.extensionkit.4.0.0.nupkg.sha512"
   ],
