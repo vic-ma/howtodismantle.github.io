@@ -13,22 +13,22 @@ downloads:
   - name: Source code for this article
     url: https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-02-15/PushMessageExtension
 ---
-In the first part of the series we learned how to build the frame of a Peakboard extension. We used two classes to provide both metadata and the actual payload that is exchanged between the extension and the Peakboard application. In the second part we discussed how to form parameters to enable user interaction and let the user configure the extension. How to create functions in extenesions was the topic for the thirs part. We eve exchanged complex data types and mutliple return values:
+In the first part of the series, we learned how to build the frame of a Peakboard extension. We used two classes to provide both metadata and the actual payload that is exchanged between the extension and the Peakboard application. In the second part we discussed how to form parameters to enable user interaction and let the user configure the extension. How to create functions in extensions was the topic for the third part. We even exchanged complex data types and multiple return values:
 
 * [Part I - The Basics](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html)
 * [Part II - Parameters and User Input](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html)
 * [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html)
 * [Part IV - Event-triggered data sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
 
-In today's article we will talk about push extensions or event-triggered data sources. Most of the data source that are built-in with Peakboard or built through the extension kit are pull extensions. That means the data is queried from the data source pro-actively. Mostly triggered by a time period or triggered manually or through code. However there are also push sources where the data transfer is triggered from wtih the data source. A typical example would be MQTT. We don't just reguarly ask the MQTT server for new messages, instead we initially register at the MQTT server and subscribe to certain topics. When a message is comming in from one the subscribed topics the data refresh is triggered implictily. When there are no messages, no refresh is happening. Thats the nature of push data source and this bahaviour changes the internal architecure fundamentally.
+In today's article, we will talk about push extensions or event-triggered data sources. Most of the data sources that are built in with Peakboard or created through the extension kit are pull extensions. That means the data is queried from the data source proactively, mostly triggered by a time period, manually, or through code. However, there are also push sources where the data transfer is triggered from within the data source itself. A typical example would be MQTT. We don't just regularly ask the MQTT server for new messages. Instead, we initially register at the MQTT server and subscribe to certain topics. When a message comes in from one of the subscribed topics, the data refresh is triggered implicitly. When there are no messages, no refresh happens at all. That's the nature of push data sources, and this behaviour changes the internal architecture fundamentally.
 
-To keep it as simple as possible and focus on the basics we set up a very simple example. We just use a timer for simulating a source for external events and every time the timer is ticking we push new data to the hosting environment. Of course this example actually is not very practical because we could achieve the same behaviour with the tradtional extension that runs on a time interval. But it can show the principle of an event triggered extension without disctrating too much from the pure architecture.
+To keep it as simple as possible and focus on the basics, we set up a very simple example. We use a timer to simulate a source for external events, and every time the timer is ticking we push new data to the hosting environment. Of course, this example actually is not very practical because we could achieve the same behaviour with the traditional extension that runs on a time interval. However, it can show the principle of an event-triggered extension without distracting too much from the pure architecture.
 
 ## Setting up the basics
 
-In our example the user has only one input parameter called `MyMessages`. It contains a list of message that are pushed randomly to the host. The source code of whole example can be found [on github](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-02-15/PushMessageExtension).
+In our example, the user has only one input parameter called `MyMessages`. It contains a list of messages that are pushed randomly to the host. The source code of the whole example can be found [on GitHub](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-02-15/PushMessageExtension).
 
-The important point is to set the attribute `SupportsPushOnly` to indicate that we're build a push extension.
+The important point is to set the attribute `SupportsPushOnly` to indicate that we're building a push extension.
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
@@ -45,7 +45,7 @@ protected override CustomListDefinition GetDefinitionOverride()
 }
 {% endhighlight %}
 
-Just to complete the meta data, we're using two columns for the resultset to push: `TimeSTamp` and `Message`, which contains the actual message later.
+Just to complete the metadata, we're using two columns for the result set to push: `TimeStamp` and `Message`, which contains the actual message later.
 
 {% highlight csharp %}
 protected override CustomListColumnCollection GetColumnsOverride(CustomListData data)
@@ -57,9 +57,9 @@ protected override CustomListColumnCollection GetColumnsOverride(CustomListData 
 }
 {% endhighlight %}
 
-## Imlpementing the actual push
+## Implementing the actual push
 
-First, we override the function `SetupOverride`. It's called once the host project is starting up and wants all data source to do initial setup activities. So we're initializing our timer object. the instance of the `CustomListData` is also submitted to the timer. We will need it later.
+First, we override the function `SetupOverride`. It's called once the host project is starting up and wants all data sources to do initial setup activities. So we're initializing our timer object. The instance of the `CustomListData` is also submitted to the timer. We will need it later.
 
 {% highlight csharp %}
 private Timer? _timer;
@@ -71,7 +71,7 @@ protected override void SetupOverride(CustomListData data)
 }
 {% endhighlight %}
 
-Second, we implement `CleanupOverride`. It's called at the end of the life cycle right before shutting down the host project. We can use the opportunity to dispose the timer object.
+Second, we implement `CleanupOverride`. It's called at the end of the life cycle right before shutting down the host project. We can use the opportunity to dispose of the timer object.
 
 {% highlight csharp %}
 protected override void CleanupOverride(CustomListData data)
@@ -83,7 +83,7 @@ protected override void CleanupOverride(CustomListData data)
 
 The last major part is the actual event, in our case the ticking of the timer. We will convert the `state` object back to `CustomListData` to get access to what the user provided in the input parameter (in our case the list of random messages to push).
 
-The `CustomListObjectElement` represents a single row of the destination table. It's is filled with a random message and time stamp. Then we use `this.Data.Push()` to pushed the prepared to the host system. The `.Update` function is replacing the data. So the behivour is to leave the table with one single row and just exchanged this. Let's assume we wanted to simply add the data at the end of the table instead if replacing it, we would need to use `this.Data.Push(...).Add(...)`.
+The `CustomListObjectElement` represents a single row of the destination table. It is filled with a random message and timestamp. Then we use `this.Data.Push()` to push the prepared data set to the host system. The `.Update` function replaces the data. So the behaviour is to leave the table with one single row and just exchange this entry every time the timer fires. Let's assume we wanted to simply add the data at the end of the table instead of replacing it. We would need to use `this.Data.Push(...).Add(...)`.
 
 {% highlight csharp %}
 private void OnTimer(object? state)
@@ -99,13 +99,13 @@ private void OnTimer(object? state)
         item.Add("Message", MyMessages[random.Next(MyMessages.Length)]);
         var items = new CustomListObjectElementCollection();
         items.Add(item);
-        this.Data.Push(data.ListName).Update(0,item);
+        this.Data.Push(data.ListName).Update(0, item);
     }
 }
 {% endhighlight %}
 
-## result
+## Result
 
-The video shows the extension in action after it's bound to a table control. Once again it must be clear, that this example actually doesn't make sense but it is suitable for showcasing how pushing data works instead of pulling it - without getting distracted by too much code. It can be used a lightweight template. Let's imagine a real life scenario: In the Setup phase we could open an TCP connection to a machine and close it with through CleanUp. EVerytime a TCP message is coming in, we could trigger the `Data.Push`. This would be a real world example, however it would require much more code beside the pure implmentation as shown here in this article. 
+The video shows the extension in action after it's bound to a table control. Once again, it must be clear that this example actually doesn't make sense, but it is suitable for showcasing how pushing data works instead of pulling it - without getting distracted by too much code. It can be used as a lightweight template. Let's imagine a real-life scenario: In the setup phase we could open a TCP connection to a machine and close it through `Cleanup`. Every time a TCP message comes in, we could trigger the `Data.Push`. This would be a real-world example; however, it would require much more code beside the pure implementation as shown here in this article.
 
 ![Push messages in action](/assets/2026-02-15/result.gif)
