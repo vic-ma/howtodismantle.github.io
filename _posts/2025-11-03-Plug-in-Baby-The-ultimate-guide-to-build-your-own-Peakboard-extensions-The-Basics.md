@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Plug-in, Baby - The ultimate guide to build your own Peakboard extensions - The Basics
+title: Plug-in, Baby - The Ultimate Guide to Building Your Own Peakboard Extensions - The Basics
 date: 2023-03-01 00:00:00 +0000
 tags: dev
 image: /assets/2025-11-03/title.png
