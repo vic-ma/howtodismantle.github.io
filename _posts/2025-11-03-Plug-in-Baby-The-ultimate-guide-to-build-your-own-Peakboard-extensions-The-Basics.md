@@ -11,6 +11,8 @@ read_more_links:
     url: /category/dev
   - name: Peakboard Extension Kit
     url: https://www.nuget.org/packages/Peakboard.ExtensionKit/
+  - Get extension template for Visual Studio
+    url: https://marketplace.visualstudio.com/items?itemName=Peakboard.PBEKTEMP
 downloads:
   - name: Source code for this article
     url: https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension
@@ -38,7 +40,7 @@ To build our first extension we will need a .NET project with the output format 
   <Extensions>
     <Extension ID="MeowExtension"
                Path="Meow.dll"
-               version="1.2"
+               Version="1.2"
                Class="MeowExtension.MeowExtension" />
   </Extensions>
 </ExtensionCatalog>
@@ -58,7 +60,7 @@ In addition to the XML file we will need a small icon, preferably as PNG, to be 
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Peakboard.ExtensionKit" Version="4.1.0" />
+    <PackageReference Include="Peakboard.ExtensionKit" Version="4.0.1" />
   </ItemGroup>
 
   <ItemGroup>
