@@ -11,7 +11,7 @@ read_more_links:
     url: /category/dev
   - name: Peakboard Extension Kit
     url: https://www.nuget.org/packages/Peakboard.ExtensionKit/
-  - Get extension template for Visual Studio
+  - name: Get extension template for Visual Studio
     url: https://marketplace.visualstudio.com/items?itemName=Peakboard.PBEKTEMP
 downloads:
   - name: Source code for this article
