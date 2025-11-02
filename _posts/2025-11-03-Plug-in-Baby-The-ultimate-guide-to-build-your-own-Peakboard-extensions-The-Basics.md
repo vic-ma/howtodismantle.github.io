@@ -31,12 +31,18 @@ Peakboard extensions open the door to tailor-made integrations. And in this four
 * [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html)
 * [Part IV - Event-Triggered Data Sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
 
-In order to build a Peakboard extension, you first need a NuGet package called [`Peakboard.ExtensionKit`](https://www.nuget.org/packages/Peakboard.ExtensionKit/).
 
-You can also download the [source code](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension) for the project we're building in this article, so you can follow along.
+## Introduction
+
+In this article, we're going to build a very basic Peakboard extension called `MeowExtension` that returns a static list of cats.
+
+You can download the [source code](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension) for `MeowExtension`, if you want to follow along.
+
+In order to build a Peakboard extension, we first need a NuGet package called [`Peakboard.ExtensionKit`](https://www.nuget.org/packages/Peakboard.ExtensionKit/).
 
 
-## Setting up the project
+
+## Set up the project
 
 To build our first extension we will need a .NET project with the output format `Library` and Target Framework `.NET 8`. In the first iteration we will need two classes that are added later. In addition to the two classes we will need a file called `extension.xml` that is copied to the output folder. Here's a sample of the `extension.xml`. It is later shipped to the Peakboard Designer and is used there to give the designer the chance to read some metadata about the extension.
 
