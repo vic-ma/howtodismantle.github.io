@@ -32,17 +32,14 @@ Peakboard extensions open the door to tailor-made integrations. And in this four
 * [Part IV - Event-Triggered Data Sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
 
 
-## Introduction
-
-In this article, we're going to build a very basic Peakboard extension called `MeowExtension` that returns a static list of cats.  You can download the [source code](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension) for `MeowExtension`, if you want to follow along.
-
-In order to build a Peakboard extension, we first need a NuGet package called [`Peakboard.ExtensionKit`](https://www.nuget.org/packages/Peakboard.ExtensionKit/).
-
+In this article, we're going to build a very basic Peakboard extension called `MeowExtension` that returns a static list of cats.  You can download the [source code for `MeowExtension`](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension), if you want to follow along.
 
 
 ## Set up the project
 
-To build our first extension we will need a .NET project with the output format `Library` and Target Framework `.NET 8`. In the first iteration we will need two classes that are added later. In addition to the two classes we will need a file called `extension.xml` that is copied to the output folder. Here's a sample of the `extension.xml`. It is later shipped to the Peakboard Designer and is used there to give the designer the chance to read some metadata about the extension.
+In order to build a Peakboard extension, we first need to install a NuGet package called [`Peakboard.ExtensionKit`](https://www.nuget.org/packages/Peakboard.ExtensionKit/).
+
+Then, we create a .NET project with the output format `Library` and the Target Framework `.NET 8`. In the first iteration we will need two classes that are added later. In addition to the two classes we will need a file called `extension.xml` that is copied to the output folder. Here's a sample of the `extension.xml`. It is later shipped to the Peakboard Designer and is used there to give the designer the chance to read some metadata about the extension.
 
 {% highlight xml %}
 <?xml version="1.0" encoding="utf-8" ?>
