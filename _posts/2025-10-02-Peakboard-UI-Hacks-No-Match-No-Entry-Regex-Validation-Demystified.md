@@ -84,7 +84,7 @@ Here are some tools that can make the process of creating regexes easier:
 
 You can also ask an AI chatbot, like ChatGPT, to generate a regex for you. Just give it a sample text that you want to match, and a plain-English description of what the pattern is. Be sure to verify the regex that it gives you, though. 
 
-![image](/assets/2025-10-02/chatgpt.png)
+![ChatGPT suggesting a regex pattern](/assets/2025-10-02/chatgpt.png)
 
 ## Regex in Peakboard applications
 
@@ -92,11 +92,11 @@ Now, let's look at how we can use regex in Peakboard.
 
 The [text box control](https://help.peakboard.com/controls/Input/en-textbox.html) has a data validation option. If you turn it on, you can enter a regex pattern. If the user enters some text that doesn't match the regex, then the border of the text box will change color.
 
-![image](/assets/2025-10-02/010.png)
+![Peakboard text box showing regex validation feedback](/assets/2025-10-02/peakboard-textbox-regex-validation.png)
 
 But what if you want to reject any input that does not match the regex? We can do this with Building Blocks. We get the `IsValid` property of the text box. This returns whether or not the input matches the regex. If the input is invalid, then we can do something like shake the text box, to alert the user. If the input is valid, then we process it as usual.
 
-![image](/assets/2025-10-02/020.png)
+![Building Blocks flow handling invalid Peakboard input](/assets/2025-10-02/peakboard-building-blocks-regex-flow.png)
 
 ## Result
 
