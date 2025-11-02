@@ -17,7 +17,7 @@ downloads:
   - name: Source code for this article
     url: https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension
 ---
-Peakboard provides built-in data sources for almost all modern hardware and software that you'd find in an office, warehouse, or factory environment. And even when you do have an "unsupported" device or program, you can often  connect to it by using generic data sources---like ODBC for databases or JSON for REST services. We have discussed these options already multiple times in this blog, so you can easily revisit them whenever you need a refresher.
+Peakboard provides built-in data sources for almost all modern hardware and software that you'd find in an office, warehouse, or factory environment. And even when you do have an "unsupported" device or program, you can often  connect to it by using a generic data source---like ODBC for databases or JSON for REST services. We've discussed this method multiple times in this blog, so feel free to browse [the archives](/archive/) to learn more.
 
 Besides these generic options Peakboard also offers a very easy-to-use plug-in concept. We can build a DLL in our preferred .NET IDE with only very few lines of code and just plug it into our Peakboard application to use it almost like a regular data source. This concept is called Peakboard extensions, and it opens the door to tailor-made integrations. In our current series we will have a look at how to build these extensions, from a minimal version to more sophisticated options with complex parameters and event-triggered sources. Here are the parts:
 
