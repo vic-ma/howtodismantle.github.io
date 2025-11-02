@@ -24,16 +24,17 @@ But what if you have an unsupported device or program, but you can't (or don't w
 1. You add your extension to Peakboard Designer.
 1. You use the custom data source you built, just like other data source!
 
-Peakboard extensions open the door to tailor-made integrations. And in this four-part series on our blog, we'll explain how to build these extensions, from a minimal example all the way to a sophisticated example with complex parameters and event-triggered sources:
+Peakboard extensions open the door to tailor-made integrations. And in this four-part series on our blog, we'll explain how to build these extensions, from a basic example all the way to a sophisticated example with complex parameters and event-triggered sources:
 
 * [Part I - The Basics](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html)
 * [Part II - Parameters and User Input](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html)
 * [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html)
 * [Part IV - Event-Triggered Data Sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
 
-The extension project needs a NuGet package called `Peakboard.ExtensionKit` that can be found [here](https://www.nuget.org/packages/Peakboard.ExtensionKit/).
+In order to build a Peakboard extension, you first need a NuGet package called [`Peakboard.ExtensionKit`](https://www.nuget.org/packages/Peakboard.ExtensionKit/).
 
-The project we're building in this article can be downloaded [here](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension), so you can follow along step by step with the exact same setup.
+You can also download the [source code](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension) for the project we're building in this article, so you can follow along.
+
 
 ## Setting up the project
 
