@@ -84,7 +84,14 @@ Here's what our final project file looks like:
 </Project>
 {% endhighlight %}
 
-## Set up the extension class
+
+## Create the classes
+
+Next, we create the two classes which define our extension's functionality:
+1. The extension class, which represents our extension.
+1. The list class, which we use to make our extension return a list of cats.
+
+### Create the extension class
 
 The extension itself is represented by an extension class that is derived from the base class `ExtensionHost`. The method `GetDefinitionOverride()` is overridden to provide more metadata about the extension like a unique ID, version, and description. It's important that these values must be aligned with the values we used in the `extension.xml` so that Designer and runtime always interpret the package consistently.
 
@@ -119,7 +126,7 @@ public class MeowExtension : ExtensionBase
 }
 {% endhighlight %}
 
-## Set up the list class
+### Create the list class
 
 In the extension class we already used the class that represents the actual list. Every list within our extension is derived from the base class `CustomListBase`. The overridden function `GetDefinitionOverride` returns some metadata for this dedicated list so it can be handled correctly by the hosting system and have a good UI for the end user, even when the extension grows more complex later on.
 
