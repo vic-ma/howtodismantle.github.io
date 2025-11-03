@@ -235,9 +235,8 @@ Now, we can add our cat list data source:
 
 ![image](/assets/2025-11-03/peakboard-designer-custom-list-selection.png)
 
-Now, we click the preview refresh button, and we see the static list of cats that we wrote in C#:
+Now, the dialog for our data source pops up. We click the preview refresh button, and the static list of cats that we wrote in C# appears:
 
-The last screenshot shows the preview mode of the data source based on our example extension after hitting the refresh button:
 ![image](/assets/2025-11-03/peakboard-designer-data-preview.png)
 
-So far the extension doesn't offer any parameters for the user. This is what we will discuss in the [next article of the series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), where we will extend the foundation with interactive options.
+Right now, our extension doesn't have any parameters that the user can set. That is the topic of the [next article in this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), where we extend our extension with interactive options.
