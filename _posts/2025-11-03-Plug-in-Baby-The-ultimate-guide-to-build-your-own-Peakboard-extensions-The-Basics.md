@@ -32,7 +32,7 @@ Peakboard extensions open the door to tailor-made integrations. And in this four
 * [Part IV - Event-Triggered Data Sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
 
 
-In this article, we're going to build a very basic Peakboard extension called `MeowExtension` that returns a static list of cats.  You can download the [source code for `MeowExtension`](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension), if you want to follow along.
+In this article, we're going to build a very basic Peakboard extension called `MeowExtension`, which returns a static list of cats (hard-coded). You can download the [source code for `MeowExtension`](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension), if you want to follow along.
 
 
 ## Set up the project
@@ -97,7 +97,7 @@ We need to create a class for our extension. To do this, we define a new class c
 
 Next, we override the `GetDefinitionOverride()` method. This method provides metadata about our extension to the *extension runtime*. This is different from the `extension.xml` file, which provides metadata to *Peakboard Designer*. However, the metadata in this method must match the metadata in `extension.xml`, to ensure consistency.
 
-Next, we override the `GetCustomListsOverride()` function. 
+Next, we override the `GetCustomListsOverride()` method. This method defines all the lists that the extension provides. For example, if you are building an extension for an ERP system, then your extension could provide a customers list and an orders list. Then, in Peakboard Designer, you can choose to add a customers-data-source, or an orders-data-source.
 
 
 It is supposed to return a collection of lists that are provided by the extension. Let's assume we are building an extension to access an ERP system. We can have different lists like one for products, one for customers, and one for orders all in the same extension. In our example one list is enough, so we add only one instance to the collection of lists to keep things tidy while we learn the basics.
