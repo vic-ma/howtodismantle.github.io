@@ -19,10 +19,10 @@ downloads:
 ---
 Peakboard Designer provides built-in data sources for almost any modern hardware and software that you'd find in an office, warehouse, or factory. And even when you do have an unsupported device or program, you can usually use a generic data source to connect to it---like ODBC for databases or JSON for REST services. We've discussed this method multiple times in this blog, so feel free to browse [the archives](/archive/) to learn more.
 
-But what if you have an unsupported device or program, but you can't (or don't want to) use a generic data source? In that case, you can create your own **custom extension**, with Peakboard's easy-to-use plug-in system. Here's how it works:
-1. You build a DLL for your extension, by writing some lines of .NET code. 
-1. You add your extension to Peakboard Designer.
-1. You use the custom data source you built, just like other data source!
+But what if you have an unsupported device or program, but you can't (or don't want to) use a generic data source? In that case, you can create your own **custom extension**, with Peakboard's simple plug-in system. Here's how it works:
+1. You build a DLL for your extension by writing some .NET code.
+1. You install your extension in Peakboard Designer.
+1. You use the custom data source you built.
 
 Peakboard extensions open the door to tailor-made integrations. And in this four-part series on our blog, we'll explain how to build these extensions, from a basic example all the way to a sophisticated example with complex parameters and event-triggered sources:
 
@@ -32,7 +32,7 @@ Peakboard extensions open the door to tailor-made integrations. And in this four
 * [Part IV - Event-Triggered Data Sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
 
 
-In this article, we're going to build a very basic Peakboard extension called `MeowExtension`, which returns a static list of cats (hard-coded). You can download the [source code for `MeowExtension`](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension), if you want to follow along.
+In this article, we're going to build a very basic Peakboard extension called `MeowExtension`, which returns a static list of cats (which we will hard-code into the extension). You can download the [source code for `MeowExtension`](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension), if you want to follow along.
 
 
 ## Set up the project
@@ -235,7 +235,7 @@ Now, we can add our cat list data source:
 
 ![image](/assets/2025-11-03/peakboard-designer-custom-list-selection.png)
 
-Now, the dialog for our data source pops up. We click the preview refresh button, and the static list of cats that we wrote in C# appears:
+Now, the dialog for our data source pops up. We click the preview refresh button, and our static list of cats appears:
 
 ![image](/assets/2025-11-03/peakboard-designer-data-preview.png)
 
