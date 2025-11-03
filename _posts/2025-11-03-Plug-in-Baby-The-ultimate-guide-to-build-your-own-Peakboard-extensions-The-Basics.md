@@ -95,11 +95,12 @@ Next, we create the two classes which define our extension's functionality:
 
 We need to create a class for our extension. To do this, we define a new class called `MeowExtension`, which extends the base extension class, `ExtensionHost`.
 
-Next, we override the `GetDefinitionOverride()` method, in order to provide metadata about our extension to the *extension runtime*. The purpose of this method is different from the `extension.xml` file, which provides metadata to *Peakboard Designer*. However, the metadata in this method should match the metadata in `extension.xml`.
+Next, we override the `GetDefinitionOverride()` method. This method provides metadata about our extension to the *extension runtime*. This is different from the `extension.xml` file, which provides metadata to *Peakboard Designer*. However, the metadata in this method must match the metadata in `extension.xml`, to ensure consistency.
 
-Our extension is represented by an extension class that's derived from the base class, `ExtensionHost`. The method `GetDefinitionOverride()` is overridden to provide more metadata about the extension like . It's important that these values must be aligned with the values we used in the `extension.xml` so that Designer and runtime always interpret the package consistently.
+Next, we override the `GetCustomListsOverride()` function. 
 
-The second function to be overridden is `GetCustomListsOverride()`. It is supposed to return a collection of lists that are provided by the extension. Let's assume we are building an extension to access an ERP system. We can have different lists like one for products, one for customers, and one for orders all in the same extension. In our example one list is enough, so we add only one instance to the collection of lists to keep things tidy while we learn the basics.
+
+It is supposed to return a collection of lists that are provided by the extension. Let's assume we are building an extension to access an ERP system. We can have different lists like one for products, one for customers, and one for orders all in the same extension. In our example one list is enough, so we add only one instance to the collection of lists to keep things tidy while we learn the basics.
 
 {% highlight csharp %}
 public class MeowExtension : ExtensionBase
