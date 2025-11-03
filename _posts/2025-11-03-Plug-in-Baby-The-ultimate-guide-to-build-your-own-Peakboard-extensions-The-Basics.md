@@ -239,4 +239,4 @@ Now, the dialog for our data source pops up. We click the preview refresh button
 
 ![image](/assets/2025-11-03/peakboard-designer-data-preview.png)
 
-Right now, our extension doesn't have any parameters that the user can set. That is the topic of the [next article in this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), where we extend our extension with interactive options.
+Right now, our extension doesn't have any parameters that the user can set. We'll cover that in the [next article in this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), where we extend our extension with interactive options.
