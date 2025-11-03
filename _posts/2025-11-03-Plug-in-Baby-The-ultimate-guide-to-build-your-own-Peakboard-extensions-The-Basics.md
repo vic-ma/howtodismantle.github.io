@@ -7,7 +7,7 @@ image: /assets/2025-11-03/title.png
 image_header: /assets/2025-11-03/title.png
 bg_alternative: true
 read_more_links:
-  - name: Developer stuff
+  - name: Other developer articles
     url: /category/dev
   - name: Peakboard Extension Kit
     url: https://www.nuget.org/packages/Peakboard.ExtensionKit/
@@ -239,4 +239,4 @@ Now, the dialog for our data source pops up. We click the preview refresh button
 
 ![image](/assets/2025-11-03/peakboard-designer-data-preview.png)
 
-Right now, our extension doesn't have any parameters that the user can set. We'll cover that in the [next article in this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), where we extend our extension with interactive options.
+Right now, our extension doesn't have any parameters that the user can set. But don't worry---we'll cover that in the [next article in our series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html)!

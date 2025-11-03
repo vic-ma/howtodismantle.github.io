@@ -7,7 +7,7 @@ image: /assets/2025-12-05/title.png
 image_header: /assets/2025-12-05/title.png
 bg_alternative: true
 read_more_links:
-  - name: Developer stuff
+  - name: Other developer articles
     url: /category/dev
 downloads:
   - name: Source code for this article
