@@ -174,10 +174,28 @@ protected override CustomListColumnCollection GetColumnsOverride(CustomListData 
 }
 {% endhighlight %}
 
-The last method we need to override is `GetItemsOverride(CustomListData data)`. This method provides the actual list data to the caller.
-* The data is represented by a `CustomListObjectElementCollection` object.
-* A `CustomListObjectElementCollection` object contains one `CustomListObjectElement` object for each row.
-* Each `CustomListObjectElement` object contains a collection of key-value pairs that represent the table cells.
+The last method we need to override is `GetItemsOverride(CustomListData data)`. This method provides the actual list data for our data source:
+* The method returns a `CustomListObjectElementCollection` object, which represents the list data.
+* A `CustomListObjectElementCollection` object contains one `CustomListObjectElement` object for each row of data. A `CustomListObjectElement` represents a row of data.
+* A `CustomListObjectElement` object contains a collection of key-value pairs that represent the value of each column in that row.
+
+So, altogether, it looks like this:
+```bash
+CustomListObjectElementCollection:
+    - CustomListObjectElement:
+        - Key-value
+        - Key-value
+        ...
+    - CustomListObjectElement:
+        - Key-value
+        - Key-value
+        ...
+    - CustomListObjectElement:
+        - Key-value
+        - Key-value
+        ...
+    ...
+```
 
 {% highlight csharp %}
 protected override CustomListObjectElementCollection GetItemsOverride(CustomListData data)
