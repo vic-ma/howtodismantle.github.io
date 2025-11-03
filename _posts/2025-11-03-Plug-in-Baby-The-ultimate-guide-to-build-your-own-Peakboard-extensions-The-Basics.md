@@ -239,7 +239,7 @@ When we install our extension, everything from the ZIP file gets loaded into Pea
 
 ## Install the extension in Peakboard Designer
 
-In order to use our extension in Peakboard Designer, we need to first install it:
+In order to use our extension in Peakboard Designer, we first need to install it:
 1. Add a new data source.
 1. Select *Extensions*.
 1. Click *Add custom extension*.
@@ -248,7 +248,7 @@ In order to use our extension in Peakboard Designer, we need to first install it
 
 ![image](/assets/2025-11-03/peakboard-designer-install-extension-dialog.png)
 
-Now, we can add our cat list data source:
+Now, we can add our Cat List data source:
 1. Add a new data source.
 1. Select *Extensions*.
 1. In *Meow Extension*, click *Add*.
