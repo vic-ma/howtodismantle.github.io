@@ -212,7 +212,7 @@ We must put all the compiled binaries into a single ZIP file. For our example, a
 
 We must also put our `extension.xml` file into the ZIP file. That way, Peakboard Designer can read the metadata right away.
 
-All files that are contained in the ZIP are deployed to the Designer and then later deployed to the Peakboard Box or BYOD instance when the application that uses the extension is deployed to its destination.
+Everything inside the ZIP file is loaded into Peakboard Designer, when the extension is loaded. And when the Peakboard app is deployed to a Peakboard Box or BYOD instance, everything inside the ZIP file is also deployed to the device.
 
 ![image](/assets/2025-11-03/peakboard-extension-zip-contents.png)
 
