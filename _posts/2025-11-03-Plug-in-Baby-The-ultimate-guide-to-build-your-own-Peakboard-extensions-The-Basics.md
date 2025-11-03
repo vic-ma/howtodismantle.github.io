@@ -223,9 +223,17 @@ In order to use our extension in Peakboard Designer, we need to first install it
 1. Select *Extensions*.
 1. Click *Add custom extension*.
 1. Select the ZIP file for your extension.
+1. Close and restart Peakboard Designer.
 
 ![image](/assets/2025-11-03/peakboard-designer-install-extension-dialog.png)
 
+Now, we can add our cat list data source:
+1. Add a new data source.
+1. Select *Extensions*.
+1. Below *Meow Extension*, click *Add*.
+1. Select *Cat List*.
+
+After we reopened Peakboard Designer, we add our custom list (cat list) as a data source. 
 After restarting the Designer we can add our custom list as data source. All available lists of the extension are listed in the drop-down, so you can immediately select the new list without additional configuration.
 
 ![image](/assets/2025-11-03/peakboard-designer-custom-list-selection.png)
