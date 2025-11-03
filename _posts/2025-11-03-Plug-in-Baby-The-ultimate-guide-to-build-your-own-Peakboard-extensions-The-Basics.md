@@ -212,13 +212,17 @@ We must put all the compiled binaries into a single ZIP file. For our example, a
 
 We must also put our `extension.xml` file into the ZIP file. That way, Peakboard Designer can read the metadata right away.
 
-Everything inside the ZIP file is loaded into Peakboard Designer, when the extension is loaded. And when the Peakboard app is deployed to a Peakboard Box or BYOD instance, everything inside the ZIP file is also deployed to the device.
+Everything inside the ZIP file is loaded into Peakboard Designer, when the extension is installed. And when the Peakboard app is deployed to a Peakboard Box or BYOD instance, everything inside the ZIP file is also deployed to the device.
 
 ![image](/assets/2025-11-03/peakboard-extension-zip-contents.png)
 
-## Using the extension in Peakboard Designer
+## Install the extension in Peakboard Designer
 
-To install the extension in the Peakboard Designer we just add it in the data source / extension dialog, making sure we point to the freshly created ZIP package.
+In order to use our extension in Peakboard Designer, we need to first install it:
+1. Add a new data source.
+1. Select *Extensions*.
+1. Click *Add custom extension*.
+1. Select the ZIP file for your extension.
 
 ![image](/assets/2025-11-03/peakboard-designer-install-extension-dialog.png)
 
