@@ -157,7 +157,7 @@ public class CatCustomList : CustomListBase
 }
 {% endhighlight %}
 
-Next, we override the `GetColumnsOverride` method. This method defines the columns of the table. Each column has a name and data type (`Number`, `String`, `Boolean`).
+Next, we override the `GetColumnsOverride` method. This method defines the columns of the table. Each column has a name and data type (`Number`, `String`, or `Boolean`).
 
 The columns in our list never change, so we return a simple collection of columns. But you can also [make the columns dynamic](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html)---changing based on the parameters that the user provides.
 
@@ -174,7 +174,10 @@ protected override CustomListColumnCollection GetColumnsOverride(CustomListData 
 }
 {% endhighlight %}
 
-The last function we need to override is `GetItemsOverride(CustomListData data)`. The function delivers the actual data to the caller. This table-like data is represented by a collection of objects called `CustomListObjectElementCollection`. It holds the rows of the table as instances of the class `CustomListObjectElement` that in turn contain a collection of key/value pairs that represent the table cells.
+The last method we need to override is `GetItemsOverride(CustomListData data)`. This method provides the actual list data to the caller.
+* The data is represented by a `CustomListObjectElementCollection` object.
+* A `CustomListObjectElementCollection` object contains one `CustomListObjectElement` object for each row.
+* Each `CustomListObjectElement` object contains a collection of key-value pairs that represent the table cells.
 
 {% highlight csharp %}
 protected override CustomListObjectElementCollection GetItemsOverride(CustomListData data)
