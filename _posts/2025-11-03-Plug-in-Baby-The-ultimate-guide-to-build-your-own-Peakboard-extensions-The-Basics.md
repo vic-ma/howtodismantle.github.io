@@ -233,9 +233,6 @@ Now, we can add our cat list data source:
 1. Below *Meow Extension*, click *Add*.
 1. Select *Cat List*.
 
-After we reopened Peakboard Designer, we add our custom list (cat list) as a data source. 
-After restarting the Designer we can add our custom list as data source. All available lists of the extension are listed in the drop-down, so you can immediately select the new list without additional configuration.
-
 ![image](/assets/2025-11-03/peakboard-designer-custom-list-selection.png)
 
 The last screenshot shows the preview mode of the data source based on our example extension after hitting the refresh button. So far the extension doesn't offer any parameters for the user. This is what we will discuss in the [next article of the series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), where we will extend the foundation with interactive options.
