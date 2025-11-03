@@ -99,8 +99,9 @@ Next, we override the `GetDefinitionOverride()` method. This method provides met
 
 Next, we override the `GetCustomListsOverride()` method. This method defines all the lists that the extension provides. For example, if you are building an extension for an ERP system, then your extension could provide a customers list and an orders list. Then, in Peakboard Designer, you can use the extension to add a customers-data-source or an orders-data-source. Both data sources are provided by the same extension.
 
-It is supposed to return a collection of lists that are provided by the extension. Let's assume we are building an extension to access an ERP system. We can have different lists like one for products, one for customers, and one for orders all in the same extension. In our example one list is enough, so we add only one instance to the collection of lists to keep things tidy while we learn the basics.
+For our `MeowExtension` example, however, we only provide a single list, which is a static list of cats. So, our `GetCustomListsOverride()` method simply returns a new `CatCustomList` object. (We define the `CatCustomList` class in the next section.)
 
+Here's what our final `MeowExtension` class looks like:
 {% highlight csharp %}
 public class MeowExtension : ExtensionBase
 {
