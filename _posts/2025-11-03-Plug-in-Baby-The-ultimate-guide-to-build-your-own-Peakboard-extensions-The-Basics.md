@@ -176,23 +176,23 @@ protected override CustomListColumnCollection GetColumnsOverride(CustomListData 
 
 The last method we need to override is `GetItemsOverride(CustomListData data)`. This method provides the actual list data for our data source:
 * The method returns a `CustomListObjectElementCollection` object, which represents the list data.
-* A `CustomListObjectElementCollection` object contains one `CustomListObjectElement` object for each row of data. A `CustomListObjectElement` represents a row of data.
-* A `CustomListObjectElement` object contains a collection of key-value pairs that represent the value of each column in that row.
+* A `CustomListObjectElementCollection` object contains one `CustomListObjectElement` object for each row of data. A `CustomListObjectElement` object represents a single row in the list.
+* A `CustomListObjectElement` object contains a collection of key-value pairs---one for each column in the list. Each key-value pair represents a column within the row.
 
-So, altogether, it looks like this:
-```bash
-CustomListObjectElementCollection:
-    - CustomListObjectElement:
-        - Key-value
-        - Key-value
+So altogether, it looks like this:
+```
+CustomListObjectElementCollection (the list):
+    - CustomListObjectElement (a row in the list):
+        - Key-value (a column in the row)
+        - Key-value (a column in the row)
         ...
-    - CustomListObjectElement:
-        - Key-value
-        - Key-value
+    - CustomListObjectElement (a row in the list):
+        - Key-value (a column in the row)
+        - Key-value (a column in the row)
         ...
-    - CustomListObjectElement:
-        - Key-value
-        - Key-value
+    - CustomListObjectElement (a row in the list):
+        - Key-value (a column in the row)
+        - Key-value (a column in the row)
         ...
     ...
 ```
