@@ -32,7 +32,7 @@ Peakboard extensions open the door to tailor-made integrations. And in this four
 * [Part IV - Event-Triggered Data Sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
 
 
-In this article, we're going to build a very basic Peakboard extension called `MeowExtension`, which returns a static list of cats (which we will hard-code into the extension). You can download the [source code for `MeowExtension`](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension), if you want to follow along.
+In this article, we're going to build a very basic Peakboard extension called **Meow extension**, which returns a static list of cats (which we will hard-code into the extension). You can download the [source code for Meow extension](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension), if you want to follow along.
 
 
 ## Set up the project
@@ -99,7 +99,7 @@ Next, we override the `GetDefinitionOverride()` method. This method provides met
 
 Next, we override the `GetCustomListsOverride()` method. This method defines all the **list data sources** that our extension provides. For example, if you are building an extension for an ERP system, then your extension could provide a *customers* list-data-source and an *orders* list-data-source. Then, in Peakboard Designer, you can choose which data source you want to add. Both data sources are provided by the same extension.
 
-For our `MeowExtension` example, however, we only provide a single list, which is a static list of cats. So, our `GetCustomListsOverride()` method simply returns a new `CatCustomList` object. (We define the `CatCustomList` class in the next section.)
+For our Meow extension, however, we only provide a single data source: a static list of cats. So, our `GetCustomListsOverride()` method simply returns a new `CatCustomList` object. (We define the `CatCustomList` class in the next section.)
 
 Here's what our final `MeowExtension` class looks like:
 {% highlight csharp %}
