@@ -210,11 +210,7 @@ protected override CustomListObjectElementCollection GetItemsOverride(CustomList
 
 We must put all the compiled binaries into a single ZIP file. For our example, all we have is the DLL binary file. But depending on the extension you're building, you may have other artifacts, such as debug symbols or other referenced assemblies that your extension depends on.
 
-The compiled binaries must all be put into one single ZIP file. In our example the binary is only the DLL, but there might be other artifacts that can be packed as well, e.g. debug symbols or other referenced assemblies that might be necessary to run the extension.
-
-
-
-We also need to place our `extension.xml` into the ZIP file to ensure the Designer can read the metadata right away.
+We must also put our `extension.xml` file into the ZIP file. That way, Peakboard Designer can read the metadata right away.
 
 All files that are contained in the ZIP are deployed to the Designer and then later deployed to the Peakboard Box or BYOD instance when the application that uses the extension is deployed to its destination.
 
