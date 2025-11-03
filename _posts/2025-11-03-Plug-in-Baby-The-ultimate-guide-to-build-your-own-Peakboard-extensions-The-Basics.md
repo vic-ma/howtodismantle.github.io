@@ -226,13 +226,13 @@ protected override CustomListObjectElementCollection GetItemsOverride(CustomList
 {% endhighlight %}
 
 
-## Pack the extension
+## Assemble the extension
 
-We must put all the compiled binaries into a single ZIP file. For our example, all we have is the DLL binary file. But depending on the extension you're building, you may have other artifacts, such as debug symbols or other referenced assemblies that your extension depends on.
+Now, we compile our code and put all the binaries into a single ZIP file. For our example, we only have the DLL binary file. But depending on the extension you're building, you may have other artifacts, such as debug symbols or other referenced assemblies that your extension depends on---all of these need to go inside the ZIP file.
 
-We must also put our `extension.xml` file into the ZIP file. That way, Peakboard Designer can read the metadata right away.
+We also put our `extension.xml` file into the ZIP file. That way, Peakboard Designer can read the metadata.
 
-Everything inside the ZIP file is loaded into Peakboard Designer, when the extension is installed. And when the Peakboard app is deployed to a Peakboard Box or BYOD instance, everything inside the ZIP file is also deployed to the device.
+When we install our extension, everything from the ZIP file gets loaded into Peakboard Designer. And when the Peakboard app is deployed to a Peakboard Box or BYOD instance, everything inside the ZIP file is also deployed to the device.
 
 ![image](/assets/2025-11-03/peakboard-extension-zip-contents.png)
 
