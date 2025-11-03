@@ -230,15 +230,14 @@ In order to use our extension in Peakboard Designer, we need to first install it
 Now, we can add our cat list data source:
 1. Add a new data source.
 1. Select *Extensions*.
-1. Below *Meow Extension*, click *Add*.
+1. In *Meow Extension*, click *Add*.
 1. Select *Cat List*.
 
 ![image](/assets/2025-11-03/peakboard-designer-custom-list-selection.png)
 
-The last screenshot shows the preview mode of the data source based on our example extension after hitting the refresh button. So far the extension doesn't offer any parameters for the user. This is what we will discuss in the [next article of the series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), where we will extend the foundation with interactive options.
+Now, we click the preview refresh button, and we see the static list of cats that we wrote in C#:
 
+The last screenshot shows the preview mode of the data source based on our example extension after hitting the refresh button:
 ![image](/assets/2025-11-03/peakboard-designer-data-preview.png)
 
-
-
-
+So far the extension doesn't offer any parameters for the user. This is what we will discuss in the [next article of the series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), where we will extend the foundation with interactive options.
