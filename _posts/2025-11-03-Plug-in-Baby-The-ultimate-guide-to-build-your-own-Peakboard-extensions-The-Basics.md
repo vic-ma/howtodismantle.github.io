@@ -41,7 +41,7 @@ In order to develop a Peakboard extension, we first need to install a NuGet pack
 
 Then, we create a new .NET project with the `Library` output format and the `.NET 8` target framework.
 
-We create a new file called `extension.xml`, and add some metadata about our extension. It gets copied to the output folder, and Peakboard Designer uses the file to get basic information about the extension.
+We create a new file called `extension.xml` and add some metadata about our extension. This file gets copied to the output folder, and Peakboard Designer uses the file to get basic information about our extension.
 
 Here's our `extension.xml` file:
 {% highlight xml %}
@@ -87,17 +87,17 @@ Here's what our final project file looks like:
 
 ## Create the classes
 
-Next, we create the two classes which define our extension's functionality:
+Next, we create the two classes that define our extension's functionality:
 1. The extension class, which represents our extension.
-1. The list class, which we use to make our extension return a list of cats.
+1. The cat list class, which represents the data source that our extension provides.
 
 ### Create the extension class
 
-We need to create a class for our extension. To do this, we define a new class called `MeowExtension`, which extends the base extension class, `ExtensionHost`.
+First, we create the class that represents our extension. To do this, we define a new class called `MeowExtension`, which extends `ExtensionHost` (the base extension class).
 
 Next, we override the `GetDefinitionOverride()` method. This method provides metadata about our extension to the *extension runtime*. This is different from the `extension.xml` file, which provides metadata to *Peakboard Designer*. However, the metadata in this method must match the metadata in `extension.xml`, to ensure consistency.
 
-Next, we override the `GetCustomListsOverride()` method. This method defines all the lists that the extension provides. For example, if you are building an extension for an ERP system, then your extension could provide a customers list and an orders list. Then, in Peakboard Designer, you can use the extension to add a customers-data-source or an orders-data-source. Both data sources are provided by the same extension.
+Next, we override the `GetCustomListsOverride()` method. This method defines all the **list data sources** that our extension provides. For example, if you are building an extension for an ERP system, then your extension could provide a *customers* list-data-source and an *orders* list-data-source. Then, in Peakboard Designer, you can choose which data source you want to add. Both data sources are provided by the same extension.
 
 For our `MeowExtension` example, however, we only provide a single list, which is a static list of cats. So, our `GetCustomListsOverride()` method simply returns a new `CatCustomList` object. (We define the `CatCustomList` class in the next section.)
 
