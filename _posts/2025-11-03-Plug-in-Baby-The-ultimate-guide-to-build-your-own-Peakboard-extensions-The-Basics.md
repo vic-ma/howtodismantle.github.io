@@ -39,8 +39,11 @@ In this article, we're going to build a very basic Peakboard extension called `M
 
 In order to build a Peakboard extension, we first need to install a NuGet package called [`Peakboard.ExtensionKit`](https://www.nuget.org/packages/Peakboard.ExtensionKit/).
 
-Then, we create a .NET project with the output format `Library` and the Target Framework `.NET 8`. In the first iteration we will need two classes that are added later. In addition to the two classes we will need a file called `extension.xml` that is copied to the output folder. Here's a sample of the `extension.xml`. It is later shipped to the Peakboard Designer and is used there to give the designer the chance to read some metadata about the extension.
+Then, we create a new .NET project with the `Library` output format and the `.NET 8` target framework.
 
+We create a new file called `extension.xml`, which contains metadata for our extension. It gets copied to the output folder, and Peakboard Designer uses the file to get basic information about the extension.
+
+Here's an example `extension.xml` file:
 {% highlight xml %}
 <?xml version="1.0" encoding="utf-8" ?>
 <ExtensionCatalog xmlns="http://schemas.peakboard.com/pbmx/2020/extensions">
