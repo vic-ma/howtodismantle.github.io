@@ -95,7 +95,7 @@ Next, we create the two classes that define our extension's functionality:
 
 First, we create the class that represents our extension. To do this, we define a new class called `MeowExtension`, which extends `ExtensionHost` (the base class for all extensions).
 
-Next, we override the `GetDefinitionOverride()` method. This method provides metadata about our extension to the *extension runtime*. This is different from the `extension.xml` file, which provides metadata to *Peakboard Designer*. However, the metadata in this method must match the metadata in `extension.xml`, to ensure consistency.
+Next, we override the `GetDefinitionOverride()` method. This method provides metadata about our extension to the *extension runtime*. Note: this is different from the `extension.xml` file, which provides metadata to *Peakboard Designer*. However, the metadata in this method must match the metadata in `extension.xml`, to ensure consistency.
 
 Next, we override the `GetCustomListsOverride()` method. This method defines all the **list data sources** that our extension provides. For example, if you are building an extension for an ERP system, then your extension could provide a *customers* list-data-source and an *orders* list-data-source. Then, in Peakboard Designer, you can choose which data source you want to add. Both data sources are provided by the same extension.
 
