@@ -208,7 +208,7 @@ protected override CustomListObjectElementCollection GetItemsOverride(CustomList
 
 ## Pack the extension
 
-We must put the compiled binaries and any artifacts into a single ZIP file. For our example, the all we have is the DLL binaries. But depending on the extension you're building, you may have other artifacts, such as debug symbols or other referenced assemblies that your extension depends on.
+We must put all the compiled binaries into a single ZIP file. For our example, all we have is the DLL binary file. But depending on the extension you're building, you may have other artifacts, such as debug symbols or other referenced assemblies that your extension depends on.
 
 The compiled binaries must all be put into one single ZIP file. In our example the binary is only the DLL, but there might be other artifacts that can be packed as well, e.g. debug symbols or other referenced assemblies that might be necessary to run the extension.
 
