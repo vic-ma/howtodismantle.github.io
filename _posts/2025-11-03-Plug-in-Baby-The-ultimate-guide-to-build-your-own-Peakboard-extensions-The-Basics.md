@@ -17,9 +17,9 @@ downloads:
   - name: Source code for this article
     url: https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension
 ---
-Peakboard provides built-in data sources for almost all modern hardware and software that you'd find in an office, warehouse, or factory environment. And even when you do have an "unsupported" device or program, you can often  connect to it by using a generic data source---like ODBC for databases or JSON for REST services. We've discussed this method multiple times in this blog, so feel free to browse [the archives](/archive/) to learn more.
+Peakboard Designer provides built-in data sources for almost any modern hardware and software that you'd find in an office, warehouse, or factory. And even when you do have an unsupported device or program, you can usually use a generic data source to connect to it---like ODBC for databases or JSON for REST services. We've discussed this method multiple times in this blog, so feel free to browse [the archives](/archive/) to learn more.
 
-But what if you have an unsupported device or program, but you can't (or don't want to) use a generic data source? In that case, you can create your own custom extension, with Peakboard's easy-to-use plug-in system. Here's how it works:
+But what if you have an unsupported device or program, but you can't (or don't want to) use a generic data source? In that case, you can create your own **custom extension**, with Peakboard's easy-to-use plug-in system. Here's how it works:
 1. You build a DLL for your extension, by writing some lines of .NET code. 
 1. You add your extension to Peakboard Designer.
 1. You use the custom data source you built, just like other data source!
