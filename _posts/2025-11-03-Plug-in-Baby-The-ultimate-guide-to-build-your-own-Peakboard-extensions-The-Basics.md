@@ -43,7 +43,7 @@ Then, we create a new .NET project with the `Library` output format and the `.NE
 
 We create a new file called `extension.xml`, which contains metadata for our extension. It gets copied to the output folder, and Peakboard Designer uses the file to get basic information about the extension.
 
-Here's an example `extension.xml` file:
+Here's our `extension.xml` file:
 {% highlight xml %}
 <?xml version="1.0" encoding="utf-8" ?>
 <ExtensionCatalog xmlns="http://schemas.peakboard.com/pbmx/2020/extensions">
@@ -56,8 +56,9 @@ Here's an example `extension.xml` file:
 </ExtensionCatalog>
 {% endhighlight %}
 
-In addition to the XML file we will need a small icon, preferably as PNG, to be added to the project as embedded resource. So in total here's the project file of our example project:
+We also create an icon (ideally a PNG) for our extension. We add the icon to our project as an embedded resource.
 
+Here's what our final project file looks like:
 {% highlight xml %}
 <Project Sdk="Microsoft.NET.Sdk">
 
