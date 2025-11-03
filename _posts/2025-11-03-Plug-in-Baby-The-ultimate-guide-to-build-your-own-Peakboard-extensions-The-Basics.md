@@ -135,7 +135,7 @@ public class MeowExtension : ExtensionBase
 
 Now, we create the class for `CatCustomList`. This class represents the cats list data source that our extension provides. `CatCustomList` extends `CustomListBase` (the base class for all custom list data sources).
 
-First, we override the `GetDefinitionOverride` method. This method provides metadata about the list. The host system uses this method to handle the extension properly and Peakboard Designer uses the method to provide information about the extension.
+First, we override the `GetDefinitionOverride` method. This method provides metadata about the list. The host system uses this method to handle the extension properly, and Peakboard Designer uses the method to provide information about the extension.
 
 Here's what our `CatCustomList` class looks like, with the `GetDefinitionOverride()` method:
 {% highlight csharp %}
@@ -157,9 +157,9 @@ public class CatCustomList : CustomListBase
 }
 {% endhighlight %}
 
-Next, we override the `GetColumnsOverride` method. This method defines the columns of the table. Each column has a name and data type (`Number`, `String`, or `Boolean`).
+Next, we override the `GetColumnsOverride` method. This method defines the columns of our list. Each column has a name and data type (`Number`, `String`, or `Boolean`).
 
-The columns in our list never change, so we return a simple collection of columns. But you can also [make the columns dynamic](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html)---changing based on the parameters that the user provides.
+The columns in our list never change, so we return a simple collection of columns, for things like the name, age, and breed of cat. But you can also [make the columns dynamic](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html) and change them based on the parameters that the user sets.
 
 {% highlight csharp %}
 protected override CustomListColumnCollection GetColumnsOverride(CustomListData data)
