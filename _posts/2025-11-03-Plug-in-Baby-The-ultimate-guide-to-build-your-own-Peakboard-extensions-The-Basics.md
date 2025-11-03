@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Plug-in, Baby - The Ultimate Guide to Building Your Own Peakboard Extensions - The Basics
-date: 2023-03-01 00:00:00 +0000
+date: 2024-11-01 02:00:00 +0000
 tags: dev
 image: /assets/2025-11-03/title.png
 image_header: /assets/2025-11-03/title.png
@@ -11,7 +11,7 @@ read_more_links:
     url: /category/dev
   - name: Peakboard Extension Kit
     url: https://www.nuget.org/packages/Peakboard.ExtensionKit/
-  - name: Get extension template for Visual Studio
+  - name: Extension template for Visual Studio
     url: https://marketplace.visualstudio.com/items?itemName=Peakboard.PBEKTEMP
 downloads:
   - name: Source code for this article
