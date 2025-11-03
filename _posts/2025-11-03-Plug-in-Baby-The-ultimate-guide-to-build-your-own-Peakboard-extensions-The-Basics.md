@@ -88,8 +88,8 @@ Now, we create our .NET project file:
 ## Create the classes
 
 Next, we create the two classes that define our extension's functionality:
-1. The extension class, which represents our extension.
-1. The cat list class, which represents the data source that our extension provides.
+1. The `MeowExtension` class, which represents our extension.
+1. The `CatCustomList` class, which represents the data source that our extension provides.
 
 ### Create the extension class
 
