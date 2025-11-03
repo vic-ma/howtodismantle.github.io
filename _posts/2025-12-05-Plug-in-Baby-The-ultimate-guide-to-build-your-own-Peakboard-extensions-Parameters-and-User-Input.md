@@ -9,6 +9,8 @@ bg_alternative: true
 read_more_links:
   - name: Developer stuff
     url: /category/dev
+  - name: Extension template for Visual Studio
+    url: https://marketplace.visualstudio.com/items?itemName=Peakboard.PBEKTEMP
 downloads:
   - name: Source code for this article
     url: https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension
