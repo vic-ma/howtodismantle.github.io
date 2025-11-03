@@ -17,14 +17,14 @@ downloads:
   - name: Source code for this article
     url: https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension
 ---
-Peakboard Designer provides built-in data sources for almost any modern hardware and software that you'd find in an office, warehouse, or factory. And even when you do have an unsupported device or program, you can usually use a generic data source to connect to it---like ODBC for databases or JSON for REST services. We've discussed this method multiple times in this blog, so feel free to browse [the archives](/archive/) to learn more.
+Peakboard Designer provides built-in data sources for almost any modern hardware and software that you'd find in an office, warehouse, or factory. And even when you do have an unsupported device or program, you can usually use a generic data source to connect to it---like ODBC for databases or JSON for REST services. We've discussed this method multiple times on our blog, so feel free to browse [the archives](/archive/) to learn more.
 
-But what if you have an unsupported device or program, but you can't (or don't want to) use a generic data source? In that case, you can create your own **custom extension**, with Peakboard's simple plug-in system. Here's how it works:
+But what if you have an unsupported device or program, but you can't (or don't want to) use a generic data source? In that case, you can create your own **custom extension**, with Peakboard's easy-to-use plug-in system. Here's how it works:
 1. You build a DLL for your extension by writing some .NET code.
 1. You install your extension in Peakboard Designer.
 1. You use the custom data source you built.
 
-Peakboard extensions open the door to tailor-made integrations. And in this four-part series on our blog, we'll explain how to build these extensions, from a basic example all the way to a sophisticated example with complex parameters and event-triggered sources:
+Peakboard extensions open the door to custom-made integrations. And in this four-part series on our blog, we'll explain how to build these extensions, from a basic example all the way to a sophisticated example with complex parameters and event-triggered sources:
 
 * [Part I - The Basics](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html)
 * [Part II - Parameters and User Input](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html)
@@ -32,7 +32,7 @@ Peakboard extensions open the door to tailor-made integrations. And in this four
 * [Part IV - Event-Triggered Data Sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
 
 
-In this article, we're going to build a very basic Peakboard extension called **Meow extension**, which returns a static list of cats (which we will hard-code into the extension). You can download the [source code for Meow extension](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension), if you want to follow along.
+In this article, we're going to build a very basic Peakboard extension called **Meow Extension**, which returns a static list of cats (which we will hard-code into the extension). You can download the [source code for Meow Extension](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension), if you want to follow along.
 
 
 ## Set up the project
@@ -58,7 +58,7 @@ Here's our `extension.xml` file:
 
 We also create an icon (ideally a PNG) for our extension. We add the icon to our project as an embedded resource.
 
-Here's what our final project file looks like:
+Now, we create our .NET project file:
 {% highlight xml %}
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -99,7 +99,7 @@ Next, we override the `GetDefinitionOverride()` method. This method provides met
 
 Next, we override the `GetCustomListsOverride()` method. This method defines all the **list data sources** that our extension provides. For example, if you are building an extension for an ERP system, then your extension could provide a *customers* list-data-source and an *orders* list-data-source. Then, in Peakboard Designer, you can choose which data source you want to add. Both data sources are provided by the same extension.
 
-For our Meow extension, we provide a single data source: a static list of cats. So, our `GetCustomListsOverride()` method simply returns a new `CatCustomList` object. (We define the `CatCustomList` class in the next section.)
+For Meow Extension, we provide a single data source: a static list of cats. So, our `GetCustomListsOverride()` method simply returns a new `CatCustomList` object. (We define the `CatCustomList` class in the next section.)
 
 Here's what our final `MeowExtension` class looks like:
 {% highlight csharp %}
