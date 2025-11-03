@@ -157,9 +157,9 @@ public class CatCustomList : CustomListBase
 }
 {% endhighlight %}
 
-Next, we override the `GetColumnsOverride` method. This method defines the columns of the table. Each column has a name and data type.
+Next, we override the `GetColumnsOverride` method. This method defines the columns of the table. Each column has a name and data type (`Number`, `String`, `Boolean`).
 
-The columns in our list never change, so we return a simple collection of columns. But you can also [make the columns dynamic](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html)---changing based on the parameters that the user provides. Beside the name the only thing that represents a column is the data type: Number, String, or Boolean.
+The columns in our list never change, so we return a simple collection of columns. But you can also [make the columns dynamic](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html)---changing based on the parameters that the user provides.
 
 {% highlight csharp %}
 protected override CustomListColumnCollection GetColumnsOverride(CustomListData data)
