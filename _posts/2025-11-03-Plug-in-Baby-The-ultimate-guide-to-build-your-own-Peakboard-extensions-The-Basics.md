@@ -133,6 +133,8 @@ public class MeowExtension : ExtensionBase
 
 ### Create the list class
 
+Now, we create the class for `CatCustomList`. This class represents the static list of cats that our extension returns. It extends `CustomListBase`, the base class for all custom lists.
+
 In the extension class we already used the class that represents the actual list. Every list within our extension is derived from the base class `CustomListBase`. The overridden function `GetDefinitionOverride` returns some metadata for this dedicated list so it can be handled correctly by the hosting system and have a good UI for the end user, even when the extension grows more complex later on.
 
 {% highlight csharp %}
