@@ -174,10 +174,11 @@ protected override CustomListColumnCollection GetColumnsOverride(CustomListData 
 }
 {% endhighlight %}
 
-The final method we need to override is `GetItemsOverride()`. This method provides the actual list data for our data source:
-* The method returns a `CustomListObjectElementCollection` object, which represents the list data.
-* A `CustomListObjectElementCollection` object contains one `CustomListObjectElement` object for each row of data. A `CustomListObjectElement` object represents a single row in the list.
-* A `CustomListObjectElement` object contains a collection of key-value pairs---one for each column in the list. Each key-value pair represents a column within the row.
+The final method we override is `GetItemsOverride()`. This method provides the actual list data for our data source.
+
+The method returns a `CustomListObjectElementCollection` object, which represents the list data. A `CustomListObjectElementCollection` object contains one `CustomListObjectElement` object for each row of data.
+
+A `CustomListObjectElement` object represents a single row in the list. A `CustomListObjectElement` object contains a collection of key-value pairs---one for each column in the row. Each key-value pair represents a column within the row.
 
 So altogether, it looks like this:
 ```
@@ -205,9 +206,9 @@ protected override CustomListObjectElementCollection GetItemsOverride(CustomList
     var items = new CustomListObjectElementCollection();
     
     // Add cat data directly to items
-    var item1 = new CustomListObjectElement();
-    item1.Add("ID", 1);
-    item1.Add("Name", "Fluffy1");
+    var item1 = new CustomListObjectElement();  // A row.
+    item1.Add("ID", 1);                         // A key-value pair.
+    item1.Add("Name", "Fluffy1");               // Another key-value pair.
     item1.Add("Breed", "Persian");
     item1.Add("Age", 3);
     item1.Add("ImageUrl", "https://example.com/cat1.jpg");
