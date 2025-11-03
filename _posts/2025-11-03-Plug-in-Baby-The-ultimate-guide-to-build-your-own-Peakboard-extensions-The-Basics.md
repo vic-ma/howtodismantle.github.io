@@ -174,7 +174,7 @@ protected override CustomListColumnCollection GetColumnsOverride(CustomListData 
 }
 {% endhighlight %}
 
-The final method we need to override is `GetItemsOverride(CustomListData data)`. This method provides the actual list data for our data source:
+The final method we need to override is `GetItemsOverride()`. This method provides the actual list data for our data source:
 * The method returns a `CustomListObjectElementCollection` object, which represents the list data.
 * A `CustomListObjectElementCollection` object contains one `CustomListObjectElement` object for each row of data. A `CustomListObjectElement` object represents a single row in the list.
 * A `CustomListObjectElement` object contains a collection of key-value pairs---one for each column in the list. Each key-value pair represents a column within the row.
@@ -197,7 +197,7 @@ CustomListObjectElementCollection (the list):
     ...
 ```
 
-Here's what our `GetItemsOverride(CustomListData data)` function looks like:
+Here's what our `GetItemsOverride()` method looks like:
 
 {% highlight csharp %}
 protected override CustomListObjectElementCollection GetItemsOverride(CustomListData data)
