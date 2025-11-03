@@ -93,13 +93,13 @@ Next, we create the two classes that define our extension's functionality:
 
 ### Create the extension class
 
-First, we create the class that represents our extension. To do this, we define a new class called `MeowExtension`, which extends `ExtensionHost` (the base extension class).
+First, we create the class that represents our extension. To do this, we define a new class called `MeowExtension`, which extends `ExtensionHost` (the base class for all extensions).
 
 Next, we override the `GetDefinitionOverride()` method. This method provides metadata about our extension to the *extension runtime*. This is different from the `extension.xml` file, which provides metadata to *Peakboard Designer*. However, the metadata in this method must match the metadata in `extension.xml`, to ensure consistency.
 
 Next, we override the `GetCustomListsOverride()` method. This method defines all the **list data sources** that our extension provides. For example, if you are building an extension for an ERP system, then your extension could provide a *customers* list-data-source and an *orders* list-data-source. Then, in Peakboard Designer, you can choose which data source you want to add. Both data sources are provided by the same extension.
 
-For our Meow extension, however, we only provide a single data source: a static list of cats. So, our `GetCustomListsOverride()` method simply returns a new `CatCustomList` object. (We define the `CatCustomList` class in the next section.)
+For our Meow extension, we provide a single data source: a static list of cats. So, our `GetCustomListsOverride()` method simply returns a new `CatCustomList` object. (We define the `CatCustomList` class in the next section.)
 
 Here's what our final `MeowExtension` class looks like:
 {% highlight csharp %}
@@ -133,7 +133,7 @@ public class MeowExtension : ExtensionBase
 
 ### Create the list class
 
-Now, we create the class for `CatCustomList`. This class represents the static list of cats that our extension returns. It extends `CustomListBase`, the base class for all custom lists.
+Now, we create the class for `CatCustomList`. This class represents the cats list data source that our extension provides. `CatCustomList` extends `CustomListBase`, the base class for all custom lists.
 
 First, We override the `GetDefinitionOverride` method. This method provides metadata about the list. That way the list is handled correctly by the host system and has a good UI---even when the extension grows more complex, later on.
 
