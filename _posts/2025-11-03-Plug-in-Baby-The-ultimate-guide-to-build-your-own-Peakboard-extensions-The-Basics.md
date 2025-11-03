@@ -133,9 +133,9 @@ public class MeowExtension : ExtensionBase
 
 ### Create the list class
 
-Now, we create the class for `CatCustomList`. This class represents the cats list data source that our extension provides. `CatCustomList` extends `CustomListBase`, the base class for all custom lists.
+Now, we create the class for `CatCustomList`. This class represents the cats list data source that our extension provides. `CatCustomList` extends `CustomListBase` (the base class for all custom list data sources).
 
-First, We override the `GetDefinitionOverride` method. This method provides metadata about the list. That way the list is handled correctly by the host system and has a good UI---even when the extension grows more complex, later on.
+First, we override the `GetDefinitionOverride` method. This method provides metadata about the list. The host system uses this method to handle the extension properly and Peakboard Designer uses the method to provide information about the extension.
 
 Here's what our `CatCustomList` class looks like, with the `GetDefinitionOverride()` method:
 {% highlight csharp %}
