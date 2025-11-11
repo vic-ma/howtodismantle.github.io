@@ -129,12 +129,12 @@ INSERT INTO DISMANTLEDB.PUBLIC.ACLOG (TS, Temperature, Cooling)
 VALUES    ('#[TS]#', #[Temperature]#, #[Cooling]#);
 {% endhighlight %}
 
-The screenshot shows how to apply the statement and use a placeholder Building
-Block to fill the dynamic parts of the statements with real values. You can
-further enhance the workflow by adding pre-validation logic to check for
-duplicate timestamps or by wrapping the execution in a simple retry block to
-cope with transient connectivity issues, especially when the Peakboard box is
-deployed in networks with fluctuating bandwidth.
+The follow screenshot shows how to apply the statement and use a placeholder
+Building Block to fill the placeholders with actual values. You
+can further enhance the workflow by adding pre-validation logic to check for
+duplicate timestamps---or by wrapping the execution in a simple retry block to
+cope with transient connectivity issues (especially when the Peakboard Box is
+deployed in networks with fluctuating bandwidth).
 
 ![image](/assets/2025-11-19/snowflake-sql-insert-building-block.png)
 
