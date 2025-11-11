@@ -85,16 +85,20 @@ driver and documenting your setup!
 
 ## Create the ODBC data source
 
-Now, the hard part is over. Once we have the connection string, we can create the ODBC data source in Peakboard Designer:
+Now, the hard part is over. Next, we add a new the ODBC data source in Peakboard
+Designer:
 
 ![image](/assets/2025-11-19/snowflake-odbc-connection-setup.png)
 
-First, we enter our connection string in the **Connection string** box. Then, we enter a SQL statement to specify the data we want from our Snowflake database. Here's what we use:
+In the **Connection string** box, we enter our connection string.
+
+In the **Statement** box, we enter a SQL statement that specifies the data we
+want to get from our Snowflake database. Here's what we use:
 ```sql
 select * from DISMANTLEDB.PUBLIC.ACLOG
 ```
 
-It says to get all the columns from the `ACLOG` table in our `DISMANTLEDB`
+It says to get all the columns from the `ACLOG` table in the `DISMANTLEDB`
 database.
 
 When you write your SQL statement, make sure you use the correct namespace for the tables you want to access. We already provided a default schema in the connection string, so we actually don't need to use the fully qualified name in our SQL statement---as long as we don't need to access any tables outside of the default namespace:
