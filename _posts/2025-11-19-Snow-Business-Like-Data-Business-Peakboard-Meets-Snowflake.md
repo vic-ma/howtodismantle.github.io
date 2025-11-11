@@ -43,9 +43,12 @@ During installation, make sure to select the correct architecture (either 32 or
 64 bit) for the Peakboard runtime. And make sure to keep the driver updated---Snowflake regularly releases new drivers with security patches and
 performance improvements.
 
-## The Snowflake database
+## Set up the Snowflake database
 
-For our example app, we'll connect to a very simple table in Snowflake. We  created the table manually, in the Snowflake backend. The table contains time series data from an air conditioning system. It has the following columns:
+For our example app, we'll connect to a very simple table in our Snowflake
+database. We created the table manually, in the Snowflake backend. The table
+contains time series data from an air conditioning system. It has the following
+columns:
 * `TS`, the timestamp.
 * `TEMPERATURE`, the temperature.
 * `COOLING`, a boolean for whether or not the A/C is actively cooling.
@@ -60,7 +63,7 @@ travel retention for safer rollbacks and audits.
 
 ![image](/assets/2025-11-19/snowflake-temperature-table-sample.png)
 
-## Use ODBC to connect to Snowflake
+## Create the connection string
 
 We need a connection string to connect to our Snowflake database. Here's the
 connection string that we use for our `DISMANTLEDB` database:
@@ -76,9 +79,12 @@ The document also explains how to add optional settings like
 `Authenticator=externalbrowser` or `Tracing=6`, for troubleshooting purposes.
 So keep the docs open while you're configuring the driver and documenting your setup!
 
+## Create the ODBC data source
 
-Building the connection string was the hardest part. After we solved that we can
-use it right away through the ODBC data source in Peakboard designer. The SQL
+Now, the hard part is over. Once we have the connection string, we can create the ODBC data source in Peakboard Designer. 
+
+First, we enter our connection string in
+The SQL
 statement we use is a common statement without any voodoo. A typical source of
 error is using the correct namespace to indicate the tables to access. We
 already provided a default schema in the connection, so actually we could skip
