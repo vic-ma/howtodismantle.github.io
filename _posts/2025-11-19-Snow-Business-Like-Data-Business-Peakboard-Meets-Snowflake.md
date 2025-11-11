@@ -68,18 +68,20 @@ travel retention for safer rollbacks and audits.
 ## Create the connection string
 
 We need a connection string to connect to our Snowflake database. Here's the
-connection string that we use for our `DISMANTLEDB` database:
+connection string that we use for our database:
 
 {% highlight text %}
 Driver=SnowflakeDSIIDriver; Server=VAAHZZD-XF03787.snowflakecomputing.com; UID=zuteilungsreif; PWD=supersecret; Warehouse=COMPUTE_WH; Database=DISMANTLEDB; Schema=PUBLIC; Role=SYSADMIN;
 {% endhighlight %}
 
-You can use it as a template, and replace the parameters with your own server,
-UID, etc. To learn more, check out the official [ODBC parameters
+You can use our connection string as a template, and replace the parameters with
+your own server, UID, etc. To learn more, check out the official [ODBC
+connection parameters
 documentation](https://docs.snowflake.com/en/developer-guide/odbc/odbc-parameters).
-The document also explains how to add optional settings like
+The document also explains how to add additional settings, like
 `Authenticator=externalbrowser` or `Tracing=6`, for troubleshooting purposes.
-So keep the docs open while you're configuring the driver and documenting your setup!
+The docs will come in handy, so keep them open while you're configuring the
+driver and documenting your setup!
 
 ## Create the ODBC data source
 
