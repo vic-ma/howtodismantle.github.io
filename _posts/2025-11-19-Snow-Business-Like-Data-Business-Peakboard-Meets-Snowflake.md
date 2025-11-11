@@ -60,20 +60,22 @@ travel retention for safer rollbacks and audits.
 
 ![image](/assets/2025-11-19/snowflake-temperature-table-sample.png)
 
-## Using ODBC to connect to Snowflake
+## Use ODBC to connect to Snowflake
 
-We will need a connection string to connect to Snowflake. Here's the connection
-string related to our Dismantle demo DB. It can be used as template to connect
-to the reader's own Snowflake database. To learn about the details of each
-parameter we can refer to the
+We need a connection string to connect to our Snowflake database. Here's the
+connection string that we use for our `DISMANTLEDB` database:
+
+{% highlight text %}
+Driver=SnowflakeDSIIDriver; Server=VAAHZZD-XF03787.snowflakecomputing.com; UID=zuteilungsreif; PWD=supersecret; Warehouse=COMPUTE_WH; Database=DISMANTLEDB; Schema=PUBLIC; Role=SYSADMIN;
+{% endhighlight %}
+
+It can be used as template to connect to the reader's own Snowflake database. To
+learn about the details of each parameter we can refer to the
 [documentation](https://docs.snowflake.com/en/developer-guide/odbc/odbc-parameters).
 The same document also explains how to add optional settings like
 `Authenticator=externalbrowser` or `Tracing=6` for troubleshooting, so keep it
 at hand while configuring the driver and documenting your setup.
 
-{% highlight text %}
-Driver=SnowflakeDSIIDriver; Server=VAAHZZD-XF03787.snowflakecomputing.com; UID=zuteilungsreif; PWD=supersecret; Warehouse=COMPUTE_WH; Database=DISMANTLEDB; Schema=PUBLIC; Role=SYSADMIN;
-{% endhighlight %}
 
 Building the connection string was the hardest part. After we solved that we can
 use it right away through the ODBC data source in Peakboard designer. The SQL
