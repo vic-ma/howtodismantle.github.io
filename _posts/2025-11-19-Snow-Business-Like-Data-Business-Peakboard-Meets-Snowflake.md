@@ -15,17 +15,19 @@ downloads:
   - name: Snowflake.pbmx
     url: /assets/2025-11-19/Snowflake.pbmx
 ---
-Over the last years Snowflake became one of the leading vendors for cloud-based
-data warehousing and BI backends, combining flexibility, governance, and
-impressive elasticity in one platform while remaining remarkably approachable
-for new teams.  In this week's article we will discuss a best practice way to
-connect a Peakboard application to a Snowflake database. We will use an ODBC
-driver for that, however there might also be other options to connect. Snowflake
-offers a JSON-based REST API and a full range of language-specific connectors.
-We can check [this
-site](https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/snowflake-rest-api)
-to learn more about that and compare the interfaces before choosing the most
-suitable integration approach.
+
+Over the last few years, [Snowflake](https://www.snowflake.com/) has become one
+of the world's leading vendors for cloud-based data warehousing and BI backends.
+Snowflake combines flexibility, governance, and impressive elasticity---all in
+one platform, and while remaining remarkably approachable for new teams.
+
+In this article, we'll discuss the proper way to connect a
+Peakboard application to a Snowflake database. We'll use an ODBC driver to do this---however, there may be other options for connecting to Snowflake.
+
+Snowflake offers a JSON-based REST API and a full range of language-specific
+connectors. Check out their [REST API
+docs](https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/snowflake-rest-api)
+to learn more, and to compare the different interfaces and find the one that's most suitable for your application.
 
 ## Setting up the environment
 
