@@ -112,14 +112,14 @@ select * from ACLOG
 
 If you need to join other schemas, prefix them with the database name or
 adjust the default schema in the connection string. And double-check that the
-assigned Snowflake role has the necessary privileges.
+assigned Snowflake role has the necessary permissions.
 
 ## Write data to a Snowflake database
 
-Uploading large amounts of data efficiently is one of the USPs of Snowflake's
-database product. Usually, data is uploaded as a CSV file to some data store
-(like Azure Blob Storage). Then, the CSV file is uploaded from the data store to
-the Snowflake database. This process is usually triggered by [REST API
+Uploading large amounts of data efficiently is a USP of Snowflake's database
+product. Usually, you upload the data as a CSV file to some data store (like
+Azure Blob Storage). Then, the CSV file is uploaded from the data store to the
+Snowflake database. This process is usually triggered by [REST API
 calls](https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/snowflake-rest-api).
 
 For our example, however, we'll do things in a different way. We'll just use a
