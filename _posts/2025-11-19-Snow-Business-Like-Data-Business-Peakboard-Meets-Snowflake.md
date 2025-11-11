@@ -54,7 +54,6 @@ This app idea is based on an OPC UA article we did 2 years ago, about [how to
 connect to an A/C via OPC
 UA](https://how-to-dismantle-a-peakboard-box.com/OPC-UA-Basics-Calling-functions-in-OPC-UA-and-switch-the-AC-off.html).
 
-
 For production workloads you would typically create the table through an
 automated deployment script, apply proper clustering keys, and enable time
 travel retention for safer rollbacks and audits.
