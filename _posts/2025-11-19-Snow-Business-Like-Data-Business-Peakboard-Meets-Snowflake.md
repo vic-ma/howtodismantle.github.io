@@ -81,7 +81,7 @@ So keep the docs open while you're configuring the driver and documenting your s
 
 ## Create the ODBC data source
 
-Now, the hard part is over. Once we have the connection string, we can create the ODBC data source in Peakboard Designer. 
+Now, the hard part is over. Once we have the connection string, we can create the ODBC data source in Peakboard Designer:
 
 ![image](/assets/2025-11-19/snowflake-odbc-connection-setup.png)
 
@@ -102,17 +102,19 @@ If you need to join other schemas, then prefix them with the database name or
 adjust the default schema in the connection string, and double-check that the
 assigned Snowflake role has the necessary privileges.
 
-## Writing back to Snowflake
+## Write data to a Snowflake database
 
-Uploading huge amounts of data very efficiently is one of the USPs of any
-Snowflake database. This is usually done through CSV files. These are uploaded
-to a storage (e.g. an Azure storage blob) and then taken from there to upload it
-to the database. This process is usually triggered through JSON REST calls (see
-documentation above for details). In our sample we will go a different way. It's
-less efficient but easy to use and very reliable if the amount of data to insert
-is not endlessly huge. We just use an SQL INSERT statement and rely on
-Snowflake's automatic transaction handling to keep the data consistent, which
-keeps the example approachable for smaller teams.
+Uploading large amounts of data efficiently is one of the USPs of Snowflake's
+database product. Usually, data is uploaded as a CSV file to some data store
+(like Azure Blob Storage). Then, the CSV file is uploaded from the data store to
+the Snowflake database. This process is usually triggered by [JSON REST API
+calls](https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/snowflake-rest-api).
+
+In our sample we will go a different way. It's less efficient but easy to use
+and very reliable if the amount of data to insert is not endlessly huge. We just
+use an SQL INSERT statement and rely on Snowflake's automatic transaction
+handling to keep the data consistent, which keeps the example approachable for
+smaller teams.
 
 {% highlight sql %}
 INSERT INTO DISMANTLEDB.PUBLIC.ACLOG (TS, Temperature, Cooling)
