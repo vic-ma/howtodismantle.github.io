@@ -155,10 +155,12 @@ deployed in networks with fluctuating bandwidth).
 
 ## Result and conclusion
 
-In this article, we looked at how easy it is to use ODBC to access a Snowflake
-database for both reading and writing. We noted that as long as the throughput
-is not unreasonably large, it's much easier to use SQL `INSERT` statements,
-rather than the traditional method of uploading through a file-based interface.
-Remember to secure the credentials in the connection string, monitor warehouse
+You just saw how easy it is to use ODBC to access a Snowflake database for both
+reading and writing. And remember that for uploading data---as long as the
+throughput is not unreasonably large---it's much easier to use SQL `INSERT`
+statements, rather than the traditional method of uploading data through a
+file-based interface.
+
+Make sure to secure the credentials in your connection string, monitor warehouse
 usage to avoid unexpected costs, and leverage Snowflake roles to restrict access
-to only the tables required by the Peakboard application.
+to only the tables that are required by the Peakboard application.
