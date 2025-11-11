@@ -39,9 +39,10 @@ Once it's downloaded, we install the driver on **two machines**:
 
 We explained the [ODBC setup process on Peakboard](/SAP-Hana-Meets-Peakboard-Mastering-ODBC-Integration-Step-by-Step.html) in a previous article. Check it out for the full step-by-step guide.
 
-During installation make sure to select the correct architecture (32 or 64 Bit)
-for the Peakboard runtime, and keep the driver updated because Snowflake
-regularly publishes security patches and performance improvements.
+During installation, make sure to select the correct architecture (either 32 or
+64 bit) for the Peakboard runtime, and keep the driver updated, because
+Snowflake regularly releases updated drivers with security patches and
+performance improvements.
 
 In our sample we will use a very simple table that we manually created in the
 Snowflake backend. The table is used to store temperature values from an air
