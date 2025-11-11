@@ -69,12 +69,12 @@ connection string that we use for our `DISMANTLEDB` database:
 Driver=SnowflakeDSIIDriver; Server=VAAHZZD-XF03787.snowflakecomputing.com; UID=zuteilungsreif; PWD=supersecret; Warehouse=COMPUTE_WH; Database=DISMANTLEDB; Schema=PUBLIC; Role=SYSADMIN;
 {% endhighlight %}
 
-It can be used as template to connect to the reader's own Snowflake database. To
-learn about the details of each parameter we can refer to the
-[documentation](https://docs.snowflake.com/en/developer-guide/odbc/odbc-parameters).
-The same document also explains how to add optional settings like
-`Authenticator=externalbrowser` or `Tracing=6` for troubleshooting, so keep it
-at hand while configuring the driver and documenting your setup.
+You can use it as a template, and replace the parameters with your own server,
+UID, etc. To learn more, check out the official [ODBC parameters
+documentation](https://docs.snowflake.com/en/developer-guide/odbc/odbc-parameters).
+The document also explains how to add optional settings like
+`Authenticator=externalbrowser` or `Tracing=6`, for troubleshooting purposes.
+So keep the docs open while you're configuring the driver and documenting your setup!
 
 
 Building the connection string was the hardest part. After we solved that we can
