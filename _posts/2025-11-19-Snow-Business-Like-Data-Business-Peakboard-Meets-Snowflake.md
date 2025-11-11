@@ -101,13 +101,17 @@ select * from DISMANTLEDB.PUBLIC.ACLOG
 It says to get all the columns from the `ACLOG` table in the `DISMANTLEDB`
 database.
 
-When you write your SQL statement, make sure you use the correct namespace for the tables you want to access. We already provided a default schema in the connection string, so we actually don't need to use the fully qualified name in our SQL statement---as long as we don't need to access any tables outside of the default namespace:
+When you write your own SQL statement, make sure you use the correct namespace
+for the tables you want to access. Our connection string already has a default
+schema, so technically, we don't need to use the fully qualified name in our SQL
+statement---as long as we don't need to access any tables outside of the
+default namespace:
 ```sql
 select * from ACLOG
 ```
 
-If you need to join other schemas, then prefix them with the database name or
-adjust the default schema in the connection string, and double-check that the
+If you need to join other schemas, prefix them with the database name or
+adjust the default schema in the connection string. And double-check that the
 assigned Snowflake role has the necessary privileges.
 
 ## Write data to a Snowflake database
