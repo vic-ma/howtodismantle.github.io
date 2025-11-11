@@ -34,8 +34,8 @@ to learn more, and to compare the different interfaces and find the one that's m
 Our first step is to download the [ODBC driver for Windows (64
 Bit)](https://docs.snowflake.com/en/developer-guide/odbc/odbc-download).
 Once it's downloaded, we install the driver on **two machines**:
-* The machine with Peakboard Designer, where we'll build the Peakboard app.
-* The machine where the Peakboard app will be deployed on (either a Peakboard Box or Peakboard BYOD instance).
+* The machine with Peakboard Designer. This is the machine where we'll build the Peakboard app on.
+* The machine where the Peakboard app will run on. This is either a Peakboard Box or Peakboard BYOD instance.
 
 It's
 very important to understand that the driver must be installed on the local
