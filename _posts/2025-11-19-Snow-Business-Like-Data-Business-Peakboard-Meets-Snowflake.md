@@ -9,7 +9,7 @@ bg_alternative: true
 read_more_links:
   - name: Download the Snowflake ODBC driver
     url: https://docs.snowflake.com/en/developer-guide/odbc/odbc-download
-  - name: SAP Hana Meets Peakboard - Mastering ODBC Integration Step-by-Step
+  - name: ODBC setup guide
     url: /SAP-Hana-Meets-Peakboard-Mastering-ODBC-Integration-Step-by-Step.html
 downloads:
   - name: Snowflake.pbmx
@@ -37,12 +37,8 @@ Once it's downloaded, we install the driver on **two machines**:
 * The machine with Peakboard Designer. This is the machine where we'll build the Peakboard app on.
 * The machine where the Peakboard app will run on. This is either a Peakboard Box or Peakboard BYOD instance.
 
-It's
-very important to understand that the driver must be installed on the local
-machine where the Peakboard designer is running, but also on the Peakboard box
-or the Peakboard BYOD instance. We already discussed the ODBC setup on Peakboard
-as part of the [article about using ODBC to access SAP Hana
-databases](/SAP-Hana-Meets-Peakboard-Mastering-ODBC-Integration-Step-by-Step.html).
+We explained the [ODBC setup process on Peakboard](/SAP-Hana-Meets-Peakboard-Mastering-ODBC-Integration-Step-by-Step.html) in a previous article. Check it out for the full step-by-step guide.
+
 During installation make sure to select the correct architecture (32 or 64 Bit)
 for the Peakboard runtime, and keep the driver updated because Snowflake
 regularly publishes security patches and performance improvements.
