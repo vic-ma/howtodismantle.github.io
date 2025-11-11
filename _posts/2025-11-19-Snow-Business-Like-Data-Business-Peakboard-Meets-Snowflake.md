@@ -8,8 +8,10 @@ image_landscape: /assets/2025-11-19/title_landscape.png
 bg_alternative: true
 read_more_links:
   - name: Download the Snowflake ODBC driver
+    url: https://www.snowflake.com/en/developers/downloads/odbc/
+  - name: Snowflake ODBC driver installation docs
     url: https://docs.snowflake.com/en/developer-guide/odbc/odbc-download
-  - name: ODBC setup guide
+  - name: Peakboard + ODBC setup guide
     url: /SAP-Hana-Meets-Peakboard-Mastering-ODBC-Integration-Step-by-Step.html
 downloads:
   - name: Snowflake.pbmx
@@ -30,10 +32,9 @@ connectors. Check out their [REST API
 docs](https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/snowflake-rest-api)
 to learn more, and to compare the different interfaces and find the one that's most suitable for your application.
 
-## Set up your environment
+## Install the ODBC driver
 
-Our first step is to download the [ODBC driver for Windows (64
-Bit)](https://docs.snowflake.com/en/developer-guide/odbc/odbc-download).
+Our first step is to download the [ODBC driver for Windows](https://www.snowflake.com/en/developers/downloads/odbc/) (be sure to read the [ODBC driver installation docs](https://docs.snowflake.com/en/developer-guide/odbc/odbc-download)).
 Once it's downloaded, we install the driver on **two machines**:
 * The machine with Peakboard Designer. This is the machine where we'll build the Peakboard app on.
 * The machine where the Peakboard app will run on. This is either a Peakboard Box or Peakboard BYOD instance.
