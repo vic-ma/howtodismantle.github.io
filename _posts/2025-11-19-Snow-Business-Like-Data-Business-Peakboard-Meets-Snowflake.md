@@ -40,16 +40,21 @@ Once it's downloaded, we install the driver on **two machines**:
 We explained the [ODBC setup process on Peakboard](/SAP-Hana-Meets-Peakboard-Mastering-ODBC-Integration-Step-by-Step.html) in a previous article. Check it out for the full step-by-step guide.
 
 During installation, make sure to select the correct architecture (either 32 or
-64 bit) for the Peakboard runtime, and keep the driver updated, because
-Snowflake regularly releases updated drivers with security patches and
+64 bit) for the Peakboard runtime. And make sure to keep the driver updated---Snowflake regularly releases new drivers with security patches and
 performance improvements.
 
-In our sample we will use a very simple table that we manually created in the
-Snowflake backend. The table is used to store temperature values from an air
-conditioning system along with a timestamp and a boolean value to indicate if
-the A/C is running at the moment. It's inspired by the OPC UA article we
-published 2 years ago about [how to connect to an A/C via OPC
+## The Snowflake database
+
+For our example app, we'll connect to a very simple table in Snowflake. We  created the table manually, in the Snowflake backend. The table contains time series data from an air conditioning system. It has the following columns:
+* `TS`, the timestamp.
+* `TEMPERATURE`, the temperature.
+* `COOLING`, a boolean for whether or not the A/C is actively cooling.
+
+This app idea is based on an OPC UA article we did 2 years ago, about [how to
+connect to an A/C via OPC
 UA](https://how-to-dismantle-a-peakboard-box.com/OPC-UA-Basics-Calling-functions-in-OPC-UA-and-switch-the-AC-off.html).
+
+
 For production workloads you would typically create the table through an
 automated deployment script, apply proper clustering keys, and enable time
 travel retention for safer rollbacks and audits.
