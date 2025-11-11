@@ -107,14 +107,14 @@ assigned Snowflake role has the necessary privileges.
 Uploading large amounts of data efficiently is one of the USPs of Snowflake's
 database product. Usually, data is uploaded as a CSV file to some data store
 (like Azure Blob Storage). Then, the CSV file is uploaded from the data store to
-the Snowflake database. This process is usually triggered by [JSON REST API
+the Snowflake database. This process is usually triggered by [REST API
 calls](https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/snowflake-rest-api).
 
-In our sample we will go a different way. It's less efficient but easy to use
-and very reliable if the amount of data to insert is not endlessly huge. We just
-use an SQL INSERT statement and rely on Snowflake's automatic transaction
-handling to keep the data consistent, which keeps the example approachable for
-smaller teams.
+For our example, however, we'll do things in a different way. We'll just use a
+SQL `INSERT` statement, and rely on Snowflake's automatic transaction handling
+to keep the data consistent. This is less efficient, but it's easier to do, and
+keeps the process manageable for smaller teams. And it's very reliable if the
+amount of data being inserted is not huge. 
 
 {% highlight sql %}
 INSERT INTO DISMANTLEDB.PUBLIC.ACLOG (TS, Temperature, Cooling)
