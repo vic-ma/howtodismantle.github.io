@@ -116,14 +116,14 @@ to keep the data consistent. This is less efficient, but it's easier to do, and
 keeps the process manageable for smaller teams. And it's very reliable if the
 amount of data being inserted is not huge. 
 
+Here's what an example of an `INSERT` statement might look like:
+
 {% highlight sql %}
 INSERT INTO DISMANTLEDB.PUBLIC.ACLOG (TS, Temperature, Cooling)
 VALUES    ('2025-07-03 15:15:01', 27.5, False);
 {% endhighlight %}
 
-To make it easier to read within Peakboard we use placeholders to build the SQL
-string:
-
+For Peakboard Designer, we use placeholders to build the SQL string:
 {% highlight sql %}
 INSERT INTO DISMANTLEDB.PUBLIC.ACLOG (TS, Temperature, Cooling)
 VALUES    ('#[TS]#', #[Temperature]#, #[Cooling]#);
@@ -140,10 +140,10 @@ deployed in networks with fluctuating bandwidth.
 
 ## Result and conclusion
 
-This short article shows how easy it is to use ODBC to access Snowflake for both
-reading and writing. As long as the throughput is acceptable it's much easier to
-use SQL instead of the traditional way of uploading through a file based
-interface. Remember to secure the credentials in the connection string, monitor
-warehouse usage to avoid unexpected costs, and leverage Snowflake roles to
-restrict access to just the tables required by the Peakboard dashboard.
-
+In this article, we looked at how easy it is to use ODBC to access a Snowflake
+database for both reading and writing. We noted that as long as the throughput
+is not unreasonably large, it's much easier to use SQL `INSERT` statements,
+rather than the traditional method of uploading through a file-based interface.
+Remember to secure the credentials in the connection string, monitor warehouse
+usage to avoid unexpected costs, and leverage Snowflake roles to restrict access
+to only the tables required by the Peakboard application.
