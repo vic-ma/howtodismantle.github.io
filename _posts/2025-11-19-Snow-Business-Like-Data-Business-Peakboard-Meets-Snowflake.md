@@ -39,7 +39,7 @@ Once it's downloaded, we install the driver on **two machines**:
 * The machine with Peakboard Designer. This is the machine where we'll build the Peakboard app on.
 * The Peakboard Box or Peakboard BYOD instance. This is the machine where the Peakboard app will run on. 
 
-We explained the [ODBC setup process on Peakboard](/SAP-Hana-Meets-Peakboard-Mastering-ODBC-Integration-Step-by-Step.html) in a previous article. Check it out for the full step-by-step guide.
+We explained the [ODBC setup process for Peakboard](/SAP-Hana-Meets-Peakboard-Mastering-ODBC-Integration-Step-by-Step.html) in a previous article. Check it out for the full step-by-step guide.
 
 During installation, make sure to select the correct architecture (either 32 or
 64 bit) for the Peakboard runtime. And make sure to keep the driver updated---Snowflake regularly releases new drivers with security patches and
