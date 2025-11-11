@@ -122,10 +122,10 @@ Azure Blob Storage). Then, the CSV file is uploaded from the data store to the
 Snowflake database. This process is usually triggered by [REST API
 calls](https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/snowflake-rest-api).
 
-For our example, however, we'll do things in a different way. We'll just use a
+For our example, however, we'll do things in a different way. We'll use a
 SQL `INSERT` statement, and rely on Snowflake's automatic transaction handling
 to keep the data consistent. This is less efficient, but it's easier to do, and
-keeps the process manageable for smaller teams. And it's very reliable if the
+it keeps the process manageable for smaller teams. And it's very reliable if the
 amount of data being inserted is not huge. 
 
 Here's what an example of an `INSERT` statement might look like:
@@ -135,20 +135,23 @@ INSERT INTO DISMANTLEDB.PUBLIC.ACLOG (TS, Temperature, Cooling)
 VALUES    ('2025-07-03 15:15:01', 27.5, False);
 {% endhighlight %}
 
-For Peakboard Designer, we use placeholders to build the SQL string:
+And here's the statement template with conditional values, which we can use in
+Peakboard Designer:
 {% highlight sql %}
 INSERT INTO DISMANTLEDB.PUBLIC.ACLOG (TS, Temperature, Cooling)
 VALUES    ('#[TS]#', #[Temperature]#, #[Cooling]#);
 {% endhighlight %}
 
-The follow screenshot shows how to apply the statement and use a placeholder
-Building Block to fill the placeholders with actual values. You
-can further enhance the workflow by adding pre-validation logic to check for
-duplicate timestamps---or by wrapping the execution in a simple retry block to
+The following screenshot shows how to run the SQL statement and use a
+placeholder Building Block to fill the placeholders with actual values:
+
+![image](/assets/2025-11-19/snowflake-sql-insert-building-block.png)
+
+You can also enhance the workflow by adding pre-validation logic to check for
+duplicate timestamps---or by wrapping the execution in a simple retry block, to
 cope with transient connectivity issues (especially when the Peakboard Box is
 deployed in networks with fluctuating bandwidth).
 
-![image](/assets/2025-11-19/snowflake-sql-insert-building-block.png)
 
 ## Result and conclusion
 
