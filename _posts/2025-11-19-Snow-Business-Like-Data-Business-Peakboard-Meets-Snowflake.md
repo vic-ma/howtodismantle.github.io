@@ -47,10 +47,12 @@ performance improvements.
 
 ## Set up the Snowflake database
 
-For our example app, we'll connect to a simple table in our Snowflake
-database. We created the table manually, in the Snowflake backend. The table
-contains time series data from an air conditioning system. It has the following
-columns:
+In the Snowflake backend, we manually create a new table called `ACLOG`, which
+our example app will use:
+![image](/assets/2025-11-19/snowflake-temperature-table-sample.png)
+
+The table contains time series data from an air conditioning system. It has the
+following columns:
 * `TS`, the timestamp.
 * `TEMPERATURE`, the temperature.
 * `COOLING`, a boolean for whether or not the A/C is actively cooling.
@@ -62,8 +64,6 @@ UA](https://how-to-dismantle-a-peakboard-box.com/OPC-UA-Basics-Calling-functions
 For production workloads, you would typically create the table through an
 automated deployment script, apply proper clustering keys, and enable time
 travel retention for safer rollbacks and audits.
-
-![image](/assets/2025-11-19/snowflake-temperature-table-sample.png)
 
 ## Create the connection string
 
