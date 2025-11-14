@@ -38,7 +38,7 @@ The last Azure object is a Storage Account. It is needes and used  to store the 
 
 ![image](/assets/2026-01-06/030.png)
 
-## Set up the Peakboard flow for Sending messages.
+## Set up the Peakboard Flow for Sending messages.
 
 On the Peakboard side - regardless if we use it in Flow or a regular design project - We must provide the connection string for both the Event Hub and Storage account along with the Hub name and the storgae account name.
 
@@ -56,7 +56,17 @@ Here's the last step we need to get it working. The `SendToAzure` funtion just c
 
 ![image](/assets/2026-01-06/070.png)
 
-After having the Flow deployed on a Peakboard Hub server it will work right away and send all subscribed light barrier values to a Azure Event Hub.
+After having the Flow deployed on a Peakboard Hub server it will work right away and send all subscribed light barrier values to the Azure Event Hub.
 
 ## Set up a Message Consumer
 
+To set up a consumer application that receives and processes subscribed messages from Azure Event Hub we need a data source similiar to that  we used for the building the flow. The actual output of the data source is a table with two columns: Timestamp and Message. The maximum number of rows is determined through the parameter `Queue Size`. It can processed by using the common patterns like the Reload Event or data flow. 
+As an alternative we can use a special event that is fired for every arriving message. The logic that is built by Building Blocks within this event. In our example we just parse the incoming message and assign the values of the light barriers to two text blocks to show the value.
+
+![image](/assets/2026-01-06/070.png)
+
+## Result
+
+The image shows our example in running mode. The messages are generated from OPC UA and sent to Event Hub and then forwarded to the application. The application shows the raw data in the table (just a tbale control bound to the data source) and also the two text blocks that show the processed values from the incocming messages....
+
+![image](/assets/2026-01-06/result.gif
