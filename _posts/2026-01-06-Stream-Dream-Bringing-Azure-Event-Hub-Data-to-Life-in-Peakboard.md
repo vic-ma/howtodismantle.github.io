@@ -69,4 +69,4 @@ As an alternative we can use a special event that is fired for every arriving me
 
 The image shows our example in running mode. The messages are generated from OPC UA and sent to Event Hub and then forwarded to the application. The application shows the raw data in the table (just a tbale control bound to the data source) and also the two text blocks that show the processed values from the incocming messages....
 
-![image](/assets/2026-01-06/result.gif
+![image](/assets/2026-01-06/result.gif)
