@@ -1231,6 +1231,10 @@ select {
   visibility: visible;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .static {
   position: static;
 }
@@ -1525,6 +1529,10 @@ select {
 
 .flex-shrink-0 {
   flex-shrink: 0;
+}
+
+.grow {
+  flex-grow: 1;
 }
 
 .-translate-y-1\/2 {
