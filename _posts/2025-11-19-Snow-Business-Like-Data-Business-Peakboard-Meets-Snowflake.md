@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Snow Business Like Data Business - Peakboard Meets Snowflake
-date: 2023-03-01 03:00:00 +0200
+date: 2025-11-19 03:00:00 +0200
 tags: bi 
 image: /assets/2025-11-19/title.png
 image_landscape: /assets/2025-11-19/title_landscape.png
