@@ -1,6 +1,6 @@
 ---
 layout: post
-title: From Folder to Fame – How Hub Files Became a Dynamic Infoboard
+title: From Folder to Fame – How Hub Files Became a Dynamic Bulletin Board
 date: 2023-03-01 00:00:00 +0000
 tags: peakboardhub usecase
 image: /assets/2025-11-27/title.png
