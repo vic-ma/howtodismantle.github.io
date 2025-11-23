@@ -10,7 +10,9 @@ read_more_links:
   - name: Infoboard template
     url: https://templates.peakboard.com/Company_Information_PDF/en
 ---
-It's become increasingly popular to use Peakboard Hub as a file management system. And with [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), you can now use the *Hub File data source* to query the metadata of your files in Peakboard Hub, opening the window for many exciting applications.
+More and more people have been using Peakboard Hub as a file management system. And with [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), you can now use the *Hub files data source* to use your Hub files directly in your Peakboard applications!
+
+query the metadata of your files in Peakboard Hub, opening the window for many exciting applications.
 
 We will discuss these options in today's article along with a detailed look into the data source. We will build a dynamic information board. The end user can upload PDF documents to the Hub file system, and the application dynamically shows the PDFs in different categories depending on the folder they are placed in. So the file system and the uploaded PDFs actually shape the appearance of the information board.
 
@@ -26,7 +28,7 @@ Each directory contains the information to be displayed as a PDF file. The namin
 
 ## Building the data backend
 
-In our app we use a Peakboard Hub Files data source and let it point to the main folder we created earlier. With the option "Check subfolders" we let it scan all subfolders. The sample data lists all files that are in or below our main folder.
+In our app we use a Peakboard Hub files data source and let it point to the main folder we created earlier. With the option "Check subfolders" we let it scan all subfolders. The sample data lists all files that are in or below our main folder.
 
 ![image](/assets/2025-11-27/peakboard-hub-files-data-source.png)
 
