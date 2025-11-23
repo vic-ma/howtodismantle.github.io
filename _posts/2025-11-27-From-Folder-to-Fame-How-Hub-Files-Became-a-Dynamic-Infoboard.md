@@ -80,7 +80,9 @@ Next, we create a data flow to process data source's output. We'll use the data 
 
 ![image](/assets/2025-11-27/peakboard-data-flow-cleanup.png)
 
-In an Update Column step we extract the month from the file name, e.g. the file `2025-05-MyAnnouncement.pdf` can be extracted to the month `2025-05`, so it can be used later to be displayed.
+The first few steps of the flow are just basic cleanup. The last two steps are the interesting ones, where we parse the file names for the date and title.
+
+In the *Update column* step, we extract the month from the file name, e.g. the file `2025-05-MyAnnouncement.pdf` can be extracted to the month `2025-05`, so it can be used later to be displayed.
 
 ![image](/assets/2025-11-27/peakboard-update-column-extract-month.png)
 
