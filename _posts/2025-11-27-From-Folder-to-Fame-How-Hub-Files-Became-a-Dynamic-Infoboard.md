@@ -12,31 +12,31 @@ read_more_links:
 ---
 Many people have been using Peakboard Hub as a file management system. And with [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), you can now use Hub files directly in your Peakboard applications, with the new *Hub files data source*. This opens the door to a wide array of exciting possibilities!
 
-In today's article, we're going to explain how to use the new Hub files data source. We'll build a dynamic bulletin board application, which lets the user view and upload PDFs---similar to how a bulletin board works in the real world.
+In today's article, we're going to explain how to use the new Hub files data source. We'll build a dynamic bulletin board application that lets the user view informational PDFs---similar to how a bulletin board works in the real world.
 
 If you want to follow along, you can download the official Peakboard [bulletin board template](https://templates.peakboard.com/Company_Information_PDF/en).
 
 ## Add the PDFs to Peakboard Hub
 
-Our first step is to add our PDFs to Peakboard Hub. But we don't want to add our files directly into the root directory, because that would be very messy. Instead, we create a folder for our bulletin board PDFs:
+Our first step is to upload our informational PDFs to Peakboard Hub. But we don't want to put our files directly in the root folder, because that would be messy. So instead, we create a folder to store all our bulletin board PDFs:
 ```
 Template_Company_Information_PDF/
 ```
 
-Now, we could upload all our PDFs directly into `Template_Company_Information_PDF/`. But that would also be messy. So instead, we create sub-folders for different PDF categories. Let's say that we have three categories:
+Next, we create sub-folders inside `Template_Company_Information_PDF/`, to group our PDFs by topic. This makes things more organized. It also lets our Peakboard app figure out which category each PDF belongs to, and use that information to show the user the different PDF files in each category.
+
+Suppose we have three categories of PDFs:
 * General announcements
 * Lunch menus
 * Shift schedules
 
-So, we create one folder for each PDF category:
+We create one sub-folder for each PDF category:
 ```
 Template_Company_Information_PDF/
 ├── Announcements/
 ├── Lunch/
 └── Shifts/
 ```
-
-This makes everything much more organized. It also lets our app list the PDFs according to their category, which makes it easier for the user to find the PDFs that they're interested in.
 
 ### Another language
 
