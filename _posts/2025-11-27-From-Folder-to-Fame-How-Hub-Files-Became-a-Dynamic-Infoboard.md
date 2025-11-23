@@ -100,16 +100,19 @@ Under the first data flow, we add an additional data flow for each PDF category.
 
 ## Build the dashboard
 
-In the left pane of our application dashboard, we add a styled list to show all the PDFs, grouped by category. In the right pane of our dashboard, we add a PDF control, which displays the PDFs. By default, it displays the empty `placeholder.pdf` file, which is located in our main directory.
+In the left pane of our application dashboard, we add a styled list to show all PDF categories. In the right pane of our dashboard, we add a PDF control, which displays the PDFs. By default, it displays the empty `placeholder.pdf` file, which is located in our main directory.
 
 ![image](/assets/2025-11-27/peakboard-infoboard-layout-preview.png)
 
-The last thing we need is the tapped event in case the user taps on a file to view it. It's in the template editor of our styled list and just sets the path of the central PDF control. Storing the index of the document ID is only a nice-to-have detail. It is used to format the file name element with a different color after clicking by using conditional formatting.
+## Handle the tapped event
+
+Finally, we create the script to handle the tapped event in case the user taps on a file to view it. It's in the template editor of our styled list and just sets the path of the central PDF control. Storing the index of the document ID is only a nice-to-have detail. It is used to format the file name element with a different color after clicking by using conditional formatting.
 
 ![image](/assets/2025-11-27/peakboard-tapped-event-conditional-formatting.png)
 
 ## Result
 
-In this video we can see our board in action. It's very important to understand that the structure and the naming of the files in the file system are used to structure the actual visual. That reduces complexity for those people who maintain the files dramatically.
-
+In this video, you can see our bulletin board app in action:
 ![image](/assets/2025-11-27/result.gif)
+
+When building Peakboard apps that use Hub files, remember sure to name the Hub files according to some consistent pattern. This lets the app read metadata directly from the file name, and it reduces the complexity in maintaining the files dramatically.
