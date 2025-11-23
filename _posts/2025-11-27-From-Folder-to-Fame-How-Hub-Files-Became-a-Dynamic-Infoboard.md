@@ -12,7 +12,7 @@ read_more_links:
 ---
 More and more people have been using Peakboard Hub as a file management system. And with [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), you can now use Hub files directly in your Peakboard applications, with the new *Hub files data source*---opening the door to wide array of exciting possibilities.
 
-In today's article, we're going to explain how to use the new Hub files data source. We'll build a dynamic bulletin board application, where the user can view informational PDFs stored on the Hub, as well as upload their own PDFs. The application categorizes the PDFs based on the folders that they're stored in, in the Hub. This is just like how real bulletin boards often group the bulletins based on category.
+In today's article, we're going to explain how to use the new Hub files data source. We'll build a dynamic bulletin board application, where the user can view informational PDFs stored on the Hub, as well as upload their own PDFs. The application categorizes the PDFs based on the folders that they're stored in, in the Hub. This is just like how bulletin boards in the real world often group the bulletins by category.
 
 The end user can upload PDF documents to the Hub file system, and the application dynamically shows the PDFs in different categories depending on the folder they are placed in. So the file system and the uploaded PDFs actually shape the appearance of the information board.
 
