@@ -92,9 +92,9 @@ This results in nice, human-readable titles:
 
 ![image](/assets/2025-11-27/peakboard-human-readable-file-names.png)
 
-#### Category-specific data flows
+#### Add category data flows
 
-Below the first data flow we add additional data flows for each of our categories. The screenshots show how only the lunch-related files are filtered and sorted in the lunch file-related data flow.
+Under the first data flow, we add an additional data flow for each PDF category. These data flows filter the output of the main data flow, in order to return only the files for their specific category.
 
 ![image](/assets/2025-11-27/peakboard-lunch-data-flow-filter.png)
 
