@@ -66,7 +66,7 @@ That way, our app can figure out the date and title of each PDF by simply readin
 
 ## Create the Peakboard app
 
-Now, let's create the Peakboard app. First, we add a Hub files data source. We point to the main folder we created earlier. With the option "Check subfolders" we let it scan all subfolders. The sample data lists all files that are in or below our main folder.
+Now, let's create the Peakboard app. First, we add a Hub files data source. We point it to our main project folder in Peakboard Hub, `Template_Company_Information_PDF/`. We enable *Check subfolders*, so that the data source includes all our sub-folders. We click the preview reload button on the top-right, and it shows us all our PDFs.
 
 ![image](/assets/2025-11-27/peakboard-hub-files-data-source.png)
 
