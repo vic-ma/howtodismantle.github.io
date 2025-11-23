@@ -7,25 +7,22 @@ image: /assets/2025-11-27/title.png
 image_header: /assets/2025-11-27/title.png
 bg_alternative: true
 read_more_links:
-  - name: Infoboard template
+  - name: Bulletin board template
     url: https://templates.peakboard.com/Company_Information_PDF/en
 ---
 Many people have been using Peakboard Hub as a file management system. And with [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), you can now use Hub files directly in your Peakboard applications, with the new *Hub files data source*. This opens the door to wide array of exciting possibilities!
 
-In today's article, we're going to explain how to use the new Hub files data source. To do this, we'll build a dynamic bulletin board application, where the user can view and upload PDFs. The PDFs are all stored in Peakboard Hub, and we use folders to organize the PDFs into separate categories and languages:
+In today's article, we're going to explain how to use the new Hub files data source. To do this, we'll build a dynamic bulletin board application, where the user can view and upload PDFs. The PDFs are all stored in Peakboard Hub, and we use folders to organize the PDFs into separate categories:
 ```
 Bulletin_Board_Files/
-  Announcements/
-  Lunch/
-  Shifts/
-  Ankuendigungen/
-  Kantinenplan/
-  Schichtplan/
+├── Announcements/
+├── Lunch/
+└── Shifts/
 ```
 
-This lets our application organize the PDFs by category, just like how bulletin boards in real life.
+This lets our application organize the PDFs by category, just like a bulletin board in real life.
 
-This project is also an official Peakboard template, [which you can downloaded](https://templates.peakboard.com/Company_Information_PDF/en).
+This project is based on the [official Peakboard bulletin board template](https://templates.peakboard.com/Company_Information_PDF/en), which you can download and try out for yourself!
 
 ## Set up the PDFs in Peakboard Hub
 
