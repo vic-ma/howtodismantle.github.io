@@ -7,10 +7,12 @@ image: /assets/2025-11-27/title.png
 image_header: /assets/2025-11-27/title.png
 bg_alternative: true
 read_more_links:
-  - name: Template
+  - name: Infoboard template
     url: https://templates.peakboard.com/Company_Information_PDF/en
 ---
-Since the latest version update in summer 2025, Peakboard Hub has become increasingly popular as a file management system. With version 4.1 we can use a Hub File data source to query the metadata of the stored files, opening a window for exciting applications. We will discuss these options in today's article along with a detailed look into the data source. We will build a dynamic information board. The end user can upload PDF documents to the Hub file system, and the application dynamically shows the PDFs in different categories depending on the folder they are placed in. So the file system and the uploaded PDFs actually shape the appearance of the information board.
+It's become increasingly popular to use Peakboard Hub as a file management system. And with [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), you can now use the *Hub File data source* to query the metadata of your files in Peakboard Hub, opening the window for many exciting applications.
+
+We will discuss these options in today's article along with a detailed look into the data source. We will build a dynamic information board. The end user can upload PDF documents to the Hub file system, and the application dynamically shows the PDFs in different categories depending on the folder they are placed in. So the file system and the uploaded PDFs actually shape the appearance of the information board.
 
 This project is also an official Peakboard template which can be downloaded [here](https://templates.peakboard.com/Company_Information_PDF/en).
 
