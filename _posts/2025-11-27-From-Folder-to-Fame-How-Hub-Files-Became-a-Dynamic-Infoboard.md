@@ -40,7 +40,7 @@ Template_Company_Information_PDF/
 
 ### Another language
 
-Now, suppose that we work in a bilingual workplace and all our PDFs have a German version too. We need to store these in Peakboard Hub as well. So, we create a German version of each sub-folder, where we will add the German PDFs:
+Now, suppose that we work in a bilingual workplace and all our PDFs have a German version too. We want to store these in Peakboard Hub as well so that the user can view them too. So, we create a German version of each sub-folder, where we will add the German PDFs:
 
 ```
 Template_Company_Information_PDF/
@@ -54,6 +54,8 @@ Template_Company_Information_PDF/
 
 Now, we add all our PDFs into the appropriate sub-folders:
 ![image](/assets/2025-11-27/peakboard-hub-category-folder-structure.png)
+
+For simplicity, however, our demo app will not make use of these German PDFs.
 
 ### PDF file names
 
