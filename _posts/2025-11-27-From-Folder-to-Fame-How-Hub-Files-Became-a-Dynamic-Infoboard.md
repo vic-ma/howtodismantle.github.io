@@ -12,7 +12,18 @@ read_more_links:
 ---
 Many people have been using Peakboard Hub as a file management system. And with [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), you can now use Hub files directly in your Peakboard applications, with the new *Hub files data source*. This opens the door to wide array of exciting possibilities!
 
-In today's article, we're going to explain how to use the new Hub files data source. To do this, we'll build a dynamic bulletin board application, where the user can view and upload PDFs. The PDFs are all stored in Peakboard Hub, and we use folders to organize the PDFs into separate categories:
+In today's article, we're going to explain how to use the new Hub files data source. To do this, we'll build a dynamic bulletin board application, where the user can view and upload PDFs. The PDFs are all stored in Peakboard Hub, and we use folders to organize the PDFs into separate categories. This lets our application organize the PDFs by category, just like a bulletin board in real life.
+
+This project is based on the [official Peakboard bulletin board template](https://templates.peakboard.com/Company_Information_PDF/en), which you can download and try out for yourself!
+
+## Add the PDFs in Peakboard Hub
+
+First, we create the folder structure in Peakboard Hub and add the PDFs. Let's assume that we have three different categories of PDFs:
+* General announcements
+* Lunch menus
+* Shift schedules
+
+So, we create a folder for our project, and one sub-folder for each category:
 ```
 Bulletin_Board_Files/
 ├── Announcements/
@@ -20,23 +31,24 @@ Bulletin_Board_Files/
 └── Shifts/
 ```
 
-This lets our application organize the PDFs by category, just like a bulletin board in real life.
+Now, let's assume that we have a bilingual workplace and all our PDFs have a German version. We want to store those in Peakboard Hub too. So, we create a German version of each sub-folder, where we will add the German PDFs:
 
-This project is based on the [official Peakboard bulletin board template](https://templates.peakboard.com/Company_Information_PDF/en), which you can download and try out for yourself!
+```
+Bulletin_Board_Files/
+├── Announcements/
+├── Lunch/
+├── Shifts/
+├── Ankuendigungen/
+├── Kantinenplan/
+└── Schichtplan/
+```
 
-## Set up the PDFs in Peakboard Hub
+Now, we add all our PDFs into the appropriate sub-folders. We use a specific naming pattern:
+```
+YYYY_MM_TITLE.pdf
+```
 
-First, we need to create the folder structure in Peakboard Hub and add the PDFs.
-
-Let's assume that we have three different categories:
-* General announcements
-* Lunch menu
-* Shift schedules
-
-Let's also assume that we have a bilingual workplace, and we want 
-Because we might want to have a bilingual board we can do the same in a different language, e.g. German: Ankuendigungen, Kantinenplan, Schichtplan.
-
-Each directory contains the information to be displayed as a PDF file. The naming of the PDF files can also be used later so we follow a certain pattern.
+That way, our app can parse the title to 
 
 ![image](/assets/2025-11-27/peakboard-hub-category-folder-structure.png)
 
