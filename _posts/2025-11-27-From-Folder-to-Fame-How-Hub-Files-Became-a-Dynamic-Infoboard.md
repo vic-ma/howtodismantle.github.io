@@ -12,18 +12,22 @@ read_more_links:
 ---
 Many people have been using Peakboard Hub as a file management system. And with [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), you can now use Hub files directly in your Peakboard applications, with the new *Hub files data source*. This opens the door to wide array of exciting possibilities!
 
-In today's article, we're going to explain how to use the new Hub files data source. To do this, we'll build a dynamic bulletin board application, where the user can view and upload PDFs. The PDFs are all stored in Peakboard Hub, and we use folders to organize the PDFs into separate categories. This lets our application organize the PDFs by category, just like a bulletin board in real life.
+In today's article, we're going to explain how to use the new Hub files data source. To do this, we'll build a dynamic bulletin board application, where the user can view and upload PDFs.
 
 This project is based on the [official Peakboard bulletin board template](https://templates.peakboard.com/Company_Information_PDF/en), which you can download and try out for yourself!
 
-## Add the PDFs in Peakboard Hub
+## Add the PDFs to Peakboard Hub
 
-First, we create the folder structure in Peakboard Hub and add the PDFs. Let's assume that we have three different categories of PDFs:
+Our first step is to add our PDFs to Peakboard Hub. But we don't want to add our files directly into the root directory, because that would be very messy. Instead, we create a folder for our bulletin board PDFs:
+```
+Bulletin_Board_Files/
+```
+Now, we could upload all our PDFs directly into `Bulletin_Board_Files/`. But that would also be messy. So instead, we create sub-folders for different PDF categories. Let's say that we have three different categories of PDFs:
 * General announcements
 * Lunch menus
 * Shift schedules
 
-So, we create a folder for our project, and one sub-folder for each category:
+So, we create one folder for each PDF category:
 ```
 Bulletin_Board_Files/
 ├── Announcements/
@@ -31,7 +35,13 @@ Bulletin_Board_Files/
 └── Shifts/
 ```
 
-Now, let's assume that we have a bilingual workplace and all our PDFs have a German version. We want to store those in Peakboard Hub too. So, we create a German version of each sub-folder, where we will add the German PDFs:
+This makes everything much more organized. And it also lets our app 
+
+
+The PDFs are all stored in Peakboard Hub, and we use folders to organize the PDFs into separate categories. This lets our application organize the PDFs by category, just like a bulletin board in real life.
+
+
+Now, let's assume that we have a bilingual workplace and all our PDFs have a German version. We want to store those in Peakboard Hub too. So, we create a German version of each folder, where we will add the German PDFs:
 
 ```
 Bulletin_Board_Files/
@@ -53,7 +63,9 @@ YYYY_MM_TITLE.pdf
 That way, our app can figure out the date and title of each PDF by simply reading the file name.
 
 
-## Building the data backend
+## Create the Peakboard app
+
+Now, let's create the Peakboard app. First, we add a Hub files data source. 
 
 In our app we use a Peakboard Hub files data source and let it point to the main folder we created earlier. With the option "Check subfolders" we let it scan all subfolders. The sample data lists all files that are in or below our main folder.
 
