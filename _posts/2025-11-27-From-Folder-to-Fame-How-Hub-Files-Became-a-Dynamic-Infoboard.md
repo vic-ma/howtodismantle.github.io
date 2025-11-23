@@ -20,28 +20,30 @@ This project is based on the [official Peakboard bulletin board template](https:
 
 Our first step is to add our PDFs to Peakboard Hub. But we don't want to add our files directly into the root directory, because that would be very messy. Instead, we create a folder for our bulletin board PDFs:
 ```
-Bulletin_Board_Files/
+Template_Company_Information_PDF/
 ```
 
-Now, we could upload all our PDFs directly into `Bulletin_Board_Files/`. But that would also be messy. So instead, we create sub-folders for different PDF categories. Let's say that we have three different categories of PDFs:
+Now, we could upload all our PDFs directly into `Template_Company_Information_PDF/`. But that would also be messy. So instead, we create sub-folders for different PDF categories. Let's say that we have three categories:
 * General announcements
 * Lunch menus
 * Shift schedules
 
 So, we create one folder for each PDF category:
 ```
-Bulletin_Board_Files/
+Template_Company_Information_PDF/
 ├── Announcements/
 ├── Lunch/
 └── Shifts/
 ```
 
-This makes everything much more organized. And it also lets our app list the PDFs according to their category, which makes it easier for the user to find the PDFs they're interested in.
+This makes everything much more organized. It also lets our app list the PDFs according to their category, which makes it easier for the user to find the PDFs that they're interested in.
+
+### Another language
 
 Now, suppose that we work in a bilingual workplace and all our PDFs have a German version too. We need to store these in Peakboard Hub as well. So, we create a German version of each sub-folder, where we will add the German PDFs:
 
 ```
-Bulletin_Board_Files/
+Template_Company_Information_PDF/
 ├── Announcements/
 ├── Lunch/
 ├── Shifts/
@@ -53,6 +55,8 @@ Bulletin_Board_Files/
 Now, we add all our PDFs into the appropriate sub-folders:
 ![image](/assets/2025-11-27/peakboard-hub-category-folder-structure.png)
 
+### PDF file names
+
 We name all of our PDFs like this:
 ```
 YYYY_MM_TITLE.pdf
@@ -62,9 +66,7 @@ That way, our app can figure out the date and title of each PDF by simply readin
 
 ## Create the Peakboard app
 
-Now, let's create the Peakboard app. First, we add a Hub files data source. 
-
-In our app we use a Peakboard Hub files data source and let it point to the main folder we created earlier. With the option "Check subfolders" we let it scan all subfolders. The sample data lists all files that are in or below our main folder.
+Now, let's create the Peakboard app. First, we add a Hub files data source. We point to the main folder we created earlier. With the option "Check subfolders" we let it scan all subfolders. The sample data lists all files that are in or below our main folder.
 
 ![image](/assets/2025-11-27/peakboard-hub-files-data-source.png)
 
