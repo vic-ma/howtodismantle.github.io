@@ -16,9 +16,16 @@ In today's article, we're going to explain how to use the new Hub files data sou
 
 This project is also an official Peakboard template, [which you can downloaded](https://templates.peakboard.com/Company_Information_PDF/en).
 
-## Setting up the backend
+## Set up the Peakboard Hub file structure
 
-For the backend we will set up a corresponding file structure. Let's assume we have three different categories: general announcements, lunch menu, and a shift overview to inform the people who have to work in which shift during a certain week. As we see in the screenshot we build three directories for each of those categories: Announcements, Lunch, Shifts. Because we might want to have a bilingual board we can do the same in a different language, e.g. German: Ankuendigungen, Kantinenplan, Schichtplan.
+First, we need to set up the file structure in Peakboard Hub. That way, our application can categorize the files based on the folder they're in.
+
+Let's assume that we have three different categories:
+* General announcements
+* Lunch menu
+* Shift schedules
+
+As we see in the screenshot we build three directories for each of those categories: Announcements, Lunch, Shifts. Because we might want to have a bilingual board we can do the same in a different language, e.g. German: Ankuendigungen, Kantinenplan, Schichtplan.
 
 Each directory contains the information to be displayed as a PDF file. The naming of the PDF files can also be used later so we follow a certain pattern.
 
