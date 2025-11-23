@@ -82,13 +82,17 @@ Next, we create a data flow to process data source's output. We'll use the data 
 
 The first few steps of the flow are just basic cleanup. The last two steps are the interesting ones, where we parse the file names for the date and title.
 
-In the *Update column* step, we extract the month from the file name, e.g. the file `2025-05-MyAnnouncement.pdf` can be extracted to the month `2025-05`, so it can be used later to be displayed.
+#### Get the title
+
+In the *Update column* step, we get the title from the file name and put it in the `Name` column. For example, we get `My Announcement` from the  `2025-05-MyAnnouncement.pdf` file. We do this by removing the date and underscores from the file name:
 
 ![image](/assets/2025-11-27/peakboard-update-column-extract-month.png)
 
-So the month metadata and other rubbish like `_` are also removed from the file name, generating a nice human-readable file name as shown in the screenshot.
+This results in nice, human-readable titles:
 
 ![image](/assets/2025-11-27/peakboard-human-readable-file-names.png)
+
+#### Category-specific data flows
 
 Below the first data flow we add additional data flows for each of our categories. The screenshots show how only the lunch-related files are filtered and sorted in the lunch file-related data flow.
 
