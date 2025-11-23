@@ -100,13 +100,19 @@ Under the first data flow, we add an additional data flow for each PDF category.
 
 ## Build the dashboard
 
-In the left pane of our application dashboard, we add a styled list to show all PDF categories. In the right pane of our dashboard, we add a PDF control, which displays the PDFs. By default, it displays the empty `placeholder.pdf` file, which is located in our main directory.
+In the left pane of our application dashboard, we create three separate styled lists---one for each category.
+
+In the right pane of our dashboard, we add a PDF control, which displays the PDFs. By default, it displays the empty `placeholder.pdf` file, which is located in our main directory.
 
 ![image](/assets/2025-11-27/peakboard-infoboard-layout-preview.png)
 
-## Handle the tapped event
+## Handle the styled list tapped events
 
-Finally, we create the script to handle the tapped event in case the user taps on a file to view it. It's in the template editor of our styled list and just sets the path of the central PDF control. Storing the index of the document ID is only a nice-to-have detail. It is used to format the file name element with a different color after clicking by using conditional formatting.
+Finally, we need to handle the tapped events of our styled lists. To do this, we open the template editor for each styled list and add a simple script that updates the PDF control.
+
+We also store the index of the document ID, which is just a small enhancement. We use it to format the file name element with a different color after 
+
+create the scripts to handle the tapped events of our styled lists. Each styled list needs its own script. It's in the template editor of our styled list and just sets the path of the central PDF control. Storing the index of the document ID is only a nice-to-have detail. It is used to format the file name element with a different color after clicking by using conditional formatting.
 
 ![image](/assets/2025-11-27/peakboard-tapped-event-conditional-formatting.png)
 
