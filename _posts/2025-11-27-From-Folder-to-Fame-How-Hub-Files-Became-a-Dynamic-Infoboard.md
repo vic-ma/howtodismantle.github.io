@@ -98,9 +98,9 @@ Under the first data flow, we add an additional data flow for each PDF category.
 
 ![image](/assets/2025-11-27/peakboard-lunch-data-flow-filter.png)
 
-## Building the visuals
+## Build the dashboard
 
-In the left pane of our application we place a styled list for each of the categories to present the file list to the user. The main part in the right center is a PDF control that points to the empty `placeholder.pdf` which is located in our main directory.
+In the left pane of our application dashboard, we add a styled list to show all the PDFs, grouped by category. In the right pane of our dashboard, we add a PDF control, which displays the PDFs. By default, it displays the empty `placeholder.pdf` file, which is located in our main directory.
 
 ![image](/assets/2025-11-27/peakboard-infoboard-layout-preview.png)
 
