@@ -62,12 +62,11 @@ Now, we add all our PDFs into the appropriate sub-folders:
 
 ### PDF file names
 
-We name all of our PDFs like this:
+We give all our PDFs a name like this:
 ```
 YYYY_MM_TITLE.pdf
 ```
-That way, our app can figure out the date and title of each PDF by simply reading the file name.
-
+That way, our app can figure out the date and title of each PDF by reading the file name.
 
 ## Create the Peakboard app
 
