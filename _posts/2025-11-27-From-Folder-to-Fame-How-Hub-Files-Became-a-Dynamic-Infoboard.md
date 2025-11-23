@@ -10,7 +10,7 @@ read_more_links:
   - name: Infoboard template
     url: https://templates.peakboard.com/Company_Information_PDF/en
 ---
-More and more people have been using Peakboard Hub as a file management system. And with [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), you can now use Hub files directly in your Peakboard applications, with the new *Hub files data source*. This opens the door to wide array of exciting possibilities!
+Many people have been using Peakboard Hub as a file management system. And with [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), you can now use Hub files directly in your Peakboard applications, with the new *Hub files data source*. This opens the door to wide array of exciting possibilities!
 
 In today's article, we're going to explain how to use the new Hub files data source. We'll build a dynamic bulletin board application, where the user can view informational PDFs, as well as upload their own PDFs. The PDFs are all stored in the Hub, and they're stored in different folders based on their category---like this:
 ```
@@ -24,16 +24,17 @@ This lets our application organize the PDFs by category, just like how bulletin 
 
 This project is also an official Peakboard template, [which you can downloaded](https://templates.peakboard.com/Company_Information_PDF/en).
 
-## Set up the Peakboard Hub file structure
+## Set up the PDFs in Peakboard Hub
 
-First, we need to set up the file structure in Peakboard Hub. That way, our application can categorize the files based on the folder they're in.
+First, we need to create the folder structure in Peakboard Hub and add the PDFs.
 
 Let's assume that we have three different categories:
 * General announcements
 * Lunch menu
 * Shift schedules
 
-As you can see in the screenshot we build three directories for each of those categories: Announcements, Lunch, Shifts. Because we might want to have a bilingual board we can do the same in a different language, e.g. German: Ankuendigungen, Kantinenplan, Schichtplan.
+Let's also assume that we have a bilingual workplace, and we want 
+Because we might want to have a bilingual board we can do the same in a different language, e.g. German: Ankuendigungen, Kantinenplan, Schichtplan.
 
 Each directory contains the information to be displayed as a PDF file. The naming of the PDF files can also be used later so we follow a certain pattern.
 
@@ -73,6 +74,6 @@ The last thing we need is the tapped event in case the user taps on a file to vi
 
 ## Result
 
-In the video we can see our board in action. It's very important to understand that the structure and the naming of the files in the file system are used to structure the actual visual. That reduces complexity for those people who maintain the files dramatically.
+In this video we can see our board in action. It's very important to understand that the structure and the naming of the files in the file system are used to structure the actual visual. That reduces complexity for those people who maintain the files dramatically.
 
 ![image](/assets/2025-11-27/result.gif)
