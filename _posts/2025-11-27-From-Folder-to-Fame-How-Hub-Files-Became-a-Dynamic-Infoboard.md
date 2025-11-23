@@ -10,9 +10,9 @@ read_more_links:
   - name: Infoboard template
     url: https://templates.peakboard.com/Company_Information_PDF/en
 ---
-More and more people have been using Peakboard Hub as a file management system. And with [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), you can now use Hub files directly in your Peakboard applications, with the new *Hub files data source*---opening the door to wide array of exciting possibilities.
+More and more people have been using Peakboard Hub as a file management system. And with [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), you can now use Hub files directly in your Peakboard applications, with the new *Hub files data source*. This opens the door to wide array of exciting possibilities!
 
-In today's article, we're going to explain how to use the new Hub files data source. We'll build a dynamic bulletin board application, where the user can view informational PDFs stored on the Hub, as well as upload their own PDFs. The application categorizes the PDFs based on the folders that they're stored in, in the Hub. This is just like how bulletin boards in the real world often group the bulletins by category.
+In today's article, we're going to explain how to use the new Hub files data source. We'll build a dynamic bulletin board application, where the user can view informational PDFs, as well as upload their own PDFs. The PDFs are all stored in the Hub, and the folder names tell the Peakboard application what category each PDF belongs to. This lets the app organize the PDFs by category, just like how bulletin boards in real life.
 
 This project is also an official Peakboard template, [which you can downloaded](https://templates.peakboard.com/Company_Information_PDF/en).
 
@@ -25,7 +25,7 @@ Let's assume that we have three different categories:
 * Lunch menu
 * Shift schedules
 
-As we see in the screenshot we build three directories for each of those categories: Announcements, Lunch, Shifts. Because we might want to have a bilingual board we can do the same in a different language, e.g. German: Ankuendigungen, Kantinenplan, Schichtplan.
+As you can see in the screenshot we build three directories for each of those categories: Announcements, Lunch, Shifts. Because we might want to have a bilingual board we can do the same in a different language, e.g. German: Ankuendigungen, Kantinenplan, Schichtplan.
 
 Each directory contains the information to be displayed as a PDF file. The naming of the PDF files can also be used later so we follow a certain pattern.
 
