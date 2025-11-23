@@ -73,7 +73,7 @@ That way, our app can figure out the date and title of each PDF by reading the f
 Now, let's create the Peakboard app.
 
 ### Add a Hub files data source
-First, we add a Hub files data source. We set the *Path* to the PDFs folder we created in Peakboard Hub, `Template_Company_Information_PDF/`. We enable *Check subfolders*, so that the data source includes all our sub-folders. We click the preview reload button on the top-right, and it shows us all our PDFs.
+First, we add a Hub files data source. We set the *Path* to the PDF folder that we created in Peakboard Hub, `Template_Company_Information_PDF/`. Then, we enable *Check subfolders*, so that the data source includes all our sub-folders, where the PDFs are stored.
 
 ![image](/assets/2025-11-27/peakboard-hub-files-data-source.png)
 
@@ -84,7 +84,7 @@ Next, we create a data flow to process data source's output. We'll use the data 
 
 ![image](/assets/2025-11-27/peakboard-data-flow-cleanup.png)
 
-The first few steps of the flow are just basic cleanup. The last two steps are the interesting ones, where we parse the file names for the date and title.
+The first few steps of the flow are pretty basic. So, let's skip to the step where we get the PDF's title from the file name.
 
 #### Get the title
 
@@ -98,7 +98,7 @@ This results in nice, human-readable titles:
 
 #### Add category data flows
 
-Under the first data flow, we add an additional data flow for each PDF category. These data flows filter the output of the main data flow, in order to return only the files for their specific category.
+Under the first data flow, we add an additional data flow for each PDF category. These data flows filter the output of the main data flow and return only the files for their specific category. For example, in our lunch data flow, we filter for rows where the `Path` column equals `Lunch`.
 
 ![image](/assets/2025-11-27/peakboard-lunch-data-flow-filter.png)
 
