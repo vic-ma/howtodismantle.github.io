@@ -22,6 +22,7 @@ Our first step is to add our PDFs to Peakboard Hub. But we don't want to add our
 ```
 Bulletin_Board_Files/
 ```
+
 Now, we could upload all our PDFs directly into `Bulletin_Board_Files/`. But that would also be messy. So instead, we create sub-folders for different PDF categories. Let's say that we have three different categories of PDFs:
 * General announcements
 * Lunch menus
@@ -35,11 +36,7 @@ Bulletin_Board_Files/
 └── Shifts/
 ```
 
-This makes everything much more organized. And it also lets our app 
-
-
-The PDFs are all stored in Peakboard Hub, and we use folders to organize the PDFs into separate categories. This lets our application organize the PDFs by category, just like a bulletin board in real life.
-
+This makes everything much more organized. And it also lets our app list the PDFs according to their category, which makes it easier for the user to find the PDFs they're interested in.
 
 Now, let's assume that we have a bilingual workplace and all our PDFs have a German version. We want to store those in Peakboard Hub too. So, we create a German version of each folder, where we will add the German PDFs:
 
