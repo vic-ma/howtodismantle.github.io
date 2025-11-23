@@ -43,14 +43,16 @@ Bulletin_Board_Files/
 └── Schichtplan/
 ```
 
-Now, we add all our PDFs into the appropriate sub-folders. We use a specific naming pattern:
+Now, we add all our PDFs into the appropriate sub-folders.
+
+![image](/assets/2025-11-27/peakboard-hub-category-folder-structure.png)
+
+We use a specific naming pattern:
 ```
 YYYY_MM_TITLE.pdf
 ```
+That way, our app can read the file names of our PDFs to sort them by date.
 
-That way, our app can parse the title to 
-
-![image](/assets/2025-11-27/peakboard-hub-category-folder-structure.png)
 
 ## Building the data backend
 
