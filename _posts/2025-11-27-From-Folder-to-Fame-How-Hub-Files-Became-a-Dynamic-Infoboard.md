@@ -66,11 +66,17 @@ That way, our app can figure out the date and title of each PDF by simply readin
 
 ## Create the Peakboard app
 
-Now, let's create the Peakboard app. First, we add a Hub files data source. We point it to our main project folder in Peakboard Hub, `Template_Company_Information_PDF/`. We enable *Check subfolders*, so that the data source includes all our sub-folders. We click the preview reload button on the top-right, and it shows us all our PDFs.
+Now, let's create the Peakboard app.
+
+### Add a Hub files data source
+First, we add a Hub files data source. We point it to our main project folder in Peakboard Hub, `Template_Company_Information_PDF/`. We enable *Check subfolders*, so that the data source includes all our sub-folders. We click the preview reload button on the top-right, and it shows us all our PDFs.
 
 ![image](/assets/2025-11-27/peakboard-hub-files-data-source.png)
 
-All the data magic happens in data flows. The screenshot shows that we get rid of useless columns and sort the data.
+
+### Add a data flow
+
+Next, we create a data flow to process data source's output. We'll use the data flow to clean up the data, parse the file names for the dates and titles, and sort and organize all the PDFs. Here's what the finished data flow looks like:
 
 ![image](/assets/2025-11-27/peakboard-data-flow-cleanup.png)
 
