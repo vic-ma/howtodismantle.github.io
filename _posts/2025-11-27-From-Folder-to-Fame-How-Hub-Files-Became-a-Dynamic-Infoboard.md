@@ -104,19 +104,17 @@ Under the first data flow, we add an additional data flow for each PDF category.
 
 ## Build the dashboard
 
-In the left pane of our application dashboard, we create three separate styled lists---one for each category.
+In the left pane of our application dashboard, we create three separate styled lists---one for each category. These display the PDF titles.
 
-In the right pane of our dashboard, we add a PDF control to sdisplays the PDF that the user selects. We set the default PDF to `placeholder.pdf`, and empty PDF file that we added to our main directory.
+In the right pane of our dashboard, we add a PDF control to display the PDF that the user selects. We set the default PDF to `placeholder.pdf`, an empty PDF file that we added to our main directory.
 
 ![image](/assets/2025-11-27/peakboard-infoboard-layout-preview.png)
 
 ## Handle the styled list tapped events
 
-Finally, we need to handle the tapped events of our styled lists. To do this, we open the template editor for each styled list and add a simple script that updates the PDF control.
+Finally, we need to handle the tapped events of our styled lists. We want to display whichever file the user clicked on. To do this, we open the template editor for each styled list and add a script that updates the PDF control.
 
-We also store the index of the document ID, which is just a small enhancement. We use it to format the file name element with a different color after 
-
-create the scripts to handle the tapped events of our styled lists. Each styled list needs its own script. It's in the template editor of our styled list and just sets the path of the central PDF control. Storing the index of the document ID is only a nice-to-have detail. It is used to format the file name element with a different color after clicking by using conditional formatting.
+We also store the index of the document ID. That way, we can change the color of the PDF title to indicate that the user selected it. (Totally optional.)
 
 ![image](/assets/2025-11-27/peakboard-tapped-event-conditional-formatting.png)
 
@@ -125,4 +123,4 @@ create the scripts to handle the tapped events of our styled lists. Each styled 
 In this video, you can see our bulletin board app in action:
 ![image](/assets/2025-11-27/result.gif)
 
-When building Peakboard apps that use Hub files, remember sure to name the Hub files according to some consistent pattern. This lets the app read metadata directly from the file name, and it reduces the complexity in maintaining the files dramatically.
+When building Peakboard apps that use Hub files, remember sure to name the Hub files according to some consistent pattern. This lets the app read metadata directly from the file name. It also reduces the complexity in maintaining the files dramatically.
