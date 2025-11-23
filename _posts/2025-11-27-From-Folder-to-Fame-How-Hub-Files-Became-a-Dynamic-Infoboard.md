@@ -38,7 +38,7 @@ Bulletin_Board_Files/
 
 This makes everything much more organized. And it also lets our app list the PDFs according to their category, which makes it easier for the user to find the PDFs they're interested in.
 
-Now, let's assume that we have a bilingual workplace and all our PDFs have a German version. We want to store those in Peakboard Hub too. So, we create a German version of each folder, where we will add the German PDFs:
+Now, suppose that we work in a bilingual workplace and all our PDFs have a German version too. We need to store these in Peakboard Hub as well. So, we create a German version of each sub-folder, where we will add the German PDFs:
 
 ```
 Bulletin_Board_Files/
