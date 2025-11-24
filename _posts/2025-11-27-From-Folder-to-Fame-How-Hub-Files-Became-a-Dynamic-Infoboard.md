@@ -18,12 +18,12 @@ If you want to follow along, you can download the official Peakboard [bulletin b
 
 ## Add the PDFs to Peakboard Hub
 
-Our first step is to upload our informational PDFs to Peakboard Hub. So, we create a folder to store all our bulletin board PDFs:
+Our first step is to upload our informational PDFs to Peakboard Hub. So, we open Peakboard Hub and click on the *Files* tab. Then, we create a new folder for our bulletin board PDFs:
 ```
 Template_Company_Information_PDF/
 ```
 
-Next, we create sub-folders inside `Template_Company_Information_PDF/`, in order to group our PDFs by topic. This is more organized, and it also lets our Peakboard app figure out which category each PDF belongs to, and use that information to show the user the different PDF files in each category.
+Next, we create sub-folders inside `Template_Company_Information_PDF/`, in order to group our PDFs by topic. This makes things more organized, and it also lets our Peakboard app figure out which category each PDF belongs to, and use that information to show the user the different PDF files in each category.
 
 Suppose we have three categories of PDFs:
 * General announcements
