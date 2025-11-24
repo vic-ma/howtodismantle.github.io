@@ -23,14 +23,14 @@ Our first step is to upload our informational PDFs to Peakboard Hub. So, we open
 Template_Company_Information_PDF/
 ```
 
-Next, we create sub-folders inside `Template_Company_Information_PDF/`, in order to group our PDFs by topic. This makes things more organized, and it also lets our Peakboard app figure out which category each PDF belongs to, and use that information to show the user the different PDF files in each category.
+Next, we create sub-folders inside `Template_Company_Information_PDF/`, in order to group our PDFs by topic. This makes things more organized, and it also lets our Peakboard app see which category each PDF belongs to.
 
-Suppose we have three categories of PDFs:
+For our demo app, we have three categories of PDFs:
 * General announcements
 * Lunch menus
 * Shift schedules
 
-We create one sub-folder for each PDF category:
+So, we create one sub-folder for each PDF category:
 ```
 Template_Company_Information_PDF/
 ├── Announcements/
@@ -40,7 +40,7 @@ Template_Company_Information_PDF/
 
 ### Another language
 
-Now, suppose that we work in a bilingual workplace and all our PDFs have a German version too. We want to store these in Peakboard Hub as well, so that users who prefer German can choose the German versions of the PDFs. So, we create a German version of each sub-folder, where we will add the German PDFs:
+Now, suppose that we work in a bilingual workplace and all our PDFs have a German version too. We want to store the German PDFs in Peakboard Hub as well, so that our app can access them. So, we create sub-folder for each PDF category:
 
 ```
 Template_Company_Information_PDF/
