@@ -95,13 +95,13 @@ This results in nice, human-readable titles:
 
 #### Add category data flows
 
-Under the first data flow, we add an additional data flow for each PDF category. These data flows filter the output of the main data flow and return only the files for their respective category. For example, in our lunch data flow, we filter for rows where the `Path` column equals `Lunch`.
+Nested under the first data flow, we add an additional data flow for each PDF category. These data flows filter the output of the main data flow and return only the files for their respective category. For example, in our lunch data flow, we filter for rows where the `Path` column equals `Lunch`.
 
 ![image](/assets/2025-11-27/peakboard-lunch-data-flow-filter.png)
 
 ## Build the dashboard
 
-In the left pane of our application dashboard, we create three separate styled lists---one for each category. To get the titles, they use the category data sources we created earlier.
+In the left pane of our application dashboard, we add three styled lists to show the available PDFs---one styled list for each category. The styled lists get the titles from the category data flows we made.
 
 In the right pane of our dashboard, we add a PDF control to display the PDF that the user selects. We set the default PDF to `placeholder.pdf`, an empty PDF file that we added to our main directory.
 
