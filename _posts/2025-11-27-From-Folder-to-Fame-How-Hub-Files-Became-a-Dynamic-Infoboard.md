@@ -85,7 +85,7 @@ The first few steps of the flow are pretty basic. So, let's skip to the step whe
 
 #### Get the title
 
-In the *Update column* step, we get the title from the file name and put it in the `Name` column. For example, we get `My Announcement` from the file name `2025-05-MyAnnouncement.pdf` file. We do this by trimming the start and end of the file name to remove the date (if it exists) and the file extension (`.pdf`):
+In the *Update column* step, we get the title from the file name and put it in the `Name` column. For example, we get `My Announcement` from the file name `2025-05-MyAnnouncement.pdf` file. We do this by trimming the start and end of the file name to remove the date `2025-05-` and file extension (`.pdf`):
 
 ![image](/assets/2025-11-27/peakboard-update-column-extract-month.png)
 
@@ -101,17 +101,17 @@ Nested under the first data flow, we add an additional data flow for each PDF ca
 
 ## Build the dashboard
 
-In the left pane of our application dashboard, we add three styled lists to show the available PDFs---one styled list for each category. The styled lists get the titles from the category data flows we made.
+In the left pane of our application dashboard, we add three styled lists to show the available PDFs for each category---one styled list per category. The styled lists get the titles from the category data flows we made.
 
-In the right pane of our dashboard, we add a PDF control to display the PDF that the user selects. We set the default PDF to `placeholder.pdf`, an empty PDF file that we added to our main directory.
+In the right pane of our dashboard, we add a PDF control to display the PDF that the user selects. We set the default PDF to `placeholder.pdf`, which is an empty PDF file that we added to our main directory. That way, nothing appears by default.
 
 ![image](/assets/2025-11-27/peakboard-infoboard-layout-preview.png)
 
 ## Handle the styled list tapped events
 
-Finally, we need to handle the tapped events of our styled lists. We want to display whichever file the user clicked on. To do this, we open the template editor for each styled list and add a script that updates the PDF control.
+Finally, we need to handle the tapped events of our styled lists. We want to display the PDF that the user clicked on. To do this, we open the template editor for each styled list and add a script that updates the PDF control.
 
-We also store the index of the document ID. That way, we can change the color of the PDF title to indicate that the user selected it. (Totally optional.)
+We also store the index of the document ID. That way, we can change the color of the PDF title to indicate that the user selected it. This is optional, but it's a nice quality-of-life enhancement.
 
 ![image](/assets/2025-11-27/peakboard-tapped-event-conditional-formatting.png)
 
