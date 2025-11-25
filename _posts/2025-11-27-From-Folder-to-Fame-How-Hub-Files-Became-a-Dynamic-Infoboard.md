@@ -104,7 +104,7 @@ Nested under the main data flow, we add an additional data flow for each PDF cat
 
 Now, let's build the application dashboard.
 
-In the left pane of the dashboard, we add three styled lists to show the available PDFs for each category---one styled list per category. The styled lists get the titles from the category data flows we made.
+In the left pane of the dashboard, we add three styled lists to show the available PDFs for each category---one styled list per category. We set the data sources for the styled lists to the category data flows we made.
 
 In the right pane of our dashboard, we add a PDF control to display the PDF that the user selects. We set the default PDF to `placeholder.pdf`, which is an empty PDF file that we added to our main directory. That way, nothing appears by default.
 
@@ -114,7 +114,7 @@ In the right pane of our dashboard, we add a PDF control to display the PDF that
 
 Finally, we need to handle the tapped events of our styled lists. We want to display the PDF that the user clicked on. To do this, we open the template editor for each styled list and add a script that updates the PDF control to show the PDF that the user selected.
 
-We also store the index of the document ID. That way, we can change the color of the PDF title to indicate that the user selected it. This is optional, but it's a nice quality-of-life enhancement.
+We also store the index of the document ID. That way, we can change the color of the PDF title to indicate that the user selected it. This is optional, but it's a nice quality-of-life improvement.
 
 ![image](/assets/2025-11-27/peakboard-tapped-event-conditional-formatting.png)
 
