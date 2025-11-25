@@ -109,7 +109,7 @@ In the right pane of our dashboard, we add a PDF control to display the PDF that
 
 ## Handle the styled list tapped events
 
-Finally, we need to handle the tapped events of our styled lists. We want to display the PDF that the user clicked on. To do this, we open the template editor for each styled list and add a script that updates the PDF control.
+Finally, we need to handle the tapped events of our styled lists. We want to display the PDF that the user clicked on. To do this, we open the template editor for each styled list and add a script that updates the PDF control to show the PDF that the user selected.
 
 We also store the index of the document ID. That way, we can change the color of the PDF title to indicate that the user selected it. This is optional, but it's a nice quality-of-life enhancement.
 
@@ -117,7 +117,7 @@ We also store the index of the document ID. That way, we can change the color of
 
 ## Result
 
-In this video, you can see our bulletin board app in action:
-![image](/assets/2025-11-27/result.gif)
+When building Peakboard apps that use Hub files, remember to name the Hub files according to some consistent pattern. This lets the app read metadata directly from the file name. It also significantly reduces the complexity in maintaining the files.
 
-When building Peakboard apps that use Hub files, remember sure to name the Hub files according to some consistent pattern. This lets the app read metadata directly from the file name. It also reduces the complexity in maintaining the files dramatically.
+Here's what the final app looks like:
+![image](/assets/2025-11-27/result.gif)
