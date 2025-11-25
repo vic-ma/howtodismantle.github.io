@@ -77,7 +77,7 @@ First, we add a Hub files data source. We set the data source's *Path* to the ma
 
 ### Add a data flow
 
-Next, we create a data flow to process data source's output. We use the data flow to clean up the data, sort the rows, and get the titles. Here's what the finished data flow looks like:
+Next, we create a data flow to process the data source's output. We use the data flow to clean up the data, sort the rows, and get the titles. Here's what the finished data flow looks like:
 
 ![image](/assets/2025-11-27/peakboard-data-flow-cleanup.png)
 
