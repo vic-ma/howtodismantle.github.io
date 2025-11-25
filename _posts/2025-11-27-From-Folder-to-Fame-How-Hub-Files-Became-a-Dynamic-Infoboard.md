@@ -81,11 +81,13 @@ Next, we create a data flow to process the data source's output. We use the data
 
 ![image](/assets/2025-11-27/peakboard-data-flow-cleanup.png)
 
-The first few steps of the flow are pretty basic. So, let's skip to the step where we get the PDF's title from the file name.
+The first few steps of the flow are pretty basic. ([Download the template](https://templates.peakboard.com/Company_Information_PDF/en) to see how they work.) So, let's skip to the step where we get the PDF's title from the file name.
 
 #### Get the title
 
-In the *Update column* step, we get the title from the file name and put it in the `Name` column. For example, we get `My Announcement` from the file name `2025-05-MyAnnouncement.pdf` file. We do this by trimming the start and end of the file name to remove the date `2025-05-` and file extension (`.pdf`):
+In the *Update column* step, we get the title from the file name and put it in the `Name` column. For example, we get `My Announcement` from the file name `2025-05-MyAnnouncement.pdf` file. We do this by trimming the start and end of the file name to remove the date `2025-05-` and file extension (`.pdf`).
+
+Note that we use a `if` block to see if the file name has a date in the first place. If it has no date, we only need to remove the file extension.
 
 ![image](/assets/2025-11-27/peakboard-update-column-extract-month.png)
 
