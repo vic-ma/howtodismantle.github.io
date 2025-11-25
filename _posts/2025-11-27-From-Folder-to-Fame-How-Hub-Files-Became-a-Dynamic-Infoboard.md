@@ -102,9 +102,9 @@ Nested under the main data flow, we add an additional data flow for each PDF cat
 
 ## Build the dashboard
 
-Now, let's build the dashboard.
+Now, let's build the application dashboard.
 
-In the left pane of our application dashboard, we add three styled lists to show the available PDFs for each category---one styled list per category. The styled lists get the titles from the category data flows we made.
+In the left pane of the dashboard, we add three styled lists to show the available PDFs for each category---one styled list per category. The styled lists get the titles from the category data flows we made.
 
 In the right pane of our dashboard, we add a PDF control to display the PDF that the user selects. We set the default PDF to `placeholder.pdf`, which is an empty PDF file that we added to our main directory. That way, nothing appears by default.
 
