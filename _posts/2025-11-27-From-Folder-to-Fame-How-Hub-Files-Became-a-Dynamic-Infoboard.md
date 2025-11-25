@@ -85,11 +85,10 @@ The first few steps of the flow are pretty basic. ([Download the template](https
 
 #### Get the title
 
-In the *Update column* step, we get the title from the file name and put it in the `Name` column. For example, we get `My Announcement` from the file name `2025-05-MyAnnouncement.pdf` file. We do this by trimming the start and end of the file name to remove the date (`2025-05-`) and file extension (`.pdf`).
+In the *Update column* step, we get the title from the file name and put it in the `Name` column. For example, we get `My Announcement` from the file name `2025-05-MyAnnouncement.pdf` file. We do this by trimming the start and end of the file name to remove the date (`2025-05-`) and file extension (`.pdf`).  Note that we use an `if` block to see if the file name actually has a date at the start. If it has no date, then we only need to remove the file extension.
 
 ![image](/assets/2025-11-27/peakboard-update-column-extract-month.png)
 
-Note that we use a `if` block to see if the file name has a date at the start. If it has no date, then we only need to remove the file extension.
 
 This results in nice, human-readable titles:
 
@@ -97,11 +96,13 @@ This results in nice, human-readable titles:
 
 #### Add category data flows
 
-Nested under the first data flow, we add an additional data flow for each PDF category. These data flows filter the output of the main data flow and return only the files for their respective category. For example, in our lunch data flow, we filter for rows where the `Path` column equals `Lunch`.
+Nested under the main data flow, we add an additional data flow for each PDF category. These data flows filter the output of the main data flow and return only the files for their respective category. For example, in our lunch data flow, we filter for rows where the `Path` column equals `Lunch`.
 
 ![image](/assets/2025-11-27/peakboard-lunch-data-flow-filter.png)
 
 ## Build the dashboard
+
+Now, let's build the dashboard.
 
 In the left pane of our application dashboard, we add three styled lists to show the available PDFs for each category---one styled list per category. The styled lists get the titles from the category data flows we made.
 
