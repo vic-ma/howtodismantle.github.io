@@ -85,11 +85,11 @@ The first few steps of the flow are pretty basic. ([Download the template](https
 
 #### Get the title
 
-In the *Update column* step, we get the title from the file name and put it in the `Name` column. For example, we get `My Announcement` from the file name `2025-05-MyAnnouncement.pdf` file. We do this by trimming the start and end of the file name to remove the date `2025-05-` and file extension (`.pdf`).
-
-Note that we use a `if` block to see if the file name has a date in the first place. If it has no date, we only need to remove the file extension.
+In the *Update column* step, we get the title from the file name and put it in the `Name` column. For example, we get `My Announcement` from the file name `2025-05-MyAnnouncement.pdf` file. We do this by trimming the start and end of the file name to remove the date (`2025-05-`) and file extension (`.pdf`).
 
 ![image](/assets/2025-11-27/peakboard-update-column-extract-month.png)
+
+Note that we use a `if` block to see if the file name has a date at the start. If it has no date, then we only need to remove the file extension.
 
 This results in nice, human-readable titles:
 
