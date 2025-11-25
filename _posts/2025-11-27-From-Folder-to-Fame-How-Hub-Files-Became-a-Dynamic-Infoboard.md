@@ -23,7 +23,7 @@ The first step is to upload our informational PDFs to Peakboard Hub. So, we open
 Template_Company_Information_PDF/
 ```
 
-Next, we create sub-folders inside `Template_Company_Information_PDF/`, in order to group our PDFs by topic. This makes things more organized, and it also lets our Peakboard app see which category each PDF belongs to.
+Next, we create sub-folders inside `Template_Company_Information_PDF/`, in order to group our PDFs by category. This makes everything more organized, and it also lets our Peakboard app see which category each PDF belongs to.
 
 For our demo app, we have three categories of PDFs:
 * General announcements
@@ -59,7 +59,7 @@ However, for simplicity, we won't actually use the German PDFs in our demo app.
 Now, we add all our PDFs into the appropriate sub-folders:
 ![image](/assets/2025-11-27/peakboard-hub-category-folder-structure.png)
 
-We give all our PDFs a name like this:
+We try to name our PDFs like this:
 ```
 YYYY_MM_TITLE.pdf
 ```
@@ -70,14 +70,14 @@ That way, our app can figure out the date and title of each PDF by reading the f
 Now, let's create the Peakboard app.
 
 ### Add a Hub files data source
-First, we add a Hub files data source. We set the *Path* to the PDF folder that we created in Peakboard Hub, `Template_Company_Information_PDF/`. Then, we enable *Check subfolders*, so that the data source includes all our sub-folders, where the PDFs are actually stored.
+First, we add a Hub files data source. We set the data source's *Path* to the main PDF folder that we created in Peakboard Hub, `Template_Company_Information_PDF/`. Then, we enable *Check subfolders*, so that the data source includes all our sub-folders, where the PDFs are actually stored.
 
 ![image](/assets/2025-11-27/peakboard-hub-files-data-source.png)
 
 
 ### Add a data flow
 
-Next, we create a data flow to process data source's output. We'll use the data flow to clean up the data, parse the file names for the dates and titles, and sort and organize all the PDFs. Here's what the finished data flow looks like:
+Next, we create a data flow to process data source's output. We use the data flow to clean up the data, sort the rows, and get the titles. Here's what the finished data flow looks like:
 
 ![image](/assets/2025-11-27/peakboard-data-flow-cleanup.png)
 
