@@ -18,7 +18,7 @@ If you want to follow along, you can download the official Peakboard [bulletin b
 
 ## Add the PDFs to Peakboard Hub
 
-Our first step is to upload our informational PDFs to Peakboard Hub. So, we open Peakboard Hub and click on the *Files* tab. Then, we create a new folder for our bulletin board PDFs:
+The first step is to upload our informational PDFs to Peakboard Hub. So, we open Peakboard Hub and click on the *Files* tab. Then, we create a new folder for our bulletin board PDFs:
 ```
 Template_Company_Information_PDF/
 ```
@@ -40,7 +40,7 @@ Template_Company_Information_PDF/
 
 ### Another language
 
-Now, suppose that we work in a bilingual workplace and all our PDFs have a German version too. We want to store the German PDFs in Peakboard Hub as well, so that our bulletin board can access them. So, we add a German sub-folder for each PDF category:
+Now, suppose that we work in a bilingual workplace and all our PDFs have a German version too. We want to store the German PDFs in Peakboard Hub as well, so that our bulletin board app can access them. So, we add a German sub-folder for each PDF category:
 
 ```
 Template_Company_Information_PDF/
@@ -52,7 +52,7 @@ Template_Company_Information_PDF/
 └── Schichtplan/
 ```
 
-For simplicity, however, our demo app will not actually use these German PDFs.
+However, for simplicity, we won't actually use the German PDFs in our demo app.
 
 ### Add the PDFs
 
@@ -85,7 +85,7 @@ The first few steps of the flow are pretty basic. So, let's skip to the step whe
 
 #### Get the title
 
-In the *Update column* step, we get the title from the file name and put it in the `Name` column. For example, we get `My Announcement` from the  `2025-05-MyAnnouncement.pdf` file. We do this by removing the date and underscores from the file name:
+In the *Update column* step, we get the title from the file name and put it in the `Name` column. For example, we get `My Announcement` from the file name `2025-05-MyAnnouncement.pdf` file. We do this by trimming the start and end of the file name to remove the date (if it exists) and the file extension (`.pdf`):
 
 ![image](/assets/2025-11-27/peakboard-update-column-extract-month.png)
 
