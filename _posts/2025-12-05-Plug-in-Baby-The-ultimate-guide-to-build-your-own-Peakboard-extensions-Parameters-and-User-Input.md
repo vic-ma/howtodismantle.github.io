@@ -24,13 +24,18 @@ This article is part two of our custom Peakboard extensions series:
 
 In the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html), we explained how to build a simple Peakboard extension called `MeowExtension`. We created two classes in .NET: one for specifying the extension metadata, and one for defining the *Cat List* data source.
 
-In today's article, we're going to take things one step further. We're going to add some configuration options to our Cat List data source. (This is the same as the configuration options that normal data sources have. For example, a JSON data source has options for the URL, authentication type, path, etc.)
+In today's article, we're going to take things one step further. We're going to add some configuration options to our Cat List data source. These are the options that the user sees when they add a new Cat List data source. (Just like how, for example, the JSON data source has configuration options for the source URL, authentication type, path, etc.)
 
 Make sure that you have read the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html). This article won't make sense otherwise. You can also take a look at the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension).
 
 ## Add a simple parameter
 
-Now, let's add a simple text parameter to our `MeowExtension` data source. To add a parameter we will need to adjust the `GetDefinitionOverride` override and just add it to the `PropertyInputDefaults` collection and also set the `PropertyInputPossible` to true. In this example we will add a very simple text parameter named `CatsName` to our list.
+Now, let's add a simple text parameter for the cat's name, to our Cat List data source. To do this, we need to modify our `CustomCatList` data source class:
+1. Set `PropertyInputPossible` to `true`, to indicate that our data source has parameters that the user can set..
+1. Create a new `CustomListPropertyDefinition`. This object defines our text parameter.
+1. Add the `CustomListPropertyDefinition` object to the `PropertyInputDefaults` collection, to add it to the data source.
+
+Note: In our last article, we used a proper `CustomCatList` class definition. But here, we're just going to use an object initializer inside the `GetDefinitionOverride` function.
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
