@@ -54,11 +54,15 @@ protected override CustomListDefinition GetDefinitionOverride()
 }
 {% endhighlight %}
 
-The screenshot shows how the parameter looks in the Peakboard Designer UI.
+Here's what our parameter looks like in Peakboard Designer:
 
 ![Peakboard custom list text parameter input](/assets/2025-12-05/peakboard-text-parameter-configuration.png)
 
-To access the value of the user input we use the `data` object that is provided in the `GetItemsOverride` function. We can easily access all parameters through the `Properties` collection. The source code also shows how to generate a log entry. It uses the `Log` object to generate messages. All types of messages, for example Info, Verbose, Error, Critical, etc.... are supported in the same way.
+### Get the parameter value
+
+Of course, adding a parameter on its own isn't very useful. We also want to use the value of the parameter (either the value that the user entered, or the default).
+
+To get the value of a parameter, we override the `GetItemsOverride` function. This function provides a `data` object that contains a `Properties` collection. This collection contains all the parameter values. So, to get the value for our `CatsName` parameter, we do this:
 
 {% highlight csharp %}
 protected override CustomListObjectElementCollection GetItemsOverride(CustomListData data)
@@ -68,6 +72,8 @@ protected override CustomListObjectElementCollection GetItemsOverride(CustomList
     // ....
 }
 {% endhighlight %}
+
+In the above example, we print out the value of `CatsName` by using the `Log` object. It works as you would expect, and it supports all the standard logging levels, like `Info`, `Verbose`, `Error`, `Critical`, etc.
 
 The extension kit offers a standardized way to check the user input and prevent the data source dialog from being closed when the validation of the values fails. This happens in the overridable function `CheckDataOverride`. In case there's anything wrong with the value we can throw an exception that is routed to the user and prevents the dialog from being closed.
 
