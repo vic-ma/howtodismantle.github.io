@@ -22,15 +22,15 @@ This article is part two of our custom Peakboard extensions series:
 * [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html)
 * [Part IV - Event-triggered data sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
 
-In the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html), we explained how to build a simple Peakboard extension called `MeowExtension`. We created two classes in .NET: one for specifying extension metadata, and one for sending data to the Peakboard application.
+In the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html), we explained how to build a simple Peakboard extension called `MeowExtension`. We created two classes in .NET: one for specifying the extension metadata, and one for defining the *Cat List* data source.
 
-In today's article, we're going to take things one step further. We're going to add some configuration options to our `MeowExtension`. (This is the same as the configuration options that normal data sources have. For example, a JSON data source has options for the URL, authentication type, path, etc.)
+In today's article, we're going to take things one step further. We're going to add some configuration options to our Cat List data source. (This is the same as the configuration options that normal data sources have. For example, a JSON data source has options for the URL, authentication type, path, etc.)
 
-Make sure that you have read the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html). This article won't make sense otherwise. And as always, the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension) is available on GitHub.
+Make sure that you have read the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html). This article won't make sense otherwise. You can also take a look at the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension).
 
 ## Add a simple parameter
 
-To add a parameter we will need to adjust the `GetDefinitionOverride` override and just add it to the `PropertyInputDefaults` collection and also set the `PropertyInputPossible` to true. In this example we will add a very simple text parameter named `CatsName` to our list.
+Now, let's add a simple text parameter to our `MeowExtension` data source. To add a parameter we will need to adjust the `GetDefinitionOverride` override and just add it to the `PropertyInputDefaults` collection and also set the `PropertyInputPossible` to true. In this example we will add a very simple text parameter named `CatsName` to our list.
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
