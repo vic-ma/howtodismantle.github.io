@@ -75,7 +75,11 @@ protected override CustomListObjectElementCollection GetItemsOverride(CustomList
 
 In the above example, we print out the value of `CatsName` by using the `Log` object. It works as you would expect, and it supports all the standard logging levels, like `Info`, `Verbose`, `Error`, `Critical`, etc.
 
-The extension kit offers a standardized way to check the user input and prevent the data source dialog from being closed when the validation of the values fails. This happens in the overridable function `CheckDataOverride`. In case there's anything wrong with the value we can throw an exception that is routed to the user and prevents the dialog from being closed.
+### Validate the parameter value
+
+The extension kit provides a standardized way to validate parameter values. That way, if the user enters an invalid value, Peakboard Designer will let them know and prevent them from saving the data source, until they fix the parameter value.
+
+To validate a parameter value, we override the `CheckDataOverride` function. We process the parameter's value and if there's a problem, we throw an exception. The exception message is shown to the user, to let them know what's wrong with the value they entered.
 
 {% highlight csharp %}
 protected override void CheckDataOverride(CustomListData data)
