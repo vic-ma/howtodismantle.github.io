@@ -24,7 +24,9 @@ This article is part two of our custom Peakboard extensions series:
 
 In the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html), we explained how to build a simple Peakboard extension called `MeowExtension`. We created two classes in .NET: one for specifying extension metadata, and one for sending data to the Peakboard application.
 
-In today's article, we're going to take things one step further. We're going to improve our `MeowExtension` by adding configuration options that the user can set. talk about how to build a user interface to let the user configure the extension. Typical parameters would be a URL or credentials to the source system. The understanding of the frame we discussed in the first part of the series is a crucial requirement. The sample code used in this article can be found at [github](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension).
+In today's article, we're going to take things one step further. We're going to add some configuration options to our `MeowExtension` that the user can set. These are the options that the user sees when they create a new `MeowExtension`. (It's the same thing as when you add a new JSON data source and have options for the URL, authentication type, path, etc.)
+
+talk about how to build a user interface to let the user configure the extension. Typical parameters would be a URL or credentials to the source system. The understanding of the frame we discussed in the first part of the series is a crucial requirement. The sample code used in this article can be found at [github](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension).
 
 ## Add a simple parameter
 
