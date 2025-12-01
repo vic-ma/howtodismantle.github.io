@@ -75,13 +75,13 @@ protected override CustomListObjectElementCollection GetItemsOverride(CustomList
 
 In the above example, we print out the value of `CatsName` by using the `Log` object. It works as you would expect, and it supports all the standard logging levels, like `Info`, `Verbose`, `Error`, `Critical`, etc.
 
-### Validate the parameter value
+## Validate the parameter value
 
 The extension kit provides a standardized way to validate parameter values. That way, if the user enters an invalid value, Peakboard Designer will let them know and prevent them from saving the data source, until they fix the parameter value.
 
 To validate a parameter value, we override the `CheckDataOverride` function. We process the parameter's value and if there's a problem, we throw an exception. The exception message is shown to the user, to let them know what's wrong with the value they entered.
 
-For our `CatsName` parameter, we make sure that the parameter value is not empty:
+For our `CatsName` parameter, let's make sure that the parameter value is not empty:
 {% highlight csharp %}
 protected override void CheckDataOverride(CustomListData data)
 {
@@ -112,7 +112,7 @@ Here's what our new parameters look like. You can see that Peakboard Designer ha
 
 ![Peakboard boolean and number parameter settings](/assets/2025-12-05/peakboard-boolean-number-parameter-settings.png)
 
-## Add an enum parameter
+## Add an selectable-values parameter
 
 Now, let's say that we have a parameter where we don't want the user to enter arbitrary values. Instead, we want them to choose from a predetermined selection of values. To do this, we set the `selectableValues` attribute of our `TypeDefinition`. We set `selectableValues` to the values we want the user to choose from.
 
@@ -122,7 +122,7 @@ new CustomListPropertyDefinition { Name = "MaximumOfSomething", Value = "5",
       TypeDefinition = TypeDefinition.Number.With(selectableValues: [ 2, 3, 5, 10, 20, 50, 100]) },
 {% endhighlight %}
 
-And here's what it looks like in Peakboard Designer:
+And here's what it looks like in Peakboard Designer. You can see that the user gets a drop-down list, in order to choose the value they want:
 ![Peakboard parameter selectable values dropdown](/assets/2025-12-05/peakboard-selectable-values-dropdown.png)
 
 For passwords, connection strings or other potentially sensitive data, we can use the `TypeDefinition` attribute `masked: true`
