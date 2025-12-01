@@ -28,7 +28,7 @@ In today's article, we're going to take things one step further. We're going to 
 
 Make sure that you have read the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html). This article won't make sense otherwise. You can also take a look at the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension).
 
-## Add a simple parameter
+## Add a text parameter
 
 Now, let's add a simple text parameter for the cat's name, to our Cat List data source. To do this, we need to modify our `CustomCatList` data source class:
 1. Set `PropertyInputPossible` to `true`, to indicate that our data source has parameters that the user can set..
@@ -81,7 +81,7 @@ The extension kit provides a standardized way to validate parameter values. That
 
 To validate a parameter value, we override the `CheckDataOverride` function. We process the parameter's value and if there's a problem, we throw an exception. The exception message is shown to the user, to let them know what's wrong with the value they entered.
 
-For our `CatsName` parameter, we check to make sure that the parameter value is not empty:
+For our `CatsName` parameter, we make sure that the parameter value is not empty:
 {% highlight csharp %}
 protected override void CheckDataOverride(CustomListData data)
 {
@@ -93,16 +93,22 @@ protected override void CheckDataOverride(CustomListData data)
 }
 {% endhighlight %}
 
-## Complex parameters
+## Add non-text parameters
 
-Besides the simple text parameter we have the option to force the value of a parameter into the other Peakboard data types such as number or bool. All the additional parameter objects are added to the `PropertyInputDefaults` collection.
+Ok, but what if we want to add a non-text parameter? For example, a boolean or a numeric parameter? In that case, the process is mostly the same---but we need to set the `TypeDefinition` field of our `CustomListPropertyDefinition` object.
+
+Let's create two new parameters:
+* `IsItARealCat`, a boolean that indicates whether the cat is a real cat or not.
+* `Age`, a number that indicates the age of the cat.
 
 {% highlight csharp %}
 new CustomListPropertyDefinition { Name = "IsItARealCat", Value = "True", TypeDefinition = TypeDefinition.Boolean },
 new CustomListPropertyDefinition { Name = "Age", Value = "4", TypeDefinition = TypeDefinition.Number },
 {% endhighlight %}
 
-The dialogs to manipulate the data are adjusted automatically according to this meta data.
+Like before, we also need to add the new parameters to our `PropertyInputDefaults` collection.
+
+Here's what our new parameters look like. You can see that Peakboard Designer handles their data types correctly.
 
 ![Peakboard boolean and number parameter settings](/assets/2025-12-05/peakboard-boolean-number-parameter-settings.png)
 
