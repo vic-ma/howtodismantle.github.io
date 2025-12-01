@@ -22,9 +22,11 @@ This article is part two of our custom Peakboard extensions series:
 * [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html)
 * [Part IV - Event-triggered data sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
 
-In the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html), we explained how to build a simple Peakboard extension called `MeowExtension`. We created two classes in .NET: one for specifying the extension metadata, and one for defining the *Cat List* data source.
+In the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html), we explained how to build a simple Peakboard extension called `MeowExtension`. We created two classes in .NET:
+* One for specifying the extension metadata.
+* One for defining the *Cat List* data source.
 
-In today's article, we're going to take things one step further. We're going to add some configuration options to our Cat List data source. These are the options that the user sees when they add a new Cat List data source. (Just like how, for example, the JSON data source has configuration options for the source URL, authentication type, path, etc.)
+In today's article, we're going to take things one step further: We'll add some configuration options to our Cat List data source. These are the options that the user sees when they add a new Cat List data source. (Just like how the JSON data source has configuration options for the source URL, authentication type, path, etc.)
 
 Make sure that you have read the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html). This article won't make sense otherwise. You can also take a look at the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension).
 
