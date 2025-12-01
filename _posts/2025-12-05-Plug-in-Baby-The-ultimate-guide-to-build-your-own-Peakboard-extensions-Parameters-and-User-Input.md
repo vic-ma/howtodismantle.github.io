@@ -81,6 +81,7 @@ The extension kit provides a standardized way to validate parameter values. That
 
 To validate a parameter value, we override the `CheckDataOverride` function. We process the parameter's value and if there's a problem, we throw an exception. The exception message is shown to the user, to let them know what's wrong with the value they entered.
 
+For our `CatsName` parameter, we check to make sure that the parameter value is not empty:
 {% highlight csharp %}
 protected override void CheckDataOverride(CustomListData data)
 {
