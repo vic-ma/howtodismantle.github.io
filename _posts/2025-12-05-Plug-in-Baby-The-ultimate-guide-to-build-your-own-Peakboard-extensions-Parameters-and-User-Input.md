@@ -58,7 +58,7 @@ Here's what our parameter looks like in Peakboard Designer:
 
 ![Peakboard custom list text parameter input](/assets/2025-12-05/peakboard-text-parameter-configuration.png)
 
-### Get the parameter value
+## Get the parameter value
 
 Of course, adding a parameter on its own isn't very useful. We also want to use the value of the parameter (either the value that the user entered, or the default).
 
@@ -73,7 +73,7 @@ protected override CustomListObjectElementCollection GetItemsOverride(CustomList
 }
 {% endhighlight %}
 
-In the above example, we print out the value of `CatsName` by using the `Log` object. It works as you would expect, and it supports all the standard logging levels, like `Info`, `Verbose`, `Error`, `Critical`, etc.
+We print out the value of `CatsName` by using the `Log` object. It works as you would expect, and it supports all the standard logging levels, like `Info`, `Verbose`, `Error`, `Critical`, etc.
 
 ## Validate the parameter value
 
@@ -112,7 +112,7 @@ Here's what our new parameters look like. You can see that Peakboard Designer ha
 
 ![Peakboard boolean and number parameter settings](/assets/2025-12-05/peakboard-boolean-number-parameter-settings.png)
 
-## Add an selectable-values parameter
+## Add a selectable-values parameter
 
 Now, let's say that we have a parameter where we don't want the user to enter arbitrary values. Instead, we want them to choose from a predetermined selection of values. To do this, we set the `selectableValues` attribute of our `TypeDefinition`. We set `selectableValues` to the values we want the user to choose from.
 
@@ -125,28 +125,34 @@ new CustomListPropertyDefinition { Name = "MaximumOfSomething", Value = "5",
 And here's what it looks like in Peakboard Designer. You can see that the user gets a drop-down list, in order to choose the value they want:
 ![Peakboard parameter selectable values dropdown](/assets/2025-12-05/peakboard-selectable-values-dropdown.png)
 
-For passwords, connection strings or other potentially sensitive data, we can use the `TypeDefinition` attribute `masked: true`
+## Add a masked parameter
+
+For passwords, connection strings and any other potentially sensitive data, we want to mask the text that the user types in. To do this, we set the `TypeDefinition` attribute `masked` to `true`:
 
 {% highlight csharp %}
 new CustomListPropertyDefinition { Name = "MySecretCode", Value = "18899", TypeDefinition = TypeDefinition.String.With(masked: true) },
 {% endhighlight %}
 
-Here's a sample screenshot of a masked parameter:
+Here's what the masked parameter looks like:
 
 ![image](/assets/2025-12-05/peakboard-masked-parameter-input.png)
 
-The last thing we want to discuss are multliline texts. These are typically used for long SQL statement or JSON / XML fragments.
+## Add a multi-line text parameter
+
+Finally, let's create a multi-line text parameter. These parameters are typically used for long code-like text. For example, SQL statements or JSON / XML fragments.
+
+Multi-line text is not a unique data type. Instead, a multi-line text parameter is a variant of a text parameter. To turn a text parameter into a multi-line text parameter, we set the `TypeDefinition`'s `multiLine` attribute to `true`.
 
 {% highlight csharp %}
 new CustomListPropertyDefinition { Name = "MultilineDescription", 
       Value = "Please provide\nsome\nbeautiful SQL", TypeDefinition = TypeDefinition.String.With(multiLine: true) }
 {% endhighlight %}
 
-And here's how it looks like as part of the data source dialog UI.
+Here's what it looks like in Peakboard Designer.
 
 ![image](/assets/2025-12-05/peakboard-multiline-parameter.png)
 
-## result
+## Result
 
 Defining the parameters of an extension with a good UI is a key point to make it as easy as possible for the user to provide his data. We need to choose them wisely :-)
 
