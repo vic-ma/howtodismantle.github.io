@@ -112,15 +112,17 @@ Here's what our new parameters look like. You can see that Peakboard Designer ha
 
 ![Peakboard boolean and number parameter settings](/assets/2025-12-05/peakboard-boolean-number-parameter-settings.png)
 
-Let's assume we want to give the user only a combo box of distinct values to be chosen rather than a free text, we just use the `selectableValues` attribute to restrict the entry to some values.
+## Add an enum parameter
 
+Now, let's say that we have a parameter where we don't want the user to enter arbitrary values. Instead, we want them to choose from a predetermined selection of values. To do this, we set the `selectableValues` attribute of our `TypeDefinition`. We set `selectableValues` to the values we want the user to choose from.
+
+In this example, we define a numeric parameter, and we give it a few possible values:
 {% highlight csharp %}
 new CustomListPropertyDefinition { Name = "MaximumOfSomething", Value = "5", 
       TypeDefinition = TypeDefinition.Number.With(selectableValues: [ 2, 3, 5, 10, 20, 50, 100]) },
 {% endhighlight %}
 
-Here's the corresponding view for the user of the extension to provide the distinct values they can choose from:
-
+And here's what it looks like in Peakboard Designer:
 ![Peakboard parameter selectable values dropdown](/assets/2025-12-05/peakboard-selectable-values-dropdown.png)
 
 For passwords, connection strings or other potentially sensitive data, we can use the `TypeDefinition` attribute `masked: true`
