@@ -26,7 +26,7 @@ In the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-you
 
 In today's article, we're going to take things one step further. We're going to add some configuration options to our `MeowExtension`. (This is the same as the configuration options that normal data sources have. For example, a JSON data source has options for the URL, authentication type, path, etc.)
 
-talk about how to build a user interface to let the user configure the extension. Typical parameters would be a URL or credentials to the source system. The understanding of the frame we discussed in the first part of the series is a crucial requirement. The sample code used in this article can be found at [github](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension).
+Make sure that you have read the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html). This article won't make sense otherwise. And as always, the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension) is available on GitHub.
 
 ## Add a simple parameter
 
