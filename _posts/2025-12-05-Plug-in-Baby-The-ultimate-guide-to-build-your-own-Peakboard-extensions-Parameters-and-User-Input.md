@@ -156,4 +156,4 @@ Here's what it looks like in Peakboard Designer:
 
 Defining the parameters of a data source is essential to creating a good user experience. The data types you choose and the parameter validation you do can really affect how easy your data source (and extension, in general) is to work with.
 
-In the next part of our series, we'll explain how to build functions that can be used in both LUA scripts and Building Blocks: [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html).
+In the next part of this series, we'll explain how to build functions that can be used in both LUA scripts and Building Blocks: [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html).
