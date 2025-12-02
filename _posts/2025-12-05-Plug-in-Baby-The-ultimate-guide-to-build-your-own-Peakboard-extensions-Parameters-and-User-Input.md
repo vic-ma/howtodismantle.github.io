@@ -81,7 +81,7 @@ We print the value of the `CatsName` parameter, by using the `Log` object. `Log`
 
 The extension kit provides a standardized way to validate parameter values. That way, if the user enters an invalid value, Peakboard Designer will let them know and prevent them from saving the data source---until they fix the parameter value.
 
-To validate a parameter value, we override the `CheckDataOverride` function. We process the parameter's value and if there's a problem, we throw an exception. The exception message is shown to the user, to let them know what's wrong with the value they entered.
+To validate a parameter value, we override the `CheckDataOverride` function. We process the parameter's value, and if there's a problem, we throw an exception. The exception message is shown to the user, to let them know what's wrong with the value they entered.
 
 For our `CatsName` parameter, let's make sure that the parameter value is not empty:
 {% highlight csharp %}
@@ -97,7 +97,7 @@ protected override void CheckDataOverride(CustomListData data)
 
 ## Add non-text parameters
 
-Ok, but what if we want to add a non-text parameter? For example, a boolean or a numeric parameter? In that case, the process is mostly the same---but we need to set the `TypeDefinition` field of our `CustomListPropertyDefinition` object.
+Now, what if we want to add a non-text parameter? For example, a boolean or a numeric parameter? In that case, the process is mostly the same---but we need to set the `TypeDefinition` field of our `CustomListPropertyDefinition` object.
 
 Let's create two new parameters:
 * `IsItARealCat`, a boolean that indicates whether the cat is a real cat or not.
