@@ -122,12 +122,12 @@ new CustomListPropertyDefinition { Name = "MaximumOfSomething", Value = "5",
       TypeDefinition = TypeDefinition.Number.With(selectableValues: [ 2, 3, 5, 10, 20, 50, 100]) },
 {% endhighlight %}
 
-And here's what it looks like in Peakboard Designer. You can see that the user gets a drop-down list, in order to choose the value they want:
+And here's what it looks like in Peakboard Designer. You can see that the user gets a drop-down list, in order to choose the value that they want:
 ![Peakboard parameter selectable values dropdown](/assets/2025-12-05/peakboard-selectable-values-dropdown.png)
 
 ## Add a masked parameter
 
-For passwords, connection strings and any other potentially sensitive data, we want to mask the text that the user types in. To do this, we set the `TypeDefinition` attribute `masked` to `true`:
+For passwords, connection strings, and any other potentially sensitive data, we want to mask the text that the user types in. To do this, we set the `TypeDefinition` attribute `masked` to `true`:
 
 {% highlight csharp %}
 new CustomListPropertyDefinition { Name = "MySecretCode", Value = "18899", TypeDefinition = TypeDefinition.String.With(masked: true) },
@@ -141,19 +141,19 @@ Here's what the masked parameter looks like:
 
 Finally, let's create a multi-line text parameter. These parameters are typically used for long code-like text. For example, SQL statements or JSON / XML fragments.
 
-Multi-line text is not a unique data type. Instead, a multi-line text parameter is a variant of a text parameter. To turn a text parameter into a multi-line text parameter, we set the `TypeDefinition`'s `multiLine` attribute to `true`.
+Multi-line text is not a unique data type. Instead, a multi-line text parameter is a variant of a text parameter. To turn a text parameter into a multi-line text parameter, we set the `TypeDefinition` attribute `multiLine` to `true`:
 
 {% highlight csharp %}
 new CustomListPropertyDefinition { Name = "MultilineDescription", 
       Value = "Please provide\nsome\nbeautiful SQL", TypeDefinition = TypeDefinition.String.With(multiLine: true) }
 {% endhighlight %}
 
-Here's what it looks like in Peakboard Designer.
+Here's what it looks like in Peakboard Designer:
 
 ![image](/assets/2025-12-05/peakboard-multiline-parameter.png)
 
 ## Result
 
-Defining the parameters of an extension with a good UI is a key point to make it as easy as possible for the user to provide his data. We need to choose them wisely :-)
+Defining the parameters of a data source is essential to creating a good user experience. The data types you choose and the parameter validation you do can really affect how easy your data source (and extension, in general) is to work with.
 
-In the next part of our series we learn how to build functions that can be used in both LUA scripts and building blocks: [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html)
+In the next part of our series, we'll explain how to build functions that can be used in both LUA scripts and Building Blocks: [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html).
