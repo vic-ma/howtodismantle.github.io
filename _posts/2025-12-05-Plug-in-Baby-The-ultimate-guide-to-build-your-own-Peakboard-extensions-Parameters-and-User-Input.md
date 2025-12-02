@@ -100,17 +100,15 @@ protected override void CheckDataOverride(CustomListData data)
 Now, what if we want to add a non-text parameter? For example, a boolean or a numeric parameter? In that case, the process is mostly the same---but we need to set the `TypeDefinition` field of our `CustomListPropertyDefinition` object.
 
 Let's create two new parameters:
-* `IsItARealCat`, a boolean that indicates whether the cat is a real cat or not.
-* `Age`, a number that indicates the age of the cat.
+* `IsItARealCat`, a boolean.
+* `Age`, a number.
 
 {% highlight csharp %}
 new CustomListPropertyDefinition { Name = "IsItARealCat", Value = "True", TypeDefinition = TypeDefinition.Boolean },
 new CustomListPropertyDefinition { Name = "Age", Value = "4", TypeDefinition = TypeDefinition.Number },
 {% endhighlight %}
 
-Like before, we also need to add the new parameters to our `PropertyInputDefaults` collection.
-
-Here's what our new parameters look like. You can see that Peakboard Designer handles their data types correctly.
+Like before, we also need to add the new parameters to our `PropertyInputDefaults` collection. Here's what our new parameters look like. You can see that Peakboard Designer handles their data types correctly.
 
 ![Peakboard boolean and number parameter settings](/assets/2025-12-05/peakboard-boolean-number-parameter-settings.png)
 
