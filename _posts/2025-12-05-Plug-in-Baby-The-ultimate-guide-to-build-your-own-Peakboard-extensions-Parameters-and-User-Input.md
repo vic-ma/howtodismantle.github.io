@@ -32,10 +32,10 @@ Make sure that you have read the [first part of this series](/Plug-in-Baby-The-u
 
 ## Add a text parameter
 
-Now, let's add a simple text parameter for the cat's name, to our Cat List data source. To do this, we need to modify our `CustomCatList` data source class:
-1. Set `PropertyInputPossible` to `true`, to indicate that our data source has parameters that the user can set..
-1. Create a new `CustomListPropertyDefinition`. This object defines our text parameter.
-1. Add the `CustomListPropertyDefinition` object to the `PropertyInputDefaults` collection, to add it to the data source.
+Now, let's add a simple text parameter for the cat's name, to our Cat List data source. To do this, we need to modify our `CustomCatList` class:
+1. Set `PropertyInputPossible` to `true`, to indicate that our data source has parameters that the user can set.
+1. Create a new `CustomListPropertyDefinition` to define our text parameter.
+1. Add the `CustomListPropertyDefinition` object to the `PropertyInputDefaults` collection. This registers the property with the data source.
 
 Note: In our last article, we used a proper `CustomCatList` class definition. But here, we're just going to use an object initializer inside the `GetDefinitionOverride` function.
 
