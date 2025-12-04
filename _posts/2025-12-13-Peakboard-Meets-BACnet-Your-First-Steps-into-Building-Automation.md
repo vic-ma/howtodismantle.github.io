@@ -26,9 +26,15 @@ For our example, we'll use the room controller simulator. It simulates a heating
 Here, you can see the YABE explorer on the left and the simulator on the right:
 ![YABE room controller simulator and explorer interface](/assets/2025-12-13/bacnet-yabe-room-controller-simulator.png)
 
-## Set up the data source in Peakboard
+## Create the Peakboard app
 
-Let's switch to the Peakboard side. This data source is not pulling the data on a regular basis but is built on a push architecture. This means that data is actively pushed by the device to the application. Therefore we set `Reload State` to `Subscription`. The callback port is by default set to `47808`, and usually there's no need to change it.
+Now that our test environment is set up, let create the Peakboard app!
+
+### Add the BACnet data source
+
+First, we add a new BACnet data source. This data source uses a publish-subscribe pattern. This means that the data source subscribes to the BACnet device and waits for the device to send data. Because of this, we set *Reload State* to *Subscription*.
+
+The callback port is set to 47808 by default, and there's usually no need to change it.
 
 The data source supports connecting to a single device by using a dedicated IP address, port, and BACnet device ID. However, in our case we take the more common approach of using the subscription option for multiple devices. When we click on `Manage Subscriptions` the dialog is designed to find all available devices in the network automatically and lets us pick the data points we want to subscribe to. In our case we just take all of those. On the right side we can dig deeper into BACnet specific information about each data point.
 
@@ -38,7 +44,7 @@ After setting the subscription we can click on data refresh and let the device f
 
 ![Peakboard BACnet data preview filled with test values](/assets/2025-12-13/peakboard-bacnet-data-preview.png)
 
-## Process the data
+### Process the data
 
 The data is a list where the name of the data point is actually the key within the list. However we can't rely on the row index of a certain data point. So let's say the temperature data might be at row index 0 one day and on row index 2 on another day. To reliably get the data point for later usage, we just build a data flow to filter the list. The screenshot shows the data flow for the indoor temperature. Besides the filter we also adjust the data type to `Number`.
 
@@ -48,7 +54,7 @@ With the data flow in place we can easily bind any control in our application to
 
 ![Peakboard control binding for BACnet indoor temperature](/assets/2025-12-13/peakboard-control-binding-example.png)
 
-## Writing to the device
+### Write to the BACnet device
 
 Let's have a look at how to send back commands to a BACnet device. The screenshot shows how to use a Building Block to set the value of an attribute on a device. We need to know the data type and also the instance ID of the property to be set. We can easily find those two pieces of information in the output list of the data source (just check the sample data).
 
