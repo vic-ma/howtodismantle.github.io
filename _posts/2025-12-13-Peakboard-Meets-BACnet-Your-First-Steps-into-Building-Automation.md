@@ -38,14 +38,11 @@ The callback port is set to 47808 by default, and there's usually no need to cha
 
 To connect to our BACnet device, we have two options:
 1. We set *Subscriptions* to *Single Device* and we manually enter the IP address, port, and BACnet device ID of our BACnet device.
-1. We set *Subscriptions* to *Multi Devices* and we use the subscriptions manager to select the data points we want to subscribe to.
+1. We set *Subscriptions* to *Multi Devices* and we use the subscriptions manager to scan the network automatically. Then, we select the data points that we want to subscribe to.
 
-The *Multi Devices* option is usually the right choice, because it's easier to use. And it works fine even if we only want to connect to a single device.
+The *Multi Devices* option is usually the right choice (even if we only have one device), because it's easier to use.
 
-So, we set *Subscriptions* to *Multi Devices* and we click on *Manage subscriptions*. Then, we use the subscriptions manager to scan the network automatically and we select the data points we want to subscribe to.
-
-The BACnet data source connects to a single device, using a dedicated IP address, port, and BACnet device ID. To connec But instead of setting these manually, we use the subscriptions manager, by clicking on *Manage Subscriptions*. the subscription option for multiple devices. When we click on `Manage Subscriptions` the dialog is designed to find all available devices in the network automatically and lets us pick the data points we want to subscribe to. In our case we just take all of those. On the right side we can dig deeper into BACnet specific information about each data point.
-
+So, we set *Subscriptions* to *Multi Devices* and we click *Manage subscriptions*. Then, we select all the data points of our simulated device.
 ![Peakboard BACnet subscription dialog showing available devices](/assets/2025-12-13/peakboard-manage-bacnet-subscriptions.png)
 
 After setting the subscription we can click on data refresh and let the device fill the result set with test data.
