@@ -36,7 +36,15 @@ First, we add a new BACnet data source. This data source uses a publish-subscrib
 
 The callback port is set to 47808 by default, and there's usually no need to change it.
 
-The data source supports connecting to a single device by using a dedicated IP address, port, and BACnet device ID. However, in our case we take the more common approach of using the subscription option for multiple devices. When we click on `Manage Subscriptions` the dialog is designed to find all available devices in the network automatically and lets us pick the data points we want to subscribe to. In our case we just take all of those. On the right side we can dig deeper into BACnet specific information about each data point.
+To connect to our BACnet device, we have two options:
+1. We set *Subscriptions* to *Single Device* and we manually enter the IP address, port, and BACnet device ID of our BACnet device.
+1. We set *Subscriptions* to *Multi Devices* and we use the subscriptions manager to select the data points we want to subscribe to.
+
+The *Multi Devices* option is usually the right choice, because it's easier to use. And it works fine even if we only want to connect to a single device.
+
+So, we set *Subscriptions* to *Multi Devices* and we click on *Manage subscriptions*. Then, we use the subscriptions manager to scan the network automatically and we select the data points we want to subscribe to.
+
+The BACnet data source connects to a single device, using a dedicated IP address, port, and BACnet device ID. To connec But instead of setting these manually, we use the subscriptions manager, by clicking on *Manage Subscriptions*. the subscription option for multiple devices. When we click on `Manage Subscriptions` the dialog is designed to find all available devices in the network automatically and lets us pick the data points we want to subscribe to. In our case we just take all of those. On the right side we can dig deeper into BACnet specific information about each data point.
 
 ![Peakboard BACnet subscription dialog showing available devices](/assets/2025-12-13/peakboard-manage-bacnet-subscriptions.png)
 
