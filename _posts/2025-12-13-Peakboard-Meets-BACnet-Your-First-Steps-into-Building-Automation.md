@@ -43,9 +43,10 @@ To connect to our BACnet device, we have two options:
 The *Multi Devices* option is usually the right choice (even if we only have one device), because it's easier to use.
 
 So, we set *Subscriptions* to *Multi Devices* and we click *Manage subscriptions*. Then, we select all the data points of our simulated device.
+
 ![Peakboard BACnet subscription dialog showing available devices](/assets/2025-12-13/peakboard-manage-bacnet-subscriptions.png)
 
-After setting the subscription we can click on data refresh and let the device fill the result set with test data.
+After setting the subscription, we can click on the refresh button and verify that the preview window now contains data from the simulated device:
 
 ![Peakboard BACnet data preview filled with test values](/assets/2025-12-13/peakboard-bacnet-data-preview.png)
 
