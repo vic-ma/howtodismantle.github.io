@@ -52,7 +52,9 @@ After setting the subscription, we can click on the refresh button and verify th
 
 ### Process the data
 
-The data is a list where the name of the data point is actually the key within the list. However we can't rely on the row index of a certain data point. So let's say the temperature data might be at row index 0 one day and on row index 2 on another day. To reliably get the data point for later usage, we just build a data flow to filter the list. The screenshot shows the data flow for the indoor temperature. Besides the filter we also adjust the data type to `Number`.
+The data source's output is formatted as a list, where the `ObjectName` column contains the name of the data point. Note that the order of the rows is not fixed---each time the device sends new data, the order can change. So for example, `Temperature.Indoor` might be row 2 right now, but later it might be row 6. Because of this, we can't rely on row numbers to get specific data points.
+
+Instead, to reliably get the data point for later usage, we just build a data flow to filter the list. The screenshot shows the data flow for the indoor temperature. Besides the filter we also adjust the data type to `Number`.
 
 ![Peakboard data flow filtering indoor temperature values](/assets/2025-12-13/peakboard-dataflow-filter-temperature.png)
 
