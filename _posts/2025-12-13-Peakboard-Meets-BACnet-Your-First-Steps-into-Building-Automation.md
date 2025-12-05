@@ -60,6 +60,7 @@ Here's what the data flow for the indoor temperature looks like. You can see tha
 
 We add another data flow for `Setpoint1`. This is the temperature that the room is set to, on the device. We'll need it later.
 
+
 ### Show the current temperature
 
 Now that we have all the data handling done, all that's left is the dashboard. We add a text control to display the current temperature. We bind this text control to our data flow from earlier.
@@ -70,13 +71,15 @@ Now that we have all the data handling done, all that's left is the dashboard. W
 
 Next, we create a button that sets the room temperature to 15°C. To make it functional, we create a Building Blocks script for it.
 
-The script uses the BACnet data source to send a command back to the BACnet device. We select the property we want to modify, the data type, the instance ID, and the new value. To figure out what to choose for the data type and instance ID, we look at the data source's preview window, where the sample data has all the information.
+The script uses the BACnet data source to send a command back to the BACnet device. We select the property we want to modify, the data type, the instance ID, and the new value. To figure out what to choose for the data type and instance ID, look at the data source's preview window, where the sample data has all the information.
 
 ![Peakboard Building Block writing a BACnet attribute value](/assets/2025-12-13/peakboard-building-block-write-attribute.png)
 
+Finally, we add a very similar button for setting the temperature to 30°C.
+
 ## Result
 
-This video shows our final app in action! Besides the controls we went over, you can see that we have a second button to set the temperature to hot. We also list out all the properties in a table control, to show the raw data. As you can see, the values change simultaneously. And when we click the temperature-setting buttons, the temperature in the simulator on the right updates accordingly.
+This video shows our final app in action! Besides the controls we went over, you can see that we also list out all the properties in a table control, to show the raw data. As you can see, the values change simultaneously. And when we click the temperature-setting buttons, the temperature in the simulator on the right updates accordingly.
 
 ![Peakboard BACnet sample application preview video](/assets/2025-12-13/result.gif)
 
