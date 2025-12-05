@@ -40,25 +40,25 @@ To connect to our BACnet device, we have two options:
 1. We set *Subscriptions* to *Single Device* and we manually enter the IP address, port, and BACnet device ID of our BACnet device.
 1. We set *Subscriptions* to *Multi Devices* and we use the subscriptions manager to scan the network automatically. Then, we select the properties that we want to subscribe to.
 
-The *Multi Devices* option is usually the right choice (even if we only have one device), because it's easier to use.
-
-So, we set *Subscriptions* to *Multi Devices* and we click *Manage subscriptions*. Then, we select all the properties of our simulated device.
+The *Multi Devices* option is usually the right choice (even if we only have one device), because it's easier to use. So, we set *Subscriptions* to *Multi Devices* and we click *Manage subscriptions*. Then, we select all the properties of our simulated device.
 
 ![Peakboard BACnet subscription dialog showing available devices](/assets/2025-12-13/peakboard-manage-bacnet-subscriptions.png)
 
-After setting the subscription, we can click on the refresh button and verify that the preview window now contains data from the simulated device:
+After setting the subscription, we click the refresh button and verify that the preview window now contains data from the simulated device:
 
 ![Peakboard BACnet data preview filled with test values](/assets/2025-12-13/peakboard-bacnet-data-preview.png)
 
 ### Add a data flow
 
-The data source's output is formatted as a table, where the `ObjectName` column contains the name of the property. Note that the order of the rows is not fixed---each time the device sends new data, the order can change. So for example, `Temperature.Indoor` might be row 2 right now, but later it could be row 6.
+The data source's output is formatted as a table, where the `ObjectName` column contains the name of the property. Note that the order of the rows is random---each time the device sends new data, the order can change. So for example, `Temperature.Indoor` might be row 2 right now, but later it could be row 6.
 
 This means that we can't use row numbers to get specific properties. So instead, we'll create data flows that filter for the properties we want, using the `ObjectName` column. Each data flow corresponds to a single property.
 
-For example, here's what the data flow for the indoor temperature looks like. You can see that we filter for `ObjectName == Temperature.Indoor`. We also adjust the data type of the `Value` column to *Number*, because we know that the temperature should really be a number and not a string.
+Here's what the data flow for the indoor temperature looks like. You can see that we filter for `ObjectName == Temperature.Indoor`. We also adjust the data type of the `Value` column to *Number*, because we know that the temperature is a number and not a string.
 
 ![Peakboard data flow filtering indoor temperature values](/assets/2025-12-13/peakboard-dataflow-filter-temperature.png)
+
+We add another data flow for `Setpoint1`. This is the temperature that the room is set to, on the device. We'll need it later.
 
 ### Show the current temperature
 
