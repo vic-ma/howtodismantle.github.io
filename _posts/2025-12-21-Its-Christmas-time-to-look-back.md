@@ -6,13 +6,18 @@ tags: basics
 image: /assets/2025-12-21/title.png
 image_header: /assets/2025-12-21/title_landscape.png
 ---
-Dear readers, wherever you are in the world:
-
-2025 is almost over. So let's take a step back and reflect on all the things we did this year! So many topics and so many new ideas. This has been the best year for Peakboard...at least so far.
+Dear readers, wherever you are in the world: 2025 is almost over. So let's take a step back and reflect on all the things that we did this year! So many topics and so many new ideas. This has been the best year for Peakboard...at least so far.
 
 ## Hub Flows grows up
 
-If this blog had a mascot for 2025, it would probably be a little Hub Flow diagram scribbled on a napkin. The powerful Hub Flows feature released this year. And on this blog, we spent an entire series turning background automation from "nice idea" into actual production patterns. We started with the basics in [Hub Flows I - Getting started and learning how to historize MQTT messages](https://how-to-dismantle-a-peakboard-box.com/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html), then immediately pushed them into the SAP world with [Hub Flows II - Cache Me If You Can - Data Distribution for SAP Capacity Data](https://how-to-dismantle-a-peakboard-box.com/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html). From there, we let one PLC feed an entire factory in [Hub Flows III - One PLC to Feed Them All - Using Peakboard Flows to share and distribute Siemens S7 values](https://how-to-dismantle-a-peakboard-box.com/Hub-Flows-III-One-PLC-to-Feed-Them-All-Using-Peakboard-Flows-to-Share-and-distribute-Siemens-S7-Values.html), moved to asynchronous SAP confirmation queues in [Hub Flows IV - Peakboard Flows in Production - Asynchronous SAP Confirmation Processing](https://how-to-dismantle-a-peakboard-box.com/Hub-Flows-IV-Peakboard-Flows-in-Production-Asynchronous-SAP-Confirmation-Processing.html), and finally tackled high-volume telemetry with pre-aggregation and archiving in [Hub Flows V - Condense, Archive, Optimize - Use Hub Flows to Pre-Aggregate and Archive High-Volume Transaction Data](https://how-to-dismantle-a-peakboard-box.com/Hub-Flows-V-Condense%2C-Archive-Optimize-Use-Hub-Flows-to-Pre-Aggregate-and-Archive-High-Volume-Transaction-Data.html). This topic turned Hub Flows from “yet another feature” into a toolbox of repeatable patterns for real factories.
+If this blog had a mascot for 2025, it would probably be a little Hub Flow diagram scribbled on a napkin. The powerful Hub Flows feature released this year. And on this blog, we spent an entire series turning background automation from "nice idea" into actual production-ready patterns.
+* We started with the basics in [Hub Flows I](https://how-to-dismantle-a-peakboard-box.com/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html)
+* Then, we immediately pushed them into the SAP world with [Hub Flows II](https://how-to-dismantle-a-peakboard-box.com/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html)
+* From there, we let one PLC feed an entire factory in [Hub Flows III](https://how-to-dismantle-a-peakboard-box.com/Hub-Flows-III-One-PLC-to-Feed-Them-All-Using-Peakboard-Flows-to-Share-and-distribute-Siemens-S7-Values.html)
+* Next, we moved to asynchronous SAP confirmation queues in [Hub Flows IV](https://how-to-dismantle-a-peakboard-box.com/Hub-Flows-IV-Peakboard-Flows-in-Production-Asynchronous-SAP-Confirmation-Processing.html)
+* And finally tackled high-volume telemetry with pre-aggregation and archiving in [Hub Flows V](https://how-to-dismantle-a-peakboard-box.com/Hub-Flows-V-Condense%2C-Archive-Optimize-Use-Hub-Flows-to-Pre-Aggregate-and-Archive-High-Volume-Transaction-Data.html).
+
+This topic turned Hub Flows from "yet another feature" into a toolbox of repeatable patterns for real factories.
 
 ## Peakboard Hub API everywhere
 
