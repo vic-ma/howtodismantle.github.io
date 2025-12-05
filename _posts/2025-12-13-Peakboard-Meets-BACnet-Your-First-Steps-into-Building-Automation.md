@@ -21,7 +21,7 @@ First, let's assume that we don't have access to a BACnet-capable device, or tha
 
 To do this, we use [Yet Another BACnet Explorer (YABE)](https://sourceforge.net/projects/yetanotherbacnetexplorer/). YABE is an open-source tool for connecting to and exploring BACnet devices. However, it also comes with three different simulators that expose BACnet endpoints for testing. To launch the simulators, go to *Options > User commands*.
 
-For our example, we'll use the room controller simulator. It simulates a heating/cooling system. We go to *Options > User commands* and launch it. Soon after, YABE automatically finds the simulated device and lists all of its properties in the bottom-left pane. You can subscribe to and track specific attributes (like the temperature) from the top-middle pane.
+For our example, we'll use the room controller simulator. It simulates a heating/cooling system. We go to *Options > User commands* and launch it. Soon after, YABE automatically finds the simulated device and lists all of its properties in the bottom-left pane. You can subscribe to and track specific properties (like the temperature) from the top-middle pane.
 
 Here, you can see the YABE explorer on the left and the simulator on the right:
 ![YABE room controller simulator and explorer interface](/assets/2025-12-13/bacnet-yabe-room-controller-simulator.png)
