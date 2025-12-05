@@ -8,7 +8,7 @@ image_header: /assets/2025-12-21/title_landscape.png
 ---
 Dear readers, wherever you are in the world: 2025 is almost over. So let's take a step back and reflect on all the things that we did this year! So many topics and so many new ideas. This has been the best year for Peakboard...at least so far.
 
-## Hub Flows grows up
+## Hub Flows enter the scene
 
 If this blog had a mascot for 2025, it would probably be a little Hub Flow diagram scribbled on a napkin. The powerful Hub Flows feature came out earlier this year. And on this blog, we spent an entire series turning background automation from a "cool idea" into actual production-ready patterns:
 * We started with the basics of Hub Flows in [Hub Flows I](https://how-to-dismantle-a-peakboard-box.com/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
@@ -21,7 +21,10 @@ This series turned Hub Flows from a "cool feature" into a toolbox of robust, reu
 
 ## Peakboard Hub API everywhere
 
-The second big topic was the Peakboard Hub API and what happens when you treat your Hub as a programmable control plane instead of a nice admin UI. In [Cracking the code - Part II - Calling functions remotely by using Peakboard Hub API](https://how-to-dismantle-a-peakboard-box.com/Cracking-the-code-Part-II-Calling-functions-remotely.html), we used the API to fire alarms on boxes from the outside world. Then we went full Python in [Sssslithering Through APIs - Python Unleashed for Peakboard Hub](https://how-to-dismantle-a-peakboard-box.com/Sssslithering-Through-APIs-Python-Unleashed-for-Peakboard-Hub.html), turning the Hub into a playground for scripts, tables, and ad-hoc SQL over lists. With [Cloud to Factory - Building an Azure Logic App to Access Peakboard Boxes with Peakboard Hub](https://how-to-dismantle-a-peakboard-box.com/From-Cloud-to-Factory-Building-an-Azure-Logic-App-to-Access-Peakboard-Boxes-via-the-Peakboard-Hub.html), we bridged Microsoft’s cloud workflows straight into shop-floor boxes, and [Cracking the code - Part III - Reading and writing lists with Peakboard Hub API](https://how-to-dismantle-a-peakboard-box.com/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) showed how to treat Hub lists like a lightweight database. Finally, [Peak-a-Boo! Revealing Peakboard Hub List Data in your Power BI Dashboards](https://how-to-dismantle-a-peakboard-box.com/Peak-a-Boo-Revealing-Peakboard-Hub-List-Data-in-your-Power-BI-Dashboards.html) closed the loop by piping that data into BI dashboards, making the Hub API the central backbone between cloud services, factory apps, and analytics.
+Another big topic we covered this year is the Peakboard Hub API. We learned what's possible when you treat your Hub like a programmable control plane, rather than just a nice admin dashboard:
+* In [Cracking the code - Part II](https://how-to-dismantle-a-peakboard-box.com/Cracking-the-code-Part-II-Calling-functions-remotely.html), we used the Hub API to send alarms to Peakboard Boxes from outside the local network.
+* Then, we went full Python in [Sssslithering Through APIs](https://how-to-dismantle-a-peakboard-box.com/Sssslithering-Through-APIs-Python-Unleashed-for-Peakboard-Hub.html), where we turned the Hub into a playground for scripts, tables, and ad-hoc SQL over lists.
+* With [Building an Azure Logic App to Access Peakboard Boxes](https://how-to-dismantle-a-peakboard-box.com/From-Cloud-to-Factory-Building-an-Azure-Logic-App-to-Access-Peakboard-Boxes-via-the-Peakboard-Hub.html), we bridged Microsoft's cloud workflows with shop-floor Peakboard Boxes, and [Cracking the code - Part III - Reading and writing lists with Peakboard Hub API](https://how-to-dismantle-a-peakboard-box.com/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html) showed how to treat Hub lists like a lightweight database. Finally, [Peak-a-Boo! Revealing Peakboard Hub List Data in your Power BI Dashboards](https://how-to-dismantle-a-peakboard-box.com/Peak-a-Boo-Revealing-Peakboard-Hub-List-Data-in-your-Power-BI-Dashboards.html) closed the loop by piping that data into BI dashboards, making the Hub API the central backbone between cloud services, factory apps, and analytics.
 
 ## SAP from inventory to BTP
 
@@ -45,6 +48,6 @@ See you next year!!
 
 Love, Michelle
 
-![image](/assets/2026-12-21/title.png)
+![image](/assets/2025-12-21/title.png)
 
 
