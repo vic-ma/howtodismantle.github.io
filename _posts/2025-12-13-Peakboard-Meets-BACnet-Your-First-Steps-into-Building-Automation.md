@@ -76,7 +76,7 @@ The script uses the BACnet data source to send a command back to the BACnet devi
 
 ## Result
 
-The video shows the preview in action along with the simulator. In our sample application we just list all properties in a table to show the raw data. We can see how the values are changing simultaneously. When we click on the `cold` or `hot` button the set temperature is adjusted accordingly in the simulator.
+This video shows our final app in action! Besides the controls we went over, you can see that we have a second button to set the temperature to hot. We also list out all the data points in a table control, to show the raw data. As you can see, the values change simultaneously. And when we click the temperature-setting buttons, the temperature in the simulator on the right updates accordingly.
 
 ![Peakboard BACnet sample application preview video](/assets/2025-12-13/result.gif)
 
