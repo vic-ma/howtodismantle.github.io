@@ -19,7 +19,7 @@ Peakboard version 4.1 introduced the new BACnet data source! BACnet (Building Au
 
 First, let's assume that we don't have access to a BACnet-capable device, or that the devices we do have access to are not meant for testing purposes. So, we need to set up a BACnet test environment that lets us experiment.
 
-To do this, we use [Yet Another BACnet Explorer (YABE)](https://sourceforge.net/projects/yetanotherbacnetexplorer/). YABE is an open-source tool for connecting to and exploring BACnet devices. However, it also comes with three different simulators that expose BACnet endpoints for testing. To launch the simulators, go to *Options > User commands*.
+To do this, we use [Yet Another BACnet Explorer (YABE)](https://sourceforge.net/projects/yetanotherbacnetexplorer/). YABE is an open-source tool for connecting to and exploring BACnet devices. However, it also comes with three different simulators that expose BACnet endpoints for testing. To launch a simulator, go to *Options > User commands*.
 
 For our example, we'll use the room controller simulator. It simulates a heating/cooling system. We go to *Options > User commands* and launch it. Soon after, YABE automatically finds the simulated device and lists all of its properties in the bottom-left pane. You can subscribe to and track specific properties (like the temperature) from the top-middle pane.
 
