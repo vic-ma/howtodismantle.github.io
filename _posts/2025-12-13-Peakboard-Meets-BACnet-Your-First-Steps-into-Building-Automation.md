@@ -50,7 +50,7 @@ After setting the subscription, we can click on the refresh button and verify th
 
 ![Peakboard BACnet data preview filled with test values](/assets/2025-12-13/peakboard-bacnet-data-preview.png)
 
-### Process the data
+### Add a data flow
 
 The data source's output is formatted as a table, where the `ObjectName` column contains the name of the data point. Note that the order of the rows is not fixed---each time the device sends new data, the order can change. So for example, `Temperature.Indoor` might be row 2 right now, but later it could be row 6.
 
@@ -60,13 +60,17 @@ For example, here's what the data flow for the indoor temperature looks like. Yo
 
 ![Peakboard data flow filtering indoor temperature values](/assets/2025-12-13/peakboard-dataflow-filter-temperature.png)
 
-With the data flow in place we can easily bind any control in our application to the data. Not only text fields but also icons or other controls.
+### Show the current temperature
+
+Now that we have all the data handling done, all that's left is the dashboard. We add a text control to display the current temperature. We bind this text control to our data flow from earlier.
 
 ![Peakboard control binding for BACnet indoor temperature](/assets/2025-12-13/peakboard-control-binding-example.png)
 
 ### Write to the BACnet device
 
-Let's have a look at how to send back commands to a BACnet device. The screenshot shows how to use a Building Block to set the value of an attribute on a device. We need to know the data type and also the instance ID of the property to be set. We can easily find those two pieces of information in the output list of the data source (just check the sample data).
+Next, we create a button that sets the room temperature to 15°C. To make it functional, we create a Building Blocks script for it.
+
+The script uses the BACnet data source to send a command back to the BACnet device. We select the data point we want to modify, the data type, the instance ID, and the new value. To figure out what to choose for the data type and instance ID, we look at the data source's preview window, where the sample data has all the information.
 
 ![Peakboard Building Block writing a BACnet attribute value](/assets/2025-12-13/peakboard-building-block-write-attribute.png)
 
