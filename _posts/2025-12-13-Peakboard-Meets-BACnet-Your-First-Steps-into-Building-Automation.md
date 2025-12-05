@@ -13,7 +13,7 @@ downloads:
   - name: BACnetTestApp.pbmx
     url: /assets/2025-12-13/BACnetTestApp.pbmx
 ---
-Peakboard version 4.1 introduced a new built-in data source for BACnet. BACnet (Building Automation and Control Network) is an open communication protocol designed for building automation systems. It's widely used in large buildings, factories, and smart infrastructure, for centralized monitoring and control of energy systems. In this article, we'll take a look at how to connect a Peakboard application to a device, with BACnet.
+Peakboard version 4.1 introduced the new BACnet data source! BACnet (Building Automation and Control Network) is an open communication protocol designed for building automation systems. It's widely used in large buildings, factories, and smart infrastructure, for centralized monitoring and control of energy systems. In this article, we'll take a look at how to connect a Peakboard application to a device, with BACnet.
 
 ## Set up test environment
 
