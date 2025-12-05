@@ -52,9 +52,11 @@ After setting the subscription, we can click on the refresh button and verify th
 
 ### Process the data
 
-The data source's output is formatted as a list, where the `ObjectName` column contains the name of the data point. Note that the order of the rows is not fixed---each time the device sends new data, the order can change. So for example, `Temperature.Indoor` might be row 2 right now, but later it might be row 6. Because of this, we can't rely on row numbers to get specific data points.
+The data source's output is formatted as a table, where the `ObjectName` column contains the name of the data point. Note that the order of the rows is not fixed---each time the device sends new data, the order can change. So for example, `Temperature.Indoor` might be row 2 right now, but later it could be row 6.
 
-Instead, to reliably get the data point for later usage, we just build a data flow to filter the list. The screenshot shows the data flow for the indoor temperature. Besides the filter we also adjust the data type to `Number`.
+This means that we can't use row numbers to get specific data points. So instead, we'll create data flows that filter for the data points we want, using the `ObjectName` column. Each data flow corresponds to a single data point.
+
+For example, here's what the data flow for the indoor temperature looks like. You can see that we filter for `ObjectName == Temperature.Indoor`. We also adjust the data type of the `Value` column to *Number*, because we know that the temperature should really be a number and not a string.
 
 ![Peakboard data flow filtering indoor temperature values](/assets/2025-12-13/peakboard-dataflow-filter-temperature.png)
 
