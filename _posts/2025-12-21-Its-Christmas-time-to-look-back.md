@@ -6,7 +6,7 @@ tags: basics
 image: /assets/2025-12-21/title.png
 image_header: /assets/2025-12-21/title_landscape.png
 ---
-Dear readers, wherever you are in the world: 2025 is almost over. So let's take a step back and reflect on all the things that we did this year! So many topics and so many new ideas. This has been the best year for Peakboard...at least so far.
+Dear readers, wherever you are in the world: 2025 is almost over. So let's take a step back and reflect on all the things that we did this year! So many topics and so many new ideas. This has been the best year for Peakboard---at least so far!
 
 ## Hub Flows enter the scene
 
@@ -28,9 +28,13 @@ Another big topic we covered this year is the Peakboard Hub API. We learned what
 * And in [Cracking the code - Part III](https://how-to-dismantle-a-peakboard-box.com/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html), we learned how to treat Hub lists like a lightweight database.
 * Finally, in [Revealing Peakboard Hub List Data in your Power BI Dashboards](https://how-to-dismantle-a-peakboard-box.com/Peak-a-Boo-Revealing-Peakboard-Hub-List-Data-in-your-Power-BI-Dashboards.html), we piped Hub list data into BI dashboards---turning the Hub API into the central backbone between cloud services, factory apps, and analytics.
 
-## SAP from inventory to BTP
+## SAP: from inventory to BTP
 
-Of course, no Peakboard year is complete without a lot of SAP, and 2025 added a few more bricks to the SAP wall. In [Because Nobody Likes MI05 - How to handle SAP Inventory](https://how-to-dismantle-a-peakboard-box.com/Because-Nobody-Likes-MI05-How-to-handle-SAP-Inventory.html), we tried to rescue warehouse workers from paper-based physical inventory processes by replacing the MI05 workflow with a tablet app that talks BAPIs directly. [Breaking the Ice - How SAP Integration Suite and Peakboard Hub Became Best Friends](https://how-to-dismantle-a-peakboard-box.com/Breaking-the-Ice-How-SAP-Integration-Suite-and-Peakboard-Hub-Became-Best-Friends.html) took a step back and looked at how SAP BTP and Integration Suite fit into a future where everything is cloud-based and the Hub is just another peer in the landscape. On the more nerdy side, [SAP Hana Meets Peakboard - Mastering ODBC Integration Step-by-Step](https://how-to-dismantle-a-peakboard-box.com/SAP-Hana-Meets-Peakboard-Mastering-ODBC-Integration-Step-by-Step.html) showed how to talk to SAP Hana “raw” through ODBC, while [Mission RFC Possible – Executing Custom Function Modules with Integration Flows](https://how-to-dismantle-a-peakboard-box.com/Mission-RFC-Possible-Executing-Custom-Function-Modules-with-Integration-Flows.html) demonstrated how to wrap classic RFCs in modern HTTP endpoints via Integration Suite. The topic this year was less “one more SAP connector” and more “how do we make SAP behave nicely in a hybrid, Hub-centric architecture?”
+Of course, no year is complete without a couple of SAP articles!
+
+* In [How to handle SAP Inventory](https://how-to-dismantle-a-peakboard-box.com/Because-Nobody-Likes-MI05-How-to-handle-SAP-Inventory.html), we replaced the paper-based physical inventory process with a MI05 workflow that uses a tablet app to talk to BAPIs directly.
+* In [SAP Integration Suite and Peakboard Hub](https://how-to-dismantle-a-peakboard-box.com/Breaking-the-Ice-How-SAP-Integration-Suite-and-Peakboard-Hub-Became-Best-Friends.html), we showed how SAP BTP and Integration Suite fit in a future where everything is cloud-based, and Peakboard Hub is just another peer in the landscape.
+* On the more nerdy side, [SAP Hana Meets Peakboard - Mastering ODBC Integration Step-by-Step](https://how-to-dismantle-a-peakboard-box.com/SAP-Hana-Meets-Peakboard-Mastering-ODBC-Integration-Step-by-Step.html) showed how to talk to SAP Hana “raw” through ODBC, while [Mission RFC Possible – Executing Custom Function Modules with Integration Flows](https://how-to-dismantle-a-peakboard-box.com/Mission-RFC-Possible-Executing-Custom-Function-Modules-with-Integration-Flows.html) demonstrated how to wrap classic RFCs in modern HTTP endpoints via Integration Suite. The topic this year was less “one more SAP connector” and more “how do we make SAP behave nicely in a hybrid, Hub-centric architecture?”
 
 ## Hardware, sensors, and an army of printers
 
