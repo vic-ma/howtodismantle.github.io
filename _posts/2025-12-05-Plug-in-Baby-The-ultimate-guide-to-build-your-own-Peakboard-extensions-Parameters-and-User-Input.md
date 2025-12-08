@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Plug-in, Baby - The ultimate guide to build your own Peakboard extensions - Parameters and User Input
-date: 2023-03-01 00:00:00 +0000
+date: 2025-12-05 00:00:00 +0000
 tags: dev
 image: /assets/2025-12-05/title.png
 image_header: /assets/2025-12-05/title.png
