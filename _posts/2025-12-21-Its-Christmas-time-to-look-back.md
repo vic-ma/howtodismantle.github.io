@@ -62,14 +62,16 @@ We also released two articles aimed at developers:
 
 All of this culminated in the [Peakboard 4.1 release overview](https://how-to-dismantle-a-peakboard-box.com/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), where we went over all the new features in Peakboard 4.1. This included BACnet, AI helpers, the new drawing tool, improved debugging, and smarter Hub internals. Altogether, this topic turned 2025 into the year where Peakboard grew sideways just as much as it grew up---broader integrations, richer platform features, and a much more powerful toolbox for the people who build with it.
 
+## See you next year!
+
+Finally, here's a poem to end us off:
+
 Boxes sleep, screens go dim.
-Dashboards dream on a festive whim.
-Cables coiled, Flows tucked tight.
-Merry Christmas, and have a good night.
+Dashboards dream of a festive hymn.
+Cables coiled and Flows tucked tight---
+Have a very merry Christmas, and may next year be just as bright!
 
-To alle the readers out there, have a wonderful Christmas!!!
-
-See you next year!!
+To all our readers out there, enjoy the holidays and see you next year!
 
 Love, Michelle
 
