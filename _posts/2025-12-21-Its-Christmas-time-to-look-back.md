@@ -40,15 +40,15 @@ Of course, no year is complete without a couple of SAP articles! This year was a
 
 On the hardware side, 2025 was the year of *things that blink, beep, or spit out labels*:
 * In [Getting started with label printing](https://how-to-dismantle-a-peakboard-box.com/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html), we explained the basics of label printing with Peakboard.
-* In [Mastering Bixolon SRP-Q300 Series](https://how-to-dismantle-a-peakboard-box.com/The-Art-of-Printing-Mastering-Bixolon-SRP-Q300-Series-label-printer-with-with-enhanced-ESCPOS-commands-and-tables.html), we took a deep dive into ESC/POS, a command language for receipt printers.
+* In [Mastering Bixolon SRP-Q300 Series](https://how-to-dismantle-a-peakboard-box.com/The-Art-of-Printing-Mastering-Bixolon-SRP-Q300-Series-label-printer-with-with-enhanced-ESCPOS-commands-and-tables.html), we took a deep dive into ESC/POS, a command language for label printers.
 * In [How ZPL Turns Your Bixolon XD5-40 printer into a Label Wizard](https://how-to-dismantle-a-peakboard-box.com/Print-Charming-How-ZPL-Turns-Your-Bixolon-XD5-40-into-a-Label-Wizard.html), we went all-in on label printing.
 * In [Pick-by-Light System with Captron and Peakboard](https://how-to-dismantle-a-peakboard-box.com/Lights-On-A-Step-by-Step-Guide-to-Designing-a-Pick-by-Light-System-with-Captron-and-Peakboard.html), we explored pick-by-light systems, as part of intralogistics.
-* In [Building a Smart Dashboard for Tracking Temperature and Humidity](https://how-to-dismantle-a-peakboard-box.com/Peakboard-Meets-Shelly-Building-a-Smart-Dashboard-for-Tracking-Temperature-and-Humidity.html), we revisited Shelly devices with a more grown-up, production-ready dashboard.
-* In [Transform Your Peakboard Box into an MQTT Server](https://how-to-dismantle-a-peakboard-box.com/DIY-Guide-Transform-Your-Peakboard-Box-into-an-MQTT-Server.html), we showed how to turn a Peakboard Box into a hub for sensors and gadgets.
+* In [Building a Smart Dashboard for Tracking Temperature and Humidity](https://how-to-dismantle-a-peakboard-box.com/Peakboard-Meets-Shelly-Building-a-Smart-Dashboard-for-Tracking-Temperature-and-Humidity.html), we revisited Shelly devices with a more mature, production-ready dashboard.
+* In [Transform Your Peakboard Box into an MQTT Server](https://how-to-dismantle-a-peakboard-box.com/DIY-Guide-Transform-Your-Peakboard-Box-into-an-MQTT-Server.html), we explained how to turn a Peakboard Box into a hub for sensors and gadgets.
 
 ## Office 365, extensions, and a 4.1-sized jump
 
-The last major topic we covered this year was "everything around the Box." That is, the parts that make Peakboard feel like a complete platform, rather than a single tool.
+The last major topic we covered this year was *everything around the Box.* That is, the things that make Peakboard feel like a complete platform, rather than a single tool.
 
 We released a bunch of articles about Office 365:
 * In [Getting started with the new Office 365 Data Sources](https://how-to-dismantle-a-peakboard-box.com/Getting-started-with-the-new-Office-365-Data-Sources.html), we moved collaboration data closer to the shop floor
