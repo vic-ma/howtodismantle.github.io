@@ -30,7 +30,7 @@ Another big topic we covered this year is the Peakboard Hub API. We learned what
 
 ## SAP: from inventory to BTP
 
-Of course, no year is complete without a couple of SAP articles! This year was a little different, however. Instead discussing individual SAP connectors, we instead focused on how to make SAP behave nicely in a hybrid, Hub-centric architecture:
+Of course, no year is complete without a couple of SAP articles! This year was a little different, however. Instead of discussing individual SAP connectors, we instead focused on how to make SAP behave nicely in a hybrid, Hub-centric architecture:
 * In [How to handle SAP Inventory](https://how-to-dismantle-a-peakboard-box.com/Because-Nobody-Likes-MI05-How-to-handle-SAP-Inventory.html), we replaced the paper-based physical inventory process with a MI05 workflow that uses a tablet app to talk to BAPIs directly.
 * In [SAP Integration Suite and Peakboard Hub](https://how-to-dismantle-a-peakboard-box.com/Breaking-the-Ice-How-SAP-Integration-Suite-and-Peakboard-Hub-Became-Best-Friends.html), we showed how SAP BTP and Integration Suite fit in a future where everything is cloud-based, and Peakboard Hub is just another peer in the landscape.
 * In [SAP Hana Meets Peakboard](https://how-to-dismantle-a-peakboard-box.com/SAP-Hana-Meets-Peakboard-Mastering-ODBC-Integration-Step-by-Step.html) we showed how to talk to SAP Hana directly through ODBC. 
@@ -48,15 +48,19 @@ On the hardware side, 2025 was the year of "things that blink, beep, or spit out
 
 ## Office 365, extensions, and a 4.1-sized jump
 
-The last major topic we covered this year was "everything around the Box." That is, the parts that make Peakboard feel like a complete platform, rather than a single tool:
+The last major topic we covered this year was "everything around the Box." That is, the parts that make Peakboard feel like a complete platform, rather than a single tool.
+
+We released a bunch of articles about Office 365:
 * In [Getting started with the new Office 365 Data Sources](https://how-to-dismantle-a-peakboard-box.com/Getting-started-with-the-new-Office-365-Data-Sources.html), we moved collaboration data closer to the shop floor
 * In [Reading and writing SharePoint lists with Graph extension](https://how-to-dismantle-a-peakboard-box.com/Reading-and-writing-Sharepoint-lists-with-Graph-extension.html), we extended the Graph approach.
 * In [SharePoint Lists in Beast Mode](https://how-to-dismantle-a-peakboard-box.com/SharePoint-Lists-in-Beast-Mode-Powered-by-Peakboard.html), we pushed list automation further.
 * In [Elevate Your Workflow - Building a Next-Gen Continuous Improvement Board with Office 365 ToDo](https://how-to-dismantle-a-peakboard-box.com/Elevate-Your-Workflow-Building-a-Next-Gen-Continuous-Improvement-Board-with-Office-365-ToDo.html), we took a more process-driven perspective followed.
 
-On the developer side, [Plug-in, Baby - The ultimate guide to build your own Peakboard extensions - The Basics](https://how-to-dismantle-a-peakboard-box.com/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html) finally put custom extensions on a proper, documented track, and [Influx and Chill - Writing and Querying Time Series Data with Peakboard](https://how-to-dismantle-a-peakboard-box.com/Influx-and-Chill-Writing-and-Querying-Time-Series-Data-with-Peakboard.html) gave time-series workloads a clean, reproducible pattern.
+We also released two articles aimed at developers:
+* In [Plug-in, Baby - The Basics](https://how-to-dismantle-a-peakboard-box.com/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html), we gave an introduction on how to create custom extensions for Peakboard.
+* In [Writing and Querying Time Series Data with Peakboard](https://how-to-dismantle-a-peakboard-box.com/Influx-and-Chill-Writing-and-Querying-Time-Series-Data-with-Peakboard.html), we shared a clean, reuseable pattern for time-series workloads.
 
-All of this culminated in the release recap [Peakboard 4.1 Is Here – And It’s a Game Changer](https://how-to-dismantle-a-peakboard-box.com/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), where BACnet, AI helpers, the new drawing tool, improved debugging, and smarter Hub internals landed in one drop. Taken together, this topic turned 2025 into the year where Peakboard grew sideways just as much as it grew up – broader integrations, richer platform features, and a much more powerful toolbox for the people who build with it.
+All of this culminated in the [Peakboard 4.1 release overview](https://how-to-dismantle-a-peakboard-box.com/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), where we went over all the new features in Peakboard 4.1. This included BACnet, AI helpers, the new drawing tool, improved debugging, and smarter Hub internals. Altogether, this topic turned 2025 into the year where Peakboard grew sideways just as much as it grew up---broader integrations, richer platform features, and a much more powerful toolbox for the people who build with it.
 
 Boxes sleep, screens go dim.
 Dashboards dream on a festive whim.
