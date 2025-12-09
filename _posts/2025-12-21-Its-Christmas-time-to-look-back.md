@@ -66,10 +66,10 @@ All of this culminated in the [Peakboard 4.1 release overview](https://how-to-di
 
 Finally, here's a poem to end us off:
 
-Boxes sleep, screens go dim.
-Dashboards dream of a festive hymn.
-Cables coiled and Flows tucked tight---
-Have a very merry Christmas, and may next year be just as bright!
+*Boxes sleep, screens go dim.*  
+*Dashboards dream of a festive hymn.*  
+*Cables coiled and Flows tucked tight---*  
+*Have a very merry Christmas, and may next year be just as bright!*
 
 To all our readers out there, enjoy the holidays and see you next year!
 
