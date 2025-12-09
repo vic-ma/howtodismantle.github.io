@@ -17,7 +17,7 @@ If this blog had a mascot for 2025, it would probably be a little Hub Flow diagr
 * Next, we worked on asynchronous SAP confirmation queues in [Hub Flows IV](https://how-to-dismantle-a-peakboard-box.com/Hub-Flows-IV-Peakboard-Flows-in-Production-Asynchronous-SAP-Confirmation-Processing.html).
 * And finally, we tackled high-volume telemetry with pre-aggregation and archiving in [Hub Flows V](https://how-to-dismantle-a-peakboard-box.com/Hub-Flows-V-Condense%2C-Archive-Optimize-Use-Hub-Flows-to-Pre-Aggregate-and-Archive-High-Volume-Transaction-Data.html).
 
-This series turned Hub Flows from a "cool feature" into a toolbox of robust, reusable patterns for real factories.
+With this series, we built a toolbox of robust, reusable, and production-ready Hub-Flow patterns for real-world factories.
 
 ## Peakboard Hub API everywhere
 
