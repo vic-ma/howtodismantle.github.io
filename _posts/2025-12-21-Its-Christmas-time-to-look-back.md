@@ -6,14 +6,14 @@ tags: basics
 image: /assets/2025-12-21/title.png
 image_header: /assets/2025-12-21/title_landscape.png
 ---
-Dear readers, wherever you are in the world: 2025 is almost over. So let's take a step back and reflect on all the things that we did this year! So many topics and so many new ideas. This has been the best year for Peakboard---at least so far!
+Dear readers, wherever you are in the world: 2025 is almost over! So, let's take a step back and reflect on all the articles that we published this year. So many topics and so many new ideas. This has been the best year for Peakboard (at least so far)!
 
 ## Hub Flows enter the scene
 
-If this blog had a mascot for 2025, it would probably be a little Hub Flow diagram scribbled on a napkin. The powerful Hub Flows feature came out earlier this year. And on this blog, we spent an entire series turning background automation from a "cool idea" into actual production-ready patterns:
+If this blog had a mascot for 2025, it would probably be a little Hub Flow diagram scribbled on a napkin. The powerful Hub Flows feature came out earlier this year. And on this blog, we spent an entire series turning background automation from "cool idea" into actual production-ready patterns:
 * We started with the basics of Hub Flows in [Hub Flows I](https://how-to-dismantle-a-peakboard-box.com/Hub-FLows-I-Getting-started-and-learn-how-to-historize-MQTT-messages.html).
-* Then, we immediately pushed them into the SAP world in [Hub Flows II](https://how-to-dismantle-a-peakboard-box.com/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html).
-* From there, we let one PLC feed an entire factory in [Hub Flows III](https://how-to-dismantle-a-peakboard-box.com/Hub-Flows-III-One-PLC-to-Feed-Them-All-Using-Peakboard-Flows-to-Share-and-distribute-Siemens-S7-Values.html).
+* Then, we immediately dived into the SAP world in [Hub Flows II](https://how-to-dismantle-a-peakboard-box.com/Hub-Flows-II-Cache-Me-If-You-Can-Data-Distribution-for-SAP-Capacity-Data.html).
+* From there, we showed how one PLC can feed an entire factory, in [Hub Flows III](https://how-to-dismantle-a-peakboard-box.com/Hub-Flows-III-One-PLC-to-Feed-Them-All-Using-Peakboard-Flows-to-Share-and-distribute-Siemens-S7-Values.html).
 * Next, we worked on asynchronous SAP confirmation queues in [Hub Flows IV](https://how-to-dismantle-a-peakboard-box.com/Hub-Flows-IV-Peakboard-Flows-in-Production-Asynchronous-SAP-Confirmation-Processing.html).
 * And finally, we tackled high-volume telemetry with pre-aggregation and archiving in [Hub Flows V](https://how-to-dismantle-a-peakboard-box.com/Hub-Flows-V-Condense%2C-Archive-Optimize-Use-Hub-Flows-to-Pre-Aggregate-and-Archive-High-Volume-Transaction-Data.html).
 
@@ -60,7 +60,9 @@ We also released two articles aimed at developers:
 * In [Plug-in, Baby - The Basics](https://how-to-dismantle-a-peakboard-box.com/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html), we gave an introduction on how to create custom extensions for Peakboard.
 * In [Writing and Querying Time Series Data with Peakboard](https://how-to-dismantle-a-peakboard-box.com/Influx-and-Chill-Writing-and-Querying-Time-Series-Data-with-Peakboard.html), we shared a clean, reuseable pattern for time-series workloads.
 
-All of this culminated in the [Peakboard 4.1 release overview](https://how-to-dismantle-a-peakboard-box.com/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), where we went over all the new features in Peakboard 4.1. This included BACnet, AI helpers, the new drawing tool, improved debugging, and smarter Hub internals. Altogether, this topic turned 2025 into the year where Peakboard grew sideways just as much as it grew up---broader integrations, richer platform features, and a much more powerful toolbox for the people who build with it.
+All of this culminated in the [Peakboard 4.1 release overview](https://how-to-dismantle-a-peakboard-box.com/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), where we went over all the new features in Peakboard 4.1. This included BACnet, AI helpers, the new drawing tool, improved debugging, and smarter Hub internals.
+
+Altogether, this topic turned 2025 into the year where Peakboard grew sideways just as much as it grew up---broader integrations, richer platform features, and a much more powerful toolbox for the people who build with it.
 
 ## See you next year!
 
