@@ -31,16 +31,16 @@ Another big topic that we covered this year is the Peakboard Hub API. We showed 
 ## SAP: from inventory to BTP
 
 Of course, no year is complete without a couple of SAP articles! This year was a little different, however. Rather than looking at individual SAP connectors, we instead focused on how to make SAP, in general, behave nicely in a hybrid, Hub-centric architecture:
-* In [How to handle SAP Inventory](https://how-to-dismantle-a-peakboard-box.com/Because-Nobody-Likes-MI05-How-to-handle-SAP-Inventory.html), we replaced the paper-based physical inventory process with a MI05 workflow that uses a tablet app to talk to BAPIs directly.
-* In [SAP Integration Suite and Peakboard Hub](https://how-to-dismantle-a-peakboard-box.com/Breaking-the-Ice-How-SAP-Integration-Suite-and-Peakboard-Hub-Became-Best-Friends.html), we showed how SAP BTP and Integration Suite fit in a future where everything is cloud-based, and Peakboard Hub is just another peer in the landscape.
+* In [How to handle SAP Inventory](https://how-to-dismantle-a-peakboard-box.com/Because-Nobody-Likes-MI05-How-to-handle-SAP-Inventory.html), we replaced a paper-based physical inventory process with a MI05 workflow that uses a tablet app to talk to BAPIs directly.
+* In [SAP Integration Suite and Peakboard Hub](https://how-to-dismantle-a-peakboard-box.com/Breaking-the-Ice-How-SAP-Integration-Suite-and-Peakboard-Hub-Became-Best-Friends.html), we showed how SAP BTP and Integration Suite fit in a future where everything is cloud-based, and Peakboard Hub is just another peer in the cloud landscape.
 * In [SAP Hana Meets Peakboard](https://how-to-dismantle-a-peakboard-box.com/SAP-Hana-Meets-Peakboard-Mastering-ODBC-Integration-Step-by-Step.html) we showed how to talk to SAP Hana directly through ODBC. 
 * In [Mission RFC Possible](https://how-to-dismantle-a-peakboard-box.com/Mission-RFC-Possible-Executing-Custom-Function-Modules-with-Integration-Flows.html), we explained how to wrap classic RFCs in modern HTTP endpoints, with Integration Suite.
 
 ## Hardware, sensors, and an army of printers
 
-On the hardware side, 2025 was the year of "things that blink, beep, or spit out labels":
+On the hardware side, 2025 was the year of *things that blink, beep, or spit out labels*:
 * In [Getting started with label printing](https://how-to-dismantle-a-peakboard-box.com/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html), we explained the basics of label printing with Peakboard.
-* In [Mastering Bixolon SRP-Q300 Series](https://how-to-dismantle-a-peakboard-box.com/The-Art-of-Printing-Mastering-Bixolon-SRP-Q300-Series-receipt-printer-with-enhanced-ESC-POS-commands-and-tables.html), we took a deep dive into ESC/POS.
+* In [Mastering Bixolon SRP-Q300 Series](https://how-to-dismantle-a-peakboard-box.com/The-Art-of-Printing-Mastering-Bixolon-SRP-Q300-Series-receipt-printer-with-enhanced-ESC-POS-commands-and-tables.html), we took a deep dive into ESC/POS, a command language for receipt printers.
 * In [How ZPL Turns Your Bixolon XD5-40 printer into a Label Wizard](https://how-to-dismantle-a-peakboard-box.com/Print-Charming-How-ZPL-Turns-Your-Bixolon-XD5-40-into-a-Label-Wizard.html), we went all-in on label printing.
 * In [Pick-by-Light System with Captron and Peakboard](https://how-to-dismantle-a-peakboard-box.com/Lights-On-A-Step-by-Step-Guide-to-Designing-a-Pick-by-Light-System-with-Captron-and-Peakboard.html), we explored pick-by-light systems, as part of intralogistics.
 * In [Building a Smart Dashboard for Tracking Temperature and Humidity](https://how-to-dismantle-a-peakboard-box.com/Peakboard-Meets-Shelly-Building-a-Smart-Dashboard-for-Tracking-Temperature-and-Humidity.html), we revisited Shelly devices with a more grown-up, production-ready dashboard.
