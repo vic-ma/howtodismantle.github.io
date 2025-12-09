@@ -30,7 +30,7 @@ Another big topic that we covered this year is the Peakboard Hub API. We showed 
 
 ## SAP: from inventory to BTP
 
-Of course, no year is complete without a couple of SAP articles! This year was a little different, however. Instead of looking at individual SAP connectors, we focused on how to make SAP overall behave nicely in a hybrid, Hub-centric architecture:
+Of course, no year is complete without a couple of SAP articles! This year was a little different, however. Rather than looking at individual SAP connectors, we instead focused on how to make SAP, in general, behave nicely in a hybrid, Hub-centric architecture:
 * In [How to handle SAP Inventory](https://how-to-dismantle-a-peakboard-box.com/Because-Nobody-Likes-MI05-How-to-handle-SAP-Inventory.html), we replaced the paper-based physical inventory process with a MI05 workflow that uses a tablet app to talk to BAPIs directly.
 * In [SAP Integration Suite and Peakboard Hub](https://how-to-dismantle-a-peakboard-box.com/Breaking-the-Ice-How-SAP-Integration-Suite-and-Peakboard-Hub-Became-Best-Friends.html), we showed how SAP BTP and Integration Suite fit in a future where everything is cloud-based, and Peakboard Hub is just another peer in the landscape.
 * In [SAP Hana Meets Peakboard](https://how-to-dismantle-a-peakboard-box.com/SAP-Hana-Meets-Peakboard-Mastering-ODBC-Integration-Step-by-Step.html) we showed how to talk to SAP Hana directly through ODBC. 
