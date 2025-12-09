@@ -21,7 +21,7 @@ With this series, we built a toolbox of robust, reusable, and production-ready H
 
 ## Peakboard Hub API everywhere
 
-Another big topic we covered this year is the Peakboard Hub API. We learned what's possible when you treat your Hub like a programmable control plane, rather than just a nice admin dashboard:
+Another big topic that we covered this year is the Peakboard Hub API. We showed what is possible when you treat your Hub like a fully-programmable control plane, and not just a admin dashboard:
 * In [Cracking the code - Part II](https://how-to-dismantle-a-peakboard-box.com/Cracking-the-code-Part-II-Calling-functions-remotely.html), we used the Hub API to send alarms to Peakboard Boxes from outside the local network.
 * Then, we went full Python in [Sssslithering Through APIs](https://how-to-dismantle-a-peakboard-box.com/Sssslithering-Through-APIs-Python-Unleashed-for-Peakboard-Hub.html), where we turned the Hub into a playground for scripts, tables, and ad-hoc SQL over lists.
 * In [Building an Azure Logic App to Access Peakboard Boxes](https://how-to-dismantle-a-peakboard-box.com/From-Cloud-to-Factory-Building-an-Azure-Logic-App-to-Access-Peakboard-Boxes-via-the-Peakboard-Hub.html), we bridged Microsoft's cloud workflows with shop-floor Peakboard Boxes.
