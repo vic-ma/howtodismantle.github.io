@@ -21,11 +21,11 @@ With this series, we built a toolbox of robust, reusable, and production-ready H
 
 ## Peakboard Hub API everywhere
 
-Another big topic that we covered this year is the Peakboard Hub API. We showed what is possible when you treat your Hub like a fully-programmable control plane, and not just a admin dashboard:
+Another big topic that we covered this year is the Peakboard Hub API. We showed what is possible when you treat your Hub like a fully-programmable control plane, and not just an admin dashboard:
 * In [Cracking the code - Part II](https://how-to-dismantle-a-peakboard-box.com/Cracking-the-code-Part-II-Calling-functions-remotely.html), we used the Hub API to send alarms to Peakboard Boxes from outside the local network.
 * Then, we went full Python in [Sssslithering Through APIs](https://how-to-dismantle-a-peakboard-box.com/Sssslithering-Through-APIs-Python-Unleashed-for-Peakboard-Hub.html), where we turned the Hub into a playground for scripts, tables, and ad-hoc SQL over lists.
-* In [Building an Azure Logic App to Access Peakboard Boxes](https://how-to-dismantle-a-peakboard-box.com/From-Cloud-to-Factory-Building-an-Azure-Logic-App-to-Access-Peakboard-Boxes-via-the-Peakboard-Hub.html), we bridged Microsoft's cloud workflows with shop-floor Peakboard Boxes.
-* And in [Cracking the code - Part III](https://how-to-dismantle-a-peakboard-box.com/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html), we learned how to treat Hub lists like a lightweight database.
+* In [Building an Azure Logic App to Access Peakboard Boxes](https://how-to-dismantle-a-peakboard-box.com/From-Cloud-to-Factory-Building-an-Azure-Logic-App-to-Access-Peakboard-Boxes-via-the-Peakboard-Hub.html), we bridged Microsoft's cloud-based workflows with shop-floor Peakboard Boxes.
+* And in [Cracking the code - Part III](https://how-to-dismantle-a-peakboard-box.com/Cracking-the-code-Part-III-Reading-and-writing-lists-with-Peakboard-Hub-API.html), we explain how to treat Hub lists like a lightweight database.
 * Finally, in [Revealing Peakboard Hub List Data in your Power BI Dashboards](https://how-to-dismantle-a-peakboard-box.com/Peak-a-Boo-Revealing-Peakboard-Hub-List-Data-in-your-Power-BI-Dashboards.html), we piped Hub list data into BI dashboards---turning the Hub API into the central backbone between cloud services, factory apps, and analytics.
 
 ## SAP: from inventory to BTP
