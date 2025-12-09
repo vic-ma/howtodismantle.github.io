@@ -40,7 +40,7 @@ Of course, no year is complete without a couple of SAP articles! This year was a
 
 On the hardware side, 2025 was the year of *things that blink, beep, or spit out labels*:
 * In [Getting started with label printing](https://how-to-dismantle-a-peakboard-box.com/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html), we explained the basics of label printing with Peakboard.
-* In [Mastering Bixolon SRP-Q300 Series](https://how-to-dismantle-a-peakboard-box.com/The-Art-of-Printing-Mastering-Bixolon-SRP-Q300-Series-receipt-printer-with-enhanced-ESC-POS-commands-and-tables.html), we took a deep dive into ESC/POS, a command language for receipt printers.
+* In [Mastering Bixolon SRP-Q300 Series](https://how-to-dismantle-a-peakboard-box.com/The-Art-of-Printing-Mastering-Bixolon-SRP-Q300-Series-label-printer-with-with-enhanced-ESCPOS-commands-and-tables.html), we took a deep dive into ESC/POS, a command language for receipt printers.
 * In [How ZPL Turns Your Bixolon XD5-40 printer into a Label Wizard](https://how-to-dismantle-a-peakboard-box.com/Print-Charming-How-ZPL-Turns-Your-Bixolon-XD5-40-into-a-Label-Wizard.html), we went all-in on label printing.
 * In [Pick-by-Light System with Captron and Peakboard](https://how-to-dismantle-a-peakboard-box.com/Lights-On-A-Step-by-Step-Guide-to-Designing-a-Pick-by-Light-System-with-Captron-and-Peakboard.html), we explored pick-by-light systems, as part of intralogistics.
 * In [Building a Smart Dashboard for Tracking Temperature and Humidity](https://how-to-dismantle-a-peakboard-box.com/Peakboard-Meets-Shelly-Building-a-Smart-Dashboard-for-Tracking-Temperature-and-Humidity.html), we revisited Shelly devices with a more grown-up, production-ready dashboard.
