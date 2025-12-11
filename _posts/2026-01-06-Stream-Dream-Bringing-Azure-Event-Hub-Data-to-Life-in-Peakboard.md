@@ -17,7 +17,7 @@ downloads:
 ---
 Azure Event Hubs are a high-throughput, real-time data ingestion service. You can think of it as a large, scalable entry-point for streamed data (e.g. telemetry, logs, sensor data, clickstreams, IoT signals). In a factory environment, you'll often see Event Hubs being used to ingest telemetry and sensor data from machines. To learn the basics of Event Hubs and understand how data flows from the source to the destination, check out Microsoft's [introduction to Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about).
 
-There are two main ways to integrate Event Hubs into Peakboard:
+There are two main ways to integrate Azure Event Hubs into Peakboard:
 * Peakboard acts as an **event source** and streams events to Azure Event Hubs.
 * Peakboard acts as an **event consumer.** Peakboard subscribes to specific events. Whenever Azure Event Hubs receives those events from its publishers, it sends the events to Peakboard.
 
@@ -25,11 +25,11 @@ In this article, we'll take a look at both of these scenarios and explain how th
 
 ## Configure Event Hubs
 
-First, we need to configure our Azure Event Hubs namespace. An [Event Hubs namespace](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#namespace) bundles together one or more Event Hub instances. Here's what our `DismantleEvents` namespace looks like:
+First, we need to configure our Event Hubs namespace. An [Event Hubs namespace](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#namespace) is a collection of one or more Event Hub instances. The namespace contains the actual Event Hub instance that we will use use. Here's what our `DismantleEvents` namespace looks like:
 
 ![Event Hubs namespace](/assets/2026-01-06/azure-event-hub-namespace-overview.png)
 
-Within that namespace sits the Event Hub we use. We also need an access policy for the Event Hub. The access policy provides the connection string that we will need later to configure the data source on the Peakboard side.
+The first thing we do is set up an access policy for our Event Hub. The access policy contains a connection string that our Peakboard app can use to connect to the Event Hub---as well as a key to authenticate itself.
 ![image](/assets/2026-01-06/azure-event-hub-access-policy.png)
 
 The last Azure object is a Storage Account. It is needed to store the offset points for the message streaming. The screenshot shows how to get the connection string, which we will need later.
