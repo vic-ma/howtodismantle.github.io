@@ -27,7 +27,7 @@ In this article, we'll take a look at both of these scenarios and explain how th
 
 First, we configure our Event Hubs namespace. An [Event Hubs namespace](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#namespace) is a collection of one or more Event Hub instances. The namespace contains the actual Event Hub instance that we will use use. Here's what our `DismantleEvents` namespace looks like:
 
-![Event Hubs namespace](/assets/2026-01-06/azure-event-hub-namespace-overview.png)
+![Azure Event Hub namespace overview](/assets/2026-01-06/azure-event-hub-namespace-overview.png)
 
 We need to create an access policy, in order to authorize our Peakboard app to connect to the Event Hub. From the sidebar, we go to *Settings > Shared access policies.* We create a new access policy and enable the *Manage* permission. Later, our app will need the connection string.
 ![image](/assets/2026-01-06/azure-event-hub-access-policy.png)
@@ -38,7 +38,7 @@ Next, we configure our [Azure Storage account](https://learn.microsoft.com/en-us
 
 Again, we need to get the connection string, which our Peakboard app will need later. To get this information, we go to *Sidebar > Security + networking > Access keys*.
 
-![image](/assets/2026-01-06/azure-storage-account-connection-string.png)
+![Azure storage account connection string](/assets/2026-01-06/azure-storage-account-connection-string.png)
 
 ## Create the Event Hub data source
 
@@ -46,19 +46,19 @@ Now, let's go over to Peakboard Designer and create an Event Hub data source. Wh
 
 We add a new Azure Event Hub data source. Then, we enter the connection strings for both the Event Hub and the storage account. We also enter the Event Hub name and the storage account name.
 
-![image](/assets/2026-01-06/peakboard-azure-event-hub-data-source-settings.png)
+![Peakboard Azure Event Hub data source settings](/assets/2026-01-06/peakboard-azure-event-hub-data-source-settings.png)
 
 The idea of our Flow is to build a bridge between a machine and the Event Hub, so we also need the connection to the machine. That part is simple with an OPC UA data source. We subscribe to two OPC UA nodes that each represent a counter of a light barrier. They count the goods that pass through the light barrier, so our data source has two columns—one for each light barrier—that contain the counters.
 
-![image](/assets/2026-01-06/peakboard-opc-ua-light-barrier-data-source.png)
+![Peakboard OPC UA light barrier data source](/assets/2026-01-06/peakboard-opc-ua-light-barrier-data-source.png)
 
 The next screenshot shows the actual flow. It is triggered by the OPC UA data source. Every time one of our two light barriers sends an updated value the flow is triggered, and every time it is triggered it calls the function `SendToAzure`.
 
-![image](/assets/2026-01-06/peakboard-flow-sendtoazure-overview.png)
+![Peakboard Flow SendToAzure overview](/assets/2026-01-06/peakboard-flow-sendtoazure-overview.png)
 
 Here's the last step we need to get it working. The `SendToAzure` function just calls the function `sendevent` of our Azure Event Hub data source. It takes two parameters. The first parameter is the actual message. In our case we build a JSON string to encapsulate the two light barrier counter values. The second parameter is a set of properties that can be seen as metadata bound to the actual message. These properties can be used with the Event Hub in Azure for message routing or other logic. For our example we do not use them, so the code in the screenshot is only for demonstration purposes to show how to use it.
 
-![image](/assets/2026-01-06/peakboard-sendtoazure-function-script.png)
+![Peakboard SendToAzure function script](/assets/2026-01-06/peakboard-sendtoazure-function-script.png)
 
 After deploying the Flow on a Peakboard Hub server it will work right away and send all subscribed light barrier values to the Azure Event Hub without any additional adjustments.
 
@@ -68,10 +68,10 @@ To set up a consumer application that receives and processes subscribed messages
 As an alternative we can use a special event that is fired for every arriving message. The logic is built with Building Blocks within this event. In our example we just parse the incoming message and assign the values of the light barriers to two text blocks to show the value.
 This approach keeps the consumer logic adaptable and ready for future enhancements, such as reacting to additional properties in the event payload.
 
-![image](/assets/2026-01-06/peakboard-event-hub-message-consumer-script.png)
+![Peakboard Event Hub message consumer script](/assets/2026-01-06/peakboard-event-hub-message-consumer-script.png)
 
 ## Result
 
 The image shows our example in running mode. The messages are generated from OPC UA, sent to Event Hub, and then forwarded to the application. The application shows the raw data in the table (just a table control bound to the data source) and also the two text blocks that show the processed values from the incoming messages. It also highlights how quickly production data can flow through the entire architecture once the connections are configured correctly.
 
-![image](/assets/2026-01-06/result.gif)
+![Peakboard Azure Event Hub integration final result](/assets/2026-01-06/result.gif)
