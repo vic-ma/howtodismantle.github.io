@@ -23,16 +23,20 @@ There are two main ways to integrate Azure Event Hubs into Peakboard:
 
 In this article, we'll take a look at both of these scenarios and explain how they work.
 
-## Configure Event Hubs
+## Configure Event Hubs namespace
 
-First, we need to configure our Event Hubs namespace. An [Event Hubs namespace](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#namespace) is a collection of one or more Event Hub instances. The namespace contains the actual Event Hub instance that we will use use. Here's what our `DismantleEvents` namespace looks like:
+First, we configure our Event Hubs namespace. An [Event Hubs namespace](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#namespace) is a collection of one or more Event Hub instances. The namespace contains the actual Event Hub instance that we will use use. Here's what our `DismantleEvents` namespace looks like:
 
 ![Event Hubs namespace](/assets/2026-01-06/azure-event-hub-namespace-overview.png)
 
-The first thing we do is set up an access policy for our Event Hub. The access policy contains a connection string that our Peakboard app can use to connect to the Event Hub---as well as a key to authenticate itself.
+We need to create an access policy, in order to authorize our Peakboard app to connect to the Event Hub. From the sidebar, we go to *Settings > Shared access policies.* We create a new access policy and enable the *Manage* permission. Later, our app will need the connection string and key.
 ![image](/assets/2026-01-06/azure-event-hub-access-policy.png)
 
-The last Azure object is a Storage Account. It is needed to store the offset points for the message streaming. The screenshot shows how to get the connection string, which we will need later.
+## Configure Storage account
+
+Next, we configure our [Azure Storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview). The storage account stores the [stream offsets](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#stream-offsets) for our Event Hub's partitions (essentially, the offsets keep track of where the newest event is located).
+
+From the sidebar, we navigate to *Security + networking > Access keys*. We copy the connection string, which our Peakboard app will need, in order to connect to our storage.
 
 ![image](/assets/2026-01-06/azure-storage-account-connection-string.png)
 
