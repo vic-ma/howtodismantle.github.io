@@ -29,22 +29,22 @@ First, we configure our Event Hubs namespace. An [Event Hubs namespace](https://
 
 ![Event Hubs namespace](/assets/2026-01-06/azure-event-hub-namespace-overview.png)
 
-We need to create an access policy, in order to authorize our Peakboard app to connect to the Event Hub. From the sidebar, we go to *Settings > Shared access policies.* We create a new access policy and enable the *Manage* permission. Later, our app will need the connection string and key.
+We need to create an access policy, in order to authorize our Peakboard app to connect to the Event Hub. From the sidebar, we go to *Settings > Shared access policies.* We create a new access policy and enable the *Manage* permission. Later, our app will need the connection string.
 ![image](/assets/2026-01-06/azure-event-hub-access-policy.png)
 
 ## Configure Storage account
 
 Next, we configure our [Azure Storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview). The storage account stores the [stream offsets](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#stream-offsets) for our Event Hub's partitions. These offsets keep track of where the newest event is located, for each partition.
 
-Again, we need to get the connection string and key, for our Peakboard app to use later. To get this information, we go to *Sidebar > Security + networking > Access keys*.
+Again, we need to get the connection string, which our Peakboard app will need later. To get this information, we go to *Sidebar > Security + networking > Access keys*.
 
 ![image](/assets/2026-01-06/azure-storage-account-connection-string.png)
 
 ## Create the Event Hub data source
 
-Now, let's go over to Peakboard Designer and create an Event Hub data source. We'll create a standard Peakboard app and add the data source there. However, you can also create a Hub Flow and follow the same steps. Whether you want to make a Peakboard app or a Hub Flow, the process for setting up the Event Hub data source looks the same.
+Now, let's go over to Peakboard Designer and create an Event Hub data source. Whether you want to create a Peakboard app or a Hub Flow, the process for setting up the Event Hub data source looks the same. In our case, we're going to create a Peakboard app.
 
-On the Peakboard side—regardless of whether we use Flow or a regular design project—we must provide the connection string for both the Event Hub and the Storage Account along with the hub name and the storage account name.
+We add a new Azure Event Hub data source. The must provide the connection string for both the Event Hub and the Storage Account along with the hub name and the storage account name.
 
 ![image](/assets/2026-01-06/peakboard-azure-event-hub-data-source-settings.png)
 
