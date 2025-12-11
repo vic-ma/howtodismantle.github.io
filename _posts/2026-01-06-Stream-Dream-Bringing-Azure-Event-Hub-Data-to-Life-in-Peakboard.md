@@ -18,14 +18,16 @@ downloads:
 Azure Event Hubs are a high-throughput, real-time data ingestion service. You can think of it as a large, scalable entry-point for streamed data (e.g. telemetry, logs, sensor data, clickstreams, IoT signals). In a factory environment, you might see Event Hubs being used to ingest telemetry and sensor data from machines. To learn the basics of Event Hubs and understand how data flows from the source to the destination, check out Microsoft's [introduction to Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about).
 
 There are two ways to integrate Event Hubs into Peakboard:
-* Peakboard acts as an event source and streams these events to Azure Event Hub.
-* Peakboard acts as an event consumer. Azure Event Hub sends events to Peakboard, based on the consumer group that the Peakboard app belongs to.
+* Peakboard acts as an event source and streams these events to Azure Event Hubs.
+* Peakboard acts as an event consumer. Peakboard subscribes to certain events. Whenever Azure Event Hubs receives those events from its producers, it sends them events to Peakboard.
 
 In this article, we'll take a look at both of these scenarios and explain how they work.
 
-## Set up the Azure environment
+## Configure Event Hubs
 
-On the Azure side the setup is fairly easy. The framework for handling events is the Event Hubs namespace, which bundles one or more Event Hubs. The next screenshot shows the namespace.
+First, we need to configure our Event Hubs instance to prepare it for our Peakboard app.
+
+ The framework for handling events is the Event Hubs namespace, which bundles one or more Event Hubs. The next screenshot shows the namespace.
 
 ![image](/assets/2026-01-06/azure-event-hub-namespace-overview.png)
 
