@@ -34,9 +34,9 @@ We need to create an access policy, in order to authorize our Peakboard app to c
 
 ## Configure Storage account
 
-Next, we configure our [Azure Storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview). The storage account stores the [stream offsets](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#stream-offsets) for our Event Hub's partitions (essentially, the offsets keep track of where the newest event is located).
+Next, we configure our [Azure Storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview). The storage account stores the [stream offsets](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#stream-offsets) for our Event Hub's partitions. These offsets keep track of where the newest event is located, for each partition.
 
-From the sidebar, we navigate to *Security + networking > Access keys*. We copy the connection string, which our Peakboard app will need, in order to connect to our storage.
+Again, we need to get the connection string and key, for our Peakboard app to use later. To get this information, we use the sidebar to go to *Security + networking > Access keys*.
 
 ![image](/assets/2026-01-06/azure-storage-account-connection-string.png)
 
