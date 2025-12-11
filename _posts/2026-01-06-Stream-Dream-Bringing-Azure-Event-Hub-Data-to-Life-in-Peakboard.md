@@ -48,6 +48,8 @@ We add a new Azure Event Hub data source. Then, we enter the connection strings 
 
 ![Peakboard Azure Event Hub data source settings](/assets/2026-01-06/peakboard-azure-event-hub-data-source-settings.png)
 
+## Create an Event consumer
+
 The idea of our Flow is to build a bridge between a machine and the Event Hub, so we also need the connection to the machine. That part is simple with an OPC UA data source. We subscribe to two OPC UA nodes that each represent a counter of a light barrier. They count the goods that pass through the light barrier, so our data source has two columns—one for each light barrier—that contain the counters.
 
 ![Peakboard OPC UA light barrier data source](/assets/2026-01-06/peakboard-opc-ua-light-barrier-data-source.png)
@@ -62,7 +64,7 @@ Here's the last step we need to get it working. The `SendToAzure` function just 
 
 After deploying the Flow on a Peakboard Hub server it will work right away and send all subscribed light barrier values to the Azure Event Hub without any additional adjustments.
 
-## Set up a message consumer
+## Create an event publisher
 
 To set up a consumer application that receives and processes subscribed messages from Azure Event Hub we need a data source similar to the one we used for building the flow. The output of the data source is a table with two columns: Timestamp and Message. The maximum number of rows is determined through the parameter `Queue Size`. The data can be processed by using the common patterns like the Reload Event or data flow.
 As an alternative we can use a special event that is fired for every arriving message. The logic is built with Building Blocks within this event. In our example we just parse the incoming message and assign the values of the light barriers to two text blocks to show the value.
