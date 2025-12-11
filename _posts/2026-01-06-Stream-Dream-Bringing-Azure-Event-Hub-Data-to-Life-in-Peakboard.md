@@ -19,7 +19,7 @@ Azure Event Hubs are a high-throughput, real-time data ingestion service. You ca
 
 There are two ways to integrate Event Hubs into Peakboard:
 * Peakboard acts as an event source and streams these events to Azure Event Hubs.
-* Peakboard acts as an event consumer. Peakboard subscribes to certain events. Whenever Azure Event Hubs receives those events from its producers, it sends them events to Peakboard.
+* Peakboard acts as an event consumer. Peakboard subscribes to certain events. Whenever Azure Event Hubs receives those events from its publishers, it sends them events to Peakboard.
 
 In this article, we'll take a look at both of these scenarios and explain how they work.
 
