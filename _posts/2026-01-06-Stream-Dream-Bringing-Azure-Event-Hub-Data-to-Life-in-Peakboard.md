@@ -15,7 +15,7 @@ downloads:
   - name: OPCUAToAzureHub.pbfx
     url: /assets/2026-01-06/OPCUAToAzureHub.pbfx
 ---
-Azure Event Hubs are a high-throughput, real-time data ingestion service. We can think of it as a big, scalable entry point for streaming data — telemetry, logs, sensor data, clickstreams, IoT signals, etc. A typical use case in factory environments would be telemetry or sensor data from machines. [This article](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about) describes the basic concepts and explains very well how the data typically flows from its source to each destination.
+Azure Event Hubs are a high-throughput, real-time data ingestion service. You can think of it as a large, scalable entry-point for streamed data (e.g. telemetry, logs, sensor data, clickstreams, IoT signals). In a factory environment, you might see Event Hubs being used to ingest telemetry and sensor data from machines. To learn the basics of Event Hubs and how data flows from the source to the destination, check out Microsoft's [introduction to Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about).
 
 For Peakboard applications there are basically two touchpoints:
 
