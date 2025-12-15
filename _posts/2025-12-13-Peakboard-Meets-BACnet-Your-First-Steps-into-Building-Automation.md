@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Peakboard Meets BACnet – Your First Steps in Building Automation
-date: 2023-03-01 00:00:00 +0000
+date: 2025-12-13 00:00:00 +0000
 tags: hardware
 image: /assets/2025-12-13/title.png
 image_header: /assets/2025-12-13/title.png
