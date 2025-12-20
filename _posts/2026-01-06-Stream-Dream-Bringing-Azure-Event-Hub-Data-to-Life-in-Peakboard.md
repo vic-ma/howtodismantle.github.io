@@ -15,7 +15,9 @@ downloads:
   - name: OPCUAToAzureHub.pbfx
     url: /assets/2026-01-06/OPCUAToAzureHub.pbfx
 ---
-Azure Event Hubs are a high-throughput, real-time data ingestion service. You can think of it as a large, scalable entry-point for streamed data (e.g. telemetry, logs, sensor data, clickstreams, IoT signals). In a factory environment, you'll often see Event Hubs being used to ingest telemetry and sensor data from machines. To learn the basics of Event Hubs and understand how data flows from the source to the destination, check out Microsoft's [introduction to Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about).
+Azure Event Hubs is a high-throughput, real-time data ingestion service. You can think of it as a large, scalable entry-point for streamed data (e.g. telemetry, logs, sensor data, clickstreams, IoT signals).
+
+In a factory environment, you'll often see Event Hubs being used to ingest telemetry and sensor data from machines. To learn the basics of Event Hubs and understand how data flows from the source to the destination, check out Microsoft's [introduction to Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about).
 
 There are two main ways to integrate Azure Event Hubs into Peakboard:
 * Peakboard acts as an **event source** and streams events to Azure Event Hubs.
@@ -42,7 +44,7 @@ Again, we need to get the connection string, which our Peakboard app will need l
 
 ## Create the Event Hub data source
 
-Now, let's go to Peakboard Designer and create an Event Hub data source. Whether you want to create a Peakboard app or a Hub Flow, the process for setting up the Event Hub data source looks the same. For this article, we're going to create a Peakboard app.
+Now, let's go to Peakboard Designer and create an Event Hub data source. Whether you want to create a Peakboard app or a Hub Flow, the process for setting up the Event Hub data source looks the same.
 
 We add a new Azure Event Hub data source. Then, we enter the connection strings for both the Event Hub and the storage account. We also enter the Event Hub name and the storage account name.
 
