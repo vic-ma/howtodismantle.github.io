@@ -38,13 +38,13 @@ Next, we create an access policy, in order to authorize our Peakboard app to con
 1. We copy the connection string. Our app will need it later.
 ![image](/assets/2026-01-06/azure-event-hub-access-policy.png)
 
-## Configure Storage account
+## Configure a storage account
+Next, we [create an Azure storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).
 
-Next, we configure our [Azure storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview). (If you don't have a Storage account, see [Create an Azure storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).)
+We'll use the [storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) to store the [stream offsets](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#stream-offsets) of our Event Hub's partitions. These offsets keep track of where the newest event is located, for each partition.
 
-The storage account stores the [stream offsets](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#stream-offsets) for our Event Hub's partitions. These offsets keep track of where the newest event is located, for each partition.
-
-Again, we need to get the connection string, which our Peakboard app will need later. To get this information, we go to *Sidebar > Security + networking > Access keys*.
+Next, go to *Sidebar > Security + networking > Access keys*.
+We copy the connection string. Our app will need it later.
 
 ![Azure storage account connection string](/assets/2026-01-06/azure-storage-account-connection-string.png)
 
