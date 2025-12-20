@@ -21,8 +21,8 @@ In a factory environment, you'll often see Azure Event Hubs being used to ingest
 
 ## Event Hubs and Peakboard
 There are two different ways to integrate Azure Event Hubs into Peakboard:
-* Peakboard acts as an **event source** and streams events to Azure Event Hubs.
-* Peakboard acts as an **event consumer.** Peakboard subscribes to specific events.
+* A Hub Flow acts as an **event publisher** and streams events to Azure Event Hubs.
+* A Peakboard app acts as an **event consumer.** Peakboard subscribes to specific events.
 
 In this article, we'll take a look at both of these scenarios and explain how they work.
 
@@ -49,7 +49,11 @@ We'll use the storage account to store the [stream offsets](https://learn.micros
 
 ## Create the Event Hub data source
 
-Now, let's go to Peakboard Designer and create an Event Hub data source. Whether you want to create a Peakboard app or a Hub Flow, the process for setting up the Event Hub data source looks the same.
+Now, we've finished all the setup on the Azure side. So, it's time to start working on Peakboard side. We'll create two separate projects:
+1. A Hub Flow that acts as an event publisher.
+1. A Peakboard app that acts as an event consumer.
+
+The first step is to create an Event Hub data source. This process is the same, regardless of if you want to create an event publisher (Hub Flow) or event consumer (Peakboard app).
 
 We add a new Azure Event Hub data source. Then, we enter the connection strings for both the Event Hub and the storage account. We also enter the Event Hub name and the storage account name.
 
