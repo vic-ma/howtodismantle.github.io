@@ -17,21 +17,25 @@ downloads:
 ---
 Azure Event Hubs is a high-throughput, real-time data ingestion service. You can think of it as a large, scalable entry-point for streamed data (e.g. telemetry, logs, sensor data, clickstreams, IoT signals).
 
-In a factory environment, you'll often see Event Hubs being used to ingest telemetry and sensor data from machines. To learn the basics of Event Hubs and understand how data flows from the source to the destination, check out Microsoft's [introduction to Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about).
+In a factory environment, you'll often see Azure Event Hubs being used to ingest telemetry and sensor data from machines. To learn the basics of Event Hubs and understand how data moves from the source to the destination, check out Microsoft's [introduction to Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about).
 
-There are two main ways to integrate Azure Event Hubs into Peakboard:
+## Event Hubs and Peakboard
+There are two different ways to integrate Azure Event Hubs into Peakboard:
 * Peakboard acts as an **event source** and streams events to Azure Event Hubs.
-* Peakboard acts as an **event consumer.** Peakboard subscribes to specific events. Whenever Azure Event Hubs receives those events from its publishers, it sends the events to Peakboard.
+* Peakboard acts as an **event consumer.** Peakboard subscribes to specific events.
 
 In this article, we'll take a look at both of these scenarios and explain how they work.
 
-## Configure Event Hubs namespace
+## Create Event Hubs namespace
 
-First, we configure our Event Hubs namespace. An [Event Hubs namespace](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#namespace) is a collection of one or more Event Hub instances. The namespace contains the actual Event Hub instance that we will use use. Here's what our `DismantleEvents` namespace looks like:
+First, we [create an Event Hubs namespace](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-create). An [Event Hubs namespace](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#namespace) is a collection of one or more Event Hub instances. The namespace contains the actual Event Hub instance that we will use use. Here's what our `DismantleEvents` namespace looks like:
 
 ![Azure Event Hub namespace overview](/assets/2026-01-06/azure-event-hub-namespace-overview.png)
 
-We need to create an access policy, in order to authorize our Peakboard app to connect to the Event Hub. From the sidebar, we go to *Settings > Shared access policies.* We create a new access policy and enable the *Manage* permission. Later, our app will need the connection string.
+We need to create an access policy, in order to authorize our Peakboard app to connect to the Event Hub:
+1. From the sidebar, we go to *Settings > Shared access policies.* 
+1. We create a new access policy and enable the *Manage* permission.
+1. We copy the connection string---our app will need it later.
 ![image](/assets/2026-01-06/azure-event-hub-access-policy.png)
 
 ## Configure Storage account
