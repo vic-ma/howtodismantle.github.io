@@ -61,9 +61,9 @@ To do this, we create a new Azure Event Hub data source. Then, we enter the conn
 
 ## Create an event publisher
 
-Now, let's create a Hub Flow that acts as an event publisher.
+Now, let's create a Hub Flow that acts as an event publisher. This Hub Flow connects to a light barrier. When the light barrier sends an updated value, the Hub Flow sends that new value to our Event Hub.
 
-First, we create an OPC UA data source. We subscribe to two OPC UA nodes that each represent the counters of a light barrier. They count the number of goods that pass through the light barrier, so our data source has two columns---one for each light barrier---that contain the counters.
+First, we create an OPC UA data source. We subscribe to two OPC UA nodes, which represent the two counters of a light barrier. They count the number of goods that pass through the light barrier, so our data source has two columns---one for each light barrier---that contain the counters.
 
 ![Peakboard OPC UA light barrier data source](/assets/2026-01-06/peakboard-opc-ua-light-barrier-data-source.png)
 
