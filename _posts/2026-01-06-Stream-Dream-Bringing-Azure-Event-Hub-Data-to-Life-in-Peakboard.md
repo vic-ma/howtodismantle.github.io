@@ -41,10 +41,9 @@ Next, we create an access policy, in order to authorize our Peakboard app to con
 ## Configure a storage account
 Next, we [create an Azure storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).
 
-We'll use the [storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) to store the [stream offsets](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#stream-offsets) of our Event Hub's partitions. These offsets keep track of where the newest event is located, for each partition.
+Then, we go to *Sidebar > Security + networking > Access keys* and copy the connection string. Our app will need it later.
 
-Next, go to *Sidebar > Security + networking > Access keys*.
-We copy the connection string. Our app will need it later.
+We'll use the storage account to store the [stream offsets](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#stream-offsets) of our Event Hub's partitions. These offsets keep track of where the newest event is located, for each partition.
 
 ![Azure storage account connection string](/assets/2026-01-06/azure-storage-account-connection-string.png)
 
@@ -56,15 +55,15 @@ We add a new Azure Event Hub data source. Then, we enter the connection strings 
 
 ![Peakboard Azure Event Hub data source settings](/assets/2026-01-06/peakboard-azure-event-hub-data-source-settings.png)
 
-## Create an event consumer
+## Create an event publisher
 
-Now, let's create an event consumer, in the form of a Hub Flow.
+Now, let's create a Hub Flow that acts as an event publisher.
 
-The idea of our Flow is to build a bridge between a machine and the Event Hub, so we also need the connection to the machine. That part is simple with an OPC UA data source. We subscribe to two OPC UA nodes that each represent a counter of a light barrier. They count the goods that pass through the light barrier, so our data source has two columns—one for each light barrier—that contain the counters.
+First, we create an OPC UA data source. We subscribe to two OPC UA nodes that each represent the counters of a light barrier. They count the number of goods that pass through the light barrier, so our data source has two columns---one for each light barrier---that contain the counters.
 
 ![Peakboard OPC UA light barrier data source](/assets/2026-01-06/peakboard-opc-ua-light-barrier-data-source.png)
 
-The next screenshot shows the actual flow. It is triggered by the OPC UA data source. Every time one of our two light barriers sends an updated value the flow is triggered, and every time it is triggered it calls the function `SendToAzure`.
+The following screenshot shows the actual Flow. It is triggered by the OPC UA data source. Each time one of our two light barriers sends an updated value the flow is triggered, and every time it is triggered it calls the function `SendToAzure`.
 
 ![Peakboard Flow SendToAzure overview](/assets/2026-01-06/peakboard-flow-sendtoazure-overview.png)
 
@@ -74,7 +73,7 @@ Here's the last step we need to get it working. The `SendToAzure` function just 
 
 After deploying the Flow on a Peakboard Hub server it will work right away and send all subscribed light barrier values to the Azure Event Hub without any additional adjustments.
 
-## Create an event publisher
+## Create an event consumer
 
 To set up a consumer application that receives and processes subscribed messages from Azure Event Hub we need a data source similar to the one we used for building the flow. The output of the data source is a table with two columns: Timestamp and Message. The maximum number of rows is determined through the parameter `Queue Size`. The data can be processed by using the common patterns like the Reload Event or data flow.
 As an alternative we can use a special event that is fired for every arriving message. The logic is built with Building Blocks within this event. In our example we just parse the incoming message and assign the values of the light barriers to two text blocks to show the value.
