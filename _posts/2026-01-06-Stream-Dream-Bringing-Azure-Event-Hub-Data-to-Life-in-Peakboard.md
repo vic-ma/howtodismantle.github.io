@@ -32,7 +32,7 @@ First, we [create an Event Hubs namespace](https://learn.microsoft.com/en-us/azu
 
 ![Azure Event Hub namespace overview](/assets/2026-01-06/azure-event-hub-namespace-overview.png)
 
-We need to create an access policy, in order to authorize our Peakboard app to connect to the Event Hub:
+Next, we create an access policy, in order to authorize our Peakboard app to connect to the Event Hub:
 1. From the sidebar, we go to *Settings > Shared access policies.* 
 1. We create a new access policy and enable the *Manage* permission.
 1. We copy the connection string. Our app will need it later.
@@ -40,7 +40,9 @@ We need to create an access policy, in order to authorize our Peakboard app to c
 
 ## Configure Storage account
 
-Next, we configure our [Azure Storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview). The storage account stores the [stream offsets](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#stream-offsets) for our Event Hub's partitions. These offsets keep track of where the newest event is located, for each partition.
+Next, we configure our [Azure storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview). (If you don't have a Storage account, see [Create an Azure storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).)
+
+The storage account stores the [stream offsets](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#stream-offsets) for our Event Hub's partitions. These offsets keep track of where the newest event is located, for each partition.
 
 Again, we need to get the connection string, which our Peakboard app will need later. To get this information, we go to *Sidebar > Security + networking > Access keys*.
 
