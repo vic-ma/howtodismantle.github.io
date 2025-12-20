@@ -1,0 +1,192 @@
+<!-- Dashboard Row - Horizontal Scroll Section -->
+<section class="relative py-8">
+  <!-- Section Header -->
+  <div class="mb-6 flex items-center gap-6">
+    <h2 class="font-heading text-2xl md:text-3xl font-bold text-gray-900 dark:text-white uppercase tracking-tight whitespace-nowrap">
+      {{ include.title }}
+    </h2>
+    <div class="flex-1 h-0.5 bg-gradient-to-r from-accent-cyan/50 to-transparent"></div>
+    {% if include.view_all_url %}
+      {%- assign total_count = nil -%}
+      {%- if include.collection_id -%}
+        {%- assign curated_all_keys = "" | split: "" -%}
+        {%- for post in site.posts -%}
+          {%- if post.collections and post.collections[include.collection_id] -%}
+            {%- assign order_num = post.collections[include.collection_id] | plus: 0 -%}
+            {%- capture padded -%}00000{{ order_num }}{%- endcapture -%}
+            {%- assign padded = padded | slice: -5, 5 -%}
+            {%- assign date_s = post.date | date: "%s" | plus: 0 -%}
+            {%- assign inv_date = 9999999999 | minus: date_s -%}
+            {%- capture inv_padded -%}0000000000{{ inv_date }}{%- endcapture -%}
+            {%- assign inv_padded = inv_padded | slice: -10, 10 -%}
+            {%- capture key -%}{{ padded }}|{{ inv_padded }}|{{ post.url }}{%- endcapture -%}
+            {%- assign curated_all_keys = curated_all_keys | push: key -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- assign curated_all_keys = curated_all_keys | sort -%}
+        {%- assign curated_all = "" | split: "" -%}
+        {%- for key in curated_all_keys -%}
+          {%- assign url = key | split: "|" | last -%}
+          {%- assign match = site.posts | where: "url", url | first -%}
+          {%- if match -%}
+            {%- assign curated_all = curated_all | push: match -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if curated_all.size > 0 -%}
+          {%- assign total_count = curated_all.size -%}
+        {%- else -%}
+          {%- assign def = site.data.collections.collections | where: "id", include.collection_id | first -%}
+          {%- assign tags = def.tags_fallback | default: "" -%}
+          {%- assign filtered_all = "" | split: "" -%}
+          {%- for post in site.posts -%}
+            {%- for tag in post.tags -%}
+              {%- if tags contains tag -%}
+                {%- assign filtered_all = filtered_all | push: post -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endfor -%}
+          {%- assign total_count = filtered_all.size -%}
+        {%- endif -%}
+      {%- endif -%}
+
+      <a href="{{ include.view_all_url }}"
+         class="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-accent-cyan hover:text-accent-cyan transition-colors whitespace-nowrap">
+        <span class="relative">
+          {{ site.data.ui_text.dashboard_row.view_all_label }}
+          <span class="absolute left-0 -bottom-1 h-0.5 w-full bg-gradient-to-r from-accent-cyan to-transparent scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+        </span>
+        {% if total_count != nil %}
+          <span class="font-mono text-[10px] px-2 py-0.5 rounded-full border border-accent-cyan/30 text-gray-700 dark:text-gray-300 group-hover:border-accent-cyan/60 transition-colors">
+            {{ total_count }}
+          </span>
+        {% endif %}
+        <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+    {% endif %}
+  </div>
+  
+  <!-- Posts: horizontal scroll on mobile, clean grid on desktop -->
+  <div class="relative -mx-6 px-6 lg:-mx-8 lg:px-8">
+    <div class="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:pb-0 lg:snap-none" style="scrollbar-width: none; -ms-overflow-style: none;">
+      {%- assign limit = include.limit | default: 3 -%}
+
+      {%- comment -%}
+      Curated ordering:
+      - If posts have front-matter map `collections: { <collection_id>: <order> }`,
+        we use that and sort by the numeric order (lower first).
+      - If none curated, we fall back to newest posts matching tags_fallback defined in `_data/collections.yml`.
+      {%- endcomment -%}
+
+      {%- assign posts_to_show = include.posts -%}
+      {%- unless posts_to_show -%}
+        {%- assign curated_keys = "" | split: "" -%}
+        {%- for post in site.posts -%}
+          {%- if post.collections and include.collection_id and post.collections[include.collection_id] -%}
+            {%- assign order_num = post.collections[include.collection_id] | plus: 0 -%}
+            {%- capture padded -%}00000{{ order_num }}{%- endcapture -%}
+            {%- assign padded = padded | slice: -5, 5 -%}
+            {%- assign date_s = post.date | date: "%s" -%}
+            {%- capture key -%}{{ padded }}|{{ date_s }}|{{ post.url }}{%- endcapture -%}
+            {%- assign curated_keys = curated_keys | push: key -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- assign curated_keys = curated_keys | sort -%}
+        {%- assign curated_posts = "" | split: "" -%}
+        {%- for key in curated_keys -%}
+          {%- assign parts = key | split: "|" -%}
+          {%- assign url = parts[2] -%}
+          {%- assign match = site.posts | where: "url", url | first -%}
+          {%- if match -%}
+            {%- assign curated_posts = curated_posts | push: match -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- assign posts_to_show = curated_posts -%}
+
+        {%- if posts_to_show.size == 0 -%}
+          {%- assign def = site.data.collections.collections | where: "id", include.collection_id | first -%}
+          {%- assign tags = def.tags_fallback | default: "" -%}
+          {%- assign filtered_posts = "" | split: "" -%}
+          {%- for post in site.posts -%}
+            {%- for tag in post.tags -%}
+              {%- if tags contains tag -%}
+                {%- assign filtered_posts = filtered_posts | push: post -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endfor -%}
+          {%- assign posts_to_show = filtered_posts -%}
+        {%- endif -%}
+      {%- endunless -%}
+
+      {% for post in posts_to_show limit:limit %}
+        <div class="flex-none w-80 md:w-96 snap-start lg:w-auto lg:snap-none">
+          <!-- Compact Card Design -->
+          <div class="group relative h-full border border-gray-200 dark:border-gray-800 bg-white dark:bg-blackground transition-all duration-300 hover:shadow-[0_0_15px_rgba(46,196,255,0.2)] hover:border-accent-cyan/50">
+            <!-- Image -->
+            {% if post.image %}
+            <div class="relative w-full aspect-[3/2] overflow-hidden">
+              <a href="{{ post.url }}">
+                <img src="{{ post.image }}" 
+                     alt="{{ post.title }}" 
+                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              </a>
+            </div>
+            {% endif %}
+            
+            <!-- Content -->
+            <div class="p-5">
+              <!-- Metadata -->
+              <div class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2">
+                <span>{{ post.date | date: "%b %d" }}</span>
+                <span class="w-1 h-1 bg-accent-cyan rounded-full"></span>
+                <span>{% include reading_time.html content=post.content %}</span>
+              </div>
+              
+              <!-- Title -->
+              <h3 class="font-heading text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-2 group-hover:text-accent-cyan transition-colors">
+                <a href="{{ post.url }}">{{ post.title }}</a>
+              </h3>
+              
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 mb-3">
+                {% for tag in post.tags limit:2 %}
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-accent-cyan">
+                    #{{ tag }}
+                  </span>
+                {% endfor %}
+              </div>
+              
+              <!-- Short Excerpt -->
+              <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">
+                {{ post.content | strip_html | truncatewords: 15 }}
+              </p>
+              
+              <!-- Read Link -->
+              <a href="{{ post.url }}" 
+                 class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white hover:text-accent-cyan transition-colors">
+                Read →
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <!-- Scroll Indicator (Optional) -->
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-16 h-full bg-gradient-to-l from-stone-100 dark:from-blackground to-transparent pointer-events-none lg:hidden"></div>
+  </div>
+</section>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+

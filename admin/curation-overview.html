@@ -1,0 +1,308 @@
+---
+layout: base
+title: Curation Overview
+permalink: /admin/curation-overview/
+sitemap: false
+---
+
+<meta name="robots" content="noindex, nofollow">
+
+<div class="mx-auto max-w-7xl px-6 lg:px-8 py-10">
+  <div class="mb-8">
+    <h1 class="font-heading text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white uppercase tracking-tight mb-2">
+      Curation Overview
+    </h1>
+    <p class="text-sm text-gray-600 dark:text-gray-400">
+      Overview of all posts in collections and learning paths. Use this to see what's curated and what's using tag fallbacks.
+    </p>
+  </div>
+
+  <!-- Collections -->
+  <section class="mb-12">
+    <h2 class="font-heading text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-tight mb-6">
+      Collections
+    </h2>
+
+    {% for collection_def in site.data.collections.collections %}
+      {% assign collection_id = collection_def.id %}
+      {% assign def_text = site.data.ui_text.collections.definitions[collection_id] %}
+      
+      <div class="mb-8 border border-gray-200 dark:border-gray-800 bg-white dark:bg-blackground p-6">
+        <div class="mb-4">
+          <h3 class="font-heading text-lg font-bold text-gray-900 dark:text-white mb-1">
+            {{ def_text.title }}
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+            ID: <code class="text-xs bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded">{{ collection_id }}</code>
+          </p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Tags fallback: 
+            {% for tag in collection_def.tags_fallback %}
+              <code class="text-xs bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded">{{ tag }}</code>
+            {% endfor %}
+          </p>
+        </div>
+
+        <!-- Curated Posts -->
+        {% assign curated_posts = "" | split: "" %}
+        {% assign curated_weights = "" | split: "" %}
+        {% for post in site.posts %}
+          {% if post.collections and post.collections[collection_id] %}
+            {% assign weight = post.collections[collection_id] | plus: 0 %}
+            {% capture padded -%}00000{{ weight }}{%- endcapture -%}
+            {% assign padded = padded | slice: -5, 5 -%}
+            {% capture key -%}{{ padded }}|{{ post.url }}{%- endcapture -%}
+            {% assign curated_posts = curated_posts | push: post -%}
+            {% assign curated_weights = curated_weights | push: key -%}
+          {% endif %}
+        {% endfor %}
+        
+        {% if curated_weights.size > 0 %}
+          {% assign curated_weights = curated_weights | sort %}
+          <div class="mb-4">
+            <h4 class="text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
+              Curated Posts ({{ curated_weights.size }})
+            </h4>
+            <ol class="space-y-2">
+              {% for key in curated_weights %}
+                {% assign parts = key | split: "|" %}
+                {% assign url = parts[1] %}
+                {% assign match = site.posts | where: "url", url | first %}
+                {% if match %}
+                  {% assign weight = match.collections[collection_id] | plus: 0 %}
+                  <li class="flex items-start gap-3 text-sm">
+                    <span class="font-mono text-xs text-gray-500 dark:text-gray-400 w-12 flex-shrink-0">
+                      {{ weight }}
+                    </span>
+                    <div class="flex-1 min-w-0">
+                      <a href="{{ match.url }}" class="text-gray-900 dark:text-white hover:text-accent-cyan transition-colors">
+                        {{ match.title }}
+                      </a>
+                      <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        <code class="text-xs">{{ match.url }}</code>
+                      </div>
+                    </div>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ol>
+          </div>
+        {% else %}
+          <div class="mb-4">
+            <p class="text-sm text-gray-500 dark:text-gray-400 italic">
+              No curated posts. Using tag fallback.
+            </p>
+          </div>
+        {% endif %}
+
+        <!-- Posts matching tags_fallback (not curated) -->
+        {% assign fallback_posts = "" | split: "" %}
+        {% for post in site.posts %}
+          {% assign is_curated = false %}
+          {% if post.collections and post.collections[collection_id] %}
+            {% assign is_curated = true %}
+          {% endif %}
+          {% unless is_curated %}
+            {% for tag in post.tags %}
+              {% if collection_def.tags_fallback contains tag %}
+                {% assign fallback_posts = fallback_posts | push: post %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+          {% endunless %}
+        {% endfor %}
+
+        {% if fallback_posts.size > 0 %}
+          <div>
+            <h4 class="text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
+              Matching Tag Fallback ({{ fallback_posts.size }}) - Not Curated
+            </h4>
+            <ul class="space-y-1">
+              {% for post in fallback_posts limit: 10 %}
+                <li class="text-sm">
+                  <a href="{{ post.url }}" class="text-gray-600 dark:text-gray-400 hover:text-accent-cyan transition-colors">
+                    {{ post.title }}
+                  </a>
+                </li>
+              {% endfor %}
+              {% if fallback_posts.size > 10 %}
+                <li class="text-xs text-gray-500 dark:text-gray-400 italic">
+                  ... and {{ fallback_posts.size | minus: 10 }} more
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </section>
+
+  <!-- Learning Paths -->
+  <section>
+    <h2 class="font-heading text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-tight mb-6">
+      Learning Paths
+    </h2>
+
+    {% for learning_def in site.data.learning.learning %}
+      {% assign learning_id = learning_def.id %}
+      {% assign def_text = site.data.ui_text.learning.definitions[learning_id] %}
+      
+      <div class="mb-8 border border-gray-200 dark:border-gray-800 bg-white dark:bg-blackground p-6">
+        <div class="mb-4">
+          <h3 class="font-heading text-lg font-bold text-gray-900 dark:text-white mb-1">
+            {{ def_text.title }}
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+            ID: <code class="text-xs bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded">{{ learning_id }}</code>
+          </p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Tags fallback: 
+            {% for tag in learning_def.tags_fallback %}
+              <code class="text-xs bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded">{{ tag }}</code>
+            {% endfor %}
+          </p>
+        </div>
+
+        <!-- Curated Posts -->
+        {% assign curated_posts = "" | split: "" %}
+        {% assign curated_weights = "" | split: "" %}
+        {% for post in site.posts %}
+          {% if post.learning and post.learning[learning_id] %}
+            {% assign weight = post.learning[learning_id] | plus: 0 %}
+            {% capture padded -%}00000{{ weight }}{%- endcapture -%}
+            {% assign padded = padded | slice: -5, 5 -%}
+            {% capture key -%}{{ padded }}|{{ post.url }}{%- endcapture -%}
+            {% assign curated_posts = curated_posts | push: post -%}
+            {% assign curated_weights = curated_weights | push: key -%}
+          {% endif %}
+        {% endfor %}
+        
+        {% if curated_weights.size > 0 %}
+          {% assign curated_weights = curated_weights | sort %}
+          <div class="mb-4">
+            <h4 class="text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
+              Curated Posts ({{ curated_weights.size }})
+            </h4>
+            <ol class="space-y-2">
+              {% for key in curated_weights %}
+                {% assign parts = key | split: "|" %}
+                {% assign url = parts[1] %}
+                {% assign match = site.posts | where: "url", url | first %}
+                {% if match %}
+                  {% assign weight = match.learning[learning_id] | plus: 0 %}
+                  <li class="flex items-start gap-3 text-sm">
+                    <span class="font-mono text-xs text-gray-500 dark:text-gray-400 w-12 flex-shrink-0">
+                      {{ weight }}
+                    </span>
+                    <div class="flex-1 min-w-0">
+                      <a href="{{ match.url }}" class="text-gray-900 dark:text-white hover:text-accent-cyan transition-colors">
+                        {{ match.title }}
+                      </a>
+                      <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        <code class="text-xs">{{ match.url }}</code>
+                      </div>
+                    </div>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ol>
+          </div>
+        {% else %}
+          <div class="mb-4">
+            <p class="text-sm text-gray-500 dark:text-gray-400 italic">
+              No curated posts. Using tag fallback.
+            </p>
+          </div>
+        {% endif %}
+
+        <!-- Posts matching tags_fallback (not curated) -->
+        {% assign fallback_posts = "" | split: "" %}
+        {% for post in site.posts %}
+          {% assign is_curated = false %}
+          {% if post.learning and post.learning[learning_id] %}
+            {% assign is_curated = true %}
+          {% endif %}
+          {% unless is_curated %}
+            {% for tag in post.tags %}
+              {% if learning_def.tags_fallback contains tag %}
+                {% assign fallback_posts = fallback_posts | push: post %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+          {% endunless %}
+        {% endfor %}
+
+        {% if fallback_posts.size > 0 %}
+          <div>
+            <h4 class="text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
+              Matching Tag Fallback ({{ fallback_posts.size }}) - Not Curated
+            </h4>
+            <ul class="space-y-1">
+              {% for post in fallback_posts limit: 10 %}
+                <li class="text-sm">
+                  <a href="{{ post.url }}" class="text-gray-600 dark:text-gray-400 hover:text-accent-cyan transition-colors">
+                    {{ post.title }}
+                  </a>
+                </li>
+              {% endfor %}
+              {% if fallback_posts.size > 10 %}
+                <li class="text-xs text-gray-500 dark:text-gray-400 italic">
+                  ... and {{ fallback_posts.size | minus: 10 }} more
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </section>
+
+  <!-- Featured Hero Post -->
+  <section class="mt-12">
+    <h2 class="font-heading text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-tight mb-6">
+      Featured Hero Post
+    </h2>
+    <div class="border border-gray-200 dark:border-gray-800 bg-white dark:bg-blackground p-6">
+      {% assign featured_candidates = site.posts | where: "home_featured", true %}
+      {% if featured_candidates.size > 0 %}
+        {% assign featured_keys = "" | split: "" %}
+        {% for post in featured_candidates %}
+          {% assign order_num = post.home_featured_order | default: 999 | plus: 0 %}
+          {% capture padded -%}00000{{ order_num }}{%- endcapture -%}
+          {% assign padded = padded | slice: -5, 5 -%}
+          {% assign date_s = post.date | date: "%s" | plus: 0 %}
+          {% assign inv_date = 9999999999 | minus: date_s %}
+          {% capture inv_padded -%}0000000000{{ inv_date }}{%- endcapture -%}
+          {% assign inv_padded = inv_padded | slice: -10, 10 -%}
+          {% capture key -%}{{ padded }}|{{ inv_padded }}|{{ post.url }}{%- endcapture -%}
+          {% assign featured_keys = featured_keys | push: key %}
+        {% endfor %}
+        {% assign featured_keys = featured_keys | sort %}
+        {% assign parts = featured_keys[0] | split: "|" %}
+        {% assign featured_post = site.posts | where: "url", parts[2] | first %}
+        
+        {% if featured_post %}
+          <div>
+            <h4 class="text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
+              Current Featured Post
+            </h4>
+            <p class="text-sm mb-1">
+              <a href="{{ featured_post.url }}" class="text-gray-900 dark:text-white hover:text-accent-cyan transition-colors">
+                {{ featured_post.title }}
+              </a>
+            </p>
+            <p class="text-xs text-gray-500 dark:text-gray-400">
+              Order: <code>{{ featured_post.home_featured_order | default: 999 }}</code> | 
+              URL: <code>{{ featured_post.url }}</code>
+            </p>
+          </div>
+        {% endif %}
+      {% else %}
+        <p class="text-sm text-gray-500 dark:text-gray-400 italic">
+          No posts marked as featured. Will fall back to latest post.
+        </p>
+      {% endif %}
+    </div>
+  </section>
+</div>
+

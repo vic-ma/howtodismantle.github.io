@@ -2,54 +2,110 @@
 layout: base
 ---
 
-<div class="relative">
-    <!-- Hero image with gradient overlay -->
-    {% if page.image_header or page.image %}
-    <div class="w-full h-[600px] relative">
-        <img src="{{ page.image_header | default: page.image }}" alt="{{ page.title }}" class="w-full h-full object-cover">
-        {% unless page.bg_alternative %}
-        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/30"></div>
-        {% endunless %}
-    </div>
-    {% endif %}
+{%- assign hero_image = page.image_header | default: page.image -%}
 
-    <!-- Title content overlaid on image -->
-    <div class="absolute bottom-0 left-0 right-0 px-8 pb-32">
-        <div class="max-w-7xl mx-auto">
-            {% if page.bg_alternative %}
-            <div class="bg-white/80 dark:bg-blackground/80 rounded-xl p-8 shadow-xl">
-            {% endif %}
-                <p class="text-sm {% unless page.bg_alternative %}text-white/80{% else %}text-gray-600 dark:text-gray-400{% endunless %} mb-4">Published in 
-                    {% for tag in page.tags %}
-                        <a href="/category/{{ tag | slugify }}" class="{% unless page.bg_alternative %}text-white hover:text-secondary{% else %}text-gray-900 dark:text-white hover:text-secondary{% endunless %}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
-                    {% endfor %}
-                </p>
-                <h1 class="text-5xl font-bold {% unless page.bg_alternative %}text-white{% else %}text-gray-900 dark:text-white{% endunless %} mt-2 leading-tight">{{ page.title }}</h1>
-                <p class="text-xl {% unless page.bg_alternative %}text-white/80{% else %}text-gray-600 dark:text-gray-400{% endunless %} {% if page.description %}mt-6{% endif %}">{{ page.description }}</p>
-            {% if page.bg_alternative %}
+<!-- Hero -->
+<section class="mb-10">
+    {% if hero_image %}
+    <div class="relative w-full aspect-[16/9] max-h-[70vh] overflow-hidden group">
+        <img src="{{ hero_image }}" alt="{{ page.title }}" class="absolute inset-0 w-full h-full object-cover">
+
+        {% unless page.bg_alternative %}
+        <!-- Home-like gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-90"></div>
+        {% endunless %}
+
+        <!-- Content -->
+        <div class="absolute inset-0 z-10 flex flex-col justify-end">
+            <div class="mx-auto w-full max-w-7xl px-6 lg:px-8 pb-10">
+                {% if page.bg_alternative %}
+                <div class="border border-gray-200 dark:border-gray-800 bg-white/90 dark:bg-blackground/80 p-6 md:p-8">
+                {% endif %}
+
+                    {% if page.tags and page.tags.size > 0 %}
+                    <a href="/category/{{ page.tags[0] | slugify }}"
+                       class="inline-flex items-center px-4 py-1.5 mb-4 text-xs font-bold uppercase tracking-widest bg-accent-cyan text-black w-fit hover:text-white transition-colors">
+                        {{ page.tags[0] }}
+                    </a>
+                    {% endif %}
+
+                    <p class="text-[10px] font-bold uppercase tracking-widest {% unless page.bg_alternative %}text-white/80{% else %}text-gray-600 dark:text-gray-400{% endunless %} mb-3">
+                        Published in
+                        {% if page.tags and page.tags.size > 0 %}
+                            {% for tag in page.tags %}
+                                <a href="/category/{{ tag | slugify }}"
+                                   class="{% unless page.bg_alternative %}text-white hover:text-accent-cyan{% else %}text-gray-900 dark:text-white hover:text-accent-cyan{% endunless %} transition-colors">
+                                    {{ tag }}
+                                </a>{% unless forloop.last %}, {% endunless %}
+                            {% endfor %}
+                        {% else %}
+                            <span class="{% unless page.bg_alternative %}text-white{% else %}text-gray-900 dark:text-white{% endunless %}">Uncategorized</span>
+                        {% endif %}
+                    </p>
+
+                    <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold {% unless page.bg_alternative %}text-white{% else %}text-gray-900 dark:text-white{% endunless %} leading-tight tracking-tight">
+                        {{ page.title }}
+                    </h1>
+
+                    {% if page.description %}
+                    <p class="mt-5 text-base md:text-lg {% unless page.bg_alternative %}text-white/80{% else %}text-gray-600 dark:text-gray-400{% endunless %} max-w-3xl">
+                        {{ page.description }}
+                    </p>
+                    {% endif %}
+
+                {% if page.bg_alternative %}
+                </div>
+                {% endif %}
             </div>
+        </div>
+
+        <!-- Bottom fade (helps the “hero” feel consistent with home) -->
+        <div class="absolute inset-x-0 bottom-0 h-20 pointer-events-none bg-gradient-to-t from-black/60 to-transparent"></div>
+    </div>
+    {% else %}
+    <!-- No-image fallback hero -->
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 pt-10">
+        <div class="border border-gray-200 dark:border-gray-800 bg-white dark:bg-blackground p-8">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-3">
+                Published in
+                {% if page.tags and page.tags.size > 0 %}
+                    {% for tag in page.tags %}
+                        <a href="/category/{{ tag | slugify }}" class="text-gray-900 dark:text-white hover:text-accent-cyan transition-colors">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+                    {% endfor %}
+                {% else %}
+                    <span class="text-gray-900 dark:text-white">Uncategorized</span>
+                {% endif %}
+            </p>
+            <h1 class="font-heading text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight leading-tight">
+                {{ page.title }}
+            </h1>
+            {% if page.description %}
+            <p class="mt-4 text-gray-600 dark:text-gray-400 max-w-3xl">
+                {{ page.description }}
+            </p>
             {% endif %}
         </div>
     </div>
-</div>
+    {% endif %}
+</section>
 
 <!-- Main content -->
-<div class="relative -mt-16">
-    <div class="max-w-7xl mx-auto">
-        <div class="bg-white dark:bg-blackground shadow-xl rounded-xl">
+<div class="relative {% if hero_image %}-mt-16{% endif %}">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="border border-gray-200 dark:border-gray-800 bg-white dark:bg-blackground">
             <!-- Article metadata -->
-            <div class="border-b border-gray-200 p-8">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center space-x-4">
-                        <span class="text-sm text-gray-600">{{ page.date | date: "%B %d, %Y" }}</span>
-                        <span class="text-sm text-gray-600">•</span>
-                        <span class="text-sm text-gray-600">{% include reading_time.html content=page.content %} read</span>
+            <div class="border-b border-gray-200 dark:border-gray-800 px-6 py-5 md:px-8">
+                <div class="flex items-center justify-between gap-4">
+                    <div class="flex flex-wrap items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                        <span>{{ page.date | date: "%b %d, %Y" }}</span>
+                        <span class="w-1 h-1 bg-accent-cyan rounded-full"></span>
+                        <span>{% include reading_time.html content=page.content %} read</span>
                     </div>
-                    <div class="flex items-center space-x-4">
-                        <button onclick="copyPageUrl()" 
-                                class="text-gray-600 hover:text-gray-800" 
+                    <div class="flex items-center gap-3">
+                        <button onclick="copyPageUrl()"
+                                class="inline-flex items-center justify-center w-9 h-9 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300 hover:text-accent-cyan hover:border-accent-cyan/60 transition-colors"
                                 title="Copy link">
-                            <i class="fas fa-link"></i> 
+                            <i class="fas fa-link"></i>
                         </button>
                     </div>
                 </div>
@@ -57,38 +113,62 @@ layout: base
 
             <div class="grid grid-cols-1 lg:grid-cols-10 gap-x-8">
                 <!-- Main content -->
-                <div class="lg:col-span-7 p-12">
-                    <div id="article-content" class="prose prose-dismantle text-gray-900 dark:text-light dark:prose-invert">
+                <div class="lg:col-span-7 p-6 md:p-10 lg:p-12">
+                    <div id="article-content" class="prose prose-dismantle text-gray-900 dark:text-light dark:prose-invert max-w-none">
                         {{ content }}
                     </div>
                 </div>
 
                 <!-- Side content -->
-                <div class="lg:col-span-3 border-l border-gray-200 p-8">
-                    <div class="sticky top-20 space-y-8">
-                        <!-- Read More -->
-                        <div class="break-words">
+                <div class="lg:col-span-3 border-l border-gray-200 dark:border-gray-800 pl-6 md:pl-8 pr-6 md:pr-8 min-w-0">
+                    <div class="sticky top-20 space-y-10 pt-6 overflow-wrap-anywhere">
+                        <!-- Resources (Downloads & Links) -->
+                        {% if page.downloads or page.read_more_links %}
+                        <div class="break-words min-w-0">
+                            <div class="mb-5 flex items-center gap-3">
+                                <h3 class="font-heading text-xs font-bold uppercase tracking-widest text-gray-900 dark:text-white whitespace-nowrap">
+                                    Resources
+                                </h3>
+                                <div class="flex-1 h-0.5 bg-gradient-to-r from-accent-cyan/50 to-transparent"></div>
+                            </div>
                             {% include read-more-new.html downloads=page.downloads rml=page.read_more_links %}
                         </div>
+                        {% endif %}
 
                         <!-- Next/Previous Articles -->
-                        <div class="break-words">
-                            <div class="space-y-8">
+                        {% if page.previous.url or page.next.url %}
+                        <div class="break-words min-w-0 pr-2">
+                            <div class="mb-5 flex items-center gap-3">
+                                <h3 class="font-heading text-xs font-bold uppercase tracking-widest text-gray-900 dark:text-white whitespace-nowrap">
+                                    Keep Reading
+                                </h3>
+                                <div class="flex-1 h-0.5 bg-gradient-to-r from-accent-cyan/50 to-transparent"></div>
+                            </div>
+                            <div class="space-y-6">
                                 {% if page.previous.url %}
-                                <a href="{{ page.previous.url }}" class="group block">
-                                    <p class="text-sm text-gray-500 mb-2">← Previous Article</p>
-                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-light group-hover:text-secondary">{{ page.previous.title }}</h3>
+                                <a href="{{ page.previous.url }}" 
+                                   title="{{ page.previous.title }}"
+                                   class="group block">
+                                    <p class="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2">← Previous Article</p>
+                                    <h3 class="font-heading text-sm font-bold text-gray-900 dark:text-white group-hover:text-accent-cyan transition-colors leading-snug line-clamp-3">
+                                        {{ page.previous.title }}
+                                    </h3>
                                 </a>
                                 {% endif %}
-                                
+
                                 {% if page.next.url %}
-                                <a href="{{ page.next.url }}" class="group block">
-                                    <p class="text-sm text-gray-500 mb-2">Next Article →</p>
-                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-light group-hover:text-secondary">{{ page.next.title }}</h3>
+                                <a href="{{ page.next.url }}" 
+                                   title="{{ page.next.title }}"
+                                   class="group block">
+                                    <p class="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2">Next Article →</p>
+                                    <h3 class="font-heading text-sm font-bold text-gray-900 dark:text-white group-hover:text-accent-cyan transition-colors leading-snug line-clamp-3">
+                                        {{ page.next.title }}
+                                    </h3>
                                 </a>
                                 {% endif %}
                             </div>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

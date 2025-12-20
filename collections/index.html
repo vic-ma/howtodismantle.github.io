@@ -1,0 +1,60 @@
+---
+layout: base
+title: Collections
+permalink: /collections/
+---
+
+<div class="mx-auto max-w-7xl px-6 lg:px-8 py-10">
+  <div class="mb-8">
+    <h1 class="font-heading text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white uppercase tracking-tight">
+      {{ site.data.ui_text.collections.index.title }}
+    </h1>
+    <p class="mt-3 text-gray-600 dark:text-gray-400 max-w-3xl">
+      {{ site.data.ui_text.collections.index.intro }}
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {% for c in site.data.collections.collections %}
+      <a href="/collections/{{ c.id }}" class="group border border-gray-200 dark:border-gray-800 bg-white dark:bg-blackground p-6 hover:border-accent-cyan hover:shadow-[0_0_8px_rgba(46,196,255,0.15)] transition-all">
+        <h2 class="font-heading text-xl font-bold uppercase tracking-tight text-gray-900 dark:text-white group-hover:text-accent-cyan transition-colors">
+          {{ site.data.ui_text.collections.definitions[c.id].title }}
+        </h2>
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+          {{ site.data.ui_text.collections.definitions[c.id].description }}
+        </p>
+        <div class="mt-4 text-xs font-bold uppercase tracking-widest text-accent-cyan">
+          {{ site.data.ui_text.collections.index.card_cta }}
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+
+  <!-- Hardware Guide promo bar -->
+  <div class="mt-10 border border-gray-200 dark:border-gray-800 bg-white dark:bg-blackground px-6 py-5 blueprint-grid-dense">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="inline-flex items-center justify-center w-10 h-10 bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/30">
+          <i class="fas fa-microchip text-lg"></i>
+        </div>
+        <div>
+          <div class="font-heading text-xs font-bold uppercase tracking-widest text-gray-600 dark:text-gray-400">
+            {{ site.data.ui_text.collections.hardware_banner.eyebrow }}
+          </div>
+          <div class="text-sm text-gray-900 dark:text-white font-semibold">
+            {{ site.data.ui_text.collections.hardware_banner.title }}
+          </div>
+        </div>
+      </div>
+      <a href="/hardwareguide"
+         class="inline-flex items-center justify-center px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-black font-bold text-sm uppercase tracking-wider hover:bg-accent-cyan hover:text-black dark:hover:bg-accent-cyan transition-colors">
+        {{ site.data.ui_text.collections.hardware_banner.cta }}
+        <svg class="w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+

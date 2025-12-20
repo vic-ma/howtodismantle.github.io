@@ -1,0 +1,57 @@
+<!-- Micro Pillar - Curated Learning Path Block -->
+<div class="relative h-full flex flex-col border border-gray-200 dark:border-gray-700 bg-white dark:bg-blackground p-6 transition-all duration-300 hover:border-accent-cyan hover:shadow-[0_0_8px_rgba(46,196,255,0.15)] group blueprint-grid-dense">
+  {% assign pillar_text = site.data.ui_text.learning.definitions[include.pillar.id] %}
+  <!-- Icon -->
+  <div class="mb-4 inline-flex items-center justify-center w-12 h-12 bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/30 transition-all duration-300 group-hover:bg-accent-cyan group-hover:text-white">
+    <i class="fas {{ include.pillar.icon }} text-xl"></i>
+  </div>
+  
+  <!-- Title -->
+  <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2 uppercase tracking-tight">
+    {{ pillar_text.title }}
+  </h3>
+  
+  <!-- Description -->
+  <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">
+    {{ pillar_text.description }}
+  </p>
+
+  <!-- Bottom-aligned CTA block (keeps all buttons aligned across the row) -->
+  <div class="mt-auto">
+    <!-- Start Here Link (Primary) -->
+    <a href="{{ include.pillar.start_link.url }}" 
+       class="inline-flex items-center px-5 py-2.5 mb-4 bg-gray-900 dark:bg-white text-white dark:text-black font-bold text-sm uppercase tracking-wider hover:bg-accent-cyan hover:text-black dark:hover:bg-accent-cyan transition-all duration-300 w-full justify-center group/btn">
+      {{ site.data.ui_text.learning.common.start_here_cta }}
+      <svg class="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+      </svg>
+    </a>
+    
+    <!-- Secondary Links -->
+    {% if include.pillar.secondary_links %}
+    <ul class="space-y-2 mb-4">
+      {% for link in include.pillar.secondary_links %}
+      <li>
+        <a href="{{ link.url }}" 
+           class="text-sm text-gray-700 dark:text-gray-300 hover:text-accent-cyan dark:hover:text-accent-cyan transition-colors flex items-center group/link">
+          <span class="w-1.5 h-1.5 bg-accent-cyan mr-2 transition-transform group-hover/link:scale-125"></span>
+          {{ site.data.ui_text.learning.link_labels[link.key] }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    
+    <!-- See also (Optional) -->
+    {% if include.pillar.see_also %}
+    <a href="{{ include.pillar.see_also.url }}"
+       class="text-xs font-bold uppercase tracking-wider text-accent-amber hover:text-accent-cyan transition-colors inline-flex items-center">
+      <i class="fas fa-link mr-2"></i>
+      {{ site.data.ui_text.micro_pillar.see_also_prefix }} {{ include.pillar.see_also.text }}
+    </a>
+    {% endif %}
+  </div>
+  
+</div>
+
+

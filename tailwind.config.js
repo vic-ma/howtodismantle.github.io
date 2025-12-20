@@ -4,6 +4,8 @@ module.exports = {
         './_includes/**/*.html',
         './_layouts/**/*.html',
         './_posts/*.md',
+        './collections/**/*.html',
+        './learning/**/*.html',
         './*.md',
         './*.html',
     ],
@@ -63,6 +65,8 @@ module.exports = {
                 primary: '#143761',
                 secondary: '#21AFE1',
                 light: '#ECEBE4',
+                'accent-cyan': '#2EC4FF',
+                'accent-amber': '#FFB449',
             },
             keyframes: {
                 highlight: {
@@ -79,7 +83,13 @@ module.exports = {
             title: ['HelveticaDisplayBlack'],
             regular: ['HelveticaNow'],
             sans: [
+                "Inter",
                 "HelveticaNow",
+                "sans-serif"
+            ],
+            heading: [
+                "Inter Tight",
+                "Inter",
                 "sans-serif"
             ],
             serif: [

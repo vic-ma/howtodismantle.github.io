@@ -1,114 +1,68 @@
 # Editor Guide: Homepage Collections & Learning
 
-The home page is uses front‑matter in posts to display articles in collections, learning paths and the featured spot at the top of the home page. If nothing is defined, it will fall back to the newest articles for a few linked categories corresponding with the collection/learning path.
+The homepage uses post front‑matter to display articles in collections, learning paths, and the featured hero. If nothing is defined, it falls back to newest posts matching tag fallbacks.
 
-## Key concepts
+## Quick Reference
+
+**Curation Overview:** `/admin/curation-overview/` (shows all curated posts, weights, URLs)
+
+**Data Files:**
+- `_data/collections.yml` - collection definitions & tag fallbacks
+- `_data/learning.yml` - learning path definitions & tag fallbacks  
+- `_data/ui_text.yml` - copywriting/text labels
+
+## How to Curate
+
+### Featured Hero Post
+```yml
+home_featured: true
+home_featured_order: 10  # Lower number wins
+```
+Falls back to latest post if none marked.
 
 ### Collections
-- **What**: 3 curated homepage rows (API & Integrations, Hardware & Devices, Developer Guides).
-- **Homepage behavior**:
-  - Shows 3 posts max per row.
-  - Adds a “View all” tile at the end of each row linking to the collection hub page. This page is also visible in the top navigation bar.
-  - A post appears only once across the homepage (hero + rows + latest grid). If it’s used earlier, it won’t be repeated later.
-- **Pages**:
-  - `/collections/` (overview)
-  - `/collections/<collection-id>` (full listing)
-
-Collection definitions live in:
-- `_data/collections.yml` (title, description, `tags_fallback`)
-
-Copywriting can be found and adjusted in:
-- `_data/ui_text.yml`
+```yml
+collections:
+  api-integrations: 10      # Order: lower = first
+  hardware-devices: 30
+  developer-guides: 20
+```
+**IDs:** `api-integrations`, `hardware-devices`, `developer-guides`  
+**Homepage:** Shows 3 posts max per row. Posts appear only once (hero → rows → latest grid).  
+**Pages:** `/collections/`, `/collections/<collection-id>`  
+**Fallback:** Newest posts matching `tags_fallback` in `_data/collections.yml`
 
 ### Learning Paths
-- **What**: 4 “Learning Paths” cards on the homepage (Hub Flows, Hardware & Sensors, SAP, UI Design).
-- **Homepage behavior**:
-  - Renders a 4‑card grid (not a post row). Each card has:
-    - an icon
-    - a title + description
-    - a primary CTA button: START HERE
-    - 3 secondary links (the small bullet links under the button)
-  - User can navigate via each card’s START HERE button.
-- **Pages**:
-  - `/learning/` (overview)
-  - `/learning/<learning-id>` (full flow listing)
-
-Learning definitions live in:
-- `_data/learning.yml`
-
-Copywriting can be found and adjusted in:
-- `_data/ui_text.yml`
-
-## How curation works
-
-### 1) Featured hero post (homepage)
-To manually pick the hero post:
-
-```yml
-home_featured: true
-home_featured_order: 10
-```
-
-- Lower `home_featured_order` wins.
-- If no post has `home_featured: true`, the hero falls back to the latest post.
-
-### 2) Curate posts into Collections (with order)
-Add a `collections` map to a post’s front‑matter:
-
-```yml
-collections:
-  api-integrations: 10
-  hardware-devices: 30
-```
-
-- The number is the order (lower shows first).
-- If you don’t curate anything for a collection yet, the collection row/hub page falls back to newest posts that match the tags listed in `_data/collections.yml` under `tags_fallback`.
-
-Collection IDs:
-- `api-integrations`
-- `hardware-devices`
-- `developer-guides`
-
-### 3) Curate posts into Learning (with order)
-Add a `learning` map to a post’s front‑matter:
-
 ```yml
 learning:
-  sap: 10
-  ui-design: 20
+  hub-flows: 10            # Step order: lower = first
+  sap: 20
+  ui-design: 30
 ```
+**IDs:** `hub-flows`, `hardware-sensors`, `sap`, `ui-design`  
+**Homepage:** 4-card grid with START HERE buttons.  
+**Pages:** `/learning/`, `/learning/<learning-id>`  
+**Fallback:** Newest posts matching `tags_fallback` in `_data/learning.yml`
 
-- The number is the step order (lower shows first).
-- If you don’t curate anything for a learning flow yet, it falls back to newest posts that match the `tags_fallback` in `_data/learning.yml`.
+## Examples
 
-Learning IDs:
-- `hub-flows`
-- `hardware-sensors`
-- `sap`
-- `ui-design`
-
-## Examples (copy/paste)
-
-### Example: Make a post the homepage hero AND first in API collection
-
+**Hero + Collection:**
 ```yml
 home_featured: true
 home_featured_order: 10
-
 collections:
   api-integrations: 10
 ```
 
-### Example: Add a post to a learning flow as “Step 2”
-
+**Learning Path Step 2:**
 ```yml
 learning:
   hardware-sensors: 20
 ```
 
-## Notes / gotchas
-- **Ordering is numeric**. Use 10, 20, 30… so you can insert steps later.
-- **Single placement** on the homepage means: if a post is featured in the hero/rows, it won’t show again in later sections.
-- If you want a post to appear in a hub page but not on the homepage row, just keep the `collections`/`learning` key and adjust homepage curation later (we can add “exclude_home: true” logic if needed).
+## Notes
+- **Ordering:** Use 10, 20, 30… to allow inserting steps later
+- **Single placement:** Posts appear only once on homepage (hero → rows → latest grid)
+- **Hub-only:** Posts with `collections`/`learning` appear on hub pages even if not on homepage rows
 
 

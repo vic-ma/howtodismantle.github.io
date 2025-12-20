@@ -1,0 +1,54 @@
+<!-- Magazine Style Article Card - Clean with thin gap separators -->
+<article class="group relative bg-white dark:bg-blackground transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-900">
+  <!-- Image -->
+  {% if include.post.image %}
+  <div class="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-gray-900">
+    <a href="{{ include.post.url }}" class="block">
+      <img src="{{ include.post.image }}" 
+           alt="{{ include.post.title }}" 
+           class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+    </a>
+  </div>
+  {% endif %}
+  
+  <!-- Content -->
+  <div class="p-6">
+    <!-- Metadata -->
+    <div class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-3">
+      <span>{{ include.post.date | date: "%b %d, %Y" }}</span>
+      <span class="w-1 h-1 bg-gray-400"></span>
+      <span>{% include reading_time.html content=include.post.content %}</span>
+    </div>
+    
+    <!-- Title -->
+    <h3 class="font-heading text-lg font-bold text-gray-900 dark:text-white mb-3 leading-tight group-hover:text-accent-cyan transition-colors line-clamp-2">
+      <a href="{{ include.post.url }}">{{ include.post.title }}</a>
+    </h3>
+    
+    <!-- Tags -->
+    <div class="flex flex-wrap gap-2 mb-4">
+      {% for tag in include.post.tags limit:2 %}
+        <a href="/category/{{ tag | slugify }}" 
+           class="text-[10px] font-bold uppercase tracking-wider text-accent-cyan hover:text-accent-amber transition-colors">
+          #{{ tag }}
+        </a>
+      {% endfor %}
+    </div>
+    
+    <!-- Excerpt -->
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-3 leading-relaxed">
+      {{ include.post.content | strip_html | truncatewords: 20 }}
+    </p>
+    
+    <!-- Read More Link -->
+    <a href="{{ include.post.url }}" 
+       class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white hover:text-accent-cyan transition-colors">
+      Read Article →
+    </a>
+  </div>
+  
+  <!-- Top accent line on hover -->
+  <div class="absolute top-0 left-0 w-0 h-1 bg-accent-cyan transition-all duration-300 group-hover:w-full"></div>
+</article>
+
+

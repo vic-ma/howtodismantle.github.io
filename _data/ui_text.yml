@@ -1,0 +1,78 @@
+collections:
+  index:
+    title: "Collections"
+    intro: "Curated dashboards of posts. Each collection can be ordered manually, with a newest-post fallback for now."
+    card_cta: "View all →"
+  definitions:
+    api-integrations:
+      title: "API & Integrations"
+      description: "Connect Peakboard to the outside world: REST, Microsoft Graph, Office 365, SAP, Hub APIs."
+    hardware-devices:
+      title: "Hardware & Devices"
+      description: "Sensors, OPC UA / MQTT, controllers, printing, and industrial connectivity."
+    developer-guides:
+      title: "Developer Guides"
+      description: "Build, script, and ship: dev workflows, Lua, tutorials, and best practices."
+  hardware_banner:
+    eyebrow: "Hardware Guide"
+    title: "Need wiring, devices, and sensor basics? Jump into the dedicated guide."
+    cta: "Open Hardware Guide"
+
+learning:
+  index:
+    title: "Learning"
+    intro: "Short, curated flows to get you from “where do I start?” to “this runs in production.”"
+  definitions:
+    hub-flows:
+      title: "Hub Flows"
+      description: "Build scalable Hub workflows and integrations with real industrial impact."
+    hardware-sensors:
+      title: "Hardware & Sensors"
+      description: "Connect devices, sensors, and PLCs. Make it talk. Make it reliable."
+    sap:
+      title: "SAP"
+      description: "From SAP data to dashboards—clean patterns, stable integrations, real-world tips."
+    ui-design:
+      title: "UI Design"
+      description: "Design readable, industrial dashboards that feel like a control panel—not a slideshow."
+  page:
+    start_here_label: "Start here:"
+    start_here_text: "Pick an article below and follow the path end-to-end. Each step builds on the previous one."
+    see_also_prefix: "See also:"
+  link_labels:
+    hub_api: "Hub API"
+    integrations: "Integrations"
+    best_practices: "Best Practices"
+    use_cases: "Use Cases"
+    tutorials: "Tutorials"
+    hardware: "Hardware"
+    opcuamqtt: "OPC UA / MQTT"
+    twincat: "TwinCAT"
+    ui: "UI"
+  common:
+    start_here_cta: "Start Here"
+
+dashboard_row:
+  view_all_label: "View all"
+
+micro_pillar:
+  see_also_prefix: "See also:"
+
+pagination:
+  load_more: "Load more"
+
+site:
+  nav:
+    back_to_home: "back to home"
+    side_menu_home: "Home"
+    side_menu_about: "About"
+    side_menu_hardwareguide: "Hardware Guide"
+    side_menu_categories: "Categories"
+    side_menu_archive: "Archive"
+  side_menu:
+    title: "What is this blog?"
+    text: "How to dismantle a Peakboard Box is a blog about various tips, tricks and hacks for Peakboard Boxes."
+    contact_title: "Contact"
+    contact_text: "If you have any questions, feel free to contact us at info@how-to-dismantle-a-peakboard-box.com"
+
+

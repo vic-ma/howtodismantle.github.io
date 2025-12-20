@@ -10,7 +10,7 @@ layout: base
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
                 </svg>
-                {{ site.content.link-back-to-home }}
+                {{ site.data.ui_text.site.nav.back_to_home }}
             </a>
         </div>
 
@@ -18,7 +18,7 @@ layout: base
         <h1 class="text-3xl font-bold text-gray-900 dark:text-light mb-8">Category: {{ page.title }}</h1>
 
         <!-- Posts Grid -->
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 2xl:grid-cols-3">
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {% for tag in site.tags %}
                 {% if tag[0] == page.category %}
                     {% for post in tag[1] %}

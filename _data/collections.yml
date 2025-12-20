@@ -1,0 +1,10 @@
+collections:
+  - id: api-integrations
+    # Fallback when no posts are manually curated via post front-matter
+    tags_fallback: ["api", "peakboardhubapi", "msgraph", "office365", "sap"]
+  - id: hardware-devices
+    tags_fallback: ["hardware", "opcuamqtt", "twincat", "printing"]
+  - id: developer-guides
+    tags_fallback: ["dev", "lua", "tutorial", "bestpractice", "basics"]
+
+

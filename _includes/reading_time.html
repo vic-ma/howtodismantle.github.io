@@ -1,6 +1,6 @@
 <span>
   {% assign words = include.content | number_of_words %}
-  {% if words < 300 %}
+  {% if words < 200 %}
     1 min
   {% else %}
     {{ words | divided_by:150 }} mins
