@@ -48,7 +48,9 @@ We add a new Azure Event Hub data source. Then, we enter the connection strings 
 
 ![Peakboard Azure Event Hub data source settings](/assets/2026-01-06/peakboard-azure-event-hub-data-source-settings.png)
 
-## Create an Event consumer
+## Create an event consumer
+
+Now, let's create an event consumer, in the form of a Hub Flow.
 
 The idea of our Flow is to build a bridge between a machine and the Event Hub, so we also need the connection to the machine. That part is simple with an OPC UA data source. We subscribe to two OPC UA nodes that each represent a counter of a light barrier. They count the goods that pass through the light barrier, so our data source has two columns—one for each light barrier—that contain the counters.
 
