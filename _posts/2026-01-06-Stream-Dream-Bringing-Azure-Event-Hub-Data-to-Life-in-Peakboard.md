@@ -35,7 +35,7 @@ First, we [create an Event Hubs namespace](https://learn.microsoft.com/en-us/azu
 We need to create an access policy, in order to authorize our Peakboard app to connect to the Event Hub:
 1. From the sidebar, we go to *Settings > Shared access policies.* 
 1. We create a new access policy and enable the *Manage* permission.
-1. We copy the connection string---our app will need it later.
+1. We copy the connection string. Our app will need it later.
 ![image](/assets/2026-01-06/azure-event-hub-access-policy.png)
 
 ## Configure Storage account
