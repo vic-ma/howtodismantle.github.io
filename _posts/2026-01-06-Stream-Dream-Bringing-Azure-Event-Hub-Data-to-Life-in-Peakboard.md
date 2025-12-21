@@ -50,12 +50,12 @@ We'll use the storage account to store the [stream offsets](https://learn.micros
 ## Demo introduction
 
 Now, we've finished all the setup on the Azure side. So it's time to start working on Peakboard side. We create two separate projects:
-1. A Hub Flow that acts as an event publisher. This Hub Flow subscribes to OPC UA nodes for two light barriers. When either of the light barriers update their counters, the Hub Flow sends the updated value to the Azure Event Hub.
+1. A Hub Flow that acts as an event publisher. This Hub Flow subscribes to OPC UA nodes for two light barriers. When either of the light barriers updates their counters, the Hub Flow sends the updated value to the Azure Event Hub.
 1. A Peakboard app that acts as an event consumer. This Peakboard app subscribes to the light barrier events of the Azure Event Hub. The Peakboard app shows the counter values on screen, and updates them whenever the Event Hub sends a new event.
 
 ## Event Hub data source
 
-For both projects, the first step is the same: set up the Event Hub data source.
+For both projects, the first step is the same: set up an Event Hub data source.
 
 To do this, we create a new Azure Event Hub data source. Then, we enter the connection strings for both the Event Hub and the storage account. We also enter the Event Hub name and the storage account name.
 
