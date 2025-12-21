@@ -85,7 +85,7 @@ The final step is to create the `SendToAzure` function, which sends the updated 
 1. The message to send. In our case, we use a JSON string that contains the two light barrier counter values.
 1. A set of properties that contain the metadata for the message. These properties can be used with the Event Hub to perform message routing or other logic.
    
-   In the following screenshot, we set a `SendBy` prop to `Peakboard`. This is just for demonstration purposes. The property doesn't actually do anything.
+   In the following screenshot, we set a `SendBy` prop to `Peakboard`. This property is just for demonstration purposes. It doesn't actually do anything.
 
 ![Peakboard SendToAzure function script](/assets/2026-01-06/peakboard-sendtoazure-function-script.png)
 
