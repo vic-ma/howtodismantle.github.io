@@ -93,10 +93,11 @@ Once we deploy our Flow onto Peakboard Hub, it starts working right away and sen
 
 Now, let's create a Peakboard app that acts as an event consumer.
 
-The output of the data source is a table with two columns: `Timestamp` and `Message`. The maximum number of rows is determined through the parameter `Queue Size`. The data can be processed with standard patterns like the reload event or a data flow.
+The output of the data source is a table with two columns: `Timestamp` and `Message`. The maximum number of rows is specified by the `Queue Size` parameter. The data can be processed with standard patterns like a reload event or data flow.
 
-Alternatively, we can use a special event that is fired for every arriving message. The logic is built with Building Blocks within this event. In our example we just parse the incoming message and assign the values of the light barriers to two text blocks to show the value.
-This approach keeps the consumer logic adaptable and ready for future enhancements, such as reacting to additional properties in the event payload.
+Alternatively, we can use a special event that is fired for each arriving message. The logic is built with Building Blocks within this event. In our example, we parse the incoming message and assign the values of the light barriers to two text blocks, in order to show the value.
+
+This approach keeps the consumer logic adaptable and ready for future enhancements---such as reacting to additional properties in the event payload.
 
 ![Peakboard Event Hub message consumer script](/assets/2026-01-06/peakboard-event-hub-message-consumer-script.png)
 
