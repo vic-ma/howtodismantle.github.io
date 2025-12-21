@@ -55,9 +55,9 @@ Now, we've finished all the setup on the Azure side. So it's time to start worki
 
 ## Event Hub data source
 
-For both projects, the first step is the same: set up an Event Hub data source.
+For both projects, the first step is the same: create an Event Hub data source and configure it.
 
-To do this, we create a new Azure Event Hub data source. Then, we enter the connection strings for both the Event Hub and the storage account. We also enter the Event Hub name and the storage account name.
+To configure the data source, we enter the connection strings for both the Event Hub and the storage account. We also enter the Event Hub name and the storage account name.
 
 ![Peakboard Azure Event Hub data source settings](/assets/2026-01-06/peakboard-azure-event-hub-data-source-settings.png)
 
