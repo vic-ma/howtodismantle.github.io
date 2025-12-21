@@ -27,13 +27,9 @@ In the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-you
 
 In the [second part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), we explained how to add configuration options to a custom data source. We added options like *IsItARealCat* and *Age* to our Cat List data source.
 
-Make sure that you have read the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html). This article won't make sense otherwise. You can also take a look at the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension).
+In today's article, we'll explain how to add functions to a custom data source. A function of a data source is usually used to interact with the data source beside the pure query for data. Let's assume we build an extension for autonomous robots. So we build a data source to query the position of the robots and refresh it every couple of seconds. Let's assume we want the user to use our Peakboard application to command the robot to navigate to the charging station; we would add a `GoToChargingStation` function to our robot extension.
 
-In the first part of this series, we explained how to build a basic Peakboard extension. We used two classes to provide the metadata and the actual payload that is exchanged between the extension and the Peakboard application. In the second part we discussed how to form parameters to enable user interaction and let the user configure the extension. Here's an overview of this article series:
-
-
-In today's article we will talk about how to add functions to the extensions. A function of a data source is usually used to interact with the data source beside the pure query for data. Let's assume we build an extension for autonomous robots. So we build a data source to query the position of the robots and refresh it every couple of seconds. Let's assume we want the user to use our Peakboard application to command the robot to navigate to the charging station; we would add a `GoToChargingStation` function to our robot extension.
-Understanding the foundation we discussed in the first and second part of the series is a crucial requirement. The sample code used in this article can be found at [github](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension).
+Make sure that you have read [part one](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html) and [part two](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html) of this series. This article won't make sense otherwise. You can also take a look at the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension) on GitHub.
 
 ## Create a simple function with a return parameter
 
