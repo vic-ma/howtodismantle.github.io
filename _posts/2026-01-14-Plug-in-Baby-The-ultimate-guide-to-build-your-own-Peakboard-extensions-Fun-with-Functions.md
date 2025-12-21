@@ -27,9 +27,11 @@ In the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-you
 
 In the [second part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), we explained how to add configuration options to a custom data source. We added options like *IsItARealCat* and *Age* to our Cat List data source.
 
-In today's article, we'll explain how to **create functions for a custom data source.** A data source can provide functions, to provide capabilities beyond simple data querying.
+In today's article, we'll explain how to **create functions for a custom data source.**
 
-For example, the SQL data source lets you get data from a SQL database. But what if you want to insert data into a SQL database instead? In that case, you can use the *Run SQL query* function. This function, which is provided by the SQL data source, lets you run an arbitrary SQL query. If you want to insert a row whenever the user taps a button, then you would add the function to the *tapped script* of the button.
+A data source can provide functions that give us capabilities beyond simple data querying. For example, the SQL data source lets you get data from a SQL database. But what if you want to insert data into a SQL database instead?
+
+In that case, you can use the *Run SQL query* function. This function, which is provided by the SQL data source, lets you run an arbitrary SQL query. So for example, if you want to insert a row whenever the user taps a button on screen, then you would add the *Run SQL query* function to the *tapped script* of the button.
 
 Make sure that you have read [part one](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html) and [part two](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html) of this series. This article won't make sense otherwise. You can also take a look at the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension) on GitHub.
 
