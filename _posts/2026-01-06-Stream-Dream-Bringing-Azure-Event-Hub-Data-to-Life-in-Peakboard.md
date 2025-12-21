@@ -51,7 +51,7 @@ We'll use the storage account to store the [stream offsets](https://learn.micros
 
 Now, we've finished all the setup on the Azure side. So it's time to start working on Peakboard side. We create two separate projects:
 1. A Hub Flow that acts as an event publisher. This Hub Flow subscribes to the OPC UA nodes for two light barriers. When either of the light barriers updates their counters, the Hub Flow gets the updated value via OPC UA. Then, the Hub Flow sends the updated value to the Azure Event Hub.
-1. A Peakboard app that acts as an event consumer. This Peakboard app subscribes to the light barrier events of the Azure Event Hub. The Peakboard app shows the counter values on screen and updates them whenever the Event Hub sends a new event.
+1. A Peakboard app that acts as an event consumer. This Peakboard app subscribes to the light barrier events of the Azure Event Hub. The Peakboard app displays the counter values on screen and updates them whenever the Event Hub sends a new event.
 
 ## Event Hub data source
 
@@ -83,9 +83,7 @@ The final step is to create the `SendToAzure` function, which sends the updated 
 
 `SendToAzure` calls the `sendevent` function (a function that's provided by the Azure Event Hub data source). `sendevent` takes two parameters:
 1. The message to send. In our case, we use a JSON string that contains the two light barrier counter values.
-1. A set of properties that contain the metadata for the message. These properties can be used with the Event Hub to perform message routing or other logic.
-   
-   In the following screenshot, we set a `SendBy` prop to `Peakboard`. This property is just for demonstration purposes. It doesn't actually do anything.
+1. A set of properties that contain the metadata for the message. These properties can be used with the Event Hub to perform message routing or other logic. Note: In the following screenshot, we set a `SendBy` prop to `Peakboard`. This property is just for demonstration purposes. It doesn't actually do anything.
 
 ![Peakboard SendToAzure function script](/assets/2026-01-06/peakboard-sendtoazure-function-script.png)
 
@@ -93,9 +91,9 @@ Once we deploy our Flow onto Peakboard Hub, it starts working right away and sen
 
 ## Create an event consumer
 
-Now, let's create a Peakboard app that acts as an event consumer. This app subscribes to the Event Hub light barrier events. The app shows the counter values on screen and updates them when it receives new data from the Event Hub. 
+Now, let's create a Peakboard app that acts as an event consumer. This app subscribes to the Event Hub light barrier events. The app displays the counter values on screen and updates them when it receives new data from the Event Hub. 
 
-The output of the data source is a table with two columns: `Timestamp` and `Message`. The maximum number of rows is specified by the `Queue Size` parameter. The data can be processed with standard patterns like a reload event or data flow.
+The output of the Event Hub data source is a table with two columns: `Timestamp` and `Message`. The maximum number of rows is specified by the `Queue Size` parameter. The data can be processed with standard patterns, like a reload event or a data flow.
 
 Alternatively, we can use a special event that is fired for each arriving message. The logic is built with Building Blocks within this event. In our example, we parse the incoming message and assign the values of the light barriers to two text blocks, in order to show the value.
 
@@ -105,6 +103,6 @@ This approach keeps the consumer logic adaptable and ready for future enhancemen
 
 ## Result
 
-The image shows our example in running mode. The messages are generated from OPC UA, sent to Event Hub, and then forwarded to the application. The application shows the raw data in the table (just a table control bound to the data source) and also the two text blocks that show the processed values from the incoming messages. It also highlights how quickly production data can flow through the entire architecture once the connections are configured correctly.
+Here, you can see what our Peakboard app looks like. The light barriers send OPC UA messages to the Hub Flow, which forwards the messages to the Event Hub, which then forwards the messages to the Peakboard app. Finally, the app displays the raw data in a table (using a table control bound to the data source), as well as two text blocks that show the processed values from the incoming messages. It also highlights how quickly production data can flow through the entire architecture once the connections are configured correctly.
 
 ![Peakboard Azure Event Hub integration final result](/assets/2026-01-06/result.gif)
