@@ -83,11 +83,11 @@ The function calls the `sendevent` function, from our Azure Event Hub data sourc
 1. The message to send. In our case, we build a JSON string to encapsulate the two light barrier counter values.
 1. A set of properties that contain the metadata for the message. These properties can be used with the Event Hub to perform message routing or other logic.
    
-   In the screenshot, we set a `SendBy` prop to `Peakboard`. This is just for demonstration purposes, however, and we don't actually do anything with this property, in our Event Hub.
+   In the screenshot, we set a `SendBy` prop to `Peakboard`. This is just for demonstration purposes, however, and it doesn't do anything.
 
 ![Peakboard SendToAzure function script](/assets/2026-01-06/peakboard-sendtoazure-function-script.png)
 
-After deploying the Flow on a Peakboard Hub server it will work right away and send all subscribed light barrier values to the Azure Event Hub without any additional adjustments.
+Once we deploy our Flow onto Peakboard Hub, it starts working right away and sends all subscribed light barrier values to our Event Hub.
 
 ## Create an event consumer
 
