@@ -103,6 +103,8 @@ This approach keeps the consumer logic adaptable and ready for future enhancemen
 
 ## Result
 
-Here, you can see what our Peakboard app looks like. The light barriers send OPC UA messages to the Hub Flow, which forwards the messages to the Event Hub, which then forwards the messages to the Peakboard app. Finally, the app displays the raw data in a table (using a table control bound to the data source), as well as two text blocks that show the processed values from the incoming messages. It also highlights how quickly production data can flow through the entire architecture once the connections are configured correctly.
+In the following screenshot, you can see what our Peakboard app looks like. The light barriers send OPC UA messages to the Hub Flow, which forwards the messages to the Event Hub, which then forwards the messages to the Peakboard app. Finally, the app displays the raw data in a table (using a table control bound to the data source), as well as two text blocks that show the processed values from the incoming messages. 
+
+This example also highlights how quickly production data can flow through multiple systems, if the connections are configured properly.
 
 ![Peakboard Azure Event Hub integration final result](/assets/2026-01-06/result.gif)
