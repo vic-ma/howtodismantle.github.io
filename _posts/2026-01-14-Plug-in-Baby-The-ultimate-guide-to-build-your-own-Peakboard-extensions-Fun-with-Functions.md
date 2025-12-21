@@ -29,11 +29,9 @@ In the [second part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-yo
 
 In today's article, we'll explain how to **create functions for a custom data source.**
 
-A data source can provide functions that give us capabilities beyond simple data querying. For example, the SQL data source lets you get data from a SQL database. But what if you want to insert data into a SQL database instead?
+A data source can provide functions, so that you can do things beyond simple data querying. For example, the SQL data source lets you get data from a SQL database. But what if you want to insert data into a SQL database instead? Then, you would use the *Run SQL query* function. This function is provided by the SQL data source, and it lets you run an arbitrary SQL query. So for example, if you want to insert a row whenever the user taps a button on screen, then you would add the *Run SQL query* function to the *tapped script* of the button.
 
-In that case, you can use the *Run SQL query* function. This function, which is provided by the SQL data source, lets you run an arbitrary SQL query. So for example, if you want to insert a row whenever the user taps a button on screen, then you would add the *Run SQL query* function to the *tapped script* of the button.
-
-Make sure that you have read [part one](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html) and [part two](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html) of this series. This article won't make sense otherwise. You can also take a look at the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension) on GitHub.
+Make sure that you have read [part one](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html) and [part two](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html) of this series. This article won't make sense otherwise. You can also take a look at the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension), on GitHub.
 
 ## Create a simple function with a return parameter
 
