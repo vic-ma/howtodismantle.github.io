@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Plug-in, Baby - The ultimate guide to build your own Peakboard extensions - Fun with Functions
+title: Plug-in, Baby - The Ultimate Guide to Building Your Own Peakboard Extensions - Fun with Functions
 date: 2023-03-01 00:00:00 +0000
 tags: dev
 image: /assets/2026-01-14/title.png
@@ -13,21 +13,48 @@ downloads:
   - name: Source code for this article
     url: https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension
   - name: ExtensionCalls.pbmx
-    url: /assets/2025-11-03/ExtensionCalls.pbmx
+    url: /assets/2026-01-14/ExtensionCalls.pbmx
 ---
-In the first part of the series we learned how to build the frame of a Peakboard extension. We used two classes to provide both metadata and the actual payload that is exchanged between the extension and the Peakboard application. In the second part we discussed how to form parameters to enable user interaction and let the user configure the extension. Here's an overview of this article series:
-
+This article is part three of our custom Peakboard extensions series:
 * [Part I - The Basics](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html)
 * [Part II - Parameters and User Input](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html)
 * [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html)
 * [Part IV - Event-triggered data sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
 
-In today's article we will talk about how to add functions to the extensions. A function of a data source is usually used to interact with the data source beside the pure query for data. Let's assume we build an extension for autonomous robots. So we build a data source to query the position of the robots and refresh it every couple of seconds. Let's assume we want the user to use our Peakboard application to command the robot to navigate to the charging station; we would add a `GoToChargingStation` function to our robot extension.
-Understanding the foundation we discussed in the first and second part of the series is a crucial requirement. The sample code used in this article can be found at [github](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension).
+In the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html), we explained the basics of custom Peakboard extensions. We built a simple Peakboard extension called `MeowExtension`, by creating two classes in .NET:
+* One for specifying the extension metadata.
+* One for defining the *Cat List* data source.
 
-## Create a simple function with a return parameter
+In the [second part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), we explained how to add configuration options to a custom data source. We added options like *IsItARealCat* and *Age* to our Cat List data source.
 
-To understand the principles behind function development, we will set up a function that receives two numbers as parameters, summarizes them and returns the result to the caller. During extension development we must add the metadata of our new function during `GetDefinitionOverride()` to define this function. The source code shows how to do that. We just provide an object defining the function to the `Functions` attribute of the `CustomListDefinition` instance:
+In today's article, we'll explain how to create **functions** for a custom data source.
+
+Before continuing, make sure that you have read [part one](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html) and [part two](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html) of this series. This article won't make sense otherwise. You can also take a look at the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension), on GitHub.
+
+## Custom data source functions
+
+A data source can provide functions, to let us do things beyond simple data querying.
+
+For example, the built-in SQL data source lets us read data from a SQL database. But what if we want to **insert** data into a database instead? In that case, we would use the *Run SQL query* function. This function is provided by the SQL data source and it lets us run an arbitrary SQL command.
+
+The goal for today's article is to add three functions to our Cat List data source:
+1. `AddMyNumbers`, which returns the sum of two numbers.
+1. `PrintMyTableToLog`, which prints a table to log.
+1. `GetACat`, which returns the data for a cat named Tom.
+
+Each of these functions demonstrates a different concept about custom data source functions. By the end, you'll understand how to add and use custom data source functions with different parameter and return types.
+
+## Create a simple function
+
+First, let's learn the basics of custom functions. To do this, we'll add a simple function called `AddMyNumbers` to our Cat List data source. This function takes in two numbers and returns their sum.
+
+To add a function to a data source, we do the following:
+1. **Declare** the function in the data source's `Functions` field. This step specifies the name, parameters, and return type of the function.
+1. **Define** the function in the `ExecuteFunctionOverride` function. This step provides the implementation for the function.
+
+### Declare the function
+
+To declare the function, we add a `Functions` field to our `CustomListDefinition`, inside `GetDefinitionOverride()`. The `Functions` field is a collection that contains **all** the function declarations for our data source (but right now, we're only adding our first function).
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
@@ -35,12 +62,12 @@ protected override CustomListDefinition GetDefinitionOverride()
     return new CustomListDefinition
     {
         ID = "CatCustomList",
-        Name = "Cat List",
-        Description = "A custom list for cats with breed and age information",
-        PropertyInputPossible = true,
-        PropertyInputDefaults = { new CustomListPropertyDefinition { Name = "CatsName", Value = "" } },
+        // ...
+
+        // List of function declarations.
         Functions = new CustomListFunctionDefinitionCollection
         {
+            // The first function declaration.
             new CustomListFunctionDefinition
             {
                 Name = "AddMyNumbers",
@@ -70,26 +97,36 @@ protected override CustomListDefinition GetDefinitionOverride()
                     }
                 }
             }
+            // If we had more functions, we would add the declarations here.
         }
     };
 }
 {% endhighlight %}
 
-When an extension list has one or more functions defined, the override `ExecuteFunctionOverride` is called when the host system wants to trigger the function. All parameters are provided as part of the `data` object. The return value, in our case the result of the mathematical calculation, is added to the return context object of the class `CustomListExecuteReturnContext`.
+### Define the function
+
+To define our function, we override `ExecuteFunctionOverride()`. Our data source's functions are **all** routed through `GetDefinitionOverride()`. We use an `if` statement to separate the different function implementations. (But right now, we only have one function.)
+
+To get the **arguments** for our function, we use `context.Values[i].GetValue()`, where `i = 0` is the first argument, `i = 1` is the second argument, etc.
+
+To **return** something, we wrap the return value in a `CustomListExecuteReturnContext` object. Then, we return that `CustomListExecuteReturnContext`.
 
 {% highlight csharp %}
 protected override CustomListExecuteReturnContext ExecuteFunctionOverride(CustomListData data, CustomListExecuteParameterContext context)
 {
+    // If the function is `AddMyNumbers`...
     if (context.FunctionName.Equals("AddMyNumbers", StringComparison.InvariantCultureIgnoreCase))
     {
+        // Get the arguments.
         Double FirstNumber = (Double)context.Values[0].GetValue();
         Double SecondNumber = (Double)context.Values[1].GetValue();
 
+        // Wrap the return value inside a CustomListExecuteReturnContext.
         var returncontext = new CustomListExecuteReturnContext();
         returncontext.Add(FirstNumber + SecondNumber);   
 
         return returncontext;
-    }
+    } // If we had more functions, we would add additional `else if (...)` blocks here.
     else
     {
         throw new DataErrorException("Function is not supported in this version.");
@@ -97,15 +134,24 @@ protected override CustomListExecuteReturnContext ExecuteFunctionOverride(Custom
 }
 {% endhighlight %}
 
-After implementing and deploying the extension, an additional Building Block shows up in the Peakboard designer's code editor. It lets us call any function that is provided by an extension just by selecting the data source. The metadata is automatically used to build the Building Block, so we can just add the two values to be processed and then use the return value to write it to a text control.
+### Use the function
 
+Now, we rebuild our extension, and our custom function is ready to be used in Peakboard Designer.
+
+However, custom data source functions do not appear as standalone Building Blocks (unlike built-in data source functions). So in order to run a custom function, we need to use one of these custom-function-runner Building Blocks:
+* *Run function*
+* *Run function with return value*
+
+In our case, `AddMyNumbers` has a return value, so we use the *Run function with return value* Building Block. To use the block, we select our data source and custom function, and we enter the arguments for the function:
 ![Peakboard Building Block calling the custom function](/assets/2026-01-14/peakboard-custom-function-building-block.png)
 
-## Submitting a complex parameter to an extension function
+## Create a function with a table parameter
 
-The values we used to exchange with the extension have been scalar and simple. Let's assume we want to submit a table-like value to the extension function. In our sample our table is supposed to be a list of messages, along with their message type, to be written to a message logger.
+Next, let's create a function with a table parameter. We'll create a function called `PrintMyTableToLog`, which accepts a table and prints that table to log.
 
-For this use case we use `CustomListFunctionParameterTypes.Collection` as parameter type for the definition of the function's metadata. Here's the source code to be added during `GetDefinitionOverride`.
+### Declare the function
+
+In the function declaration, we set the parameter type to `CustomListFunctionParameterTypes.Collection`:
 
 {% highlight csharp %}
 new CustomListFunctionDefinition
@@ -123,7 +169,9 @@ new CustomListFunctionDefinition
 },
 {% endhighlight %}
 
-For the `ExecuteFunctionOverride` we just use `.CollectionValue` to convert the parameter object into an instance of `CustomListObjectElementCollection` and iterate through it...
+### Define the function
+
+In the function definition, we use `context.Values[0].CollectionValue` to get the table argument. Then, we iterate through the rows of the table and print them to log.
 
 {% highlight csharp %}
 else if (context.FunctionName.Equals("PrintMyTableToLog", StringComparison.InvariantCultureIgnoreCase))
@@ -139,17 +187,25 @@ else if (context.FunctionName.Equals("PrintMyTableToLog", StringComparison.Invar
 }
 {% endhighlight %}
 
-On the host side we can't use Building Blocks anymore because, as of early 2026, complex parameters are not yet supported by the Building Blocks. So to use this function we need to switch to LUA coding. The sample shows how to create the table-like object, store data in it and submit it as a parameter to the function of the extension data source.
+### Use the function
+
+To use this function in a script, we need to use LUA. This is because Building Blocks does not currently support table parameters (as of January 2026). However, the LUA code is pretty simple.
+
+For our demo script, we create a table literal called `MyTab`. Then, we call our `PrintMyTableToLog` function, passing in `MyTab` as the argument.
 
 ![LUA script building the table parameter for the extension function](/assets/2026-01-14/lua-table-parameter-function.png)
 
-The screenshot shows the test cockpit in action. The above code is generating the log file entries through the extension.
+Next, we bind our script to a button's tapped event. Then, when we tap the button, the script prints our `MyTab` table to log:
 
 ![Peakboard test cockpit showing log entries generated by the extension](/assets/2026-01-14/peakboard-test-cockpit-logging.png)
 
-## Returning multiple values
+## Create a function that returns an object
 
-In the first example we used a simple, single, scalar return parameter. Lets assume things get more complicated and we need more than one return value. In this case we can use the same trick we already used in the second example. During the construction of the function we mark the return value as type `CustomListFunctionParameterTypes.Object` to allow a more complex data transfer.
+Now, let's create a function that returns an object. We'll create a function called `GetACat`, which returns a cat object. The function doesn't accept any parameters and the cat object it returns is always the same (just to keep things simple).
+
+### Declare the function
+
+In the function declaration, we set the return type to `CustomListFunctionParameterTypes.Object`:
 
 {% highlight csharp %}
 new CustomListFunctionDefinition
@@ -167,7 +223,11 @@ new CustomListFunctionDefinition
 }
 {% endhighlight %}
 
-Let's have a look at the actual function implementation in `ExecuteFunctionOverride`. We just build a `CustomListObjectElement` instance, which represents a single table row, or to be more precise, a key/value pair collection.
+Note: If you want to return a table instead, then use `CustomListObjectElementCollection`, like in our `PrintMyTableToLog` function.
+
+### Define the function
+
+In the function definition, we create a `CustomListObjectElement` instance and set the `Name` and `Age` fields:
 
 {% highlight csharp %}
 else if (context.FunctionName.Equals("GetACat", StringComparison.InvariantCultureIgnoreCase))
@@ -183,17 +243,21 @@ else if (context.FunctionName.Equals("GetACat", StringComparison.InvariantCultur
 }
 {% endhighlight %}
 
-We switch over to the host side. Here's the LUA code to process this complex object. It's just a generic LUA object that accepts the attributes to be addressed by their key name directly without any hassle. By the way: we can even return table-like objects. In that case we would have to use `CustomListObjectElementCollection` like in the second example.
+### Use the function
+
+To use this function in a script, we again need to use LUA. We create this demo script:
+
+1. Call the `GetACat` function and store the return value in `MyCat` (a generic LUA object variable).
+1. Display the name and age fields of `MyCat` on screen.
 
 ![LUA script reading the complex return object](/assets/2026-01-14/lua-handle-complex-return.png)
 
-Here's the script in action using the example test cockpit.
+Here's what the script looks like in action:
 
 ![Peakboard test cockpit showing the complex return value](/assets/2026-01-14/peakboard-test-cockpit-return.png)
 
 ## Conclusion
 
-Extension functions are super easy to understand and implement once we understand the principle behind it. Even complex parameters like key/value collections or even tables can be exchanged.
+Custom data source functions are easy to understand and implement, once you understand the basic principles behind them. You can even make functions with complex parameters and return types, like objects and tables!
 
-
-
+And remember, if you want to see how all our code fits together, check out [our GitHub](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension)!
