@@ -13,14 +13,24 @@ downloads:
   - name: Source code for this article
     url: https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension
   - name: ExtensionCalls.pbmx
-    url: /assets/2025-11-03/ExtensionCalls.pbmx
+    url: /assets/2026-01-14/ExtensionCalls.pbmx
 ---
-In the first part of the series we learned how to build the frame of a Peakboard extension. We used two classes to provide both metadata and the actual payload that is exchanged between the extension and the Peakboard application. In the second part we discussed how to form parameters to enable user interaction and let the user configure the extension. Here's an overview of this article series:
-
+This article is part three of our custom Peakboard extensions series:
 * [Part I - The Basics](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html)
 * [Part II - Parameters and User Input](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html)
 * [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html)
 * [Part IV - Event-triggered data sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
+
+In the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html), we explained how to build a simple Peakboard extension called `MeowExtension`. We created two classes in .NET:
+* One for specifying the extension metadata.
+* One for defining the *Cat List* data source.
+
+In the [second part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), we added some configuration options to our Cat List data source. These are the options that the user sees when they add a new Cat List data source. (Just like how the JSON data source has configuration options for the source URL, authentication type, path, etc.)
+
+Make sure that you have read the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html). This article won't make sense otherwise. You can also take a look at the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension).
+
+In the first part of this series, we explained how to build a basic Peakboard extension. We used two classes to provide the metadata and the actual payload that is exchanged between the extension and the Peakboard application. In the second part we discussed how to form parameters to enable user interaction and let the user configure the extension. Here's an overview of this article series:
+
 
 In today's article we will talk about how to add functions to the extensions. A function of a data source is usually used to interact with the data source beside the pure query for data. Let's assume we build an extension for autonomous robots. So we build a data source to query the position of the robots and refresh it every couple of seconds. Let's assume we want the user to use our Peakboard application to command the robot to navigate to the charging station; we would add a `GoToChargingStation` function to our robot extension.
 Understanding the foundation we discussed in the first and second part of the series is a crucial requirement. The sample code used in this article can be found at [github](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension).
