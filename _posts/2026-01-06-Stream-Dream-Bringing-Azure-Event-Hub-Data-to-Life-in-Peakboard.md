@@ -20,11 +20,11 @@ Azure Event Hubs is a high-throughput, real-time data ingestion service. You can
 In factory environments, Azure Event Hubs are often used to ingest telemetry and sensor data from machines. To learn the basics of Event Hubs and understand how data moves from publishers to consumers, check out Microsoft's [introduction to Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about).
 
 ## Event Hubs and Peakboard
-There are two different ways to integrate Azure Event Hubs into Peakboard:
-* A Hub Flow acts as an **event publisher** and streams events to Azure Event Hubs.
-* A Peakboard app acts as an **event consumer.** Peakboard subscribes to specific events.
+There are two ways to use Azure Event Hubs with Peakboard:
+* A Peakboard Hub Flow acts as an **event publisher.** The Hub Flow streams events to an Azure Event Hub.
+* A Peakboard app acts as an **event consumer.** The Hub Flow subscribes to specific events from an Azure Event Hub. The Azure Event Hub streams those events to the Hub Flow.
 
-In this article, we'll take a look at both of these scenarios and explain how they work.
+In this article, we'll explain how both of these work, by building a Hub Flow and Peakboard app. But first, we need to set up things on the Azure side.
 
 ## Create Event Hubs namespace
 
@@ -47,11 +47,13 @@ We'll use the storage account to store the [stream offsets](https://learn.micros
 
 ![Azure storage account connection string](/assets/2026-01-06/azure-storage-account-connection-string.png)
 
-## Create the Event Hub data source
+## Demo introduction
 
 Now, we've finished all the setup on the Azure side. So it's time to start working on Peakboard side. We create two separate projects:
-1. A Hub Flow that acts as an event publisher.
-1. A Peakboard app that acts as an event consumer.
+1. A Hub Flow that acts as an event publisher. This Hub Flow subscribes to OPC UA nodes for two light barriers. When either of the light barriers update their counters, the Hub Flow sends the updated value to the Azure Event Hub.
+1. A Peakboard app that acts as an event consumer. This Peakboard app subscribes to the light barrier events of the Azure Event Hub. The Peakboard app shows the counter values on screen, and updates them whenever the Event Hub sends a new event.
+
+## Event Hub data source
 
 For both projects, the first step is the same: set up the Event Hub data source.
 
