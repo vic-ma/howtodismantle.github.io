@@ -17,7 +17,7 @@ downloads:
 ---
 Azure Event Hubs is a high-throughput, real-time data ingestion service. You can think of it as a large, scalable entry-point for streamed data (e.g. telemetry, logs, sensor data, clickstreams, IoT signals).
 
-In a factory environment, you'll often see Azure Event Hubs being used to ingest telemetry and sensor data from machines. To learn the basics of Event Hubs and understand how data moves from the source to the destination, check out Microsoft's [introduction to Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about).
+In factory environments, Azure Event Hubs are often used to ingest telemetry and sensor data from machines. To learn the basics of Event Hubs and understand how data moves from publishers to consumers, check out Microsoft's [introduction to Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about).
 
 ## Event Hubs and Peakboard
 There are two different ways to integrate Azure Event Hubs into Peakboard:
