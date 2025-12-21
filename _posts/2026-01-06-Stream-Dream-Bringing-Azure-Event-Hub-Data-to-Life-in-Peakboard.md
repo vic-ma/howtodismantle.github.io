@@ -63,17 +63,17 @@ To configure the data source, we enter the connection strings for both the Event
 
 ## Create an event publisher
 
-Now, let's create a Hub Flow that acts as an event publisher. This Hub Flow connects to a pair of light barriers. When either light barrier sends an updated value, the Hub Flow sends that new value to our Event Hub.
+Now, let's create a Hub Flow that acts as an event publisher. This Hub Flow connects to a pair of light barriers. When either light barrier sends an updated value, the Hub Flow sends that new value to our Azure Event Hub.
 
 ### Add the OPC UA data source
 
-First, we create an OPC UA data source. We subscribe to two OPC UA nodes---one for each light barrier counter. These counters keep track of the number of goods that pass through the light barriers. Because there are two counters, our data source returns two columns---one for each counter.
+First, we create an OPC UA data source. We subscribe to two OPC UA nodes---one for each light barrier's counter. These counters keep track of the number of goods that pass through the light barriers. Because there are two counters, our data source returns two columns---one for each counter.
 
 ![Peakboard OPC UA light barrier data source](/assets/2026-01-06/peakboard-opc-ua-light-barrier-data-source.png)
 
 ### Create the Hub Flow script
 
-The following screenshot shows our finished Hub Flow. The Flow is triggered by the OPC UA data source. Each time one of our two light barriers sends an updated value, the Flow is triggered, and it calls the function `SendToAzure`.
+The following screenshot shows our finished Hub Flow. The Flow is triggered by the OPC UA data source. Each time one of our two light barriers sends an updated value, the Flow is triggered, and it calls the `SendToAzure` function.
 
 ![Peakboard Flow SendToAzure overview](/assets/2026-01-06/peakboard-flow-sendtoazure-overview.png)
 
@@ -81,11 +81,11 @@ The following screenshot shows our finished Hub Flow. The Flow is triggered by t
 
 The final step is to create the `SendToAzure` function, which sends the updated counter values to our Event Hub.
 
-The function calls the `sendevent` function, from our Azure Event Hub data source. `sendevent` takes two parameters:
+The function calls the `sendevent` function. This is a function that's provided by the Azure Event Hub data source. `sendevent` takes two parameters:
 1. The message to send. In our case, we build a JSON string to encapsulate the two light barrier counter values.
 1. A set of properties that contain the metadata for the message. These properties can be used with the Event Hub to perform message routing or other logic.
    
-   In the screenshot, we set a `SendBy` prop to `Peakboard`. This is just for demonstration purposes, however, and it doesn't do anything.
+   In the following screenshot, we set a `SendBy` prop to `Peakboard`. This is just for demonstration purposes, however, and it doesn't do anything.
 
 ![Peakboard SendToAzure function script](/assets/2026-01-06/peakboard-sendtoazure-function-script.png)
 
