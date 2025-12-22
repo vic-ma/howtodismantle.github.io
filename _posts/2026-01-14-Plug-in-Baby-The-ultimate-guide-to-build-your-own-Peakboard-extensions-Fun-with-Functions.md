@@ -33,7 +33,7 @@ A data source can provide functions, to allow for functionality beyond simple da
 
 Our goal for today's article is to add three functions to our Cat List data source:
 1. `AddMyNumbers`, which returns the sum of two numbers.
-1. `PrintMyTableToLog`, which prints the data source's data to the log.
+1. `PrintMyTableToLog`, which prints a table to the log.
 1. `GetACat`, which returns the data for a cat named Tom.
 
 Each functions demonstrates a different concept about custom data source functions.
@@ -133,11 +133,11 @@ Custom data source functions do not appear as standalone Building Blocks (unlike
 In our case, `AddMyNumbers` has a return value, so we use the *Run function with return value* Building Block:
 ![Peakboard Building Block calling the custom function](/assets/2026-01-14/peakboard-custom-function-building-block.png)
 
-## Create a function with complex parameters
+## Create a function with a complex parameter
 
-The values we used to exchange with the extension have been scalar and simple. Let's assume we want to submit a table-like value to the extension function. In our sample our table is supposed to be a list of messages, along with their message type, to be written to a message logger.
+Now, let's create a function with a more complex parameter type. We'll create `PrintMyTableToLog`, which accepts a table argument and prints that table to the log.
 
-For this use case we use `CustomListFunctionParameterTypes.Collection` as parameter type for the definition of the function's metadata. Here's the source code to be added during `GetDefinitionOverride`.
+In the function declaration, we set the parameter type to `CustomListFunctionParameterTypes.Collection`:
 
 {% highlight csharp %}
 new CustomListFunctionDefinition
