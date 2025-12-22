@@ -119,11 +119,11 @@ protected override CustomListExecuteReturnContext ExecuteFunctionOverride(Custom
 
 ### Use the function
 
-We rebuild and reload our extension, and now our function is ready to be used. In order to run a custom data source's function, we use one of two Building Blocks:
-* *Run function*, for functions without a return value.
-* *Run function with return value*, for functions with a return value.
+Next, we rebuild our extension, and our function is ready to be used. In order to run a custom data source's function, we use one of two Building Blocks:
+* *Run function*
+* *Run function with return value*
 
-Anytime you want to run a custom data source function, you must use one of these Building Blocks. Custom data source functions do not appear as standalone Building Blocks in the same way that built-in data source functions do.
+Custom data source functions do not appear as standalone Building Blocks (unlike built-in data source functions), so we must use one of these universal function runners.
 
 In our case, the function has a return value, so we use *Run function with return value*:
 ![Peakboard Building Block calling the custom function](/assets/2026-01-14/peakboard-custom-function-building-block.png)
