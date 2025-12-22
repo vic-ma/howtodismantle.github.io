@@ -116,27 +116,6 @@ protected override CustomListExecuteReturnContext ExecuteFunctionOverride(Custom
     }
 }
 {% endhighlight %}
-When an extension list has one or more functions defined, the override `ExecuteFunctionOverride` is called when the host system wants to trigger the function. All parameters are provided as part of the `data` object. The return value, in our case the result of the mathematical calculation, is added to the return context object of the class `CustomListExecuteReturnContext`.
-
-{% highlight csharp %}
-protected override CustomListExecuteReturnContext ExecuteFunctionOverride(CustomListData data, CustomListExecuteParameterContext context)
-{
-    if (context.FunctionName.Equals("AddMyNumbers", StringComparison.InvariantCultureIgnoreCase))
-    {
-        Double FirstNumber = (Double)context.Values[0].GetValue();
-        Double SecondNumber = (Double)context.Values[1].GetValue();
-
-        var returncontext = new CustomListExecuteReturnContext();
-        returncontext.Add(FirstNumber + SecondNumber);   
-
-        return returncontext;
-    }
-    else
-    {
-        throw new DataErrorException("Function is not supported in this version.");
-    }
-}
-{% endhighlight %}
 
 After implementing and deploying the extension, an additional Building Block shows up in the Peakboard designer's code editor. It lets us call any function that is provided by an extension just by selecting the data source. The metadata is automatically used to build the Building Block, so we can just add the two values to be processed and then use the return value to write it to a text control.
 
