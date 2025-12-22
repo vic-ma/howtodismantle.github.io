@@ -125,7 +125,7 @@ Next, we rebuild our extension, and our function is ready to be used. In order t
 
 Custom data source functions do not appear as standalone Building Blocks (unlike built-in data source functions), so we must use one of these universal function runners.
 
-In our case, the function has a return value, so we use *Run function with return value*:
+In our case, `AddMyNumbers` has a return value, so we use the *Run function with return value* Building Block:
 ![Peakboard Building Block calling the custom function](/assets/2026-01-14/peakboard-custom-function-building-block.png)
 
 ## Submitting a complex parameter to an extension function
