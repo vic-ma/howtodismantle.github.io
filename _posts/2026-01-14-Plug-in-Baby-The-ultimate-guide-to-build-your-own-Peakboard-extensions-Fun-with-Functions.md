@@ -117,8 +117,15 @@ protected override CustomListExecuteReturnContext ExecuteFunctionOverride(Custom
 }
 {% endhighlight %}
 
-After implementing and deploying the extension, an additional Building Block shows up in the Peakboard designer's code editor. It lets us call any function that is provided by an extension just by selecting the data source. The metadata is automatically used to build the Building Block, so we can just add the two values to be processed and then use the return value to write it to a text control.
+### Use the function
 
+We rebuild and reload our extension, and now our function is ready to be used. In order to run a custom data source's function, we use one of two Building Blocks:
+* *Run function*, for functions without a return value.
+* *Run function with return value*, for functions with a return value.
+
+Anytime you want to run a custom data source function, you must use one of these Building Blocks. Custom data source functions do not appear as standalone Building Blocks in the same way that built-in data source functions do.
+
+In our case, the function has a return value, so we use *Run function with return value*:
 ![Peakboard Building Block calling the custom function](/assets/2026-01-14/peakboard-custom-function-building-block.png)
 
 ## Submitting a complex parameter to an extension function
