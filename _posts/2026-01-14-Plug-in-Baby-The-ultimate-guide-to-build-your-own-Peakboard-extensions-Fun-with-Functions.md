@@ -29,7 +29,7 @@ In the [second part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-yo
 
 In today's article, we'll explain how to create **functions** for a custom data source.
 
-A data source can provide functions, to let you do things beyond simple data querying. For example, the SQL data source lets you get data from a SQL database. But what if you want to insert data into a SQL database instead? In that case, you would use the *Run SQL query* function.
+A data source can provide functions, to let you do things beyond simple data querying. For example, the SQL data source lets you read data from a SQL database. But what if you want to insert data into a SQL database instead? In that case, you would use the *Run SQL query* function.
 
 The *Run SQL query* function is provided by the SQL data source, and it lets you run an arbitrary SQL query. So for example, if you want to insert a row whenever the user taps a button on screen, then you would edit the tapped script of the button and add the *Run SQL query* function.
 
@@ -41,9 +41,11 @@ To begin, we'll add a simple **sum function** to our Cat List data source. The f
 
 To add a function to a data source, we do the following:
 1. **Declare** the function in the data source's `Functions` attribute. This step declares the name, parameters, and return type of the function.
-1. **Define** the function in the data source's `ExecuteFunctionOverride` function. This step defines the actual implementation of the function.
+1. **Define** the function in the `ExecuteFunctionOverride` function. This step defines the implementation of the function.
 
-The data source's `Functions` attribute is a `CustomListFunctionDefinitionCollection` that contains zero or more `CustomListFunctionDefinition` objects. Each `CustomListFunctionDefinition` declares a single function. Here's what our Cat List data source looks like, after we declare the sum function:
+### Declare the function
+
+Here's what our Cat List data source looks like, after we declare the sum function:
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
@@ -51,10 +53,8 @@ protected override CustomListDefinition GetDefinitionOverride()
     return new CustomListDefinition
     {
         ID = "CatCustomList",
-        Name = "Cat List",
-        Description = "A custom list for cats with breed and age information",
-        PropertyInputPossible = true,
-        PropertyInputDefaults = { new CustomListPropertyDefinition { Name = "CatsName", Value = "" } },
+        // ...
+
         Functions = new CustomListFunctionDefinitionCollection
         {
             new CustomListFunctionDefinition
@@ -91,6 +91,34 @@ protected override CustomListDefinition GetDefinitionOverride()
 }
 {% endhighlight %}
 
+### Define the function
+
+To define our function, we override the `ExecuteFunctionOverride()` function. Note that we define `ExecuteFunctionOverride()` outside of the `GetDefinitionOverride()` function.
+
+{% highlight csharp %}
+protected override CustomListDefinition GetDefinitionOverride()
+{
+    // ...
+}
+
+protected override CustomListExecuteReturnContext ExecuteFunctionOverride(CustomListData data, CustomListExecuteParameterContext context)
+{
+    if (context.FunctionName.Equals("AddMyNumbers", StringComparison.InvariantCultureIgnoreCase))
+    {
+        Double FirstNumber = (Double)context.Values[0].GetValue();
+        Double SecondNumber = (Double)context.Values[1].GetValue();
+
+        var returncontext = new CustomListExecuteReturnContext();
+        returncontext.Add(FirstNumber + SecondNumber);   
+
+        return returncontext;
+    }
+    else
+    {
+        throw new DataErrorException("Function is not supported in this version.");
+    }
+}
+{% endhighlight %}
 When an extension list has one or more functions defined, the override `ExecuteFunctionOverride` is called when the host system wants to trigger the function. All parameters are provided as part of the `data` object. The return value, in our case the result of the mathematical calculation, is added to the return context object of the class `CustomListExecuteReturnContext`.
 
 {% highlight csharp %}
