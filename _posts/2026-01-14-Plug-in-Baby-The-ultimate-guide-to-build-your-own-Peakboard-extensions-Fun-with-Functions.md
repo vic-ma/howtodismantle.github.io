@@ -233,7 +233,4 @@ Here's the script in action using the example test cockpit.
 
 ## Conclusion
 
-Extension functions are super easy to understand and implement once we understand the principle behind it. Even complex parameters like key/value collections or even tables can be exchanged.
-
-
-
+Custom data source functions are easy to understand and implement, once you understand the basic principles behind them. You can even make functions with complex parameters like key-value collections and tables!
