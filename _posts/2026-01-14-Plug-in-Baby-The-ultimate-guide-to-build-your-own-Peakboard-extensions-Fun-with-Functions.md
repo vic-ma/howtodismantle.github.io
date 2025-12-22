@@ -45,7 +45,7 @@ To add a function to a data source, we do the following:
 
 ### Declare the function
 
-Here's what our Cat List data source looks like, after we declare the sum function:
+Here's what our Cat List data source looks like, after we declare the sum function. Inside `GetDefinitionOverride()`, in the `CustomListDefinition` that we return, we define the `Functions` attribute.
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
