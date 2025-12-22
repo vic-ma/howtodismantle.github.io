@@ -31,21 +31,19 @@ In today's article, we'll explain how to create **functions** for a custom data 
 
 A data source can provide functions, to let you do things beyond simple data querying. For example, the SQL data source lets you get data from a SQL database. But what if you want to insert data into a SQL database instead? In that case, you would use the *Run SQL query* function.
 
-The *Run SQL query* function is provided by the SQL data source, and it lets you run an arbitrary SQL query. So for example, if you want to insert a row whenever the user taps a button on screen, then you would edit the *tapped script* of the button and add the *Run SQL query* function.
+The *Run SQL query* function is provided by the SQL data source, and it lets you run an arbitrary SQL query. So for example, if you want to insert a row whenever the user taps a button on screen, then you would edit the tapped script of the button and add the *Run SQL query* function.
 
 Before continuing, make sure that you have read [part one](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html) and [part two](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html) of this series. This article won't make sense otherwise. You can also take a look at the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension), on GitHub.
 
 ## Create a simple function with a return parameter
 
-To begin, we'll add a sum function to our Cat List data source. The function takes in two numbers and returns their sum.
+To begin, we'll add a simple **sum function** to our Cat List data source. The function takes in two numbers and returns their sum.
 
-There are two steps to adding a function to a data source:
-1. Declare the function in the data source's `Functions` attribute. This step specifies the name, parameters, and return type of the function.
-1. Define the function in the data source's 
+To add a function to a data source, we do the following:
+1. **Declare** the function in the data source's `Functions` attribute. This step declares the name, parameters, and return type of the function.
+1. **Define** the function in the data source's `ExecuteFunctionOverride` function. This step defines the actual implementation of the function.
 
-The functions of a data source is defined by its `Functions` attribute. `Functions` is a `CustomListFunctionDefinitionCollection` that contains zero or more `CustomListFunctionDefinition` objects. Each `CustomListFunctionDefinition` defines a single function.
-
-Here's what the `GetDefinitionOverride` function for our Cat List data source looks like, after we add the sum function:
+The data source's `Functions` attribute is a `CustomListFunctionDefinitionCollection` that contains zero or more `CustomListFunctionDefinition` objects. Each `CustomListFunctionDefinition` declares a single function. Here's what our Cat List data source looks like, after we declare the sum function:
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
