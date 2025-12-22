@@ -35,13 +35,14 @@ Our goal for today's article is to add three functions to our Cat List data sour
 1. `AddMyNumbers`, which returns the sum of two numbers.
 1. `PrintMyTableToLog`, which prints the data source's data to the log.
 1. `GetACat`, which returns the data for a cat named Tom.
+
 Each functions demonstrates a different concept about custom data source functions.
 
 Before continuing, make sure that you have read [part one](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html) and [part two](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html) of this series. This article won't make sense otherwise. You can also take a look at the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension), on GitHub.
 
 ## Create a simple function with a return parameter
 
-To begin, we'll add a simple **sum function** to our Cat List data source. The function takes in two numbers and returns their sum.
+First, let's learn the basics of custom functions. To do this, we'll add a simple `AddMyNumbers` function to our Cat List data source. This function takes in two numbers and returns their sum.
 
 To add a function to a data source, we do the following:
 1. **Declare** the function in the data source's `Functions` attribute. This step declares the name, parameters, and return type of the function.
