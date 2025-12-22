@@ -37,7 +37,9 @@ Before continuing, make sure that you have read [part one](/Plug-in-Baby-The-ult
 
 ## Create a simple function with a return parameter
 
-To begin, we'll add a simple sum function to our Cat List data source. The functions of a data source is defined by its `Functions` attribute. `Functions` is a  `CustomListFunctionDefinitionCollection` that contains zero or more `CustomListDefinition` objects. Each `CustomListDefinition` defines a single function.
+To begin, we'll add a simple sum function to our Cat List data source.
+
+The functions of a data source is defined by its `Functions` attribute. `Functions` is a  `CustomListFunctionDefinitionCollection` that contains zero or more `CustomListFunctionDefinition` objects. Each `CustomListFunctionDefinition` defines a single function.
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
