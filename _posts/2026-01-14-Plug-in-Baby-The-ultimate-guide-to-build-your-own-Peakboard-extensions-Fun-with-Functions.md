@@ -37,7 +37,7 @@ Before continuing, make sure that you have read [part one](/Plug-in-Baby-The-ult
 
 ## Create a simple function with a return parameter
 
-To understand the principles behind function development, we will set up a function that receives two numbers as parameters, summarizes them and returns the result to the caller. During extension development we must add the metadata of our new function during `GetDefinitionOverride()` to define this function. The source code shows how to do that. We just provide an object defining the function to the `Functions` attribute of the `CustomListDefinition` instance:
+To begin, we'll add a simple sum function to our Cat List data source. The functions of a data source is defined by its `Functions` attribute. `Functions` is a  `CustomListFunctionDefinitionCollection` that contains zero or more `CustomListDefinition` objects. Each `CustomListDefinition` defines a single function.
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
