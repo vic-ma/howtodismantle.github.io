@@ -155,7 +155,7 @@ new CustomListFunctionDefinition
 },
 {% endhighlight %}
 
-For the `ExecuteFunctionOverride` we just use `.CollectionValue` to convert the parameter object into an instance of `CustomListObjectElementCollection` and iterate through it...
+In the function definition, we use `context.Values[0].CollectionValue` to get the table argument. Then, we iterate through the rows of the table and print them to the log.
 
 {% highlight csharp %}
 else if (context.FunctionName.Equals("PrintMyTableToLog", StringComparison.InvariantCultureIgnoreCase))
