@@ -137,6 +137,8 @@ In our case, `AddMyNumbers` has a return value, so we use the *Run function with
 
 Now, let's create a function with a more complex parameter type. We'll create `PrintMyTableToLog`, which accepts a table argument and prints that table to the log.
 
+### Declare the function
+
 In the function declaration, we set the parameter type to `CustomListFunctionParameterTypes.Collection`:
 
 {% highlight csharp %}
@@ -155,6 +157,8 @@ new CustomListFunctionDefinition
 },
 {% endhighlight %}
 
+### Define the function
+
 In the function definition, we use `context.Values[0].CollectionValue` to get the table argument. Then, we iterate through the rows of the table and print them to the log.
 
 {% highlight csharp %}
@@ -171,7 +175,11 @@ else if (context.FunctionName.Equals("PrintMyTableToLog", StringComparison.Invar
 }
 {% endhighlight %}
 
-On the host side we can't use Building Blocks anymore because, as of early 2026, complex parameters are not yet supported by the Building Blocks. So to use this function we need to switch to LUA coding. The sample shows how to create the table-like object, store data in it and submit it as a parameter to the function of the extension data source.
+### Use the function
+
+To use this function in a script, we have to use LUA. This is because Building Blocks does not currently support complex parameters like tables (as of January 2026).
+
+The sample shows how to create the table-like object, store data in it and submit it as a parameter to the function of the extension data source.
 
 ![LUA script building the table parameter for the extension function](/assets/2026-01-14/lua-table-parameter-function.png)
 
