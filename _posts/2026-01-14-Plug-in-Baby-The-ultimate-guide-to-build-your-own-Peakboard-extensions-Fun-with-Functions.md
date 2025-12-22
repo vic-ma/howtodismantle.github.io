@@ -41,6 +41,8 @@ To begin, we'll add a simple sum function to our Cat List data source.
 
 The functions of a data source is defined by its `Functions` attribute. `Functions` is a  `CustomListFunctionDefinitionCollection` that contains zero or more `CustomListFunctionDefinition` objects. Each `CustomListFunctionDefinition` defines a single function.
 
+Here's what the `GetDefinitionOverride` function for our Cat List data source looks like, after we add the sum function:
+
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
 {
