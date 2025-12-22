@@ -37,9 +37,13 @@ Before continuing, make sure that you have read [part one](/Plug-in-Baby-The-ult
 
 ## Create a simple function with a return parameter
 
-To begin, we'll add a simple sum function to our Cat List data source.
+To begin, we'll add a sum function to our Cat List data source. The function takes in two numbers and returns their sum.
 
-The functions of a data source is defined by its `Functions` attribute. `Functions` is a  `CustomListFunctionDefinitionCollection` that contains zero or more `CustomListFunctionDefinition` objects. Each `CustomListFunctionDefinition` defines a single function.
+There are two steps to adding a function to a data source:
+1. Declare the function in the data source's `Functions` attribute. This step specifies the name, parameters, and return type of the function.
+1. Define the function in the data source's 
+
+The functions of a data source is defined by its `Functions` attribute. `Functions` is a `CustomListFunctionDefinitionCollection` that contains zero or more `CustomListFunctionDefinition` objects. Each `CustomListFunctionDefinition` defines a single function.
 
 Here's what the `GetDefinitionOverride` function for our Cat List data source looks like, after we add the sum function:
 
