@@ -70,7 +70,7 @@ Note that the last two columns (`State` and `Message`) have nothing to do with t
 
 The following screenshot shows an example of what this list might look like. There are two confirmations in the list: One was processed by the Flow successfully (`State = D`), and the other ran into an error (`State = E`).
 
-![image](/assets/2025-09-24/080.png)
+![Hub list with confirmation states for SAP order processing](/assets/2025-09-24/peakboard-hub-list-confirmations-status.png)
 
 ## Build the Hub Flow
 
@@ -81,7 +81,7 @@ Next, we add a data source for our Hub List. We use the filter `State ~= D`. Thi
 
 In other words, the data source includes all rows with a `State` of `N` (new confirmations that the Flow has not touched) or `E` (confirmations that the Flow tried to process but resulted in an error). This way, the data source only includes order confirmations that we still need to process.
 
-![image](/assets/2025-09-24/020.png)
+![Peakboard Hub Flow data source filtering open confirmations](/assets/2025-09-24/peakboard-hub-flow-data-source-filter.png)
 
 
 ### Create variables
@@ -91,7 +91,7 @@ We create four new variables, which we will use in our SAP XQL statement:
 * `ScrapQuantity`
 * `MachineTime`
 
-![image](/assets/2025-09-24/030.png)
+![Peakboard Hub Flow variables for SAP confirmation payload](/assets/2025-09-24/peakboard-hub-flow-confirmation-variables.png)
 
 ### Create the SAP data source
 Now, we create our SAP data source. We use this data source to send the order confirmations to SAP.
@@ -110,7 +110,7 @@ EXECUTE FUNCTION 'BAPI_PRODORDCONF_CREATE_TT'
 EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
 {% endhighlight %}
 
-![image](/assets/2025-09-24/040.png)
+![Peakboard Hub Flow SAP data source with XQL statement](/assets/2025-09-24/peakboard-hub-flow-sap-data-source.png)
 
 
 
@@ -118,7 +118,7 @@ EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
 
 Finally, we write the Building Blocks script that processes the confirmations in the Hub list:
 
-![image](/assets/2025-09-24/050.png)
+![Peakboard Hub Flow Building Blocks script for confirmations](/assets/2025-09-24/peakboard-hub-flow-confirmation-script.png)
 
 Here's how the script works:
 1. Loop over each row in our Hub list data source. (Remember, the data source already filters for the confirmations that we still need to process.) For each row:
@@ -136,18 +136,18 @@ Next, we add two steps to run, whenever the Flow executes:
 1. Reload the `OpenConfirmations` data source. This updates our Hub list data source, to ensure we have the latest data.
 1. Run our list processing function.
 
-![image](/assets/2025-09-24/060.png)
+![Peakboard Hub Flow periodic trigger steps configuration](/assets/2025-09-24/peakboard-hub-flow-periodic-trigger-steps.png)
 
 Next, we deploy our Flow to a Hub instance.  And as you can see, our Flow now runs on regular basis:
 
-![image](/assets/2025-09-24/070.png)
+![Peakboard Hub Flow deployment showing execution schedule](/assets/2025-09-24/peakboard-hub-flow-execution-status.png)
 
 
 ## Result and conclusion
 
 The following screenshot shows our Hub list after the first execution of the Flow. As you can see, one of the confirmations was submitted to SAP successfully, and the other one had an error (the Flow will automatically retry it, the next time it runs).
 
-![image](/assets/2025-09-24/080.png)
+![Hub list with confirmation states for SAP order processing](/assets/2025-09-24/peakboard-hub-list-confirmations-status.png)
 
 To keep our example simple, we didn't implement any complex error handling---we just re-send failed order confirmations forever. So an improvement could be to set up a counter for how many times we failed to send an order confirmation to SAP. And if the order fails 10 times, then we give up on it and send an email notification to someone. Another improvement could be to send an email if any error occurs at all.
 

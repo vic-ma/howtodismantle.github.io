@@ -1,0 +1,54 @@
+learning:
+  - id: hub-flows
+    icon: "fa-project-diagram"
+    tags_fallback: ["hubflows", "peakboardhub", "peakboardhubapi"]
+    start_link:
+      url: "/learning/hub-flows"
+    secondary_links:
+      - key: hub_api
+        url: "/category/peakboardhubapi"
+      - key: use_cases
+        url: "/category/usecase"
+      - key: tutorials
+        url: "/category/tutorial"
+
+  - id: hardware-sensors
+    icon: "fa-microchip"
+    tags_fallback: ["hardware", "opcuamqtt", "twincat"]
+    start_link:
+      url: "/learning/hardware-sensors"
+    secondary_links:
+      - key: hardware
+        url: "/category/hardware"
+      - key: opcuamqtt
+        url: "/category/opcuamqtt"
+      - key: twincat
+        url: "/category/twincat"
+
+  - id: sap
+    icon: "fa-database"
+    tags_fallback: ["sap"]
+    start_link:
+      url: "/learning/sap"
+    secondary_links:
+      - key: integrations
+        url: "/category/api"
+      - key: best_practices
+        url: "/category/bestpractice"
+      - key: use_cases
+        url: "/category/usecase"
+
+  - id: ui-design
+    icon: "fa-th-large"
+    tags_fallback: ["ui"]
+    start_link:
+      url: "/learning/ui-design"
+    secondary_links:
+      - key: ui
+        url: "/category/ui"
+      - key: tutorials
+        url: "/category/tutorial"
+      - key: use_cases
+        url: "/category/usecase"
+
+

@@ -1,9 +1,9 @@
 <div class="px-8 mb-16 not-prose lg:mb-0 lg:top-4 lg:border-r-2 lg:border-secondary lg:sticky">
 
-    <a href="/" class="block text-lg font-bold mb-2 {% if page.url == '/index.html' %}text-secondary{% else %}text-gray-900 dark:text-light hover:text-secondary hover:underline{% endif %}">{{ site.content.side-menu-home }}</a>
-    <a href="/about" class="block text-lg font-bold mb-2 {% if page.url == '/about.html' %}text-secondary{% else %}text-gray-900 dark:text-light hover:text-secondary hover:underline{% endif %}">{{ site.content.side-menu-about }}</a>
-    <a href="/hardwareguide" class="block text-lg font-bold mb-2 {% if page.url == '/hardwareguide.html' %}text-secondary{% else %}text-gray-900 dark:text-light hover:text-secondary hover:underline{% endif %}">{{ site.content.side-menu-hardwareguide }}</a>
-    <p class="font-bold text-lg text-gray-900 dark:text-light mb-2">{{ site.content.side-menu-categories }}</p>
+    <a href="/" class="block text-lg font-bold mb-2 {% if page.url == '/index.html' %}text-secondary{% else %}text-gray-900 dark:text-light hover:text-secondary hover:underline{% endif %}">{{ site.data.ui_text.site.nav.side_menu_home }}</a>
+    <a href="/about" class="block text-lg font-bold mb-2 {% if page.url == '/about.html' %}text-secondary{% else %}text-gray-900 dark:text-light hover:text-secondary hover:underline{% endif %}">{{ site.data.ui_text.site.nav.side_menu_about }}</a>
+    <a href="/hardwareguide" class="block text-lg font-bold mb-2 {% if page.url == '/hardwareguide.html' %}text-secondary{% else %}text-gray-900 dark:text-light hover:text-secondary hover:underline{% endif %}">{{ site.data.ui_text.site.nav.side_menu_hardwareguide }}</a>
+    <p class="font-bold text-lg text-gray-900 dark:text-light mb-2">{{ site.data.ui_text.site.nav.side_menu_categories }}</p>
     <div class="mb-4">
         {% assign tag_pages = site.pages | where: 'layout', 'category' | sort: 'weight' %}
 
@@ -25,7 +25,7 @@
         {% endfor %}
     </div>
 
-        <p class="font-bold text-lg text-gray-900 dark:text-light mb-2">{{ site.content.side-menu-date }}</p>
+        <p class="font-bold text-lg text-gray-900 dark:text-light mb-2">{{ site.data.ui_text.site.nav.side_menu_archive }}</p>
         <div class="mb-8">
             {% for post in site.posts %}
               {% assign currentdate = post.date | date: "%B %Y" %}

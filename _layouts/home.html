@@ -2,82 +2,283 @@
 layout: base
 ---
 
+<!-- Hero Feature Block - Full Width -->
+<div class="mb-16">
+  {%- assign featured_candidates = site.posts | where: "home_featured", true -%}
+  {%- assign featured_keys = "" | split: "" -%}
+  {%- for post in featured_candidates -%}
+    {%- assign order_num = post.home_featured_order | default: 999 | plus: 0 -%}
+    {%- capture padded -%}00000{{ order_num }}{%- endcapture -%}
+    {%- assign padded = padded | slice: -5, 5 -%}
+    {%- assign date_s = post.date | date: "%s" | plus: 0 -%}
+    {%- assign inv_date = 9999999999 | minus: date_s -%}
+    {%- capture inv_padded -%}0000000000{{ inv_date }}{%- endcapture -%}
+    {%- assign inv_padded = inv_padded | slice: -10, 10 -%}
+    {%- capture key -%}{{ padded }}|{{ inv_padded }}|{{ post.url }}{%- endcapture -%}
+    {%- assign featured_keys = featured_keys | push: key -%}
+  {%- endfor -%}
+  {%- assign featured_keys = featured_keys | sort -%}
+  {%- assign featured_post = nil -%}
+  {%- if featured_keys.size > 0 -%}
+    {%- assign parts = featured_keys[0] | split: "|" -%}
+    {%- assign featured_post = site.posts | where: "url", parts[2] | first -%}
+  {%- endif -%}
+  {%- unless featured_post -%}
+    {%- assign featured_post = site.posts | first -%}
+  {%- endunless -%}
+  {% include hero-feature.html post=featured_post %}
+</div>
+
+<!-- Page Wrapper with Max Width -->
 <div class="mx-auto max-w-7xl px-6 lg:px-8">
-  <!-- Featured Posts Section -->
-  <div class="mt-10">
-    {% for post in site.posts limit:2 %}
-      <div class="flex flex-col md:flex-row gap-8 
-        {% if forloop.index == 2 %}md:flex-row-reverse{% endif %} 
-        p-6 bg-white dark:bg-blackground shadow-sm border border-gray-200 dark:border-gray-800 
-        {% if forloop.first %}rounded-t-xl border-b-0 mb-4{% else %}rounded-b-xl{% endif %}">
-        
-        <!-- Post Content -->
-        <div class="flex-1 flex flex-col justify-center">
-          <!-- Post Metadata -->
-          <div class="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
-            <span>{{ post.date | date: "%B %d, %Y" }}</span>
-            <span>•</span>
-            <span>{% include reading_time.html content=post.content %} read</span>
-          </div>
-          
-          <!-- Post Title and Tags -->
-          <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            <a href="{{ post.url }}">{{ post.title }}</a>
-          </h2>
-          {% include post-tags.html tags=post.tags %}
-          
-          <!-- Post Excerpt and CTA -->
-          <p class="mt-4 text-gray-500 dark:text-gray-400">{{ post.excerpt | strip_html | truncatewords: 50 }}</p>
-          {% include read-more-button.html url=post.url %}
-        </div>
 
-        <!-- Post Image -->
-        {% if post.image %}
-          <div class="flex-1">
-            <div class="h-full max-h-[400px] relative">
-              <img src="{{ post.image }}" alt="{{ post.title }}" class="absolute inset-0 w-full h-full object-cover rounded-lg">
-            </div>
-          </div>
-        {% endif %}
-      </div>
-    {% endfor %}
+  {%- assign used = "|" | append: featured_post.url | append: "|" -%}
+  
+  <!-- Dashboard Rows (Collections) -->
+  <div class="space-y-12">
+    {%- assign limit = 3 -%}
+
+    {%- assign collection_id = "api-integrations" -%}
+    {%- assign def = site.data.collections.collections | where: "id", collection_id | first -%}
+    {%- assign selected = "" | split: "" -%}
+    {%- assign curated_keys = "" | split: "" -%}
+    {%- for post in site.posts -%}
+      {%- if post.collections and post.collections[collection_id] and used contains post.url -%}{%- continue -%}{%- endif -%}
+      {%- if post.collections and post.collections[collection_id] -%}
+        {%- assign order_num = post.collections[collection_id] | plus: 0 -%}
+        {%- capture padded -%}00000{{ order_num }}{%- endcapture -%}
+        {%- assign padded = padded | slice: -5, 5 -%}
+        {%- assign date_s = post.date | date: "%s" | plus: 0 -%}
+        {%- assign inv_date = 9999999999 | minus: date_s -%}
+        {%- capture inv_padded -%}0000000000{{ inv_date }}{%- endcapture -%}
+        {%- assign inv_padded = inv_padded | slice: -10, 10 -%}
+        {%- capture key -%}{{ padded }}|{{ inv_padded }}|{{ post.url }}{%- endcapture -%}
+        {%- assign curated_keys = curated_keys | push: key -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- assign curated_keys = curated_keys | sort -%}
+    {%- for key in curated_keys -%}
+      {%- if selected.size >= limit -%}{%- break -%}{%- endif -%}
+      {%- assign url = key | split: "|" | last -%}
+      {%- assign match = site.posts | where: "url", url | first -%}
+      {%- if match and used contains match.url -%}{%- continue -%}{%- endif -%}
+      {%- if match -%}
+        {%- assign selected = selected | push: match -%}
+        {%- assign used = used | append: match.url | append: "|" -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if selected.size < limit -%}
+      {%- assign tags = def.tags_fallback | default: "" -%}
+      {%- for post in site.posts -%}
+        {%- if selected.size >= limit -%}{%- break -%}{%- endif -%}
+        {%- if used contains post.url -%}{%- continue -%}{%- endif -%}
+        {%- for tag in post.tags -%}
+          {%- if tags contains tag -%}
+            {%- assign selected = selected | push: post -%}
+            {%- assign used = used | append: post.url | append: "|" -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {% include dashboard-row.html
+      title="API & Integrations"
+      collection_id="api-integrations"
+      posts=selected
+      view_all_url="/collections/api-integrations"
+      limit=limit %}
+
+    {%- assign collection_id = "hardware-devices" -%}
+    {%- assign def = site.data.collections.collections | where: "id", collection_id | first -%}
+    {%- assign selected = "" | split: "" -%}
+    {%- assign curated_keys = "" | split: "" -%}
+    {%- for post in site.posts -%}
+      {%- if post.collections and post.collections[collection_id] and used contains post.url -%}{%- continue -%}{%- endif -%}
+      {%- if post.collections and post.collections[collection_id] -%}
+        {%- assign order_num = post.collections[collection_id] | plus: 0 -%}
+        {%- capture padded -%}00000{{ order_num }}{%- endcapture -%}
+        {%- assign padded = padded | slice: -5, 5 -%}
+        {%- assign date_s = post.date | date: "%s" | plus: 0 -%}
+        {%- assign inv_date = 9999999999 | minus: date_s -%}
+        {%- capture inv_padded -%}0000000000{{ inv_date }}{%- endcapture -%}
+        {%- assign inv_padded = inv_padded | slice: -10, 10 -%}
+        {%- capture key -%}{{ padded }}|{{ inv_padded }}|{{ post.url }}{%- endcapture -%}
+        {%- assign curated_keys = curated_keys | push: key -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- assign curated_keys = curated_keys | sort -%}
+    {%- for key in curated_keys -%}
+      {%- if selected.size >= limit -%}{%- break -%}{%- endif -%}
+      {%- assign url = key | split: "|" | last -%}
+      {%- assign match = site.posts | where: "url", url | first -%}
+      {%- if match and used contains match.url -%}{%- continue -%}{%- endif -%}
+      {%- if match -%}
+        {%- assign selected = selected | push: match -%}
+        {%- assign used = used | append: match.url | append: "|" -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if selected.size < limit -%}
+      {%- assign tags = def.tags_fallback | default: "" -%}
+      {%- for post in site.posts -%}
+        {%- if selected.size >= limit -%}{%- break -%}{%- endif -%}
+        {%- if used contains post.url -%}{%- continue -%}{%- endif -%}
+        {%- for tag in post.tags -%}
+          {%- if tags contains tag -%}
+            {%- assign selected = selected | push: post -%}
+            {%- assign used = used | append: post.url | append: "|" -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {% include dashboard-row.html
+      title="Hardware & Devices"
+      collection_id="hardware-devices"
+      posts=selected
+      view_all_url="/collections/hardware-devices"
+      limit=limit %}
+
+    {%- assign collection_id = "developer-guides" -%}
+    {%- assign def = site.data.collections.collections | where: "id", collection_id | first -%}
+    {%- assign selected = "" | split: "" -%}
+    {%- assign curated_keys = "" | split: "" -%}
+    {%- for post in site.posts -%}
+      {%- if post.collections and post.collections[collection_id] and used contains post.url -%}{%- continue -%}{%- endif -%}
+      {%- if post.collections and post.collections[collection_id] -%}
+        {%- assign order_num = post.collections[collection_id] | plus: 0 -%}
+        {%- capture padded -%}00000{{ order_num }}{%- endcapture -%}
+        {%- assign padded = padded | slice: -5, 5 -%}
+        {%- assign date_s = post.date | date: "%s" | plus: 0 -%}
+        {%- assign inv_date = 9999999999 | minus: date_s -%}
+        {%- capture inv_padded -%}0000000000{{ inv_date }}{%- endcapture -%}
+        {%- assign inv_padded = inv_padded | slice: -10, 10 -%}
+        {%- capture key -%}{{ padded }}|{{ inv_padded }}|{{ post.url }}{%- endcapture -%}
+        {%- assign curated_keys = curated_keys | push: key -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- assign curated_keys = curated_keys | sort -%}
+    {%- for key in curated_keys -%}
+      {%- if selected.size >= limit -%}{%- break -%}{%- endif -%}
+      {%- assign url = key | split: "|" | last -%}
+      {%- assign match = site.posts | where: "url", url | first -%}
+      {%- if match and used contains match.url -%}{%- continue -%}{%- endif -%}
+      {%- if match -%}
+        {%- assign selected = selected | push: match -%}
+        {%- assign used = used | append: match.url | append: "|" -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if selected.size < limit -%}
+      {%- assign tags = def.tags_fallback | default: "" -%}
+      {%- for post in site.posts -%}
+        {%- if selected.size >= limit -%}{%- break -%}{%- endif -%}
+        {%- if used contains post.url -%}{%- continue -%}{%- endif -%}
+        {%- for tag in post.tags -%}
+          {%- if tags contains tag -%}
+            {%- assign selected = selected | push: post -%}
+            {%- assign used = used | append: post.url | append: "|" -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {% include dashboard-row.html
+      title="Developer Guides"
+      collection_id="developer-guides"
+      posts=selected
+      view_all_url="/collections/developer-guides"
+      limit=limit %}
   </div>
+          
 
-  <!-- Categories Section -->
-  <div id="categories-section" class="mt-16 scroll-mt-20">
-    <h2 class="text-2xl font-bold mb-6">Our Categories</h2>
-    <div class="flex flex-wrap gap-4">
+  <!-- Micro-Pillars (Learning Paths) -->
+  <section class="py-8">
+    <div class="mb-8 flex items-center">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-gray-900 dark:text-white uppercase tracking-tight">
+        Learning Paths
+      </h2>
+      <div class="ml-6 flex-1 h-0.5 bg-gradient-to-r from-accent-cyan/50 to-transparent"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% for pillar in site.data.learning.learning %}
+        {% include micro-pillar.html pillar=pillar %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Latest Articles Grid - Magazine Style -->
+  <section class="py-8 -mx-6 lg:-mx-8 px-6 lg:px-8">
+    <div class="mb-8 flex items-center">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-gray-900 dark:text-white uppercase tracking-tight">
+        Latest Articles
+      </h2>
+      <div class="ml-6 flex-1 h-0.5 bg-gradient-to-r from-accent-cyan/50 to-transparent"></div>
+    </div>
+    
+    <!-- Magazine Grid - Minimal gaps -->
+    <!-- Keep 1px separation but make it blend into card background (no ugly gray lines) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-white dark:bg-blackground">
+      {%- assign latest = "" | split: "" -%}
+      {%- for post in site.posts -%}
+        {%- if latest.size >= 12 -%}{%- break -%}{%- endif -%}
+        {%- if used contains post.url -%}{%- continue -%}{%- endif -%}
+        {%- assign latest = latest | push: post -%}
+        {%- assign used = used | append: post.url | append: "|" -%}
+      {%- endfor -%}
+      {% for post in latest %}
+        {% include article-card-magazine-clean.html post=post %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Global Category Overview Grid -->
+  <section id="categories-section" class="py-8 scroll-mt-20 blueprint-grid">
+    <div class="mb-8 flex items-center">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-gray-900 dark:text-white uppercase tracking-tight">
+        Explore by Category
+      </h2>
+      <div class="ml-6 flex-1 h-0.5 bg-gradient-to-r from-accent-cyan/50 to-transparent"></div>
+    </div>
+    
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
       {% assign sorted_tags = site.pages | where: 'layout', 'category' | sort: 'weight' %}
       {% for tag_page in sorted_tags %}
         {% assign tag = site.tags[tag_page.category] %}
         {% if tag %}
           <a href="/category/{{ tag_page.category | slugify }}" 
-             class="px-4 py-2 rounded-full text-white bg-secondary hover:opacity-90">
-            {{ tag_page.title }} ({{ tag.size }})
+             class="group relative border border-gray-200 dark:border-gray-700 bg-white dark:bg-blackground p-5 transition-all duration-300 hover:border-accent-cyan hover:shadow-[0_0_8px_rgba(46,196,255,0.15)] hover:-translate-y-1">
+            <!-- Icon placeholder - you can customize per category -->
+            <div class="mb-3 inline-flex items-center justify-center w-10 h-10 bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/30 group-hover:bg-accent-cyan group-hover:text-white transition-all duration-300">
+              <i class="fas fa-folder text-lg"></i>
+            </div>
+            
+            <!-- Category Title -->
+            <h3 class="font-heading text-base font-bold text-gray-900 dark:text-white mb-1 uppercase tracking-tight group-hover:text-accent-cyan transition-colors">
+              {{ tag_page.title }}
+            </h3>
+            
+            <!-- Article Count -->
+            <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">
+              {{ tag.size }} {% if tag.size == 1 %}article{% else %}articles{% endif %}
+            </p>
+            
+            <!-- Bottom accent line -->
+            <div class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-accent-cyan to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
           </a>
         {% endif %}
       {% endfor %}
     </div>
-  </div>
-
-  <!-- Article Grid -->
-  <div class="mt-16">
-    <h2 class="text-2xl font-bold mb-6">All Articles</h2>
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-      {% for post in site.posts offset:2 limit:10 %}
-        {% include post-card.html post=post %}
-      {% endfor %}
-    </div>
+  </section>
     
-    <!-- Archive Button -->
-    <div class="mt-12 text-center">
+  <!-- Archive CTA -->
+  <section class="py-12 text-center">
       <a href="/archive" 
-         class="inline-flex items-center px-6 py-3 text-base font-medium rounded-lg text-white bg-secondary hover:opacity-90 transition-opacity">
-        Browse All Articles
-        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+       class="inline-flex items-center px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-black font-bold text-sm uppercase tracking-wider hover:bg-accent-cyan hover:text-black dark:hover:bg-accent-cyan transition-all duration-300 border-2 border-gray-900 dark:border-white hover:border-accent-cyan group">
+      Browse Complete Archive
+      <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
         </svg>
       </a>
-    </div>
-  </div>
+  </section>
+
 </div>

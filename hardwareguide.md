@@ -25,6 +25,10 @@ This blog features a wide variety of articles about different types of hardware 
 - [The Art of Printing - Mastering Bixolon SRP-Q300 Series label printer with enhanced ESC/POS commands and tables](/The-Art-of-Printing-Mastering-Bixolon-SRP-Q300-Series-label-printer-with-with-enhanced-ESCPOS-commands-and-tables.html)
 - [Print Charming - How ZPL Turns Your Bixolon XD5-40 printer into a Label Wizard](/Print-Charming-How-ZPL-Turns-Your-Bixolon-XD5-40-into-a-Label-Wizard.html)
 
+### Scales
+
+- [The 'Weigh' Forward - Connecting CAS PDN Scales to Peakboard](/The-Weigh-Forward-Connecting-CAS-PDN-Scales-to-Peakboard.html)
+
 ### wheel.me AGVs
 
 - [When Boards Meet Wheels - Part I - How to connect Peakboard and wheel.me robots](/When-Boards-Meet-Wheels-Part-I-How-to-connect-Peakboard-and-wheel.me-robots.html)

@@ -1,0 +1,65 @@
+<!-- Hero Feature Block -->
+{% assign featured = include.post %}
+<div class="relative w-full aspect-[16/9] max-h-[70vh] overflow-hidden group">
+  <!-- Make the entire hero clickable (without nesting links) -->
+  <a href="{{ featured.url }}" class="absolute inset-0 z-0" aria-label="Read: {{ featured.title }}"></a>
+
+  <!-- Image (static) -->
+  <div class="absolute inset-0">
+    <img src="{{ featured.image }}"
+         alt="{{ featured.title }}"
+         class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95">
+  </div>
+  
+  <!-- Gradient Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-90"></div>
+  
+  <!-- Content -->
+  <div class="absolute inset-0 z-10 flex flex-col justify-end p-8 md:p-12 lg:p-14">
+    <!-- Category Chip -->
+    {% if featured.tags and featured.tags.size > 0 %}
+    <a href="/category/{{ featured.tags[0] | slugify }}"
+       class="inline-flex items-center px-4 py-1.5 mb-4 text-xs font-bold uppercase tracking-widest bg-accent-cyan text-black w-fit hover:text-white transition-colors">
+      {{ featured.tags[0] }}
+    </a>
+    {% endif %}
+    
+    <!-- Title -->
+    <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 leading-tight">
+      <a href="{{ featured.url }}" class="hover:text-accent-cyan transition-colors">
+        {{ featured.title }}
+      </a>
+    </h1>
+    
+    <!-- Metadata -->
+    <div class="flex items-center gap-4 text-sm font-medium text-gray-300 mb-6">
+      <span>{{ featured.date | date: "%B %d, %Y" }}</span>
+      <span class="w-1 h-1 bg-accent-cyan rounded-full"></span>
+      <span>{% include reading_time.html content=featured.content %} read</span>
+    </div>
+    
+    <!-- Excerpt (desktop only) -->
+    <p class="hidden md:block text-gray-200 text-base md:text-lg mb-5 max-w-2xl">
+      {{ featured.excerpt | strip_html | truncatewords: 30 }}
+    </p>
+    
+    <!-- CTA Button -->
+    <a href="{{ featured.url }}"
+       class="inline-flex items-center px-6 py-3 bg-white text-black font-bold text-sm uppercase tracking-wider hover:bg-accent-cyan transition-colors w-fit group/btn">
+      Read More
+      <svg class="w-5 h-5 ml-2 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Bottom fade + scroll cue (makes “more below” obvious) -->
+  <div class="absolute inset-x-0 bottom-0 h-20 pointer-events-none bg-gradient-to-t from-black/60 to-transparent"></div>
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/80">
+    <svg class="w-6 h-6 animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </div>
+</div>
+
+

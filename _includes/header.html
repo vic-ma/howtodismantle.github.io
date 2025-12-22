@@ -1,8 +1,11 @@
-<header class="bg-white dark:bg-blackground shadow-md sticky top-0 z-50">
+<header class="bg-white dark:bg-blackground border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
+    <!-- Thin accent line -->
+    <div class="h-0.5 w-full bg-gradient-to-r from-transparent via-accent-cyan to-transparent"></div>
+    
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <!-- Logo/Home -->
-            <a href="/" class="text-lg font-bold text-gray-900 dark:text-light hover:text-secondary">
+            <a href="/" class="font-heading text-xl font-bold uppercase tracking-tight text-gray-900 dark:text-white hover:text-accent-cyan transition-colors">
                 {{ site.title }}
             </a>
 
@@ -10,41 +13,41 @@
             <nav class="hidden md:flex items-center space-x-8">
                 <!-- Categories Link -->
                 <a href="/#categories-section" 
-                   class="text-gray-600 dark:text-light/80 hover:text-secondary">
+                   class="text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">
                     Categories
                 </a>
-                <a href="/archive" class="text-gray-600 dark:text-light/80 hover:text-secondary">Archive</a>
-                <a href="/hardwareguide" class="text-gray-600 dark:text-light/80 hover:text-secondary">Hardware Guide</a>
-                <a href="/about" class="text-gray-600 dark:text-light/80 hover:text-secondary">About</a>
+                <a href="/collections/" class="text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">Collections</a>
+                <a href="/learning/" class="text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">Learning</a>
+                <a href="/about" class="text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">About</a>
 
                 <!-- Search icon remains last -->
-                <a href="/search" class="text-gray-600 dark:text-light/80 hover:text-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <a href="/search" class="text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                     </svg>
                 </a>
             </nav>
 
             <!-- Mobile menu button -->
-            <button class="md:hidden text-gray-600 dark:text-light/80 hover:text-secondary" aria-label="Menu" onclick="toggleMobileMenu()">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <button class="md:hidden text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors" aria-label="Menu" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
         </div>
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-blackground border-t border-gray-200 dark:border-gray-800">
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-blackground border-t border-gray-300 dark:border-gray-700">
         <div class="px-4 py-2 space-y-1">
             <!-- Mobile Categories Link -->
             <a href="/#categories-section" 
-               class="block py-2 text-gray-600 dark:text-light/80 hover:text-secondary">
+               class="block py-2 text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">
                 Categories
             </a>
-            <a href="/archive" class="block py-2 text-gray-600 dark:text-light/80 hover:text-secondary">Archive</a>
-            <a href="/hardwareguide" class="block py-2 text-gray-600 dark:text-light/80 hover:text-secondary">Hardware Guide</a>
-            <a href="/about" class="block py-2 text-gray-600 dark:text-light/80 hover:text-secondary">About</a>
+            <a href="/collections/" class="block py-2 text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">Collections</a>
+            <a href="/learning/" class="block py-2 text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">Learning</a>
+            <a href="/about" class="block py-2 text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">About</a>
         </div>
     </div>
 
