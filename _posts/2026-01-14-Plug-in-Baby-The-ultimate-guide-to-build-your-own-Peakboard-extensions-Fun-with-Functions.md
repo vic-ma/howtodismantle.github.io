@@ -45,7 +45,7 @@ To add a function to a data source, we do the following:
 
 ### Declare the function
 
-Here's what our Cat List data source looks like, after we declare the sum function. Inside `GetDefinitionOverride()`, in the `CustomListDefinition` that we return, we define the `Functions` attribute.
+To declare our function, we define the `Functions` attribute in our `CustomListDefinition`:
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
@@ -93,14 +93,11 @@ protected override CustomListDefinition GetDefinitionOverride()
 
 ### Define the function
 
-To define our function, we override the `ExecuteFunctionOverride()` function. Note that we define `ExecuteFunctionOverride()` outside of the `GetDefinitionOverride()` function.
+To define our function, we override the `ExecuteFunctionOverride()` function. Our data source's functions are all routed through this function. So, we use an `if` statement to separate the different function implementations (right now, we only have the one function).
+
+To get the arguments for our function, we use `context.Values[i].GetValue()`. And to return the result, we use a `CustomListExecuteReturnContext`.
 
 {% highlight csharp %}
-protected override CustomListDefinition GetDefinitionOverride()
-{
-    // ...
-}
-
 protected override CustomListExecuteReturnContext ExecuteFunctionOverride(CustomListData data, CustomListExecuteParameterContext context)
 {
     if (context.FunctionName.Equals("AddMyNumbers", StringComparison.InvariantCultureIgnoreCase))
