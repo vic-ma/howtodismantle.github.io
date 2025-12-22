@@ -40,7 +40,7 @@ Each functions demonstrates a different concept about custom data source functio
 
 Before continuing, make sure that you have read [part one](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html) and [part two](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html) of this series. This article won't make sense otherwise. You can also take a look at the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension), on GitHub.
 
-## Create a simple function with a return parameter
+## Create a simple function
 
 First, let's learn the basics of custom functions. To do this, we'll add a simple `AddMyNumbers` function to our Cat List data source. This function takes in two numbers and returns their sum.
 
@@ -133,7 +133,7 @@ Custom data source functions do not appear as standalone Building Blocks (unlike
 In our case, `AddMyNumbers` has a return value, so we use the *Run function with return value* Building Block:
 ![Peakboard Building Block calling the custom function](/assets/2026-01-14/peakboard-custom-function-building-block.png)
 
-## Submitting a complex parameter to an extension function
+## Create a function with complex parameters
 
 The values we used to exchange with the extension have been scalar and simple. Let's assume we want to submit a table-like value to the extension function. In our sample our table is supposed to be a list of messages, along with their message type, to be written to a message logger.
 
