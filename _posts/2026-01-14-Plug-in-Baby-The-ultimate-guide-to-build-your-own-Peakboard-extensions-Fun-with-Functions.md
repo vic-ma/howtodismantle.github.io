@@ -47,12 +47,12 @@ Each of these functions demonstrates a different concept about custom data sourc
 First, let's learn the basics of custom functions. To do this, we'll add a simple `AddMyNumbers` function to our Cat List data source. This function takes in two numbers and returns their sum.
 
 To add a function to a data source, we do the following:
-1. **Declare** the function in the data source's `Functions` attribute. This step declares the name, parameters, and return type of the function.
-1. **Define** the function in the `ExecuteFunctionOverride` function. This step defines the implementation of the function.
+1. **Declare** the function in the data source's `Functions` attribute. This step specifies the name, parameters, and return type of the function.
+1. **Define** the function in the `ExecuteFunctionOverride` function. This step specifies the implementation of the function.
 
 ### Declare the function
 
-To declare our function, we define the `Functions` attribute in our `CustomListDefinition`:
+To declare the function, we add a `Functions` attribute to our `CustomListDefinition`, inside the `GetDefinitionOverride()` function. This `Functions` attribute specifies **all** the function declarations for our data source (but for now, we only have one function).
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
@@ -100,7 +100,7 @@ protected override CustomListDefinition GetDefinitionOverride()
 
 ### Define the function
 
-To define our function, we override the `ExecuteFunctionOverride()` function. Our data source's functions are all routed through this function. So, we use an `if` statement to separate the different function implementations (right now, we only have the one function).
+To define our function, we override `ExecuteFunctionOverride()`. Our data source's functions are **all** routed through `GetDefinitionOverride()`. So, we use an `if` statement to separate the different function implementations. (But right now, we only have one function.)
 
 To get the arguments for our function, we use `context.Values[i].GetValue()`. And to return the result, we use a `CustomListExecuteReturnContext`.
 
