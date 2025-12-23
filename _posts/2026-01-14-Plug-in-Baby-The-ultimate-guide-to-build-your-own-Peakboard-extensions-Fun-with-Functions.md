@@ -128,11 +128,9 @@ protected override CustomListExecuteReturnContext ExecuteFunctionOverride(Custom
 
 ### Use the function
 
-Now, we rebuild our extension, and our function is ready to be used. In order to run a custom data source's function, we use one of two Building Blocks:
+Now, we rebuild our extension, and our custom function is ready to be used.  However, custom data source functions do not appear as standalone Building Blocks (unlike built-in data source functions). So we must use one of these two Building Blocks, which let us run an arbitrary custom function:
 * *Run function*
 * *Run function with return value*
-
-Custom data source functions do not appear as standalone Building Blocks (unlike built-in data source functions), so we must use one of these universal function runners.
 
 In our case, `AddMyNumbers` has a return value, so we use the *Run function with return value* Building Block:
 ![Peakboard Building Block calling the custom function](/assets/2026-01-14/peakboard-custom-function-building-block.png)
