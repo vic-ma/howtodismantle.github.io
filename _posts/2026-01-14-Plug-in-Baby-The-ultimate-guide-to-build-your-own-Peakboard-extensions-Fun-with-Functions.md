@@ -104,7 +104,7 @@ To define our function, we override `ExecuteFunctionOverride()`. Our data source
 
 To get the arguments for our function, we use `context.Values[i].GetValue()`, where `i = 0` is the first argument, `i = 1` is the second argument, etc.
 
-To have our function return something, we put our return value inside a `CustomListExecuteReturnContext` object and return that object.
+To have our function return something, we put the return value inside a `CustomListExecuteReturnContext` object and return that object.
 
 {% highlight csharp %}
 protected override CustomListExecuteReturnContext ExecuteFunctionOverride(CustomListData data, CustomListExecuteParameterContext context)
@@ -128,7 +128,7 @@ protected override CustomListExecuteReturnContext ExecuteFunctionOverride(Custom
 
 ### Use the function
 
-Next, we rebuild our extension, and our function is ready to be used. In order to run a custom data source's function, we use one of two Building Blocks:
+Now, we rebuild our extension, and our function is ready to be used. In order to run a custom data source's function, we use one of two Building Blocks:
 * *Run function*
 * *Run function with return value*
 
