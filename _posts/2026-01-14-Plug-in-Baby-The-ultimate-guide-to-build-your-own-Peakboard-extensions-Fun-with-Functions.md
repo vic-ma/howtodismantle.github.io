@@ -128,7 +128,9 @@ protected override CustomListExecuteReturnContext ExecuteFunctionOverride(Custom
 
 ### Use the function
 
-Now, we rebuild our extension, and our custom function is ready to be used.  However, custom data source functions do not appear as standalone Building Blocks (unlike built-in data source functions). So we must use one of these two Building Blocks, which let us run an arbitrary custom function:
+Now, we rebuild our extension, and our custom function is ready to be used in the script editor.
+
+However, custom data source functions do not appear as standalone Building Blocks (unlike built-in data source functions). So in order to run a custom function, we use one of these custom-function-runner Building Blocks:
 * *Run function*
 * *Run function with return value*
 
