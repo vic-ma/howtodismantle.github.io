@@ -29,6 +29,8 @@ In the [second part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-yo
 
 In today's article, we'll explain how to create **functions** for a custom data source.
 
+Before continuing, make sure that you have read [part one](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html) and [part two](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html) of this series. This article won't make sense otherwise. You can also take a look at the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension), on GitHub.
+
 ## Custom data source functions
 
 A data source can provide functions, to let us perform actions beyond simple data querying. For example, the SQL data source lets you read data from a SQL database. But what if you want to **insert** data into a SQL database instead? In that case, you can use the *Run SQL query* function. This function is provided by the SQL data source and it lets you run an arbitrary SQL command.
@@ -38,9 +40,7 @@ The goal for today's article is to add three functions to our Cat List data sour
 1. `PrintMyTableToLog`, which prints a table to log.
 1. `GetACat`, which returns the data for a cat named Tom.
 
-Each functions demonstrates a different concept about custom data source functions.
-
-Before continuing, make sure that you have read [part one](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html) and [part two](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html) of this series. This article won't make sense otherwise. You can also take a look at the [final code for this article](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension), on GitHub.
+Each of these functions demonstrates a different concept about custom data source functions. By the end, you'll understand how to add and use custom data source functions with different parameter types.
 
 ## Create a simple function
 
