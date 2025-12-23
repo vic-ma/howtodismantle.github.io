@@ -139,7 +139,7 @@ In our case, `AddMyNumbers` has a return value, so we use the *Run function with
 
 ## Create a function with a complex parameter
 
-Now, let's create a function with a more complex parameter type. We'll create `PrintMyTableToLog`, which accepts a table argument and prints that table to log.
+Now, let's create a function with a more complex parameter type. We'll create a function called `PrintMyTableToLog`, which accepts a table argument and prints that table to log.
 
 ### Declare the function
 
@@ -183,7 +183,7 @@ else if (context.FunctionName.Equals("PrintMyTableToLog", StringComparison.Invar
 
 To use this function in a script, we have to use LUA. This is because Building Blocks does not currently support complex parameters like tables (as of January 2026). However, the LUA code is pretty simple.
 
-For our example, we create a table literal in LUA called `MyTab`. Then, we call our `PrintMyTableToLog` function, passing in `MyTab` as the argument.
+For our demo script, we create a table literal called `MyTab`. Then, we call our `PrintMyTableToLog` function, passing in `MyTab` as the argument.
 
 ![LUA script building the table parameter for the extension function](/assets/2026-01-14/lua-table-parameter-function.png)
 
