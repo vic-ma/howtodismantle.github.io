@@ -29,7 +29,9 @@ In the [second part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-yo
 
 In today's article, we'll explain how to create **functions** for a custom data source.
 
-A data source can provide functions, to allow for functionality beyond simple data querying. For example, the SQL data source lets you read data from a SQL database. But what if you want to insert data into a SQL database instead? In that case, you must use the *Run SQL query* function. This function is provided by the SQL data source and it lets you run an arbitrary SQL command.
+## Custom data source functions
+
+A data source can provide functions to let us perform actions beyond simple data querying. For example, the SQL data source lets you read data from a SQL database. But what if you want to insert data into a SQL database instead? In that case, you must use the *Run SQL query* function. This function is provided by the SQL data source and it lets you run an arbitrary SQL command.
 
 Our goal for today's article is to add three functions to our Cat List data source:
 1. `AddMyNumbers`, which returns the sum of two numbers.
