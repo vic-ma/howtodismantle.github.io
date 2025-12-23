@@ -134,7 +134,7 @@ However, custom data source functions do not appear as standalone Building Block
 * *Run function*
 * *Run function with return value*
 
-In our case, `AddMyNumbers` has a return value, so we use the *Run function with return value* Building Block:
+In our case, `AddMyNumbers` has a return value, so we use the *Run function with return value* Building Block. Then, we select our data source and custom function, and we enter the arguments for the function:
 ![Peakboard Building Block calling the custom function](/assets/2026-01-14/peakboard-custom-function-building-block.png)
 
 ## Create a function with a complex parameter
