@@ -137,9 +137,9 @@ However, custom data source functions do not appear as standalone Building Block
 In our case, `AddMyNumbers` has a return value, so we use the *Run function with return value* Building Block. Then, we select our data source and custom function, and we enter the arguments for the function:
 ![Peakboard Building Block calling the custom function](/assets/2026-01-14/peakboard-custom-function-building-block.png)
 
-## Create a function with a complex parameter
+## Create a function with a collection parameter
 
-Now, let's create a function with a more complex parameter type. We'll create a function called `PrintMyTableToLog`, which accepts a table argument and prints that table to log.
+Now, let's create a function with a collection parameter. We'll create a function called `PrintMyTableToLog`, which accepts a table and prints that table to log.
 
 ### Declare the function
 
@@ -193,7 +193,7 @@ Next, we bind our script to a button's tapped event. Then, when we tap the butto
 
 ## Create a function that returns an object
 
-Now, let's create a function that returns an object. We'll create a function called `GetACat`, which returns a cat object.
+Now, let's create a function that returns an object. We'll create a function called `GetACat`, which returns a cat object. The function doesn't accept any parameters, and the cat object it returns is always the same.
 
 ### Declare the function
 
@@ -214,6 +214,8 @@ new CustomListFunctionDefinition
     }
 }
 {% endhighlight %}
+
+### Define the function
 
 Let's have a look at the actual function implementation in `ExecuteFunctionOverride`. We just build a `CustomListObjectElement` instance, which represents a single table row, or to be more precise, a key/value pair collection.
 
