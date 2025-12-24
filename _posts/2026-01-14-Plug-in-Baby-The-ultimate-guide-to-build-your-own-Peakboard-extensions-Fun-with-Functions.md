@@ -64,8 +64,10 @@ protected override CustomListDefinition GetDefinitionOverride()
         ID = "CatCustomList",
         // ...
 
+        // List of function declarations.
         Functions = new CustomListFunctionDefinitionCollection
         {
+            // The first function declaration.
             new CustomListFunctionDefinition
             {
                 Name = "AddMyNumbers",
@@ -95,7 +97,7 @@ protected override CustomListDefinition GetDefinitionOverride()
                     }
                 }
             }
-            // If we have more functions, we would add them here.
+            // If we have more functions, we would add the declarations here.
         }
     };
 }
@@ -112,11 +114,14 @@ To return something, we wrap our return value inside a `CustomListExecuteReturnC
 {% highlight csharp %}
 protected override CustomListExecuteReturnContext ExecuteFunctionOverride(CustomListData data, CustomListExecuteParameterContext context)
 {
+    // If the function is `AddMyNumbers`...
     if (context.FunctionName.Equals("AddMyNumbers", StringComparison.InvariantCultureIgnoreCase))
     {
+        // Get the arguments.
         Double FirstNumber = (Double)context.Values[0].GetValue();
         Double SecondNumber = (Double)context.Values[1].GetValue();
 
+        // Wrap the return value inside a CustomListExecuteReturnContext.
         var returncontext = new CustomListExecuteReturnContext();
         returncontext.Add(FirstNumber + SecondNumber);   
 
