@@ -42,11 +42,11 @@ The goal for today's article is to add three functions to our Cat List data sour
 1. `PrintMyTableToLog`, which prints a table to log.
 1. `GetACat`, which returns the data for a cat named Tom.
 
-Each of these functions demonstrates a different concept about custom data source functions. By the end, you'll understand how to add and use custom data source functions with different parameter types.
+Each of these functions demonstrates a different concept about custom data source functions. By the end, you'll understand how to add and use custom data source functions with different parameter and return types.
 
 ## Create a simple function
 
-First, let's learn the basics of custom functions. To do this, we'll add a simple `AddMyNumbers` function to our Cat List data source. This function takes in two numbers and returns their sum.
+First, let's learn the basics of custom functions. To do this, we'll add a simple function called `AddMyNumbers` to our Cat List data source. This function takes in two numbers and returns their sum.
 
 To add a function to a data source, we do the following:
 1. **Declare** the function in the data source's `Functions` field. This step specifies the name, parameters, and return type of the function.
