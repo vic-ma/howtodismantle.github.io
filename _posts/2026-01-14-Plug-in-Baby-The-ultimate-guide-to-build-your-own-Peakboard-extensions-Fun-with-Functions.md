@@ -47,12 +47,12 @@ Each of these functions demonstrates a different concept about custom data sourc
 First, let's learn the basics of custom functions. To do this, we'll add a simple `AddMyNumbers` function to our Cat List data source. This function takes in two numbers and returns their sum.
 
 To add a function to a data source, we do the following:
-1. **Declare** the function in the data source's `Functions` attribute. This step specifies the name, parameters, and return type of the function.
+1. **Declare** the function in the data source's `Functions` field. This step specifies the name, parameters, and return type of the function.
 1. **Define** the function in the `ExecuteFunctionOverride` function. This step specifies the implementation of the function.
 
 ### Declare the function
 
-To declare the function, we add a `Functions` attribute to our `CustomListDefinition`, inside the `GetDefinitionOverride()` function. This `Functions` attribute specifies **all** the function declarations for our data source (but for now, we only have one function).
+To declare the function, we add a `Functions` field to our `CustomListDefinition`, inside the `GetDefinitionOverride()` function. This `Functions` field specifies **all** the function declarations for our data source (but for now, we only have one function).
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
@@ -217,7 +217,7 @@ new CustomListFunctionDefinition
 
 ### Define the function
 
-In the function definition, we create a `CustomListObjectElement` instance and set the `Name` and `Age` attributes:
+In the function definition, we create a `CustomListObjectElement` instance and set the `Name` and `Age` fields:
 
 {% highlight csharp %}
 else if (context.FunctionName.Equals("GetACat", StringComparison.InvariantCultureIgnoreCase))
@@ -238,7 +238,7 @@ else if (context.FunctionName.Equals("GetACat", StringComparison.InvariantCultur
 To use this function in a script, we again need to use LUA. Here's how our demo script works:
 
 1. Call the `GetACat` function and store the return value in `MyCat` (a generic LUA object variable).
-1. Display the name and age attributes
+1. Display the name and age fields of `MyCat` on screen.
 
 
 We switch over to the host side. Here's the LUA code to process this complex object. It's just a generic LUA object that accepts the attributes to be addressed by their key name directly without any hassle. By the way: we can even return table-like objects. In that case we would have to use `CustomListObjectElementCollection` like in the second example.
