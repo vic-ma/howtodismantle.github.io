@@ -33,7 +33,7 @@ Before continuing, make sure that you have read [part one](/Plug-in-Baby-The-ult
 
 ## Custom data source functions
 
-A data source can provide functions, to let us perform actions beyond simple data querying. For example, the SQL data source lets you read data from a SQL database. But what if you want to **insert** data into a SQL database instead? In that case, you can use the *Run SQL query* function. This function is provided by the SQL data source and it lets you run an arbitrary SQL command.
+A data source can provide functions, to let us do things beyond simple data querying. For example, the built-in SQL data source lets us read data from a SQL database. But what if we want to **insert** data into a SQL database instead? In that case, we would use the *Run SQL query* function. This function is provided by the SQL data source and it lets us run an arbitrary SQL command.
 
 The goal for today's article is to add three functions to our Cat List data source:
 1. `AddMyNumbers`, which returns the sum of two numbers.
