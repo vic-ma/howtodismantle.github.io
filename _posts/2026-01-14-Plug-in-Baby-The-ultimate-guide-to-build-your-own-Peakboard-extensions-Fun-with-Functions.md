@@ -54,7 +54,7 @@ To add a function to a data source, we do the following:
 
 ### Declare the function
 
-To declare the function, we add a `Functions` field to our `CustomListDefinition`, inside the `GetDefinitionOverride()` function. This `Functions` field specifies **all** the function declarations for our data source (but for now, we only have one function).
+To declare the function, we add a `Functions` field to our `CustomListDefinition`, inside `GetDefinitionOverride()`. The `Functions` field is a collection that contains **all** the function declarations for our data source (but right now, we're only adding our first function).
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
@@ -95,6 +95,7 @@ protected override CustomListDefinition GetDefinitionOverride()
                     }
                 }
             }
+            // If we have more functions, we would add them here.
         }
     };
 }
