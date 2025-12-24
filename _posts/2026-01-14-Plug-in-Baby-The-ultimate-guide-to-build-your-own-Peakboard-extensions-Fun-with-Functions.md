@@ -125,9 +125,8 @@ protected override CustomListExecuteReturnContext ExecuteFunctionOverride(Custom
         var returncontext = new CustomListExecuteReturnContext();
         returncontext.Add(FirstNumber + SecondNumber);   
 
-        // Return the return context.
         return returncontext;
-    } // If we have more functions, we would add additional `else if (...)` below.
+    } // If we had more functions, we would add additional `else if (...)` blocks below.
     else
     {
         throw new DataErrorException("Function is not supported in this version.");
@@ -260,3 +259,5 @@ Here's what the script looks like in action:
 ## Conclusion
 
 Custom data source functions are easy to understand and implement, once you understand the basic principles behind them. You can even make functions with complex parameters and return types like objects and tables!
+
+And remember, if you want to see how all the code fits together, check out [the GitHub](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension)!
