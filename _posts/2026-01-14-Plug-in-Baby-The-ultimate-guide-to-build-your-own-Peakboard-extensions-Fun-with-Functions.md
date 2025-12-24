@@ -50,7 +50,7 @@ First, let's learn the basics of custom functions. To do this, we'll add a simpl
 
 To add a function to a data source, we do the following:
 1. **Declare** the function in the data source's `Functions` field. This step specifies the name, parameters, and return type of the function.
-1. **Define** the function in the `ExecuteFunctionOverride` function. This step specifies the implementation of the function.
+1. **Define** the function in the `ExecuteFunctionOverride` function. This step provides the implementation for the function.
 
 ### Declare the function
 
