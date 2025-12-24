@@ -215,6 +215,8 @@ new CustomListFunctionDefinition
 }
 {% endhighlight %}
 
+Note: If you want to return a table instead, then use `CustomListObjectElementCollection`, like our `PrintMyTableToLog` function.
+
 ### Define the function
 
 In the function definition, we create a `CustomListObjectElement` instance and set the `Name` and `Age` fields:
@@ -240,15 +242,12 @@ To use this function in a script, we again need to use LUA. Here's how our demo 
 1. Call the `GetACat` function and store the return value in `MyCat` (a generic LUA object variable).
 1. Display the name and age fields of `MyCat` on screen.
 
-
-We switch over to the host side. Here's the LUA code to process this complex object. It's just a generic LUA object that accepts the attributes to be addressed by their key name directly without any hassle. By the way: we can even return table-like objects. In that case we would have to use `CustomListObjectElementCollection` like in the second example.
-
 ![LUA script reading the complex return object](/assets/2026-01-14/lua-handle-complex-return.png)
 
-Here's the script in action using the example test cockpit.
+Here's what the script looks like in action:
 
 ![Peakboard test cockpit showing the complex return value](/assets/2026-01-14/peakboard-test-cockpit-return.png)
 
 ## Conclusion
 
-Custom data source functions are easy to understand and implement, once you understand the basic principles behind them. You can even make functions with complex parameters like key-value collections and tables!
+Custom data source functions are easy to understand and implement, once you understand the basic principles behind them. You can even make functions with complex parameters and return types like objects and tables!
