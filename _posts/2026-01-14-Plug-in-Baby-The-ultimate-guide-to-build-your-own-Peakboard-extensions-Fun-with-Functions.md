@@ -107,9 +107,9 @@ protected override CustomListDefinition GetDefinitionOverride()
 
 To define our function, we override `ExecuteFunctionOverride()`. Our data source's functions are **all** routed through `GetDefinitionOverride()`. We use an `if` statement to separate the different function implementations. (But right now, we only have one function.)
 
-To get the arguments for our function, we use `context.Values[i].GetValue()`, where `i = 0` is the first argument, `i = 1` is the second argument, etc.
+To get the **arguments** for our function, we use `context.Values[i].GetValue()`, where `i = 0` is the first argument, `i = 1` is the second argument, etc.
 
-To return something, we wrap our return value inside a `CustomListExecuteReturnContext` object. Then, we return that `CustomListExecuteReturnContext`.
+To **return** something, we wrap the return value inside a `CustomListExecuteReturnContext` object. Then, we return that `CustomListExecuteReturnContext`.
 
 {% highlight csharp %}
 protected override CustomListExecuteReturnContext ExecuteFunctionOverride(CustomListData data, CustomListExecuteParameterContext context)
@@ -125,6 +125,7 @@ protected override CustomListExecuteReturnContext ExecuteFunctionOverride(Custom
         var returncontext = new CustomListExecuteReturnContext();
         returncontext.Add(FirstNumber + SecondNumber);   
 
+        // Return the return context.
         return returncontext;
     } // If we have more functions, we would add additional `else if (...)` below.
     else
