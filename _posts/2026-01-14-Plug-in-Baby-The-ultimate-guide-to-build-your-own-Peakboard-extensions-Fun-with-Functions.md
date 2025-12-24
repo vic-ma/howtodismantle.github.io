@@ -97,7 +97,7 @@ protected override CustomListDefinition GetDefinitionOverride()
                     }
                 }
             }
-            // If we have more functions, we would add the declarations here.
+            // If we had more functions, we would add the declarations here.
         }
     };
 }
