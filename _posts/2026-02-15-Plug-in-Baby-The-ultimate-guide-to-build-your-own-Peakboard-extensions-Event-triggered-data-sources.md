@@ -29,9 +29,9 @@ In today's article, we're going to explain how to create an **event-triggered da
 
 First, let's define two terms:
 * **Data source:** A component in a Peakboard app that gets data from an actual source. Examples: SAP data source, Siemens S7 data source.
-* **Actual source:** A program or device that provides data to Peakboard. Examples: an SAP system, a physical Siemens S7 controller.
+* **Actual source:** A program or device that feeds data to Peakboard. Examples: an SAP system, a physical Siemens S7 controller.
 
-In other words, an **actual source** sends data to a **data source:**
+In other words, an **actual source** feeds data to a **data source:**
 ```
 ┌───────────────────┐              ┌─────────────────┐
 │   Actual Source   │ --- data --> │   Data Source   │
@@ -45,9 +45,9 @@ There are two types of data sources in Peakboard:
 * Pull-based data sources.
 * Event-triggered data sources.
 
-Most data sources are **pull-based**. With a pull-based data source, Peakboard queries the actual source for any new data. These queries can be triggered manually (e.g. the user taps a button), by a timer (e.g. send a query every 10 seconds), or by scripts.
+Most data sources are **pull-based**. With a pull-based data source, the data source queries the actual source for new data. These queries can be triggered manually (e.g. the user taps a button), by a timer (e.g. send a query every 10 seconds), or by scripts.
 
-However, a few data sources are **event-triggered**. This means that the source 
+However, a few data sources are **event-triggered**. This means that the actual source decides when to send data to the data source. The data source has no control over when it receives new data---its only job is to listen and wait for the actual source to send new data.
 
 Most of the data sources that are built in with Peakboard or created through the extension kit are pull extensions. That means the data is queried from the data source proactively, mostly triggered by a time period, manually, or through code. However, there are also push sources where the data transfer is triggered from within the data source itself. A typical example would be MQTT. We don't just regularly ask the MQTT server for new messages. Instead, we initially register at the MQTT server and subscribe to certain topics. When a message comes in from one of the subscribed topics, the data refresh is triggered implicitly. When there are no messages, no refresh happens at all. That's the nature of push data sources, and this behaviour changes the internal architecture fundamentally.
 
