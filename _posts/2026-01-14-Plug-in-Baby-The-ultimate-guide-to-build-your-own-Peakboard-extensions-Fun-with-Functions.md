@@ -147,7 +147,7 @@ In our case, `AddMyNumbers` has a return value, so we use the *Run function with
 
 ## Create a function with a table parameter
 
-Now, let's create a function with a table parameter. We'll create a function called `PrintMyTableToLog`, which accepts a table and prints that table to log.
+Next, let's create a function with a table parameter. We'll create a function called `PrintMyTableToLog`, which accepts a table and prints that table to log.
 
 ### Declare the function
 
