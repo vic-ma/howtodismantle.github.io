@@ -31,10 +31,12 @@ First, let's define two terms:
 * **Data source:** A component in a Peakboard app that gets data from an actual source. Examples: SAP data source, Siemens S7 data source.
 * **Actual source:** A program or device that provides data to Peakboard. Examples: an SAP system, a physical Siemens S7 controller.
 
-In other words, an actual source sends data to a data source:
+In other words, an **actual source** sends data to a **data source:**
 ```
-actual source ---data---> data source
-                          (Peakboard app)
+┌───────────────────┐                ┌─────────────────┐
+│   Actual Source   │ ──── data ───> │   Data Source   │
+└───────────────────┘                └─────────────────┘            
+   External System                      Peakboard App
 ```
 
 ## Event-triggered data sources
