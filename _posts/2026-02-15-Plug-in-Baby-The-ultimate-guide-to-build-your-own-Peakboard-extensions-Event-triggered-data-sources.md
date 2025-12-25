@@ -55,11 +55,11 @@ An example of an event-triggered data source is the MQTT data source. The data s
 
 In this article, we're going to create a custom event-triggered data source and a simple actual source. The actual source will send random messages to our data source every second. (Of course, this sort of defeats the purpose of an event-triggered architecture, but this is just for demonstration purposes.)
 
-## Setting up the basics
+## Create the data source
 
-In our example, the user has only one input parameter called `MyMessages`. It contains a list of messages that are pushed randomly to the host. The source code of the whole example can be found [on GitHub](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-02-15/PushExtension).
+Let's begin by creating the data source. To turn our data source into an event-triggered data source, all we need to do is set the `SupportsPushOnly` attribute to `true`.
 
-The important point is to set the attribute `SupportsPushOnly` to indicate that we're building a push extension.
+We also add a configuration option called `MyMessages`, which accepts a list of messages. This determines the list of messages that the actual source can send us.
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
