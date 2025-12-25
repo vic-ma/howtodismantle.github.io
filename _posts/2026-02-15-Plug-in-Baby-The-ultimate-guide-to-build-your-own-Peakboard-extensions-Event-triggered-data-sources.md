@@ -11,14 +11,22 @@ read_more_links:
     url: /category/dev
 downloads:
   - name: Source code for this article
-    url: https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-02-15/PushMessageExtension
+    url: https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-02-15/PushExtension/
 ---
-In the first part of the series, we learned how to build the frame of a Peakboard extension. We used two classes to provide both metadata and the actual payload that is exchanged between the extension and the Peakboard application. In the second part we discussed how to form parameters to enable user interaction and let the user configure the extension. How to create functions in extensions was the topic for the third part. We even exchanged complex data types and multiple return values:
+This article is part four (the final part!) of our custom Peakboard extensions series:
 
 * [Part I - The Basics](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html)
 * [Part II - Parameters and User Input](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html)
 * [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html)
 * [Part IV - Event-triggered data sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
+
+In the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html), we explained the basics of custom Peakboard extensions. We built a simple Peakboard extension called `MeowExtension`, by creating two classes in .NET:
+* One for specifying the extension metadata.
+* One for defining the *Cat List* data source.
+
+In the [second part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), we explained how to add configuration options to a custom data source. We added options like *IsItARealCat* and *Age* to our Cat List data source.
+
+In today's article, we'll explain how to create **functions** for a custom data source.
 
 In today's article, we will talk about push extensions or event-triggered data sources. Most of the data sources that are built in with Peakboard or created through the extension kit are pull extensions. That means the data is queried from the data source proactively, mostly triggered by a time period, manually, or through code. However, there are also push sources where the data transfer is triggered from within the data source itself. A typical example would be MQTT. We don't just regularly ask the MQTT server for new messages. Instead, we initially register at the MQTT server and subscribe to certain topics. When a message comes in from one of the subscribed topics, the data refresh is triggered implicitly. When there are no messages, no refresh happens at all. That's the nature of push data sources, and this behaviour changes the internal architecture fundamentally.
 
@@ -26,7 +34,7 @@ To keep it as simple as possible and focus on the basics, we set up a very simpl
 
 ## Setting up the basics
 
-In our example, the user has only one input parameter called `MyMessages`. It contains a list of messages that are pushed randomly to the host. The source code of the whole example can be found [on GitHub](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-02-15/PushMessageExtension).
+In our example, the user has only one input parameter called `MyMessages`. It contains a list of messages that are pushed randomly to the host. The source code of the whole example can be found [on GitHub](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-02-15/PushExtension).
 
 The important point is to set the attribute `SupportsPushOnly` to indicate that we're building a push extension.
 
