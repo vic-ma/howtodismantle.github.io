@@ -51,7 +51,9 @@ However, a few data sources are **event-triggered**. This means that the actual 
 
 An example of an event-triggered data source is the MQTT data source. The data source never queries the MQTT server (the actual source). Instead, the data source simply registers itself with the server. And whenever the server gets a new message, it sends that message to the Peakboard app, where the MQTT data source accepts the message. (This is simplified a bit, there are also topics involved.) If there are no new messages, then nothing happens.
 
-To keep it as simple as possible and focus on the basics, we set up a very simple example. We use a timer to simulate a source for external events, and every time the timer is ticking we push new data to the hosting environment. Of course, this example actually is not very practical because we could achieve the same behaviour with the traditional extension that runs on a time interval. However, it can show the principle of an event-triggered extension without distracting too much from the pure architecture.
+## The plan
+
+In this article, we're going to create a custom event-triggered data source and a simple actual source. The actual source will send random messages to our data source every second. (Of course, this sort of defeats the purpose of an event-triggered architecture, but this is just for demonstration purposes.)
 
 ## Setting up the basics
 
