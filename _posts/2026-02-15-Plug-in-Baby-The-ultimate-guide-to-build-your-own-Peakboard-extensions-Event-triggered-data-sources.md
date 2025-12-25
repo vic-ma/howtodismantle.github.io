@@ -42,14 +42,14 @@ In other words, an **actual source** feeds data to a **data source:**
 ## Event-triggered data sources
 
 There are two types of data sources in Peakboard:
-* Pull-based data sources.
+* Query-based data sources.
 * Event-triggered data sources.
 
-Most data sources are **pull-based**. With a pull-based data source, the data source queries the actual source for new data. These queries can be triggered manually (e.g. the user taps a button), by a timer (e.g. send a query every 10 seconds), or by scripts.
+Most data sources are **query-based**. With a query-based data source, the data source queries the actual source for new data. These queries can be triggered manually (e.g. the user taps a button), by a timer (e.g. send a query every 10 seconds), or by scripts.
 
-However, a few data sources are **event-triggered**. This means that the actual source decides when to send data to the data source. The data source has no control over when it receives new data---its only job is to listen and wait for the actual source to send new data.
+However, a few data sources are **event-triggered**. This means that the actual source decides when to send data to the data source. The data source has no control over when new data comes in---its only job is to listen and wait for the actual source to send data.
 
-Most of the data sources that are built in with Peakboard or created through the extension kit are pull extensions. That means the data is queried from the data source proactively, mostly triggered by a time period, manually, or through code. However, there are also push sources where the data transfer is triggered from within the data source itself. A typical example would be MQTT. We don't just regularly ask the MQTT server for new messages. Instead, we initially register at the MQTT server and subscribe to certain topics. When a message comes in from one of the subscribed topics, the data refresh is triggered implicitly. When there are no messages, no refresh happens at all. That's the nature of push data sources, and this behaviour changes the internal architecture fundamentally.
+An example of an event-triggered data source is the MQTT data source. (In this case, the actual source is the MQTT server.) The data source never queries the MQTT server. Instead, the data source simply registers itself with the server. Whenever the server gets a new message, it sends that message to the data source. (This is simplified a bit, there are also topics involved.) If there are no new messages, then nothing happens.
 
 To keep it as simple as possible and focus on the basics, we set up a very simple example. We use a timer to simulate a source for external events, and every time the timer is ticking we push new data to the hosting environment. Of course, this example actually is not very practical because we could achieve the same behaviour with the traditional extension that runs on a time interval. However, it can show the principle of an event-triggered extension without distracting too much from the pure architecture.
 
