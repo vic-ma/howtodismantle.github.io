@@ -109,7 +109,7 @@ To define our function, we override `ExecuteFunctionOverride()`. Our data source
 
 To get the **arguments** for our function, we use `context.Values[i].GetValue()`, where `i = 0` is the first argument, `i = 1` is the second argument, etc.
 
-To **return** something, we wrap the return value inside a `CustomListExecuteReturnContext` object. Then, we return that `CustomListExecuteReturnContext`.
+To **return** something, we wrap the return value in a `CustomListExecuteReturnContext` object. Then, we return that `CustomListExecuteReturnContext`.
 
 {% highlight csharp %}
 protected override CustomListExecuteReturnContext ExecuteFunctionOverride(CustomListData data, CustomListExecuteParameterContext context)
@@ -126,7 +126,7 @@ protected override CustomListExecuteReturnContext ExecuteFunctionOverride(Custom
         returncontext.Add(FirstNumber + SecondNumber);   
 
         return returncontext;
-    } // If we had more functions, we would add additional `else if (...)` blocks below.
+    } // If we had more functions, we would add additional `else if (...)` blocks here.
     else
     {
         throw new DataErrorException("Function is not supported in this version.");
@@ -136,13 +136,13 @@ protected override CustomListExecuteReturnContext ExecuteFunctionOverride(Custom
 
 ### Use the function
 
-Now, we rebuild our extension, and our custom function is ready to be used in the script editor.
+Now, we rebuild our extension, and our custom function is ready to be used in Peakboard Designer.
 
-However, custom data source functions do not appear as standalone Building Blocks (unlike built-in data source functions). So in order to run a custom function, we use one of these custom-function-runner Building Blocks:
+However, custom data source functions do not appear as standalone Building Blocks (unlike built-in data source functions). So in order to run a custom function, we need to use one of these custom-function-runner Building Blocks:
 * *Run function*
 * *Run function with return value*
 
-In our case, `AddMyNumbers` has a return value, so we use the *Run function with return value* Building Block. Then, we select our data source and custom function, and we enter the arguments for the function:
+In our case, `AddMyNumbers` has a return value, so we use the *Run function with return value* Building Block. To use the block, we select our data source and custom function, and we enter the arguments for the function:
 ![Peakboard Building Block calling the custom function](/assets/2026-01-14/peakboard-custom-function-building-block.png)
 
 ## Create a function with a table parameter
