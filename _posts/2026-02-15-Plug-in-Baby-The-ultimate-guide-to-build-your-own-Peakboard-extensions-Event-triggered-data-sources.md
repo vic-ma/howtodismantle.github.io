@@ -53,7 +53,7 @@ An example of an event-triggered data source is the MQTT data source. The data s
 
 ## The plan
 
-In this article, we're going to create a custom event-triggered data source and a simple actual source. The actual source will send random messages to our data source every second. (Of course, this sort of defeats the purpose of an event-triggered architecture, but this is just for demonstration purposes.)
+In this article, we're going to create a simple event-triggered data source. The data source sends itself random messages every second. This simulates an actual source sending data to the data source. It's not very realistic, of course, but it simplifies the demo a lot.
 
 ## Create the data source
 
