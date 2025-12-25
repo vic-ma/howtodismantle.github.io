@@ -76,7 +76,7 @@ protected override CustomListDefinition GetDefinitionOverride()
 }
 {% endhighlight %}
 
-Just to complete the metadata, we're using two columns for the result set to push: `TimeStamp` and `Message`, which contains the actual message later.
+Next, we define the output of the data source. We'll make the data source return two columns: one for the timestamp and one for the message.
 
 {% highlight csharp %}
 protected override CustomListColumnCollection GetColumnsOverride(CustomListData data)
@@ -88,7 +88,7 @@ protected override CustomListColumnCollection GetColumnsOverride(CustomListData 
 }
 {% endhighlight %}
 
-## Implementing the actual push
+## Create the actual source
 
 First, we override the function `SetupOverride`. It's called once the host project is starting up and wants all data sources to do initial setup activities. So we're initializing our timer object. The instance of the `CustomListData` is also submitted to the timer. We will need it later.
 
