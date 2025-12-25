@@ -25,7 +25,9 @@ In the [second part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-yo
 
 In today's article, we're going to explain how to create an **event-triggered data source.**
 
-But before we begin, let's define two terms:
+## Definitions
+
+First, let's define two terms:
 * **Data source:** A component of a Peakboard app that gets data from an actual source. Examples: SAP data source, Siemens S7 data source.
 * **Actual source:** A program or device that provides data to Peakboard. Examples: An SAP system, a physical Siemens S7 controller.
 
