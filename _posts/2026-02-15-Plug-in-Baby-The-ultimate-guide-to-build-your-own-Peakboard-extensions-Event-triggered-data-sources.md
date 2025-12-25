@@ -13,22 +13,25 @@ downloads:
   - name: Source code for this article
     url: https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-02-15/PushExtension/
 ---
-This article is part four (the final part!) of our custom Peakboard extensions series:
+This article is part four of our custom Peakboard extensions series:
 
 * [Part I - The Basics](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html)
 * [Part II - Parameters and User Input](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html)
 * [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html)
 * [Part IV - Event-triggered data sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
 
-In the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html), we explained the basics of custom Peakboard extensions. We built a simple Peakboard extension called `MeowExtension`, by creating two classes in .NET:
-* One for specifying the extension metadata.
-* One for defining the *Cat List* data source.
+In the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html), we explained the basics of custom Peakboard extensions.
+In the [second part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), we explained how to add configuration options to a custom data source. In the [third part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions), we explained how to create functions for a custom data source. 
 
-In the [second part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), we explained how to add configuration options to a custom data source. We added options like *IsItARealCat* and *Age* to our Cat List data source.
+In today's article, we're going to explain how to create an **event-triggered data source.**
 
-In today's article, we'll explain how to create **functions** for a custom data source.
+## Event-triggered data sources
 
-In today's article, we will talk about push extensions or event-triggered data sources. Most of the data sources that are built in with Peakboard or created through the extension kit are pull extensions. That means the data is queried from the data source proactively, mostly triggered by a time period, manually, or through code. However, there are also push sources where the data transfer is triggered from within the data source itself. A typical example would be MQTT. We don't just regularly ask the MQTT server for new messages. Instead, we initially register at the MQTT server and subscribe to certain topics. When a message comes in from one of the subscribed topics, the data refresh is triggered implicitly. When there are no messages, no refresh happens at all. That's the nature of push data sources, and this behaviour changes the internal architecture fundamentally.
+There are two fundamental types of data sources in Peakboard:
+* Pull-based data sources.
+* Event-triggered data sources.
+
+Most of the data sources that are built in with Peakboard or created through the extension kit are pull extensions. That means the data is queried from the data source proactively, mostly triggered by a time period, manually, or through code. However, there are also push sources where the data transfer is triggered from within the data source itself. A typical example would be MQTT. We don't just regularly ask the MQTT server for new messages. Instead, we initially register at the MQTT server and subscribe to certain topics. When a message comes in from one of the subscribed topics, the data refresh is triggered implicitly. When there are no messages, no refresh happens at all. That's the nature of push data sources, and this behaviour changes the internal architecture fundamentally.
 
 To keep it as simple as possible and focus on the basics, we set up a very simple example. We use a timer to simulate a source for external events, and every time the timer is ticking we push new data to the hosting environment. Of course, this example actually is not very practical because we could achieve the same behaviour with the traditional extension that runs on a time interval. However, it can show the principle of an event-triggered extension without distracting too much from the pure architecture.
 
