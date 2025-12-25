@@ -245,7 +245,7 @@ else if (context.FunctionName.Equals("GetACat", StringComparison.InvariantCultur
 
 ### Use the function
 
-To use this function in a script, we again need to use LUA. Here's how our demo script works:
+To use this function in a script, we again need to use LUA. We create this demo script:
 
 1. Call the `GetACat` function and store the return value in `MyCat` (a generic LUA object variable).
 1. Display the name and age fields of `MyCat` on screen.
@@ -258,6 +258,6 @@ Here's what the script looks like in action:
 
 ## Conclusion
 
-Custom data source functions are easy to understand and implement, once you understand the basic principles behind them. You can even make functions with complex parameters and return types like objects and tables!
+Custom data source functions are easy to understand and implement, once you understand the basic principles behind them. You can even make functions with complex parameters and return types, like objects and tables!
 
-And remember, if you want to see how all the code fits together, check out [the GitHub](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension)!
+And remember, if you want to see how all our code fits together, check out [our GitHub](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-01-14/MeowExtension)!
