@@ -33,10 +33,10 @@ First, let's define two terms:
 
 In other words, an **actual source** sends data to a **data source:**
 ```
-┌───────────────────┐                ┌─────────────────┐
-│   Actual Source   │ ──── data ───> │   Data Source   │
-└───────────────────┘                └─────────────────┘            
-   External System                      Peakboard App
+┌───────────────────┐              ┌─────────────────┐
+│   Actual Source   │ --- data --> │   Data Source   │
+└───────────────────┘              └─────────────────┘            
+   External System                    Peakboard App
 ```
 
 ## Event-triggered data sources
