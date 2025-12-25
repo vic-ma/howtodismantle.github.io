@@ -223,7 +223,7 @@ new CustomListFunctionDefinition
 }
 {% endhighlight %}
 
-Note: If you want to return a table instead, then use `CustomListObjectElementCollection`, like our `PrintMyTableToLog` function.
+Note: If you want to return a table instead, then use `CustomListObjectElementCollection`, like in our `PrintMyTableToLog` function.
 
 ### Define the function
 
