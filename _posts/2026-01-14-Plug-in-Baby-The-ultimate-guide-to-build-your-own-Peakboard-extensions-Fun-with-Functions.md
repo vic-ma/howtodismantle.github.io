@@ -201,7 +201,7 @@ Next, we bind our script to a button's tapped event. Then, when we tap the butto
 
 ## Create a function that returns an object
 
-Now, let's create a function that returns an object. We'll create a function called `GetACat`, which returns a cat object. The function doesn't accept any parameters and the cat object it returns is always the same.
+Now, let's create a function that returns an object. We'll create a function called `GetACat`, which returns a cat object. The function doesn't accept any parameters and the cat object it returns is always the same (just to keep things simple).
 
 ### Declare the function
 
