@@ -49,7 +49,7 @@ Most data sources are **query-based**. With a query-based data source, the data 
 
 However, a few data sources are **event-triggered**. This means that the actual source decides when to send data to the data source. The data source has no control over when new data comes in---its only job is to listen and wait for the actual source to send data.
 
-An example of an event-triggered data source is the MQTT data source. (In this case, the actual source is the MQTT server.) The data source never queries the MQTT server. Instead, the data source simply registers itself with the server. Whenever the server gets a new message, it sends that message to the data source. (This is simplified a bit, there are also topics involved.) If there are no new messages, then nothing happens.
+An example of an event-triggered data source is the MQTT data source. The data source never queries the MQTT server (the actual source). Instead, the data source simply registers itself with the server. And whenever the server gets a new message, it sends that message to the Peakboard app, where the MQTT data source accepts the message. (This is simplified a bit, there are also topics involved.) If there are no new messages, then nothing happens.
 
 To keep it as simple as possible and focus on the basics, we set up a very simple example. We use a timer to simulate a source for external events, and every time the timer is ticking we push new data to the hosting environment. Of course, this example actually is not very practical because we could achieve the same behaviour with the traditional extension that runs on a time interval. However, it can show the principle of an event-triggered extension without distracting too much from the pure architecture.
 
