@@ -95,7 +95,7 @@ In order to test our data source, we need to simulate an actual source that send
 
 Of course, this is just for demonstration purposes. In the real world, the actual source is always some independent, external application that already exists. The only goal of the extension developer is to develop the data source.
 
-We create the `Timer` in the `SetupOverride()` function. This function runs during the Peakboard application start-up process. We also pass our `CustomListData` to the `Timer`, so that the `Timer` can interact with our data source.
+First, we implement the `SetupOverride()` function. This function runs during the Peakboard application start-up process. We create the `Timer` here. Note that we pass our `CustomListData` to the `Timer`, so that the `Timer` can interact with our data source.
 
 {% highlight csharp %}
 private Timer? _timer;
@@ -104,6 +104,10 @@ protected override void SetupOverride(CustomListData data)
 {
     this.Log.Info("Initializing...");
     _timer = new Timer(new TimerCallback(OnTimer), data, 0, 1000);
+    /* OnTimer = the callback that runs every time the timer triggers.
+     * data    = an object that represents our data source.
+     * 0       = the amount of delay before the timer starts, in milliseconds (0 means start immediately).
+     * 1000    = how often to trigger the timer, in milliseconds (1000 means trigger the timer every second).
 }
 {% endhighlight %}
 
