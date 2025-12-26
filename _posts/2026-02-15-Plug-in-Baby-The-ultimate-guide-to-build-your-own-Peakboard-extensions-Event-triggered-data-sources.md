@@ -53,7 +53,7 @@ An example of an event-triggered data source is the MQTT data source. The data s
 
 ## The plan
 
-Now, let's create a simple event-triggered data source that accepts messages. In order to simulate an actual source, we'll use a C# `Timer` that sends the data source a random message, every second.
+Now, let's create a simple event-triggered data source that accepts messages. For the actual source, we'll use a C# `Timer` that sends the data source a random message, every second. This isn't very realistic, but it keep things simple.
 
 ## Create the data source
 
