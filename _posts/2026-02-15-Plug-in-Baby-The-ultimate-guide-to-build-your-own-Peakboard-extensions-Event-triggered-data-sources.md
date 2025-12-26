@@ -95,7 +95,7 @@ In order to test our data source, we need to simulate an actual source that send
 
 Of course, this is just for demonstration purposes. In the real world, the actual source is always some independent, external application that already exists. The only goal of the extension developer is to develop the data source.
 
-We create the `Timer` in the `SetupOverride()` function. This function runs during the Peakboard application start-up process. We also pass our `CustomListData` to the timer, so that the `OnTimer()` callback can access our data source's `MyMessages` parameter.
+We create the `Timer` in the `SetupOverride()` function. This function runs during the Peakboard application start-up process. We also pass our `CustomListData` to the `Timer`, so that the `Timer` can interact with our data source.
 
 {% highlight csharp %}
 private Timer? _timer;
@@ -107,7 +107,7 @@ protected override void SetupOverride(CustomListData data)
 }
 {% endhighlight %}
 
-Second, we implement `CleanupOverride`. It's called at the end of the life cycle right before shutting down the host project. We can use the opportunity to dispose of the timer object.
+Next, we implement `CleanupOverride()`. This function runs during the Peakboard application shut-down process. We dispose of the `Timer` in this function.
 
 {% highlight csharp %}
 protected override void CleanupOverride(CustomListData data)
