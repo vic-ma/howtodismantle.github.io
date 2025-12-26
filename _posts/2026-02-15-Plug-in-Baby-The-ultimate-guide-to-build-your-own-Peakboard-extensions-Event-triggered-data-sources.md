@@ -53,13 +53,15 @@ An example of an event-triggered data source is the MQTT data source. The data s
 
 ## The plan
 
-In this article, we're going to create a simple event-triggered data source. The data source creates sends itself random messages every second (by using a separate thread). This simulates an actual source sending data to the data source. It's not realistic, but it lets us focus on the implementation of the data source itself.
+Now, let's create a simple event-triggered data source that listens for messages. In order to avoid the trouble of implementing an actual source, our data source will simulate an actual source by using a separate thread. This thread will send the data source a random message every second.
 
 ## Create the data source
 
-Let's begin by creating the data source. To turn our data source into an event-triggered data source, all we need to do is set the `SupportsPushOnly` attribute to `true`.
+To create the data source, we follow the same [steps for creating a standard (query-based) data source](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html).
 
-We also add a configuration option called `MyMessages`, which accepts a list of messages. This determines the list of messages that the actual source can send us.
+The only difference is that we set the `SupportsPushOnly` attribute to `true`. This marks our data source as an event-triggered data source.
+
+We also add a configuration option called `MyMessages`, which accepts a list of messages. This option determines messages that our actual source thread can send.
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
