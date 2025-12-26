@@ -53,7 +53,7 @@ An example of an event-triggered data source is the MQTT data source. The data s
 
 ## The plan
 
-In this article, we're going to create a simple event-triggered data source. The data source sends itself random messages every second. This simulates an actual source sending data to the data source. It's not very realistic, of course, but it simplifies the demo a lot.
+In this article, we're going to create a simple event-triggered data source. The data source creates sends itself random messages every second (by using a separate thread). This simulates an actual source sending data to the data source. It's not realistic, but it lets us focus on the implementation of the data source itself.
 
 ## Create the data source
 
@@ -88,7 +88,7 @@ protected override CustomListColumnCollection GetColumnsOverride(CustomListData 
 }
 {% endhighlight %}
 
-## Create the actual source
+## Create the timer
 
 First, we override the function `SetupOverride`. It's called once the host project is starting up and wants all data sources to do initial setup activities. So we're initializing our timer object. The instance of the `CustomListData` is also submitted to the timer. We will need it later.
 
