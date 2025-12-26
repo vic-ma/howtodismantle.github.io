@@ -53,7 +53,7 @@ An example of an event-triggered data source is the MQTT data source. The data s
 
 ## The plan
 
-Now, let's create a simple event-triggered data source that listens for messages. In order to avoid the trouble of implementing an actual source, our data source will simulate an actual source by using a separate thread. This thread will send the data source a random message every second.
+Now, let's create a simple event-triggered data source that accepts messages. In order to simulate an actual source, we'll use a C# `Timer` that sends the data source a random message, every second.
 
 ## Create the data source
 
@@ -92,7 +92,7 @@ protected override CustomListColumnCollection GetColumnsOverride(CustomListData 
 }
 {% endhighlight %}
 
-## Create the timer
+## Create the actual source
 
 First, we override the function `SetupOverride`. It's called once the host project is starting up and wants all data sources to do initial setup activities. So we're initializing our timer object. The instance of the `CustomListData` is also submitted to the timer. We will need it later.
 
