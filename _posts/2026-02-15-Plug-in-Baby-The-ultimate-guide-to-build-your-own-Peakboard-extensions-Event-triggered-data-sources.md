@@ -75,7 +75,7 @@ protected override CustomListDefinition GetDefinitionOverride()
 }
 {% endhighlight %}
 
-Next, we specify that our source returns two columns:
+Next, we specify the two columns that our data source returns:
 1. `TimeStamp`, the time when the message was received.
 1. `Message`, the message that was received.
 
@@ -89,11 +89,11 @@ protected override CustomListColumnCollection GetColumnsOverride(CustomListData 
 }
 {% endhighlight %}
 
-## Create the actual source simulator
+## Create the actual source
 
-In order to simulate the behavior of an actual source that sends messages to our data source, we'll use a `Timer` object. This `Timer` object sends random messages to our data source (chosen from the user-defined `MyMessages` option). 
+In order to test our data source, we need to simulate an actual source that sends messages to our data source. To do this, we'll have our data source create a `Timer` object, which runs in a separate thread and sends random messages (chosen from the messages in `MyMessages`) to the data source.
 
-Importantly, it is the data source itself that creates this `Timer`. Again, this is just for demonstration purposes. In the real world, the actual source would be an independent, external application.
+Of course, this is just for demonstration purposes. In the real world, the actual source is always some independent, external application that already exists. The only goal of the extension developer is to develop the data source.
 
 We create the `Timer` in the `SetupOverride` function. This way, the `Timer` starts running as soon as  It's called once the host project is starting up and wants all data sources to do initial setup activities. So we're initializing our timer object. The instance of the `CustomListData` is also submitted to the timer. We will need it later.
 
