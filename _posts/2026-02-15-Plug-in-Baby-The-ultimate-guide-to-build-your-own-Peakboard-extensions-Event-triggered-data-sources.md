@@ -94,7 +94,7 @@ protected override CustomListColumnCollection GetColumnsOverride(CustomListData 
 
 ## Create the actual source simulator
 
-To simulate the behavior of an actual source that sends messages to our data source, we'll use a `Timer` that sends our data source random messages. Importantly, it is the data source itself that creates this `Timer`. This is not realistic, of course, but it simplifies this demo a lot.
+In order to simulate the behavior of an actual source that sends messages to our data source, we'll use a `Timer` object. Importantly, it is the data source itself that creates this `Timer`. Again, this is just for demonstration purposes. In the real world, the actual source would be an independent, external application.
 
 First, we override the function `SetupOverride`. It's called once the host project is starting up and wants all data sources to do initial setup activities. So we're initializing our timer object. The instance of the `CustomListData` is also submitted to the timer. We will need it later.
 
