@@ -78,7 +78,9 @@ protected override CustomListDefinition GetDefinitionOverride()
 }
 {% endhighlight %}
 
-Next, we define the output of the data source. We'll make the data source return two columns: one for the timestamp and one for the message.
+Next, we specify that our source returns two columns:
+1. `TimeStamp`, the time when the message was received.
+1. `Message`, the message that was received.
 
 {% highlight csharp %}
 protected override CustomListColumnCollection GetColumnsOverride(CustomListData data)
