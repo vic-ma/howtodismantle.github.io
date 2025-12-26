@@ -54,11 +54,11 @@ An example of an event-triggered data source is the MQTT data source. The data s
 
 ## Create an event-triggered data source
 
-Now, let's create a simple event-triggered data source that accepts string messages.
+Now, let's create a simple event-triggered data source that accepts messages.
 
-To create an event-triggered data source, we follow the standard [steps for creating a custom data source](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html). The only difference is that we set the `SupportsPushOnly` attribute to `true`. This turns our data source into an event-triggered data source.
+First, we follow the [standard steps for creating a custom data source](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html). The only difference is that we set the `SupportsPushOnly` attribute to `true`. This turns our data source into an event-triggered data source.
 
-We also add a configuration option called `MyMessages`. This option determines the messages that the actual source can send to our data source.
+We also add a multi-line text parameter called `MyMessages`, which . Our actual source uses `MyMessages` to 
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
