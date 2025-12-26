@@ -20,10 +20,10 @@ This article is part four of our custom Peakboard extensions series:
 * [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html)
 * [Part IV - Event-triggered data sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
 
-In the [first part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html), we explained the basics of custom Peakboard extensions.
-In the [second part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), we explained how to add configuration options to a custom data source. In the [third part of this series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions), we explained how to create functions for a custom data source. 
+In the first part of this series, we explained the basics of custom Peakboard extensions.
+In the second part of this series, we explained how to add configuration options to a custom data source. In the third part of this series, we explained how to create functions for a custom data source. 
 
-In today's article, we're going to explain how to create an **event-triggered data source.**
+In today's article, we're going to explain how to create an **event-triggered data source.** Before you continue, make sure that you have read the [first part](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html) and [second part](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html) of this series.
 
 ## Definitions
 
@@ -51,17 +51,14 @@ However, a few data sources are **event-triggered**. This means that the actual 
 
 An example of an event-triggered data source is the MQTT data source. The data source never queries the MQTT server (the actual source). Instead, the data source simply registers itself with the server. And whenever the server gets a new message, it sends that message to the Peakboard app, where the MQTT data source accepts the message. (This is simplified a bit, there are also topics involved.) If there are no new messages, then nothing happens.
 
-## The plan
 
-Now, let's create a simple event-triggered data source that accepts messages. For the actual source, we'll use a C# `Timer` that sends the data source a random message, every second. This isn't very realistic, but it keep things simple.
+## Create an event-triggered data source
 
-## Create the data source
+Now, let's create a simple event-triggered data source that accepts string messages.
 
-To create the data source, we follow the same [steps for creating a standard (query-based) data source](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html).
+To create an event-triggered data source, we follow the standard [steps for creating a custom data source](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html). The only difference is that we set the `SupportsPushOnly` attribute to `true`. This turns our data source into an event-triggered data source.
 
-The only difference is that we set the `SupportsPushOnly` attribute to `true`. This marks our data source as an event-triggered data source.
-
-We also add a configuration option called `MyMessages`, which accepts a list of messages. This option determines messages that our actual source thread can send.
+We also add a configuration option called `MyMessages`. This option determines the messages that the actual source can send to our data source.
 
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
