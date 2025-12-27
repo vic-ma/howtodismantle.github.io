@@ -168,4 +168,4 @@ Here's what our data source looks like in action, when it's bound to a table con
 
 ![Push messages in action](/assets/2026-02-15/result.gif)
 
-Again, the fact that our actual source runs inside our data source is not realistic. However, our demo does show the basic steps to creating an event-triggered data source. And you can use [the code](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-02-15/PushExtension/) as a template when building an event-triggered data source.
+Again, the fact that our actual source runs inside our data source is not realistic. However, our demo does show all the basic steps to creating an event-triggered data source. You can even use [the code](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-02-15/PushExtension/) as a template when building your own event-triggered data source.
