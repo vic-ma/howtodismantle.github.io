@@ -111,6 +111,7 @@ protected override void SetupOverride(CustomListData data)
      * data    = an object that represents our data source.
      * 0       = the amount of delay before the timer starts, in milliseconds (0 means start immediately).
      * 1000    = how often to trigger the timer, in milliseconds (1000 means trigger the timer every second).
+     */
 }
 {% endhighlight %}
 
