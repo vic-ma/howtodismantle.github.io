@@ -153,6 +153,8 @@ private void OnTimer(object? state)
 
         var items = new CustomListObjectElementCollection();
         items.Add(item);
+
+        // Replace the data source's output with our new row of data.
         this.Data.Push(data.ListName).Update(0, item);
     }
 }
