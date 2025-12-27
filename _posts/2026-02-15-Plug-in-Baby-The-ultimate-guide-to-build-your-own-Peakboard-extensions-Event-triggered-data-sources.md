@@ -127,9 +127,10 @@ protected override void CleanupOverride(CustomListData data)
 
 ### Implement the callback
 
-Our final step is to implement the callback function. This is the function that runs whenever our `Timer` triggers (which happens once every second).
+Our final step is to implement the callback function. This is the function that runs whenever our `Timer` triggers (which happens once every second). Here's how it works:
+1. Convert the `state` argument back into a `CustomListData` object. (Remember, we passed our `CustomListData` object into the `Timer` constructor. That's where the this `state` argument comes from.)
 
-The last major part is the actual event, in our case the ticking of the timer. We will convert the `state` object back to `CustomListData` to get access to what the user provided in the input parameter (in our case the list of random messages to push).
+ to get access to what the user provided in the input parameter (in our case the list of random messages to push).
 
 The `CustomListObjectElement` represents a single row of the destination table. It is filled with a random message and timestamp. Then we use `this.Data.Push()` to push the prepared data set to the host system. The `.Update` function replaces the data. So the behaviour is to leave the table with one single row and just exchange this entry every time the timer fires. Let's assume we wanted to simply add the data at the end of the table instead of replacing it. We would need to use `this.Data.Push(...).Add(...)`.
 
