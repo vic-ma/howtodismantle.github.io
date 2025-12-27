@@ -44,7 +44,7 @@ There are two types of data sources in Peakboard:
 * Query-based data sources.
 * Event-triggered data sources.
 
-Most data sources are **query-based**. With a query-based data source, the data source queries the actual source for new data. These queries can be triggered manually (e.g. the user taps a button), by a timer (e.g. send a query every 10 seconds), or by scripts.
+Most data sources are **query-based**. A query-based data source asks the actual source for new data. These queries can be triggered manually (e.g. the user taps a button), by a timer (e.g. send a query every 10 seconds), or by scripts.
 
 However, a few data sources are **event-triggered**. This means that the actual source decides when to send data to the data source. The data source has no control over when new data comes in---its only job is to listen and wait for the actual source to send data.
 
