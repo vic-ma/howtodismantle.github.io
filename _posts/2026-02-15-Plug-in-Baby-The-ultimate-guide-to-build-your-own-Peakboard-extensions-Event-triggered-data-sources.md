@@ -48,7 +48,7 @@ Most data sources are **query-based**. This type of data source queries the actu
 
 However, a few data sources are **event-triggered**. With this type of data source, the actual source decides when to send data to the data source. The data source has no control over when new data comes in---its only job is to listen and wait for the actual source to send data.
 
-An example of an event-triggered data source is the MQTT data source. The MQTT data source never queries the MQTT server (the actual source). Instead, the MQTT data source simply registers itself with the MQTT server. And whenever the server gets a new message, it sends that message to the Peakboard app, where the MQTT data source accepts the message. (This is simplified a bit, there are also topics involved.) If there are no new messages, then nothing happens.
+An example of an event-triggered data source is the MQTT data source. The MQTT data source never queries the MQTT server (the actual source) for new data. Instead, the MQTT data source simply registers itself with the MQTT server. Then, when the server has a new message to send, it sends it to the Peakboard app, and the MQTT data source accepts the message. If there are no new messages, then nothing happens.
 
 
 ## Create an event-triggered data source
