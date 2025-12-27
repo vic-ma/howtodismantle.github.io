@@ -44,9 +44,9 @@ There are two types of data sources in Peakboard:
 * Query-based data sources.
 * Event-triggered data sources.
 
-Most data sources are **query-based**. A query-based data source asks the actual source for new data. These queries can be triggered manually (e.g. the user taps a button), by a timer (e.g. send a query every 10 seconds), or by scripts.
+Most data sources are **query-based**. This type of data source queries the actual source for new data. These queries can be triggered manually (e.g. the user taps a button), by a timer (e.g. send a query every 10 seconds), or by a script (e.g. a script that sends a query if some condition is true).
 
-However, a few data sources are **event-triggered**. This means that the actual source decides when to send data to the data source. The data source has no control over when new data comes in---its only job is to listen and wait for the actual source to send data.
+However, a few data sources are **event-triggered**. With this type of data source, the actual source decides when to send data to the data source. The data source has no control over when new data comes in---its only job is to listen and wait for the actual source to send data.
 
 An example of an event-triggered data source is the MQTT data source. The data source never queries the MQTT server (the actual source). Instead, the data source simply registers itself with the server. And whenever the server gets a new message, it sends that message to the Peakboard app, where the MQTT data source accepts the message. (This is simplified a bit, there are also topics involved.) If there are no new messages, then nothing happens.
 
