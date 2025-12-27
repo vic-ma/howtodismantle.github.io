@@ -35,7 +35,7 @@ In other words, an **actual source** feeds data to a **data source:**
 ┌───────────────────┐              ┌─────────────────┐
 │   Actual Source   │ --- data --> │   Data Source   │
 └───────────────────┘              └─────────────────┘            
-   External System                    Peakboard App
+                                      Peakboard App
 ```
 
 ## Event-triggered data sources
