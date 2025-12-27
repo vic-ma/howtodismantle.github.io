@@ -22,7 +22,7 @@ This article is part four of our custom Peakboard extensions series:
 
 In part one of this series, we explained the basics of custom Peakboard extensions. In part two, we explained how to add configuration options to a custom data source. In part three, we explained how to create functions for a custom data source. 
 
-In today's article, we're going to explain how to create an **event-triggered data source.** Before you continue, make sure that you have read the [first part](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html) and [second part](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html) of this series.
+In today's article, we're going to explain how to create an **event-triggered data source.** Before you continue, make sure that you have read [part one](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html) and [part two](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html) of this series.
 
 ## Definitions
 
