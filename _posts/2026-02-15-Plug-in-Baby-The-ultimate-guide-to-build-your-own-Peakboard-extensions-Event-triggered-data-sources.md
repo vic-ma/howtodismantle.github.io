@@ -55,7 +55,7 @@ An example of an event-triggered data source is the MQTT data source. The MQTT d
 
 Now, let's create a simple event-triggered data source that accepts messages.
 
-First, we follow the [standard steps for creating a custom data source](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html). The only difference is that we set the `SupportsPushOnly` attribute to `true`. This turns our data source into an event-triggered data source.
+First, we follow the [standard steps for creating a custom data source](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html). The only difference here is that we set the `SupportsPushOnly` attribute to `true`. This lets Peakboard Designer know that our data source is an event-triggered data source.
 
 We also add a multi-line text parameter called `MyMessages`. This parameter specifies the messages that the actual source can send to our data source.
 
