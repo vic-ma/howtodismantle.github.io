@@ -88,9 +88,11 @@ protected override CustomListColumnCollection GetColumnsOverride(CustomListData 
 }
 {% endhighlight %}
 
-## Simulate receiving messages
+## Pretend to receive messages
 
-In order to test our data source, we need to simulate the data source receiving messages from an actual source. To do this, we'll have our data source create a [`Timer`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.timer?view=net-10.0). This `Timer` runs in a separate thread and pushes random messages (chosen from the messages in `MyMessages`) to the data source output.
+Implementing an actual source would be unnecessarily complicated for a demo. So instead, we'll have our data source pretend like it receives a random message every second.
+
+To do this, we'll have our data source create a [`Timer`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.timer?view=net-10.0). This `Timer` runs in a separate thread and pushes random messages (chosen from the messages in `MyMessages`) to the data source output.
 
 Of course, this is just for demonstration purposes. In the real world, there would be an actual source that the data source connects to.
 
