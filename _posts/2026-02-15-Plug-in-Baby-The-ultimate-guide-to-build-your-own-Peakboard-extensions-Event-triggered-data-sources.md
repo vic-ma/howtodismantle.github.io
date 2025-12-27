@@ -97,7 +97,7 @@ Of course, this is just for demonstration purposes. In the real world, the actua
 
 ### Create the `Timer`
 
-First, we implement the `SetupOverride()` function. This function runs during the Peakboard application start-up process. We create the `Timer` here. Note that we pass our `CustomListData` to the `Timer`, so that the `Timer` can interact with our data source.
+First, we implement the `SetupOverride()` function. This function runs during the Peakboard application start-up process. We create the `Timer` here. Note that we pass our `CustomListData` to the `Timer`, so that the `Timer` can access our data source.
 
 {% highlight csharp %}
 private Timer? _timer;
@@ -128,11 +128,11 @@ protected override void CleanupOverride(CustomListData data)
 ### Implement the callback
 
 Our final step is to implement the callback function. This is the function that runs whenever our `Timer` triggers (which happens once every second). Here's how it works:
-1. Convert the `state` argument back into a `CustomListData` object. (Remember, we passed our `CustomListData` object into the `Timer` constructor. That's where the this `state` argument comes from.)
-
- to get access to what the user provided in the input parameter (in our case the list of random messages to push).
-
-The `CustomListObjectElement` represents a single row of the destination table. It is filled with a random message and timestamp. Then we use `this.Data.Push()` to push the prepared data set to the host system. The `.Update` function replaces the data. So the behaviour is to leave the table with one single row and just exchange this entry every time the timer fires. Let's assume we wanted to simply add the data at the end of the table instead of replacing it. We would need to use `this.Data.Push(...).Add(...)`.
+1. Convert the `state` argument back into a `CustomListData` object, so that we can access our data source. (Remember, we passed our `CustomListData` object into the `Timer` constructor. That's where the this `state` argument comes from.)
+1. Create a `CustomListObjectElement`, which represents a single row in the data source's output.
+1. Select a random message from the `MyMessages` parameter and add it to the `CustomListObjectElement`.
+1. Add a timestamp to the `CustomListObjectElement`.
+1. Push the `CustomListObjectElement` to the data source's output. (We use `Update()` to completely replace any existing output. To append the `CustomListObjectElement` to the existing data, we would use `Add()`.)
 
 {% highlight csharp %}
 private void OnTimer(object? state)
@@ -142,10 +142,15 @@ private void OnTimer(object? state)
     if (state is CustomListData data)
     {
         var item = new CustomListObjectElement();
+
+        // Add the timestamp.
         item.Add("TimeStamp", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+
+        // Add a random message from the `MyMessages` parameter.
         var MyMessages = data.Properties["MyMessages"].Split('\n');
         var random = new Random();
         item.Add("Message", MyMessages[random.Next(MyMessages.Length)]);
+
         var items = new CustomListObjectElementCollection();
         items.Add(item);
         this.Data.Push(data.ListName).Update(0, item);
