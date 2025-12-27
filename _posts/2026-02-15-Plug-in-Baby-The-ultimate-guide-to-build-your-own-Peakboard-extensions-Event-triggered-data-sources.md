@@ -95,6 +95,8 @@ In order to test our data source, we need to simulate an actual source that send
 
 Of course, this is just for demonstration purposes. In the real world, the actual source is always some independent, external application that already exists. The only goal of the extension developer is to develop the data source.
 
+### Create the `Timer`
+
 First, we implement the `SetupOverride()` function. This function runs during the Peakboard application start-up process. We create the `Timer` here. Note that we pass our `CustomListData` to the `Timer`, so that the `Timer` can interact with our data source.
 
 {% highlight csharp %}
@@ -111,7 +113,9 @@ protected override void SetupOverride(CustomListData data)
 }
 {% endhighlight %}
 
-Next, we implement `CleanupOverride()`. This function runs during the Peakboard application shut-down process. We dispose of the `Timer` in this function.
+### Clean up the `Timer`
+
+Next, we implement `CleanupOverride()`. This function runs during the Peakboard application shut-down process. We dispose of our `Timer` in this function.
 
 {% highlight csharp %}
 protected override void CleanupOverride(CustomListData data)
@@ -120,6 +124,10 @@ protected override void CleanupOverride(CustomListData data)
     _timer?.Dispose();
 }
 {% endhighlight %}
+
+### Implement the callback
+
+Our final step is to implement the callback function. This is the function that runs whenever our `Timer` triggers (which happens once every second).
 
 The last major part is the actual event, in our case the ticking of the timer. We will convert the `state` object back to `CustomListData` to get access to what the user provided in the input parameter (in our case the list of random messages to push).
 
