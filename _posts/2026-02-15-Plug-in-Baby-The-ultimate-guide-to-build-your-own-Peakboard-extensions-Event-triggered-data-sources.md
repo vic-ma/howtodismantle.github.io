@@ -88,11 +88,11 @@ protected override CustomListColumnCollection GetColumnsOverride(CustomListData 
 }
 {% endhighlight %}
 
-## Simulate the actual source
+## Simulate receiving messages
 
 In order to test our data source, we need to simulate an actual source sending messages to our data source. To do this, we'll have our data source create a [`Timer`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.timer?view=net-10.0). This `Timer` runs in a separate thread and pushes random messages (chosen from the messages in `MyMessages`) to the data source output.
 
-Of course, this is just for demonstration purposes. In the real world, the actual source is always an external application that our data source connects to.
+Of course, this is just for demonstration purposes. In the real world, the actual source would be an external application that the data source connects to.
 
 ### Create the `Timer`
 
@@ -114,7 +114,7 @@ protected override void SetupOverride(CustomListData data)
 
 ### Clean up the `Timer`
 
-Next, we implement `CleanupOverride()`. This function runs during the Peakboard application shut-down process. We dispose of our `Timer` in this function.
+Next, we implement `CleanupOverride()`. This function runs during the Peakboard application shut-down process. We dispose of our `Timer` here.
 
 {% highlight csharp %}
 protected override void CleanupOverride(CustomListData data)
@@ -126,12 +126,12 @@ protected override void CleanupOverride(CustomListData data)
 
 ### Implement the callback
 
-Our final step is to implement the callback function. This is the function that runs whenever our `Timer` triggers (which happens once every second). Here's how it works:
+Our final step is to implement the callback function for the `Timer`. This is the function that runs whenever our `Timer` triggers (which happens once every second). Here's how our callback works:
 1. Convert the `state` argument back into a `CustomListData` object, so that we can access our data source. (Remember, we passed our `CustomListData` object into the `Timer` constructor. That's where the this `state` argument comes from.)
 1. Create a `CustomListObjectElement`, which represents a single row in the data source's output.
 1. Select a random message from the `MyMessages` parameter and add it to the `CustomListObjectElement`.
 1. Add a timestamp to the `CustomListObjectElement`.
-1. Push the `CustomListObjectElement` to the data source's output. (We use `Update()` to completely replace any existing output. To append the `CustomListObjectElement` to the existing data, we would use `Add()`.)
+1. Push the `CustomListObjectElement` to the data source's output. (We use `Update()` to replace any existing output. To append the `CustomListObjectElement` to the existing data, use `Add()` instead.)
 
 {% highlight csharp %}
 private void OnTimer(object? state)
