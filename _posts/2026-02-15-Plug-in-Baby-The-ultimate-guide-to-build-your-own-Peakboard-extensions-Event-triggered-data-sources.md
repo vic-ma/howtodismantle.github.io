@@ -90,9 +90,9 @@ protected override CustomListColumnCollection GetColumnsOverride(CustomListData 
 
 ## Simulate receiving messages
 
-In order to test our data source, we need to simulate an actual source sending messages to our data source. To do this, we'll have our data source create a [`Timer`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.timer?view=net-10.0). This `Timer` runs in a separate thread and pushes random messages (chosen from the messages in `MyMessages`) to the data source output.
+In order to test our data source, we need to simulate the data source receiving messages from an actual source. To do this, we'll have our data source create a [`Timer`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.timer?view=net-10.0). This `Timer` runs in a separate thread and pushes random messages (chosen from the messages in `MyMessages`) to the data source output.
 
-Of course, this is just for demonstration purposes. In the real world, the actual source would be an external application that the data source connects to.
+Of course, this is just for demonstration purposes. In the real world, there would be an actual source that the data source connects to.
 
 ### Create the `Timer`
 
@@ -140,6 +140,7 @@ private void OnTimer(object? state)
 
     if (state is CustomListData data)
     {
+        // The row of data we're creating.
         var item = new CustomListObjectElement();
 
         // Add the timestamp.
@@ -153,7 +154,7 @@ private void OnTimer(object? state)
         var items = new CustomListObjectElementCollection();
         items.Add(item);
 
-        // Replace the data source's output with our new row of data.
+        // Replace the data source's output with our row of data.
         this.Data.Push(data.ListName).Update(0, item);
     }
 }
@@ -161,13 +162,11 @@ private void OnTimer(object? state)
 
 ## Result
 
-The video shows the extension in action after it's bound to a table control. Once again, it must be clear that this example actually doesn't make sense, but it is suitable for showcasing how pushing data works instead of pulling it - without getting distracted by too much code. It can be used as a lightweight template. Let's imagine a 
-
 Here's what our data source looks like in action, when it's bound to a table control:
 
 ![Push messages in action](/assets/2026-02-15/result.gif)
 
-Again, the fact that our actual source runs inside our data source is not realistic. However, our demo does show all the basic steps to creating an event-triggered data source. And you can use [the code for the demo](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-02-15/PushExtension/) as a template, when building your own event-triggered data source.
+Again, the fact that we don't have an actual source is not realistic. However, our demo does show all the basic steps to creating an event-triggered data source. And you can use [the code for the demo](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-02-15/PushExtension/) as a template, when building your own event-triggered data source.
 
 To give you some inspiration, here's what a realistic event-triggered data source might look like:
 1. In the setup phase, we open a TCP connection to a machine.
