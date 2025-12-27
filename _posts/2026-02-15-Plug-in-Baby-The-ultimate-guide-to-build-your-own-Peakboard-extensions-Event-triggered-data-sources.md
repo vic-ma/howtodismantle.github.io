@@ -162,10 +162,15 @@ private void OnTimer(object? state)
 
 ## Result
 
-The video shows the extension in action after it's bound to a table control. Once again, it must be clear that this example actually doesn't make sense, but it is suitable for showcasing how pushing data works instead of pulling it - without getting distracted by too much code. It can be used as a lightweight template. Let's imagine a real-life scenario: In the setup phase we could open a TCP connection to a machine and close it through `Cleanup`. Every time a TCP message comes in, we could trigger the `Data.Push`. This would be a real-world example; however, it would require much more code beside the pure implementation as shown here in this article.
+The video shows the extension in action after it's bound to a table control. Once again, it must be clear that this example actually doesn't make sense, but it is suitable for showcasing how pushing data works instead of pulling it - without getting distracted by too much code. It can be used as a lightweight template. Let's imagine a 
 
 Here's what our data source looks like in action, when it's bound to a table control:
 
 ![Push messages in action](/assets/2026-02-15/result.gif)
 
-Again, the fact that our actual source runs inside our data source is not realistic. However, our demo does show all the basic steps to creating an event-triggered data source. You can even use [the code](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-02-15/PushExtension/) as a template when building your own event-triggered data source.
+Again, the fact that our actual source runs inside our data source is not realistic. However, our demo does show all the basic steps to creating an event-triggered data source. And you can use [the code for the demo](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2026-02-15/PushExtension/) as a template, when building your own event-triggered data source.
+
+To give you some inspiration, here's what a realistic event-triggered data source might look like:
+1. In the setup phase, we open a TCP connection to a machine.
+1. Every time a TCP message comes in, we process it and run `Data.Push`.
+1. In the cleanup phase, we close the TCP connection.
