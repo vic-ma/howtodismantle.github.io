@@ -45,9 +45,15 @@ For our demo, we choose the PDN ECR Typ 14 data source.
   
 ![CAS Extension Setup - PDN and PB2 Scale Types with ECR Protocols](/assets/2026-01-30/cas-extension-scale-setup.png)
 
-When the scale is plugged into the USB port, it automatically emulates a virtual COM port. In that case, we need to look up the COM port in the Windows Device Manager settings. There might be other COM emulations or regular COM ports, so the COM port number differs from system to system. Of course, the regular non-virtual COM port can also be used as long as the Peakboard runtime runs on a machine with a physical port.
+## Identify the scale's port number
+
+When we plug our scale into a USB port, the scale automatically emulates a virtual COM port. In order for our data source to connect to the scale, we need to identify the scale's COM port number.
+
+To do this, we open the Windows Device Manager and look for the virtual COM port that the scale created. There could be other virtual or physical COM ports, so the COM port number can differ from system to system. 
 
 ![Windows Device Manager - CAS USB Scale COM Port Detection](/assets/2026-01-30/windows-device-manager-cas-com-port.png)
+
+Note: You can also connect the scale to a physical COM port, if the Peakboard app is running on a machine with a physical COM port.
 
 The COM port is the only thing that needs to be carefully configured in the extension parameters, followed by a reload to ensure the metadata of the data source is set correctly. For this type of scale, the scale actively pushes the current weight to the COM port. That's why the data source doesn't have a reload interval. It's a push data source that triggers a reload event every time data is pushed.
 
