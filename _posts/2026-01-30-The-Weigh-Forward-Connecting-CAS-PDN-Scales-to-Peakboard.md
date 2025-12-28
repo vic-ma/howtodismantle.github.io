@@ -23,7 +23,7 @@ downloads:
   - name: scale_baking.pbmx
     url: /assets/2026-01-30/scale_baking.pbmx
 ---
-[CAS](http://www.globalcas.com/) is a Korean company that makes industrial and commercial weighing equipment. In this week's article, we will discuss how to interact with those scales from our Peakboard application. Spoiler: It's easy! 
+[CAS](http://www.globalcas.com/) is a Korean company that makes industrial and commercial scales. In this article, we'll explain how to connect to those scales with Peakboard. (Spoiler alert: It's easy!)
 
 ## Set up the CAS extension
 
