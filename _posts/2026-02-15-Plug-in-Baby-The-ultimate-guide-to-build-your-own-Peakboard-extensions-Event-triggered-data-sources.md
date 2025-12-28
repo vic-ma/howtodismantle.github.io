@@ -154,9 +154,6 @@ private void OnTimer(object? state)
         var random = new Random();
         item.Add("Message", MyMessages[random.Next(MyMessages.Length)]);
 
-        var items = new CustomListObjectElementCollection();
-        items.Add(item);
-
         // Replace the data source's output with our row of data.
         this.Data.Push(data.ListName).Update(0, item);
     }
