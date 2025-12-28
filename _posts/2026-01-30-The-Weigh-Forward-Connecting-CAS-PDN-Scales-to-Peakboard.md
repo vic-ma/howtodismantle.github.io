@@ -25,9 +25,15 @@ downloads:
 ---
 [CAS](http://www.globalcas.com/) is a Korean company that makes industrial and commercial scales. In this article, we'll explain how to connect to those scales with Peakboard. (Spoiler alert: It's easy!)
 
-## Set up the CAS extension
+## Install the CAS extension
 
-The CAS extension is available for download directly in the designer. More information is available on the [Peakboard Extension Page](https://templates.peakboard.com/extensions/CAS/index) or in the technical documentation on [Github](https://github.com/Peakboard/PeakboardExtensions/tree/master/CAS) along with the source code.
+The first step is to install the [CAS extension](https://templates.peakboard.com/extensions/CAS/index). You can install it directly from Peakboard Designer:
+
+![CAS Extension Setup - PDN and PB2 Scale Types with ECR Protocols](/assets/2026-01-30/cas-extension-scale-setup.png)
+
+To check out the documentation and source code, visit the [CAS extension GitHub](https://github.com/Peakboard/PeakboardExtensions/tree/master/CAS).
+
+## 
 
 Once installed, there are four different list types available. As of the beginning of 2026, there are two series of scales supported: PDN and PB2. Each of them supports two different types of ECR protocols. For the PDN series, we will use the ECR 14 protocol.
   
