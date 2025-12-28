@@ -27,13 +27,20 @@ downloads:
 
 ## Install the CAS extension
 
-The first step is to install the [CAS extension](https://templates.peakboard.com/extensions/CAS/index). You can install it directly from Peakboard Designer:
+Our first step is to install the [CAS extension](https://templates.peakboard.com/extensions/CAS/index). We do this directly from Peakboard Designer:
 
 ![CAS Extension Setup - PDN and PB2 Scale Types with ECR Protocols](/assets/2026-01-30/cas-extension-scale-setup.png)
 
-To check out the documentation and source code, visit the [CAS extension GitHub](https://github.com/Peakboard/PeakboardExtensions/tree/master/CAS).
+To check out the documentation and source code, go to the [CAS extension GitHub](https://github.com/Peakboard/PeakboardExtensions/tree/master/CAS).
 
-## 
+## Add a CAS data source
+
+Next, we create a CAS data source. As of early 2026, the CAS extension has four data sources to choose from---providing support for two scale series (PDN and PB2) and two PCR protocols for each series:
+* PDN ECR Typ 12
+* PDN ECR Typ 16
+* PB2-Serial
+* PB2-BLE (Bluetooth)
+
 
 Once installed, there are four different list types available. As of the beginning of 2026, there are two series of scales supported: PDN and PB2. Each of them supports two different types of ECR protocols. For the PDN series, we will use the ECR 14 protocol.
   
