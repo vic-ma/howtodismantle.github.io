@@ -33,9 +33,9 @@ Our first step is to install the [CAS extension](https://templates.peakboard.com
 
 To check out the documentation and source code, go to the [CAS extension GitHub](https://github.com/Peakboard/PeakboardExtensions/tree/master/CAS).
 
-## Add a CAS data source
+## Choose a CAS data source
 
-Next, we create a CAS data source. As of early 2026, the CAS extension has four data sources to choose from---providing support for two scale series (PDN and PB2) and two PCR protocols for each series:
+Next, we create a CAS data source. As of early 2026, the CAS extension has four data sources to choose from---providing support for two series of scales (PDN and PB2) and two protocols for each series:
 * PDN ECR Typ 12
 * PDN ECR Typ 14
 * PB2-Serial
