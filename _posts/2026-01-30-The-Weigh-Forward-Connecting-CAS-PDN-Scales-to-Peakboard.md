@@ -53,11 +53,11 @@ To do this, we open the Windows Device Manager and look for the virtual COM port
 
 ![Windows Device Manager - CAS USB Scale COM Port Detection](/assets/2026-01-30/windows-device-manager-cas-com-port.png)
 
-Note: You can also connect the scale to a physical COM port, if the Peakboard app is running on a machine with a physical COM port.
-
 The COM port is the only thing that needs to be carefully configured in the extension parameters, followed by a reload to ensure the metadata of the data source is set correctly. For this type of scale, the scale actively pushes the current weight to the COM port. That's why the data source doesn't have a reload interval. It's a push data source that triggers a reload event every time data is pushed.
 
 ![CAS Extension Parameters - COM Port Configuration in Peakboard](/assets/2026-01-30/cas-extension-com-port-settings.png)
+
+Note: You can also connect the scale to a physical COM port, if the Peakboard app is running on a machine with a physical COM port.
 
 ## Different protocols ECR 12 and ECR 14
 
