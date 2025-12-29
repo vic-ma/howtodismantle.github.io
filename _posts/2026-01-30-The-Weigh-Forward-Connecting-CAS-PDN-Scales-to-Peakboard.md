@@ -81,9 +81,13 @@ The following video shows our app in action. As you can see, the data transfer h
 
 {% include youtube.html id="DXPHLvzxVkM" %}
 
-## Dessert app template
+## Baking scale app template
 
-Finally, let's take a look at a ready-to-use template for a dessert app, [that you can download](/assets/2026-01-30/scale_baking.pbmx). The idea is that the user can choose between different recipes. In this case, it's all about Austrian special dessert dishes.
+Finally, let's take a look at a baking scale app, which helps the user weigh the ingredients for dessert recipes. The great thing about this app is that you can use as a template. [Download it here!](/assets/2026-01-30/scale_baking.pbmx)
+
+
+
+The idea is that the user can choose between different recipes. In this case, it's all about Austrian special dessert dishes.
 
 ![Peakboard Recipe Selection Interface - Austrian Dessert Baking Application](/assets/2026-01-30/peakboard-recipe-selection-interface.png)
 
