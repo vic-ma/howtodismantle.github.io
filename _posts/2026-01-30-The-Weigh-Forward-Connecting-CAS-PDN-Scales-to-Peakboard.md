@@ -69,13 +69,15 @@ The more sophisticated ECR 12 protocol (which is also supported by the CAS exten
 
 ![CAS PDN Scale Protocol Selection - ECR 12 vs ECR 14 Configuration](/assets/2026-01-30/cas-scale-ecr-protocol-selection.png)
 
-## Build the example
+## Build a demo app
 
-For our example we only need to bind the output of the data source to a text field and format the number correctly. That's all.
+Now, let's build a simple demo app that displays the weight measured by the scale. All we need to do is bind the data source to a text field and format the number properly:
 
 ![Peakboard Weight Display - Data Binding Text Field from CAS Scale](/assets/2026-01-30/peakboard-weight-data-binding.png)
 
 The video shows the Peakboard scale in action. The data transfer between the scale and the Peakboard application is happening literally without any delay.
+
+The following video shows our app in action. As you can see, the data transfer happens instantly and there is no delay.
 
 {% include youtube.html id="DXPHLvzxVkM" %}
 
