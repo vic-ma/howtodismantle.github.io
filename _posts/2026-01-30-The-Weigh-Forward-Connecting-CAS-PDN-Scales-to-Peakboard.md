@@ -59,9 +59,13 @@ The COM port is the only thing that needs to be carefully configured in the exte
 
 Note: You can also connect the scale to a physical COM port, if the Peakboard app is running on a machine with a physical COM port.
 
-## Different protocols ECR 12 and ECR 14
+## Different protocols: ECR 12 and ECR 14
 
-The data that is exchanged through COM communication is not standardized. That's why the PDN scale supports many different protocols depending mostly on which protocol is expected by the connected systems—typically the different POS manufacturers. The preferred protocol can be easily configured in the scale as described in the [manual](https://www.cas-usa.com/amfile/file/download/file/390/). In our example, we're using ECR 14, which is a very simple streaming of the weight value and nothing else. The more sophisticated ECR 12, which is also supported by the Extension, doesn't actively stream. When using ECR 12, the weight must be requested by calling the function `GetWeight`, which is NOT necessary with ECR 14. It also supports resetting the scale to zero by calling `SetZero`.
+Data exchange through the COM port is not standardized. That's why the PDN scale supports many different protocols (typically those supported by POS manufacturers). To learn how to set your PDN scale's protocol, see the [PDN manual](https://www.cas-usa.com/amfile/file/download/file/390/).
+
+For our demo, we're using ECR 14. ECR 14 is a basic protocol where the scale continuously streams the weight that it measures, to the host device.
+
+The more sophisticated ECR 12 protocol (which is also supported by the CAS extension) doesn't stream the weight continuously. Instead, it requires the host device to ask the scale for the weight measured. In Peakboard Designer, you can do this by using the `GetData` function. (This is **not** necessary with ECR 14). You can also zero the scale with the `SetZero` function.
 
 ![CAS PDN Scale Protocol Selection - ECR 12 vs ECR 14 Configuration](/assets/2026-01-30/cas-scale-ecr-protocol-selection.png)
 
