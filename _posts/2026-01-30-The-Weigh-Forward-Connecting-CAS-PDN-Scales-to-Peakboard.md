@@ -69,7 +69,7 @@ The more sophisticated ECR 12 protocol (which is also supported by the CAS exten
 
 ![CAS PDN Scale Protocol Selection - ECR 12 vs ECR 14 Configuration](/assets/2026-01-30/cas-scale-ecr-protocol-selection.png)
 
-## Build a demo app
+## Simple demo app
 
 Now, let's build a simple demo app that displays the weight measured by the scale. All we need to do is bind the data source to a text field and format the number properly:
 
@@ -77,13 +77,13 @@ Now, let's build a simple demo app that displays the weight measured by the scal
 
 The video shows the Peakboard scale in action. The data transfer between the scale and the Peakboard application is happening literally without any delay.
 
-The following video shows our app in action. As you can see, the data transfer happens instantly and there is no delay.
+The following video shows our app in action. As you can see, the data transfer happens instantly.
 
 {% include youtube.html id="DXPHLvzxVkM" %}
 
-## Demo Use Case with Austrian dessert
+## Dessert app template
 
-In the last part of this article, we want to take a look at a ready-to-use template that can be downloaded [here](/assets/2026-01-30/scale_baking.pbmx). The idea is that the user can choose between different recipes. In this case, it's all about Austrian special dessert dishes.
+Finally, let's take a look at a ready-to-use template for a dessert app, [that you can download](/assets/2026-01-30/scale_baking.pbmx). The idea is that the user can choose between different recipes. In this case, it's all about Austrian special dessert dishes.
 
 ![Peakboard Recipe Selection Interface - Austrian Dessert Baking Application](/assets/2026-01-30/peakboard-recipe-selection-interface.png)
 
