@@ -12,8 +12,8 @@ read_more_links:
   - name: How to build an auditing app
     url: /Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html
 downloads:
-  - name: SignBoard.pbfx
-    url: /assets/2025-11-22/SignBoard.pbfx
+  - name: SignBoard.pbmx
+    url: /assets/2025-11-22/SignBoard.pbmx
 ---
 With the new version 4.1, released in late 2025, the Peakboard team introduced a new visual control: the Drawing Area. This control allows end users to draw on a touchscreen using their fingers or a pen, depending on the device. It can be used for signing documents, scribbling sketches, or similar tasks. The signature use case is likely the most common. Some readers may remember the [audit use case](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html), which would be a perfect fit for using the drawing area to let users sign the final results of the audit.
 
