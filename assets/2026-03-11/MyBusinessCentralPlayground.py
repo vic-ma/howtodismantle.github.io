@@ -5,7 +5,7 @@ TENANT_ID = 'XXX'
 CLIENT_ID = 'XXX'
 CLIENT_SECRET = 'XXX'
 ENVIRONMENT = 'production' # or 'production'
-COMPANY_ID = '435b8205-7cd0-f011-8bce-6045bdc89f91' # Find this via the /companies endpoint
+COMPANY_ID = 'XXX' # Find this via the /companies endpoint
 
 # 2. Get Access Token
 token_url = f"https://login.microsoftonline.com/{TENANT_ID}/oauth2/v2.0/token"
