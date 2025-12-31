@@ -37,8 +37,6 @@ Now, let's add a simple text parameter for the cat's name, to our Cat List data 
 1. Create a new `CustomListPropertyDefinition` to define our text parameter.
 1. Add the `CustomListPropertyDefinition` object to the `PropertyInputDefaults` collection. This registers the property with the data source.
 
-Note: In our last article, we used a standalone `CustomCatList` class definition. But here, we're just going to use an object initializer inside the `GetDefinitionOverride` function.
-
 {% highlight csharp %}
 protected override CustomListDefinition GetDefinitionOverride()
 {
