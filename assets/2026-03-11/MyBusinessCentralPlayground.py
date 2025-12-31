@@ -1,9 +1,9 @@
 import requests
 
 # 1. Configuration
-TENANT_ID = 'b4ff9807-402f-42b8-a89d-428363c55de7'
-CLIENT_ID = '740422d1-96e2-41f9-bd7b-785ed1b28344'
-CLIENT_SECRET = '6qg8Q~8ZQ5SODX6PvFxb3kVBbDNnpe1av81srce4'
+TENANT_ID = 'XXX'
+CLIENT_ID = 'XXX'
+CLIENT_SECRET = 'XXX'
 ENVIRONMENT = 'production' # or 'production'
 COMPANY_ID = '435b8205-7cd0-f011-8bce-6045bdc89f91' # Find this via the /companies endpoint
 
