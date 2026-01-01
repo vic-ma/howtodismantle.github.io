@@ -57,7 +57,9 @@ To do this, we open Windows Device Manager and look for the virtual COM port tha
 
 ![Windows Device Manager - CAS USB Scale COM Port Detection](/assets/2026-01-30/windows-device-manager-cas-com-port.png)
 
-The COM port is the only thing that needs to be carefully configured in the extension parameters, followed by a reload to ensure the metadata of the data source is set correctly. For this type of scale, the scale actively pushes the current weight to the COM port. That's why the data source doesn't have a reload interval. It's a push data source that triggers a reload event every time data is pushed.
+Then, we enter the port ID into the data source dialog and click on the preview button.
+
+Note: The scale continuously sends the current weight to the data source. That's why the reload state is set to *Push Only*.
 
 ![CAS Extension Parameters - COM Port Configuration in Peakboard](/assets/2026-01-30/cas-extension-com-port-settings.png)
 
