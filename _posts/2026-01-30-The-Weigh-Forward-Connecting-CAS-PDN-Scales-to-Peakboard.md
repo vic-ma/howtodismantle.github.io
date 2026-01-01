@@ -67,7 +67,7 @@ Note: You can also connect the scale to a physical COM port, if the Peakboard ap
 
 ### Different protocols: ECR 12 and ECR 14
 
-Data exchange through the COM port is not standardized. That's why the PDN scale supports many different protocols (typically those supported by POS manufacturers). To learn how to set your PDN scale's protocol, see the [PDN manual](https://www.cas-usa.com/amfile/file/download/file/390/).
+Data exchange through the COM port is not standardized. That's why the PDN scale supports many different protocols (typically those used by POS systems). To learn how to set your PDN scale's protocol, see the [PDN manual](https://www.cas-usa.com/amfile/file/download/file/390/).
 
 For our demo, we're using ECR 14. ECR 14 is a basic protocol where the scale continuously streams the weight that it measures, to the host device.
 
