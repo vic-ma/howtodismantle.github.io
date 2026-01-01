@@ -71,7 +71,7 @@ Data exchange through the COM port is not standardized. That's why the PDN scale
 
 For our demo, we're using ECR 14. ECR 14 is a basic protocol where the scale continuously streams the weight that it measures, to the host device (in our case, the Peakboard Box or BYOD system is the host device).
 
-The more sophisticated ECR 12 protocol (which is also supported by the CAS extension) doesn't stream the weight continuously. Instead, it requires the host device to manually ask the scale for the weight. In Peakboard Designer, you can do this by using the `GetData` function. (This is **not** necessary with ECR 14). You can also zero the scale with the `SetZero` function.
+The more sophisticated ECR 12 protocol (which is also supported by the CAS extension) doesn't stream the weight continuously. Instead, it requires the host device to manually ask the scale for the current weight. In Peakboard Designer, you can do this by using the `GetData` function. (Again, this is only for ECR 12. This is **not** necessary with ECR 14). You can also zero the scale with the `SetZero` function.
 
 ![CAS PDN Scale Protocol Selection - ECR 12 vs ECR 14 Configuration](/assets/2026-01-30/cas-scale-ecr-protocol-selection.png)
 
@@ -81,15 +81,13 @@ Now, let's build a simple demo app that displays the weight measured by the scal
 
 ![Peakboard Weight Display - Data Binding Text Field from CAS Scale](/assets/2026-01-30/peakboard-weight-data-binding.png)
 
-The video shows the Peakboard scale in action. The data transfer between the scale and the Peakboard application is happening literally without any delay.
-
 The following video shows our app in action. As you can see, the data transfer happens instantly.
 
 {% include youtube.html id="DXPHLvzxVkM" %}
 
 ## Baking scale app template
 
-Finally, let's take a look at a baking scale app, which lets the user weigh the ingredients for different dessert recipes. The great thing about this app is that you can use as a template. [Download it here!](/assets/2026-01-30/scale_baking.pbmx)
+Finally, let's take a look at a baking scale app. This app lets the user weigh the ingredients for different dessert recipes. The great thing about this app is that it's easy to modify, so you can use it as a template. [Download it here!](/assets/2026-01-30/scale_baking.pbmx)
 
 The idea is that the user can choose between different recipes. In this case, it's all about Austrian special dessert dishes.
 
