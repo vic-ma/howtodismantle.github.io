@@ -35,7 +35,11 @@ To see the extension's documentation and source code, visit the [CAS extension G
 
 ## Set up a CAS data source
 
-Next, we create a CAS data source. As of early 2026, the CAS extension has four data sources to choose from---providing support for two series of scales (PDN and PB2) and two protocols for each series:
+Let's go over the process for setting up a CAS data source.
+
+### Choose the right data source
+
+As of early 2026, the CAS extension supports four different CAS data sources---providing support for two series of CAS scales (PDN and PB2) and two protocols for each series:
 * PDN ECR Typ 12
 * PDN ECR Typ 14
 * PB2-Serial
@@ -45,11 +49,11 @@ For our demo, we choose the PDN ECR Typ 14 data source.
   
 ![CAS Extension Setup - PDN and PB2 Scale Types with ECR Protocols](/assets/2026-01-30/cas-extension-scale-setup.png)
 
-### Identify the scale's port number
+### Identify the scale's port ID
 
-When we plug our scale into a USB port, the scale automatically emulates a virtual COM port. In order for our data source to connect to the scale, we need to identify the scale's COM port number.
+When we plug our scale into a USB port, the scale automatically emulates a virtual COM port. In order for our data source to connect to the scale, we need to identify the scale's COM port ID.
 
-To do this, we open the Windows Device Manager and look for the virtual COM port that the scale created. There could be other virtual or physical COM ports, so the COM port number can differ from system to system. 
+To do this, we open Windows Device Manager and look for the virtual COM port that the scale created. There may be other virtual or physical COM ports, so the correct COM port ID can change based on the system. 
 
 ![Windows Device Manager - CAS USB Scale COM Port Detection](/assets/2026-01-30/windows-device-manager-cas-com-port.png)
 
