@@ -89,7 +89,7 @@ The following video shows our app in action. As you can see, the data transfer h
 
 Finally, let's take a look at a baking scale app. This app lets the user weigh the ingredients for different dessert recipes. The great thing about this app is that it's easy to modify, so you can use it as a template. [Download it here!](/assets/2026-01-30/scale_baking.pbmx)
 
-The idea is that the user can choose between different recipes. In this case, it's all about Austrian special dessert dishes.
+The first step to using the app is to choose a recipe. By default, the recipes are for Austrian desserts. But you can imagine how the "recipes" could be for all sorts of things. For example, you might have a recipe that calls for 1 kg of screws and 0.5 kg of O-rings.
 
 ![Peakboard Recipe Selection Interface - Austrian Dessert Baking Application](/assets/2026-01-30/peakboard-recipe-selection-interface.png)
 
