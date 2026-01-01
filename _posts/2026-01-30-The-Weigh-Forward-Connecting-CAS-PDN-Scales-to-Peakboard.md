@@ -87,7 +87,7 @@ The following video shows our app in action. As you can see, the data transfer h
 
 ## Baking scale app template
 
-Finally, let's take a look at a baking scale app. This app lets the user weigh the ingredients for different dessert recipes. The great thing about this app is that it's easy to modify, so you can use it as a template. [Download it here!](/assets/2026-01-30/scale_baking.pbmx)
+Finally, let's take a look at a baking scale app. This app lets the user weigh the ingredients for different dessert recipes. But the great thing about this app is that it's easy to modify, so you can use it as a template, to quickly spin up a production-ready application. [Download it here!](/assets/2026-01-30/scale_baking.pbmx)
 
 Now, let's go over how the app works. First, **the user chooses a recipe.** By default, the recipes are for Austrian desserts. But you can imagine how the "recipes" could be for all sorts of things. For example, you might have a recipe that calls for 2 kg of screws and 0.5 kg of O-rings.
 
@@ -99,4 +99,4 @@ Next, the application shows the first ingredient and the required weight. The sc
 
 ## Conclusion
 
-As you can see, it's easy to build a Peakboard app around a CAS scale. The extension is versatile enough to support multiple scales and protocols. And you can use the baking scale app template to quickly spin up a production-ready application!
+As you can see, it's easy to build a Peakboard app for a CAS scale. The CAS extension is versatile enough to support multiple scales and protocols. And you can use the baking scale app template as a great starting point for any recipe-style application.
