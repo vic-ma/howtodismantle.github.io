@@ -83,9 +83,7 @@ The following video shows our app in action. As you can see, the data transfer h
 
 ## Baking scale app template
 
-Finally, let's take a look at a baking scale app, which helps the user weigh the ingredients for dessert recipes. The great thing about this app is that you can use as a template. [Download it here!](/assets/2026-01-30/scale_baking.pbmx)
-
-
+Finally, let's take a look at a baking scale app, which lets the user weigh the ingredients for different dessert recipes. The great thing about this app is that you can use as a template. [Download it here!](/assets/2026-01-30/scale_baking.pbmx)
 
 The idea is that the user can choose between different recipes. In this case, it's all about Austrian special dessert dishes.
 
@@ -94,4 +92,3 @@ The idea is that the user can choose between different recipes. In this case, it
 When a recipe has been selected, the application shows the ingredients to add one after the other. The scale displays the current weight in real-time, and the user is supposed to add the indicated ingredient until the weight is correct. Then the user can confirm the step, and the scale is reset for the next ingredient.
 
 ![CAS Scale Real-Time Ingredient Weighing - Peakboard Recipe Instruction Display](/assets/2026-01-30/cas-scale-ingredient-weighing-recipe.png)
-
