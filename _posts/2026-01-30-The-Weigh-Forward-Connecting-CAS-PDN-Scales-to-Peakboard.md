@@ -31,9 +31,9 @@ Our first step is to install the [CAS extension](https://templates.peakboard.com
 
 ![CAS Extension Setup - PDN and PB2 Scale Types with ECR Protocols](/assets/2026-01-30/cas-extension-scale-setup.png)
 
-To check out the documentation and source code, go to the [CAS extension GitHub](https://github.com/Peakboard/PeakboardExtensions/tree/master/CAS).
+To see the extension's documentation and source code, visit the [CAS extension GitHub](https://github.com/Peakboard/PeakboardExtensions/tree/master/CAS).
 
-## Choose a CAS data source
+## Set up a CAS data source
 
 Next, we create a CAS data source. As of early 2026, the CAS extension has four data sources to choose from---providing support for two series of scales (PDN and PB2) and two protocols for each series:
 * PDN ECR Typ 12
@@ -45,7 +45,7 @@ For our demo, we choose the PDN ECR Typ 14 data source.
   
 ![CAS Extension Setup - PDN and PB2 Scale Types with ECR Protocols](/assets/2026-01-30/cas-extension-scale-setup.png)
 
-## Identify the scale's port number
+### Identify the scale's port number
 
 When we plug our scale into a USB port, the scale automatically emulates a virtual COM port. In order for our data source to connect to the scale, we need to identify the scale's COM port number.
 
@@ -59,7 +59,7 @@ The COM port is the only thing that needs to be carefully configured in the exte
 
 Note: You can also connect the scale to a physical COM port, if the Peakboard app is running on a machine with a physical COM port.
 
-## Different protocols: ECR 12 and ECR 14
+### Different protocols: ECR 12 and ECR 14
 
 Data exchange through the COM port is not standardized. That's why the PDN scale supports many different protocols (typically those supported by POS manufacturers). To learn how to set your PDN scale's protocol, see the [PDN manual](https://www.cas-usa.com/amfile/file/download/file/390/).
 
