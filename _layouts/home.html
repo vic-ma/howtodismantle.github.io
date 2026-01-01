@@ -33,6 +33,41 @@ layout: base
 <div class="mx-auto max-w-7xl px-6 lg:px-8">
 
   {%- assign used = "|" | append: featured_post.url | append: "|" -%}
+
+  <!-- Latest Articles Grid - Magazine Style (moved to top per feedback) -->
+  <section class="py-8 -mx-6 lg:-mx-8 px-6 lg:px-8">
+    <div class="mb-8 flex items-center">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-gray-900 dark:text-white uppercase tracking-tight">
+        Latest Articles
+      </h2>
+      <div class="ml-6 flex-1 h-0.5 bg-gradient-to-r from-accent-cyan/50 to-transparent"></div>
+    </div>
+    
+    <!-- Magazine Grid - Minimal gaps -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-white dark:bg-blackground">
+      {%- assign latest = "" | split: "" -%}
+      {%- for post in site.posts -%}
+        {%- if latest.size >= 6 -%}{%- break -%}{%- endif -%}
+        {%- if used contains post.url -%}{%- continue -%}{%- endif -%}
+        {%- assign latest = latest | push: post -%}
+        {%- assign used = used | append: post.url | append: "|" -%}
+      {%- endfor -%}
+      {% for post in latest %}
+        {% include article-card-magazine-clean.html post=post %}
+      {% endfor %}
+    </div>
+    
+    <!-- Archive link -->
+    <div class="mt-6 text-center">
+      <a href="/archive" 
+         class="inline-flex items-center text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors group">
+        View all articles in archive
+        <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
   
   <!-- Dashboard Rows (Collections) -->
   <div class="space-y-12">
@@ -206,30 +241,6 @@ layout: base
     </div>
   </section>
 
-  <!-- Latest Articles Grid - Magazine Style -->
-  <section class="py-8 -mx-6 lg:-mx-8 px-6 lg:px-8">
-    <div class="mb-8 flex items-center">
-      <h2 class="font-heading text-2xl md:text-3xl font-bold text-gray-900 dark:text-white uppercase tracking-tight">
-        Latest Articles
-      </h2>
-      <div class="ml-6 flex-1 h-0.5 bg-gradient-to-r from-accent-cyan/50 to-transparent"></div>
-    </div>
-    
-    <!-- Magazine Grid - Minimal gaps -->
-    <!-- Keep 1px separation but make it blend into card background (no ugly gray lines) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-white dark:bg-blackground">
-      {%- assign latest = "" | split: "" -%}
-      {%- for post in site.posts -%}
-        {%- if latest.size >= 12 -%}{%- break -%}{%- endif -%}
-        {%- if used contains post.url -%}{%- continue -%}{%- endif -%}
-        {%- assign latest = latest | push: post -%}
-        {%- assign used = used | append: post.url | append: "|" -%}
-      {%- endfor -%}
-      {% for post in latest %}
-        {% include article-card-magazine-clean.html post=post %}
-      {% endfor %}
-    </div>
-  </section>
 
   <!-- Global Category Overview Grid -->
   <section id="categories-section" class="py-8 scroll-mt-20 blueprint-grid">
