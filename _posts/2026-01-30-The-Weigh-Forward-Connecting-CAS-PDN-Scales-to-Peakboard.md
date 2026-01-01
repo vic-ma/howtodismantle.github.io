@@ -69,7 +69,7 @@ Note: You can also connect the scale to a physical COM port, if the Peakboard ap
 
 Data exchange through the COM port is not standardized. That's why the PDN scale supports many different protocols (typically those used by POS systems). To learn how to set your PDN scale's protocol, see the [PDN manual](https://www.cas-usa.com/amfile/file/download/file/390/).
 
-For our demo, we're using ECR 14. ECR 14 is a basic protocol where the scale continuously streams the weight that it measures, to the host device.
+For our demo, we're using ECR 14. ECR 14 is a basic protocol where the scale continuously streams the weight that it measures, to the host device (in our case, the Peakboard Box or BYOD instance is the host device).
 
 The more sophisticated ECR 12 protocol (which is also supported by the CAS extension) doesn't stream the weight continuously. Instead, it requires the host device to ask the scale for the weight measured. In Peakboard Designer, you can do this by using the `GetData` function. (This is **not** necessary with ECR 14). You can also zero the scale with the `SetZero` function.
 
