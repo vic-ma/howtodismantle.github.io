@@ -89,10 +89,14 @@ The following video shows our app in action. As you can see, the data transfer h
 
 Finally, let's take a look at a baking scale app. This app lets the user weigh the ingredients for different dessert recipes. The great thing about this app is that it's easy to modify, so you can use it as a template. [Download it here!](/assets/2026-01-30/scale_baking.pbmx)
 
-The first step to using the app is to choose a recipe. By default, the recipes are for Austrian desserts. But you can imagine how the "recipes" could be for all sorts of things. For example, you might have a recipe that calls for 1 kg of screws and 0.5 kg of O-rings.
+Now, let's go over how the app works. First, **the user chooses a recipe.** By default, the recipes are for Austrian desserts. But you can imagine how the "recipes" could be for all sorts of things. For example, you might have a recipe that calls for 2 kg of screws and 0.5 kg of O-rings.
 
 ![Peakboard Recipe Selection Interface - Austrian Dessert Baking Application](/assets/2026-01-30/peakboard-recipe-selection-interface.png)
 
-When a recipe has been selected, the application shows the ingredients to add one after the other. The scale displays the current weight in real-time, and the user is supposed to add the indicated ingredient until the weight is correct. Then the user can confirm the step, and the scale is reset for the next ingredient.
+Next, the application shows the first ingredient and the required weight. The scale on screen shows the current weight. The user must add the appropriate amount of the ingredient onto the scale. Once they are done, they confirm and move onto the next ingredient.
 
 ![CAS Scale Real-Time Ingredient Weighing - Peakboard Recipe Instruction Display](/assets/2026-01-30/cas-scale-ingredient-weighing-recipe.png)
+
+## Conclusion
+
+As you can see, it's easy to build a Peakboard app around a CAS scale. The extension is versatile enough to support multiple scales and protocols. And you can use the baking scale app template to quickly spin up a production-ready application!
