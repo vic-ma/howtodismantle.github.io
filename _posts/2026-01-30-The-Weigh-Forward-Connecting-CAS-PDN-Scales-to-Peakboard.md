@@ -89,11 +89,11 @@ The following video shows our app in action. As you can see, the data transfer h
 
 Finally, let's take a look at a baking scale app. This app lets the user weigh the ingredients for different dessert recipes. But the great thing about this app is that it's easy to modify, so you can use it as a template to quickly spin up a production-ready application. [Download it here!](/assets/2026-01-30/scale_baking.pbmx)
 
-Now, let's go over how the app works. First, **the user chooses a recipe.** By default, the recipes are for Austrian desserts. But you can imagine how the "recipes" could be changed to all sorts of things. For example, you might have a recipe that calls for 2 kg of screws and 0.5 kg of O-rings.
+Now, let's go over how the app works. **First, the user chooses a recipe.** By default, the recipes are for Austrian desserts. But you can imagine how the "recipes" could be changed to all sorts of things. For example, you might have a recipe that calls for 2 kg of screws and 0.5 kg of O-rings.
 
 ![Peakboard Recipe Selection Interface - Austrian Dessert Baking Application](/assets/2026-01-30/peakboard-recipe-selection-interface.png)
 
-**After the user chooses a recipe,** the application shows the first ingredient and the required weight. The scale on screen shows the current weight. The user must add the appropriate amount of the ingredient onto the scale. Once they are done, they confirm and move onto the next ingredient.
+**After the user chooses a recipe,** the application displays the first ingredient and the required weight for that ingredient. The scale on screen shows the current weight measured by the scale. The user must then add the appropriate amount of the ingredient onto the scale. Once they are done, they confirm and move onto the next ingredient. They keep doing this until all the ingredients are measured.
 
 ![CAS Scale Real-Time Ingredient Weighing - Peakboard Recipe Instruction Display](/assets/2026-01-30/cas-scale-ingredient-weighing-recipe.png)
 
