@@ -23,47 +23,80 @@ downloads:
   - name: scale_baking.pbmx
     url: /assets/2026-01-30/scale_baking.pbmx
 ---
-CAS is a South Korea–based manufacturer of industrial and commercial weighing scales. In this week's article, we will discuss how to interact with those scales from our Peakboard application. Spoiler: It's easy! 
+[CAS](http://www.globalcas.com/) is a Korean company that makes industrial and commercial scales. In this article, we'll explain how to connect to those scales with Peakboard. (Spoiler alert: It's easy!)
 
-## Set up the CAS extension
+## Install the CAS extension
 
-The CAS extension is available for download directly in the designer. More information is available on the [Peakboard Extension Page](https://templates.peakboard.com/extensions/CAS/index) or in the technical documentation on [Github](https://github.com/Peakboard/PeakboardExtensions/tree/master/CAS) along with the source code.
+Our first step is to install the [CAS extension](https://templates.peakboard.com/extensions/CAS/index). We do this directly from Peakboard Designer:
 
-Once installed, there are four different list types available. As of the beginning of 2026, there are two series of scales supported: PDN and PB2. Each of them supports two different types of ECR protocols. For the PDN series, we will use the ECR 14 protocol.
+![CAS Extension Setup - PDN and PB2 Scale Types with ECR Protocols](/assets/2026-01-30/cas-extension-scale-setup.png)
+
+To see the extension's documentation and source code, visit the [CAS extension GitHub](https://github.com/Peakboard/PeakboardExtensions/tree/master/CAS).
+
+## Set up a CAS data source
+
+Let's go over the process for setting up a CAS data source.
+
+### Choose the right data source
+
+As of early 2026, the CAS extension supports four different CAS data sources---providing support for two series of CAS scales (PDN and PB2) and two protocols for each series:
+* PDN ECR Typ 12
+* PDN ECR Typ 14
+* PB2-Serial
+* PB2-BLE (Bluetooth)
+
+For our demo, we choose the PDN ECR Typ 14 data source.
   
 ![CAS Extension Setup - PDN and PB2 Scale Types with ECR Protocols](/assets/2026-01-30/cas-extension-scale-setup.png)
 
-When the scale is plugged into the USB port, it automatically emulates a virtual COM port. In that case, we need to look up the COM port in the Windows Device Manager settings. There might be other COM emulations or regular COM ports, so the COM port number differs from system to system. Of course, the regular non-virtual COM port can also be used as long as the Peakboard runtime runs on a machine with a physical port.
+### Identify the scale's port ID
+
+When we plug our scale into a USB port, the scale automatically emulates a virtual COM port. In order for our data source to connect to the scale, we need to identify the scale's COM port ID.
+
+To do this, we open Windows Device Manager and look for the virtual COM port that the scale created. There may be other virtual or physical COM ports, so the correct COM port ID can change based on the system. 
 
 ![Windows Device Manager - CAS USB Scale COM Port Detection](/assets/2026-01-30/windows-device-manager-cas-com-port.png)
 
-The COM port is the only thing that needs to be carefully configured in the extension parameters, followed by a reload to ensure the metadata of the data source is set correctly. For this type of scale, the scale actively pushes the current weight to the COM port. That's why the data source doesn't have a reload interval. It's a push data source that triggers a reload event every time data is pushed.
+Then, we enter the port ID into the data source dialog and click on the preview button.
+
+Note: The scale continuously sends the current weight to the data source. That's why the reload state is set to *Push Only*.
 
 ![CAS Extension Parameters - COM Port Configuration in Peakboard](/assets/2026-01-30/cas-extension-com-port-settings.png)
 
-## Different protocols ECR 12 and ECR 14
+Note: You can also connect the scale to a physical COM port, if the Peakboard app is running on a machine with a physical COM port.
 
-The data that is exchanged through COM communication is not standardized. That's why the PDN scale supports many different protocols depending mostly on which protocol is expected by the connected systems—typically the different POS manufacturers. The preferred protocol can be easily configured in the scale as described in the [manual](https://www.cas-usa.com/amfile/file/download/file/390/). In our example, we're using ECR 14, which is a very simple streaming of the weight value and nothing else. The more sophisticated ECR 12, which is also supported by the Extension, doesn't actively stream. When using ECR 12, the weight must be requested by calling the function `GetWeight`, which is NOT necessary with ECR 14. It also supports resetting the scale to zero by calling `SetZero`.
+### Different protocols: ECR 12 and ECR 14
+
+Data exchange through the COM port is not standardized. That's why the PDN scale supports many different protocols (typically those used by POS systems). To learn how to set your PDN scale's protocol, see the [PDN manual](https://www.cas-usa.com/amfile/file/download/file/390/).
+
+For our demo, we're using ECR 14. ECR 14 is a basic protocol where the scale continuously streams the weight that it measures, to the host device (in our case, the Peakboard Box or BYOD system is the host device).
+
+The more sophisticated ECR 12 protocol (which is also supported by the CAS extension) doesn't stream the weight continuously. Instead, it requires the host device to manually ask the scale for the current weight. In Peakboard Designer, you can do this by using the `GetData` function. (Again, this is only for ECR 12. This is **not** necessary with ECR 14). You can also zero the scale with the `SetZero` function.
 
 ![CAS PDN Scale Protocol Selection - ECR 12 vs ECR 14 Configuration](/assets/2026-01-30/cas-scale-ecr-protocol-selection.png)
 
-## Build the example
+## Simple demo app
 
-For our example we only need to bind the output of the data source to a text field and format the number correctly. That's all.
+Now, let's build a simple demo app that displays the weight measured by the scale. All we need to do is bind the data source to a text field and format the number properly:
 
 ![Peakboard Weight Display - Data Binding Text Field from CAS Scale](/assets/2026-01-30/peakboard-weight-data-binding.png)
 
-The video shows the Peakboard scale in action. The data transfer between the scale and the Peakboard application is happening literally without any delay.
+The following video shows our app in action. As you can see, the data transfer happens instantly.
 
 {% include youtube.html id="DXPHLvzxVkM" %}
 
-## Demo Use Case with Austrian dessert
+## Baking scale app template
 
-In the last part of this article, we want to take a look at a ready-to-use template that can be downloaded [here](/assets/2026-01-30/scale_baking.pbmx). The idea is that the user can choose between different recipes. In this case, it's all about Austrian special dessert dishes.
+Finally, let's take a look at a baking scale app. This app lets the user weigh the ingredients for different dessert recipes. But the great thing about this app is that it's easy to modify, so you can use it as a template to quickly spin up a production-ready application. [Download it here!](/assets/2026-01-30/scale_baking.pbmx)
+
+Now, let's go over how the app works. **First, the user chooses a recipe.** By default, the recipes are for Austrian desserts. But you can imagine how the "recipes" could be changed to all sorts of things. For example, you might have a recipe that calls for 2 kg of screws and 0.5 kg of O-rings.
 
 ![Peakboard Recipe Selection Interface - Austrian Dessert Baking Application](/assets/2026-01-30/peakboard-recipe-selection-interface.png)
 
-When a recipe has been selected, the application shows the ingredients to add one after the other. The scale displays the current weight in real-time, and the user is supposed to add the indicated ingredient until the weight is correct. Then the user can confirm the step, and the scale is reset for the next ingredient.
+**After the user chooses a recipe,** the application displays the first ingredient and the required weight for that ingredient. The scale on screen shows the current weight measured by the scale. The user must then add the appropriate amount of the ingredient onto the scale. Once they are done, they confirm and move onto the next ingredient. They keep doing this until all the ingredients are measured.
 
 ![CAS Scale Real-Time Ingredient Weighing - Peakboard Recipe Instruction Display](/assets/2026-01-30/cas-scale-ingredient-weighing-recipe.png)
 
+## Conclusion
+
+As you can see, it's easy to build a Peakboard app for a CAS scale. The CAS extension is versatile enough to support multiple scales and protocols. And you can use the baking scale app template as a great starting point for any recipe-style application.
