@@ -9,6 +9,8 @@ bg_alternative: true
 read_more_links:
   - name: Official Version History
     url: https://help.peakboard.com/misc/en-version-history.html
+  - name: Infinite Precision - Engineering High-End UI with Parameterized Data Flows and Nested Styled Lists
+    url: /Infinite-Precision-Engineering-High-End-UI-with-Parameterized-Data-Flows-and-Nested-Styled-Lists.html
 ---
 Sorry guys!
 
