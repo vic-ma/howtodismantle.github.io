@@ -61,6 +61,6 @@ The input parameter for the parameterized data flow is bound to the brand column
 
 This example demonstrates how to build a two-dimensional data representation dynamically. Before parameterized data flows, it would have been necessary to create separate data flows for each brand. That's not only tedious but also not dynamic, meaning we need to know the existence of each brand in advance. If the brands are completely unknown during design time, parameterized data flows are the only way to achieve this.
 
-
+![Two-dimensional visualization of products grouped by brand in Peakboard UI](/assets/2026-03-19/two-dimensional-product-brand-visualization.png)
 
 

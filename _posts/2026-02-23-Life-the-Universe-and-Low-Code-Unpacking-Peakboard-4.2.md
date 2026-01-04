@@ -33,6 +33,8 @@ Since their introduction more than three years ago, data flows have been the num
 
 Many dedicated Peakboard users have asked for a better option to build UIs that display multidimensional data. With version 4.2, nested styled lists are now a reality. We can place a styled list within the template of another styled list to create Kanban-board-like applications that are fully dynamic. This means that the data for both dimensions does not need to be known during design time. This works perfectly in combination with [parameterized data flows](/Infinite-Precision-Engineering-High-End-UI-with-Parameterized-Data-Flows-and-Nested-Styled-Lists.html).
 
+![image](/assets/2026-02-23/020.png)
+
 ## Camera Integration
 
 Peakboard is more commonly used on regular tablets rather than fixed touch screens. Along with this type of usage, we can now access the camera from within the Peakboard application. There are many use cases available, such as documenting quality problems. Even more sophisticated use cases, like using image recognition along with AI, are possible. For the first steps on how to access, handle, and process camera images, we will discuss this in [The Eyes-On Interface - A Deep Dive into Peakboard Camera Integration](/The-Eyes-On-Interface-A-Deep-Dive-into-Peakboard-Camera-Integration.html).
