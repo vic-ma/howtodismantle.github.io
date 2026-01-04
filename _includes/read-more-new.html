@@ -7,12 +7,12 @@
         {% for link in include.downloads %}
           <a href="{{ link.url }}" 
              title="{{ link.name }}"
-             class="group block w-full truncate text-sm font-bold text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">
-            <span class="inline-flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5 mr-2 flex-shrink-0">
+             class="group block w-full text-sm font-bold text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">
+            <span class="inline-flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5 mr-2 flex-shrink-0 mt-1">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
               </svg>
-              <span class="truncate">{{ link.name }}</span>
+              <span class="break-words">{{ link.name }}</span>
             </span>
           </a>
         {% endfor %}
@@ -27,12 +27,12 @@
         {% for link in include.rml %}
           <a href="{{ link.url }}" 
              title="{{ link.name }}"
-             class="group block w-full truncate text-sm font-bold text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">
-            <span class="inline-flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5 mr-2 flex-shrink-0 transition-transform group-hover:translate-x-0.5">
+             class="group block w-full text-sm font-bold text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">
+            <span class="inline-flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5 mr-2 flex-shrink-0 mt-1 transition-transform group-hover:translate-x-0.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
               </svg>
-              <span class="truncate">{{ link.name }}</span>
+              <span class="break-words">{{ link.name }}</span>
             </span>
           </a>
         {% endfor %}
