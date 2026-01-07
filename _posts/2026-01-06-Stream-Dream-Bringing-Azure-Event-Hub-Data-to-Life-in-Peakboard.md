@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Stream Dream - Bringing Azure Event Hub Data to Life in Peakboard
-date: 2023-03-01 03:00:00 +0200
+date: 2026-01-06 00:00:00 +0200
 tags: hubflows 
 image: /assets/2026-01-06/title.png
 image_landscape: /assets/2026-01-06/title.png
