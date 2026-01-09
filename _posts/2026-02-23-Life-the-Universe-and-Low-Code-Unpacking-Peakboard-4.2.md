@@ -20,6 +20,7 @@ Let's take a look at the most important features:
 1. Nested styled lists
 1. Camera integration
 1. Performance improvements
+1. OPC UA Functions and complex nodes
 
 Let's explore how these features work!
 
@@ -41,4 +42,8 @@ Peakboard is more commonly used on regular tablets rather than fixed touch scree
 
 ## Performance Improvements
 
-Good performance and excellent responsiveness are among the most important attributes for happy end users. In version 4.2, there are numerous performance improvements for both designer users and end users. This is especially true for large applications with many different data sources and/or a high refresh frequency. The most important improvement is the prevention of refresh queuing. This means that a refresh is automatically canceled when the data source is already refreshing and has another refresh in the queue. So, the runtime automatically prevents refreshes from accumulating and unnecessarily slowing down the application.  
+Good performance and excellent responsiveness are among the most important attributes for happy end users. In version 4.2, there are numerous performance improvements for both designer users and end users. This is especially true for large applications with many different data sources and/or a high refresh frequency. The most important improvement is the prevention of refresh queuing. This means that a refresh is automatically canceled when the data source is already refreshing and has another refresh in the queue. So, the runtime automatically prevents refreshes from accumulating and unnecessarily slowing down the application. 
+
+## OPC UA Functions and complex nodes
+
+The OPC UA universe is dealing with more and more complex nodes that can carry lots of dynamic information. The new version introduces an improved node handling to allow complex and nested nodes. Beside this it offers new Building Blocks for calling OPC UA functions. So no native LUA coding is necessary anymore. Both advanced techniques are summarized in the article [OPC UA Update - Orchestrating Complex Nodes & Function Calls in Peakboard](/OPC-UA-Update-Orchestrating-Complex-Nodes-Function-Calls-in-Peakboard.html).
