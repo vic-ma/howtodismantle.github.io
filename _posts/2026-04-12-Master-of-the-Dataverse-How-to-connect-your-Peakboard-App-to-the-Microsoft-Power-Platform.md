@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Master of the Dataverse - How to connect your Production Data to the Microsoft Power Platform
+title: Master of the Dataverse - How to connect your Peakboard App to the Microsoft Power Platform
 date: 2023-03-01 00:00:00 +0000
 tags: office365
 image: /assets/2026-04-12/title.png
