@@ -19,6 +19,10 @@ This blog features a wide variety of articles about different types of hardware 
 - [I/O, Let's go - Understanding the Advantech WISE-4012 module and use Peakboard to do some magic with it](/I-O-Lets-go-Understanding-the-Advantech-WISE-4012-module-and-use-Peakboard-to-do-some-magic-with-it.html)
 - [I/O, Let's Go - Going crazy for Pepperl+Fuchs IO-Link-Master ICE2-8IOL-G65L-V1D](/I-O-Lets-Go-Going-crazy-for-Pepperl-Fuchs-IO-Link-Master-ICE2-8IOL-G65L-V1D.html)
 
+### Handheld
+
+- [Peakboard Pocket Edition - Turning a Rugged Handheld SCORPION 6X V2 into a Mobile Mission Control](/Peakboard-Pocket-Edition-Turning-a-Rugged-Handheld-SCORPION-6X-V2-into-a-Mobile-Mission-Control.html)
+
 ### Printers
 
 - [The Art of Printing - Getting started with label printing on Seiko SLP720RT](/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html)
