@@ -29,7 +29,13 @@ When designing Peakboard apps for the SCORPION 6X V2, one critical factor to kee
 
 ![SCORPION 6X V2 portrait display layout example for Peakboard apps](/assets/2026-03-03/screen-resolution-portrait.png)
 
+![SCORPION 6X V2 Peakboard Designer screenshot in design mode](/assets/2026-03-03/peakboard-designer-design-mode.png)
+
+The screenshot above shows the SCORPION 6X V2 screen in Peakboard Designer's design mode. This view helps you optimize your app layout for the device's unique resolution and orientation.
+
 By keeping these dimensions in mind during the design phase, you can create apps that look polished and are easy to navigate on the handheld device.
+
+
 
 ## Using the Onboard Barcode Scanner
 
@@ -59,6 +65,6 @@ For a quick visual walkthrough of this use case in action, check out this video:
 
 The SCORPION 6X V2 running Peakboard BYOD essentially gives you a capable terminal for executing real-time dashboards and data processing workflows on industrial hardware. The combination of the barcode scanner hardware integration, the 700x1600 display resolution, and Peakboard's building block architecture makes it a technically solid platform for deploying edge-based applications that require minimal latency and offline capability.
 
-  
+
 
 
