@@ -46,7 +46,7 @@ To make our demo app a little more realistic, let's pretend like the purpose of 
 
 ## Add a submit button
 
-Next, we add a *Confirm and Submit to Hub* button. The user presses this button when they are finished with their signature and is ready to upload it to Peakboard Hub.
+Next, we add a *Confirm and Submit to Hub* button. The user presses this button when they are finished with their signature and are ready to upload it to Peakboard Hub.
 
 ### Create the script
 
@@ -54,7 +54,7 @@ Now, let's create the tapped script for the button. Here's what the finished scr
 
 ![image](/assets/2026-01-22/030.png)
 
-The main function that we use is *CONTROLS > Screen1 > Groups > Save screenshot in Peakboard Hub*. We use the function to capture a screenshot of the `SignGroup` group.`SignGroup` only contains our drawing area control, so the screenshot will only contain the user's signature.
+The main function that we use is *CONTROLS > Screen1 > Groups > Save screenshot in Peakboard Hub*. We use this function to capture a screenshot of the `SignGroup` group. `SignGroup` only contains our drawing area control, so the screenshot will only contain the user's signature.
 
 We also set the folder and filename to save the screenshot under, inside Peakboard Hub. We construct the filename by combining the value of the `OrderNo` variable and a timestamp of the current time.
 
