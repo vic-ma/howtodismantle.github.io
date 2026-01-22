@@ -56,7 +56,7 @@ Now, let's create the tapped script for the button. Here's what the finished scr
 
 The main function that we use is *CONTROLS > Screen1 > Groups > Save screenshot in Peakboard Hub*. We use this function to capture a screenshot of the `SignGroup` group. `SignGroup` only contains our drawing area control, so the screenshot will only contain the user's signature.
 
-We also set the folder and filename to save the screenshot under, inside Peakboard Hub. We construct the filename by combining the value of the `OrderNo` variable and a timestamp of the current time.
+We also set the folder and filename to save the screenshot under, inside Peakboard Hub. We construct the filename by combining the value of the `OrderNo` variable and the current timestamp.
 
 Of course, you can also choose to send the screenshot elsewhere, like Sharepoint or an email address. All you need to do is choose one of the other Building Blocks, under *CONTROLS > Screen1 > Groups.* You can even converting the screenshot to Base64 with *Generate a Base64 string* Then, you can send it to any external system.
 
