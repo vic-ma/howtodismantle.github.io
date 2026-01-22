@@ -15,10 +15,10 @@ downloads:
   - name: SignBoard.pbmx
     url: /assets/2026-01-22/SignBoard.pbmx
 ---
-With the release of [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), we now have access to a new visual control: the **drawing area.** This control lets users draw on a touchscreen device, by using a finger or a stylus.
+With the release of [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), we now have access to a new interactive control: the **drawing area.** This control lets users create a drawing with their finger or a stylus.
 
 You can use this control whenever you want the user to draw or sign something.
-You may remember the [audit app we made](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html). That's an example of an app where we could use a drawing area to get the user to sign off on any audits they make.
+You may remember the [audit app that we made](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html). That's the perfect example of an app that would benefit from this new control. For the final step of the audit process, we could make the user sign off on the audit, using a drawing area control.
 
 Now, let's go over how the drawing area control works and how to set it up! We'll create a demo app where the user can sign their name and upload the signature to Peakboard Hub.
 
