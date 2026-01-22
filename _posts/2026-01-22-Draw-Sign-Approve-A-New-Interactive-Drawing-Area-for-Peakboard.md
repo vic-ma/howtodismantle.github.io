@@ -28,19 +28,19 @@ To add a drawing area control, look under the interactive controls, and drag-and
 
 ![image](/assets/2026-01-22/010.png)
 
-The drawing area control is made up of an empty canvas with some optional buttons in the corners. These buttons let the user modify the drawing area in different ways:
+The drawing area control is made up of a white canvas, with some optional buttons in the corners. These buttons let the user modify the drawing area in different ways:
 * Color selection
 * Thickness selection
-* Clear button (erases the canvas)
-* Activation button (enables and disables the drawing area)
+* Clear button (erase the canvas)
+* Activation button (enable/disable the drawing area)
 
-You can activate or deactivate individual buttons in the control configuration, under *Appearance > Drawing > Toolbar.*
+You can activate or deactivate individual buttons, through the control configuration, under *Appearance > Drawing > Toolbar.*
 
-For our demo, we'll hide all these buttons. That way, the user is presented with a simple blank space where they can sign their name in black, with the default thickness.
+For our demo, we'll hide all the buttons. That way, the user is presented with a simple blank space where they can sign their name in black, with the default thickness.
 
 ## Add an order number variable
 
-To make our demo app a little more realistic, let's pretend like the purpose of the signature is to sign off on an order. So, we create a new `OrderNo` variable and store a random number in it. This represents the order number of the order that the user must sign off on.
+To make our demo app a little more realistic, let's pretend like the purpose of the signature is to sign off on an order. So, we create a new `OrderNo` variable and store a random number in it. This represents the order number of the order that the user is signing off on.
 
 ![image](/assets/2026-01-22/020.png)
 
