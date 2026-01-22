@@ -20,11 +20,11 @@ With the release of [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Gam
 You can use this control whenever you want the user to draw or sign something.
 You may remember the [audit app we made](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html). That's an example of an app where we could use a drawing area to get the user to sign off on any audits they make.
 
-Now, let's go over how to set up and configure the drawing area control. And afterwards, we'll use it in a demo app to see it in action!
+Now, let's go over how the drawing area control works and how to set it up!
 
 ## The drawing area control
 
-The control comes with several settings. End users can choose the color and thickness of the drawing line using built-in buttons. There is also a button for clearing the area and activating or deactivating the drawing process. Whether to show or hide these options to the end user can be defined through the corresponding property.
+The drawing area control comes with several settings. End users can choose the color and thickness of the drawing line using built-in buttons. There is also a button for clearing the area and activating or deactivating the drawing process. Whether to show or hide these options to the end user can be defined through the corresponding property.
 
 In our example, we will hide all these buttons and offer the end user only a black drawing line for their signature.
 
