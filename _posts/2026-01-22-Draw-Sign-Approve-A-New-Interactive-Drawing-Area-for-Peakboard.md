@@ -58,15 +58,15 @@ The main function that we use is *CONTROLS > Screen1 > Groups > Save screenshot 
 
 We also set the folder and filename to save the screenshot under, inside Peakboard Hub. We construct the filename by combining the value of the `OrderNo` variable and the current timestamp.
 
-Of course, you can also choose to send the screenshot elsewhere, like Sharepoint or an email address. All you have to do is choose one of the other Building Blocks, under *CONTROLS > Screen1 > Groups.* You can even converting the screenshot to Base64, by using *Generate a Base64 string* Then, you can send it to any arbitrary external system.
+Of course, you can also choose to send the screenshot elsewhere, like Sharepoint or an email address. All you have to do is choose one of the other Building Blocks, under *CONTROLS > Screen1 > Groups.* You can even converting the screenshot to Base64, by using *Generate a Base64 string.* Then, you can send it to any arbitrary external system.
 
 ## Result
 
-Now, let's take a look at the finished product. First, we sign our name and submit the signature:
+Now, let's take a look at the finished app. First, we sign our name and submit the signature:
 
 ![image](/assets/2026-01-22/040.png)
 
-Inside our Peakboard Hub's filesystem, we can confirm that the signature was uploaded successfully:
+Inside our Peakboard Hub's filesystem, we see that the signature was successfully uploaded:
 
 ![image](/assets/2026-01-22/050.png)
 
