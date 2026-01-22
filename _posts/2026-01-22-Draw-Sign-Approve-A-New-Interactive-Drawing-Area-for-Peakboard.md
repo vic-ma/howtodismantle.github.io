@@ -20,7 +20,7 @@ With the release of [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Gam
 You can use this control whenever you want the user to draw or sign something.
 You may remember the [audit app we made](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html). That's an example of an app where we could use a drawing area to get the user to sign off on any audits they make.
 
-Now, let's go over how the drawing area control works and how to set it up!
+Now, let's go over how the drawing area control works and how to set it up! We'll create a demo app where the user can sign their name and upload the signature to Peakboard Hub.
 
 ## The drawing area control
 
@@ -38,7 +38,7 @@ For our demo, we'll hide all these buttons. What we're left with is a simple whi
 
 ![image](/assets/2026-01-22/010.png)
 
-## Preparing the Screen
+## Prepare the Screen
 
 For our example, we assume the user needs to sign an order. The order number is stored in a variable. To process the signature, we must place the drawing area control into a group and name the group `SignGroup`. 
 
