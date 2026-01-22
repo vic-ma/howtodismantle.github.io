@@ -62,11 +62,11 @@ Of course, you can also choose to send the screenshot elsewhere, like Sharepoint
 
 ## Result
 
-For our test, we sign the order...
+Now, let's take a look at the finished product. First, we sign our name and submit the signature:
 
 ![image](/assets/2026-01-22/040.png)
 
-... and check the Peakboard Hub filesystem to confirm the signature is stored successfully.
+Inside our Peakboard Hub's filesystem, we can confirm that the signature was uploaded successfully:
 
 ![image](/assets/2026-01-22/050.png)
 
