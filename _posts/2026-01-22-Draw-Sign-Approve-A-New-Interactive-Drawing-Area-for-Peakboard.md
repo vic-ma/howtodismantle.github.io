@@ -34,13 +34,13 @@ The drawing area control is made up of an empty canvas with some buttons on the 
 
 You can activate or deactivate individual buttons in the control configuration, under *Appearance > Drawing > Toolbar.*
 
-For our demo, we'll hide all these buttons. What we're left with is a simple white space, where the user can sign their name with the default thickness and color (black).
+For our demo, we'll hide all these buttons. That way, the user is presented with a simple blank space where they can sign their name in black, with the default thickness.
 
 ![image](/assets/2026-01-22/010.png)
 
 ## Prepare the Screen
 
-For our example, we assume the user needs to sign an order. The order number is stored in a variable. To process the signature, we must place the drawing area control into a group and name the group `SignGroup`. 
+The order number is stored in a variable. To process the signature, we must place the drawing area control into a group and name the group `SignGroup`. 
 
 ![image](/assets/2026-01-22/020.png)
 
