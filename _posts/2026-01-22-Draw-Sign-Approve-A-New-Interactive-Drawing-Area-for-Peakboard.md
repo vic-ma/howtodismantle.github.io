@@ -18,15 +18,17 @@ downloads:
 With the release of [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), we now have access to a new interactive control: the **drawing area.** This control lets users create a drawing with their finger or a stylus.
 
 You can use this control whenever you want the user to draw or sign something.
-You may remember the [audit app that we made](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html). That's the perfect example of an app that would benefit from this new control. For the final step of the audit process, we could make the user sign off on the audit, using a drawing area control.
+You may remember the [audit app that we made](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html). That's the perfect example of an app that would benefit from this new control. For the final step of the audit process, we could make the user sign off on the audit, by adding a drawing area control.
 
 Now, let's go over how the drawing area control works and how to set it up! We'll create a demo app where the user can sign their name and upload the signature to Peakboard Hub.
 
 ## Add the drawing area control
 
-To add a drawing area control, look under the interactive controls, and drag or double-click the pencil icon.
+To add a drawing area control, look under the interactive controls, and drag-and-drop or double-click the pencil icon.
 
-The drawing area control is made up of an empty canvas with some buttons on the corners. The buttons let the end users modify the drawing area:
+![image](/assets/2026-01-22/010.png)
+
+The drawing area control is made up of an empty canvas with some optional buttons in the corners. These buttons let the user modify the drawing area in different ways:
 * Color selection
 * Thickness selection
 * Clear button (erases the canvas)
@@ -35,8 +37,6 @@ The drawing area control is made up of an empty canvas with some buttons on the 
 You can activate or deactivate individual buttons in the control configuration, under *Appearance > Drawing > Toolbar.*
 
 For our demo, we'll hide all these buttons. That way, the user is presented with a simple blank space where they can sign their name in black, with the default thickness.
-
-![image](/assets/2026-01-22/010.png)
 
 ## Add an order number variable
 
