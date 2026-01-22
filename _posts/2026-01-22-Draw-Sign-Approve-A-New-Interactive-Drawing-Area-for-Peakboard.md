@@ -44,13 +44,24 @@ To make our demo app a little more realistic, let's pretend like the purpose of 
 
 ![image](/assets/2026-01-22/020.png)
 
-## Process the drawing
+## Add a submit button
 
-To process a drawing, we use a universal function. Peakboard offers several Building Blocks to process the screenshot of a group. Our group `SignGroup` consists of only one control: the drawing area control. For uploading the signature, we use the Peakboard Hub file system to store it. However, we could also choose different destinations like SharePoint or email (see the right area of the screenshot). If necessary, we can pass the signature to an external, generic API using Base64 encoding to submit the image for processing.
+Next, we add a *Confirm and Submit to Hub* button. The user presses this button when they are finished with their signature and is ready to upload it to Peakboard Hub.
+
+### Create the script
+
+Now, let's create the tapped script for the button. Here's what the finished script looks like:
+
+![image](/assets/2026-01-22/030.png)
+
+The main function that we use is *CONTROLS > Screen1 > Groups > Save screenshot in Peakboard Hub*. We use the function to capture a screenshot of the `SignGroup` group.`SignGroup` only contains our drawing area control, so the screenshot will only contain the user's signature.
+
+We also set the folder and file name to save the screenshot under, inside Peakboard Hub. Of course, you can also choose to save the screenshot elsewhere, like Sharepoint of email. All you need to do is choose one of the other Building Blocks, under *CONTROLS > Screen1 > Groups.* You can even send the signature to an arbitrary system, by converting the screenshot to Base64 with *Gen
+
+However, we could also choose different destinations like SharePoint or email (see the right area of the screenshot). If necessary, we can pass the signature to an external, generic API using Base64 encoding to submit the image for processing.
 
 In our example, the signature is stored with a timestamp and the order number in the filename in a dedicated Hub file system folder. Then, the area is cleared for the next signature.
 
-![image](/assets/2026-01-22/030.png)
 
 ## Result
 
