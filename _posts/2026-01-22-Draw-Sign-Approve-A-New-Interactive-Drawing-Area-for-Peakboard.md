@@ -58,7 +58,7 @@ The main function that we use is *CONTROLS > Screen1 > Groups > Save screenshot 
 
 We also set the folder and filename to save the screenshot under, inside Peakboard Hub. We construct the filename by combining the value of the `OrderNo` variable and the current timestamp.
 
-Of course, you can also choose to send the screenshot elsewhere, like Sharepoint or an email address. All you need to do is choose one of the other Building Blocks, under *CONTROLS > Screen1 > Groups.* You can even converting the screenshot to Base64 with *Generate a Base64 string* Then, you can send it to any external system.
+Of course, you can also choose to send the screenshot elsewhere, like Sharepoint or an email address. All you have to do is choose one of the other Building Blocks, under *CONTROLS > Screen1 > Groups.* You can even converting the screenshot to Base64, by using *Generate a Base64 string* Then, you can send it to any arbitrary external system.
 
 ## Result
 
