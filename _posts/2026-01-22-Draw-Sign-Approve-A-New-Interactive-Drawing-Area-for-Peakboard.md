@@ -15,7 +15,9 @@ downloads:
   - name: SignBoard.pbmx
     url: /assets/2026-01-22/SignBoard.pbmx
 ---
-With the new version 4.1, released in late 2025, the Peakboard team introduced a new visual control: the Drawing Area. This control allows end users to draw on a touchscreen using their fingers or a pen, depending on the device. It can be used for signing documents, scribbling sketches, or similar tasks. The signature use case is likely the most common. Some readers may remember the [audit use case](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html), which would be a perfect fit for using the drawing area to let users sign the final results of the audit.
+With the release of [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), we now have access to a new visual control: the **drawing area.** This control lets end users draw on a touchscreen device, by using a finger or stylus.
+
+This control can be used for signatures, sketches, or other drawing-based tasks. The signature use case is likely the most common. Some readers may remember the [audit use case](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html), which would be a perfect fit for using the drawing area to let users sign the final results of the audit.
 
 ## The Drawing Area Control
 
