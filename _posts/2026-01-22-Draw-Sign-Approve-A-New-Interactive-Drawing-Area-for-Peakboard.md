@@ -24,9 +24,17 @@ Now, let's go over how the drawing area control works and how to set it up!
 
 ## The drawing area control
 
-The drawing area control comes with several settings. End users can choose the color and thickness of the drawing line using built-in buttons. There is also a button for clearing the area and activating or deactivating the drawing process. Whether to show or hide these options to the end user can be defined through the corresponding property.
+To add a drawing area control, look under the interactive controls, and drag or double-click the pencil icon.
 
-In our example, we will hide all these buttons and offer the end user only a black drawing line for their signature.
+The drawing area control is made up of an empty canvas with some buttons on the corners. The buttons let the end users modify the drawing area:
+* Color selection
+* Thickness selection
+* Clear button (erases the canvas)
+* Activation button (enables and disables the drawing area)
+
+You can activate or deactivate individual buttons in the control configuration, under *Appearance > Drawing > Toolbar.*
+
+For our demo, we'll hide all these buttons. What we're left with is a simple white space, where the user can sign their name with the default thickness and color (black).
 
 ![image](/assets/2026-01-22/010.png)
 
