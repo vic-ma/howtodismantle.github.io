@@ -22,7 +22,7 @@ You may remember the [audit app we made](/Digital-Walkaround-Inspections-Part-I-
 
 Now, let's go over how the drawing area control works and how to set it up! We'll create a demo app where the user can sign their name and upload the signature to Peakboard Hub.
 
-## The drawing area control
+## Add the drawing area control
 
 To add a drawing area control, look under the interactive controls, and drag or double-click the pencil icon.
 
@@ -38,13 +38,13 @@ For our demo, we'll hide all these buttons. That way, the user is presented with
 
 ![image](/assets/2026-01-22/010.png)
 
-## Prepare the Screen
+## Add an order number variable
 
-The order number is stored in a variable. To process the signature, we must place the drawing area control into a group and name the group `SignGroup`. 
+To make our demo app a little more realistic, let's pretend like the purpose of the signature is to sign off on an order. So, we create a new `OrderNo` variable and store a random number in it. This represents the order number of the order that the user must sign off on.
 
 ![image](/assets/2026-01-22/020.png)
 
-## Processing the Drawing
+## Process the drawing
 
 To process a drawing, we use a universal function. Peakboard offers several Building Blocks to process the screenshot of a group. Our group `SignGroup` consists of only one control: the drawing area control. For uploading the signature, we use the Peakboard Hub file system to store it. However, we could also choose different destinations like SharePoint or email (see the right area of the screenshot). If necessary, we can pass the signature to an external, generic API using Base64 encoding to submit the image for processing.
 
